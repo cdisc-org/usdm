@@ -1,0 +1,360 @@
+{
+  "_type": "StudyDesign",
+  "studyDesignId": "study_design_1",
+  "studyWorkflows": [
+    {
+      "_type": "Timeline",
+      "timelineId": "timeline_1",
+      "timelineEntry": {
+        "_type": "Entry",
+        "entryId": "entry_1",
+        "entryDescription": "Main timeline",
+        "nextTimepointId": "timepoint_1"
+      },
+      "timelineTimepoints": [
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_1",
+          "nextTimepointId": "timepoint_2",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_1",
+            "type": "next",
+            "value": "0..30 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_2"
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_2",
+          "nextTimepointId": "timepoint_3",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_2",
+            "type": "anchor",
+            "value": "Day 1",
+            "cycle": "1",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_3",
+          "nextTimepointId": "timepoint_4",
+          "scheduledAt": {
+            "_type": "CycleStart",
+            "cycleStartId": "timing_3",
+            "type": "cycle start",
+            "value": "",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_4",
+          "nextTimepointId": "timepoint_5",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_4",
+            "type": "after",
+            "value": "+14 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_2"
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_5",
+          "nextTimepointId": "timepoint_6",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_5",
+            "type": "after",
+            "value": "15 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_4"
+          }
+        },
+        {
+          "_type": "Condition",
+          "timepointId": "timepoint_6",
+          "nextTimepointId": "timepoint_7",
+          "scheduledAt": {},
+          "cycleId": "timepoint_2"
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_7",
+          "nextTimepointId": "timepoint_8",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_6",
+            "type": "anchor",
+            "value": "Day 16",
+            "cycle": "2",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_8",
+          "nextTimepointId": "timepoint_9",
+          "scheduledAt": {
+            "_type": "CycleStart",
+            "cycleStartId": "timing_7",
+            "type": "cycle start",
+            "value": "",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_9",
+          "nextTimepointId": "timepoint_10",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_8",
+            "type": "after",
+            "value": "+14 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_4"
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_10",
+          "nextTimepointId": "timepoint_11",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_9",
+            "type": "after",
+            "value": "15 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_9"
+          }
+        },
+        {
+          "_type": "Condition",
+          "timepointId": "timepoint_11",
+          "nextTimepointId": "timepoint_12",
+          "scheduledAt": {},
+          "cycleId": "timepoint_7"
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_12",
+          "nextTimepointId": "timepoint_13",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_10",
+            "type": "anchor",
+            "value": "Day 31",
+            "cycle": "3",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_13",
+          "nextTimepointId": "timepoint_14",
+          "scheduledAt": {
+            "_type": "CycleStart",
+            "cycleStartId": "timing_11",
+            "type": "cycle start",
+            "value": "",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_14",
+          "nextTimepointId": "timepoint_15",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_12",
+            "type": "after",
+            "value": "+14 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_6"
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_15",
+          "nextTimepointId": "timepoint_16",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_13",
+            "type": "after",
+            "value": "15 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_14"
+          }
+        },
+        {
+          "_type": "Condition",
+          "timepointId": "timepoint_16",
+          "nextTimepointId": "timepoint_17",
+          "scheduledAt": {},
+          "cycleId": "timepoint_12"
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_17",
+          "nextTimepointId": "timepoint_18",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_14",
+            "type": "anchor",
+            "value": "Day 46",
+            "cycle": "4..12",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_18",
+          "nextTimepointId": "timepoint_19",
+          "scheduledAt": {
+            "_type": "CycleStart",
+            "cycleStartId": "timing_15",
+            "type": "cycle start",
+            "value": "",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_19",
+          "nextTimepointId": "timepoint_20",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_16",
+            "type": "after",
+            "value": "15 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_18"
+          }
+        },
+        {
+          "_type": "Condition",
+          "timepointId": "timepoint_20",
+          "nextTimepointId": "timepoint_21",
+          "scheduledAt": {},
+          "cycleId": "timepoint_17"
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_21",
+          "nextTimepointId": "timepoint_22",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_17",
+            "type": "anchor",
+            "value": "Day 211",
+            "cycle": "13 .. N step 3",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_22",
+          "nextTimepointId": "timepoint_23",
+          "scheduledAt": {
+            "_type": "CycleStart",
+            "cycleStartId": "timing_18",
+            "type": "cycle start",
+            "value": "",
+            "relativeToFrom": null,
+            "window": null,
+            "relativeTo": null
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_23",
+          "nextTimepointId": "timepoint_24",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_19",
+            "type": "after",
+            "value": "15 Days",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_22"
+          }
+        },
+        {
+          "_type": "Condition",
+          "timepointId": "timepoint_24",
+          "nextTimepointId": "timepoint_25",
+          "scheduledAt": {},
+          "cycleId": "timepoint_21"
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_25",
+          "nextTimepointId": "timepoint_26",
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_20",
+            "type": "after",
+            "value": "Within 30 days of last dose",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_9"
+          }
+        },
+        {
+          "_type": "Timepoint",
+          "timepointId": "timepoint_26",
+          "nextTimepointId": null,
+          "scheduledAt": {
+            "_type": "Timing",
+            "timingId": "timing_21",
+            "type": "after",
+            "value": "+12 weeks",
+            "relativeToFrom": "StartToStart",
+            "window": null,
+            "relativeTo": "timepoint_10"
+          },
+          "exit": {
+            "_type": "Exit",
+            "exitId": "exit_1"
+          }
+        }
+      ],
+      "timelineExit": {
+        "_type": "Exit",
+        "exitId": "exit_1"
+      }
+    }
+  ]
+}
