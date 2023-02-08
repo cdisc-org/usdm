@@ -1,0 +1,205 @@
+{
+  "studyId": "study_1",
+  "studyTitle": "Berber 2",
+  "studyVersion": "1",
+  "studyType": null,
+  "studyPhase": null,
+  "businessTherapueticAreas": [],
+  "studyRationale": "",
+  "studyAcronym": "TEST",
+  "studyIdentifiers": [],
+  "studyProtocolVersions": [],
+  "studyDesigns": [
+    {
+      "studyDesignId": "study_design_1",
+      "studyWorkflows": [
+        {
+          "timelineId": "timeline_1",
+          "timelineEntry": {
+            "entryId": "entry_1",
+            "entryDescription": "Main timeline",
+            "nextTimepointId": "timepoint_1"
+          },
+          "timelineTimepoints": [
+            {
+              "timepointId": "timepoint_1",
+              "nextTimepointId": "timepoint_2",
+              "scheduledAt": {
+                "timingId": "timing_1",
+                "type": "next",
+                "value": "0..2 Days",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_2"
+              },
+              "timepointActivityIds": [
+                "activity_1",
+                "activity_2",
+                "activity_3"
+              ],
+              "timepointEncounterId": "encounter_1"
+            },
+            {
+              "timepointId": "timepoint_2",
+              "nextTimepointId": "timepoint_3",
+              "scheduledAt": {
+                "timingId": "timing_2",
+                "type": "next",
+                "value": "Pre Dose",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_3"
+              },
+              "timepointActivityIds": [
+                "activity_2",
+                "activity_3"
+              ],
+              "timepointEncounterId": "encounter_2"
+            },
+            {
+              "timepointId": "timepoint_3",
+              "nextTimepointId": "timepoint_4",
+              "scheduledAt": {
+                "timingId": "timing_3",
+                "type": "anchor",
+                "value": "",
+                "cycle": null,
+                "relativeToFrom": null,
+                "window": null,
+                "relativeTo": null
+              },
+              "timepointActivityIds": [],
+              "timepointEncounterId": "encounter_3"
+            },
+            {
+              "timepointId": "timepoint_4",
+              "nextTimepointId": "timepoint_5",
+              "scheduledAt": {
+                "timingId": "timing_4",
+                "type": "after",
+                "value": "+24 Hours",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_3"
+              },
+              "timepointActivityIds": [],
+              "timepointEncounterId": "encounter_4"
+            },
+            {
+              "timepointId": "timepoint_5",
+              "nextTimepointId": null,
+              "scheduledAt": {
+                "timingId": "timing_5",
+                "type": "after",
+                "value": "+7 Days",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_4"
+              },
+              "timepointActivityIds": [],
+              "timepointEncounterId": "encounter_5",
+              "exit": {
+                "exitId": "exit_1"
+              }
+            }
+          ],
+          "timelineExit": {
+            "exitId": "exit_1"
+          }
+        }
+      ],
+      "activities": [
+        {
+          "activityId": "activity_1",
+          "activityName": "Informed consent",
+          "activityDescription": "Informed consent",
+          "activityIsConditional": false,
+          "activityConditionalReason": "",
+          "bcSurrogates": []
+        },
+        {
+          "activityId": "activity_2",
+          "activityName": "Inclusion/exclusion criteria",
+          "activityDescription": "Inclusion/exclusion criteria",
+          "activityIsConditional": false,
+          "activityConditionalReason": "",
+          "bcSurrogates": []
+        },
+        {
+          "activityId": "activity_3",
+          "activityName": "Demographics",
+          "activityDescription": "Demographics",
+          "activityIsConditional": false,
+          "activityConditionalReason": "",
+          "bcSurrogates": [
+            "bc_surrogate_1",
+            "bc_surrogate_2",
+            "bc_surrogate_3"
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "encounterId": "encounter_1",
+          "encounterName": "Screening",
+          "encounterDescription": "Screening",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        },
+        {
+          "encounterId": "encounter_2",
+          "encounterName": "Baseline",
+          "encounterDescription": "Baseline",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        },
+        {
+          "encounterId": "encounter_3",
+          "encounterName": "15 min",
+          "encounterDescription": "15 min",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        },
+        {
+          "encounterId": "encounter_4",
+          "encounterName": "Day 24",
+          "encounterDescription": "Day 24",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        },
+        {
+          "encounterId": "encounter_5",
+          "encounterName": "Day 35",
+          "encounterDescription": "Day 35",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        }
+      ],
+      "bcSurrogates": [
+        {
+          "bcSurrogateId": "bc_surrogate_1",
+          "bcSurrogateName": "Age",
+          "bcSurrogateDescription": "Age",
+          "bcSurrogateReference": ""
+        },
+        {
+          "bcSurrogateId": "bc_surrogate_2",
+          "bcSurrogateName": "Sex",
+          "bcSurrogateDescription": "Sex",
+          "bcSurrogateReference": ""
+        },
+        {
+          "bcSurrogateId": "bc_surrogate_3",
+          "bcSurrogateName": "Race",
+          "bcSurrogateDescription": "Race",
+          "bcSurrogateReference": ""
+        }
+      ]
+    }
+  ]
+}

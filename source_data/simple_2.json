@@ -1,0 +1,126 @@
+{
+  "studyId": "study_1",
+  "studyTitle": "Berber 2",
+  "studyVersion": "1",
+  "studyType": null,
+  "studyPhase": null,
+  "businessTherapueticAreas": [],
+  "studyRationale": "",
+  "studyAcronym": "TEST",
+  "studyIdentifiers": [],
+  "studyProtocolVersions": [],
+  "studyDesigns": [
+    {
+      "studyDesignId": "study_design_1",
+      "studyWorkflows": [
+        {
+          "timelineId": "timeline_1",
+          "timelineEntry": {
+            "entryId": "entry_1",
+            "entryDescription": "Main timeline",
+            "nextTimepointId": "timepoint_1"
+          },
+          "timelineTimepoints": [
+            {
+              "timepointId": "timepoint_1",
+              "nextTimepointId": "timepoint_2",
+              "scheduledAt": {
+                "cycleStartId": "timing_1",
+                "type": "cycle start",
+                "value": "",
+                "relativeToFrom": null,
+                "window": null,
+                "relativeTo": null
+              },
+              "timepointActivityIds": [
+                "activity_1"
+              ],
+              "timepointEncounterId": "encounter_1"
+            },
+            {
+              "timepointId": "timepoint_2",
+              "nextTimepointId": null,
+              "scheduledAt": {
+                "timingId": "timing_2",
+                "type": "after",
+                "value": "+14 Days",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_1"
+              },
+              "timepointActivityIds": [
+                "activity_1"
+              ],
+              "timepointEncounterId": "encounter_2",
+              "exit": {
+                "exitId": "exit_1"
+              }
+            }
+          ],
+          "timelineExit": {
+            "exitId": "exit_1"
+          }
+        }
+      ],
+      "activities": [
+        {
+          "activityId": "activity_1",
+          "activityName": "Physical Examination",
+          "activityDescription": "Physical Examination",
+          "activityIsConditional": false,
+          "activityConditionalReason": "",
+          "bcSurrogates": [
+            "bc_surrogate_1",
+            "bc_surrogate_2",
+            "bc_surrogate_3",
+            "bc_surrogate_4"
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "encounterId": "encounter_1",
+          "encounterName": "Day 1",
+          "encounterDescription": "Day 1",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        },
+        {
+          "encounterId": "encounter_2",
+          "encounterName": "Day 15",
+          "encounterDescription": "Day 15",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        }
+      ],
+      "bcSurrogates": [
+        {
+          "bcSurrogateId": "bc_surrogate_1",
+          "bcSurrogateName": "PE 1",
+          "bcSurrogateDescription": "PE 1",
+          "bcSurrogateReference": ""
+        },
+        {
+          "bcSurrogateId": "bc_surrogate_2",
+          "bcSurrogateName": "PE 2",
+          "bcSurrogateDescription": "PE 2",
+          "bcSurrogateReference": ""
+        },
+        {
+          "bcSurrogateId": "bc_surrogate_3",
+          "bcSurrogateName": "Weight",
+          "bcSurrogateDescription": "Weight",
+          "bcSurrogateReference": ""
+        },
+        {
+          "bcSurrogateId": "bc_surrogate_4",
+          "bcSurrogateName": "Height",
+          "bcSurrogateDescription": "Height",
+          "bcSurrogateReference": ""
+        }
+      ]
+    }
+  ]
+}
