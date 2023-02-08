@@ -25,7 +25,22 @@
               "timepointId": "timepoint_1",
               "nextTimepointId": "timepoint_2",
               "scheduledAt": {
-                "cycleStartId": "timing_1",
+                "timingId": "timing_1",
+                "type": "anchor",
+                "value": "Day 1",
+                "cycle": "1 .. N",
+                "relativeToFrom": null,
+                "window": null,
+                "relativeTo": null
+              },
+              "timepointActivityIds": [],
+              "timepointEncounterId": null
+            },
+            {
+              "timepointId": "timepoint_2",
+              "nextTimepointId": "timepoint_3",
+              "scheduledAt": {
+                "cycleStartId": "timing_2",
                 "type": "cycle start",
                 "value": "",
                 "relativeToFrom": null,
@@ -38,10 +53,10 @@
               "timepointEncounterId": "encounter_1"
             },
             {
-              "timepointId": "timepoint_2",
-              "nextTimepointId": null,
+              "timepointId": "timepoint_3",
+              "nextTimepointId": "timepoint_4",
               "scheduledAt": {
-                "timingId": "timing_2",
+                "timingId": "timing_3",
                 "type": "after",
                 "value": "+14 Days",
                 "relativeToFrom": "StartToStart",
@@ -51,7 +66,45 @@
               "timepointActivityIds": [
                 "activity_1"
               ],
-              "timepointEncounterId": "encounter_2",
+              "timepointEncounterId": "encounter_2"
+            },
+            {
+              "timepointId": "timepoint_4",
+              "nextTimepointId": "timepoint_5",
+              "scheduledAt": {
+                "timingId": "timing_4",
+                "type": "after",
+                "value": "15 Days",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_3"
+              },
+              "timepointActivityIds": [],
+              "timepointEncounterId": null
+            },
+            {
+              "timepointId": "timepoint_5",
+              "nextTimepointId": "timepoint_6",
+              "scheduledAt": {},
+              "timepointActivityIds": [],
+              "timepointEncounterId": null,
+              "cycleId": "timepoint_1"
+            },
+            {
+              "timepointId": "timepoint_6",
+              "nextTimepointId": null,
+              "scheduledAt": {
+                "timingId": "timing_5",
+                "type": "after",
+                "value": "+14 Days",
+                "relativeToFrom": "StartToStart",
+                "window": null,
+                "relativeTo": "timepoint_2"
+              },
+              "timepointActivityIds": [
+                "activity_1"
+              ],
+              "timepointEncounterId": "encounter_3",
               "exit": {
                 "exitId": "exit_1"
               }
@@ -90,6 +143,14 @@
           "encounterId": "encounter_2",
           "encounterName": "Day 15",
           "encounterDescription": "Day 15",
+          "encounterType": null,
+          "encounterEnvironmentalSetting": null,
+          "encounterContactMode": []
+        },
+        {
+          "encounterId": "encounter_3",
+          "encounterName": "Follow Up",
+          "encounterDescription": "Follow Up",
           "encounterType": null,
           "encounterEnvironmentalSetting": null,
           "encounterContactMode": []
