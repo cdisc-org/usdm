@@ -34,8 +34,7 @@
               },
               "timepointActivityIds": [
                 "activity_1",
-                "activity_2",
-                "activity_3"
+                "activity_2"
               ],
               "timepointEncounterId": "encounter_1"
             },
@@ -51,8 +50,7 @@
                 "relativeTo": "timepoint_3"
               },
               "timepointActivityIds": [
-                "activity_2",
-                "activity_3"
+                "activity_2"
               ],
               "timepointEncounterId": "encounter_2"
             },
@@ -68,7 +66,9 @@
                 "window": null,
                 "relativeTo": null
               },
-              "timepointActivityIds": [],
+              "timepointActivityIds": [
+                "activity_2"
+              ],
               "timepointEncounterId": "encounter_3"
             },
             {
@@ -82,7 +82,9 @@
                 "window": null,
                 "relativeTo": "timepoint_3"
               },
-              "timepointActivityIds": [],
+              "timepointActivityIds": [
+                "activity_2"
+              ],
               "timepointEncounterId": "encounter_4"
             },
             {
@@ -96,7 +98,9 @@
                 "window": null,
                 "relativeTo": "timepoint_4"
               },
-              "timepointActivityIds": [],
+              "timepointActivityIds": [
+                "activity_2"
+              ],
               "timepointEncounterId": "encounter_5",
               "exit": {
                 "exitId": "exit_1"
@@ -111,31 +115,23 @@
       "activities": [
         {
           "activityId": "activity_1",
-          "activityName": "Informed consent",
-          "activityDescription": "Informed consent",
-          "activityIsConditional": false,
-          "activityConditionalReason": "",
-          "bcSurrogates": []
-        },
-        {
-          "activityId": "activity_2",
-          "activityName": "Inclusion/exclusion criteria",
-          "activityDescription": "Inclusion/exclusion criteria",
-          "activityIsConditional": false,
-          "activityConditionalReason": "",
-          "bcSurrogates": []
-        },
-        {
-          "activityId": "activity_3",
           "activityName": "Demographics",
           "activityDescription": "Demographics",
           "activityIsConditional": false,
           "activityConditionalReason": "",
-          "bcSurrogates": [
+          "bcSurrogateIds": [
             "bc_surrogate_1",
             "bc_surrogate_2",
             "bc_surrogate_3"
           ]
+        },
+        {
+          "activityId": "activity_2",
+          "activityName": "Something Else",
+          "activityDescription": "Something Else",
+          "activityIsConditional": false,
+          "activityConditionalReason": "",
+          "bcSurrogateIds": []
         }
       ],
       "encounters": [
