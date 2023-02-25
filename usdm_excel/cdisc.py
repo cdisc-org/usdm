@@ -8,4 +8,3 @@ class CDISC():
 
   def code(self, code, decode):
     return Code(codeId=self.id_manager.build_id(Code), code=code, codeSystem="http://www.cdisc.org", codeSystemVersion="2022-12-25", decode=decode)
-

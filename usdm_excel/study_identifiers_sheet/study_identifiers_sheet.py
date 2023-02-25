@@ -34,23 +34,31 @@ class StudyIdentifiersSheet(BaseSheet):
         organisation_type = self.study_sponsor()
       organisation = Organisation(
         organizationId=self.id_manager.build_id(Organisation),
-        scheme=self.clean_cell(row, index, 'organisationIdentifierScheme'), 
-        identifier=self.clean_cell(row, index, 'organisationIdentifier'),
-        name=self.clean_cell(row, index, 'organisationName'),
-        type=organisation_type,
-        address=Address.add_address("Unknown Lane", "Somewhere", "Back of Beyond", "City of the Lost", "12345", ISO3166.code("USA", "United States of America"))
+        organisationIdentifierScheme=self.clean_cell(row, index, 'organisationIdentifierScheme'), 
+        organisationIdentifier=self.clean_cell(row, index, 'organisationIdentifier'),
+        organisationName=self.clean_cell(row, index, 'organisationName'),
+        organisationType=organisation_type,
+        address=Address.add_address(
+          self.id_manager.build_id(Address),
+          "Unknown Lane", 
+          "Somewhere", 
+          "Back of Beyond", 
+          "City of the Lost", 
+          "12345", 
+          ISO3166(self.id_manager).code("USA", "United States of America")
+        )
       )
       self.identifiers.append(StudyIdentifier(
-        self.id_manager.build_id(StudyIdentifier),
-        identifier=self.clean_cell(row, index, 'studyIdentifier'), 
-        scope=organisation)
+        studyIdentifierId=self.id_manager.build_id(StudyIdentifier),
+        studyIdentifier=self.clean_cell(row, index, 'studyIdentifier'), 
+        studyIdentifierScope=organisation)
       )
     
   def study_registry(self):
-    return CDISC.code(code="C93453", decode="Study Registry")
+    return CDISC(self.id_manager).code(code="C93453", decode="Study Registry")
 
   def study_sponsor(self):
-    return CDISC.code(code="C70793", decode="Clinical Study Sponsor")
+    return CDISC(self.id_manager).code(code="C70793", decode="Clinical Study Sponsor")
 
   def regulatory(self):
-    return CDISC.code(code="C188863", decode="Regulatory Agency")
+    return CDISC(self.id_manager).code(code="C188863", decode="Regulatory Agency")

@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
+from model.study_epoch import StudyEpoch
 import pandas as pd
 import traceback
 
@@ -46,21 +47,21 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
-        self.blinding = self.process_cdisc(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.blinding = self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.INTENT_ROW:
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         parts = items.split(",")
         for part in parts:
           print("INTENT", items, part)
-          self.trial_intents.append(self.process_cdisc(part))
+          self.trial_intents.append(self.cdisc_code_cell(part))
       elif rindex == self.TYPES_ROW:
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         parts = items.split(",")
         for part in parts:
           print("TTYPE", items, part)
-          self.trial_types.append(self.process_cdisc(part))
+          self.trial_types.append(self.cdisc_code_cell(part))
       elif rindex == self.INT_ROW:
-        self.intervention_model = self.process_cdisc(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.intervention_model = self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       else:
         pass
 
@@ -71,7 +72,7 @@ class StudyDesignSheet(BaseSheet):
           #print("CELL [%s,%s] %s" % (rindex, cindex, cell))
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
-              epoch = self.json_engine.add_study_epoch(name=cell, description=cell)
+              epoch = StudyEpoch(name=cell, description=cell)
               self.epoch_map[cell] = epoch
               self.epochs.append(epoch)
           else:

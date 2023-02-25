@@ -33,13 +33,12 @@ class BaseSheet():
   #   parts = value.split("=")
   #   return self.cdisc_code(code=parts[0].strip(), decode=parts[1].strip())
 
-  def cdisc_code_cell(self, row, index, field_name):
-    value = self.clean_cell(row, index, field_name)
+  def cdisc_code_cell(self, value):
     parts = value.split("=")
     try:
-      return CDISC.code(code=parts[0].strip(), decode=parts[1].strip())
+      return CDISC(self.id_manager).code(code=parts[0].strip(), decode=parts[1].strip())
     except Exception as e:
-      print("CDISC code error (%s) for field '%s' in row %s" % (e, field_name, index + 1))
+      print("CDISC code error (%s) for data %s" % (e, value))
       return None
 
   # def double_link(self, items, id, prev, next):

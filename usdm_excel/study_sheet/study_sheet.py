@@ -14,7 +14,7 @@ class StudySheet(BaseSheet):
       self.study = None
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
-      self.soa = StudySoASheet(file_path, id_manager)
+      #self.soa = StudySoASheet(file_path, id_manager)
 
       #self.study_design.link_timelines(self.soa.timelines)
 
@@ -32,11 +32,12 @@ class StudySheet(BaseSheet):
 
   def process_sheet(self):
     for index, row in self.sheet.iterrows():
-      study_phase = self.cdisc_code_cell(row, index, "studyPhase")
+      study_phase = self.cdisc_code_cell(self.clean_cell(row, index, "studyPhase"))
       study_version = self.clean_cell(row, index, "studyVersion")
-      study_type = self.cdisc_code_cell(row, index, "studyType")
+      study_type = self.cdisc_code_cell(self.clean_cell(row, index, "studyType"))
       study_title = self.clean_cell(row, index, "studyTitle")
       self.study = Study(
+        studyId=None, # No Id, will be allocated a UUID
         studyTitle=study_title,
         studyVersion=study_version,
         type=study_type,

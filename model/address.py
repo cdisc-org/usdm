@@ -12,6 +12,6 @@ class Address(ApiBaseModel):
   country: Code
 
   @classmethod
-  def add_address(line, city, district, state, postal_code, country):
-    text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country['decode'])
-    return Address(text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
+  def add_address(cls, id, line, city, district, state, postal_code, country):
+    text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
+    return Address(addressId=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
