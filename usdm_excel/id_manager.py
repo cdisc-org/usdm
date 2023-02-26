@@ -8,7 +8,7 @@ class IdManager():
       'StudyIdentifier': 0,
       'StudyEpoch': 0,
       'StudyArm': 0,
-      'studyCell': 0,
+      'StudyCell': 0,
       'Entry': 0, 'Exit': 0, 'Timepoint': 0, 'Timeline': 0, 
       'Timing': 0, 'StudyDesign': 0, 'Study': 0, 'Activity': 0, 
       'Encounter': 0, 'BcSurrogate': 0 

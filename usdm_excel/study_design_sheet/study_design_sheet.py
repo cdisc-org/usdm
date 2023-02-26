@@ -1,6 +1,9 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
 from usdm.study_epoch import StudyEpoch
+from usdm.study_arm import StudyArm
+from usdm.study_cell import StudyCell
+from usdm.study_design import StudyDesign
 import pandas as pd
 import traceback
 
@@ -37,7 +40,6 @@ class StudyDesignSheet(BaseSheet):
       traceback.print_exc()
 
   def process_sheet(self):
-    #print("COLS", len(self.sheet.columns))
     for rindex, row in self.sheet.iterrows():
       if rindex == self.TA_ROW:
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
@@ -69,20 +71,25 @@ class StudyDesignSheet(BaseSheet):
       if rindex >= self.EPOCH_ARMS_START_ROW:
         for cindex in range(0, len(self.sheet.columns)):
           cell = self.clean_cell_unnamed(rindex, cindex)
-          #print("CELL [%s,%s] %s" % (rindex, cindex, cell))
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
-              epoch = StudyEpoch(name=cell, description=cell)
+              epoch = self._add_epoch(cell, cell)
               self.epoch_map[cell] = epoch
               self.epochs.append(epoch)
           else:
             if cindex == 0:
-              self.arms.append(self.json_engine.add_study_arm(name=cell, description=cell))
+              self.arms.append(self._add_arm(cell, cell))
             else:
-              self.cells.append(self.json_engine.add_study_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))
+              self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))
 
-    self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
-    study_design = self.json_engine.add_study_design(
+    
+    
+    #self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
+    
+              
+    study_design = self._add_design(
+      name="Excel Study",
+      description="",
       cells=self.cells, 
       intent_types=self.trial_intents, 
       trial_types=self.trial_types, 
@@ -103,3 +110,44 @@ class StudyDesignSheet(BaseSheet):
   
   def link_timelines(self, timelines):
     self.study_designs[0]['studyScheduleTimelines'].append(timelines)
+
+  def _add_arm(self, name, description):
+    arm_origin = self.cdisc_code_cell("C188866=Data Generated Within Study")
+    return StudyArm(
+      studyArmId=self.id_manager.build_id(StudyArm), 
+      studyArmName=name,
+      studyArmDescription=description,
+      studyArmType="",
+      studyArmDataOriginDescription="",
+      studyArmDataOriginType=arm_origin
+    )
+
+  def _add_epoch(self, name, description):
+    epoch_type = self.cdisc_code_cell("C165873=OBSERVATION")
+    return StudyEpoch(
+      studyEpochId=self.id_manager.build_id(StudyEpoch), 
+      studyEpochName=name, 
+      studyEpochDescription=description,
+      studyEpochType=epoch_type
+    )
+  
+  def _add_cell(self, arm, epoch):
+    return StudyCell(
+      studyCellId=self.id_manager.build_id(StudyCell), 
+      studyArm=arm,
+      studyEpoch=epoch
+    )
+
+  def _add_design(self, name, description, cells, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
+    return StudyDesign(
+      studyDesignId=self.id_manager.build_id(StudyDesign), 
+      studyDesignName=name,
+      studyDesignDescription=description,
+      trialIntentTypes=intent_types,
+      trialType=trial_types,
+      interventionModel=intervention_model,
+      studyCells=cells,
+      therapeuticAreas=therapeutic_areas,
+      studyDesignRationale=rationale,
+      studyDesignBlindingScheme=blinding
+    )

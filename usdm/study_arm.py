@@ -7,6 +7,6 @@ class StudyArm(ApiBaseModel):
   studyArmId: str
   studyArmName: str
   studyArmDescription: str
-  studyArmType: Code
+  studyArmType: str
   studyArmDataOriginDescription: str
   studyArmDataOriginType: Code
