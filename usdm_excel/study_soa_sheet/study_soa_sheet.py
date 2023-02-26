@@ -1,28 +1,17 @@
+from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
 from usdm_excel.study_soa_sheet.cycles import Cycles
+from usdm_excel.study_soa_sheet.timepoints import Timepoints
+from usdm_excel.study_soa_sheet.encounters import Encounters
+from usdm_excel.study_soa_sheet.activities import Activities
+from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm.schedule_timeline import ScheduleTimeline
 
 import traceback
 import pandas as pd
 
 class StudySoASheet(BaseSheet):
-
-  EPOCH_ROW = 0
-  CYCLE_ROW = 1
-  CYCLE_START_ROW = 2
-  CYCLE_PERIOD_ROW = 3
-  CYCLE_END_RULE_ROW = 4
-  TIMING_ROW = 5
-  VISIT_LABEL_ROW = 6
-  VISIT_WINDOW_ROW = 7
-
-  HEADER_ROW = 8
-  FIRST_ACTIVITY_ROW = 9
-
-  ACTIVITY_COL = 0
-  CHILD_ACTIVITY_COL = 1
-  BC_COL = 2
-  FIRST_VISIT_COL = 3
 
   def __init__(self, file_path, id_manager: IdManager):
     try:
@@ -33,155 +22,15 @@ class StudySoASheet(BaseSheet):
       self.row_activities_map = []
       self.activity_bc_map = {}
       self.sheet = self.sheet.fillna(method='ffill', axis=1)
-      self.cycles = Cycles(self.id_manager).extract()
-      self.timepoints = self.extract_timepoints()
-      self.encounters = self.extract_encounters()
-      self.activity_bc_map, self.row_activities_map, self.activities = self.extract_activities_and_bcs()
-      self.tp_activities = self.extract_timepoint_activities_map()
+      self.cycles = Cycles(self.id_manager)
+      self.timepoints = Timepoints(self.id_manager)
+      self.encounters = Encounters(self.id_manager)
+      self.activities = Activities(self.id_manager)
 
       self.process_sheet()
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
-
-  def get_timing_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      return self.sheet.iloc[row_index, col_index], False
-
-  def get_activity_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      value = self.sheet.iloc[row_index, col_index]
-      if value == '-':
-        return "", True
-      else:
-        return self.sheet.iloc[row_index, col_index], False
-  
-  def get_observation_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", "", True
-    else:
-      value = self.sheet.iloc[row_index, col_index]
-      if value == '-':
-        return "", "", True
-      else:
-        parts = value.split(':')
-        if parts[0].lower() == "bc":
-          return "bc", parts[1], False
-        else:
-          return "", "", True
-
-  def get_relative_ref(self, part):
-    if len(part) > 1:
-      return int(part[1:])
-    else:
-      return 1
-
-  def get_timing_type(self, col_index):
-    timing_type = ""
-    rel_ref = 0
-    timing_value = ""
-    timing_info, timing_info_is_null = self.get_timing_cell(self.TIMING_ROW, col_index)
-    if not timing_info_is_null:
-      timing_parts = timing_info.split(":")
-      if timing_parts[0].upper()[0] == "A":
-        timing_type = "anchor"
-        rel_ref = 0
-      if timing_parts[0].upper()[0] == "P":
-        timing_type = "previous"
-        rel_ref = self.get_relative_ref(timing_parts[0]) * -1
-      elif timing_parts[0].upper()[0] == "N":
-        timing_type = "next"
-        rel_ref = self.get_relative_ref(timing_parts[0])
-      elif timing_parts[0].upper()[0] == "C":
-        timing_type = "cycle start"
-        rel_ref = self.get_relative_ref(timing_parts[0])
-      if len(timing_parts) == 2:
-        timing_value = timing_parts[1].strip()
-    #print("TIMING: col_index (%s) - FIRST_VISIT_COL (%s) + rel_ref (%s)" % (col_index, FIRST_VISIT_COL, rel_ref))
-    return { 'type': timing_type, 'ref': col_index - self.FIRST_VISIT_COL + rel_ref, 'value': timing_value, 'cycle': None }
-
-  def extract_timepoints(self):
-    timepoints = []
-    for col_index in range(self.sheet.shape[1]):
-      if col_index >= self.FIRST_VISIT_COL:
-        record = self.get_timing_type(col_index)
-        timepoints.append(record)
-    return timepoints
-
-  def get_encounter_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      return self.sheet.iloc[row_index, col_index], False
-
-  def get_encounter_details(self, col_index):
-    label = ""
-    window = ""
-    label, label_is_null = self.get_encounter_cell(self.VISIT_LABEL_ROW, col_index)
-    window, window_is_null = self.get_encounter_cell(self.VISIT_WINDOW_ROW, col_index)
-    return { 'label': label, 'window': window }
-
-  def extract_encounters(self):
-    encounters = []
-    for col_index in range(self.sheet.shape[1]):
-      if col_index >= self.FIRST_VISIT_COL:
-        record = self.get_encounter_details(col_index)
-        encounters.append(record)
-    return encounters
-
-  def extract_activities_and_bcs(self):
-    activity_bc_map = {}
-    row_activities_map = []
-    activities = []
-    prev_activity = None
-    for row_index, col_def in self.sheet.iterrows():
-      if row_index >= self.FIRST_ACTIVITY_ROW:
-        activity, activity_is_null = self.get_activity_cell(row_index, self.CHILD_ACTIVITY_COL)
-        if activity_is_null:
-          if not prev_activity == None:
-            row_activities_map.append(prev_activity)
-            activity = prev_activity
-        else:
-          activities.append(activity)
-          row_activities_map.append(activity)
-        prev_activity = activity
-        obs_type, obs_name, obs_is_null = self.get_observation_cell(row_index, self.BC_COL)
-        if not obs_is_null:
-          if obs_type == "bc":
-            if not activity in activity_bc_map:
-              activity_bc_map[activity] = { 'bc': [] }  
-            activity_bc_map[activity]['bc'].append(obs_name)
-    return activity_bc_map, row_activities_map, activities
-  
-  def extract_timepoint_activities_map(self):
-    timepoint_activity_map = []
-    activity_dict = {}
-    for activity in self.activities:
-      activity_dict[activity] = False
-    for tp in self.timepoints:
-      timepoint_activity_map.append(dict(activity_dict))
-    for index in range(self.sheet.shape[1]):
-      if index >= self.FIRST_VISIT_COL:
-        column = self.sheet.iloc[:, index]
-        row = 0
-        for col in column:
-          if row >= self.FIRST_ACTIVITY_ROW:
-            if not pd.isnull(col):
-              if col.upper() == "X":
-                print("RA", self.row_activities_map, row)
-                activity = self.row_activities_map[row - self.FIRST_ACTIVITY_ROW]
-                tp_index = index - self.FIRST_VISIT_COL
-                timepoint_activity_map[tp_index][activity] = True
-          row += 1
-    return timepoint_activity_map
 
   def process_sheet(self):
     tps = []
@@ -191,10 +40,11 @@ class StudySoASheet(BaseSheet):
     acts_map = {}
     timing = []
     cycle_offset = 0
-    for index, timepoint in enumerate(self.timepoints):
-      timepoint['activity_index'] = index
-      timepoint['encounter_index'] = index
-    for cycle in self.cycles:
+    
+    # for index, timepoint in enumerate(self.timepoints):
+    #   timepoint['activity_index'] = index
+    #   timepoint['encounter_index'] = index
+    for cycle in self.cycles.items:
       start_index = cycle['start_index'] + cycle_offset
       self.timepoints.insert(start_index, { 'type': 'anchor', 'ref': 0, 'value': cycle['start'], 'activity_index': None, 'encounter_index': None, 'cycle': cycle['cycle'] })
       cycle_offset += 1
@@ -252,42 +102,16 @@ class StudySoASheet(BaseSheet):
     exit = self.json_engine.add_exit()
     tps[-1]['exit'] = exit
     self.timelines.append(self.json_engine.add_timeline(entry, tps, exit))
-    
-  # def process_sheet(self):
-  #   #print("SIZE %s x %s" % (self.sheet.shape[0], len(self.sheet.columns)))
-  #   wfi_index = 1
-  #   for rindex, row in self.sheet.iterrows():
-  #     for cindex in range(0, len(self.sheet.columns)):
-  #       #print("A %s %s" % (rindex, cindex))  
-  #       cell = self.clean_cell_unnamed(rindex, cindex)
-  #       #print("CELL [%s,%s] %s" % (rindex, cindex, cell))
-  #       if rindex == 0:
-  #         pass
-  #       elif rindex == 1:
-  #         if cindex != 0:
-  #           epoch = self.clean_cell_unnamed(rindex - 1, cindex)
-  #           description = self.clean_cell_unnamed(rindex + 1, cindex)
-  #           encounter = Encounter(uuid=str(uuid4()), encounterName=cell, encounterDesc=description)
-  #           if not epoch in self.epoch_encounter_map:
-  #             self.epoch_encounter_map[epoch] = []
-  #           self.epoch_encounter_map[epoch].append(encounter)
-  #           self.encounters.append(encounter)
-  #       elif rindex == 2:
-  #         pass
-  #       else:
-  #         if cindex == 0:
-  #           activity = Activity(uuid=str(uuid4()), activityName=cell, activityDesc=cell)
-  #           self.activity_map[cell] = activity
-  #           self.activities.append(activity)
-  #         else:
-  #           if cell.lower() == "x":
-  #             self.workflow_items.append(WorkflowItem(uuid=str(uuid4()), workflowItemDesc="WFI%s" % (wfi_index), workflowItemActivity=self.activities[-1], workflowItemEncounter=self.encounters[cindex-1]))
-  #             wfi_index += 1
-  #   self.double_link(self.activities, 'uuid', 'previousActivityId', 'nextActivityId')
-  #   self.double_link(self.encounters, 'uuid', 'previousEncounterId', 'nextEncounterId')
-  #   self.double_link(self.workflow_items, 'uuid', 'previousWorkflowItemId', 'nextWorkflowItemId')
 
-  # def link_study_data(self, study_data_map):
-  #   for activity_name, study_data in study_data_map.items():
-  #     activity = self.activity_map[activity_name]
-  #     activity.studyDataCollection = study_data
+  def _add_timeline(self, name, description, condition):
+    return ScheduleTimeline(
+      scheduleTimelineId=self.id_manager.build_id(ScheduleTimeline),
+      scheduleTimelineName=name,
+      scheduleTimelineDescription=description,
+      entryCondition=condition,
+      scheduleTimelineEntryId="",
+      scheduleTimelineExits=[],
+      scheduleTimelineInstances=[]
+    )
+  
+  
