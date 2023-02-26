@@ -23,9 +23,7 @@ class StudySheet(BaseSheet):
       #self.study_designs.link_encounters(self.soa.epoch_encounter_map)
       #self.study_designs.link_wfi(self.soa.workflow_items)
       
-      print("Study 1")
       self.process_sheet()
-      print("Study 2")
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
