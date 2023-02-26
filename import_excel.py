@@ -9,4 +9,4 @@ study = "simple_1"
 notebook_path = os.path.abspath("notebook.ipynb")
 file_path = os.path.join(os.path.dirname(notebook_path), "source_data/%s.xlsx" % (study))
 x = USDMExcel(file_path)
-print(x.the_study())
+print("STUDY:", x.the_study())

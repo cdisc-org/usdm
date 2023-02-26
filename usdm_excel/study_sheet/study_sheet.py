@@ -2,6 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
+from usdm_excel.alias import Alias
 from usdm.study import Study
 import traceback
 import pandas as pd
@@ -30,7 +31,7 @@ class StudySheet(BaseSheet):
 
   def process_sheet(self):
     for index, row in self.sheet.iterrows():
-      study_phase = self.cdisc_code_cell(self.clean_cell(row, index, "studyPhase"))
+      study_phase = Alias(self.id_manager).code(self.cdisc_code_cell(self.clean_cell(row, index, "studyPhase")), [])
       study_version = self.clean_cell(row, index, "studyVersion")
       study_type = self.cdisc_code_cell(self.clean_cell(row, index, "studyType"))
       study_title = self.clean_cell(row, index, "studyTitle")
@@ -38,14 +39,14 @@ class StudySheet(BaseSheet):
         studyId=None, # No Id, will be allocated a UUID
         studyTitle=study_title,
         studyVersion=study_version,
-        type=study_type,
-        phase=study_phase,
-        ta=None,
+        studyType=study_type,
+        studyPhase=study_phase,
+        businessTherapeuticAreas=[],
         studyRationale="",
         studyAcronym="",
-        identifiers=self.study_identifiers.identifiers,
-        protocols=[],
-        designs=self.study_design.study_designs
+        studyIdentifiers=self.study_identifiers.identifiers,
+        studyProtocolVersions=[],
+        studyDesigns=self.study_design.study_designs
       )
 
   def study_sponsor(self):

@@ -99,7 +99,6 @@ class StudyDesignSheet(BaseSheet):
       blinding=self.blinding, 
       therapeutic_areas=self.therapeutic_areas
     )
-    print("STUDY_DESIGN:", study_design)
     self.study_designs.append(study_design)
 
   def link_encounters(self, encounter_map):
