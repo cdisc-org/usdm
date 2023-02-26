@@ -6,7 +6,7 @@ import os
 study = "simple_1"
 #study = "simple_2"
 
-notebook_path = os.path.abspath("notebook.ipynb")
-file_path = os.path.join(os.path.dirname(notebook_path), "source_data/%s.xlsx" % (study))
+program_path = os.path.abspath("import_excel.py")
+file_path = os.path.join(os.path.dirname(program_path), "source_data/%s.xlsx" % (study))
 x = USDMExcel(file_path)
 print("STUDY:", x.the_study())
