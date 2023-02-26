@@ -1,6 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
-from model.study_epoch import StudyEpoch
+from usdm.study_epoch import StudyEpoch
 import pandas as pd
 import traceback
 

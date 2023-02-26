@@ -1,5 +1,5 @@
 from usdm_excel.id_manager import IdManager
-from model.code import Code
+from usdm.code import Code
 
 class CDISC():
 

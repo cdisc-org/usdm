@@ -2,7 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
-from model.study import Study
+from usdm.study import Study
 import traceback
 import pandas as pd
 
