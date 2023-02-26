@@ -1,7 +1,12 @@
+from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
+from usdm_excel.id_manager import IdManager
+import pandas as pd
+
 class Cycles:
   
-  def __init__(self, sheet):
+  def __init__(self, sheet, id_manager: IdManager):
     self.sheet = sheet
+    self.id_manager = id_manager
     
   def get_cycle_cell(self, row_index, col_index):
     is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
@@ -22,9 +27,9 @@ class Cycles:
 
   def build_cycle_record(self, index, col_index, cycle):
     cycle_start_index = index
-    cycle_start, is_null = self.get_cycle_cell(self.CYCLE_START_ROW, col_index)
-    cycle_period, is_null = self.get_cycle_cell(self.CYCLE_PERIOD_ROW, col_index)
-    cycle_end_rule, is_null = self.get_cycle_cell(self.CYCLE_END_RULE_ROW, col_index)
+    cycle_start, is_null = self.get_cycle_cell(SoAColumnRows.CYCLE_START_ROW, col_index)
+    cycle_period, is_null = self.get_cycle_cell(SoAColumnRows.CYCLE_PERIOD_ROW, col_index)
+    cycle_end_rule, is_null = self.get_cycle_cell(SoAColumnRows.CYCLE_END_RULE_ROW, col_index)
     return { 
       'start_index': cycle_start_index, 
       'cycle': cycle, 

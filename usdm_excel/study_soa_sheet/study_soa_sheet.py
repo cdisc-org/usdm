@@ -1,5 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
+from usdm_excel.study_soa_sheet.cycles import Cycles
+
 import traceback
 import pandas as pd
 
@@ -31,7 +33,7 @@ class StudySoASheet(BaseSheet):
       self.row_activities_map = []
       self.activity_bc_map = {}
       self.sheet = self.sheet.fillna(method='ffill', axis=1)
-      self.cycles = self.extract_cycles()
+      self.cycles = Cycles(self.id_manager).extract()
       self.timepoints = self.extract_timepoints()
       self.encounters = self.extract_encounters()
       self.activity_bc_map, self.row_activities_map, self.activities = self.extract_activities_and_bcs()
@@ -41,67 +43,6 @@ class StudySoASheet(BaseSheet):
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
-
-  def get_cycle_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      value = str(self.sheet.iloc[row_index, col_index])
-      if value.upper() == "-":
-        return "", True
-      else:
-        return value, False
-
-  def previous_index(index):
-    if index == 0:
-      return 0
-    else:
-      return index - 1
-
-  def build_cycle_record(self, index, col_index, cycle):
-    cycle_start_index = index
-    cycle_start, is_null = self.get_cycle_cell(self.CYCLE_START_ROW, col_index)
-    cycle_period, is_null = self.get_cycle_cell(self.CYCLE_PERIOD_ROW, col_index)
-    cycle_end_rule, is_null = self.get_cycle_cell(self.CYCLE_END_RULE_ROW, col_index)
-    return { 
-      'start_index': cycle_start_index, 
-      'cycle': cycle, 
-      'start': cycle_start, 
-      'period': cycle_period, 
-      'end_rule': cycle_end_rule 
-    }
-
-  def extract_cycles(self):
-    cycles = []
-    timepoint_index = -1
-    cycle_start_index = None
-    in_cycle = False
-    prev_cycle = None
-    for col_index in range(self.sheet.shape[1]):
-      if col_index >= self.FIRST_VISIT_COL:
-        timepoint_index += 1
-        cycle, cycle_is_null = self.get_cycle_cell(self.CYCLE_ROW, col_index)
-        if cycle_is_null:
-          if in_cycle:
-            cycle_record['end_index'] = self.previous_index(timepoint_index)
-            cycles.append(cycle_record)
-            in_cycle = False
-          else:
-            pass # Do nothing
-        else:
-          cycle = str(cycle)
-          if not in_cycle:
-            in_cycle = True
-            cycle_record = self.build_cycle_record(timepoint_index, col_index, cycle)
-          elif prev_cycle == cycle:
-            pass # Do nothing
-          else:
-            cycle_record['end_index'] = self.previous_index(timepoint_index)
-            cycles.append(cycle_record)
-            cycle_record = self.build_cycle_record(timepoint_index, col_index, cycle)
-        prev_cycle = cycle
-    return cycles
 
   def get_timing_cell(self, row_index, col_index):
     is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
