@@ -4,6 +4,7 @@ from usdm.study_epoch import StudyEpoch
 from usdm.study_arm import StudyArm
 from usdm.study_cell import StudyCell
 from usdm.study_design import StudyDesign
+from usdm_excel.alias import Alias
 import pandas as pd
 import traceback
 
@@ -49,7 +50,7 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
-        self.blinding = self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.blinding = Alias(self.id_manager).code(self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)), [])
       elif rindex == self.INTENT_ROW:
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         parts = items.split(",")

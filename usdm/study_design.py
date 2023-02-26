@@ -1,7 +1,7 @@
 from typing import List, Union
 from .activity import Activity
 from .api_base_model import ApiBaseModel
-from .aliasCode import AliasCode
+from .alias_code import AliasCode
 from .biomedical_concept import BiomedicalConcept
 from .biomedical_concept_category import BiomedicalConceptCategory
 from .biomedical_concept_surrogate import BiomedicalConceptSurrogate

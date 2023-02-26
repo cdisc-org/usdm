@@ -3,7 +3,8 @@ class IdManager():
   def __init__(self):
     self.id_index = {
       'Address': 0,
-      'Code': 0, 
+      'Code': 0,
+      'AliasCode': 0,
       'Organisation': 0,
       'StudyIdentifier': 0,
       'StudyEpoch': 0,
