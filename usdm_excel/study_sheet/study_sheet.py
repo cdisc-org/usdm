@@ -16,14 +16,17 @@ class StudySheet(BaseSheet):
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
       self.soa = StudySoASheet(file_path, id_manager)
-
+      
+      self.study_design.study_designs[0].studyScheduleTimelines.append(self.soa.timelines[0])
+      
       #self.study_design.link_timelines(self.soa.timelines)
 
       #self.activities = StudyActivitiesSheet(file_path)
       #self.soa.link_study_data(self.activities.activity_map)
       #self.study_designs.link_encounters(self.soa.epoch_encounter_map)
       #self.study_designs.link_wfi(self.soa.workflow_items)
-      
+
+            
       self.process_sheet()
     except Exception as e:
       print("Oops!", e, "occurred.")
