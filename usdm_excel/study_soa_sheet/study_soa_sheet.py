@@ -3,10 +3,12 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
 from usdm_excel.study_soa_sheet.cycles import Cycles
 from usdm_excel.study_soa_sheet.timepoints import Timepoints
+from usdm_excel.study_soa_sheet.timepoint import Timepoint
 from usdm_excel.study_soa_sheet.encounters import Encounters
 from usdm_excel.study_soa_sheet.activities import Activities
 from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm.schedule_timeline import ScheduleTimeline
+from usdm.schedule_timeline_exit import ScheduleTimelineExit
 
 import traceback
 import pandas as pd
@@ -17,101 +19,85 @@ class StudySoASheet(BaseSheet):
     try:
       super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='soa', header=None), id_manager)
       self.timelines = []
-      #self.epoch_encounter_map = {}
-      #self.activity_map = {}
-      self.row_activities_map = []
-      self.activity_bc_map = {}
-      self.sheet = self.sheet.fillna(method='ffill', axis=1)
-      self.cycles = Cycles(self.id_manager)
-      self.timepoints = Timepoints(self.id_manager)
-      self.encounters = Encounters(self.id_manager)
-      self.activities = Activities(self.id_manager)
+      #self.sheet = self.sheet.fillna(method='ffill', axis=1)
+      self.encounters = []
+      self.timelines = []
+      self.raw_cycles = Cycles(self.id_manager)
+      self.raw_timepoints = Timepoints(self.id_manager)
+      self.raw_encounters = Encounters(self.id_manager)
+      self.raw_activities = Activities(self.id_manager)
+
+      self._link_instance_to_encounter(self)
+      self._link_instance_to_activities(self)
+      self._insert_cycles_into_timeline(self)
 
       self.process_sheet()
+
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
 
   def process_sheet(self):
-    tps = []
-    acts = []
-    encs = []
-    bcs = []
-    acts_map = {}
     timing = []
-    cycle_offset = 0
-    
-    # for index, timepoint in enumerate(self.timepoints):
-    #   timepoint['activity_index'] = index
-    #   timepoint['encounter_index'] = index
-    for cycle in self.cycles.items:
-      start_index = cycle['start_index'] + cycle_offset
-      self.timepoints.insert(start_index, { 'type': 'anchor', 'ref': 0, 'value': cycle['start'], 'activity_index': None, 'encounter_index': None, 'cycle': cycle['cycle'] })
-      cycle_offset += 1
-      end_index = cycle['end_index'] + cycle_offset + 1
-      self.timepoints.insert(end_index, { 'type': 'previous', 'ref': end_index - 1, 'value': cycle['period'], 'activity_index': None, 'encounter_index': None, 'cycle': None })
-      cycle_offset += 1
-      end_index = cycle['end_index'] + cycle_offset + 1
-      self.timepoints.insert(end_index, { 'type': 'condition', 'ref': start_index , 'value': cycle['end_rule'], 'activity_index': None, 'encounter_index': None, 'cycle': None })
-      cycle_offset += 1
-    previous_tp_id = None
-    for activity in self.activities:
-      a_bcs = []
-      if activity in self.activity_bc_map:
-        for a in self.activity_bc_map[activity]['bc']:
-          bc = self.json_engine.add_biomedical_concept_surrogate(a, a, "")
-          a_bcs.append(bc['bcSurrogateId'])
-          bcs.append(bc)
-      acts.append(self.json_engine.add_activity(activity, activity, False, "", a_bcs))
-      acts_map[activity] = acts[-1]['activityId']
-    for encounter in self.encounters:
-      encs.append(self.json_engine.add_encounter(encounter['label'], encounter['label'], None, None, []))
-    for timepoint in self.timepoints:
-      activity_ids = []
-      encounter_id = None
-      if not timepoint['activity_index'] == None:
-        source = self.tp_activities[timepoint['activity_index']]
-        for k, v in source.items():
-          if v:
-            activity_ids.append(acts_map[k])
-      if not timepoint['encounter_index'] == None:
-        encounter_id = encs[timepoint['encounter_index']]['encounterId']
-      tps.append(self.json_engine.add_timepoint(previous_tp_id, None, activity_ids, encounter_id))
-      previous_tp_id = tps[-1]['timepointId']
-    for index, timepoint in enumerate(self.timepoints):
-      if timepoint['type'] == 'condition':
-        tps[index]['cycleId'] = tps[timepoint['ref']]['timepointId']
-        tps[index]['_type'] = 'Condition'
-    for timepoint in self.timepoints:
-      if timepoint['type'] == 'next':
-        timing.append(self.json_engine.add_next_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
-      elif timepoint['type'] == 'previous':
-        timing.append(self.json_engine.add_previous_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
-      elif timepoint['type'] == 'anchor':
-        timing.append(self.json_engine.add_anchor_timing(timepoint['value'], timepoint['cycle']))
-      elif timepoint['type'] == 'condition':
-        #timing.append(self.json_engine.add_condition_timing(timepoint['value']))
-        timing.append({})
-      elif timepoint['type'] == 'cycle start':
-        timing.append(self.json_engine.add_cycle_start_timing(timepoint['value']))
-      elif timepoint['type'] == '':
-        timing.append({})
-    for index, tp in enumerate(tps):
-      tp['scheduledAt'] = timing[index]
-    entry = self.json_engine.add_entry('Main timeline', tps[0]['timepointId'])
-    exit = self.json_engine.add_exit()
-    tps[-1]['exit'] = exit
-    self.timelines.append(self.json_engine.add_timeline(entry, tps, exit))
+    instances = []
+    for raw_encounter in self.raw_encounters:
+      self.encounters.append(raw_encounter.as_usdm())
+    for raw_timepoint in self.raw_timepoints:
+      instance = raw_timepoint.to_usdm()
+      instances.append(instance)
+      timing.append(raw_timepoint.to_usdm_timing())
+    exit = self._add_exit()
+    self.timelines.append(self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Subject identifier', instances, exit))
 
-  def _add_timeline(self, name, description, condition):
+  def _add_exit(self):
+    return ScheduleTimelineExit(exitId=self.id_manager.build_id(ScheduleTimelineExit))
+
+  def _add_timeline(self, name, description, condition, instances, exit):
     return ScheduleTimeline(
       scheduleTimelineId=self.id_manager.build_id(ScheduleTimeline),
       scheduleTimelineName=name,
       scheduleTimelineDescription=description,
       entryCondition=condition,
-      scheduleTimelineEntryId="",
-      scheduleTimelineExits=[],
-      scheduleTimelineInstances=[]
+      scheduleTimelineEntryId=instances[0].timepointId,
+      scheduleTimelineExits=[exit.exitId],
+      scheduleTimelineInstances=instances
     )
+
+  def _link_instance_to_encounter(self):
+    for timepoint in self.raw_timepoints:
+      if timepoint.encounter:
+        encounter = self.encounters.item_at(self.raw_timepoints.item_at(timepoint.position_key))
+        timepoint.add_encounter(encounter)
   
-  
+  def _link_instance_to_activities(self):
+    for timepoint in self.raw_timepoints:
+      if timepoint.encounter:
+        for activity_name in timepoint.activities:
+          activity = self.raw_activities.item_at_name(activity_name)
+          timepoint.add_activity(activity)
+
+  def _insert_cycles_into_timeline(self):
+    cycle_offset = 0
+    for cycle in self.raw_cycles.items:
+      start_index = cycle['start_index'] + cycle_offset
+      
+      timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'anchor', cycle['start'], cycle['cycle'], additional=True)
+      self.raw_timepoints.insert(start_index, timepoint)
+      #self.raw_timepoints.insert(start_index, { 'type': 'anchor', 'ref': 0, 'value': cycle['start'], 'activity_index': None, 'encounter_index': None, 'cycle': cycle['cycle'] })
+
+      cycle_offset += 1
+      end_index = cycle['end_index'] + cycle_offset + 1
+      
+      timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'previous', cycle['period'], None, additional=True)
+      self.raw_timepoints.insert(start_index, timepoint)
+      #self.raw_timepoints.insert(end_index, { 'type': 'previous', 'ref': end_index - 1, 'value': cycle['period'], 'activity_index': None, 'encounter_index': None, 'cycle': None })
+
+      cycle_offset += 1
+      end_index = cycle['end_index'] + cycle_offset + 1
+      
+      timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'condition', cycle['end_rule'], None, additional=True)
+      self.raw_timepoints.insert(start_index, timepoint)
+      #self.raw_timepoints.insert(end_index, { 'type': 'condition', 'ref': start_index , 'value': cycle['end_rule'], 'activity_index': None, 'encounter_index': None, 'cycle': None })
+      
+      cycle_offset += 1
+

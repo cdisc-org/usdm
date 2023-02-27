@@ -6,6 +6,7 @@ class Cycle:
   def __init__(self, sheet, col_index, cycle, timepoint_index):
     self.sheet = sheet
     self.col_index = col_index
+    self.position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.cycle = cycle
     self.start_timepoint_index = timepoint_index
     self.end_timepoint_index = timepoint_index
