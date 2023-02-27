@@ -22,14 +22,14 @@ class StudySoASheet(BaseSheet):
       #self.sheet = self.sheet.fillna(method='ffill', axis=1)
       self.encounters = []
       self.timelines = []
-      self.raw_cycles = Cycles(self.id_manager)
-      self.raw_timepoints = Timepoints(self.id_manager)
-      self.raw_encounters = Encounters(self.id_manager)
-      self.raw_activities = Activities(self.id_manager)
+      self.raw_cycles = Cycles(self.sheet, self.id_manager)
+      self.raw_timepoints = Timepoints(self.sheet, self.id_manager)
+      self.raw_encounters = Encounters(self.sheet, self.id_manager)
+      self.raw_activities = Activities(self.sheet, self.id_manager)
 
-      self._link_instance_to_encounter(self)
-      self._link_instance_to_activities(self)
-      self._insert_cycles_into_timeline(self)
+      self._link_instance_to_encounter()
+      self._link_instance_to_activities()
+      self._insert_cycles_into_timeline()
 
       self.process_sheet()
 
@@ -40,12 +40,12 @@ class StudySoASheet(BaseSheet):
   def process_sheet(self):
     timing = []
     instances = []
-    for raw_encounter in self.raw_encounters:
+    for raw_encounter in self.raw_encounters.items:
       self.encounters.append(raw_encounter.as_usdm())
-    for raw_timepoint in self.raw_timepoints:
-      instance = raw_timepoint.to_usdm()
+    for raw_timepoint in self.raw_timepoints.items:
+      instance = raw_timepoint.as_usdm()
       instances.append(instance)
-      timing.append(raw_timepoint.to_usdm_timing())
+      timing.append(raw_timepoint.as_usdm_timing())
     exit = self._add_exit()
     self.timelines.append(self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Subject identifier', instances, exit))
 
@@ -58,19 +58,19 @@ class StudySoASheet(BaseSheet):
       scheduleTimelineName=name,
       scheduleTimelineDescription=description,
       entryCondition=condition,
-      scheduleTimelineEntryId=instances[0].timepointId,
-      scheduleTimelineExits=[exit.exitId],
+      scheduleTimelineEntryId=instances[0].scheduledInstanceId,
+      scheduleTimelineExits=[exit],
       scheduleTimelineInstances=instances
     )
 
   def _link_instance_to_encounter(self):
-    for timepoint in self.raw_timepoints:
+    for timepoint in self.raw_timepoints.items:
       if timepoint.encounter:
         encounter = self.encounters.item_at(self.raw_timepoints.item_at(timepoint.position_key))
         timepoint.add_encounter(encounter)
   
   def _link_instance_to_activities(self):
-    for timepoint in self.raw_timepoints:
+    for timepoint in self.raw_timepoints.items:
       if timepoint.encounter:
         for activity_name in timepoint.activities:
           activity = self.raw_activities.item_at_name(activity_name)

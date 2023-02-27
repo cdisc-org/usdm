@@ -1,8 +1,9 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.id_manager import IdManager
-from usdm.timing import Timing
 from usdm_excel.cdisc import CDISC
+from usdm.timing import Timing
+from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 import pandas as pd
 
 class Timepoint(BaseSheet):
@@ -13,7 +14,7 @@ class Timepoint(BaseSheet):
     self.position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.has_encounter = not additional
     self.encounter = None
-    self.activities = []
+    self.activities = {}
     self.timing_type = type
     self.timing_value = value
     self.reference = None
@@ -49,6 +50,19 @@ class Timepoint(BaseSheet):
   def add_activity(self, activity):
     self.activities.append(activity)
 
+  def as_usdm(self):
+    return ScheduledActivityInstance(
+      scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
+      scheduledInstanceType=1,
+      scheduleSequenceNumber=0,
+      scheduleTimelineExitId="",
+      scheduledInstanceEncounterId="",
+      scheduledInstanceTimingIds=[],
+      scheduledInstanceTimelineId="",
+      activityIds=[]
+    )
+
+
   def as_usdm_timing(self):
     # if self.timing_type == 'next':
     #   self.timing = self._add_timing(self.json_engine.add_next_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
@@ -70,7 +84,7 @@ class Timepoint(BaseSheet):
     return Timing(
       timingId=self.id_manager.build_id(Timing),
       timingType=cdisc.code(self.timing_type.upper(), self.timing_type),
-      timingValue=self.timingValue,
+      timingValue=self.timing_value,
       timingRelativeToFrom=cdisc.code('START TO START', 'Start to start'),
       timingWindow='',
       relativeFromScheduledInstanceId='',
@@ -96,7 +110,7 @@ class Timepoint(BaseSheet):
     column = self.sheet.iloc[:, self.col_index]
     row = 0
     for col in column:
-      if row >= self.FIRST_ACTIVITY_ROW:
+      if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity, activity_is_null = self.get_activity_cell(row, SoAColumnRows.ACTIVITY_COL)
         if col.upper() == "X":
           self.activities[activity] = True

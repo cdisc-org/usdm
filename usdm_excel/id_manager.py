@@ -10,9 +10,16 @@ class IdManager():
       'StudyEpoch': 0,
       'StudyArm': 0,
       'StudyCell': 0,
-      'Entry': 0, 'Exit': 0, 'Timepoint': 0, 'Timeline': 0, 
-      'Timing': 0, 'StudyDesign': 0, 'Study': 0, 'Activity': 0, 
-      'Encounter': 0, 'BcSurrogate': 0 
+      'Entry': 0, 
+      'ScheduleTimelineExit': 0, 
+      'ScheduledActivityInstance': 0,
+      'ScheduleTimeline': 0, 
+      'Timing': 0, 
+      'StudyDesign': 0, 
+      'Study': 0, 
+      'Activity': 0, 
+      'Encounter': 0, 
+      'BcSurrogate': 0 
     }
 
   def build_id(self, klass):

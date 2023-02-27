@@ -1,12 +1,14 @@
+from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.cycle import Cycle
+from usdm_excel.id_manager import IdManager
 import pandas as pd
 
-class Cycles:
+class Cycles(BaseSheet):
   
-  def __init__(self, sheet):
-    self.sheet = sheet
-    self.cycles = []
+  def __init__(self, sheet, id_manager: IdManager):
+    super().__init__(sheet, id_manager)
+    self.items = []
     timepoint_index = -1
     in_cycle = False
     prev_cycle = None
@@ -17,7 +19,7 @@ class Cycles:
         if cycle_is_null:
           if in_cycle:
             cycle_record.add_end(self.previous_index(timepoint_index))
-            self.cycles.append(cycle_record)
+            self.items.append(cycle_record)
             in_cycle = False
           else:
             pass # Do nothing
@@ -25,13 +27,13 @@ class Cycles:
           cycle = str(cycle)
           if not in_cycle:
             in_cycle = True
-            cycle_record = Cycle(self.sheet, col_index, cycle, timepoint_index)
+            cycle_record = Cycle(self.sheet, self.id_manager, col_index, cycle, timepoint_index)
           elif prev_cycle == cycle:
             pass # Do nothing
           else:
             cycle_record.add_end(self.previous_index(timepoint_index))
-            self.cycles.append(cycle_record)
-            cycle_record = Cycle(self.sheet, col_index, cycle, timepoint_index)
+            self.items.append(cycle_record)
+            cycle_record = Cycle(self.sheet, self.id_manager, col_index, cycle, timepoint_index)
         prev_cycle = cycle
       
   def get_cycle_cell(self, row_index, col_index):
