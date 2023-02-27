@@ -9,4 +9,5 @@ study = "simple_1"
 program_path = os.path.abspath("import_excel.py")
 file_path = os.path.join(os.path.dirname(program_path), "source_data/%s.xlsx" % (study))
 x = USDMExcel(file_path)
-print("STUDY:", x.the_study())
+print("JSON:", x.the_study().to_json())
+#print("Y WORKS:", x.the_study().to_yworks())

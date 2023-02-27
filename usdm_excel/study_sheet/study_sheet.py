@@ -15,7 +15,7 @@ class StudySheet(BaseSheet):
       self.study = None
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
-      #self.soa = StudySoASheet(file_path, id_manager)
+      self.soa = StudySoASheet(file_path, id_manager)
 
       #self.study_design.link_timelines(self.soa.timelines)
 
