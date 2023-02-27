@@ -1,5 +1,6 @@
 from usdm_excel.id_manager import IdManager
 from usdm_excel.study_sheet.study_sheet import StudySheet
+from usdm_excel.nodes_and_edges import NodesAndEdges
 
 class USDMExcel():
 
@@ -14,24 +15,12 @@ class USDMExcel():
     else:
       return study.study_identifier()
 
-  # def to_json(self):
-  #   return self.export_node(self.study.the_study())
-
-  # def export_node(self, node):
-  #   if type(node) == list:
-  #     result = []
-  #     for item in node:
-  #       result.append(self.export_node(item))
-  #     return result
-  #   elif type(node) == dict:
-  #     result = {}
-  #     for key, value in node.items():
-  #       if key.startswith('_'):
-  #         continue
-  #       result[key] = self.export_node(value)
-  #     return result
-  #   else:
-  #     return node
-
   def the_study(self):
     return self.study.the_study()
+  
+  def to_json(self):
+    return self.study.the_study().to_json()
+
+  def to_nodes_and_edges(self):
+    print("A")
+    return NodesAndEdges(self.study.the_study()).nodes_and_edges()

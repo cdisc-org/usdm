@@ -33,7 +33,7 @@ class StudyIdentifiersSheet(BaseSheet):
       else:
         organisation_type = self.study_sponsor()
       organisation = Organisation(
-        organizationId=self.id_manager.build_id(Organisation),
+        organisationId=self.id_manager.build_id(Organisation),
         organisationIdentifierScheme=self.clean_cell(row, index, 'organisationIdentifierScheme'), 
         organisationIdentifier=self.clean_cell(row, index, 'organisationIdentifier'),
         organisationName=self.clean_cell(row, index, 'organisationName'),

@@ -50,7 +50,7 @@ class StudySoASheet(BaseSheet):
     self.timelines.append(self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Subject identifier', instances, exit))
 
   def _add_exit(self):
-    return ScheduleTimelineExit(exitId=self.id_manager.build_id(ScheduleTimelineExit))
+    return ScheduleTimelineExit(scheduleTimelineExitId=self.id_manager.build_id(ScheduleTimelineExit))
 
   def _add_timeline(self, name, description, condition, instances, exit):
     return ScheduleTimeline(
