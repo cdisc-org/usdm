@@ -27,7 +27,6 @@ class NodesAndEdges():
   
   def nodes_and_edges(self):
     node = json.loads(self.study.to_json_with_type())
-    print("NODE:", node)
     self._process_node(node)
     for edge in self.add_edges:
       if edge['end'] in self.id_node_index_map:
@@ -40,7 +39,6 @@ class NodesAndEdges():
     return self.nodes, self.edges
   
   def _process_node(self, node):
-    print("CHILD:", node)
     if type(node) == list:
       result = []
       for item in node:
