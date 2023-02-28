@@ -21,6 +21,7 @@ class StudySoASheet(BaseSheet):
       self.timelines = []
       #self.sheet = self.sheet.fillna(method='ffill', axis=1)
       self.encounters = []
+      self.activities = []
       self.timelines = []
       self.raw_cycles = Cycles(self.sheet, self.id_manager)
       self.raw_timepoints = Timepoints(self.sheet, self.id_manager)
@@ -40,8 +41,10 @@ class StudySoASheet(BaseSheet):
   def process_sheet(self):
     timing = []
     instances = []
-    for raw_encounter in self.raw_encounters.items:
-      self.encounters.append(raw_encounter.as_usdm())
+    for item in self.raw_encounters.items:
+      self.encounters.append(item.as_usdm())
+    for item in self.raw_activities.items:
+      self.activities.append(item.as_usdm())
     for raw_timepoint in self.raw_timepoints.items:
       instance = raw_timepoint.as_usdm()
       instances.append(instance)

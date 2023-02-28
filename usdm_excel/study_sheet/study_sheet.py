@@ -20,6 +20,7 @@ class StudySheet(BaseSheet):
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timelines[0])
       study_design.encounters = self.soa.encounters
+      study_design.activities = self.soa.activities
             
       self.process_sheet()
     except Exception as e:
