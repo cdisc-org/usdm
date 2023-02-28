@@ -46,7 +46,8 @@ class StudyDesignSheet(BaseSheet):
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         parts = items.split(",")
         for part in parts:
-          print("TA", items, part)
+          pass
+          #print("TA", items, part)
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
@@ -55,13 +56,13 @@ class StudyDesignSheet(BaseSheet):
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         parts = items.split(",")
         for part in parts:
-          print("INTENT", items, part)
+          #print("INTENT", items, part)
           self.trial_intents.append(self.cdisc_code_cell(part))
       elif rindex == self.TYPES_ROW:
         items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         parts = items.split(",")
         for part in parts:
-          print("TTYPE", items, part)
+          #print("TTYPE", items, part)
           self.trial_types.append(self.cdisc_code_cell(part))
       elif rindex == self.INT_ROW:
         self.intervention_model = self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))

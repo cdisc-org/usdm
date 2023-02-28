@@ -1,261 +1,344 @@
 {
-  "studyId": "study_1",
+  "studyId": null,
   "studyTitle": "Simple Test 1",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "code_9",
+    "codeId": "Code_25",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
-    "codeSystemVersion": "2022-03-25",
+    "codeSystemVersion": "2022-12-25",
     "decode": "Interventional Study"
   },
   "studyPhase": {
-    "codeId": "code_8",
-    "code": "C15602",
-    "codeSystem": "http://www.cdisc.org",
-    "codeSystemVersion": "2022-03-25",
-    "decode": "Phase III Trial"
+    "aliasCodeId": "AliasCode_2",
+    "standardCode": {
+      "codeId": "Code_24",
+      "code": "C15602",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-25",
+      "decode": "Phase III Trial"
+    },
+    "standardCodeAliases": []
   },
-  "businessTherapueticAreas": null,
-  "studyRationale": "",
-  "studyAcronym": "",
+  "businessTherapeuticAreas": [],
   "studyIdentifiers": [
     {
-      "studyIdentifierId": "study_identifier_1",
+      "studyIdentifierId": "StudyIdentifier_1",
       "studyIdentifier": "NCT12345678",
       "studyIdentifierScope": {
-        "organisationId": "organisation_1",
+        "organisationId": "Organisation_1",
         "organisationIdentifierScheme": "USGOV",
         "organisationIdentifier": "CT-GOV",
         "organisationName": "ClinicalTrials.gov",
         "organisationType": {
-          "codeId": "code_1",
+          "codeId": "Code_1",
           "code": "C93453",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2022-03-25",
+          "codeSystemVersion": "2022-12-25",
           "decode": "Study Registry"
         },
-        "organizationLegalAddress": {
-          "addressId": "address_1",
-          "text": "Unknown Lane, Somewhere, Back of Beyond, City of the Lost, 12345, United States of America",
-          "line": "Unknown Lane",
-          "city": "Somewhere",
-          "district": "Back of Beyond",
-          "state": "City of the Lost",
-          "postalCode": "12345",
-          "country": {
-            "codeId": "code_2",
-            "code": "USA",
-            "codeSystem": "ISO 3166 1 alpha3",
-            "codeSystemVersion": "",
-            "decode": "United States of America"
-          }
-        }
+        "organizationLegalAddress": null
       }
     }
   ],
   "studyProtocolVersions": [],
   "studyDesigns": [
     {
-      "studyDesignId": "study_design_1",
-      "studyDesignName": "Study Design",
-      "studyDesignDescription": "The design for the study",
+      "studyDesignId": "StudyDesign_1",
+      "studyDesignName": "Excel Study",
+      "studyDesignDescription": "",
       "trialIntentTypes": [
         {
-          "codeId": "code_4",
+          "codeId": "Code_4",
           "code": "C15714",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2022-03-25",
+          "codeSystemVersion": "2022-12-25",
           "decode": "BASIC SCIENCE"
         },
         {
-          "codeId": "code_5",
+          "codeId": "Code_5",
           "code": "C139174",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2022-03-25",
+          "codeSystemVersion": "2022-12-25",
           "decode": "DEVICE FEASIBILITY"
         }
       ],
       "trialType": [
         {
-          "codeId": "code_6",
+          "codeId": "Code_6",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2022-03-25",
+          "codeSystemVersion": "2022-12-25",
           "decode": "Observational"
         }
       ],
       "interventionModel": {
-        "codeId": "code_7",
+        "codeId": "Code_7",
         "code": "C12346",
         "codeSystem": "http://www.cdisc.org",
-        "codeSystemVersion": "2022-03-25",
+        "codeSystemVersion": "2022-12-25",
         "decode": "None"
       },
       "studyCells": [
         {
-          "studyCellId": "study_cell_1",
+          "studyCellId": "StudyCell_1",
           "studyArm": {
-            "studyArmId": "study_arm_1",
+            "studyArmId": "StudyArm_1",
             "studyArmName": "Active",
             "studyArmDescription": "Active",
-            "studyArmType": null,
+            "studyArmType": "",
             "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
+            "studyArmDataOriginType": {
+              "codeId": "Code_12",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
           },
           "studyEpoch": {
-            "studyEpochId": "study_epoch_1",
+            "studyEpochId": "StudyEpoch_1",
             "studyEpochName": "Screening",
             "studyEpochDescription": "Screening",
-            "studyEpochType": "",
+            "studyEpochType": {
+              "codeId": "Code_8",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
             "previousStudyEpochId": null,
-            "nextStudyEpochId": "study_epoch_2",
-            "encounters": []
-          },
-          "studyElements": []
-        },
-        {
-          "studyCellId": "study_cell_2",
-          "studyArm": {
-            "studyArmId": "study_arm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active",
-            "studyArmType": null,
-            "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
-          },
-          "studyEpoch": {
-            "studyEpochId": "study_epoch_2",
-            "studyEpochName": "Baseline",
-            "studyEpochDescription": "Baseline",
-            "studyEpochType": "",
-            "previousStudyEpochId": "study_epoch_1",
-            "nextStudyEpochId": "study_epoch_3",
-            "encounters": []
-          },
-          "studyElements": []
-        },
-        {
-          "studyCellId": "study_cell_3",
-          "studyArm": {
-            "studyArmId": "study_arm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active",
-            "studyArmType": null,
-            "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
-          },
-          "studyEpoch": {
-            "studyEpochId": "study_epoch_3",
-            "studyEpochName": "Treatment",
-            "studyEpochDescription": "Treatment",
-            "studyEpochType": "",
-            "previousStudyEpochId": "study_epoch_2",
-            "nextStudyEpochId": "study_epoch_4",
-            "encounters": []
-          },
-          "studyElements": []
-        },
-        {
-          "studyCellId": "study_cell_4",
-          "studyArm": {
-            "studyArmId": "study_arm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active",
-            "studyArmType": null,
-            "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
-          },
-          "studyEpoch": {
-            "studyEpochId": "study_epoch_4",
-            "studyEpochName": "Follow-Up",
-            "studyEpochDescription": "Follow-Up",
-            "studyEpochType": "",
-            "previousStudyEpochId": "study_epoch_3",
             "nextStudyEpochId": null,
             "encounters": []
           },
           "studyElements": []
         },
         {
-          "studyCellId": "study_cell_5",
+          "studyCellId": "StudyCell_2",
           "studyArm": {
-            "studyArmId": "study_arm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": null,
+            "studyArmId": "StudyArm_1",
+            "studyArmName": "Active",
+            "studyArmDescription": "Active",
+            "studyArmType": "",
             "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
+            "studyArmDataOriginType": {
+              "codeId": "Code_12",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
           },
           "studyEpoch": {
-            "studyEpochId": "study_epoch_1",
-            "studyEpochName": "Screening",
-            "studyEpochDescription": "Screening",
-            "studyEpochType": "",
-            "previousStudyEpochId": null,
-            "nextStudyEpochId": "study_epoch_2",
-            "encounters": []
-          },
-          "studyElements": []
-        },
-        {
-          "studyCellId": "study_cell_6",
-          "studyArm": {
-            "studyArmId": "study_arm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": null,
-            "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
-          },
-          "studyEpoch": {
-            "studyEpochId": "study_epoch_2",
+            "studyEpochId": "StudyEpoch_2",
             "studyEpochName": "Baseline",
             "studyEpochDescription": "Baseline",
-            "studyEpochType": "",
-            "previousStudyEpochId": "study_epoch_1",
-            "nextStudyEpochId": "study_epoch_3",
+            "studyEpochType": {
+              "codeId": "Code_9",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
+            "nextStudyEpochId": null,
             "encounters": []
           },
           "studyElements": []
         },
         {
-          "studyCellId": "study_cell_7",
+          "studyCellId": "StudyCell_3",
           "studyArm": {
-            "studyArmId": "study_arm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": null,
+            "studyArmId": "StudyArm_1",
+            "studyArmName": "Active",
+            "studyArmDescription": "Active",
+            "studyArmType": "",
             "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
+            "studyArmDataOriginType": {
+              "codeId": "Code_12",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
           },
           "studyEpoch": {
-            "studyEpochId": "study_epoch_3",
+            "studyEpochId": "StudyEpoch_3",
             "studyEpochName": "Treatment",
             "studyEpochDescription": "Treatment",
-            "studyEpochType": "",
-            "previousStudyEpochId": "study_epoch_2",
-            "nextStudyEpochId": "study_epoch_4",
+            "studyEpochType": {
+              "codeId": "Code_10",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
+            "nextStudyEpochId": null,
             "encounters": []
           },
           "studyElements": []
         },
         {
-          "studyCellId": "study_cell_8",
+          "studyCellId": "StudyCell_4",
           "studyArm": {
-            "studyArmId": "study_arm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": null,
+            "studyArmId": "StudyArm_1",
+            "studyArmName": "Active",
+            "studyArmDescription": "Active",
+            "studyArmType": "",
             "studyArmDataOriginDescription": "",
-            "studyArmDataOriginType": null
+            "studyArmDataOriginType": {
+              "codeId": "Code_12",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
           },
           "studyEpoch": {
-            "studyEpochId": "study_epoch_4",
+            "studyEpochId": "StudyEpoch_4",
             "studyEpochName": "Follow-Up",
             "studyEpochDescription": "Follow-Up",
-            "studyEpochType": "",
-            "previousStudyEpochId": "study_epoch_3",
+            "studyEpochType": {
+              "codeId": "Code_11",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
+            "nextStudyEpochId": null,
+            "encounters": []
+          },
+          "studyElements": []
+        },
+        {
+          "studyCellId": "StudyCell_5",
+          "studyArm": {
+            "studyArmId": "StudyArm_2",
+            "studyArmName": "Placebo",
+            "studyArmDescription": "Placebo",
+            "studyArmType": "",
+            "studyArmDataOriginDescription": "",
+            "studyArmDataOriginType": {
+              "codeId": "Code_13",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
+          },
+          "studyEpoch": {
+            "studyEpochId": "StudyEpoch_1",
+            "studyEpochName": "Screening",
+            "studyEpochDescription": "Screening",
+            "studyEpochType": {
+              "codeId": "Code_8",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
+            "nextStudyEpochId": null,
+            "encounters": []
+          },
+          "studyElements": []
+        },
+        {
+          "studyCellId": "StudyCell_6",
+          "studyArm": {
+            "studyArmId": "StudyArm_2",
+            "studyArmName": "Placebo",
+            "studyArmDescription": "Placebo",
+            "studyArmType": "",
+            "studyArmDataOriginDescription": "",
+            "studyArmDataOriginType": {
+              "codeId": "Code_13",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
+          },
+          "studyEpoch": {
+            "studyEpochId": "StudyEpoch_2",
+            "studyEpochName": "Baseline",
+            "studyEpochDescription": "Baseline",
+            "studyEpochType": {
+              "codeId": "Code_9",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
+            "nextStudyEpochId": null,
+            "encounters": []
+          },
+          "studyElements": []
+        },
+        {
+          "studyCellId": "StudyCell_7",
+          "studyArm": {
+            "studyArmId": "StudyArm_2",
+            "studyArmName": "Placebo",
+            "studyArmDescription": "Placebo",
+            "studyArmType": "",
+            "studyArmDataOriginDescription": "",
+            "studyArmDataOriginType": {
+              "codeId": "Code_13",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
+          },
+          "studyEpoch": {
+            "studyEpochId": "StudyEpoch_3",
+            "studyEpochName": "Treatment",
+            "studyEpochDescription": "Treatment",
+            "studyEpochType": {
+              "codeId": "Code_10",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
+            "nextStudyEpochId": null,
+            "encounters": []
+          },
+          "studyElements": []
+        },
+        {
+          "studyCellId": "StudyCell_8",
+          "studyArm": {
+            "studyArmId": "StudyArm_2",
+            "studyArmName": "Placebo",
+            "studyArmDescription": "Placebo",
+            "studyArmType": "",
+            "studyArmDataOriginDescription": "",
+            "studyArmDataOriginType": {
+              "codeId": "Code_13",
+              "code": "C188866",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "Data Generated Within Study"
+            }
+          },
+          "studyEpoch": {
+            "studyEpochId": "StudyEpoch_4",
+            "studyEpochName": "Follow-Up",
+            "studyEpochDescription": "Follow-Up",
+            "studyEpochType": {
+              "codeId": "Code_11",
+              "code": "C165873",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-25",
+              "decode": "OBSERVATION"
+            },
+            "previousStudyEpochId": null,
             "nextStudyEpochId": null,
             "encounters": []
           },
@@ -267,106 +350,70 @@
       "studyStudyDesignPopulations": [],
       "studyObjectives": [],
       "studyScheduleTimelines": [
-        [
-          {
-            "timelineId": "timeline_1",
-            "timelineEntry": {
-              "entryId": "entry_1",
-              "entryDescription": "Main timeline",
-              "nextTimepointId": "timepoint_1"
-            },
-            "timelineTimepoints": [
-              {
-                "timepointId": "timepoint_1",
-                "nextTimepointId": "timepoint_2",
-                "scheduledAt": {
-                  "timingId": "timing_1",
-                  "type": "next",
-                  "value": "0..2 Days",
-                  "relativeToFrom": "StartToStart",
-                  "window": null,
-                  "relativeTo": "timepoint_2"
-                },
-                "timepointActivityIds": [
-                  "activity_1",
-                  "activity_2"
-                ],
-                "timepointEncounterId": "encounter_1"
-              },
-              {
-                "timepointId": "timepoint_2",
-                "nextTimepointId": "timepoint_3",
-                "scheduledAt": {
-                  "timingId": "timing_2",
-                  "type": "next",
-                  "value": "Pre Dose",
-                  "relativeToFrom": "StartToStart",
-                  "window": null,
-                  "relativeTo": "timepoint_3"
-                },
-                "timepointActivityIds": [
-                  "activity_2"
-                ],
-                "timepointEncounterId": "encounter_2"
-              },
-              {
-                "timepointId": "timepoint_3",
-                "nextTimepointId": "timepoint_4",
-                "scheduledAt": {
-                  "timingId": "timing_3",
-                  "type": "anchor",
-                  "value": "",
-                  "cycle": null,
-                  "relativeToFrom": null,
-                  "window": null,
-                  "relativeTo": null
-                },
-                "timepointActivityIds": [
-                  "activity_2"
-                ],
-                "timepointEncounterId": "encounter_3"
-              },
-              {
-                "timepointId": "timepoint_4",
-                "nextTimepointId": "timepoint_5",
-                "scheduledAt": {
-                  "timingId": "timing_4",
-                  "type": "after",
-                  "value": "+24 Hours",
-                  "relativeToFrom": "StartToStart",
-                  "window": null,
-                  "relativeTo": "timepoint_3"
-                },
-                "timepointActivityIds": [
-                  "activity_2"
-                ],
-                "timepointEncounterId": "encounter_4"
-              },
-              {
-                "timepointId": "timepoint_5",
-                "nextTimepointId": null,
-                "scheduledAt": {
-                  "timingId": "timing_5",
-                  "type": "after",
-                  "value": "+7 Days",
-                  "relativeToFrom": "StartToStart",
-                  "window": null,
-                  "relativeTo": "timepoint_4"
-                },
-                "timepointActivityIds": [
-                  "activity_2"
-                ],
-                "timepointEncounterId": "encounter_5",
-                "exit": {
-                  "exitId": "exit_1"
-                }
-              }
-            ],
-            "timelineExit": {
-              "exitId": "exit_1"
+        {
+          "scheduleTimelineId": "ScheduleTimeline_1",
+          "scheduleTimelineName": "Main Timeline",
+          "scheduleTimelineDescription": "This is the main timeline for the study design.",
+          "entryCondition": "Subject identifier",
+          "scheduleTimelineEntryId": "ScheduledActivityInstance_1",
+          "scheduleTimelineExits": [
+            {
+              "scheduleTimelineExitId": "ScheduleTimelineExit_1"
             }
-          }
-        ]
+          ],
+          "scheduleTimelineInstances": [
+            {
+              "scheduledInstanceId": "ScheduledActivityInstance_1",
+              "scheduledInstanceType": 1,
+              "scheduleSequenceNumber": 0,
+              "scheduleTimelineExitId": "",
+              "scheduledInstanceEncounterId": "",
+              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimelineId": "",
+              "activityIds": []
+            },
+            {
+              "scheduledInstanceId": "ScheduledActivityInstance_2",
+              "scheduledInstanceType": 1,
+              "scheduleSequenceNumber": 0,
+              "scheduleTimelineExitId": "",
+              "scheduledInstanceEncounterId": "",
+              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimelineId": "",
+              "activityIds": []
+            },
+            {
+              "scheduledInstanceId": "ScheduledActivityInstance_3",
+              "scheduledInstanceType": 1,
+              "scheduleSequenceNumber": 0,
+              "scheduleTimelineExitId": "",
+              "scheduledInstanceEncounterId": "",
+              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimelineId": "",
+              "activityIds": []
+            },
+            {
+              "scheduledInstanceId": "ScheduledActivityInstance_4",
+              "scheduledInstanceType": 1,
+              "scheduleSequenceNumber": 0,
+              "scheduleTimelineExitId": "",
+              "scheduledInstanceEncounterId": "",
+              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimelineId": "",
+              "activityIds": []
+            },
+            {
+              "scheduledInstanceId": "ScheduledActivityInstance_5",
+              "scheduledInstanceType": 1,
+              "scheduleSequenceNumber": 0,
+              "scheduleTimelineExitId": "",
+              "scheduledInstanceEncounterId": "",
+              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimelineId": "",
+              "activityIds": []
+            }
+          ]
+        }
       ],
       "therapeuticAreas": [],
       "studyEstimands": [],
@@ -374,15 +421,21 @@
       "activities": [],
       "studyDesignRationale": "\"Study design rationale put here\"",
       "studyDesignBlindingScheme": {
-        "codeId": "code_3",
-        "code": "C49659",
-        "codeSystem": "http://www.cdisc.org",
-        "codeSystemVersion": "2022-03-25",
-        "decode": "OPEN LABEL"
+        "aliasCodeId": "AliasCode_1",
+        "standardCode": {
+          "codeId": "Code_3",
+          "code": "C49659",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2022-12-25",
+          "decode": "OPEN LABEL"
+        },
+        "standardCodeAliases": []
       },
       "biomedicalConcepts": [],
       "bcCategories": [],
       "bcSurrogates": []
     }
-  ]
+  ],
+  "studyRationale": "",
+  "studyAcronym": ""
 }

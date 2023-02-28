@@ -22,5 +22,4 @@ class USDMExcel():
     return self.study.the_study().to_json()
 
   def to_nodes_and_edges(self):
-    print("A")
     return NodesAndEdges(self.study.the_study()).nodes_and_edges()
