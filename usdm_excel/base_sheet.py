@@ -28,6 +28,16 @@ class BaseSheet():
       print("Clean cell unnamed error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
       return ""
 
+  def clean_cell_unnamed_new(self, rindex, cindex):
+    try:
+      if pd.isnull(self.sheet.iloc[rindex, cindex]):
+        return "", True
+      else:
+        return self.sheet.iloc[rindex, cindex].strip(), False
+    except Exception as e:
+      print("Clean cell unnamed error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
+      return "", True
+
   # def process_cdisc(self, value):
   #   print("CDISC", value)
   #   parts = value.split("=")

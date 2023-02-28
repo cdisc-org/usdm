@@ -11,7 +11,7 @@ class Activity(BaseSheet):
     self.name = []
     self.bcs = []
     self.profiles = []
-    self.name, activity_is_null = self.get_activity_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
+    self.name, activity_is_null = self.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
     self.bcs, self.profiles, obs_is_null = self.get_observation_cell(row_index, SoAColumnRows.BC_COL)
 
   def get_observation_cell(self, row_index, col_index):
@@ -32,14 +32,3 @@ class Activity(BaseSheet):
         else:
           pass
       return bcs, prs, False
-
-  def get_activity_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      value = self.sheet.iloc[row_index, col_index]
-      if value == '-':
-        return "", True
-      else:
-        return self.sheet.iloc[row_index, col_index], False
