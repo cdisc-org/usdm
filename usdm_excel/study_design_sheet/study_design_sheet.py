@@ -25,7 +25,6 @@ class StudyDesignSheet(BaseSheet):
     try:
       super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesign', header=None), id_manager)
       self.epochs = []
-      self.epoch_map = {}
       self.arms = []
       self.cells = []
       self.study_designs = []
@@ -53,17 +52,9 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.BLINDING_ROW:
         self.blinding = Alias(self.id_manager).code(self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)), [])
       elif rindex == self.INTENT_ROW:
-        items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        parts = items.split(",")
-        for part in parts:
-          #print("INTENT", items, part)
-          self.trial_intents.append(self.cdisc_code_cell(part))
+        self.trial_intents = self.cdisc_code_set_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.TYPES_ROW:
-        items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        parts = items.split(",")
-        for part in parts:
-          #print("TTYPE", items, part)
-          self.trial_types.append(self.cdisc_code_cell(part))
+        self.trial_types = self.cdisc_code_set_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.INT_ROW:
         self.intervention_model = self.cdisc_code_cell(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       else:
@@ -76,7 +67,6 @@ class StudyDesignSheet(BaseSheet):
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
               epoch = self._add_epoch(cell, cell)
-              self.epoch_map[cell] = epoch
               self.epochs.append(epoch)
           else:
             if cindex == 0:
@@ -102,15 +92,15 @@ class StudyDesignSheet(BaseSheet):
     )
     self.study_designs.append(study_design)
 
-  def link_encounters(self, encounter_map):
-    for epoch_name, encounters in encounter_map.items():
-      #print("LINK: %s %s" % (epoch_name, encounter))
-      epoch = self.epoch_map[epoch_name]
-      for encounter in encounters:
-        epoch.encounters.append(encounter)
+  # def link_encounters(self, encounter_map):
+  #   for epoch_name, encounters in encounter_map.items():
+  #     #print("LINK: %s %s" % (epoch_name, encounter))
+  #     epoch = self.epoch_map[epoch_name]
+  #     for encounter in encounters:
+  #       epoch.encounters.append(encounter)
   
-  def link_timelines(self, timelines):
-    self.study_designs[0]['studyScheduleTimelines'].append(timelines)
+  # def link_timelines(self, timelines):
+  #   self.study_designs[0]['studyScheduleTimelines'].append(timelines)
 
   def _add_arm(self, name, description):
     arm_origin = self.cdisc_code_cell("C188866=Data Generated Within Study")

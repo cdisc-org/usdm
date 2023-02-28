@@ -41,6 +41,15 @@ class BaseSheet():
       print("CDISC code error (%s) for data %s" % (e, value))
       return None
 
+  def cdisc_code_set_cell(self, items):
+    results = []
+    parts = items.split(",")
+    for part in parts:
+      result = self.cdisc_code_cell(part)
+      if not result == None:
+        results.append(result)
+    return results
+
   # def double_link(self, items, id, prev, next):
   #   #print("DL1", items, id, prev, next)
   #   for idx, item in enumerate(items):

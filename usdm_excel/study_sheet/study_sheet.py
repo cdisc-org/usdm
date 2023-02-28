@@ -17,7 +17,9 @@ class StudySheet(BaseSheet):
       self.study_design = StudyDesignSheet(file_path, id_manager)
       self.soa = StudySoASheet(file_path, id_manager)
       
-      self.study_design.study_designs[0].studyScheduleTimelines.append(self.soa.timelines[0])
+      study_design = self.study_design.study_designs[0]
+      study_design.studyScheduleTimelines.append(self.soa.timelines[0])
+      study_design.encounters = self.soa.encounters
             
       self.process_sheet()
     except Exception as e:
