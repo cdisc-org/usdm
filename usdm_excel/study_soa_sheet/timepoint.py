@@ -11,10 +11,11 @@ class Timepoint(BaseSheet):
   def __init__(self, sheet, id_manager: IdManager, activity_names, col_index, type="", value="", cycle=None, additional=False):
     super().__init__(sheet, id_manager)
     self.col_index = col_index
-    self.position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
+    self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.has_encounter = not additional
     self.encounter = None
-    self.activities = {}
+    self.activities = []
+    self.activity_map = {}
     self.timing_type = type
     self.timing_value = value
     self.reference = None
@@ -23,6 +24,9 @@ class Timepoint(BaseSheet):
       self._process_timepoint(activity_names)
       self._add_activities(activity_names)
 
+  def key(self):
+    return self._position_key
+  
   def _process_timepoint(self, activity_names):
     rel_ref = 0
     timing_info, timing_info_is_null = self.get_timing_cell(SoAColumnRows.TIMING_ROW, self.col_index)
@@ -45,10 +49,10 @@ class Timepoint(BaseSheet):
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + rel_ref
 
   def add_encounter(self, encounter):
-    self.encounter = encounter
+    self.encounter = encounter.usdm_encounter.encounterId
 
   def add_activity(self, activity):
-    self.activities.append(activity)
+    self.activities.append(activity.usdm_encounter.activityId)
 
   def as_usdm(self):
     return ScheduledActivityInstance(
@@ -56,10 +60,10 @@ class Timepoint(BaseSheet):
       scheduledInstanceType=1,
       scheduleSequenceNumber=0,
       scheduleTimelineExitId="",
-      scheduledInstanceEncounterId="",
+      scheduledInstanceEncounterId=self.encounter,
       scheduledInstanceTimingIds=[],
       scheduledInstanceTimelineId="",
-      activityIds=[]
+      activityIds=self.activities
     )
 
 
@@ -106,14 +110,14 @@ class Timepoint(BaseSheet):
 
   def _add_activities(self, activity_names):
     for activity in activity_names:
-      self.activities[activity] = False
+      self.activity_map[activity] = False
     column = self.sheet.iloc[:, self.col_index]
     row = 0
     for col in column:
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity, activity_is_null = self.get_activity_cell(row, SoAColumnRows.ACTIVITY_COL)
         if col.upper() == "X":
-          self.activities[activity] = True
+          self.activity_map[activity] = True
     row += 1
 
   def get_activity_cell(self, row_index, col_index):

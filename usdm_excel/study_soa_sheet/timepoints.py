@@ -24,7 +24,7 @@ class Timepoints(BaseSheet):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
         record = Timepoint(self.sheet, self.id_manager, self.activity_names, col_index, True)
         self.items.append(record)
-        self.map[record.position_key] = record
+        self.map[record.key()] = record
 
   def _build_activities(self):    
     for row_index, col_def in self.sheet.iterrows():

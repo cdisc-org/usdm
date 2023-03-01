@@ -13,7 +13,7 @@ class Encounters(BaseSheet):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
         record = Encounter(self.sheet, self.id_manager, col_index)
         self.items.append(record)
-        self.map[record.position_key] = record
+        self.map[record.key()] = record
 
   def item_at(self, key):
     return self.map[key]

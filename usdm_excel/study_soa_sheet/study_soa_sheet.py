@@ -43,10 +43,10 @@ class StudySoASheet(BaseSheet):
     timing = []
     instances = []
     for item in self.raw_encounters.items:
-      self.encounters.append(item.as_usdm())
+      self.encounters.append(item.usdm_encounter)
     for item in self.raw_activities.items:
-      self.activities.append(item.as_usdm())
-      self.biomedical_concept_surrogates += item.biomedical_concept_surrogates
+      self.activities.append(item.usdm_activity)
+      self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
     for raw_timepoint in self.raw_timepoints.items:
       instance = raw_timepoint.as_usdm()
       instances.append(instance)
@@ -70,15 +70,15 @@ class StudySoASheet(BaseSheet):
 
   def _link_instance_to_encounter(self):
     for timepoint in self.raw_timepoints.items:
-      if timepoint.encounter:
-        encounter = self.encounters.item_at(self.raw_timepoints.item_at(timepoint.position_key))
+      if timepoint.has_encounter:
+        encounter = self.raw_encounters.item_at(timepoint.key())
         timepoint.add_encounter(encounter)
   
   def _link_instance_to_activities(self):
     for timepoint in self.raw_timepoints.items:
-      if timepoint.encounter:
+      if timepoint.has_encounter:
         for activity_name in timepoint.activities:
-          activity = self.raw_activities.item_at_name(activity_name)
+          activity = self.raw_activities.item_by_name(activity_name)
           timepoint.add_activity(activity)
 
   def _insert_cycles_into_timeline(self):

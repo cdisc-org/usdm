@@ -9,25 +9,22 @@ class Activity(BaseSheet):
   
   def __init__(self, sheet, id_manager: IdManager, row_index):
     super().__init__(sheet, id_manager)
-    self.row_index = row_index
-    self.name = []
-    self.biomedical_concept_surrogates = []
-    self.bcs = []
-    self.prs = []
+    #self._row_index = row_index
+    self.usdm_biomedical_concept_surrogates = []
     self.name, activity_is_null = self.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
-    self.bcs, self.prs, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
-
-  def as_usdm(self):
+    self._bcs, self._prs, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
+    self.usdm_activity = self._as_usdm()
+    
+  def _as_usdm(self):
     bc_items = []
-    for bc in self.bcs:
+    for bc in self._bcs:
       surrogate = self._to_bc_surrogates(bc)
       bc_items.append(surrogate.bcSurrogateId)
-      self.biomedical_concept_surrogates.append(surrogate)
-
+      self.usdm_biomedical_concept_surrogates.append(surrogate)
     return USDMActivity(
       activityId=self.id_manager.build_id(Activity),
-      activityName="",
-      activityDescription="",
+      activityName=self.name,
+      activityDescription=self.name,
       definedProcedures=[],
       activityIsConditional=False,
       activityIsConditionalReason="",
