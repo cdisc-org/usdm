@@ -17,6 +17,9 @@ class StudySheet(BaseSheet):
       self.study_design = StudyDesignSheet(file_path, id_manager)
       self.soa = StudySoASheet(file_path, id_manager)
       
+      for epoch in self.study_design.epochs:
+        epoch.encounters = self.soa.epoch_encounter_map(epoch.studyEpochName)
+
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timelines[0])
       study_design.encounters = self.soa.encounters

@@ -10,9 +10,11 @@ class Encounter(BaseSheet):
     #self._col_index = col_index
     self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.name = self.clean_cell_unnamed(SoAColumnRows.VISIT_LABEL_ROW, col_index)
+    self.epoch, is_null = self.clean_cell_unnamed_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
     self.window = self.clean_cell_unnamed(SoAColumnRows.VISIT_WINDOW_ROW, col_index)
     self.usdm_encounter = self._as_usdm()
-  
+    print("EPOCH:", self.epoch)
+
   def key(self):
     return self._position_key
   

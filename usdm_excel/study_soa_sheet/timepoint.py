@@ -20,7 +20,7 @@ class Timepoint(BaseSheet):
     self.reference = None
     self.cycle = cycle
     if not additional:
-      self._process_timepoint(activity_names)
+      self._process_timepoint()
       self._add_activities(activity_names)
     self.usdm_timepoint = self._as_usdm()
 
@@ -33,9 +33,9 @@ class Timepoint(BaseSheet):
   def add_activity(self, activity):
     self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
 
-  def _process_timepoint(self, activity_names):
+  def _process_timepoint(self):
     rel_ref = 0
-    timing_info, timing_info_is_null = self.get_timing_cell(SoAColumnRows.TIMING_ROW, self.col_index)
+    timing_info, timing_info_is_null = self.clean_cell_unnamed_new(SoAColumnRows.TIMING_ROW, self.col_index)
     if not timing_info_is_null:
       timing_parts = timing_info.split(":")
       if timing_parts[0].upper()[0] == "A":
@@ -96,13 +96,6 @@ class Timepoint(BaseSheet):
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''
     )
-  
-  def get_timing_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      return self.sheet.iloc[row_index, col_index], False
 
   def get_relative_ref(self, part):
     if len(part) > 1:
@@ -111,24 +104,13 @@ class Timepoint(BaseSheet):
       return 1
 
   def _add_activities(self, activity_names):
-    #print("X1", activity_names)
     for activity in activity_names:
       self.activity_map[activity] = False
-    #print("X2", self.activity_map)
     column = self.sheet.iloc[:, self.col_index]
     row = 0
     for cell in column:
-      #print("X3", cell)
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity, activity_is_null = self.get_activity_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
-        #print("X4", activity)
+        activity, activity_is_null = self.clean_cell_unnamed_new(row, SoAColumnRows.CHILD_ACTIVITY_COL)
         if cell.upper() == "X":
           self.activity_map[activity] = True
       row += 1
-
-  def get_activity_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      return self.sheet.iloc[row_index, col_index], False

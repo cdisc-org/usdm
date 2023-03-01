@@ -38,6 +38,20 @@ class BaseSheet():
       print("Clean cell unnamed error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
       return "", True
 
+  def clean_cell_unnamed_with_previous(self, rindex, cindex, first_cindex):
+    try:
+      i = cindex
+      while i >= first_cindex:
+        if pd.isnull(self.sheet.iloc[rindex, i]):
+          i -= 1
+        else:
+          return self.sheet.iloc[rindex, i].strip(), False
+      print("Clean cell unnamed with previous is blank for cell [%s, %s]" % (rindex + 1, cindex + 1))
+      return "", True
+    except Exception as e:
+      print("Clean cell unnamed with previous error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
+      return "", True
+
   # def process_cdisc(self, value):
   #   print("CDISC", value)
   #   parts = value.split("=")
