@@ -52,11 +52,6 @@ class BaseSheet():
       print("Clean cell unnamed with previous error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
       return "", True
 
-  # def process_cdisc(self, value):
-  #   print("CDISC", value)
-  #   parts = value.split("=")
-  #   return self.cdisc_code(code=parts[0].strip(), decode=parts[1].strip())
-
   def cdisc_code_cell(self, value):
     parts = value.split("=")
     try:
@@ -75,24 +70,16 @@ class BaseSheet():
     return results
 
   def double_link(self, items, id, prev, next):
-    #print("DL1", items, id, prev, next)
     for idx, item in enumerate(items):
       if idx == 0:
-        #print("DL2", item, prev, item.keys())
         if prev in item:
           print("DL3", item[prev])
-        #item[prev] = None
         setattr(item, prev, None)
       else:
-        #the_id = items[idx-1][id]
         the_id = getattr(items[idx-1], id)
-        #item[prev] = the_id
         setattr(item, prev, the_id)
       if idx == len(items)-1:  
-        #item[next] = None
         setattr(item, next, None)
       else:
-        #the_id = items[idx+1][id]
         the_id = getattr(items[idx+1], id)
-        #item[next] = the_id
         setattr(item, next, the_id)
