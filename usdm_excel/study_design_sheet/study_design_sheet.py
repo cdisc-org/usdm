@@ -73,12 +73,6 @@ class StudyDesignSheet(BaseSheet):
               self.arms.append(self._add_arm(cell, cell))
             else:
               self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))
-
-    
-    
-    #self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
-    
-              
     study_design = self._add_design(
       name="Excel Study",
       description="",
@@ -91,16 +85,6 @@ class StudyDesignSheet(BaseSheet):
       therapeutic_areas=self.therapeutic_areas
     )
     self.study_designs.append(study_design)
-
-  # def link_encounters(self, encounter_map):
-  #   for epoch_name, encounters in encounter_map.items():
-  #     #print("LINK: %s %s" % (epoch_name, encounter))
-  #     epoch = self.epoch_map[epoch_name]
-  #     for encounter in encounters:
-  #       epoch.encounters.append(encounter)
-  
-  # def link_timelines(self, timelines):
-  #   self.study_designs[0]['studyScheduleTimelines'].append(timelines)
 
   def _add_arm(self, name, description):
     arm_origin = self.cdisc_code_cell("C188866=Data Generated Within Study")
