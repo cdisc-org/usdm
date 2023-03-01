@@ -86,7 +86,6 @@ class Timepoint(BaseSheet):
   #   return self._to_timing()
   
   def _to_timing(self):
-    print("A")
     cdisc = CDISC(self.id_manager)
     return Timing(
       timingId=self.id_manager.build_id(Timing),
