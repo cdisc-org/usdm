@@ -72,8 +72,6 @@ class BaseSheet():
   def double_link(self, items, id, prev, next):
     for idx, item in enumerate(items):
       if idx == 0:
-        if prev in item:
-          print("DL3", item[prev])
         setattr(item, prev, None)
       else:
         the_id = getattr(items[idx-1], id)
