@@ -21,6 +21,7 @@ class StudySheet(BaseSheet):
       study_design.studyScheduleTimelines.append(self.soa.timelines[0])
       study_design.encounters = self.soa.encounters
       study_design.activities = self.soa.activities
+      study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
             
       self.process_sheet()
     except Exception as e:

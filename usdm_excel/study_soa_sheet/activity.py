@@ -2,6 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm.activity import Activity as USDMActivity
+from usdm.biomedical_concept_surrogate import BiomedicalConceptSurrogate
 import pandas as pd
 
 class Activity(BaseSheet):
@@ -10,12 +11,19 @@ class Activity(BaseSheet):
     super().__init__(sheet, id_manager)
     self.row_index = row_index
     self.name = []
+    self.biomedical_concept_surrogates = []
     self.bcs = []
-    self.profiles = []
+    self.prs = []
     self.name, activity_is_null = self.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
-    self.bcs, self.profiles, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
+    self.bcs, self.prs, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
 
   def as_usdm(self):
+    bc_items = []
+    for bc in self.bcs:
+      surrogate = self._to_bc_surrogates(bc)
+      bc_items.append(surrogate.bcSurrogateId)
+      self.biomedical_concept_surrogates.append(surrogate)
+
     return USDMActivity(
       activityId=self.id_manager.build_id(Activity),
       activityName="",
@@ -25,8 +33,16 @@ class Activity(BaseSheet):
       activityIsConditionalReason="",
       biomedicalConcepts=[],
       bcCategories=[],
-      bcSurrogates=[],
+      bcSurrogates=bc_items,
       activityTimelineId=""
+    )
+  
+  def _to_bc_surrogates(self, name):
+    return BiomedicalConceptSurrogate(
+      bcSurrogateId=self.id_manager.build_id(BiomedicalConceptSurrogate),
+      bcSurrogateName=name,
+      bcSurrogateDescription=name,
+      bcSurrogateReference=''
     )
   
   def _get_observation_cell(self, row_index, col_index):
