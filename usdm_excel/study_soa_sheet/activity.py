@@ -56,9 +56,9 @@ class Activity(BaseSheet):
       outer_parts = value.split(',')
       for outer_part in outer_parts:
         parts = outer_part.split(':')
-        if parts[0].lower() == "bc":
+        if parts[0].strip().upper() == "BC":
           bcs.append(parts[1])
-        elif parts[0].lower() == "pr":
+        elif parts[0].strip().upper() == "PR":
           prs.append(parts[1])
         else:
           pass
