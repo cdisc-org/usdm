@@ -25,31 +25,28 @@ class StudySheet(BaseSheet):
       study_design.encounters = self.soa.encounters
       study_design.activities = self.soa.activities
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
-            
-      self.process_sheet()
+
+      for index, row in self.sheet.iterrows():
+        study_phase = Alias(self.id_manager).code(self.cdisc_code_cell(self.clean_cell(row, index, "studyPhase")), [])
+        study_version = self.clean_cell(row, index, "studyVersion")
+        study_type = self.cdisc_code_cell(self.clean_cell(row, index, "studyType"))
+        study_title = self.clean_cell(row, index, "studyTitle")
+        self.study = Study(
+          studyId=None, # No Id, will be allocated a UUID
+          studyTitle=study_title,
+          studyVersion=study_version,
+          studyType=study_type,
+          studyPhase=study_phase,
+          businessTherapeuticAreas=[],
+          studyRationale="",
+          studyAcronym="",
+          studyIdentifiers=self.study_identifiers.identifiers,
+          studyProtocolVersions=[],
+          studyDesigns=self.study_design.study_designs
+        )
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
-
-  def process_sheet(self):
-    for index, row in self.sheet.iterrows():
-      study_phase = Alias(self.id_manager).code(self.cdisc_code_cell(self.clean_cell(row, index, "studyPhase")), [])
-      study_version = self.clean_cell(row, index, "studyVersion")
-      study_type = self.cdisc_code_cell(self.clean_cell(row, index, "studyType"))
-      study_title = self.clean_cell(row, index, "studyTitle")
-      self.study = Study(
-        studyId=None, # No Id, will be allocated a UUID
-        studyTitle=study_title,
-        studyVersion=study_version,
-        studyType=study_type,
-        studyPhase=study_phase,
-        businessTherapeuticAreas=[],
-        studyRationale="",
-        studyAcronym="",
-        studyIdentifiers=self.study_identifiers.identifiers,
-        studyProtocolVersions=[],
-        studyDesigns=self.study_design.study_designs
-      )
 
   def study_sponsor(self):
     return self.cdisc_code(code="C93453", decode="Study Registry")

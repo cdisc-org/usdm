@@ -73,6 +73,9 @@ class StudyDesignSheet(BaseSheet):
               self.arms.append(self._add_arm(cell, cell))
             else:
               self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))
+    
+    self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
+
     study_design = self._add_design(
       name="Excel Study",
       description="",

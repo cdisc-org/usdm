@@ -74,19 +74,25 @@ class BaseSheet():
         results.append(result)
     return results
 
-  # def double_link(self, items, id, prev, next):
-  #   #print("DL1", items, id, prev, next)
-  #   for idx, item in enumerate(items):
-  #     if idx == 0:
-  #       print("DL2", item, prev, item.keys())
-  #       if prev in item:
-  #         print("DL3", item[prev])
-  #       item[prev] = None
-  #     else:
-  #       uuid = items[idx-1][id]
-  #       item[prev] = uuid
-  #     if idx == len(items)-1:  
-  #       item[next] = None
-  #     else:
-  #       uuid = items[idx+1][id]
-  #       item[next] = uuid
+  def double_link(self, items, id, prev, next):
+    #print("DL1", items, id, prev, next)
+    for idx, item in enumerate(items):
+      if idx == 0:
+        #print("DL2", item, prev, item.keys())
+        if prev in item:
+          print("DL3", item[prev])
+        #item[prev] = None
+        setattr(item, prev, None)
+      else:
+        #the_id = items[idx-1][id]
+        the_id = getattr(items[idx-1], id)
+        #item[prev] = the_id
+        setattr(item, prev, the_id)
+      if idx == len(items)-1:  
+        #item[next] = None
+        setattr(item, next, None)
+      else:
+        #the_id = items[idx+1][id]
+        the_id = getattr(items[idx+1], id)
+        #item[next] = the_id
+        setattr(item, next, the_id)
