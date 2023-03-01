@@ -52,7 +52,7 @@ class Timepoint(BaseSheet):
     self.encounter = encounter.usdm_encounter.encounterId
 
   def add_activity(self, activity):
-    self.activities.append(activity.usdm_encounter.activityId)
+    self.activities.append(activity.usdm_activity.activityId)
 
   def as_usdm(self):
     return ScheduledActivityInstance(
@@ -109,16 +109,20 @@ class Timepoint(BaseSheet):
       return 1
 
   def _add_activities(self, activity_names):
+    #print("X1", activity_names)
     for activity in activity_names:
       self.activity_map[activity] = False
+    #print("X2", self.activity_map)
     column = self.sheet.iloc[:, self.col_index]
     row = 0
-    for col in column:
+    for cell in column:
+      #print("X3", cell)
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity, activity_is_null = self.get_activity_cell(row, SoAColumnRows.ACTIVITY_COL)
-        if col.upper() == "X":
+        activity, activity_is_null = self.get_activity_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
+        #print("X4", activity)
+        if cell.upper() == "X":
           self.activity_map[activity] = True
-    row += 1
+      row += 1
 
   def get_activity_cell(self, row_index, col_index):
     is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
