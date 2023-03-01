@@ -13,7 +13,6 @@ class Timepoint(BaseSheet):
     self.col_index = col_index
     self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.has_encounter = not additional
-    self.encounter = None
     self.activities = []
     self.activity_map = {}
     self.timing_type = type
@@ -23,10 +22,17 @@ class Timepoint(BaseSheet):
     if not additional:
       self._process_timepoint(activity_names)
       self._add_activities(activity_names)
+    self.usdm_timepoint = self._as_usdm()
 
   def key(self):
     return self._position_key
   
+  def add_encounter(self, encounter):
+    self.usdm_timepoint.scheduledInstanceEncounterId = encounter.usdm_encounter.encounterId
+
+  def add_activity(self, activity):
+    self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
+
   def _process_timepoint(self, activity_names):
     rel_ref = 0
     timing_info, timing_info_is_null = self.get_timing_cell(SoAColumnRows.TIMING_ROW, self.col_index)
@@ -48,42 +54,39 @@ class Timepoint(BaseSheet):
         self.timing_value = timing_parts[1].strip()
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + rel_ref
 
-  def add_encounter(self, encounter):
-    self.encounter = encounter.usdm_encounter.encounterId
-
-  def add_activity(self, activity):
-    self.activities.append(activity.usdm_activity.activityId)
-
-  def as_usdm(self):
-    return ScheduledActivityInstance(
+  def _as_usdm(self):
+    timing = self._to_timing()
+    instance = ScheduledActivityInstance(
       scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
       scheduledInstanceType=1,
       scheduleSequenceNumber=0,
       scheduleTimelineExitId="",
-      scheduledInstanceEncounterId=self.encounter,
-      scheduledInstanceTimingIds=[],
+      scheduledInstanceEncounterId="",
+      scheduledInstanceTimings=[timing],
       scheduledInstanceTimelineId="",
-      activityIds=self.activities
+      activityIds=[]
     )
+    timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
+    return instance
 
-
-  def as_usdm_timing(self):
-    # if self.timing_type == 'next':
-    #   self.timing = self._add_timing(self.json_engine.add_next_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
-    # elif self.timing_type == 'previous':
-    #   timing.append(self.json_engine.add_previous_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
-    # elif self.timing_type == 'anchor':
-    #   timing.append(self.json_engine.add_anchor_timing(timepoint['value'], timepoint['cycle']))
-    # elif self.timing_type == 'condition':
-    #   #timing.append(self.json_engine.add_condition_timing(timepoint['value']))
-    #   timing.append({})
-    # elif self.timing_type == 'cycle start':
-    #   timing.append(self.json_engine.add_cycle_start_timing(timepoint['value']))
-    # elif self.timing_type == '':
-    #   timing.append({})
-    return self._to_timing()
+  # def _as_usdm_timing(self):
+  #   # if self.timing_type == 'next':
+  #   #   self.timing = self._add_timing(self.json_engine.add_next_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
+  #   # elif self.timing_type == 'previous':
+  #   #   timing.append(self.json_engine.add_previous_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
+  #   # elif self.timing_type == 'anchor':
+  #   #   timing.append(self.json_engine.add_anchor_timing(timepoint['value'], timepoint['cycle']))
+  #   # elif self.timing_type == 'condition':
+  #   #   #timing.append(self.json_engine.add_condition_timing(timepoint['value']))
+  #   #   timing.append({})
+  #   # elif self.timing_type == 'cycle start':
+  #   #   timing.append(self.json_engine.add_cycle_start_timing(timepoint['value']))
+  #   # elif self.timing_type == '':
+  #   #   timing.append({})
+  #   return self._to_timing()
   
   def _to_timing(self):
+    print("A")
     cdisc = CDISC(self.id_manager)
     return Timing(
       timingId=self.id_manager.build_id(Timing),

@@ -368,7 +368,29 @@
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
               "scheduledInstanceEncounterId": "Encounter_1",
-              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimings": [
+                {
+                  "timingId": "Timing_1",
+                  "timingType": {
+                    "codeId": "Code_14",
+                    "code": "NEXT",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "next"
+                  },
+                  "timingValue": "0..2 Days",
+                  "timingRelativeToFrom": {
+                    "codeId": "Code_15",
+                    "code": "START TO START",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "Start to start"
+                  },
+                  "timingWindow": "",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
+                  "relativeToScheduledInstanceId": ""
+                }
+              ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
                 "Activity_1",
@@ -381,7 +403,29 @@
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
               "scheduledInstanceEncounterId": "Encounter_2",
-              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimings": [
+                {
+                  "timingId": "Timing_2",
+                  "timingType": {
+                    "codeId": "Code_16",
+                    "code": "NEXT",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "next"
+                  },
+                  "timingValue": "Pre Dose",
+                  "timingRelativeToFrom": {
+                    "codeId": "Code_17",
+                    "code": "START TO START",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "Start to start"
+                  },
+                  "timingWindow": "",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
+                  "relativeToScheduledInstanceId": ""
+                }
+              ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
                 "Activity_2"
@@ -393,7 +437,29 @@
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
               "scheduledInstanceEncounterId": "Encounter_3",
-              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimings": [
+                {
+                  "timingId": "Timing_3",
+                  "timingType": {
+                    "codeId": "Code_18",
+                    "code": "ANCHOR",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "anchor"
+                  },
+                  "timingValue": "",
+                  "timingRelativeToFrom": {
+                    "codeId": "Code_19",
+                    "code": "START TO START",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "Start to start"
+                  },
+                  "timingWindow": "",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
+                  "relativeToScheduledInstanceId": ""
+                }
+              ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
                 "Activity_2"
@@ -405,7 +471,29 @@
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
               "scheduledInstanceEncounterId": "Encounter_4",
-              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimings": [
+                {
+                  "timingId": "Timing_4",
+                  "timingType": {
+                    "codeId": "Code_20",
+                    "code": "PREVIOUS",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "previous"
+                  },
+                  "timingValue": "+24 Hours",
+                  "timingRelativeToFrom": {
+                    "codeId": "Code_21",
+                    "code": "START TO START",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "Start to start"
+                  },
+                  "timingWindow": "",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
+                  "relativeToScheduledInstanceId": ""
+                }
+              ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
                 "Activity_2"
@@ -417,7 +505,29 @@
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
               "scheduledInstanceEncounterId": "Encounter_5",
-              "scheduledInstanceTimingIds": [],
+              "scheduledInstanceTimings": [
+                {
+                  "timingId": "Timing_5",
+                  "timingType": {
+                    "codeId": "Code_22",
+                    "code": "PREVIOUS",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "previous"
+                  },
+                  "timingValue": "+7 Days",
+                  "timingRelativeToFrom": {
+                    "codeId": "Code_23",
+                    "code": "START TO START",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-25",
+                    "decode": "Start to start"
+                  },
+                  "timingWindow": "",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
+                  "relativeToScheduledInstanceId": ""
+                }
+              ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
                 "Activity_2"

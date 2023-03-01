@@ -14,7 +14,7 @@ class ScheduledInstance(ApiBaseModel):
     scheduleSequenceNumber: int
     scheduleTimelineExitId: str
     scheduledInstanceEncounterId: str
-    scheduledInstanceTimingIds: List[str] = []
+    scheduledInstanceTimings: List[Timing] = []
     scheduledInstanceTimelineId: str
 
 class ScheduledActivityInstance(ScheduledInstance):

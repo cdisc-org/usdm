@@ -40,7 +40,7 @@ class StudySoASheet(BaseSheet):
       traceback.print_exc()
 
   def process_sheet(self):
-    timing = []
+    #timing = []
     instances = []
     for item in self.raw_encounters.items:
       self.encounters.append(item.usdm_encounter)
@@ -48,9 +48,9 @@ class StudySoASheet(BaseSheet):
       self.activities.append(item.usdm_activity)
       self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
     for raw_timepoint in self.raw_timepoints.items:
-      instance = raw_timepoint.as_usdm()
+      instance = raw_timepoint.usdm_timepoint
       instances.append(instance)
-      timing.append(raw_timepoint.as_usdm_timing())
+      #timing.append(raw_timepoint.as_usdm_timing())
     exit = self._add_exit()
     self.timelines.append(self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Subject identifier', instances, exit))
 
