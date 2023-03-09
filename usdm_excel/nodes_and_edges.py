@@ -14,7 +14,7 @@ class NodesAndEdges():
     self.edge_attributes = [
 #      'relativeTo',
 #      'nextTimepointId',
-      'encounterIdss',
+      'encounterIds',
       'timepointActivityIds',
       'timepointEncounterId',
       'bcSurrogateIds',
@@ -22,7 +22,9 @@ class NodesAndEdges():
       'biomedicalConceptIds',
       'biomedicalConceptSurrogateId',
       'relativeFromScheduledInstanceId',
-      'relativeToScheduledInstanceId'
+      'relativeToScheduledInstanceId',
+      'scheduledInstanceEncounterId',
+      'activityIds'
     ]
     self.fix_id_name = {
       'scheduledActivityInstanceId': 'scheduledInstanceId',
@@ -84,9 +86,9 @@ class NodesAndEdges():
   def _get_id_field_and_klass(self, node):
     klass = node['_type']
     id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
-    #print("ID NAME:", id_name)
+    print("ID NAME:", id_name)
     if id_name in self.fix_id_name:
       id_name = self.fix_id_name[id_name]
-      #print("ID NAME FIX:", id_name)
+      print("ID NAME FIX:", id_name)
     return id_name, klass
 

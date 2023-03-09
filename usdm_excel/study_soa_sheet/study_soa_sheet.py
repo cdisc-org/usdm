@@ -42,6 +42,7 @@ class StudySoASheet(BaseSheet):
         self.activities.append(item.usdm_activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
       self.double_link(self.activities, 'activityId', 'previousActivityId', 'nextActivityId')
+      print("BCs:", self.biomedical_concept_surrogates)
 
       for raw_timepoint in self._raw_timepoints.items:
         instance = raw_timepoint.usdm_timepoint

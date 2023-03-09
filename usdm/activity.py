@@ -12,6 +12,6 @@ class Activity(ApiBaseModel):
   activityIsConditional: bool
   activityIsConditionalReason: str
   biomedicalConcepts: List[str] = []
-  bcCategories: List[str] = []
-  bcSurrogates: List[str] = []
+  bcCategoryIds: List[str] = []
+  bcSurrogateIds: List[str] = []
   activityTimelineId: str

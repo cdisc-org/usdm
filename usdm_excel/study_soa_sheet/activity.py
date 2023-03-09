@@ -29,8 +29,8 @@ class Activity(BaseSheet):
       activityIsConditional=False,
       activityIsConditionalReason="",
       biomedicalConcepts=[],
-      bcCategories=[],
-      bcSurrogates=bc_items,
+      bcCategoryIds=[],
+      bcSurrogateIds=bc_items,
       activityTimelineId=""
     )
   
