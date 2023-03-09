@@ -12,9 +12,9 @@ class NodesAndEdges():
     self.edge_index = 1
     self.id_node_index_map = {}
     self.edge_attributes = [
-      'relativeTo',
-      'nextTimepointId',
-      'cycleId',
+#      'relativeTo',
+#      'nextTimepointId',
+      'encounterIdss',
       'timepointActivityIds',
       'timepointEncounterId',
       'bcSurrogateIds',
