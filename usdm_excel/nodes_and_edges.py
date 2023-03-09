@@ -20,7 +20,9 @@ class NodesAndEdges():
       'bcSurrogateIds',
       'bcCategoryIds',
       'biomedicalConceptIds',
-      'biomedicalConceptSurrogateId'
+      'biomedicalConceptSurrogateId',
+      'relativeFromScheduledInstanceId',
+      'relativeToScheduledInstanceId'
     ]
     self.fix_id_name = {
       'scheduledActivityInstanceId': 'scheduledInstanceId',

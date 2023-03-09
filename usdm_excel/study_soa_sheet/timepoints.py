@@ -15,6 +15,7 @@ class Timepoints(BaseSheet):
     self.activity_names = []
     self._build_activities()
     self._build_timepoints()
+    self._set_to_timing_refs()
 
   def item_at(self, key):
     return self.map[key]
@@ -32,3 +33,13 @@ class Timepoints(BaseSheet):
         activity = self.clean_cell_unnamed(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
         if not activity == "":
           self.activity_names.append(activity)
+
+  def _set_to_timing_refs(self):    
+    for item in self.items:
+      from_instance = item.usdm_timepoint
+      from_timing = from_instance.scheduledInstanceTimings[0]
+      from_timing_type = from_timing.timingType.code
+      if from_timing_type == "ANCHOR":
+        continue
+      to_instance = self.items[item.reference].usdm_timepoint
+      from_timing.relativeToScheduledInstanceId = to_instance.scheduledInstanceId
