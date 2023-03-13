@@ -7,9 +7,6 @@ def save_as_file(raw_json, filename):
     json_object = json.loads(raw_json)
     f.write(json.dumps(json_object, indent=2))
 
-#study = "Roche Phase 3 NCT04320615"
-#study = "cycles_1"
-#study = "simple_1"
 #study = "simple_2"
 studies = [
   "Roche Phase 3 NCT04320615",
