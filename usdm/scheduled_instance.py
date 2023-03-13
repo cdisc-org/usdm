@@ -8,10 +8,6 @@ class ScheduledInstanceType(Enum):
   ACTIVITY = 1
   DECISION = 2
 
-class Decision(ApiBaseModel):
-  condition: str
-  destinationId: str
-
 class ScheduledInstance(ApiBaseModel):
     scheduledInstanceId: str
     scheduledInstanceType: ScheduledInstanceType
@@ -25,4 +21,4 @@ class ScheduledActivityInstance(ScheduledInstance):
     activityIds: List[str] = []
 
 class ScheduledDecisionInstance(ScheduledInstance):
-    conditionAssignments: List[Decision] = []
+    conditionAssignments: List[List] = []

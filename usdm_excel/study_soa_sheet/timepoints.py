@@ -35,7 +35,8 @@ class Timepoints(BaseSheet):
         text = item.timing_value
         if text == "":
           text = "default, no condition set"
-        condition.conditionAssignments.append({ 'condition': text, 'destinationId': condition_instance.scheduledInstanceId })
+        #condition.conditionAssignments.append({ 'condition': text, 'destinationId': condition_instance.scheduledInstanceId })
+        condition.conditionAssignments.append([text, condition_instance.scheduledInstanceId])
     previous_item = None
     for item in self.items:
       if previous_item == None:
@@ -44,7 +45,8 @@ class Timepoints(BaseSheet):
       previous_condition = previous_item.usdm_timepoint
       if previous_condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
         current_instance = item.usdm_timepoint
-        previous_condition.conditionAssignments.append({ 'condition': "default", 'destinationId': current_instance.scheduledInstanceId })        
+        #previous_condition.conditionAssignments.append({ 'condition': "default", 'destinationId': current_instance.scheduledInstanceId })
+        previous_condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
       previous_item = item        
 
 

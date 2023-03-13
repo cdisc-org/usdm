@@ -24,10 +24,12 @@ class NodesAndEdges():
       'relativeFromScheduledInstanceId',
       'relativeToScheduledInstanceId',
       'scheduledInstanceEncounterId',
-      'activityIds'
+      'activityIds',
+      'scheduledDecisionInstanceId'
     ]
     self.fix_id_name = {
       'scheduledActivityInstanceId': 'scheduledInstanceId',
+      'scheduledDecisionInstanceId': 'scheduledInstanceId',
       'biomedicalConceptSurrogateId': 'bcSurrogateId'
     }
   
@@ -84,6 +86,7 @@ class NodesAndEdges():
       return []
     
   def _get_id_field_and_klass(self, node):
+    #print("NODE:", node)
     klass = node['_type']
     id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
     #print("ID NAME:", id_name)

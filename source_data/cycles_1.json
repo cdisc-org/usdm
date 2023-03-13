@@ -960,14 +960,14 @@
               "scheduledInstanceTimings": [],
               "scheduledInstanceTimelineId": "",
               "conditionAssignments": [
-                {
-                  "condition": "Disease Progresssion",
-                  "destinationId": "ScheduledActivityInstance_20"
-                },
-                {
-                  "condition": "default",
-                  "destinationId": "ScheduledActivityInstance_10"
-                }
+                [
+                  "Disease Progresssion",
+                  "ScheduledActivityInstance_20"
+                ],
+                [
+                  "default",
+                  "ScheduledActivityInstance_10"
+                ]
               ]
             },
             {
