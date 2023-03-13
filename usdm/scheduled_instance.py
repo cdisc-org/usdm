@@ -5,8 +5,12 @@ from .api_base_model import ApiBaseModel
 from .timing import Timing
 
 class ScheduledInstanceType(Enum):
-    ACTIVITY = 1
-    DECISION = 2
+  ACTIVITY = 1
+  DECISION = 2
+
+class Decision(ApiBaseModel):
+  condition: str
+  destinationId: str
 
 class ScheduledInstance(ApiBaseModel):
     scheduledInstanceId: str
@@ -21,4 +25,4 @@ class ScheduledActivityInstance(ScheduledInstance):
     activityIds: List[str] = []
 
 class ScheduledDecisionInstance(ScheduledInstance):
-    conditionAssignments: List[List] = []
+    conditionAssignments: List[Decision] = []
