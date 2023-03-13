@@ -21,4 +21,4 @@ class ScheduledActivityInstance(ScheduledInstance):
     activityIds: List[str] = []
 
 class ScheduledDecisionInstance(ScheduledInstance):
-    conditionAssignments: Dict[str, str] = []
+    conditionAssignments: List[List] = []

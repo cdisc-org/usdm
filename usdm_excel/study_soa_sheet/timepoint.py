@@ -58,36 +58,32 @@ class Timepoint(BaseSheet):
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + rel_ref
 
   def _as_usdm(self):
-    timing = self._to_timing()
-    instance = ScheduledActivityInstance(
-      scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
-      scheduledInstanceType=1,
-      scheduleSequenceNumber=0,
-      scheduleTimelineExitId="",
-      scheduledInstanceEncounterId="",
-      scheduledInstanceTimings=[timing],
-      scheduledInstanceTimelineId="",
-      activityIds=[]
-    )
-    timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
+    if self.timing_type in ["anchor", "next", "previous", "cycle start"]:
+      timing = self._to_timing()
+      instance = ScheduledActivityInstance(
+        scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
+        scheduledInstanceType=1,
+        scheduleSequenceNumber=0,
+        scheduleTimelineExitId="",
+        scheduledInstanceEncounterId="",
+        scheduledInstanceTimings=[timing],
+        scheduledInstanceTimelineId="",
+        activityIds=[]
+      )
+      timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
+    elif self.timing_type == "condition":
+      instance = ScheduledDecisionInstance(
+        scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
+        scheduledInstanceType=2,
+        scheduleSequenceNumber=0,
+        scheduleTimelineExitId="",
+        scheduledInstanceEncounterId="",
+        scheduledInstanceTimings=[],
+        scheduledInstanceTimelineId="",
+        conditionAssignments=[]
+      )
     return instance
 
-  # def _as_usdm_timing(self):
-  #   # if self.timing_type == 'next':
-  #   #   self.timing = self._add_timing(self.json_engine.add_next_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
-  #   # elif self.timing_type == 'previous':
-  #   #   timing.append(self.json_engine.add_previous_timing(timepoint['value'], 'StartToStart', None, tps[timepoint['ref']]['timepointId']))
-  #   # elif self.timing_type == 'anchor':
-  #   #   timing.append(self.json_engine.add_anchor_timing(timepoint['value'], timepoint['cycle']))
-  #   # elif self.timing_type == 'condition':
-  #   #   #timing.append(self.json_engine.add_condition_timing(timepoint['value']))
-  #   #   timing.append({})
-  #   # elif self.timing_type == 'cycle start':
-  #   #   timing.append(self.json_engine.add_cycle_start_timing(timepoint['value']))
-  #   # elif self.timing_type == '':
-  #   #   timing.append({})
-  #   return self._to_timing()
-  
   def _to_timing(self):
     cdisc = CDISC(self.id_manager)
     return Timing(

@@ -2,6 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
 from usdm_excel.id_manager import IdManager
+from usdm.scheduled_instance import ScheduledInstanceType
 import pandas as pd
 
 class Timepoints(BaseSheet):
@@ -20,10 +21,28 @@ class Timepoints(BaseSheet):
   def item_at(self, key):
     return self.map[key]
 
-  def insert_at(self, insert_at_index, type, value, cycle):
+  def insert_at(self, insert_at_index, type, value, cycle, reference=None):
     timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, None, type, value, cycle, additional=True)
+    timepoint.reference = reference
     self.items.insert(insert_at_index, timepoint)
-    
+    return timepoint
+  
+  def set_condition_refs(self):
+    for item in self.items:
+      condition = item.usdm_timepoint
+      if condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
+        condition_instance = self.items[item.reference].usdm_timepoint
+        condition.conditionAssignments.append([item.timing_value, condition_instance.scheduledInstanceId])        
+    previous_item = None
+    for item in self.items:
+      if previous_item == None:
+        continue
+      previous_condition = previous_item.usdm_timepoint
+      if previous_condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
+        current_instance = self.items[item.reference].usdm_timepoint
+        condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
+      previous_item = item
+
   def _build_timepoints(self):    
     for col_index in range(self.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
