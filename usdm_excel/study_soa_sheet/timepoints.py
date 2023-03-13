@@ -38,14 +38,11 @@ class Timepoints(BaseSheet):
         condition.conditionAssignments.append({ 'condition': text, 'destinationId': condition_instance.scheduledInstanceId })
     previous_item = None
     for item in self.items:
-      print("A")
       if previous_item == None:
         previous_item = item        
         continue
-      print("B")
       previous_condition = previous_item.usdm_timepoint
       if previous_condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
-        print("C")
         current_instance = item.usdm_timepoint
         previous_condition.conditionAssignments.append({ 'condition': "default", 'destinationId': current_instance.scheduledInstanceId })        
       previous_item = item        

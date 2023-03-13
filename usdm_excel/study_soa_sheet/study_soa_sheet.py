@@ -95,14 +95,14 @@ class StudySoASheet(BaseSheet):
     for cycle in self._raw_cycles.items:
       start_index = cycle.start_timepoint_index + cycle_offset
       self._raw_timepoints.insert_at(start_index, 'anchor', cycle.start, cycle.cycle)
-
       cycle_offset += 1
+
       end_index = cycle.end_timepoint_index + cycle_offset + 1
       self._raw_timepoints.insert_at(end_index, 'previous', cycle.period, None)
-      
       cycle_offset += 1
-      end_index = cycle.end_timepoint_index + cycle_offset + 1
-      self._raw_timepoints.insert_at(end_index, 'condition', cycle.end_rule, None, start_index)
 
-      cycle_offset += 1
+      if cycle.end_rule != "":
+        end_index = cycle.end_timepoint_index + cycle_offset + 1
+        self._raw_timepoints.insert_at(end_index, 'condition', cycle.end_rule, None, start_index)
+        cycle_offset += 1
 
