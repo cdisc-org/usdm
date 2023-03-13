@@ -32,16 +32,24 @@ class Timepoints(BaseSheet):
       condition = item.usdm_timepoint
       if condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
         condition_instance = self.items[item.reference].usdm_timepoint
-        condition.conditionAssignments.append([item.timing_value, condition_instance.scheduledInstanceId])        
+        text = item.timing_value
+        if text == "":
+          text = "default, no condition set"
+        condition.conditionAssignments.append([text, condition_instance.scheduledInstanceId])
     previous_item = None
     for item in self.items:
+      print("A")
       if previous_item == None:
+        previous_item = item        
         continue
+      print("B")
       previous_condition = previous_item.usdm_timepoint
       if previous_condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
-        current_instance = self.items[item.reference].usdm_timepoint
-        condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
-      previous_item = item
+        print("C")
+        current_instance = item.usdm_timepoint
+        previous_condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
+      previous_item = item        
+
 
   def _build_timepoints(self):    
     for col_index in range(self.sheet.shape[1]):
