@@ -47,7 +47,7 @@ class Cycles(BaseSheet):
       else:
         return value, False
 
-  def previous_index(index):
+  def previous_index(self, index):
     if index == 0:
       return 0
     else:

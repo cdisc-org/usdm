@@ -20,6 +20,10 @@ class Timepoints(BaseSheet):
   def item_at(self, key):
     return self.map[key]
 
+  def insert_at(self, insert_at_index, type, value, cycle):
+    timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, None, type, value, cycle, additional=True)
+    self.items.insert(insert_at_index, timepoint)
+    
   def _build_timepoints(self):    
     for col_index in range(self.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:

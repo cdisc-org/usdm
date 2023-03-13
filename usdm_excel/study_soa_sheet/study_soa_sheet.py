@@ -94,24 +94,30 @@ class StudySoASheet(BaseSheet):
   def _insert_cycles_into_timeline(self):
     cycle_offset = 0
     for cycle in self._raw_cycles.items:
-      start_index = cycle['start_index'] + cycle_offset
-      
-      timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'anchor', cycle['start'], cycle['cycle'], additional=True)
-      self._raw_timepoints.insert(start_index, timepoint)
+
+      print("CYCLE:", cycle)
+
+      start_index = cycle.start_timepoint_index + cycle_offset
+      self._raw_timepoints.insert_at(start_index, 'anchor', cycle.start, cycle.cycle)
+
+      #timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'anchor', cycle['start'], cycle['cycle'], additional=True)
+      #self._raw_timepoints.insert(start_index, timepoint)
       #self._raw_timepoints.insert(start_index, { 'type': 'anchor', 'ref': 0, 'value': cycle['start'], 'activity_index': None, 'encounter_index': None, 'cycle': cycle['cycle'] })
 
       cycle_offset += 1
-      end_index = cycle['end_index'] + cycle_offset + 1
+      end_index = cycle.end_timepoint_index + cycle_offset + 1
+      self._raw_timepoints.insert_at(end_index, 'previous', cycle.period, None)
       
-      timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'previous', cycle['period'], None, additional=True)
-      self._raw_timepoints.insert(start_index, timepoint)
+      #timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'previous', cycle['period'], None, additional=True)
+      #self._raw_timepoints.insert(start_index, timepoint)
       #self._raw_timepoints.insert(end_index, { 'type': 'previous', 'ref': end_index - 1, 'value': cycle['period'], 'activity_index': None, 'encounter_index': None, 'cycle': None })
 
       cycle_offset += 1
-      end_index = cycle['end_index'] + cycle_offset + 1
+      end_index = cycle.end_timepoint_index + cycle_offset + 1
+      self._raw_timepoints.insert_at(end_index, 'condition', cycle.end_rule, None)
       
-      timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'condition', cycle['end_rule'], None, additional=True)
-      self._raw_timepoints.insert(start_index, timepoint)
+      #timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, self.col_index, 'condition', cycle['end_rule'], None, additional=True)
+      #self._raw_timepoints.insert(start_index, timepoint)
       #self._raw_timepoints.insert(end_index, { 'type': 'condition', 'ref': start_index , 'value': cycle['end_rule'], 'activity_index': None, 'encounter_index': None, 'cycle': None })
       
       cycle_offset += 1

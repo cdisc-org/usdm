@@ -8,8 +8,8 @@ def save_as_file(raw_json, filename):
     f.write(json.dumps(json_object, indent=2))
 
 #study = "Roche Phase 3 NCT04320615"
-#study = "cycles_1_v2"
-study = "simple_1"
+study = "cycles_1_v2"
+#study = "simple_1"
 #study = "simple_2"
 
 program_path = os.path.abspath("import_excel.py")

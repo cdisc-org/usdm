@@ -11,7 +11,10 @@ class Timepoint(BaseSheet):
   def __init__(self, sheet, id_manager: IdManager, activity_names, col_index, type="", value="", cycle=None, additional=False):
     super().__init__(sheet, id_manager)
     self.col_index = col_index
-    self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
+    if col_index == None:
+      self._position_key = None
+    else:
+      self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.has_encounter = not additional
     self.activities = []
     self.activity_map = {}
