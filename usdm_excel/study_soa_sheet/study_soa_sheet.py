@@ -78,15 +78,10 @@ class StudySoASheet(BaseSheet):
         timepoint.add_encounter(encounter)
   
   def _link_instance_to_activities(self):
-    #print("A")
     for timepoint in self._raw_timepoints.items:
-      #print("B")
       if timepoint.has_encounter:
-        #print("C", timepoint.activity_map)
         for activity_name, selected in timepoint.activity_map.items():
-          #print("D")
           if selected:
-            #print("E")
             activity = self._raw_activities.item_by_name(activity_name)
             timepoint.add_activity(activity)
 
