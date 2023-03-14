@@ -14,4 +14,5 @@ class Address(ApiBaseModel):
   @classmethod
   def add_address(cls, id, line, city, district, state, postal_code, country):
     text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
+    text = text.replace(' ,', '')
     return Address(addressId=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)

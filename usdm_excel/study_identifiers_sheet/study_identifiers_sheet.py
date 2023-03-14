@@ -32,8 +32,7 @@ class StudyIdentifiersSheet(BaseSheet):
         organisation_type = self.regulatory()
       else:
         organisation_type = self.study_sponsor()
-      raw_address=self.clean_cell(row, index, 'address')
-      print("ADDR", raw_address)
+      raw_address=self.clean_cell(row, index, 'organisationAddress')
       organisation = Organisation(
         organisationId=self.id_manager.build_id(Organisation),
         organisationIdentifierScheme=self.clean_cell(row, index, 'organisationIdentifierScheme'), 
@@ -59,14 +58,15 @@ class StudyIdentifiersSheet(BaseSheet):
 
   def _build_address(self, raw_address):
     parts = raw_address.split("|")
-    result =  Address.add_address(
-          self.id_manager.build_id(Address),
-          parts[0].strip(), 
-          parts[1].strip(), 
-          parts[2].strip(), 
-          parts[3].strip(), 
-          parts[4].strip(), 
-          ISO3166(self.id_manager).code(parts[5].strip())
-        )
-    print("RES:", result)
-    return result
+    if len(parts) == 6:
+      return Address.add_address(
+            self.id_manager.build_id(Address),
+            parts[0].strip(), 
+            parts[1].strip(), 
+            parts[2].strip(), 
+            parts[3].strip(), 
+            parts[4].strip(), 
+            ISO3166(self.id_manager).code(parts[5].strip())
+          )
+    else:
+      return None
