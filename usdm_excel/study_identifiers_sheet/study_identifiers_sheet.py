@@ -66,7 +66,7 @@ class StudyIdentifiersSheet(BaseSheet):
           parts[2].strip(), 
           parts[3].strip(), 
           parts[4].strip(), 
-          ISO3166(self.id_manager).code(parts[4].strip())
+          ISO3166(self.id_manager).code(parts[5].strip())
         )
     print("RES:", result)
     return result
