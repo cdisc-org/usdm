@@ -10,15 +10,19 @@ class ISO3166():
     self.db = json.load(f)
 
   def code(self, code):
-    decode = self._get_decode(code)
-    if decode == None:
+    code, decode = self._get_decode(code)
+    if code == None:
       code = 'DNK'
       decode = 'Denmark'
-    return Code(codeId=self.id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion="", decode=decode)
+    return Code(codeId=self.id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion='', decode=decode)
 
   def _get_decode(self, code):
-    entry = next((item for item in self.db if item['alpha-3'] == code), None)
-    if entry == None:
-      return None
+    if len(code) == 2:
+      field = 'alpha-2'
     else:
-      return entry['name']
+      field = 'alpha-3'
+    entry = next((item for item in self.db if item[field] == code), None)
+    if entry == None:
+      return None, None
+    else:
+      return entry['alpha-3'], entry['name']
