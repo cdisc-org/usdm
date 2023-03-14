@@ -7,12 +7,11 @@ def save_as_file(raw_json, filename):
     json_object = json.loads(raw_json)
     f.write(json.dumps(json_object, indent=2))
 
-#study = "simple_2"
 studies = [
-  "Roche Phase 3 NCT04320615",
-  "cycles_1",
+#  "Roche Phase 3 NCT04320615",
+#  "cycles_1",
   "simple_1",
-  "simple_2"
+#  "simple_2"
 ]
 
 program_path = os.path.abspath("import_excel.py")

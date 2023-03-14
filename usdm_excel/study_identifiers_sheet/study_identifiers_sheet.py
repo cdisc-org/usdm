@@ -32,21 +32,15 @@ class StudyIdentifiersSheet(BaseSheet):
         organisation_type = self.regulatory()
       else:
         organisation_type = self.study_sponsor()
+      raw_address=self.clean_cell(row, index, 'address')
+      print("ADDR", raw_address)
       organisation = Organisation(
         organisationId=self.id_manager.build_id(Organisation),
         organisationIdentifierScheme=self.clean_cell(row, index, 'organisationIdentifierScheme'), 
         organisationIdentifier=self.clean_cell(row, index, 'organisationIdentifier'),
         organisationName=self.clean_cell(row, index, 'organisationName'),
         organisationType=organisation_type,
-        address=Address.add_address(
-          self.id_manager.build_id(Address),
-          "Unknown Lane", 
-          "Somewhere", 
-          "Back of Beyond", 
-          "City of the Lost", 
-          "12345", 
-          ISO3166(self.id_manager).code("USA", "United States of America")
-        )
+        organizationLegalAddress=self._build_address(raw_address)
       )
       self.identifiers.append(StudyIdentifier(
         studyIdentifierId=self.id_manager.build_id(StudyIdentifier),
@@ -62,3 +56,17 @@ class StudyIdentifiersSheet(BaseSheet):
 
   def regulatory(self):
     return CDISC(self.id_manager).code(code="C188863", decode="Regulatory Agency")
+
+  def _build_address(self, raw_address):
+    parts = raw_address.split("|")
+    result =  Address.add_address(
+          self.id_manager.build_id(Address),
+          parts[0].strip(), 
+          parts[1].strip(), 
+          parts[2].strip(), 
+          parts[3].strip(), 
+          parts[4].strip(), 
+          ISO3166(self.id_manager).code(parts[4].strip())
+        )
+    print("RES:", result)
+    return result

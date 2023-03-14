@@ -37,7 +37,21 @@
           "codeSystemVersion": "2022-12-25",
           "decode": "Study Registry"
         },
-        "organizationLegalAddress": null
+        "organizationLegalAddress": {
+          "text": "line, city, district, state, postal_code, Denmark",
+          "line": "line",
+          "city": "city",
+          "district": "district",
+          "state": "state",
+          "postalCode": "postal_code",
+          "country": {
+            "codeId": "Code_2",
+            "code": "DNK",
+            "codeSystem": "ISO 3166 1 alpha3",
+            "codeSystemVersion": "",
+            "decode": "Denmark"
+          }
+        }
       }
     }
   ],
