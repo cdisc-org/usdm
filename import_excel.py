@@ -11,7 +11,8 @@ def save_as_file(raw_json, filename):
 studies = [
   "Roche Phase 3 NCT04320615",
   "cycles_1",
-  "simple_1"
+  "simple_1",
+  "simple_2"
 ]
 
 program_path = os.path.abspath("import_excel.py")
