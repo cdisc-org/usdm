@@ -1,7 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.id_manager import IdManager
-from usdm_excel.cdisc_ct import cdisc_ct
+from usdm_excel.cdisc_ct import CDISCCT
 from usdm.timing import Timing
 from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 import pandas as pd
@@ -87,9 +87,9 @@ class Timepoint(BaseSheet):
   def _to_timing(self):
     return Timing(
       timingId=self.id_manager.build_id(Timing),
-      timingType=cdisc_ct.code(self.timing_type.upper(), self.timing_type),
+      timingType=CDISCCT(self.id_manager).code(self.timing_type.upper(), self.timing_type),
       timingValue=self.timing_value,
-      timingRelativeToFrom=cdisc_ct.code('START TO START', 'Start to start'),
+      timingRelativeToFrom=CDISCCT(self.id_manager).code('START TO START', 'Start to start'),
       timingWindow='',
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''

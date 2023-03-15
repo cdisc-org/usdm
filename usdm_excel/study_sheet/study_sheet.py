@@ -6,13 +6,12 @@ from usdm_excel.alias import Alias
 from usdm.study import Study
 import traceback
 import pandas as pd
-from usdm_excel.cdisc_ct import cdisc_ct
+from usdm_excel.cdisc_ct import CDISCCT
 
 class StudySheet(BaseSheet):
 
   def __init__(self, file_path, id_manager):
     try:
-      cdisc_ct.id_manager = id_manager
       super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study'), id_manager)
       self.study = None
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
