@@ -1,6 +1,6 @@
 import pandas as pd
 from usdm_excel.id_manager import IdManager
-from usdm_excel.cdisc import CDISC
+from usdm_excel.cdisc_ct import cdisc_ct
 
 class BaseSheet():
 
@@ -55,7 +55,7 @@ class BaseSheet():
   def cdisc_code_cell(self, value):
     parts = value.split("=")
     try:
-      return CDISC(self.id_manager).code(code=parts[0].strip(), decode=parts[1].strip())
+      return cdisc_ct.code(code=parts[0].strip(), decode=parts[1].strip())
     except Exception as e:
       print("CDISC code error (%s) for data %s" % (e, value))
       return None

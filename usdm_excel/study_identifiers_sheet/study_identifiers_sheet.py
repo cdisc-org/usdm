@@ -3,7 +3,7 @@ from usdm.address import Address
 from usdm.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import IdManager
-from usdm_excel.cdisc import CDISC
+from usdm_excel.cdisc_ct import cdisc_ct
 from usdm_excel.iso_3166 import ISO3166
 import pandas as pd
 import traceback
@@ -48,13 +48,13 @@ class StudyIdentifiersSheet(BaseSheet):
       )
     
   def study_registry(self):
-    return CDISC(self.id_manager).code(code="C93453", decode="Study Registry")
+    return cdisc_ct.code(code="C93453", decode="Study Registry")
 
   def study_sponsor(self):
-    return CDISC(self.id_manager).code(code="C70793", decode="Clinical Study Sponsor")
+    return cdisc_ct.code(code="C70793", decode="Clinical Study Sponsor")
 
   def regulatory(self):
-    return CDISC(self.id_manager).code(code="C188863", decode="Regulatory Agency")
+    return cdisc_ct.code(code="C188863", decode="Regulatory Agency")
 
   def _build_address(self, raw_address):
     parts = raw_address.split("|")
