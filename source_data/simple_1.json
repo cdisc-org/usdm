@@ -3,16 +3,16 @@
   "studyTitle": "Simple Test 1",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_27",
+    "codeId": "Code_33",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
     "decode": "Interventional Study"
   },
   "studyPhase": {
-    "aliasCodeId": "AliasCode_2",
+    "aliasCodeId": "AliasCode_5",
     "standardCode": {
-      "codeId": "Code_26",
+      "codeId": "Code_32",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -679,7 +679,9 @@
           "definedProcedures": [],
           "activityIsConditional": false,
           "activityIsConditionalReason": "",
-          "biomedicalConcepts": [],
+          "biomedicalConcepts": [
+            "BiomedicalConcept_1"
+          ],
           "bcCategoryIds": [],
           "bcSurrogateIds": [
             "BiomedicalConceptSurrogate_1",
@@ -715,7 +717,101 @@
         },
         "standardCodeAliases": []
       },
-      "biomedicalConcepts": [],
+      "biomedicalConcepts": [
+        {
+          "biomedicalConceptId": "BiomedicalConcept_1",
+          "bcName": "Body Weight",
+          "bcSynonyms": [
+            "Weight"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_1",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "decimal",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_3",
+                "standardCode": {
+                  "codeId": "Code_27",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_2",
+              "bcPropertyName": "Unit of Weight",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_1",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_28",
+                    "code": "C28252",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Kilogram"
+                  }
+                },
+                {
+                  "responseCodeId": "ResponseCode_2",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_29",
+                    "code": "C48155",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Gram"
+                  }
+                },
+                {
+                  "responseCodeId": "ResponseCode_3",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_30",
+                    "code": "C48531",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Pound"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_4",
+                "standardCode": {
+                  "codeId": "Code_30",
+                  "code": "C48531",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Pound"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_2",
+            "standardCode": {
+              "codeId": "Code_26",
+              "code": "C81328",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Body Weight"
+            },
+            "standardCodeAliases": []
+          }
+        }
+      ],
       "bcCategories": [],
       "bcSurrogates": [
         {

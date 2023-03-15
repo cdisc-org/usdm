@@ -24,6 +24,7 @@ class StudySoASheet(BaseSheet):
       self.activities = []
       self.timelines = []
       self.biomedical_concept_surrogates = []
+      self.biomedical_concepts = []
       self._raw_cycles = Cycles(self.sheet, self.id_manager)
       self._raw_timepoints = Timepoints(self.sheet, self.id_manager)
       self._raw_encounters = Encounters(self.sheet, self.id_manager)
@@ -42,6 +43,7 @@ class StudySoASheet(BaseSheet):
       for item in self._raw_activities.items:
         self.activities.append(item.usdm_activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
+        self.biomedical_concepts += item.usdm_biomedical_concepts
       self.double_link(self.activities, 'activityId', 'previousActivityId', 'nextActivityId')
       
       for raw_timepoint in self._raw_timepoints.items:

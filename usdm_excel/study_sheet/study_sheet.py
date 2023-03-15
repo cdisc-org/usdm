@@ -25,6 +25,7 @@ class StudySheet(BaseSheet):
       study_design.studyScheduleTimelines.append(self.soa.timelines[0])
       study_design.encounters = self.soa.encounters
       study_design.activities = self.soa.activities
+      study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
 
       for index, row in self.sheet.iterrows():
