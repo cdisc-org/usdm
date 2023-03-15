@@ -1,6 +1,7 @@
 import requests
 import os
-from usdm_excel.cdisc_ct import cdisc_ct
+from usdm_excel.cdisc_ct import CDISCCT
+from usdm_excel.cdisc_ct_library import cdisc_ct_library
 from usdm_excel.ncit import NCIt
 from usdm_excel.id_manager import IdManager
 from usdm_excel.alias import Alias
@@ -42,8 +43,8 @@ class CDISCBiomedicalConcepts():
         codes = []
         if 'exampleSet' in item:
           for example in item['exampleSet']:
-            term = cdisc_ct.preferred_term(example)
-            codes.append(cdisc_ct.code(term['conceptId'], term['preferredTerm']))
+            term = cdisc_ct_library.preferred_term(example)
+            codes.append(CDISCCT(self.id_manager).code(term['conceptId'], term['preferredTerm']))
         bc.bcProperties.append(self._bc_property_as_uasdm(item, codes))
       return bc
 
