@@ -19,7 +19,10 @@ class IdManager():
       'Study': 0, 
       'Activity': 0, 
       'Encounter': 0, 
-      'BiomedicalConceptSurrogate': 0 
+      'BiomedicalConceptSurrogate': 0, 
+      'BiomedicalConcept': 0,
+      'BiomedicalConceptProperty': 0,
+      'ResponseCode': 0 
     }
 
   def build_id(self, klass):

@@ -22,7 +22,7 @@ class CDISCCT():
     self._by_submission = {}
     self._by_pt = {}
     self._get_ct()
-
+    #print("PT", self._by_pt)
   @property
   def id_manager(self):
     return self._id_manager
@@ -38,16 +38,27 @@ class CDISCCT():
       return Code(codeId=self._id_manager.build_id(Code), code=code, codeSystem="http://www.cdisc.org", codeSystemVersion="2022-12-16", decode=decode)
   
   def submission(self, value):
-    if value in self._by_submission:
-      concept_id = self._by_submission[value]
-      code_list = self._by_code_list[concept_id]
-      return next((item for item in code_list if item["submissionValue"] == value), None)
+    if value in list(self._by_submission.keys()):
+      print("S1")
+      concept_ids = self._by_submission[value]
+      if len(concept_ids) == 0:
+        return None
+      elif len(concept_ids) == 1:
+        code_list = self._by_code_list[concept_ids[0]]
+        return next((item for item in code_list['terms'] if item["submissionValue"] == value), None)
+      else:
+        return None 
     
   def preferred_term(self, value):
-    if value in self._by_submission:
-      concept_id = self._by_pt[value]
-      code_list = self._by_code_list[concept_id]
-      return next((item for item in code_list if item["preferredTerm"] == value), None)
+    if value in list(self._by_pt.keys()):
+      concept_ids = self._by_pt[value]
+      if len(concept_ids) == 0:
+        return None
+      elif len(concept_ids) == 1:
+        code_list = self._by_code_list[concept_ids[0]]
+        return next((item for item in code_list['terms'] if item["preferredTerm"] == value), None)
+      else:
+        return None 
 
   def _get_ct(self):
     for item in self.cdisc_ct_config['required']:
@@ -60,6 +71,8 @@ class CDISCCT():
       if raw.status_code == 200:
         response = raw.json()
         response.pop('_links', None)
+        if c_code == 'C99077':
+          print("Response:", response)
         self._by_code_list[response['conceptId']] = response
         for item in response['terms']:
           self._check_in_and_add(self._by_term, item['conceptId'], response['conceptId'])
