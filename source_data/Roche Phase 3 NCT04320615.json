@@ -3,16 +3,16 @@
   "studyTitle": "Tocilizumab in Patients With Severe COVID-19 Pneumonia",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_88",
+    "codeId": "Code_117",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
     "decode": "Interventional Study"
   },
   "studyPhase": {
-    "aliasCodeId": "AliasCode_2",
+    "aliasCodeId": "AliasCode_27",
     "standardCode": {
-      "codeId": "Code_87",
+      "codeId": "Code_116",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -2647,16 +2647,17 @@
           "definedProcedures": [],
           "activityIsConditional": false,
           "activityIsConditionalReason": "",
-          "biomedicalConcepts": [],
+          "biomedicalConcepts": [
+            "BiomedicalConcept_1",
+            "BiomedicalConcept_2",
+            "BiomedicalConcept_3",
+            "BiomedicalConcept_4"
+          ],
           "bcCategoryIds": [],
           "bcSurrogateIds": [
             "BiomedicalConceptSurrogate_4",
             "BiomedicalConceptSurrogate_5",
-            "BiomedicalConceptSurrogate_6",
-            "BiomedicalConceptSurrogate_7",
-            "BiomedicalConceptSurrogate_8",
-            "BiomedicalConceptSurrogate_9",
-            "BiomedicalConceptSurrogate_10"
+            "BiomedicalConceptSurrogate_6"
           ],
           "activityTimelineId": ""
         },
@@ -2855,7 +2856,539 @@
         },
         "standardCodeAliases": []
       },
-      "biomedicalConcepts": [],
+      "biomedicalConcepts": [
+        {
+          "biomedicalConceptId": "BiomedicalConcept_1",
+          "bcName": "Pulse Rate",
+          "bcSynonyms": [
+            "Pulse"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C49676",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_1",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "integer",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_3",
+                "standardCode": {
+                  "codeId": "Code_88",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_2",
+              "bcPropertyName": "Count per Minute",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_1",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_89",
+                    "code": "C49673",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Beats per Minute"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_4",
+                "standardCode": {
+                  "codeId": "Code_89",
+                  "code": "C49673",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Beats per Minute"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_3",
+              "bcPropertyName": "Vital Signs Location",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_5",
+                "standardCode": {
+                  "codeId": "Code_91",
+                  "code": "C83088",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Location"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_4",
+              "bcPropertyName": "Vital Signs Laterality",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_6",
+                "standardCode": {
+                  "codeId": "Code_92",
+                  "code": "C123975",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Laterality"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_5",
+              "bcPropertyName": "Test Method",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_7",
+                "standardCode": {
+                  "codeId": "Code_93",
+                  "code": "C82535",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Test Method"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_6",
+              "bcPropertyName": "Vital Signs Position",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_8",
+                "standardCode": {
+                  "codeId": "Code_94",
+                  "code": "C83114",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Position"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_2",
+            "standardCode": {
+              "codeId": "Code_87",
+              "code": "C49676",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Pulse Rate"
+            },
+            "standardCodeAliases": []
+          }
+        },
+        {
+          "biomedicalConceptId": "BiomedicalConcept_2",
+          "bcName": "Systolic Blood Pressure",
+          "bcSynonyms": [
+            "SYSBP"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C25298",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_7",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "integer",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_10",
+                "standardCode": {
+                  "codeId": "Code_96",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_8",
+              "bcPropertyName": "Unit of Pressure",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_2",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_97",
+                    "code": "C42547",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Pascal"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_11",
+                "standardCode": {
+                  "codeId": "Code_97",
+                  "code": "C42547",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Pascal"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_9",
+              "bcPropertyName": "Vital Signs Location",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_12",
+                "standardCode": {
+                  "codeId": "Code_99",
+                  "code": "C83088",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Location"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_10",
+              "bcPropertyName": "Vital Signs Laterality",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_13",
+                "standardCode": {
+                  "codeId": "Code_100",
+                  "code": "C123975",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Laterality"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_11",
+              "bcPropertyName": "Test Method",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_14",
+                "standardCode": {
+                  "codeId": "Code_101",
+                  "code": "C82535",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Test Method"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_12",
+              "bcPropertyName": "Vital Signs Position",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_15",
+                "standardCode": {
+                  "codeId": "Code_102",
+                  "code": "C83114",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Position"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_9",
+            "standardCode": {
+              "codeId": "Code_95",
+              "code": "C25298",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Systolic Blood Pressure"
+            },
+            "standardCodeAliases": []
+          }
+        },
+        {
+          "biomedicalConceptId": "BiomedicalConcept_3",
+          "bcName": "Diastolic Blood Pressure",
+          "bcSynonyms": [
+            "DIABP"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C25299",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_13",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "integer",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_17",
+                "standardCode": {
+                  "codeId": "Code_104",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_14",
+              "bcPropertyName": "Unit of Pressure",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_3",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_105",
+                    "code": "C42547",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Pascal"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_18",
+                "standardCode": {
+                  "codeId": "Code_105",
+                  "code": "C42547",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Pascal"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_15",
+              "bcPropertyName": "Vital Signs Location",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_19",
+                "standardCode": {
+                  "codeId": "Code_107",
+                  "code": "C83088",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Location"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_16",
+              "bcPropertyName": "Vital Signs Laterality",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_20",
+                "standardCode": {
+                  "codeId": "Code_108",
+                  "code": "C123975",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Laterality"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_17",
+              "bcPropertyName": "Test Method",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_21",
+                "standardCode": {
+                  "codeId": "Code_109",
+                  "code": "C82535",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Test Method"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_18",
+              "bcPropertyName": "Vital Signs Position",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_22",
+                "standardCode": {
+                  "codeId": "Code_110",
+                  "code": "C83114",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Position"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_16",
+            "standardCode": {
+              "codeId": "Code_103",
+              "code": "C25299",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Diastolic Blood Pressure"
+            },
+            "standardCodeAliases": []
+          }
+        },
+        {
+          "biomedicalConceptId": "BiomedicalConcept_4",
+          "bcName": "Body Temperature",
+          "bcSynonyms": [
+            "Temperature"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C174446",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_19",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "decimal",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_24",
+                "standardCode": {
+                  "codeId": "Code_112",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_20",
+              "bcPropertyName": "Unit of Temperature",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_4",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_113",
+                    "code": "C42537",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Kelvin"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_25",
+                "standardCode": {
+                  "codeId": "Code_113",
+                  "code": "C42537",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Kelvin"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_21",
+              "bcPropertyName": "Vital Signs Location",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_26",
+                "standardCode": {
+                  "codeId": "Code_115",
+                  "code": "C83088",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Location"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_23",
+            "standardCode": {
+              "codeId": "Code_111",
+              "code": "C174446",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Body Temperature"
+            },
+            "standardCodeAliases": []
+          }
+        }
+      ],
       "bcCategories": [],
       "bcSurrogates": [
         {
@@ -2884,36 +3417,12 @@
         },
         {
           "bcSurrogateId": "BiomedicalConceptSurrogate_5",
-          "bcSurrogateName": "Pulse rate",
-          "bcSurrogateDescription": "Pulse rate",
-          "bcSurrogateReference": ""
-        },
-        {
-          "bcSurrogateId": "BiomedicalConceptSurrogate_6",
-          "bcSurrogateName": "Systolic blood pressure",
-          "bcSurrogateDescription": "Systolic blood pressure",
-          "bcSurrogateReference": ""
-        },
-        {
-          "bcSurrogateId": "BiomedicalConceptSurrogate_7",
-          "bcSurrogateName": "Diastolic blood pressure",
-          "bcSurrogateDescription": "Diastolic blood pressure",
-          "bcSurrogateReference": ""
-        },
-        {
-          "bcSurrogateId": "BiomedicalConceptSurrogate_8",
-          "bcSurrogateName": "Body temperature",
-          "bcSurrogateDescription": "Body temperature",
-          "bcSurrogateReference": ""
-        },
-        {
-          "bcSurrogateId": "BiomedicalConceptSurrogate_9",
           "bcSurrogateName": "Oxygen saturation",
           "bcSurrogateDescription": "Oxygen saturation",
           "bcSurrogateReference": ""
         },
         {
-          "bcSurrogateId": "BiomedicalConceptSurrogate_10",
+          "bcSurrogateId": "BiomedicalConceptSurrogate_6",
           "bcSurrogateName": "NEWS2",
           "bcSurrogateDescription": "NEWS2",
           "bcSurrogateReference": ""

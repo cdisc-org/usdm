@@ -22,8 +22,9 @@ class CDISCBiomedicalConcepts():
     self.package_items = self._get_package_items()
 
   def exists(self, name):
-    if name in self.package_items:
-      return self.package_items[name]
+    name_uc = name.upper() # Avoid case mismatches
+    if name_uc in self.package_items:
+      return self.package_items[name_uc]
     else:
       return None
 
@@ -44,7 +45,8 @@ class CDISCBiomedicalConcepts():
         if 'exampleSet' in item:
           for example in item['exampleSet']:
             term = cdisc_ct_library.preferred_term(example)
-            codes.append(CDISCCT(self.id_manager).code(term['conceptId'], term['preferredTerm']))
+            if term != None:
+              codes.append(CDISCCT(self.id_manager).code(term['conceptId'], term['preferredTerm']))
         bc.bcProperties.append(self._bc_property_as_uasdm(item, codes))
       return bc
 
@@ -62,7 +64,7 @@ class CDISCBiomedicalConcepts():
       raw = requests.get(api_url, headers=self.headers)
       response = raw.json()
       for item in response['_links']['biomedicalConcepts']:
-        results[item['title']] = item
+        results[item['title'].upper()] = item
     return results
     
   def _url(self, relative_url):
