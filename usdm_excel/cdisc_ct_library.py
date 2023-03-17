@@ -49,21 +49,21 @@ class CDISCCTLibrary():
         return None 
 
   def klass_and_attribute(self, klass, attribute, value):
-    print("K&A 1:", klass, attribute)
+    #print("K&A 1:", klass, attribute)
     try:
       concept_id = self._by_klass_attribute[klass][attribute]
       code_list = self._by_code_list[concept_id]
-      print("K&A 2:", code_list)
-      print("K&A 3:", value)
+      #print("K&A 2:", code_list)
+      #print("K&A 3:", value)
       for field in [ 'conceptId', 'preferredTerm', 'submissionValue']:
         result = next((item for item in code_list['terms'] if item[field].upper() == value.upper()), None)
         if result != None:
-          print("K&A 4:", result)
+          #print("K&A 4:", result)
           return result
-      print("K&A 5:")
+      #print("K&A 5:")
       return None
     except Exception as e: 
-      print("K&A 6:", e)
+      #print("K&A 6:", e)
       return None
     
   def _get_ct(self):
