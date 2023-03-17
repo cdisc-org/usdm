@@ -1,48 +1,54 @@
 ---
 packages: 
+- ddfct-2022-12-16
 - sdtmct-2022-12-16
 - protocolct-2022-12-16
-#- ddf-2022-12-16
-#- sdtmct-2022-03-25
-#- protocolct-2022-03-25
 required:
 - C71620
-# - C99077 
-# - C66737
-# - C66736 
-# - C66739
-# - C99076
-# - C174222
-# - C188727
-# - C99079
-# - C127262
-# - C171445
-# - C188728
-# - C188726 
-# - C188725
-# - C188723
-# - C188724
+- C99077 
+- C66737
+- C66736 
+- C66739
+- C99076
+- C174222
+- C188727
+- C99079
+- C127262
+- C171445
+- C188728
+- C188726 
+- C188725
+- C188723
+- C188724
 class:
-  Encounter:
-    encounterContactModes: C171445
-    encounterEnvironmentalSetting: C127262
-  Endpoint:
-    endpointLevel: C188726
-  Objective:
-    objectiveLevel: C188725
-  Organisation:
-    organisationType: C188724
   Study:
-    studyPhase: C66737
     studyType: C99077
-  StudyArm:
-    studyArmDataOriginType: C188727
-    studyArmType: C174222
-  StudyDesign:
-    interventionModel: C99076
-    trialType: C66739
-    studyDesignBlindingSchema: C99999
-  StudyEpoch:
-    studyEpochType: C99079
+    studyPhase: C66737
   StudyProtocolVersion:
     protocolStatus: C188723
+  Organization:
+    organizationType: C188724
+  StudyDesign:
+    trialIntentType: C66736
+  StudyDesign:
+    trialType: C66739
+  StudyDesign:
+    interventionModel: C99076
+  Objective:
+    objectiveLevel: C188725
+  Endpoint:
+    endpointLevel: C188726
+  StudyArm:
+    studyArmDataOriginType: C188727
+  StudyEpoch:
+    studyEpochType: C99079
+  Encounter:
+    encounterType: C188728
+    encounterEnvironmentalSetting: C127262
+    encounterContactMode: C171445
+  StudyDesign:
+    studyDesignBlindingScheme: C66735
+  StudyDesignPopulation:
+    plannedSexOfParticipants: C66732
+  Timing:
+    timingType: C66728

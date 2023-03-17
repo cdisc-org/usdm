@@ -53,15 +53,15 @@ class CDISCCTLibrary():
       if raw.status_code == 200:
         response = raw.json()
         response.pop('_links', None)
-        if c_code == 'C99077':
-          print("Response:", response)
+#        if c_code == 'C99077':
+#          print("Response:", response)
         self._by_code_list[response['conceptId']] = response
         for item in response['terms']:
           self._check_in_and_add(self._by_term, item['conceptId'], response['conceptId'])
           self._check_in_and_add(self._by_submission, item['submissionValue'], response['conceptId'])
           self._check_in_and_add(self._by_pt, item['preferredTerm'], response['conceptId'])
-      else:
-        print("c_code", c_code, api_url, raw.status_code)
+        return
+    print("Failed to find:", c_code)
 
   def _url(self, relative_url):
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
