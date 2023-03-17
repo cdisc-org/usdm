@@ -1,8 +1,9 @@
 ---
+version: "2022-12-16"
 packages: 
-- ddfct-2022-12-16
-- sdtmct-2022-12-16
-- protocolct-2022-12-16
+- ddf
+- sdtm
+- protocol
 required:
 - C71620
 - C99077 
@@ -20,7 +21,7 @@ required:
 - C188725
 - C188723
 - C188724
-class:
+klass:
   Study:
     studyType: C99077
     studyPhase: C66737

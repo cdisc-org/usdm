@@ -29,9 +29,9 @@ class StudySheet(BaseSheet):
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
 
       for index, row in self.sheet.iterrows():
-        study_phase = Alias(self.id_manager).code(self.cdisc_code_cell(self.clean_cell(row, index, "studyPhase")), [])
+        study_phase = Alias(self.id_manager).code(self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell(row, index, "studyPhase")), [])
         study_version = self.clean_cell(row, index, "studyVersion")
-        study_type = self.cdisc_code_cell(self.clean_cell(row, index, "studyType"))
+        study_type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell(row, index, "studyType"))
         study_title = self.clean_cell(row, index, "studyTitle")
         self.study = Study(
           studyId=None, # No Id, will be allocated a UUID

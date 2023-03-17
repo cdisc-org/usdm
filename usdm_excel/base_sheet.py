@@ -69,6 +69,9 @@ class BaseSheet():
         results.append(result)
     return results
 
+  def cdisc_klass_attribute_cell(self, klass, attribute, value):
+    return CDISCCT(self.id_manager).code_for_attribute(klass, attribute, value)
+
   def double_link(self, items, id, prev, next):
     for idx, item in enumerate(items):
       if idx == 0:
