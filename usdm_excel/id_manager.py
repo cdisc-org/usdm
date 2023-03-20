@@ -25,7 +25,9 @@ class IdManager():
       'ResponseCode': 0,
       'InvestigationalIntervention': 0,
       'Indication': 0,
-      'StudyDesignPopulation': 0
+      'StudyDesignPopulation': 0,
+      'Objective': 0,
+      'Endpoint': 0
     }
 
   def build_id(self, klass):

@@ -4,6 +4,7 @@ from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
 from usdm_excel.indications_interventions.indication_interventions_sheet import IndicationsInterventionsSheet
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
+from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.alias import Alias
 from usdm.study import Study
 import traceback
@@ -21,6 +22,7 @@ class StudySheet(BaseSheet):
       self.soa = StudySoASheet(file_path, id_manager)
       self.ii = IndicationsInterventionsSheet(file_path, id_manager)
       self.study_populations = StudyDesignPopulationSheet(file_path, id_manager)
+      self.oe = StudyDesignObjectiveEndpointSheet(file_path, id_manager)
 
       for epoch in self.study_design.epochs:
         epoch.encounterIds = self.soa.epoch_encounter_map(epoch.studyEpochName)
@@ -34,6 +36,7 @@ class StudySheet(BaseSheet):
       study_design.studyIndications = self.ii.indications
       study_design.studyInvestigationalInterventions = self.ii.interventions
       study_design.studyStudyDesignPopulations = self.study_populations.populations
+      study_design.studyObjectives = self.oe.objectives
 
       for index, row in self.sheet.iterrows():
         study_phase = Alias(self.id_manager).code(self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell(row, index, "studyPhase")), [])

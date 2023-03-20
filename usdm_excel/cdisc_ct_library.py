@@ -87,7 +87,7 @@ class CDISCCTLibrary():
       raw = requests.get(api_url, headers=self.__class__.HEADERS)
       if raw.status_code == 200:
         response = raw.json()
-        #if c_code == "C66732":
+        #if c_code == "C188726":
         #  print(response)
         response.pop('_links', None)
         self._by_code_list[response['conceptId']] = response
