@@ -43,6 +43,6 @@ All fields are free text except for <country code>. <country code> is either a t
 | --- | --- | --- |
 | type | The type, either IND for indication or INT for intervention ||
 | description | A free text description for the indication or intervvention ||
-| codes | A set of codes, comma separated | Each code is of the form '<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
+| codes | A set of codes, comma separated | Each code is of the form `<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
 	
 	
