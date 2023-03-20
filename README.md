@@ -18,6 +18,7 @@ The workbook consists of several sheets each with a dedicated purpose.
 ### Study Sheet
 
 | Column Name | Content | Format |
+| --- | --- | --- |
 | studyTitle | The study title | Simple text string |
 | studyVersion | String version | Simple text string |
 | studyType | CDISC code | String in the form<C code>=<decode (preferred term)> |
