@@ -36,10 +36,10 @@ For those cells containing definition where CDISC codes are used the user can en
 | studyIdentifier | The identifier for the study | A text string |
 | organisationAddress | The organisation address | Formated using a pipe delimited form `line|city|district|state|postal_code|<country code>`. All fields are free text except for `<country code>`. `<country code>` is either a two caracter or three character ISO-3166 country code. |
 	
-### indications_interventions sheet
+### Study Design Indications and Interventions Sheet
 	
 | Column Name | Description | Format and Values |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | type | The type, either IND for indication or INT for intervention ||
 | description | A free text description for the indication or intervvention ||
 | codes | A set of codes, comma separated | Each code is of the form `<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
