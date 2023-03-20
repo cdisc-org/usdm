@@ -2196,7 +2196,26 @@
         }
       ],
       "therapeuticAreas": [],
-      "studyEstimands": [],
+      "studyEstimands": [
+        {
+          "estimandId": "Estimand_1",
+          "summaryMeasure": "Survival of all patients",
+          "analysisPopulation": {
+            "analysisPopulationId": "AnalysisPopulation_1",
+            "populationDescription": "ITT"
+          },
+          "treatment": "Indication_2",
+          "variableOfInterest": "Endpoint_1",
+          "intercurrentEvents": [
+            {
+              "intercurrentEventId": "IntercurrentEvent_1",
+              "intercurrentEventName": "termination",
+              "intercurrentEventDescription": "IC Event Description",
+              "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded"
+            }
+          ]
+        }
+      ],
       "encounters": [
         {
           "encounterId": "Encounter_1",

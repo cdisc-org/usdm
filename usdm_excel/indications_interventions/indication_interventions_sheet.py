@@ -1,4 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.cross_ref import cross_references
 import traceback
 import pandas as pd
 from usdm.indication import Indication
@@ -12,14 +13,18 @@ class IndicationsInterventionsSheet(BaseSheet):
       self.indications = []
       self.interventions = []
       for index, row in self.sheet.iterrows():
+        xref = self.clean_cell(row, index, "xref")
         type = self.clean_cell(row, index, "type")
         description = self.clean_cell(row, index, "description")
         codes = self._build_codes(row, index)
         if type.upper() == "IND":
-          self.indications.append(Indication(indicationId=self.id_manager.build_id(Indication), indicationDescription=description, codes=codes))
+          item = Indication(indicationId=self.id_manager.build_id(Indication), indicationDescription=description, codes=codes)
+          self.indications.append(item)
+          cross_references.add(xref, item.indicationId)
         else:
-          self.interventions.append(InvestigationalIntervention(investigationalInterventionId=self.id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes))
-        
+          item = InvestigationalIntervention(investigationalInterventionId=self.id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes)
+          self.interventions.append(item)
+          cross_references.add(xref, item.investigationalInterventionId)        
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()

@@ -1,4 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.cross_ref import cross_references
 import traceback
 import pandas as pd
 from usdm.objective import Objective
@@ -14,8 +15,10 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
+        o_xref = self.clean_cell(row, index, "objectiveXref")
         o_description = self.clean_cell(row, index, "objectiveDescription")
         o_level = cdisc_ct_library.klass_and_attribute('Objective', 'objectiveLevel', self.clean_cell(row, index, "objectiveLevel"))
+        e_xref = self.clean_cell(row, index, "endpointXref")
         e_description = self.clean_cell(row, index, "endpointDescription")
         e_p_description = self.clean_cell(row, index, "endpointPurposeDescription")
         e_level = cdisc_ct_library.klass_and_attribute('Endpoint', 'endpointLevel', self.clean_cell(row, index, "endpointLevel"))
@@ -26,12 +29,14 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             objectiveEndpoints=[]
           )
           self.objectives.append(current)
+          cross_references.add(o_xref, current.objectiveId)
         ep = Endpoint(endpointId=self.id_manager.build_id(Endpoint), 
           endpointDescription=e_description, 
           endpointPurposeDescription=e_p_description, 
           endpointLevel=CDISCCT(self.id_manager).code(code=e_level['conceptId'], decode=e_level['preferredTerm'])
         )  
         current.objectiveEndpoints.append(ep)
+        cross_references.add(e_xref, ep.endpointId)
         
     except Exception as e:
       print("Oops!", e, "occurred.")

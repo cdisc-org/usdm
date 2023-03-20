@@ -27,7 +27,10 @@ class IdManager():
       'Indication': 0,
       'StudyDesignPopulation': 0,
       'Objective': 0,
-      'Endpoint': 0
+      'Endpoint': 0,
+      'IntercurrentEvent': 0,
+      'Estimand': 0,
+      'AnalysisPopulation': 0
     }
 
   def build_id(self, klass):
