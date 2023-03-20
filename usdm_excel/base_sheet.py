@@ -1,6 +1,7 @@
 import pandas as pd
 from usdm_excel.id_manager import IdManager
 from usdm_excel.cdisc_ct import CDISCCT
+from usdm.code import Code
 
 class BaseSheet():
 
@@ -60,6 +61,19 @@ class BaseSheet():
       print("CDISC code error (%s) for data %s" % (e, value))
       return None
 
+  def other_code_cell(self, value):
+    outer_parts = value.split(":")
+    if len(outer_parts) == 2:
+      system = outer_parts[0].strip()
+      inner_parts = outer_parts[1].strip().split("=")
+      if len(inner_parts) == 2:
+        return Code(codeId=self.id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion="", decode=inner_parts[1].strip())
+      else:
+        print("Other code error for data %s, no '=' detected" % (value))
+    else:
+      print("Other code error for data %s, no ':' detected" % (value))
+    return None
+  
   def cdisc_code_set_cell(self, items):
     results = []
     parts = items.split(",")

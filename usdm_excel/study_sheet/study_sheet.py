@@ -2,6 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
+from usdm_excel.indications_interventions.indication_interventions_sheet import IndicationsInterventionsSheet
 from usdm_excel.alias import Alias
 from usdm.study import Study
 import traceback
@@ -17,6 +18,7 @@ class StudySheet(BaseSheet):
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
       self.soa = StudySoASheet(file_path, id_manager)
+      self.ii = IndicationsInterventionsSheet(file_path, id_manager)
 
       for epoch in self.study_design.epochs:
         epoch.encounterIds = self.soa.epoch_encounter_map(epoch.studyEpochName)
@@ -27,6 +29,8 @@ class StudySheet(BaseSheet):
       study_design.activities = self.soa.activities
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
+      study_design.studyIndications = self.ii.indications
+      study_design.studyInvestigationalInterventions = self.ii.interventions
 
       for index, row in self.sheet.iterrows():
         study_phase = Alias(self.id_manager).code(self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell(row, index, "studyPhase")), [])

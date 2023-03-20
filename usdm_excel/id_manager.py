@@ -22,7 +22,9 @@ class IdManager():
       'BiomedicalConceptSurrogate': 0, 
       'BiomedicalConcept': 0,
       'BiomedicalConceptProperty': 0,
-      'ResponseCode': 0 
+      'ResponseCode': 0,
+      'InvestigationalIntervention': 0,
+      'Indication': 0
     }
 
   def build_id(self, klass):
