@@ -3,7 +3,7 @@
   "studyTitle": "Simple Test 1",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_31",
+    "codeId": "Code_33",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
@@ -12,7 +12,7 @@
   "studyPhase": {
     "aliasCodeId": "AliasCode_2",
     "standardCode": {
-      "codeId": "Code_30",
+      "codeId": "Code_32",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -319,7 +319,33 @@
           "plannedSexOfParticipants": []
         }
       ],
-      "studyObjectives": [],
+      "studyObjectives": [
+        {
+          "objectiveId": "Objective_1",
+          "objectiveDescription": "Obj Desc",
+          "objectiveLevel": {
+            "codeId": "Code_30",
+            "code": "C85826",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Trial Primary Objective"
+          },
+          "objectiveEndpoints": [
+            {
+              "endpointId": "Endpoint_1",
+              "endpointDescription": "End Desc",
+              "endpointPurposeDescription": "",
+              "endpointLevel": {
+                "codeId": "Code_31",
+                "code": "C94496",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Primary Endpoint"
+              }
+            }
+          ]
+        }
+      ],
       "studyScheduleTimelines": [
         {
           "scheduleTimelineId": "ScheduleTimeline_1",

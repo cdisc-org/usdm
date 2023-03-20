@@ -3,7 +3,7 @@
   "studyTitle": "Cycles Tests",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_65",
+    "codeId": "Code_67",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
@@ -12,7 +12,7 @@
   "studyPhase": {
     "aliasCodeId": "AliasCode_2",
     "standardCode": {
-      "codeId": "Code_64",
+      "codeId": "Code_66",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -417,7 +417,33 @@
           "plannedSexOfParticipants": []
         }
       ],
-      "studyObjectives": [],
+      "studyObjectives": [
+        {
+          "objectiveId": "Objective_1",
+          "objectiveDescription": "Obj Desc",
+          "objectiveLevel": {
+            "codeId": "Code_64",
+            "code": "C85826",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Trial Primary Objective"
+          },
+          "objectiveEndpoints": [
+            {
+              "endpointId": "Endpoint_1",
+              "endpointDescription": "End Desc",
+              "endpointPurposeDescription": "",
+              "endpointLevel": {
+                "codeId": "Code_65",
+                "code": "C94496",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Primary Endpoint"
+              }
+            }
+          ]
+        }
+      ],
       "studyScheduleTimelines": [
         {
           "scheduleTimelineId": "ScheduleTimeline_1",
