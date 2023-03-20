@@ -18,7 +18,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         min = self.clean_cell(row, index, "plannedMinimumAgeOfParticipants")
         max = self.clean_cell(row, index, "plannedMaximumAgeOfParticipants")
         codes = self._build_codes(row, index)
-        print("POP:", description, number, min, max, codes)
+        #print("POP:", description, number, min, max, codes)
         self.populations.append(
           StudyDesignPopulation(studyDesignPopulationId=self.id_manager.build_id(StudyDesignPopulation), 
             populationDescription=description, 
