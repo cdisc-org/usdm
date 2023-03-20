@@ -12,10 +12,10 @@ class CDISCCTLibrary():
   def __init__(self):
     f = open('data/cdisc_ct_config.yml', 'r')
     self.cdisc_ct_config = yaml.load(f, Loader=yaml.FullLoader)
-    print("CONFIG:", self.cdisc_ct_config)
+    #print("CONFIG:", self.cdisc_ct_config)
     self.version = self.cdisc_ct_config['version']
     self.system = "http://www.cdisc.org"
-    print("CONFIG:", self.version, self.system)
+    #print("CONFIG:", self.version, self.system)
     self.api_key = os.getenv('CDISC_API_KEY')
     self._by_code_list = {}
     self._by_term = {}
@@ -27,7 +27,7 @@ class CDISCCTLibrary():
 
   def submission(self, value):
     if value in list(self._by_submission.keys()):
-      print("S1")
+      #print("S1")
       concept_ids = self._by_submission[value]
       if len(concept_ids) == 0:
         return None
@@ -87,6 +87,8 @@ class CDISCCTLibrary():
       raw = requests.get(api_url, headers=self.__class__.HEADERS)
       if raw.status_code == 200:
         response = raw.json()
+        #if c_code == "C66732":
+        #  print(response)
         response.pop('_links', None)
         self._by_code_list[response['conceptId']] = response
         for item in response['terms']:

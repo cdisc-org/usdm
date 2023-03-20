@@ -24,7 +24,8 @@ class IdManager():
       'BiomedicalConceptProperty': 0,
       'ResponseCode': 0,
       'InvestigationalIntervention': 0,
-      'Indication': 0
+      'Indication': 0,
+      'StudyDesignPopulation': 0
     }
 
   def build_id(self, klass):
