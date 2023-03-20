@@ -2,7 +2,9 @@ from usdm_excel.base_sheet import BaseSheet
 import traceback
 import pandas as pd
 from usdm.study_design_population import StudyDesignPopulation
+from usdm.code import Code
 from usdm_excel.cdisc_ct_library import cdisc_ct_library
+from usdm_excel.cdisc_ct import CDISCCT
 
 class StudyDesignPopulationSheet(BaseSheet):
 
@@ -34,7 +36,7 @@ class StudyDesignPopulationSheet(BaseSheet):
   def _build_codes(self, row, index):
     result = []
     value = self.clean_cell(row, index, "plannedSexOfParticipants")
-    code = cdisc_ct_library.klass_and_attribute('StudyDesignPopulation', 'plannedSexOfParticipants', value)
-    if not code == None:
-      result.append(code)
+    ct = cdisc_ct_library.klass_and_attribute('StudyDesignPopulation', 'plannedSexOfParticipants', value)
+    if not ct == None:
+      result.append(CDISCCT(self.id_manager).code(code=ct['conceptId'], decode=ct['preferredTerm']))
     return result

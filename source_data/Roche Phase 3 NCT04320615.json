@@ -3,7 +3,7 @@
   "studyTitle": "Tocilizumab in Patients With Severe COVID-19 Pneumonia",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_121",
+    "codeId": "Code_122",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
@@ -12,7 +12,7 @@
   "studyPhase": {
     "aliasCodeId": "AliasCode_27",
     "standardCode": {
-      "codeId": "Code_120",
+      "codeId": "Code_121",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -596,7 +596,16 @@
         }
       ],
       "studyInvestigationalInterventions": [],
-      "studyStudyDesignPopulations": [],
+      "studyStudyDesignPopulations": [
+        {
+          "studyDesignPopulationId": "StudyDesignPopulation_1",
+          "populationDescription": "A metastatic cancer population",
+          "plannedNumberOfParticipants": 450,
+          "plannedMaximumAgeOfParticipants": "80 years",
+          "plannedMinimumAgeOfParticipants": "18 years",
+          "plannedSexOfParticipants": []
+        }
+      ],
       "studyObjectives": [],
       "studyScheduleTimelines": [
         {

@@ -3,7 +3,7 @@
   "studyTitle": "Simple Test 1",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_28",
+    "codeId": "Code_31",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
@@ -12,7 +12,7 @@
   "studyPhase": {
     "aliasCodeId": "AliasCode_2",
     "standardCode": {
-      "codeId": "Code_27",
+      "codeId": "Code_30",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -293,7 +293,32 @@
           ]
         }
       ],
-      "studyStudyDesignPopulations": [],
+      "studyStudyDesignPopulations": [
+        {
+          "studyDesignPopulationId": "StudyDesignPopulation_1",
+          "populationDescription": "Pop 1",
+          "plannedNumberOfParticipants": 100,
+          "plannedMaximumAgeOfParticipants": "40 years",
+          "plannedMinimumAgeOfParticipants": "18 years",
+          "plannedSexOfParticipants": []
+        },
+        {
+          "studyDesignPopulationId": "StudyDesignPopulation_2",
+          "populationDescription": "Pop 2",
+          "plannedNumberOfParticipants": 20,
+          "plannedMaximumAgeOfParticipants": "60 years",
+          "plannedMinimumAgeOfParticipants": "18 years",
+          "plannedSexOfParticipants": []
+        },
+        {
+          "studyDesignPopulationId": "StudyDesignPopulation_3",
+          "populationDescription": "Pop 3",
+          "plannedNumberOfParticipants": 20,
+          "plannedMaximumAgeOfParticipants": "70 years",
+          "plannedMinimumAgeOfParticipants": "18 years",
+          "plannedSexOfParticipants": []
+        }
+      ],
       "studyObjectives": [],
       "studyScheduleTimelines": [
         {
