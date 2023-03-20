@@ -10,7 +10,7 @@ class StudyDesignPopulationSheet(BaseSheet):
 
   def __init__(self, file_path, id_manager):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignPopulation'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignPopulations'), id_manager)
       self.populations = []
       for index, row in self.sheet.iterrows():
         description = self.clean_cell(row, index, "populationDescription")

@@ -8,7 +8,7 @@ class IndicationsInterventionsSheet(BaseSheet):
 
   def __init__(self, file_path, id_manager):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='indications_interventions'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignII'), id_manager)
       self.indications = []
       self.interventions = []
       for index, row in self.sheet.iterrows():
