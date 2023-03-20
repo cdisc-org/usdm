@@ -21,8 +21,8 @@ The workbook consists of several sheets each with a dedicated purpose.
 | --- | --- | --- |
 | studyTitle | The study title | Simple text string |
 | studyVersion | String version | Simple text string |
-| studyType | CDISC code | String in the form<C code>=<decode (preferred term)> |
-| studyPhase | CDISC code | String in the form <C code>=<decode (preferred term)> |
+| studyType | CDISC code | String in the form `<C code>=<decode (preferred term)>` |
+| studyPhase | CDISC code | String in the form `<C code>=<decode (preferred term)>` |
 	
 ### Study Identifiers	Sheet
 	
@@ -39,11 +39,10 @@ All fields are free text except for <country code>. <country code> is either a t
 	
 ### indications_interventions sheet
 	
-type	The type, either IND for indication or INT for intervention
-description	A free text description for the indication or intervvention
-codes	"A set of codes, comma separated, of the form <code system>: <code> = <decode>
-
-For example SNOMED: 12345678 = decode"
-	
+| Column Name | Content | Format |
+| --- | --- | --- |
+| type | The type, either IND for indication or INT for intervention ||
+| description | A free text description for the indication or intervvention ||
+| codes | A set of codes, comma separated || Each code is of the form '<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
 	
 	
