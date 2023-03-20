@@ -11,7 +11,3 @@ class Organisation(ApiBaseModel):
   organisationType: Code
   organizationLegalAddress: Union[Address, None] = None
 
-  @classmethod
-  def global_reuse(cls):
-    return True
-
