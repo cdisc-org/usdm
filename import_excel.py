@@ -8,19 +8,15 @@ def save_as_file(raw_json, filename):
     f.write(json.dumps(json_object, indent=2))
 
 studies = [
-#  "Roche Phase 3 NCT04320615",
-#  "cycles_1",
+  "Roche Phase 3 NCT04320615",
+  "cycles_1",
   "simple_1",
-#  "simple_2"
+  "simple_2"
 ]
 
 program_path = os.path.abspath("import_excel.py")
 for study in studies:
+  print ("Processing study %s ..." % (study))
   file_path = os.path.join(os.path.dirname(program_path), "source_data/%s.xlsx" % (study))
   x = USDMExcel(file_path)
   save_as_file(x.to_json(), study)
-
-  #nodes, edges = x.to_nodes_and_edges()
-  #print("JSON:", json)
-  #print("NODES:", nodes)
-  #print("EDGES:", edges)

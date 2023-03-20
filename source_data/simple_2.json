@@ -3,7 +3,7 @@
   "studyTitle": "Simple Test 1",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_22",
+    "codeId": "Code_28",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
@@ -12,7 +12,7 @@
   "studyPhase": {
     "aliasCodeId": "AliasCode_2",
     "standardCode": {
-      "codeId": "Code_21",
+      "codeId": "Code_27",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -223,8 +223,76 @@
           "studyElements": []
         }
       ],
-      "studyIndications": [],
-      "studyInvestigationalInterventions": [],
+      "studyIndications": [
+        {
+          "indicationId": "Indication_1",
+          "indicationDescription": "An indication",
+          "codes": [
+            {
+              "codeId": "Code_21",
+              "code": "12345",
+              "codeSystem": "SNOMED",
+              "codeSystemVersion": "",
+              "decode": "Indication1"
+            }
+          ]
+        },
+        {
+          "indicationId": "Indication_2",
+          "indicationDescription": "An indication",
+          "codes": [
+            {
+              "codeId": "Code_24",
+              "code": "345678",
+              "codeSystem": "SNOMED",
+              "codeSystemVersion": "",
+              "decode": "Indication2"
+            }
+          ]
+        }
+      ],
+      "studyInvestigationalInterventions": [
+        {
+          "investigationalInterventionId": "InvestigationalIntervention_1",
+          "interventionDescription": "An intervention",
+          "codes": [
+            {
+              "codeId": "Code_22",
+              "code": "X",
+              "codeSystem": "ICD-10",
+              "codeSystemVersion": "",
+              "decode": "Y"
+            },
+            {
+              "codeId": "Code_23",
+              "code": "A",
+              "codeSystem": "SNOMED",
+              "codeSystemVersion": "",
+              "decode": "B"
+            }
+          ]
+        },
+        {
+          "investigationalInterventionId": "InvestigationalIntervention_2",
+          "interventionDescription": "An intervention",
+          "codes": [
+            {
+              "codeId": "Code_25",
+              "code": "DD",
+              "codeSystem": "ICD-10",
+              "codeSystemVersion": "",
+              "decode": "CC"
+            },
+            {
+              "codeId": "Code_26",
+              "code": "A",
+              "codeSystem": "SNOMED",
+              "codeSystemVersion": "",
+              "decode": "B"
+            }
+          ]
+        }
+      ],
       "studyStudyDesignPopulations": [],
       "studyObjectives": [],
       "studyScheduleTimelines": [

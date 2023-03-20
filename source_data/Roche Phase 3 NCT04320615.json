@@ -3,7 +3,7 @@
   "studyTitle": "Tocilizumab in Patients With Severe COVID-19 Pneumonia",
   "studyVersion": "1",
   "studyType": {
-    "codeId": "Code_117",
+    "codeId": "Code_121",
     "code": "C98388",
     "codeSystem": "http://www.cdisc.org",
     "codeSystemVersion": "2022-12-16",
@@ -12,7 +12,7 @@
   "studyPhase": {
     "aliasCodeId": "AliasCode_27",
     "standardCode": {
-      "codeId": "Code_116",
+      "codeId": "Code_120",
       "code": "C15602",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
@@ -541,7 +541,60 @@
           "studyElements": []
         }
       ],
-      "studyIndications": [],
+      "studyIndications": [
+        {
+          "indicationId": "Indication_1",
+          "indicationDescription": "Diabetes Type 2",
+          "codes": [
+            {
+              "codeId": "Code_116",
+              "code": "E11",
+              "codeSystem": "ICD-10-CM",
+              "codeSystemVersion": "",
+              "decode": "Type 2 diabetes mellitus"
+            }
+          ]
+        },
+        {
+          "indicationId": "Indication_2",
+          "indicationDescription": "Diabetes Type 2",
+          "codes": [
+            {
+              "codeId": "Code_117",
+              "code": "44054006",
+              "codeSystem": "SNOMED",
+              "codeSystemVersion": "",
+              "decode": "Diabetes mellitus type 2 (disorder)"
+            }
+          ]
+        },
+        {
+          "indicationId": "Indication_3",
+          "indicationDescription": "Diabetes Type 1",
+          "codes": [
+            {
+              "codeId": "Code_118",
+              "code": "E10",
+              "codeSystem": "ICD-10-CM",
+              "codeSystemVersion": "",
+              "decode": "Type 1 diabetes mellitus"
+            }
+          ]
+        },
+        {
+          "indicationId": "Indication_4",
+          "indicationDescription": "Diabetes Type 1",
+          "codes": [
+            {
+              "codeId": "Code_119",
+              "code": "44635009",
+              "codeSystem": "SNOMED",
+              "codeSystemVersion": "",
+              "decode": "Diabetes mellitus type 1 (disorder)"
+            }
+          ]
+        }
+      ],
       "studyInvestigationalInterventions": [],
       "studyStudyDesignPopulations": [],
       "studyObjectives": [],
