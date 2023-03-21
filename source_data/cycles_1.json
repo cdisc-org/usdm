@@ -31,7 +31,7 @@
         "organisationIdentifier": "CT-GOV",
         "organisationName": "ClinicalTrials.gov",
         "organisationType": {
-          "codeId": "Code_3",
+          "codeId": "Code_5",
           "code": "C93453",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
@@ -46,7 +46,7 @@
           "state": "state",
           "postalCode": "postal_code",
           "country": {
-            "codeId": "Code_4",
+            "codeId": "Code_6",
             "code": "GBR",
             "codeSystem": "ISO 3166 1 alpha3",
             "codeSystemVersion": "",
@@ -56,7 +56,42 @@
       }
     }
   ],
-  "studyProtocolVersions": [],
+  "studyProtocolVersions": [
+    {
+      "studyProtocolVersionId": "StudyProtocolVersion_1",
+      "briefTitle": "Something Brief",
+      "officialTitle": "Something Very Official",
+      "publicTitle": "Something Public",
+      "scientificTitle": "Somethign Clever",
+      "protocolVersion": "1",
+      "protocolAmendment": "",
+      "protocolEffectiveDate": "2010-01-01",
+      "protocolStatus": {
+        "codeId": "Code_3",
+        "code": "C85255",
+        "codeSystem": "http://www.cdisc.org",
+        "codeSystemVersion": "2022-12-16",
+        "decode": "Draft"
+      }
+    },
+    {
+      "studyProtocolVersionId": "StudyProtocolVersion_2",
+      "briefTitle": "Something Brief",
+      "officialTitle": "Something Very Official",
+      "publicTitle": "Something Public",
+      "scientificTitle": "Somethign Clever But New",
+      "protocolVersion": "1",
+      "protocolAmendment": "A",
+      "protocolEffectiveDate": "2011-01-01",
+      "protocolStatus": {
+        "codeId": "Code_4",
+        "code": "C85255",
+        "codeSystem": "http://www.cdisc.org",
+        "codeSystemVersion": "2022-12-16",
+        "decode": "Draft"
+      }
+    }
+  ],
   "studyDesigns": [
     {
       "studyDesignId": "StudyDesign_1",
@@ -64,14 +99,14 @@
       "studyDesignDescription": "",
       "trialIntentTypes": [
         {
-          "codeId": "Code_6",
+          "codeId": "Code_8",
           "code": "C15714",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
           "decode": "BASIC SCIENCE"
         },
         {
-          "codeId": "Code_7",
+          "codeId": "Code_9",
           "code": "C139174",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
@@ -80,7 +115,7 @@
       ],
       "trialType": [
         {
-          "codeId": "Code_8",
+          "codeId": "Code_10",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
@@ -88,7 +123,7 @@
         }
       ],
       "interventionModel": {
-        "codeId": "Code_9",
+        "codeId": "Code_11",
         "code": "C12346",
         "codeSystem": "http://www.cdisc.org",
         "codeSystemVersion": "2022-12-16",
@@ -104,7 +139,7 @@
             "studyArmType": "",
             "studyArmDataOriginDescription": "",
             "studyArmDataOriginType": {
-              "codeId": "Code_13",
+              "codeId": "Code_15",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -116,7 +151,7 @@
             "studyEpochName": "Screening",
             "studyEpochDescription": "Screening",
             "studyEpochType": {
-              "codeId": "Code_10",
+              "codeId": "Code_12",
               "code": "C165873",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -139,7 +174,7 @@
             "studyArmType": "",
             "studyArmDataOriginDescription": "",
             "studyArmDataOriginType": {
-              "codeId": "Code_13",
+              "codeId": "Code_15",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -151,7 +186,7 @@
             "studyEpochName": "Treatment",
             "studyEpochDescription": "Treatment",
             "studyEpochType": {
-              "codeId": "Code_11",
+              "codeId": "Code_13",
               "code": "C165873",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -182,7 +217,7 @@
             "studyArmType": "",
             "studyArmDataOriginDescription": "",
             "studyArmDataOriginType": {
-              "codeId": "Code_13",
+              "codeId": "Code_15",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -194,7 +229,7 @@
             "studyEpochName": "Follow-Up",
             "studyEpochDescription": "Follow-Up",
             "studyEpochType": {
-              "codeId": "Code_12",
+              "codeId": "Code_14",
               "code": "C165873",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -217,7 +252,7 @@
             "studyArmType": "",
             "studyArmDataOriginDescription": "",
             "studyArmDataOriginType": {
-              "codeId": "Code_14",
+              "codeId": "Code_16",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -229,7 +264,7 @@
             "studyEpochName": "Screening",
             "studyEpochDescription": "Screening",
             "studyEpochType": {
-              "codeId": "Code_10",
+              "codeId": "Code_12",
               "code": "C165873",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -252,7 +287,7 @@
             "studyArmType": "",
             "studyArmDataOriginDescription": "",
             "studyArmDataOriginType": {
-              "codeId": "Code_14",
+              "codeId": "Code_16",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -264,7 +299,7 @@
             "studyEpochName": "Treatment",
             "studyEpochDescription": "Treatment",
             "studyEpochType": {
-              "codeId": "Code_11",
+              "codeId": "Code_13",
               "code": "C165873",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -295,7 +330,7 @@
             "studyArmType": "",
             "studyArmDataOriginDescription": "",
             "studyArmDataOriginType": {
-              "codeId": "Code_14",
+              "codeId": "Code_16",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -307,7 +342,7 @@
             "studyEpochName": "Follow-Up",
             "studyEpochDescription": "Follow-Up",
             "studyEpochType": {
-              "codeId": "Code_12",
+              "codeId": "Code_14",
               "code": "C165873",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -328,7 +363,7 @@
           "indicationDescription": "An indication",
           "codes": [
             {
-              "codeId": "Code_57",
+              "codeId": "Code_59",
               "code": "12345",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "",
@@ -341,7 +376,7 @@
           "indicationDescription": "An indication",
           "codes": [
             {
-              "codeId": "Code_60",
+              "codeId": "Code_62",
               "code": "345678",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "",
@@ -356,14 +391,14 @@
           "interventionDescription": "An intervention",
           "codes": [
             {
-              "codeId": "Code_58",
+              "codeId": "Code_60",
               "code": "X",
               "codeSystem": "ICD-10",
               "codeSystemVersion": "",
               "decode": "Y"
             },
             {
-              "codeId": "Code_59",
+              "codeId": "Code_61",
               "code": "A",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "",
@@ -376,14 +411,14 @@
           "interventionDescription": "An intervention",
           "codes": [
             {
-              "codeId": "Code_61",
+              "codeId": "Code_63",
               "code": "DD",
               "codeSystem": "ICD-10",
               "codeSystemVersion": "",
               "decode": "CC"
             },
             {
-              "codeId": "Code_62",
+              "codeId": "Code_64",
               "code": "A",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "",
@@ -423,7 +458,7 @@
           "objectiveId": "Objective_1",
           "objectiveDescription": "Obj Desc",
           "objectiveLevel": {
-            "codeId": "Code_66",
+            "codeId": "Code_68",
             "code": "C85826",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -435,7 +470,7 @@
               "endpointDescription": "End Desc",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_67",
+                "codeId": "Code_69",
                 "code": "C94496",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -468,7 +503,7 @@
                 {
                   "timingId": "Timing_1",
                   "timingType": {
-                    "codeId": "Code_15",
+                    "codeId": "Code_17",
                     "code": "NEXT",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -476,7 +511,7 @@
                   },
                   "timingValue": "0..30 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_16",
+                    "codeId": "Code_18",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -504,7 +539,7 @@
                 {
                   "timingId": "Timing_12",
                   "timingType": {
-                    "codeId": "Code_37",
+                    "codeId": "Code_39",
                     "code": "ANCHOR",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -512,7 +547,7 @@
                   },
                   "timingValue": "Day 1",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_38",
+                    "codeId": "Code_40",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -536,7 +571,7 @@
                 {
                   "timingId": "Timing_2",
                   "timingType": {
-                    "codeId": "Code_17",
+                    "codeId": "Code_19",
                     "code": "CYCLE START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -544,7 +579,7 @@
                   },
                   "timingValue": "",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_18",
+                    "codeId": "Code_20",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -571,7 +606,7 @@
                 {
                   "timingId": "Timing_13",
                   "timingType": {
-                    "codeId": "Code_39",
+                    "codeId": "Code_41",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -579,7 +614,7 @@
                   },
                   "timingValue": "15 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_40",
+                    "codeId": "Code_42",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -603,7 +638,7 @@
                 {
                   "timingId": "Timing_3",
                   "timingType": {
-                    "codeId": "Code_19",
+                    "codeId": "Code_21",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -611,7 +646,7 @@
                   },
                   "timingValue": "+14 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_20",
+                    "codeId": "Code_22",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -637,7 +672,7 @@
                 {
                   "timingId": "Timing_14",
                   "timingType": {
-                    "codeId": "Code_41",
+                    "codeId": "Code_43",
                     "code": "ANCHOR",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -645,7 +680,7 @@
                   },
                   "timingValue": "Day 16",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_42",
+                    "codeId": "Code_44",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -669,7 +704,7 @@
                 {
                   "timingId": "Timing_4",
                   "timingType": {
-                    "codeId": "Code_21",
+                    "codeId": "Code_23",
                     "code": "CYCLE START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -677,7 +712,7 @@
                   },
                   "timingValue": "",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_22",
+                    "codeId": "Code_24",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -703,7 +738,7 @@
                 {
                   "timingId": "Timing_15",
                   "timingType": {
-                    "codeId": "Code_43",
+                    "codeId": "Code_45",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -711,7 +746,7 @@
                   },
                   "timingValue": "15 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_44",
+                    "codeId": "Code_46",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -735,7 +770,7 @@
                 {
                   "timingId": "Timing_5",
                   "timingType": {
-                    "codeId": "Code_23",
+                    "codeId": "Code_25",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -743,7 +778,7 @@
                   },
                   "timingValue": "+14 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_24",
+                    "codeId": "Code_26",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -769,7 +804,7 @@
                 {
                   "timingId": "Timing_16",
                   "timingType": {
-                    "codeId": "Code_45",
+                    "codeId": "Code_47",
                     "code": "ANCHOR",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -777,7 +812,7 @@
                   },
                   "timingValue": "Day 31",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_46",
+                    "codeId": "Code_48",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -801,7 +836,7 @@
                 {
                   "timingId": "Timing_6",
                   "timingType": {
-                    "codeId": "Code_25",
+                    "codeId": "Code_27",
                     "code": "CYCLE START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -809,7 +844,7 @@
                   },
                   "timingValue": "",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_26",
+                    "codeId": "Code_28",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -835,7 +870,7 @@
                 {
                   "timingId": "Timing_17",
                   "timingType": {
-                    "codeId": "Code_47",
+                    "codeId": "Code_49",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -843,7 +878,7 @@
                   },
                   "timingValue": "15 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_48",
+                    "codeId": "Code_50",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -867,7 +902,7 @@
                 {
                   "timingId": "Timing_7",
                   "timingType": {
-                    "codeId": "Code_27",
+                    "codeId": "Code_29",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -875,7 +910,7 @@
                   },
                   "timingValue": "+14 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_28",
+                    "codeId": "Code_30",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -899,7 +934,7 @@
                 {
                   "timingId": "Timing_18",
                   "timingType": {
-                    "codeId": "Code_49",
+                    "codeId": "Code_51",
                     "code": "ANCHOR",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -907,7 +942,7 @@
                   },
                   "timingValue": "Day 46",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_50",
+                    "codeId": "Code_52",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -931,7 +966,7 @@
                 {
                   "timingId": "Timing_8",
                   "timingType": {
-                    "codeId": "Code_29",
+                    "codeId": "Code_31",
                     "code": "CYCLE START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -939,7 +974,7 @@
                   },
                   "timingValue": "",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_30",
+                    "codeId": "Code_32",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -965,7 +1000,7 @@
                 {
                   "timingId": "Timing_19",
                   "timingType": {
-                    "codeId": "Code_51",
+                    "codeId": "Code_53",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -973,7 +1008,7 @@
                   },
                   "timingValue": "15 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_52",
+                    "codeId": "Code_54",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -997,7 +1032,7 @@
                 {
                   "timingId": "Timing_20",
                   "timingType": {
-                    "codeId": "Code_53",
+                    "codeId": "Code_55",
                     "code": "ANCHOR",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1005,7 +1040,7 @@
                   },
                   "timingValue": "Day 211",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_54",
+                    "codeId": "Code_56",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1029,7 +1064,7 @@
                 {
                   "timingId": "Timing_9",
                   "timingType": {
-                    "codeId": "Code_31",
+                    "codeId": "Code_33",
                     "code": "CYCLE START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1037,7 +1072,7 @@
                   },
                   "timingValue": "",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_32",
+                    "codeId": "Code_34",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1063,7 +1098,7 @@
                 {
                   "timingId": "Timing_21",
                   "timingType": {
-                    "codeId": "Code_55",
+                    "codeId": "Code_57",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1071,7 +1106,7 @@
                   },
                   "timingValue": "15 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_56",
+                    "codeId": "Code_58",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1114,7 +1149,7 @@
                 {
                   "timingId": "Timing_10",
                   "timingType": {
-                    "codeId": "Code_33",
+                    "codeId": "Code_35",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1122,7 +1157,7 @@
                   },
                   "timingValue": "Within 30 days of last dose",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_34",
+                    "codeId": "Code_36",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1148,7 +1183,7 @@
                 {
                   "timingId": "Timing_11",
                   "timingType": {
-                    "codeId": "Code_35",
+                    "codeId": "Code_37",
                     "code": "PREVIOUS",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1156,7 +1191,7 @@
                   },
                   "timingValue": "+12 weeks",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_36",
+                    "codeId": "Code_38",
                     "code": "START TO START",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1392,7 +1427,7 @@
       "studyDesignBlindingScheme": {
         "aliasCodeId": "AliasCode_2",
         "standardCode": {
-          "codeId": "Code_5",
+          "codeId": "Code_7",
           "code": "C49659",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",

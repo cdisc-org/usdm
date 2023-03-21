@@ -8,8 +8,10 @@ from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_end
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
 from usdm_excel.alias import Alias
 from usdm.study import Study
+from usdm.study_protocol_version import StudyProtocolVersion
 import traceback
 import pandas as pd
+import datetime
 
 class StudySheet(BaseSheet):
 
@@ -20,7 +22,8 @@ class StudySheet(BaseSheet):
   ACRONYM_ROW = 4
   RATIONALE_ROW = 5
 
-  PROTOCOL_START_ROW = 7
+  PROTOCOL_HEADER_ROW = 7
+  PROTOCOL_DATA_ROW = 8
   
   PARAMS_DATA_COL = 1
 
@@ -34,6 +37,7 @@ class StudySheet(BaseSheet):
       self.acronym = None
       self.rationale = None
       self.study = None
+      self.protocols = []
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
@@ -68,7 +72,7 @@ class StudySheet(BaseSheet):
         studyRationale=self.rationale,
         studyAcronym=self.acronym,
         studyIdentifiers=self.study_identifiers.identifiers,
-        studyProtocolVersions=[],
+        studyProtocolVersions=self.protocols,
         studyDesigns=self.study_design.study_designs
       )
     except Exception as e:
@@ -85,6 +89,7 @@ class StudySheet(BaseSheet):
     return self.study
   
   def _process_sheet(self):
+    fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
     for rindex, row in self.sheet.iterrows():
       #print("IDX", rindex)
       if rindex == self.TITLE_ROW:
@@ -106,19 +111,21 @@ class StudySheet(BaseSheet):
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
         #print("6", self.rationale)
-      else:
-        pass
-
-    # for rindex, row in self.sheet.iterrows():
-    #   if rindex >= self.EPOCH_ARMS_START_ROW:
-    #     for cindex in range(0, len(self.sheet.columns)):
-    #       cell = self.clean_cell_unnamed(rindex, cindex)
-    #       if rindex == self.EPOCH_ARMS_START_ROW:
-    #         if cindex != 0:
-    #           epoch = self._add_epoch(cell, cell)
-    #           self.epochs.append(epoch)
-    #       else:
-    #         if cindex == 0:
-    #           self.arms.append(self._add_arm(cell, cell))
-    #         else:
-    #           self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))
+      elif rindex >= self.PROTOCOL_DATA_ROW:
+        #print("7a", rindex)
+        record = {}
+        for cindex in range(0, len(self.sheet.columns)):
+          cell = self.clean_cell_unnamed(rindex, cindex)
+          field = fields[cindex]
+          if field == 'protocolStatus':
+            record[field] = self.cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', cell) 
+          elif field == 'protocolEffectiveDate':
+            record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
+          else:
+            record[field] = cell
+        record['studyProtocolVersionId'] = self.id_manager.build_id(StudyProtocolVersion)
+        #print("7b", record)
+        spv = StudyProtocolVersion(**record)
+        #print("7c", spv)
+        self.protocols.append(spv)
+  

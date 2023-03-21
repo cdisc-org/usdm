@@ -30,7 +30,8 @@ class IdManager():
       'Endpoint': 0,
       'IntercurrentEvent': 0,
       'Estimand': 0,
-      'AnalysisPopulation': 0
+      'AnalysisPopulation': 0,
+      'StudyProtocolVersion': 0
     }
 
   def build_id(self, klass):
