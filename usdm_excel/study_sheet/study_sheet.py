@@ -10,14 +10,31 @@ from usdm_excel.alias import Alias
 from usdm.study import Study
 import traceback
 import pandas as pd
-from usdm_excel.cdisc_ct import CDISCCT
 
 class StudySheet(BaseSheet):
 
+  TITLE_ROW = 0
+  VERSION_ROW = 1
+  TYPE_ROW = 2
+  PHASE_ROW = 3
+  ACRONYM_ROW = 4
+  RATIONALE_ROW = 5
+
+  PROTOCOL_START_ROW = 7
+  
+  PARAMS_DATA_COL = 1
+
   def __init__(self, file_path, id_manager):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study', header=None), id_manager)
+      self.phase = None
+      self.version = None
+      self.type = None
+      self.title = None
+      self.acronym = None
+      self.rationale = None
       self.study = None
+      self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
       self.soa = StudySoASheet(file_path, id_manager)
@@ -41,24 +58,19 @@ class StudySheet(BaseSheet):
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
 
-      for index, row in self.sheet.iterrows():
-        study_phase = Alias(self.id_manager).code(self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell(row, index, "studyPhase")), [])
-        study_version = self.clean_cell(row, index, "studyVersion")
-        study_type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell(row, index, "studyType"))
-        study_title = self.clean_cell(row, index, "studyTitle")
-        self.study = Study(
-          studyId=None, # No Id, will be allocated a UUID
-          studyTitle=study_title,
-          studyVersion=study_version,
-          studyType=study_type,
-          studyPhase=study_phase,
-          businessTherapeuticAreas=[],
-          studyRationale="",
-          studyAcronym="",
-          studyIdentifiers=self.study_identifiers.identifiers,
-          studyProtocolVersions=[],
-          studyDesigns=self.study_design.study_designs
-        )
+      self.study = Study(
+        studyId=None, # No Id, will be allocated a UUID
+        studyTitle=self.title,
+        studyVersion=self.version,
+        studyType=self.type,
+        studyPhase=self.phase,
+        businessTherapeuticAreas=[],
+        studyRationale=self.rationale,
+        studyAcronym=self.acronym,
+        studyIdentifiers=self.study_identifiers.identifiers,
+        studyProtocolVersions=[],
+        studyDesigns=self.study_design.study_designs
+      )
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
@@ -71,3 +83,42 @@ class StudySheet(BaseSheet):
 
   def the_study(self):
     return self.study
+  
+  def _process_sheet(self):
+    for rindex, row in self.sheet.iterrows():
+      print("IDX", rindex)
+      if rindex == self.TITLE_ROW:
+        self.title = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        print("1", self.title)
+      elif rindex == self.VERSION_ROW:
+        self.version = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        print("2", self.version)
+      elif rindex == self.TYPE_ROW:
+        self.type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        print("3", self.type)
+      elif rindex == self.PHASE_ROW:
+        phase = self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.phase = Alias(self.id_manager).code(phase, [])
+        print("4", self.phase)
+      elif rindex == self.ACRONYM_ROW:
+        self.acronym = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        print("5", self.acronym)
+      elif rindex == self.RATIONALE_ROW:
+        self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        print("6", self.rationale)
+      else:
+        pass
+
+    # for rindex, row in self.sheet.iterrows():
+    #   if rindex >= self.EPOCH_ARMS_START_ROW:
+    #     for cindex in range(0, len(self.sheet.columns)):
+    #       cell = self.clean_cell_unnamed(rindex, cindex)
+    #       if rindex == self.EPOCH_ARMS_START_ROW:
+    #         if cindex != 0:
+    #           epoch = self._add_epoch(cell, cell)
+    #           self.epochs.append(epoch)
+    #       else:
+    #         if cindex == 0:
+    #           self.arms.append(self._add_arm(cell, cell))
+    #         else:
+    #           self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))

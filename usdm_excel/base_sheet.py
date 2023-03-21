@@ -24,7 +24,7 @@ class BaseSheet():
       if pd.isnull(self.sheet.iloc[rindex, cindex]):
         return ""
       else:
-        return self.sheet.iloc[rindex, cindex].strip()
+        return str(self.sheet.iloc[rindex, cindex]).strip()
     except Exception as e:
       print("Clean cell unnamed error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
       return ""
