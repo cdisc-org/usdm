@@ -18,13 +18,33 @@ For those cells containing definition where CDISC codes are used the user can en
 
 ### Study Sheet
 
-| Column Name | Description | Format and Values |
+The study sheet consists of two parts, the upper section for those single values and then a section for the potentially repeating protocol version informaion
+
+For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
+
+| Row Name | Description | Format and Values |
 | :--- | :--- | :--- |
 | studyTitle | The study title | Simple text string |
 | studyVersion | String version | Simple text string |
 | studyType | CDISC code | String. Either the C Code, the submission value or the preferred term for the term desired. |
 | studyPhase | CDISC code | String. Either the C Code, the submission value or the preferred term for the term desired.  |
-	
+| studyAcronym | The study acronym | |
+| studyRationale | the study rationale | |
+| businessTherapeuticAreas | The set of business therapuetic area codes | Each code is of the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`. Likely filled with sponsor terms |
+
+For each Study Protocol Version a row containing:
+
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| briefTitle | The brief title | Simple text string | 
+| officialTitle	 | The officiall title | Simple text string| 
+| publicTitle	 | The public title | Simple text string| 
+| scientificTitle	 | The scientific title | Simple text string| 
+| protocolVersion	 | The version of the protocol | Simple text string | 
+| protocolAmendment	 |The version amendment | Simple text string | 
+| protocolEffectiveDate	 | Effective date of the protocol | Date field, dd/mm/yyyy | 
+| protocolStatus | | String. Either the C Code, the submission value or the preferred term for the term desired.  | 
+
 ### Study Identifiers	Sheet
 	
 | Column Name | Description | Format and Values |
