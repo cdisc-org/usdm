@@ -86,26 +86,26 @@ class StudySheet(BaseSheet):
   
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
-      print("IDX", rindex)
+      #print("IDX", rindex)
       if rindex == self.TITLE_ROW:
         self.title = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        print("1", self.title)
+        #print("1", self.title)
       elif rindex == self.VERSION_ROW:
         self.version = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        print("2", self.version)
+        #print("2", self.version)
       elif rindex == self.TYPE_ROW:
         self.type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
-        print("3", self.type)
+        #print("3", self.type)
       elif rindex == self.PHASE_ROW:
         phase = self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
         self.phase = Alias(self.id_manager).code(phase, [])
-        print("4", self.phase)
+        #print("4", self.phase)
       elif rindex == self.ACRONYM_ROW:
         self.acronym = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        print("5", self.acronym)
+        #print("5", self.acronym)
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        print("6", self.rationale)
+        #print("6", self.rationale)
       else:
         pass
 
