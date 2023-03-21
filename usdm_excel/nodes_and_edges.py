@@ -79,7 +79,7 @@ class NodesAndEdges():
             for index in indexes:
               self.edges.append( {'id': self.edge_index, 'start': this_node_index, 'end': index, 'properties': {'label': key}})
               self.edge_index += 1
-      properties['node_type'] = klass
+      #properties['node_type'] = klass
       properties['label'] = node[id_field]
       self.nodes.append({ 'id': this_node_index, 'properties': properties })
       #print("XXX:", id_field, properties)
