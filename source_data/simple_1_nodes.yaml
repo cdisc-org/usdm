@@ -22,25 +22,43 @@
     aliasCodeId: AliasCode_1
     label: AliasCode_1
     standardCodeAliases: []
-- id: 7
+- id: 5
   properties:
     _type: Code
-    code: C93453
-    codeId: Code_5
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Study Registry
-    label: Code_5
+    code: VAC
+    codeId: Code_3
+    codeSystem: SPONSOR
+    codeSystemVersion: ''
+    decode: Vacines Group
+    label: Code_3
+- id: 6
+  properties:
+    _type: Code
+    code: REG
+    codeId: Code_4
+    codeSystem: SPONSOR
+    codeSystemVersion: ''
+    decode: Regulatory
+    label: Code_4
 - id: 9
   properties:
     _type: Code
+    code: C93453
+    codeId: Code_7
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Study Registry
+    label: Code_7
+- id: 11
+  properties:
+    _type: Code
     code: GBR
-    codeId: Code_6
+    codeId: Code_8
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: ''
     decode: United Kingdom of Great Britain and Northern Ireland
-    label: Code_6
-- id: 8
+    label: Code_8
+- id: 10
   properties:
     _type: Address
     addressId: Address_1
@@ -52,7 +70,7 @@
     state: state
     text: line, city, district, state, postal_code, United Kingdom of Great Britain
       and Northern Ireland
-- id: 6
+- id: 8
   properties:
     _type: Organisation
     label: Organisation_1
@@ -60,31 +78,31 @@
     organisationIdentifier: CT-GOV
     organisationIdentifierScheme: USGOV
     organisationName: ClinicalTrials.gov
-- id: 5
+- id: 7
   properties:
     _type: StudyIdentifier
     label: StudyIdentifier_1
     studyIdentifier: NCT12345678
     studyIdentifierId: StudyIdentifier_1
-- id: 12
-  properties:
-    _type: Code
-    code: C70793
-    codeId: Code_7
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Clinical Study Sponsor
-    label: Code_7
 - id: 14
   properties:
     _type: Code
+    code: C70793
+    codeId: Code_9
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Clinical Study Sponsor
+    label: Code_9
+- id: 16
+  properties:
+    _type: Code
     code: FRA
-    codeId: Code_8
+    codeId: Code_10
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: ''
     decode: France
-    label: Code_8
-- id: 13
+    label: Code_10
+- id: 15
   properties:
     _type: Address
     addressId: Address_2
@@ -95,7 +113,7 @@
     postalCode: '12345'
     state: In a big state
     text: Somewhere, In a City, In a District, In a big state, 12345, France
-- id: 11
+- id: 13
   properties:
     _type: Organisation
     label: Organisation_2
@@ -103,22 +121,22 @@
     organisationIdentifier: '123456789'
     organisationIdentifierScheme: DUNS
     organisationName: ACME Pharma
-- id: 10
+- id: 12
   properties:
     _type: StudyIdentifier
     label: StudyIdentifier_2
     studyIdentifier: AP1234
     studyIdentifierId: StudyIdentifier_2
-- id: 16
+- id: 18
   properties:
     _type: Code
     code: C85255
-    codeId: Code_3
+    codeId: Code_5
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Draft
-    label: Code_3
-- id: 15
+    label: Code_5
+- id: 17
   properties:
     _type: StudyProtocolVersion
     briefTitle: Something Brief
@@ -130,16 +148,16 @@
     publicTitle: Something Public
     scientificTitle: Somethign Clever
     studyProtocolVersionId: StudyProtocolVersion_1
-- id: 18
+- id: 20
   properties:
     _type: Code
     code: C85255
-    codeId: Code_4
+    codeId: Code_6
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Draft
-    label: Code_4
-- id: 17
+    label: Code_6
+- id: 19
   properties:
     _type: StudyProtocolVersion
     briefTitle: Something Brief
@@ -151,52 +169,52 @@
     publicTitle: Something Public
     scientificTitle: Somethign Clever But New
     studyProtocolVersionId: StudyProtocolVersion_2
-- id: 20
-  properties:
-    _type: Code
-    code: C15714
-    codeId: Code_10
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: BASIC SCIENCE
-    label: Code_10
-- id: 21
-  properties:
-    _type: Code
-    code: C139174
-    codeId: Code_11
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: DEVICE FEASIBILITY
-    label: Code_11
 - id: 22
   properties:
     _type: Code
-    code: C12345
+    code: C15714
     codeId: Code_12
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
-    decode: Observational
+    decode: BASIC SCIENCE
     label: Code_12
 - id: 23
   properties:
     _type: Code
-    code: C12346
+    code: C139174
     codeId: Code_13
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
-    decode: None
+    decode: DEVICE FEASIBILITY
     label: Code_13
-- id: 26
+- id: 24
+  properties:
+    _type: Code
+    code: C12345
+    codeId: Code_14
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Observational
+    label: Code_14
+- id: 25
+  properties:
+    _type: Code
+    code: C12346
+    codeId: Code_15
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: None
+    label: Code_15
+- id: 28
   properties:
     _type: Code
     code: C188866
-    codeId: Code_18
+    codeId: Code_20
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Data Generated Within Study
-    label: Code_18
-- id: 25
+    label: Code_20
+- id: 27
   properties:
     _type: StudyArm
     label: StudyArm_1
@@ -205,55 +223,7 @@
     studyArmId: StudyArm_1
     studyArmName: Active
     studyArmType: ''
-- id: 28
-  properties:
-    _type: Code
-    code: C165873
-    codeId: Code_14
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: OBSERVATION
-    label: Code_14
-- id: 27
-  properties:
-    _type: StudyEpoch
-    label: StudyEpoch_1
-    nextStudyEpochId: StudyEpoch_2
-    previousStudyEpochId: null
-    studyEpochDescription: Screening
-    studyEpochId: StudyEpoch_1
-    studyEpochName: Screening
-- id: 24
-  properties:
-    _type: StudyCell
-    label: StudyCell_1
-    studyCellId: StudyCell_1
-    studyElements: []
-- id: 31
-  properties:
-    _type: Code
-    code: C165873
-    codeId: Code_15
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: OBSERVATION
-    label: Code_15
 - id: 30
-  properties:
-    _type: StudyEpoch
-    label: StudyEpoch_2
-    nextStudyEpochId: StudyEpoch_3
-    previousStudyEpochId: StudyEpoch_1
-    studyEpochDescription: Baseline
-    studyEpochId: StudyEpoch_2
-    studyEpochName: Baseline
-- id: 29
-  properties:
-    _type: StudyCell
-    label: StudyCell_2
-    studyCellId: StudyCell_2
-    studyElements: []
-- id: 34
   properties:
     _type: Code
     code: C165873
@@ -262,22 +232,22 @@
     codeSystemVersion: '2022-12-16'
     decode: OBSERVATION
     label: Code_16
-- id: 33
+- id: 29
   properties:
     _type: StudyEpoch
-    label: StudyEpoch_3
-    nextStudyEpochId: StudyEpoch_4
-    previousStudyEpochId: StudyEpoch_2
-    studyEpochDescription: Treatment
-    studyEpochId: StudyEpoch_3
-    studyEpochName: Treatment
-- id: 32
+    label: StudyEpoch_1
+    nextStudyEpochId: StudyEpoch_2
+    previousStudyEpochId: null
+    studyEpochDescription: Screening
+    studyEpochId: StudyEpoch_1
+    studyEpochName: Screening
+- id: 26
   properties:
     _type: StudyCell
-    label: StudyCell_3
-    studyCellId: StudyCell_3
+    label: StudyCell_1
+    studyCellId: StudyCell_1
     studyElements: []
-- id: 37
+- id: 33
   properties:
     _type: Code
     code: C165873
@@ -286,7 +256,55 @@
     codeSystemVersion: '2022-12-16'
     decode: OBSERVATION
     label: Code_17
+- id: 32
+  properties:
+    _type: StudyEpoch
+    label: StudyEpoch_2
+    nextStudyEpochId: StudyEpoch_3
+    previousStudyEpochId: StudyEpoch_1
+    studyEpochDescription: Baseline
+    studyEpochId: StudyEpoch_2
+    studyEpochName: Baseline
+- id: 31
+  properties:
+    _type: StudyCell
+    label: StudyCell_2
+    studyCellId: StudyCell_2
+    studyElements: []
 - id: 36
+  properties:
+    _type: Code
+    code: C165873
+    codeId: Code_18
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: OBSERVATION
+    label: Code_18
+- id: 35
+  properties:
+    _type: StudyEpoch
+    label: StudyEpoch_3
+    nextStudyEpochId: StudyEpoch_4
+    previousStudyEpochId: StudyEpoch_2
+    studyEpochDescription: Treatment
+    studyEpochId: StudyEpoch_3
+    studyEpochName: Treatment
+- id: 34
+  properties:
+    _type: StudyCell
+    label: StudyCell_3
+    studyCellId: StudyCell_3
+    studyElements: []
+- id: 39
+  properties:
+    _type: Code
+    code: C165873
+    codeId: Code_19
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: OBSERVATION
+    label: Code_19
+- id: 38
   properties:
     _type: StudyEpoch
     label: StudyEpoch_4
@@ -295,22 +313,22 @@
     studyEpochDescription: Follow-Up
     studyEpochId: StudyEpoch_4
     studyEpochName: Follow-Up
-- id: 35
+- id: 37
   properties:
     _type: StudyCell
     label: StudyCell_4
     studyCellId: StudyCell_4
     studyElements: []
-- id: 40
+- id: 42
   properties:
     _type: Code
     code: C188866
-    codeId: Code_19
+    codeId: Code_21
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Data Generated Within Study
-    label: Code_19
-- id: 39
+    label: Code_21
+- id: 41
   properties:
     _type: StudyArm
     label: StudyArm_2
@@ -319,109 +337,109 @@
     studyArmId: StudyArm_2
     studyArmName: Placebo
     studyArmType: ''
-- id: 38
+- id: 40
   properties:
     _type: StudyCell
     label: StudyCell_5
     studyCellId: StudyCell_5
     studyElements: []
-- id: 41
+- id: 43
   properties:
     _type: StudyCell
     label: StudyCell_6
     studyCellId: StudyCell_6
     studyElements: []
-- id: 42
+- id: 44
   properties:
     _type: StudyCell
     label: StudyCell_7
     studyCellId: StudyCell_7
     studyElements: []
-- id: 43
+- id: 45
   properties:
     _type: StudyCell
     label: StudyCell_8
     studyCellId: StudyCell_8
     studyElements: []
-- id: 45
+- id: 47
   properties:
     _type: Code
     code: '12345'
-    codeId: Code_36
+    codeId: Code_38
     codeSystem: SNOMED
     codeSystemVersion: ''
     decode: Indication1
-    label: Code_36
-- id: 44
+    label: Code_38
+- id: 46
   properties:
     _type: Indication
     indicationDescription: An indication
     indicationId: Indication_1
     label: Indication_1
-- id: 47
+- id: 49
   properties:
     _type: Code
     code: '345678'
-    codeId: Code_39
+    codeId: Code_41
     codeSystem: SNOMED
     codeSystemVersion: ''
     decode: Indication2
-    label: Code_39
-- id: 46
+    label: Code_41
+- id: 48
   properties:
     _type: Indication
     indicationDescription: An indication
     indicationId: Indication_2
     label: Indication_2
-- id: 49
+- id: 51
   properties:
     _type: Code
     code: X
-    codeId: Code_37
+    codeId: Code_39
     codeSystem: ICD-10
     codeSystemVersion: ''
     decode: Y
-    label: Code_37
-- id: 50
+    label: Code_39
+- id: 52
   properties:
     _type: Code
     code: A
-    codeId: Code_38
+    codeId: Code_40
     codeSystem: SNOMED
     codeSystemVersion: ''
     decode: B
-    label: Code_38
-- id: 48
+    label: Code_40
+- id: 50
   properties:
     _type: InvestigationalIntervention
     interventionDescription: An intervention
     investigationalInterventionId: InvestigationalIntervention_1
     label: InvestigationalIntervention_1
-- id: 52
+- id: 54
   properties:
     _type: Code
     code: DD
-    codeId: Code_40
+    codeId: Code_42
     codeSystem: ICD-10
     codeSystemVersion: ''
     decode: CC
-    label: Code_40
-- id: 53
+    label: Code_42
+- id: 55
   properties:
     _type: Code
     code: A
-    codeId: Code_41
+    codeId: Code_43
     codeSystem: SNOMED
     codeSystemVersion: ''
     decode: B
-    label: Code_41
-- id: 51
+    label: Code_43
+- id: 53
   properties:
     _type: InvestigationalIntervention
     interventionDescription: An intervention
     investigationalInterventionId: InvestigationalIntervention_2
     label: InvestigationalIntervention_2
-- id: 54
+- id: 56
   properties:
     _type: StudyDesignPopulation
     label: StudyDesignPopulation_1
@@ -431,7 +449,7 @@
     plannedSexOfParticipants: []
     populationDescription: Pop 1
     studyDesignPopulationId: StudyDesignPopulation_1
-- id: 55
+- id: 57
   properties:
     _type: StudyDesignPopulation
     label: StudyDesignPopulation_2
@@ -441,7 +459,7 @@
     plannedSexOfParticipants: []
     populationDescription: Pop 2
     studyDesignPopulationId: StudyDesignPopulation_2
-- id: 56
+- id: 58
   properties:
     _type: StudyDesignPopulation
     label: StudyDesignPopulation_3
@@ -451,25 +469,25 @@
     plannedSexOfParticipants: []
     populationDescription: Pop 3
     studyDesignPopulationId: StudyDesignPopulation_3
-- id: 58
-  properties:
-    _type: Code
-    code: C85826
-    codeId: Code_45
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Trial Primary Objective
-    label: Code_45
 - id: 60
   properties:
     _type: Code
+    code: C85826
+    codeId: Code_47
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Trial Primary Objective
+    label: Code_47
+- id: 62
+  properties:
+    _type: Code
     code: C94496
-    codeId: Code_46
+    codeId: Code_48
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Primary Endpoint
-    label: Code_46
-- id: 59
+    label: Code_48
+- id: 61
   properties:
     _type: Endpoint
     endpointDescription: Clinical status assessed using a 7-category ordinal scale
@@ -477,7 +495,7 @@
     endpointId: Endpoint_1
     endpointPurposeDescription: ''
     label: Endpoint_1
-- id: 57
+- id: 59
   properties:
     _type: Objective
     label: Objective_1
@@ -485,50 +503,16 @@
       the efficacy of TCZ compared with placebo in combination with SOC for the treatment
       of severe COVID-19 pneumonia
     objectiveId: Objective_1
-- id: 62
-  properties:
-    _type: Code
-    code: C85827
-    codeId: Code_47
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Trial Secondary Objective
-    label: Code_47
 - id: 64
   properties:
     _type: Code
-    code: C139173
-    codeId: Code_48
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Secondary Endpoint
-    label: Code_48
-- id: 63
-  properties:
-    _type: Endpoint
-    endpointDescription: Time to clinical improvement (TTCI) defined as a National
-      Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours
-    endpointId: Endpoint_2
-    endpointPurposeDescription: ''
-    label: Endpoint_2
-- id: 66
-  properties:
-    _type: Code
-    code: C139173
+    code: C85827
     codeId: Code_49
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
-    decode: Secondary Endpoint
+    decode: Trial Secondary Objective
     label: Code_49
-- id: 65
-  properties:
-    _type: Endpoint
-    endpointDescription: Time to improvement of at least 2 categories relative to
-      baseline on a 7-category ordinal scale of clinical status
-    endpointId: Endpoint_3
-    endpointPurposeDescription: ''
-    label: Endpoint_3
-- id: 68
+- id: 66
   properties:
     _type: Code
     code: C139173
@@ -537,14 +521,15 @@
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     label: Code_50
-- id: 67
+- id: 65
   properties:
     _type: Endpoint
-    endpointDescription: Incidence of mechanical ventilation
-    endpointId: Endpoint_4
+    endpointDescription: Time to clinical improvement (TTCI) defined as a National
+      Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours
+    endpointId: Endpoint_2
     endpointPurposeDescription: ''
-    label: Endpoint_4
-- id: 70
+    label: Endpoint_2
+- id: 68
   properties:
     _type: Code
     code: C139173
@@ -553,14 +538,15 @@
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     label: Code_51
-- id: 69
+- id: 67
   properties:
     _type: Endpoint
-    endpointDescription: Ventilator-free days to Day 28
-    endpointId: Endpoint_5
+    endpointDescription: Time to improvement of at least 2 categories relative to
+      baseline on a 7-category ordinal scale of clinical status
+    endpointId: Endpoint_3
     endpointPurposeDescription: ''
-    label: Endpoint_5
-- id: 72
+    label: Endpoint_3
+- id: 70
   properties:
     _type: Code
     code: C139173
@@ -569,14 +555,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     label: Code_52
-- id: 71
+- id: 69
   properties:
     _type: Endpoint
-    endpointDescription: Incidence of intensive care unit (ICU) stay
-    endpointId: Endpoint_6
+    endpointDescription: Incidence of mechanical ventilation
+    endpointId: Endpoint_4
     endpointPurposeDescription: ''
-    label: Endpoint_6
-- id: 74
+    label: Endpoint_4
+- id: 72
   properties:
     _type: Code
     code: C139173
@@ -585,14 +571,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     label: Code_53
-- id: 73
+- id: 71
   properties:
     _type: Endpoint
-    endpointDescription: Duration of ICU stay
-    endpointId: Endpoint_7
+    endpointDescription: Ventilator-free days to Day 28
+    endpointId: Endpoint_5
     endpointPurposeDescription: ''
-    label: Endpoint_7
-- id: 76
+    label: Endpoint_5
+- id: 74
   properties:
     _type: Code
     code: C139173
@@ -601,7 +587,39 @@
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     label: Code_54
+- id: 73
+  properties:
+    _type: Endpoint
+    endpointDescription: Incidence of intensive care unit (ICU) stay
+    endpointId: Endpoint_6
+    endpointPurposeDescription: ''
+    label: Endpoint_6
+- id: 76
+  properties:
+    _type: Code
+    code: C139173
+    codeId: Code_55
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Secondary Endpoint
+    label: Code_55
 - id: 75
+  properties:
+    _type: Endpoint
+    endpointDescription: Duration of ICU stay
+    endpointId: Endpoint_7
+    endpointPurposeDescription: ''
+    label: Endpoint_7
+- id: 78
+  properties:
+    _type: Code
+    code: C139173
+    codeId: Code_56
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Secondary Endpoint
+    label: Code_56
+- id: 77
   properties:
     _type: Endpoint
     endpointDescription: Time to clinical failure, defined as the time to death, mechanical
@@ -611,41 +629,7 @@
     endpointId: Endpoint_8
     endpointPurposeDescription: ''
     label: Endpoint_8
-- id: 78
-  properties:
-    _type: Code
-    code: C139173
-    codeId: Code_55
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Secondary Endpoint
-    label: Code_55
-- id: 77
-  properties:
-    _type: Endpoint
-    endpointDescription: Mortality rate at Days 7, 14, 21, 28, and 60
-    endpointId: Endpoint_9
-    endpointPurposeDescription: ''
-    label: Endpoint_9
 - id: 80
-  properties:
-    _type: Code
-    code: C139173
-    codeId: Code_56
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Secondary Endpoint
-    label: Code_56
-- id: 79
-  properties:
-    _type: Endpoint
-    endpointDescription: "Time to hospital discharge or \u201Cready for discharge\u201D\
-      \ (as evidenced by normal body temperature and respiratory rate, and stable\
-      \ oxygen saturation on ambient air or <= 2L supplemental oxygen)"
-    endpointId: Endpoint_10
-    endpointPurposeDescription: ''
-    label: Endpoint_10
-- id: 82
   properties:
     _type: Code
     code: C139173
@@ -654,7 +638,41 @@
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     label: Code_57
+- id: 79
+  properties:
+    _type: Endpoint
+    endpointDescription: Mortality rate at Days 7, 14, 21, 28, and 60
+    endpointId: Endpoint_9
+    endpointPurposeDescription: ''
+    label: Endpoint_9
+- id: 82
+  properties:
+    _type: Code
+    code: C139173
+    codeId: Code_58
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Secondary Endpoint
+    label: Code_58
 - id: 81
+  properties:
+    _type: Endpoint
+    endpointDescription: "Time to hospital discharge or \u201Cready for discharge\u201D\
+      \ (as evidenced by normal body temperature and respiratory rate, and stable\
+      \ oxygen saturation on ambient air or <= 2L supplemental oxygen)"
+    endpointId: Endpoint_10
+    endpointPurposeDescription: ''
+    label: Endpoint_10
+- id: 84
+  properties:
+    _type: Code
+    code: C139173
+    codeId: Code_59
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Secondary Endpoint
+    label: Code_59
+- id: 83
   properties:
     _type: Endpoint
     endpointDescription: "Time to recovery, defined as discharged or \u201Cready for\
@@ -665,23 +683,23 @@
     endpointId: Endpoint_11
     endpointPurposeDescription: ''
     label: Endpoint_11
-- id: 84
+- id: 86
   properties:
     _type: Code
     code: C139173
-    codeId: Code_58
+    codeId: Code_60
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
-    label: Code_58
-- id: 83
+    label: Code_60
+- id: 85
   properties:
     _type: Endpoint
     endpointDescription: Duration of supplemental oxygen
     endpointId: Endpoint_12
     endpointPurposeDescription: ''
     label: Endpoint_12
-- id: 61
+- id: 63
   properties:
     _type: Objective
     label: Objective_2
@@ -689,46 +707,12 @@
       the efficacy of TCZ compared with placebo in combination with SOC for the treatment
       of severe COVID-19 pneumonia
     objectiveId: Objective_2
-- id: 86
+- id: 88
   properties:
     _type: ScheduleTimelineExit
     label: ScheduleTimelineExit_1
     scheduleTimelineExitId: ScheduleTimelineExit_1
-- id: 89
-  properties:
-    _type: Code
-    code: NEXT
-    codeId: Code_20
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: next
-    label: Code_20
-- id: 90
-  properties:
-    _type: Code
-    code: START TO START
-    codeId: Code_21
-    codeSystem: http://www.cdisc.org
-    codeSystemVersion: '2022-12-16'
-    decode: Start to start
-    label: Code_21
-- id: 88
-  properties:
-    _type: Timing
-    label: Timing_1
-    timingId: Timing_1
-    timingValue: 0..2 Days
-    timingWindow: ''
-- id: 87
-  properties:
-    _type: ScheduledActivityInstance
-    label: ScheduledActivityInstance_1
-    scheduleSequenceNumber: 0
-    scheduleTimelineExitId: ''
-    scheduledInstanceId: ScheduledActivityInstance_1
-    scheduledInstanceTimelineId: ''
-    scheduledInstanceType: 1
-- id: 93
+- id: 91
   properties:
     _type: Code
     code: NEXT
@@ -737,7 +721,7 @@
     codeSystemVersion: '2022-12-16'
     decode: next
     label: Code_22
-- id: 94
+- id: 92
   properties:
     _type: Code
     code: START TO START
@@ -746,32 +730,32 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_23
-- id: 92
+- id: 90
   properties:
     _type: Timing
-    label: Timing_2
-    timingId: Timing_2
-    timingValue: Pre Dose
+    label: Timing_1
+    timingId: Timing_1
+    timingValue: 0..2 Days
     timingWindow: ''
-- id: 91
+- id: 89
   properties:
     _type: ScheduledActivityInstance
-    label: ScheduledActivityInstance_2
+    label: ScheduledActivityInstance_1
     scheduleSequenceNumber: 0
     scheduleTimelineExitId: ''
-    scheduledInstanceId: ScheduledActivityInstance_2
+    scheduledInstanceId: ScheduledActivityInstance_1
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 97
+- id: 95
   properties:
     _type: Code
-    code: ANCHOR
+    code: NEXT
     codeId: Code_24
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
-    decode: anchor
+    decode: next
     label: Code_24
-- id: 98
+- id: 96
   properties:
     _type: Code
     code: START TO START
@@ -780,32 +764,32 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_25
-- id: 96
+- id: 94
   properties:
     _type: Timing
-    label: Timing_3
-    timingId: Timing_3
-    timingValue: ''
+    label: Timing_2
+    timingId: Timing_2
+    timingValue: Pre Dose
     timingWindow: ''
-- id: 95
+- id: 93
   properties:
     _type: ScheduledActivityInstance
-    label: ScheduledActivityInstance_3
+    label: ScheduledActivityInstance_2
     scheduleSequenceNumber: 0
     scheduleTimelineExitId: ''
-    scheduledInstanceId: ScheduledActivityInstance_3
+    scheduledInstanceId: ScheduledActivityInstance_2
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 101
+- id: 99
   properties:
     _type: Code
-    code: PREVIOUS
+    code: ANCHOR
     codeId: Code_26
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
-    decode: previous
+    decode: anchor
     label: Code_26
-- id: 102
+- id: 100
   properties:
     _type: Code
     code: START TO START
@@ -814,23 +798,23 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_27
-- id: 100
+- id: 98
   properties:
     _type: Timing
-    label: Timing_4
-    timingId: Timing_4
-    timingValue: +24 Hours
+    label: Timing_3
+    timingId: Timing_3
+    timingValue: ''
     timingWindow: ''
-- id: 99
+- id: 97
   properties:
     _type: ScheduledActivityInstance
-    label: ScheduledActivityInstance_4
+    label: ScheduledActivityInstance_3
     scheduleSequenceNumber: 0
     scheduleTimelineExitId: ''
-    scheduledInstanceId: ScheduledActivityInstance_4
+    scheduledInstanceId: ScheduledActivityInstance_3
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 105
+- id: 103
   properties:
     _type: Code
     code: PREVIOUS
@@ -839,7 +823,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_28
-- id: 106
+- id: 104
   properties:
     _type: Code
     code: START TO START
@@ -848,14 +832,48 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_29
-- id: 104
+- id: 102
+  properties:
+    _type: Timing
+    label: Timing_4
+    timingId: Timing_4
+    timingValue: +24 Hours
+    timingWindow: ''
+- id: 101
+  properties:
+    _type: ScheduledActivityInstance
+    label: ScheduledActivityInstance_4
+    scheduleSequenceNumber: 0
+    scheduleTimelineExitId: ''
+    scheduledInstanceId: ScheduledActivityInstance_4
+    scheduledInstanceTimelineId: ''
+    scheduledInstanceType: 1
+- id: 107
+  properties:
+    _type: Code
+    code: PREVIOUS
+    codeId: Code_30
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: previous
+    label: Code_30
+- id: 108
+  properties:
+    _type: Code
+    code: START TO START
+    codeId: Code_31
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Start to start
+    label: Code_31
+- id: 106
   properties:
     _type: Timing
     label: Timing_5
     timingId: Timing_5
     timingValue: +7 Days
     timingWindow: ''
-- id: 103
+- id: 105
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_5
@@ -864,7 +882,7 @@
     scheduledInstanceId: ScheduledActivityInstance_5
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 85
+- id: 87
   properties:
     _type: ScheduleTimeline
     entryCondition: Potential subject identified
@@ -873,13 +891,13 @@
     scheduleTimelineEntryId: ScheduledActivityInstance_1
     scheduleTimelineId: ScheduleTimeline_1
     scheduleTimelineName: Main Timeline
-- id: 108
+- id: 110
   properties:
     _type: AnalysisPopulation
     analysisPopulationId: AnalysisPopulation_1
     label: AnalysisPopulation_1
     populationDescription: ITT
-- id: 109
+- id: 111
   properties:
     _type: IntercurrentEvent
     intercurrentEventDescription: IC Event Description
@@ -888,13 +906,13 @@
     intercurrentEventStrategy: Patients with out of range lab values before dosing
       will be excluded
     label: IntercurrentEvent_1
-- id: 107
+- id: 109
   properties:
     _type: Estimand
     estimandId: Estimand_1
     label: Estimand_1
     summaryMeasure: Survival of all patients
-- id: 110
+- id: 112
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -909,7 +927,7 @@
     previousEncounterId: null
     transitionEndRule: null
     transitionStartRule: null
-- id: 111
+- id: 113
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -924,7 +942,7 @@
     previousEncounterId: Encounter_1
     transitionEndRule: null
     transitionStartRule: null
-- id: 112
+- id: 114
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -939,7 +957,7 @@
     previousEncounterId: Encounter_2
     transitionEndRule: null
     transitionStartRule: null
-- id: 113
+- id: 115
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -954,7 +972,7 @@
     previousEncounterId: Encounter_3
     transitionEndRule: null
     transitionStartRule: null
-- id: 114
+- id: 116
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -969,7 +987,7 @@
     previousEncounterId: Encounter_4
     transitionEndRule: null
     transitionStartRule: null
-- id: 115
+- id: 117
   properties:
     _type: Activity
     activityDescription: Demographics
@@ -984,7 +1002,7 @@
     label: Activity_1
     nextActivityId: Activity_2
     previousActivityId: null
-- id: 116
+- id: 118
   properties:
     _type: Activity
     activityDescription: Something Else
@@ -998,37 +1016,37 @@
     label: Activity_2
     nextActivityId: null
     previousActivityId: Activity_1
-- id: 118
+- id: 120
   properties:
     _type: Code
     code: C49659
-    codeId: Code_9
+    codeId: Code_11
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: OPEN LABEL
-    label: Code_9
-- id: 117
+    label: Code_11
+- id: 119
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_2
     label: AliasCode_2
     standardCodeAliases: []
-- id: 122
+- id: 124
   properties:
     _type: Code
     code: C173522
-    codeId: Code_31
+    codeId: Code_33
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Vital Signs Result
-    label: Code_31
-- id: 121
+    label: Code_33
+- id: 123
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_4
     label: AliasCode_4
     standardCodeAliases: []
-- id: 120
+- id: 122
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1038,58 +1056,58 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_1
-- id: 125
+- id: 127
   properties:
     _type: Code
     code: C28252
-    codeId: Code_32
+    codeId: Code_34
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
-    label: Code_32
-- id: 124
+    label: Code_34
+- id: 126
   properties:
     _type: ResponseCode
     label: ResponseCode_1
     responseCodeEnabled: true
     responseCodeId: ResponseCode_1
-- id: 127
+- id: 129
   properties:
     _type: Code
     code: C48155
-    codeId: Code_33
+    codeId: Code_35
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Gram
-    label: Code_33
-- id: 126
+    label: Code_35
+- id: 128
   properties:
     _type: ResponseCode
     label: ResponseCode_2
     responseCodeEnabled: true
     responseCodeId: ResponseCode_2
-- id: 129
+- id: 131
   properties:
     _type: Code
     code: C48531
-    codeId: Code_34
+    codeId: Code_36
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Pound
-    label: Code_34
-- id: 128
+    label: Code_36
+- id: 130
   properties:
     _type: ResponseCode
     label: ResponseCode_3
     responseCodeEnabled: true
     responseCodeId: ResponseCode_3
-- id: 130
+- id: 132
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_5
     label: AliasCode_5
     standardCodeAliases: []
-- id: 123
+- id: 125
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1098,22 +1116,22 @@
     bcPropertyName: Unit of Weight
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_2
-- id: 132
+- id: 134
   properties:
     _type: Code
     code: C81328
-    codeId: Code_30
+    codeId: Code_32
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Body Weight
-    label: Code_30
-- id: 131
+    label: Code_32
+- id: 133
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_3
     label: AliasCode_3
     standardCodeAliases: []
-- id: 119
+- id: 121
   properties:
     _type: BiomedicalConcept
     bcName: Body Weight
@@ -1122,7 +1140,7 @@
     - Weight
     biomedicalConceptId: BiomedicalConcept_1
     label: BiomedicalConcept_1
-- id: 133
+- id: 135
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Age
@@ -1130,7 +1148,7 @@
     bcSurrogateName: Age
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 134
+- id: 136
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Sex
@@ -1138,7 +1156,7 @@
     bcSurrogateName: Sex
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 135
+- id: 137
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Race
@@ -1146,7 +1164,7 @@
     bcSurrogateName: Race
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_3
-- id: 19
+- id: 21
   properties:
     _type: StudyDesign
     bcCategories: []
@@ -1159,7 +1177,6 @@
 - id: 1
   properties:
     _type: Study
-    businessTherapeuticAreas: []
     label: null
     studyAcronym: SIMPLE
     studyId: null

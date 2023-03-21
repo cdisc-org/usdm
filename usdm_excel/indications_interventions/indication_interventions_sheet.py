@@ -16,7 +16,8 @@ class IndicationsInterventionsSheet(BaseSheet):
         xref = self.clean_cell(row, index, "xref")
         type = self.clean_cell(row, index, "type")
         description = self.clean_cell(row, index, "description")
-        codes = self._build_codes(row, index)
+        #codes = self._build_codes(row, index)
+        codes = self.other_code_cell_mutiple(self.clean_cell(row, index, "codes"))
         if type.upper() == "IND":
           item = Indication(indicationId=self.id_manager.build_id(Indication), indicationDescription=description, codes=codes)
           self.indications.append(item)
@@ -29,15 +30,15 @@ class IndicationsInterventionsSheet(BaseSheet):
       print("Oops!", e, "occurred.")
       traceback.print_exc()
 
-  def _build_codes(self, row, index):
-    result = []
-    value = self.clean_cell(row, index, "codes")
-    #print("CODE1:", value)
-    items = value.split(",")
-    for item in items:
-      #print("CODE2:", item)
-      code = self.other_code_cell(item)
-      #print("CODE3:", code)
-      if not code == None:
-        result.append(code)
-    return result
+  # def _build_codes(self, row, index):
+  #   result = []
+  #   value = self.clean_cell(row, index, "codes")
+  #   #print("CODE1:", value)
+  #   items = value.split(",")
+  #   for item in items:
+  #     #print("CODE2:", item)
+  #     code = self.other_code_cell(item)
+  #     #print("CODE3:", code)
+  #     if not code == None:
+  #       result.append(code)
+  #   return result

@@ -74,6 +74,15 @@ class BaseSheet():
       print("Other code error for data %s, no ':' detected" % (value))
     return None
   
+  def other_code_cell_mutiple(self, value):
+    result = []
+    items = value.split(",")
+    for item in items:
+      code = self.other_code_cell(item)
+      if not code == None:
+        result.append(code)
+    return result
+
   def cdisc_code_set_cell(self, items):
     results = []
     parts = items.split(",")

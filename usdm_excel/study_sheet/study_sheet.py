@@ -21,9 +21,10 @@ class StudySheet(BaseSheet):
   PHASE_ROW = 3
   ACRONYM_ROW = 4
   RATIONALE_ROW = 5
+  TA_ROW = 6
 
-  PROTOCOL_HEADER_ROW = 7
-  PROTOCOL_DATA_ROW = 8
+  PROTOCOL_HEADER_ROW = 8
+  PROTOCOL_DATA_ROW = 9
   
   PARAMS_DATA_COL = 1
 
@@ -38,6 +39,7 @@ class StudySheet(BaseSheet):
       self.rationale = None
       self.study = None
       self.protocols = []
+      self.therapeutic_areas = []
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
@@ -68,7 +70,7 @@ class StudySheet(BaseSheet):
         studyVersion=self.version,
         studyType=self.type,
         studyPhase=self.phase,
-        businessTherapeuticAreas=[],
+        businessTherapeuticAreas=self.therapeutic_areas,
         studyRationale=self.rationale,
         studyAcronym=self.acronym,
         studyIdentifiers=self.study_identifiers.identifiers,
@@ -91,28 +93,23 @@ class StudySheet(BaseSheet):
   def _process_sheet(self):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
     for rindex, row in self.sheet.iterrows():
-      #print("IDX", rindex)
       if rindex == self.TITLE_ROW:
         self.title = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        #print("1", self.title)
       elif rindex == self.VERSION_ROW:
         self.version = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        #print("2", self.version)
       elif rindex == self.TYPE_ROW:
         self.type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
-        #print("3", self.type)
       elif rindex == self.PHASE_ROW:
         phase = self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
         self.phase = Alias(self.id_manager).code(phase, [])
-        #print("4", self.phase)
       elif rindex == self.ACRONYM_ROW:
         self.acronym = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        #print("5", self.acronym)
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        #print("6", self.rationale)
+      elif rindex == self.TA_ROW:
+        self.therapeutic_areas = self.other_code_cell_mutiple(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        #print("8", self.therapeutic_areas)
       elif rindex >= self.PROTOCOL_DATA_ROW:
-        #print("7a", rindex)
         record = {}
         for cindex in range(0, len(self.sheet.columns)):
           cell = self.clean_cell_unnamed(rindex, cindex)
@@ -124,8 +121,6 @@ class StudySheet(BaseSheet):
           else:
             record[field] = cell
         record['studyProtocolVersionId'] = self.id_manager.build_id(StudyProtocolVersion)
-        #print("7b", record)
         spv = StudyProtocolVersion(**record)
-        #print("7c", spv)
         self.protocols.append(spv)
   
