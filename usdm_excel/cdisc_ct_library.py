@@ -72,7 +72,7 @@ class CDISCCTLibrary():
 
   def _get_klass_attribute(self):
     for klass, info in self.cdisc_ct_config['klass'].items():
-      print("KLASS:", klass, info)
+      #print("KLASS:", klass, info)
       if not klass in self._by_klass_attribute:
         self._by_klass_attribute[klass] = {}
       for attribute, cl in info.items():

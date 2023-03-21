@@ -64,7 +64,7 @@ class NodesAndEdges():
       this_node_index = self.node_index
       self.node_index += 1
       for key, value in node.items():
-        print("KEY:", key, value)
+        #print("KEY:", key, value)
         if key in self.edge_attributes:
           if type(value) == list:
             for item in value:
@@ -82,17 +82,17 @@ class NodesAndEdges():
       properties['node_type'] = klass
       properties['label'] = node[id_field]
       self.nodes.append({ 'id': this_node_index, 'properties': properties })
-      print("XXX:", id_field, properties)
+      #print("XXX:", id_field, properties)
       self.id_node_index_map[properties[id_field]] = this_node_index
       return [this_node_index]
     else:
       return []
     
   def _get_id_field_and_klass(self, node):
-    print("NODE:", node)
+    #print("NODE:", node)
     klass = node['_type']
     id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
-    print("ID NAME:", id_name)
+    #print("ID NAME:", id_name)
     if id_name in self.fix_id_name:
       id_name = self.fix_id_name[id_name]
       #print("ID NAME FIX:", id_name)
