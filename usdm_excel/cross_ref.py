@@ -3,6 +3,9 @@ class CrossRef():
   def __init__(self):
     self.references = {}
 
+  def reset(self):
+    self.references = {}
+
   def add(self, key, value):
     if not key in self.references:
       self.references[key] = value

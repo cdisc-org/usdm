@@ -1,11 +1,13 @@
 from usdm_excel.id_manager import IdManager
 from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.nodes_and_edges import NodesAndEdges
+from usdm_excel.cross_ref import cross_references
 
 class USDMExcel():
 
   def __init__(self, file_path):
     self.id_manager = IdManager()
+    cross_references.reset()
     self.study = StudySheet(file_path, self.id_manager)
 
   def identifier(self):
