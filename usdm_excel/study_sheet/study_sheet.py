@@ -2,7 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
-from usdm_excel.indications_interventions.indication_interventions_sheet import IndicationsInterventionsSheet
+from usdm_excel.study_design_ii_sheet.study_design_ii_sheet import StudyDesignIISheet
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
@@ -44,7 +44,7 @@ class StudySheet(BaseSheet):
       self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
       self.study_design = StudyDesignSheet(file_path, id_manager)
       self.soa = StudySoASheet(file_path, id_manager)
-      self.ii = IndicationsInterventionsSheet(file_path, id_manager)
+      self.ii = StudyDesignIISheet(file_path, id_manager)
       self.study_populations = StudyDesignPopulationSheet(file_path, id_manager)
       self.oe = StudyDesignObjectiveEndpointSheet(file_path, id_manager)
       self.estimands = StudyDesignEstimandsSheet(file_path, id_manager)

@@ -5,7 +5,7 @@ import pandas as pd
 from usdm.indication import Indication
 from usdm.investigational_intervention import InvestigationalIntervention
 
-class IndicationsInterventionsSheet(BaseSheet):
+class StudyDesignIISheet(BaseSheet):
 
   def __init__(self, file_path, id_manager):
     try:
