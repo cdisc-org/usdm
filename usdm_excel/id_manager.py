@@ -1,6 +1,10 @@
 class IdManager():
 
   def __init__(self):
+    self.id_index = {}
+    self.clear()
+
+  def clear(self):
     self.id_index = {
       'Address': 0,
       'Code': 0,
@@ -39,4 +43,5 @@ class IdManager():
     self.id_index[klass_name] += 1
     return "%s_%s" % (klass_name, self.id_index[klass_name])
 
+id_manager = IdManager()
 

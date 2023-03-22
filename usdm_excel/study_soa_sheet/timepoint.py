@@ -1,6 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm.timing import Timing
 from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
@@ -8,8 +8,8 @@ import pandas as pd
 
 class Timepoint(BaseSheet):
   
-  def __init__(self, sheet, id_manager: IdManager, activity_names, col_index, type="", value="", cycle=None, additional=False):
-    super().__init__(sheet, id_manager)
+  def __init__(self, sheet, activity_names, col_index, type="", value="", cycle=None, additional=False):
+    super().__init__(sheet)
     self.col_index = col_index
     if col_index == None:
       self._position_key = None
@@ -61,7 +61,7 @@ class Timepoint(BaseSheet):
     if self.timing_type in ["anchor", "next", "previous", "cycle start"]:
       timing = self._to_timing()
       instance = ScheduledActivityInstance(
-        scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
+        scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType=1,
         scheduleSequenceNumber=0,
         scheduleTimelineExitId="",
@@ -73,7 +73,7 @@ class Timepoint(BaseSheet):
       timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
     elif self.timing_type == "condition":
       instance = ScheduledDecisionInstance(
-        scheduledInstanceId=self.id_manager.build_id(ScheduledActivityInstance),
+        scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType=2,
         scheduleSequenceNumber=0,
         scheduleTimelineExitId="",
@@ -86,10 +86,10 @@ class Timepoint(BaseSheet):
 
   def _to_timing(self):
     return Timing(
-      timingId=self.id_manager.build_id(Timing),
-      timingType=CDISCCT(self.id_manager).code(self.timing_type.upper(), self.timing_type),
+      timingId=id_manager.build_id(Timing),
+      timingType=CDISCCT().code(self.timing_type.upper(), self.timing_type),
       timingValue=self.timing_value,
-      timingRelativeToFrom=CDISCCT(self.id_manager).code('START TO START', 'Start to start'),
+      timingRelativeToFrom=CDISCCT().code('START TO START', 'Start to start'),
       timingWindow='',
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''

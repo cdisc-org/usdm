@@ -1,4 +1,4 @@
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.nodes_and_edges import NodesAndEdges
@@ -8,11 +8,11 @@ from usdm_excel.ct_version_manager import ct_version_manager
 class USDMExcel():
 
   def __init__(self, file_path):
-    self.id_manager = IdManager()
+    id_manager.clear()
     cross_references.clear()
     ct_version_manager.clear()
-    self.configuration = ConfigurationSheet(file_path, self.id_manager)
-    self.study = StudySheet(file_path, self.id_manager)
+    self.configuration = ConfigurationSheet(file_path)
+    self.study = StudySheet(file_path)
 
   def identifier(self):
     study = self.study.the_study()

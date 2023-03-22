@@ -1,12 +1,12 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 import pandas as pd
 
 class Cycle(BaseSheet):
   
-  def __init__(self, sheet, id_manager: IdManager, col_index, cycle, timepoint_index):
-    super().__init__(sheet, id_manager)
+  def __init__(self, sheet, col_index, cycle, timepoint_index):
+    super().__init__(sheet)
     self.col_index = col_index
     self.position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.cycle = cycle

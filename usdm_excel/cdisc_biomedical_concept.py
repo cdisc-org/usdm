@@ -3,7 +3,7 @@ import os
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.cdisc_ct_library import cdisc_ct_library
 from usdm_excel.ncit import NCIt
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm_excel.alias import Alias
 from usdm.biomedical_concept import BiomedicalConcept
 from usdm.biomedical_concept_property import BiomedicalConceptProperty
@@ -14,8 +14,7 @@ class CDISCBiomedicalConcepts():
 
   API_ROOT = 'https://api.library.cdisc.org/api'    
   
-  def __init__(self, id_manager: IdManager):
-    self.id_manager = id_manager
+  def __init__(self):
     self.api_key = os.getenv('CDISC_API_KEY')
     self.headers =  {"Content-Type":"application/json", "api-key": self.api_key}
     self.package_metadata = self._get_package_metadata()
@@ -46,7 +45,7 @@ class CDISCBiomedicalConcepts():
           for example in item['exampleSet']:
             term = cdisc_ct_library.preferred_term(example)
             if term != None:
-              codes.append(CDISCCT(self.id_manager).code(term['conceptId'], term['preferredTerm']))
+              codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
         bc.bcProperties.append(self._bc_property_as_uasdm(item, codes))
       return bc
 
@@ -71,29 +70,29 @@ class CDISCBiomedicalConcepts():
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
 
   def _bc_as_usdm(self, api_bc):
-    code = NCIt(self.id_manager).code(api_bc['conceptId'], api_bc['shortName'])
+    code = NCIt(id_manager).code(api_bc['conceptId'], api_bc['shortName'])
     aliases = []
     return BiomedicalConcept(
-      biomedicalConceptId=self.id_manager.build_id(BiomedicalConcept),
+      biomedicalConceptId=id_manager.build_id(BiomedicalConcept),
       bcName=api_bc['shortName'],
       bcSynonyms=api_bc['synonym'],
       bcReference=api_bc['_links']['self']['href'],
       bcProperties=[],
-      bcConceptCode=Alias(self.id_manager).code(code, aliases)
+      bcConceptCode=Alias().code(code, aliases)
     )
 
   def _bc_property_as_uasdm(self, property, codes):
-    code = NCIt(self.id_manager).code(property['conceptId'], property['shortName'])
+    code = NCIt().code(property['conceptId'], property['shortName'])
     aliases = []
     responses = []
     for code in codes:
-      responses.append(ResponseCode(responseCodeId=self.id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
+      responses.append(ResponseCode(responseCodeId=id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
     return BiomedicalConceptProperty(
-      bcPropertyId=self.id_manager.build_id(BiomedicalConceptProperty),
+      bcPropertyId=id_manager.build_id(BiomedicalConceptProperty),
       bcPropertyName=property['shortName'],
       bcPropertyRequired=True,
       bcPropertyEnabled=True,
       bcPropertyDatatype=property['dataType'],
       bcPropertyResponseCodes=responses,
-      bcPropertyConceptCode=Alias(self.id_manager).code(code, aliases)
+      bcPropertyConceptCode=Alias().code(code, aliases)
     )

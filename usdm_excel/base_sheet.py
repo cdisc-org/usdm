@@ -1,14 +1,13 @@
 import pandas as pd
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm.code import Code
 from usdm_excel.ct_version_manager import ct_version_manager
 
 class BaseSheet():
 
-  def __init__(self, sheet, id_manager: IdManager):
+  def __init__(self, sheet):
     self.sheet = sheet
-    self.id_manager = id_manager
 
   def clean_cell(self, row, index, field_name):
     try:
@@ -57,7 +56,7 @@ class BaseSheet():
   def cdisc_code_cell(self, value):
     parts = value.split("=")
     try:
-      return CDISCCT(self.id_manager).code(code=parts[0].strip(), decode=parts[1].strip())
+      return CDISCCT().code(code=parts[0].strip(), decode=parts[1].strip())
     except Exception as e:
       print("CDISC code error (%s) for data %s" % (e, value))
       return None
@@ -69,7 +68,7 @@ class BaseSheet():
       inner_parts = outer_parts[1].strip().split("=")
       if len(inner_parts) == 2:
         version = ct_version_manager.get(system)
-        return Code(codeId=self.id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
+        return Code(codeId=id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
       else:
         print("Other code error for data %s, no '=' detected" % (value))
     else:
@@ -95,13 +94,13 @@ class BaseSheet():
   #   return results
 
   def cdisc_klass_attribute_cell(self, klass, attribute, value):
-    return CDISCCT(self.id_manager).code_for_attribute(klass, attribute, value)
+    return CDISCCT().code_for_attribute(klass, attribute, value)
 
   def cdisc_klass_attribute_cell_multiple(self, klass, attribute, value):
     result = []
     items = value.split(",")
     for item in items:
-      code =  CDISCCT(self.id_manager).code_for_attribute(klass, attribute, item.strip())
+      code =  CDISCCT().code_for_attribute(klass, attribute, item.strip())
       if not code == None:
         result.append(code)
     return result

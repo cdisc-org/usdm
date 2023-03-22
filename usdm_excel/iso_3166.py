@@ -1,11 +1,10 @@
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm.code import Code
 import json
 
 class ISO3166():
 
-  def __init__(self, id_manager: IdManager):
-    self.id_manager = id_manager
+  def __init__(self):
     f = open('data/iso_3166.json', 'r')
     self.db = json.load(f)
 
@@ -14,7 +13,7 @@ class ISO3166():
     if code == None:
       code = 'DNK'
       decode = 'Denmark'
-    return Code(codeId=self.id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion='', decode=decode)
+    return Code(codeId=id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion='', decode=decode)
 
   def _get_decode(self, code):
     if len(code) == 2:

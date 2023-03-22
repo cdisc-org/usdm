@@ -1,4 +1,4 @@
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm.code import Code
 import requests
 import os

@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.cross_ref import cross_references
+from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
 from usdm.indication import Indication
@@ -7,9 +8,9 @@ from usdm.investigational_intervention import InvestigationalIntervention
 
 class StudyDesignIISheet(BaseSheet):
 
-  def __init__(self, file_path, id_manager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignII'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignII'))
       self.indications = []
       self.interventions = []
       for index, row in self.sheet.iterrows():
@@ -19,11 +20,11 @@ class StudyDesignIISheet(BaseSheet):
         #codes = self._build_codes(row, index)
         codes = self.other_code_cell_mutiple(self.clean_cell(row, index, "codes"))
         if type.upper() == "IND":
-          item = Indication(indicationId=self.id_manager.build_id(Indication), indicationDescription=description, codes=codes)
+          item = Indication(indicationId=id_manager.build_id(Indication), indicationDescription=description, codes=codes)
           self.indications.append(item)
           cross_references.add(xref, item.indicationId)
         else:
-          item = InvestigationalIntervention(investigationalInterventionId=self.id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes)
+          item = InvestigationalIntervention(investigationalInterventionId=id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes)
           self.interventions.append(item)
           cross_references.add(xref, item.investigationalInterventionId)        
     except Exception as e:

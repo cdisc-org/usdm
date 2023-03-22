@@ -1,5 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm.study_epoch import StudyEpoch
 from usdm.study_arm import StudyArm
 from usdm.study_cell import StudyCell
@@ -21,9 +21,9 @@ class StudyDesignSheet(BaseSheet):
   
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, id_manager: IdManager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesign', header=None), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesign', header=None))
       self.epochs = []
       self.arms = []
       self.cells = []
@@ -50,7 +50,7 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
-        self.blinding = Alias(self.id_manager).code(self.cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)), [])
+        self.blinding = Alias().code(self.cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)), [])
       elif rindex == self.INTENT_ROW:
         self.trial_intents = self.cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.TYPES_ROW:
@@ -92,7 +92,7 @@ class StudyDesignSheet(BaseSheet):
   def _add_arm(self, name, description):
     arm_origin = self.cdisc_code_cell("C188866=Data Generated Within Study")
     return StudyArm(
-      studyArmId=self.id_manager.build_id(StudyArm), 
+      studyArmId=id_manager.build_id(StudyArm), 
       studyArmName=name,
       studyArmDescription=description,
       studyArmType="",
@@ -103,7 +103,7 @@ class StudyDesignSheet(BaseSheet):
   def _add_epoch(self, name, description):
     epoch_type = self.cdisc_code_cell("C165873=OBSERVATION")
     return StudyEpoch(
-      studyEpochId=self.id_manager.build_id(StudyEpoch), 
+      studyEpochId=id_manager.build_id(StudyEpoch), 
       studyEpochName=name, 
       studyEpochDescription=description,
       studyEpochType=epoch_type
@@ -111,14 +111,14 @@ class StudyDesignSheet(BaseSheet):
   
   def _add_cell(self, arm, epoch):
     return StudyCell(
-      studyCellId=self.id_manager.build_id(StudyCell), 
+      studyCellId=id_manager.build_id(StudyCell), 
       studyArm=arm,
       studyEpoch=epoch
     )
 
   def _add_design(self, name, description, cells, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
     return StudyDesign(
-      studyDesignId=self.id_manager.build_id(StudyDesign), 
+      studyDesignId=id_manager.build_id(StudyDesign), 
       studyDesignName=name,
       studyDesignDescription=description,
       trialIntentTypes=intent_types,

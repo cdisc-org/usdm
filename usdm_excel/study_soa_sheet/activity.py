@@ -1,5 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm.activity import Activity as USDMActivity
 from usdm.biomedical_concept_surrogate import BiomedicalConceptSurrogate
@@ -8,8 +8,8 @@ import pandas as pd
 
 class Activity(BaseSheet):
   
-  def __init__(self, sheet, id_manager: IdManager, row_index):
-    super().__init__(sheet, id_manager)
+  def __init__(self, sheet, row_index):
+    super().__init__(sheet)
     #self._row_index = row_index
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
@@ -20,7 +20,7 @@ class Activity(BaseSheet):
   def _as_usdm(self):
     surrogate_bc_items = []
     full_bc_items = []
-    cdisc_bcs = CDISCBiomedicalConcepts(self.id_manager)
+    cdisc_bcs = CDISCBiomedicalConcepts()
     for bc in self._bcs:
       if cdisc_bcs.exists(bc):
         full_bc = cdisc_bcs.usdm(bc)
@@ -31,7 +31,7 @@ class Activity(BaseSheet):
         surrogate_bc_items.append(surrogate.bcSurrogateId)
         self.usdm_biomedical_concept_surrogates.append(surrogate)
     return USDMActivity(
-      activityId=self.id_manager.build_id(Activity),
+      activityId=id_manager.build_id(Activity),
       activityName=self.name,
       activityDescription=self.name,
       definedProcedures=[],
@@ -45,7 +45,7 @@ class Activity(BaseSheet):
   
   def _to_bc_surrogates(self, name):
     return BiomedicalConceptSurrogate(
-      bcSurrogateId=self.id_manager.build_id(BiomedicalConceptSurrogate),
+      bcSurrogateId=id_manager.build_id(BiomedicalConceptSurrogate),
       bcSurrogateName=name,
       bcSurrogateDescription=name,
       bcSurrogateReference=''

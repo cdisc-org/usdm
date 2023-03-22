@@ -8,9 +8,9 @@ class ConfigurationSheet(BaseSheet):
   PARAMS_NAME_COL = 0
   PARAMS_VALUE_COL = 1
 
-  def __init__(self, file_path, id_manager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='configuration', header=None), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='configuration', header=None))
       self._process_sheet()
     except Exception as e:
       print("Oops!", e, "occurred.")

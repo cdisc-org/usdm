@@ -1,4 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
 from usdm.study_design_population import StudyDesignPopulation
@@ -8,9 +9,9 @@ from usdm_excel.cdisc_ct import CDISCCT
 
 class StudyDesignPopulationSheet(BaseSheet):
 
-  def __init__(self, file_path, id_manager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignPopulations'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignPopulations'))
       self.populations = []
       for index, row in self.sheet.iterrows():
         description = self.clean_cell(row, index, "populationDescription")
@@ -20,7 +21,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         codes = self._build_codes(row, index)
         #print("POP:", description, number, min, max, codes)
         self.populations.append(
-          StudyDesignPopulation(studyDesignPopulationId=self.id_manager.build_id(StudyDesignPopulation), 
+          StudyDesignPopulation(studyDesignPopulationId=id_manager.build_id(StudyDesignPopulation), 
             populationDescription=description, 
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,
@@ -38,5 +39,5 @@ class StudyDesignPopulationSheet(BaseSheet):
     value = self.clean_cell(row, index, "plannedSexOfParticipants")
     ct = cdisc_ct_library.klass_and_attribute('StudyDesignPopulation', 'plannedSexOfParticipants', value)
     if not ct == None:
-      result.append(CDISCCT(self.id_manager).code(code=ct['conceptId'], decode=ct['preferredTerm']))
+      result.append(CDISCCT().code(code=ct['conceptId'], decode=ct['preferredTerm']))
     return result

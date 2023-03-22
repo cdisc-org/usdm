@@ -10,9 +10,9 @@ from usdm_excel.cdisc_ct import CDISCCT
 
 class StudyDesignEstimandsSheet(BaseSheet):
 
-  def __init__(self, file_path, id_manager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignEstimands'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignEstimands'))
       self.estimands = []
       current = None
       for index, row in self.sheet.iterrows():
@@ -31,10 +31,10 @@ class StudyDesignEstimandsSheet(BaseSheet):
         endpoint_id = cross_references.get(endpoint_xref)
         #print("XREF4:", endpoint_id)
         if not e_summary == "":
-          ap = AnalysisPopulation(analysisPopulationId=self.id_manager.build_id(AnalysisPopulation), populationDescription=ap_description) 
-          current = Estimand(estimandId=self.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, treatment=treatment_id, variableOfInterest=endpoint_id, intercurrentEvents=[])
+          ap = AnalysisPopulation(analysisPopulationId=id_manager.build_id(AnalysisPopulation), populationDescription=ap_description) 
+          current = Estimand(estimandId=id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, treatment=treatment_id, variableOfInterest=endpoint_id, intercurrentEvents=[])
           self.estimands.append(current)  
-        ice = IntercurrentEvent(intercurrentEventId=self.id_manager.build_id(IntercurrentEvent), intercurrentEventName=ice_name, intercurrentEventDescription=ice_description, intercurrentEventStrategy=ice_strategy)
+        ice = IntercurrentEvent(intercurrentEventId=id_manager.build_id(IntercurrentEvent), intercurrentEventName=ice_name, intercurrentEventDescription=ice_description, intercurrentEventStrategy=ice_strategy)
         current.intercurrentEvents.append(ice)
     except Exception as e:
       print("Oops!", e, "occurred.")

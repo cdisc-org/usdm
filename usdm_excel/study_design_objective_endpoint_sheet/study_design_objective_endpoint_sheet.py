@@ -9,9 +9,9 @@ from usdm_excel.cdisc_ct import CDISCCT
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
-  def __init__(self, file_path, id_manager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignOE'), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignOE'))
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
@@ -23,17 +23,17 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         e_p_description = self.clean_cell(row, index, "endpointPurposeDescription")
         e_level = cdisc_ct_library.klass_and_attribute('Endpoint', 'endpointLevel', self.clean_cell(row, index, "endpointLevel"))
         if not o_description == "":
-          current = Objective(objectiveId=self.id_manager.build_id(Objective),
+          current = Objective(objectiveId=id_manager.build_id(Objective),
             objectiveDescription=o_description, 
-            objectiveLevel=CDISCCT(self.id_manager).code(code=o_level['conceptId'], decode=o_level['preferredTerm']),
+            objectiveLevel=CDISCCT().code(code=o_level['conceptId'], decode=o_level['preferredTerm']),
             objectiveEndpoints=[]
           )
           self.objectives.append(current)
           cross_references.add(o_xref, current.objectiveId)
-        ep = Endpoint(endpointId=self.id_manager.build_id(Endpoint), 
+        ep = Endpoint(endpointId=id_manager.build_id(Endpoint), 
           endpointDescription=e_description, 
           endpointPurposeDescription=e_p_description, 
-          endpointLevel=CDISCCT(self.id_manager).code(code=e_level['conceptId'], decode=e_level['preferredTerm'])
+          endpointLevel=CDISCCT().code(code=e_level['conceptId'], decode=e_level['preferredTerm'])
         )  
         current.objectiveEndpoints.append(ep)
         cross_references.add(e_xref, ep.endpointId)

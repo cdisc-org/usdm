@@ -1,16 +1,15 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm.scheduled_instance import ScheduledInstanceType
 import pandas as pd
 
 class Timepoints(BaseSheet):
   
-  def __init__(self, sheet, id_manager: IdManager):
-    super().__init__(sheet, id_manager)
+  def __init__(self, sheet):
+    super().__init__(sheet)
     self.sheet = sheet
-    self.id_manager = id_manager
     self.items = []
     self.map = {}
     self.activity_names = []
@@ -22,7 +21,7 @@ class Timepoints(BaseSheet):
     return self.map[key]
 
   def insert_at(self, insert_at_index, type, value, cycle, reference=None):
-    timepoint = Timepoint(self.sheet, self.id_manager, self.activity_names, None, type, value, cycle, additional=True)
+    timepoint = Timepoint(self.sheet, self.activity_names, None, type, value, cycle, additional=True)
     timepoint.reference = reference
     self.items.insert(insert_at_index, timepoint)
     return timepoint
@@ -53,7 +52,7 @@ class Timepoints(BaseSheet):
   def _build_timepoints(self):    
     for col_index in range(self.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
-        record = Timepoint(self.sheet, self.id_manager, self.activity_names, col_index, True)
+        record = Timepoint(self.sheet, self.activity_names, col_index, True)
         self.items.append(record)
         self.map[record.key()] = record
 

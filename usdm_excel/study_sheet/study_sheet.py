@@ -7,6 +7,7 @@ from usdm_excel.study_design_population_sheet.study_design_population_sheet impo
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
 from usdm_excel.alias import Alias
+from usdm_excel.id_manager import id_manager
 from usdm.study import Study
 from usdm.study_protocol_version import StudyProtocolVersion
 import traceback
@@ -28,9 +29,9 @@ class StudySheet(BaseSheet):
   
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, id_manager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study', header=None), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study', header=None))
       self.phase = None
       self.version = None
       self.type = None
@@ -41,13 +42,13 @@ class StudySheet(BaseSheet):
       self.protocols = []
       self.therapeutic_areas = []
       self._process_sheet()
-      self.study_identifiers = StudyIdentifiersSheet(file_path, id_manager)
-      self.study_design = StudyDesignSheet(file_path, id_manager)
-      self.soa = StudySoASheet(file_path, id_manager)
-      self.ii = StudyDesignIISheet(file_path, id_manager)
-      self.study_populations = StudyDesignPopulationSheet(file_path, id_manager)
-      self.oe = StudyDesignObjectiveEndpointSheet(file_path, id_manager)
-      self.estimands = StudyDesignEstimandsSheet(file_path, id_manager)
+      self.study_identifiers = StudyIdentifiersSheet(file_path)
+      self.study_design = StudyDesignSheet(file_path)
+      self.soa = StudySoASheet(file_path)
+      self.ii = StudyDesignIISheet(file_path)
+      self.study_populations = StudyDesignPopulationSheet(file_path)
+      self.oe = StudyDesignObjectiveEndpointSheet(file_path)
+      self.estimands = StudyDesignEstimandsSheet(file_path)
 
       for epoch in self.study_design.epochs:
         epoch.encounterIds = self.soa.epoch_encounter_map(epoch.studyEpochName)
@@ -101,7 +102,7 @@ class StudySheet(BaseSheet):
         self.type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.PHASE_ROW:
         phase = self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
-        self.phase = Alias(self.id_manager).code(phase, [])
+        self.phase = Alias().code(phase, [])
       elif rindex == self.ACRONYM_ROW:
         self.acronym = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.RATIONALE_ROW:
@@ -120,7 +121,7 @@ class StudySheet(BaseSheet):
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
           else:
             record[field] = cell
-        record['studyProtocolVersionId'] = self.id_manager.build_id(StudyProtocolVersion)
+        record['studyProtocolVersionId'] = id_manager.build_id(StudyProtocolVersion)
         spv = StudyProtocolVersion(**record)
         self.protocols.append(spv)
   

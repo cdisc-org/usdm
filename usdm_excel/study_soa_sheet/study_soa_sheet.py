@@ -1,6 +1,6 @@
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 from usdm_excel.study_soa_sheet.cycles import Cycles
 from usdm_excel.study_soa_sheet.timepoints import Timepoints
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
@@ -15,20 +15,19 @@ import pandas as pd
 
 class StudySoASheet(BaseSheet):
 
-  def __init__(self, file_path, id_manager: IdManager):
+  def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='soa', header=None), id_manager)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='soa', header=None))
       self.timelines = []
-      #self.sheet = self.sheet.fillna(method='ffill', axis=1)
       self.encounters = []
       self.activities = []
       self.timelines = []
       self.biomedical_concept_surrogates = []
       self.biomedical_concepts = []
-      self._raw_cycles = Cycles(self.sheet, self.id_manager)
-      self._raw_timepoints = Timepoints(self.sheet, self.id_manager)
-      self._raw_encounters = Encounters(self.sheet, self.id_manager)
-      self._raw_activities = Activities(self.sheet, self.id_manager)
+      self._raw_cycles = Cycles(self.sheet)
+      self._raw_timepoints = Timepoints(self.sheet)
+      self._raw_encounters = Encounters(self.sheet)
+      self._raw_activities = Activities(self.sheet)
 
       self._link_instance_to_encounter()
       self._link_instance_to_activities()
@@ -60,11 +59,11 @@ class StudySoASheet(BaseSheet):
     return self._raw_encounters.epoch_encounter_map(epoch)
   
   def _add_exit(self):
-    return ScheduleTimelineExit(scheduleTimelineExitId=self.id_manager.build_id(ScheduleTimelineExit))
+    return ScheduleTimelineExit(scheduleTimelineExitId=id_manager.build_id(ScheduleTimelineExit))
 
   def _add_timeline(self, name, description, condition, instances, exit):
     return ScheduleTimeline(
-      scheduleTimelineId=self.id_manager.build_id(ScheduleTimeline),
+      scheduleTimelineId=id_manager.build_id(ScheduleTimeline),
       scheduleTimelineName=name,
       scheduleTimelineDescription=description,
       entryCondition=condition,

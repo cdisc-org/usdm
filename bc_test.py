@@ -2,7 +2,7 @@ from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
 import os
 import json
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm_excel.id_manager import IdManager
+from usdm_excel.id_manager import id_manager
 
 def save_as_file(raw_json, filename):
   with open('source_data/%s.json' % (filename), 'w', encoding='utf-8') as f:
