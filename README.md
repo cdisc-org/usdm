@@ -54,7 +54,7 @@ For each Study Protocol Version a row containing:
 | organisationName | Organisation name | A text string |
 | organisationType | Organisation type | Set to either `registry`, `sponsor` or `regulatory` |
 | studyIdentifier | The identifier for the study | A text string |
-| organisationAddress | The organisation address | Formated using a pipe delimited form `line|city|district|state|postal_code|<country code>`. All fields are free text except for `<country code>`. `<country code>` is either a two caracter or three character ISO-3166 country code. |
+| organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are free text except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 	
 ### Study Design Indications and Interventions Sheet
 	
@@ -71,4 +71,4 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | Parameter | Description | Format and Values |
 | :--- | :--- | :--- |
 | CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form CT name = Version value, For example `SNOMED = 21st June 2012`|
-	
+
