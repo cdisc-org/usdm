@@ -3,7 +3,6 @@ from usdm.address import Address
 from usdm.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
-from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 import pandas as pd
 import traceback
@@ -22,15 +21,7 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      organisation_type_key = self.clean_cell(row, index, 'organisationType')
-      if organisation_type_key.lower() == "sponsor":
-        organisation_type = self.study_sponsor()
-      elif organisation_type_key.lower() == "registry":
-        organisation_type = self.study_registry()
-      elif organisation_type_key.lower() == "regulatory":
-        organisation_type = self.regulatory()
-      else:
-        organisation_type = self.study_sponsor()
+      organisation_type = self.cdisc_klass_attribute_cell('Organisation', 'organisationType', self.clean_cell(row, index, 'organisationType'))
       raw_address=self.clean_cell(row, index, 'organisationAddress')
       organisation = Organisation(
         organisationId=id_manager.build_id(Organisation),
@@ -46,15 +37,6 @@ class StudyIdentifiersSheet(BaseSheet):
         studyIdentifierScope=organisation)
       )
     
-  def study_registry(self):
-    return CDISCCT().code(code="C93453", decode="Study Registry")
-
-  def study_sponsor(self):
-    return CDISCCT().code(code="C70793", decode="Clinical Study Sponsor")
-
-  def regulatory(self):
-    return CDISCCT().code(code="C188863", decode="Regulatory Agency")
-
   def _build_address(self, raw_address):
     parts = raw_address.split("|")
     if len(parts) == 6:
