@@ -64,4 +64,11 @@ For each Study Protocol Version a row containing:
 | description | A free text description for the indication or intervvention ||
 | codes | A set of codes, comma separated | Each code is of the form `<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
 	
+### Configuration Sheet
+
+A set of rows consisting of configuration parameters. The first column is the type of configuration parameter while the second is the value. The values for specific parameters may vary in their format
+
+| Parameter | Description | Format and Values |
+| :--- | :--- | :--- |
+| CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form CT name = Version value, For example `SNOMED = 21st June 2012`|
 	
