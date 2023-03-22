@@ -906,13 +906,49 @@
     intercurrentEventStrategy: Patients with out of range lab values before dosing
       will be excluded
     label: IntercurrentEvent_1
+- id: 112
+  properties:
+    _type: IntercurrentEvent
+    intercurrentEventDescription: ''
+    intercurrentEventId: IntercurrentEvent_2
+    intercurrentEventName: ''
+    intercurrentEventStrategy: A second bad event
+    label: IntercurrentEvent_2
+- id: 113
+  properties:
+    _type: IntercurrentEvent
+    intercurrentEventDescription: ''
+    intercurrentEventId: IntercurrentEvent_3
+    intercurrentEventName: ''
+    intercurrentEventStrategy: A third bad thing
+    label: IntercurrentEvent_3
 - id: 109
   properties:
     _type: Estimand
     estimandId: Estimand_1
     label: Estimand_1
     summaryMeasure: Survival of all patients
-- id: 112
+- id: 115
+  properties:
+    _type: AnalysisPopulation
+    analysisPopulationId: AnalysisPopulation_2
+    label: AnalysisPopulation_2
+    populationDescription: ITT
+- id: 116
+  properties:
+    _type: IntercurrentEvent
+    intercurrentEventDescription: IC Event Description Number 2
+    intercurrentEventId: IntercurrentEvent_4
+    intercurrentEventName: Bad stuff
+    intercurrentEventStrategy: Really really bad shit
+    label: IntercurrentEvent_4
+- id: 114
+  properties:
+    _type: Estimand
+    estimandId: Estimand_2
+    label: Estimand_2
+    summaryMeasure: Something else
+- id: 117
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -927,7 +963,7 @@
     previousEncounterId: null
     transitionEndRule: null
     transitionStartRule: null
-- id: 113
+- id: 118
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -942,7 +978,7 @@
     previousEncounterId: Encounter_1
     transitionEndRule: null
     transitionStartRule: null
-- id: 114
+- id: 119
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -957,7 +993,7 @@
     previousEncounterId: Encounter_2
     transitionEndRule: null
     transitionStartRule: null
-- id: 115
+- id: 120
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -972,7 +1008,7 @@
     previousEncounterId: Encounter_3
     transitionEndRule: null
     transitionStartRule: null
-- id: 116
+- id: 121
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -987,7 +1023,7 @@
     previousEncounterId: Encounter_4
     transitionEndRule: null
     transitionStartRule: null
-- id: 117
+- id: 122
   properties:
     _type: Activity
     activityDescription: Demographics
@@ -1002,7 +1038,7 @@
     label: Activity_1
     nextActivityId: Activity_2
     previousActivityId: null
-- id: 118
+- id: 123
   properties:
     _type: Activity
     activityDescription: Something Else
@@ -1016,7 +1052,7 @@
     label: Activity_2
     nextActivityId: null
     previousActivityId: Activity_1
-- id: 120
+- id: 125
   properties:
     _type: Code
     code: C49659
@@ -1025,13 +1061,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Open Label Study
     label: Code_11
-- id: 119
+- id: 124
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_2
     label: AliasCode_2
     standardCodeAliases: []
-- id: 124
+- id: 129
   properties:
     _type: Code
     code: C173522
@@ -1040,13 +1076,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_33
-- id: 123
+- id: 128
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_4
     label: AliasCode_4
     standardCodeAliases: []
-- id: 122
+- id: 127
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1056,7 +1092,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_1
-- id: 127
+- id: 132
   properties:
     _type: Code
     code: C28252
@@ -1065,13 +1101,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
     label: Code_34
-- id: 126
+- id: 131
   properties:
     _type: ResponseCode
     label: ResponseCode_1
     responseCodeEnabled: true
     responseCodeId: ResponseCode_1
-- id: 129
+- id: 134
   properties:
     _type: Code
     code: C48155
@@ -1080,13 +1116,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Gram
     label: Code_35
-- id: 128
+- id: 133
   properties:
     _type: ResponseCode
     label: ResponseCode_2
     responseCodeEnabled: true
     responseCodeId: ResponseCode_2
-- id: 131
+- id: 136
   properties:
     _type: Code
     code: C48531
@@ -1095,19 +1131,19 @@
     codeSystemVersion: '2022-12-16'
     decode: Pound
     label: Code_36
-- id: 130
+- id: 135
   properties:
     _type: ResponseCode
     label: ResponseCode_3
     responseCodeEnabled: true
     responseCodeId: ResponseCode_3
-- id: 132
+- id: 137
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_5
     label: AliasCode_5
     standardCodeAliases: []
-- id: 125
+- id: 130
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1116,7 +1152,7 @@
     bcPropertyName: Unit of Weight
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_2
-- id: 134
+- id: 139
   properties:
     _type: Code
     code: C81328
@@ -1125,13 +1161,13 @@
     codeSystemVersion: ''
     decode: Body Weight
     label: Code_32
-- id: 133
+- id: 138
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_3
     label: AliasCode_3
     standardCodeAliases: []
-- id: 121
+- id: 126
   properties:
     _type: BiomedicalConcept
     bcName: Body Weight
@@ -1140,7 +1176,7 @@
     - Weight
     biomedicalConceptId: BiomedicalConcept_1
     label: BiomedicalConcept_1
-- id: 135
+- id: 140
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Age
@@ -1148,7 +1184,7 @@
     bcSurrogateName: Age
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 136
+- id: 141
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Sex
@@ -1156,7 +1192,7 @@
     bcSurrogateName: Sex
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 137
+- id: 142
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Race

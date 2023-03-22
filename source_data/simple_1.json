@@ -933,6 +933,36 @@
               "intercurrentEventName": "termination",
               "intercurrentEventDescription": "IC Event Description",
               "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded"
+            },
+            {
+              "intercurrentEventId": "IntercurrentEvent_2",
+              "intercurrentEventName": "",
+              "intercurrentEventDescription": "",
+              "intercurrentEventStrategy": "A second bad event"
+            },
+            {
+              "intercurrentEventId": "IntercurrentEvent_3",
+              "intercurrentEventName": "",
+              "intercurrentEventDescription": "",
+              "intercurrentEventStrategy": "A third bad thing"
+            }
+          ]
+        },
+        {
+          "estimandId": "Estimand_2",
+          "summaryMeasure": "Something else",
+          "analysisPopulation": {
+            "analysisPopulationId": "AnalysisPopulation_2",
+            "populationDescription": "ITT"
+          },
+          "treatment": "InvestigationalIntervention_2",
+          "variableOfInterest": "Endpoint_2",
+          "intercurrentEvents": [
+            {
+              "intercurrentEventId": "IntercurrentEvent_4",
+              "intercurrentEventName": "Bad stuff",
+              "intercurrentEventDescription": "IC Event Description Number 2",
+              "intercurrentEventStrategy": "Really really bad shit"
             }
           ]
         }
