@@ -78,22 +78,31 @@ class BaseSheet():
     result = []
     items = value.split(",")
     for item in items:
-      code = self.other_code_cell(item)
+      code = self.other_code_cell(item.strip())
       if not code == None:
         result.append(code)
     return result
 
-  def cdisc_code_set_cell(self, items):
-    results = []
-    parts = items.split(",")
-    for part in parts:
-      result = self.cdisc_code_cell(part)
-      if not result == None:
-        results.append(result)
-    return results
+  # def cdisc_code_set_cell(self, items):
+  #   results = []
+  #   parts = items.split(",")
+  #   for part in parts:
+  #     result = self.cdisc_code_cell(part.strip())
+  #     if not result == None:
+  #       results.append(result)
+  #   return results
 
   def cdisc_klass_attribute_cell(self, klass, attribute, value):
     return CDISCCT(self.id_manager).code_for_attribute(klass, attribute, value)
+
+  def cdisc_klass_attribute_cell_multiple(self, klass, attribute, value):
+    result = []
+    items = value.split(",")
+    for item in items:
+      code =  CDISCCT(self.id_manager).code_for_attribute(klass, attribute, item.strip())
+      if not code == None:
+        result.append(code)
+    return result
 
   def double_link(self, items, id, prev, next):
     for idx, item in enumerate(items):
