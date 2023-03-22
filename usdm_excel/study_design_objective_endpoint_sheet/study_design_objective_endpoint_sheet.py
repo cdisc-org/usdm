@@ -5,8 +5,8 @@ import traceback
 import pandas as pd
 from usdm.objective import Objective
 from usdm.endpoint import Endpoint
-from usdm_excel.cdisc_ct_library import cdisc_ct_library
-from usdm_excel.cdisc_ct import CDISCCT
+#from usdm_excel.cdisc_ct_library import cdisc_ct_library
+#from usdm_excel.cdisc_ct import CDISCCT
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
@@ -18,15 +18,17 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         o_xref = self.clean_cell(row, index, "objectiveXref")
         o_description = self.clean_cell(row, index, "objectiveDescription")
-        o_level = cdisc_ct_library.klass_and_attribute('Objective', 'objectiveLevel', self.clean_cell(row, index, "objectiveLevel"))
+        #o_level = cdisc_ct_library.klass_and_attribute('Objective', 'objectiveLevel', self.clean_cell(row, index, "objectiveLevel"))
+        o_level = self.cdisc_klass_attribute_cell('Objective', 'objectiveLevel', self.clean_cell(row, index, "objectiveLevel"))
         e_xref = self.clean_cell(row, index, "endpointXref")
         e_description = self.clean_cell(row, index, "endpointDescription")
         e_p_description = self.clean_cell(row, index, "endpointPurposeDescription")
-        e_level = cdisc_ct_library.klass_and_attribute('Endpoint', 'endpointLevel', self.clean_cell(row, index, "endpointLevel"))
+        #e_level = cdisc_ct_library.klass_and_attribute('Endpoint', 'endpointLevel', self.clean_cell(row, index, "endpointLevel"))
+        e_level = self.cdisc_klass_attribute_cell('Endpoint', 'endpointLevel', self.clean_cell(row, index, "endpointLevel"))
         if not o_description == "":
           current = Objective(objectiveId=id_manager.build_id(Objective),
             objectiveDescription=o_description, 
-            objectiveLevel=CDISCCT().code(code=o_level['conceptId'], decode=o_level['preferredTerm']),
+            objectiveLevel=o_level,
             objectiveEndpoints=[]
           )
           self.objectives.append(current)
@@ -34,7 +36,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         ep = Endpoint(endpointId=id_manager.build_id(Endpoint), 
           endpointDescription=e_description, 
           endpointPurposeDescription=e_p_description, 
-          endpointLevel=CDISCCT().code(code=e_level['conceptId'], decode=e_level['preferredTerm'])
+          endpointLevel=e_level
         )  
         current.objectiveEndpoints.append(ep)
         cross_references.add(e_xref, ep.endpointId)
