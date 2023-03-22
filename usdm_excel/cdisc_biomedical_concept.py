@@ -70,7 +70,7 @@ class CDISCBiomedicalConcepts():
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
 
   def _bc_as_usdm(self, api_bc):
-    code = NCIt(id_manager).code(api_bc['conceptId'], api_bc['shortName'])
+    code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
     aliases = []
     return BiomedicalConcept(
       biomedicalConceptId=id_manager.build_id(BiomedicalConcept),
