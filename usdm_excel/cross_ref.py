@@ -3,7 +3,7 @@ class CrossRef():
   def __init__(self):
     self.references = {}
 
-  def reset(self):
+  def clear(self):
     self.references = {}
 
   def add(self, key, value):

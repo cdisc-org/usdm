@@ -2,6 +2,7 @@ import pandas as pd
 from usdm_excel.id_manager import IdManager
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm.code import Code
+from usdm_excel.ct_version_manager import ct_version_manager
 
 class BaseSheet():
 
@@ -67,7 +68,8 @@ class BaseSheet():
       system = outer_parts[0].strip()
       inner_parts = outer_parts[1].strip().split("=")
       if len(inner_parts) == 2:
-        return Code(codeId=self.id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion="", decode=inner_parts[1].strip())
+        version = ct_version_manager.get(system)
+        return Code(codeId=self.id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
       else:
         print("Other code error for data %s, no '=' detected" % (value))
     else:
