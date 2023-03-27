@@ -65,7 +65,6 @@ class NodesAndEdges():
       this_node_index = self.node_index
       self.node_index += 1
       for key, value in node.items():
-        #print("KEY:", key, value)
         if key in self.edge_attributes:
           if key == "conditionAssignments":
             # Special case, array of arrays of condition and link id
@@ -84,10 +83,10 @@ class NodesAndEdges():
             for index in indexes:
               self.edges.append( {'id': self.edge_index, 'start': this_node_index, 'end': index, 'properties': {'label': key}})
               self.edge_index += 1
-      #properties['node_type'] = klass
+      if klass == "Study":
+        node[id_field] = "Study"
       properties['label'] = node[id_field]
       self.nodes.append({ 'id': this_node_index, 'properties': properties })
-      #print("XXX:", id_field, properties)
       self.id_node_index_map[properties[id_field]] = this_node_index
       return [this_node_index]
     else:
