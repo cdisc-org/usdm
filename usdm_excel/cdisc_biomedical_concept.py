@@ -82,8 +82,8 @@ class CDISCBiomedicalConcepts():
     )
 
   def _bc_property_as_uasdm(self, property, codes):
-    code = NCIt().code(property['conceptId'], property['shortName'])
-    aliases = []
+    concept_code = NCIt().code(property['conceptId'], property['shortName'])
+    concept_aliases = []
     responses = []
     for code in codes:
       responses.append(ResponseCode(responseCodeId=id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
@@ -94,5 +94,5 @@ class CDISCBiomedicalConcepts():
       bcPropertyEnabled=True,
       bcPropertyDatatype=property['dataType'],
       bcPropertyResponseCodes=responses,
-      bcPropertyConceptCode=Alias().code(code, aliases)
+      bcPropertyConceptCode=Alias().code(concept_code, concept_aliases)
     )

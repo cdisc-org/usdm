@@ -2911,6 +2911,15 @@
     label: ResponseCode_1
     responseCodeEnabled: true
     responseCodeId: ResponseCode_1
+- id: 306
+  properties:
+    _type: Code
+    code: C73688
+    codeId: Code_96
+    codeSystem: NCI Thesaurus
+    codeSystemVersion: ''
+    decode: Count per Minute
+    label: Code_96
 - id: 305
   properties:
     _type: AliasCode
@@ -2926,7 +2935,7 @@
     bcPropertyName: Count per Minute
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_2
-- id: 308
+- id: 309
   properties:
     _type: Code
     code: C83088
@@ -2935,13 +2944,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Location
     label: Code_97
-- id: 307
+- id: 308
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_6
     label: AliasCode_6
     standardCodeAliases: []
-- id: 306
+- id: 307
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -2951,7 +2960,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_3
-- id: 311
+- id: 312
   properties:
     _type: Code
     code: C123975
@@ -2960,13 +2969,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Laterality
     label: Code_98
-- id: 310
+- id: 311
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_7
     label: AliasCode_7
     standardCodeAliases: []
-- id: 309
+- id: 310
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -2976,7 +2985,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_4
-- id: 314
+- id: 315
   properties:
     _type: Code
     code: C82535
@@ -2985,13 +2994,13 @@
     codeSystemVersion: ''
     decode: Test Method
     label: Code_99
-- id: 313
+- id: 314
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_8
     label: AliasCode_8
     standardCodeAliases: []
-- id: 312
+- id: 313
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3001,7 +3010,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_5
-- id: 317
+- id: 318
   properties:
     _type: Code
     code: C83114
@@ -3010,13 +3019,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Position
     label: Code_100
-- id: 316
+- id: 317
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_9
     label: AliasCode_9
     standardCodeAliases: []
-- id: 315
+- id: 316
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3026,7 +3035,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_6
-- id: 319
+- id: 320
   properties:
     _type: Code
     code: C49676
@@ -3035,7 +3044,7 @@
     codeSystemVersion: ''
     decode: Pulse Rate
     label: Code_93
-- id: 318
+- id: 319
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_3
@@ -3050,7 +3059,7 @@
     - Pulse
     biomedicalConceptId: BiomedicalConcept_1
     label: BiomedicalConcept_1
-- id: 323
+- id: 324
   properties:
     _type: Code
     code: C173522
@@ -3059,13 +3068,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_102
-- id: 322
+- id: 323
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_11
     label: AliasCode_11
     standardCodeAliases: []
-- id: 321
+- id: 322
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: integer
@@ -3075,7 +3084,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_7
-- id: 326
+- id: 327
   properties:
     _type: Code
     code: C42547
@@ -3084,19 +3093,28 @@
     codeSystemVersion: '2022-12-16'
     decode: Pascal
     label: Code_103
-- id: 325
+- id: 326
   properties:
     _type: ResponseCode
     label: ResponseCode_2
     responseCodeEnabled: true
     responseCodeId: ResponseCode_2
-- id: 327
+- id: 329
+  properties:
+    _type: Code
+    code: C49669
+    codeId: Code_104
+    codeSystem: NCI Thesaurus
+    codeSystemVersion: ''
+    decode: Unit of Pressure
+    label: Code_104
+- id: 328
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_12
     label: AliasCode_12
     standardCodeAliases: []
-- id: 324
+- id: 325
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3105,7 +3123,7 @@
     bcPropertyName: Unit of Pressure
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_8
-- id: 330
+- id: 332
   properties:
     _type: Code
     code: C83088
@@ -3114,13 +3132,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Location
     label: Code_105
-- id: 329
+- id: 331
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_13
     label: AliasCode_13
     standardCodeAliases: []
-- id: 328
+- id: 330
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3130,7 +3148,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_9
-- id: 333
+- id: 335
   properties:
     _type: Code
     code: C123975
@@ -3139,13 +3157,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Laterality
     label: Code_106
-- id: 332
+- id: 334
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_14
     label: AliasCode_14
     standardCodeAliases: []
-- id: 331
+- id: 333
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3155,7 +3173,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_10
-- id: 336
+- id: 338
   properties:
     _type: Code
     code: C82535
@@ -3164,13 +3182,13 @@
     codeSystemVersion: ''
     decode: Test Method
     label: Code_107
-- id: 335
+- id: 337
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_15
     label: AliasCode_15
     standardCodeAliases: []
-- id: 334
+- id: 336
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3180,7 +3198,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_11
-- id: 339
+- id: 341
   properties:
     _type: Code
     code: C83114
@@ -3189,13 +3207,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Position
     label: Code_108
-- id: 338
+- id: 340
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_16
     label: AliasCode_16
     standardCodeAliases: []
-- id: 337
+- id: 339
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3205,7 +3223,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_12
-- id: 341
+- id: 343
   properties:
     _type: Code
     code: C25298
@@ -3214,13 +3232,13 @@
     codeSystemVersion: ''
     decode: Systolic Blood Pressure
     label: Code_101
-- id: 340
+- id: 342
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_10
     label: AliasCode_10
     standardCodeAliases: []
-- id: 320
+- id: 321
   properties:
     _type: BiomedicalConcept
     bcName: Systolic Blood Pressure
@@ -3229,7 +3247,7 @@
     - SYSBP
     biomedicalConceptId: BiomedicalConcept_2
     label: BiomedicalConcept_2
-- id: 345
+- id: 347
   properties:
     _type: Code
     code: C173522
@@ -3238,13 +3256,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_110
-- id: 344
+- id: 346
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_18
     label: AliasCode_18
     standardCodeAliases: []
-- id: 343
+- id: 345
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: integer
@@ -3254,7 +3272,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_13
-- id: 348
+- id: 350
   properties:
     _type: Code
     code: C42547
@@ -3263,19 +3281,28 @@
     codeSystemVersion: '2022-12-16'
     decode: Pascal
     label: Code_111
-- id: 347
+- id: 349
   properties:
     _type: ResponseCode
     label: ResponseCode_3
     responseCodeEnabled: true
     responseCodeId: ResponseCode_3
-- id: 349
+- id: 352
+  properties:
+    _type: Code
+    code: C49669
+    codeId: Code_112
+    codeSystem: NCI Thesaurus
+    codeSystemVersion: ''
+    decode: Unit of Pressure
+    label: Code_112
+- id: 351
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_19
     label: AliasCode_19
     standardCodeAliases: []
-- id: 346
+- id: 348
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3284,7 +3311,7 @@
     bcPropertyName: Unit of Pressure
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_14
-- id: 352
+- id: 355
   properties:
     _type: Code
     code: C83088
@@ -3293,13 +3320,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Location
     label: Code_113
-- id: 351
+- id: 354
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_20
     label: AliasCode_20
     standardCodeAliases: []
-- id: 350
+- id: 353
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3309,7 +3336,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_15
-- id: 355
+- id: 358
   properties:
     _type: Code
     code: C123975
@@ -3318,13 +3345,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Laterality
     label: Code_114
-- id: 354
+- id: 357
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_21
     label: AliasCode_21
     standardCodeAliases: []
-- id: 353
+- id: 356
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3334,7 +3361,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_16
-- id: 358
+- id: 361
   properties:
     _type: Code
     code: C82535
@@ -3343,13 +3370,13 @@
     codeSystemVersion: ''
     decode: Test Method
     label: Code_115
-- id: 357
+- id: 360
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_22
     label: AliasCode_22
     standardCodeAliases: []
-- id: 356
+- id: 359
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3359,7 +3386,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_17
-- id: 361
+- id: 364
   properties:
     _type: Code
     code: C83114
@@ -3368,13 +3395,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Position
     label: Code_116
-- id: 360
+- id: 363
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_23
     label: AliasCode_23
     standardCodeAliases: []
-- id: 359
+- id: 362
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3384,7 +3411,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_18
-- id: 363
+- id: 366
   properties:
     _type: Code
     code: C25299
@@ -3393,13 +3420,13 @@
     codeSystemVersion: ''
     decode: Diastolic Blood Pressure
     label: Code_109
-- id: 362
+- id: 365
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_17
     label: AliasCode_17
     standardCodeAliases: []
-- id: 342
+- id: 344
   properties:
     _type: BiomedicalConcept
     bcName: Diastolic Blood Pressure
@@ -3408,7 +3435,7 @@
     - DIABP
     biomedicalConceptId: BiomedicalConcept_3
     label: BiomedicalConcept_3
-- id: 367
+- id: 370
   properties:
     _type: Code
     code: C173522
@@ -3417,13 +3444,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_118
-- id: 366
+- id: 369
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_25
     label: AliasCode_25
     standardCodeAliases: []
-- id: 365
+- id: 368
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -3433,7 +3460,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_19
-- id: 370
+- id: 373
   properties:
     _type: Code
     code: C42537
@@ -3442,19 +3469,28 @@
     codeSystemVersion: '2022-12-16'
     decode: Kelvin
     label: Code_119
-- id: 369
+- id: 372
   properties:
     _type: ResponseCode
     label: ResponseCode_4
     responseCodeEnabled: true
     responseCodeId: ResponseCode_4
-- id: 371
+- id: 375
+  properties:
+    _type: Code
+    code: C44276
+    codeId: Code_120
+    codeSystem: NCI Thesaurus
+    codeSystemVersion: ''
+    decode: Unit of Temperature
+    label: Code_120
+- id: 374
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_26
     label: AliasCode_26
     standardCodeAliases: []
-- id: 368
+- id: 371
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3463,7 +3499,7 @@
     bcPropertyName: Unit of Temperature
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_20
-- id: 374
+- id: 378
   properties:
     _type: Code
     code: C83088
@@ -3472,13 +3508,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Location
     label: Code_121
-- id: 373
+- id: 377
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_27
     label: AliasCode_27
     standardCodeAliases: []
-- id: 372
+- id: 376
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -3488,7 +3524,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_21
-- id: 376
+- id: 380
   properties:
     _type: Code
     code: C174446
@@ -3497,13 +3533,13 @@
     codeSystemVersion: ''
     decode: Body Temperature
     label: Code_117
-- id: 375
+- id: 379
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_24
     label: AliasCode_24
     standardCodeAliases: []
-- id: 364
+- id: 367
   properties:
     _type: BiomedicalConcept
     bcName: Body Temperature
@@ -3512,7 +3548,7 @@
     - Temperature
     biomedicalConceptId: BiomedicalConcept_4
     label: BiomedicalConcept_4
-- id: 377
+- id: 381
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Age
@@ -3520,7 +3556,7 @@
     bcSurrogateName: Age
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 378
+- id: 382
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Sex
@@ -3528,7 +3564,7 @@
     bcSurrogateName: Sex
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 379
+- id: 383
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Race
@@ -3536,7 +3572,7 @@
     bcSurrogateName: Race
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_3
-- id: 380
+- id: 384
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Respiratory rate
@@ -3544,7 +3580,7 @@
     bcSurrogateName: Respiratory rate
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_4
-- id: 381
+- id: 385
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Oxygen saturation
@@ -3552,7 +3588,7 @@
     bcSurrogateName: Oxygen saturation
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_5
-- id: 382
+- id: 386
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: NEWS2
