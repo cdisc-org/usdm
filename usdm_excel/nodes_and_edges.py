@@ -25,7 +25,8 @@ class NodesAndEdges():
       'activityIds',
       'scheduledDecisionInstanceId',
       'treatment',
-      'variableOfInterest'
+      'variableOfInterest',
+      'conditionAssignments'
     ]
     self.fix_id_name = {
       'scheduledActivityInstanceId': 'scheduledInstanceId',
@@ -66,7 +67,11 @@ class NodesAndEdges():
       for key, value in node.items():
         #print("KEY:", key, value)
         if key in self.edge_attributes:
-          if type(value) == list:
+          if key == "conditionAssignments":
+            # Special case, array of arrays of condition and link id
+            for item in value:
+              self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': {'label': key}})
+          elif type(value) == list:
             for item in value:
               self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': {'label': key}})
           else:
