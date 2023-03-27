@@ -348,30 +348,30 @@
   properties:
     label: studyScheduleTimelines
   start: 12
-- end: 70
+- end: 69
   id: 71
   properties:
-    label: analysisPopulation
-  start: 69
-- end: 71
+    label: therapeuticAreas
+  start: 12
+- end: 70
   id: 72
   properties:
-    label: intercurrentEvents
-  start: 69
-- end: 69
-  id: 73
-  properties:
-    label: studyEstimands
+    label: therapeuticAreas
   start: 12
 - end: 72
+  id: 73
+  properties:
+    label: analysisPopulation
+  start: 71
+- end: 73
   id: 74
   properties:
-    label: encounters
-  start: 12
-- end: 73
+    label: intercurrentEvents
+  start: 71
+- end: 71
   id: 75
   properties:
-    label: encounters
+    label: studyEstimands
   start: 12
 - end: 74
   id: 76
@@ -381,27 +381,27 @@
 - end: 75
   id: 77
   properties:
-    label: activities
+    label: encounters
   start: 12
-- end: 77
+- end: 76
   id: 78
   properties:
-    label: standardCode
-  start: 76
-- end: 76
+    label: encounters
+  start: 12
+- end: 77
   id: 79
   properties:
-    label: studyDesignBlindingScheme
-  start: 12
-- end: 78
-  id: 80
-  properties:
-    label: bcSurrogates
+    label: activities
   start: 12
 - end: 79
+  id: 80
+  properties:
+    label: standardCode
+  start: 78
+- end: 78
   id: 81
   properties:
-    label: bcSurrogates
+    label: studyDesignBlindingScheme
   start: 12
 - end: 80
   id: 82
@@ -413,158 +413,168 @@
   properties:
     label: bcSurrogates
   start: 12
-- end: 12
+- end: 82
   id: 84
+  properties:
+    label: bcSurrogates
+  start: 12
+- end: 83
+  id: 85
+  properties:
+    label: bcSurrogates
+  start: 12
+- end: 12
+  id: 86
   properties:
     label: studyDesigns
   start: 1
-- end: 72
-  id: 85
-  properties:
-    label: encounterIds
-    type: List
-  start: 20
-- end: 73
-  id: 86
-  properties:
-    label: encounterIds
-    type: List
-  start: 20
 - end: 74
   id: 87
   properties:
     label: encounterIds
     type: List
+  start: 20
+- end: 75
+  id: 88
+  properties:
+    label: encounterIds
+    type: List
+  start: 20
+- end: 76
+  id: 89
+  properties:
+    label: encounterIds
+    type: List
   start: 23
 - end: 48
-  id: 88
+  id: 90
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 49
-- end: 72
-  id: 89
+- end: 74
+  id: 91
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 52
 - end: 52
-  id: 90
+  id: 92
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 53
 - end: 61
-  id: 91
+  id: 93
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 53
-- end: 75
-  id: 92
+- end: 77
+  id: 94
   properties:
     label: activityIds
     type: List
   start: 52
 - end: 56
-  id: 93
+  id: 95
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 57
 - end: 48
-  id: 94
+  id: 96
   properties:
     label: conditionAssignments
     type: Condition
   start: 60
 - end: 61
-  id: 95
+  id: 97
   properties:
     label: conditionAssignments
     type: Condition
   start: 60
-- end: 73
-  id: 96
+- end: 75
+  id: 98
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 61
 - end: 61
-  id: 97
+  id: 99
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 62
 - end: 52
-  id: 98
+  id: 100
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 62
-- end: 75
-  id: 99
+- end: 77
+  id: 101
   properties:
     label: activityIds
     type: List
   start: 61
-- end: 74
-  id: 100
+- end: 76
+  id: 102
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 65
 - end: 65
-  id: 101
+  id: 103
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 66
 - end: 61
-  id: 102
+  id: 104
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 66
-- end: 75
-  id: 103
+- end: 77
+  id: 105
   properties:
     label: activityIds
     type: List
   start: 65
 - end: 33
-  id: 104
+  id: 106
   properties:
     label: treatment
     type: Other
-  start: 69
+  start: 71
 - end: 44
-  id: 105
+  id: 107
   properties:
     label: variableOfInterest
     type: Other
-  start: 69
-- end: 78
-  id: 106
-  properties:
-    label: bcSurrogateIds
-    type: List
-  start: 75
-- end: 79
-  id: 107
-  properties:
-    label: bcSurrogateIds
-    type: List
-  start: 75
+  start: 71
 - end: 80
   id: 108
   properties:
     label: bcSurrogateIds
     type: List
-  start: 75
+  start: 77
 - end: 81
   id: 109
   properties:
     label: bcSurrogateIds
     type: List
-  start: 75
+  start: 77
+- end: 82
+  id: 110
+  properties:
+    label: bcSurrogateIds
+    type: List
+  start: 77
+- end: 83
+  id: 111
+  properties:
+    label: bcSurrogateIds
+    type: List
+  start: 77

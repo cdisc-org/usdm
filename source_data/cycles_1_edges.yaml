@@ -723,30 +723,30 @@
   properties:
     label: studyScheduleTimelines
   start: 15
-- end: 142
+- end: 141
   id: 146
   properties:
-    label: analysisPopulation
-  start: 141
-- end: 143
+    label: therapeuticAreas
+  start: 15
+- end: 142
   id: 147
   properties:
-    label: intercurrentEvents
-  start: 141
-- end: 141
-  id: 148
-  properties:
-    label: studyEstimands
+    label: therapeuticAreas
   start: 15
 - end: 144
+  id: 148
+  properties:
+    label: analysisPopulation
+  start: 143
+- end: 145
   id: 149
   properties:
-    label: encounters
-  start: 15
-- end: 145
+    label: intercurrentEvents
+  start: 143
+- end: 143
   id: 150
   properties:
-    label: encounters
+    label: studyEstimands
   start: 15
 - end: 146
   id: 151
@@ -796,37 +796,37 @@
 - end: 155
   id: 160
   properties:
-    label: activities
+    label: encounters
   start: 15
 - end: 156
   id: 161
   properties:
-    label: activities
+    label: encounters
   start: 15
 - end: 157
   id: 162
   properties:
     label: activities
   start: 15
-- end: 159
+- end: 158
   id: 163
   properties:
-    label: standardCode
-  start: 158
-- end: 158
+    label: activities
+  start: 15
+- end: 159
   id: 164
   properties:
-    label: studyDesignBlindingScheme
-  start: 15
-- end: 160
-  id: 165
-  properties:
-    label: bcSurrogates
+    label: activities
   start: 15
 - end: 161
+  id: 165
+  properties:
+    label: standardCode
+  start: 160
+- end: 160
   id: 166
   properties:
-    label: bcSurrogates
+    label: studyDesignBlindingScheme
   start: 15
 - end: 162
   id: 167
@@ -838,29 +838,27 @@
   properties:
     label: bcSurrogates
   start: 15
-- end: 15
+- end: 164
   id: 169
+  properties:
+    label: bcSurrogates
+  start: 15
+- end: 165
+  id: 170
+  properties:
+    label: bcSurrogates
+  start: 15
+- end: 15
+  id: 171
   properties:
     label: studyDesigns
   start: 1
-- end: 144
-  id: 170
-  properties:
-    label: encounterIds
-    type: List
-  start: 23
-- end: 145
-  id: 171
-  properties:
-    label: encounterIds
-    type: List
-  start: 26
 - end: 146
   id: 172
   properties:
     label: encounterIds
     type: List
-  start: 26
+  start: 23
 - end: 147
   id: 173
   properties:
@@ -908,394 +906,406 @@
   properties:
     label: encounterIds
     type: List
-  start: 29
-- end: 144
+  start: 26
+- end: 155
   id: 181
+  properties:
+    label: encounterIds
+    type: List
+  start: 26
+- end: 156
+  id: 182
+  properties:
+    label: encounterIds
+    type: List
+  start: 29
+- end: 146
+  id: 183
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 55
 - end: 55
-  id: 182
+  id: 184
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 56
 - end: 63
-  id: 183
+  id: 185
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 56
-- end: 155
-  id: 184
-  properties:
-    label: activityIds
-    type: List
-  start: 55
-- end: 156
-  id: 185
-  properties:
-    label: activityIds
-    type: List
-  start: 55
 - end: 157
   id: 186
   properties:
     label: activityIds
     type: List
   start: 55
-- end: 59
+- end: 158
   id: 187
+  properties:
+    label: activityIds
+    type: List
+  start: 55
+- end: 159
+  id: 188
+  properties:
+    label: activityIds
+    type: List
+  start: 55
+- end: 59
+  id: 189
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 60
-- end: 145
-  id: 188
+- end: 147
+  id: 190
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 63
 - end: 63
-  id: 189
+  id: 191
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 64
 - end: 71
-  id: 190
+  id: 192
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 64
-- end: 156
-  id: 191
+- end: 158
+  id: 193
   properties:
     label: activityIds
     type: List
   start: 63
-- end: 157
-  id: 192
+- end: 159
+  id: 194
   properties:
     label: activityIds
     type: List
   start: 63
 - end: 67
-  id: 193
+  id: 195
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 68
-- end: 146
-  id: 194
+- end: 148
+  id: 196
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 71
 - end: 71
-  id: 195
+  id: 197
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 72
 - end: 63
-  id: 196
+  id: 198
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 72
-- end: 157
-  id: 197
+- end: 159
+  id: 199
   properties:
     label: activityIds
     type: List
   start: 71
 - end: 75
-  id: 198
+  id: 200
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 76
-- end: 147
-  id: 199
+- end: 149
+  id: 201
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 79
 - end: 79
-  id: 200
+  id: 202
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 80
 - end: 87
-  id: 201
+  id: 203
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 80
-- end: 157
-  id: 202
+- end: 159
+  id: 204
   properties:
     label: activityIds
     type: List
   start: 79
 - end: 83
-  id: 203
+  id: 205
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 84
-- end: 148
-  id: 204
+- end: 150
+  id: 206
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 87
 - end: 87
-  id: 205
+  id: 207
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 88
 - end: 79
-  id: 206
+  id: 208
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 88
-- end: 157
-  id: 207
+- end: 159
+  id: 209
   properties:
     label: activityIds
     type: List
   start: 87
 - end: 91
-  id: 208
+  id: 210
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 92
-- end: 149
-  id: 209
+- end: 151
+  id: 211
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 95
 - end: 95
-  id: 210
+  id: 212
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 96
 - end: 103
-  id: 211
+  id: 213
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 96
-- end: 157
-  id: 212
+- end: 159
+  id: 214
   properties:
     label: activityIds
     type: List
   start: 95
 - end: 99
-  id: 213
+  id: 215
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 100
-- end: 150
-  id: 214
+- end: 152
+  id: 216
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 103
 - end: 103
-  id: 215
+  id: 217
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 104
 - end: 95
-  id: 216
+  id: 218
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 104
 - end: 107
-  id: 217
+  id: 219
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 108
-- end: 151
-  id: 218
+- end: 153
+  id: 220
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 111
 - end: 111
-  id: 219
+  id: 221
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 112
 - end: 124
-  id: 220
+  id: 222
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 112
-- end: 157
-  id: 221
+- end: 159
+  id: 223
   properties:
     label: activityIds
     type: List
   start: 111
 - end: 115
-  id: 222
+  id: 224
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 116
 - end: 107
-  id: 223
-  properties:
-    label: conditionAssignments
-    type: Condition
-  start: 119
-- end: 120
-  id: 224
-  properties:
-    label: conditionAssignments
-    type: Condition
-  start: 119
-- end: 120
   id: 225
+  properties:
+    label: conditionAssignments
+    type: Condition
+  start: 119
+- end: 120
+  id: 226
+  properties:
+    label: conditionAssignments
+    type: Condition
+  start: 119
+- end: 120
+  id: 227
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 121
-- end: 152
-  id: 226
+- end: 154
+  id: 228
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 124
 - end: 124
-  id: 227
+  id: 229
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 125
 - end: 133
-  id: 228
+  id: 230
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 125
-- end: 157
-  id: 229
+- end: 159
+  id: 231
   properties:
     label: activityIds
     type: List
   start: 124
 - end: 128
-  id: 230
+  id: 232
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 129
 - end: 120
-  id: 231
+  id: 233
   properties:
     label: conditionAssignments
     type: Condition
   start: 132
 - end: 133
-  id: 232
+  id: 234
   properties:
     label: conditionAssignments
     type: Condition
   start: 132
-- end: 153
-  id: 233
+- end: 155
+  id: 235
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 133
 - end: 133
-  id: 234
+  id: 236
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 134
 - end: 124
-  id: 235
+  id: 237
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 134
-- end: 157
-  id: 236
+- end: 159
+  id: 238
   properties:
     label: activityIds
     type: List
   start: 133
-- end: 154
-  id: 237
+- end: 156
+  id: 239
   properties:
     label: scheduledInstanceEncounterId
     type: Other
   start: 137
 - end: 137
-  id: 238
+  id: 240
   properties:
     label: relativeFromScheduledInstanceId
     type: Other
   start: 138
 - end: 133
-  id: 239
+  id: 241
   properties:
     label: relativeToScheduledInstanceId
     type: Other
   start: 138
 - end: 40
-  id: 240
+  id: 242
   properties:
     label: treatment
     type: Other
-  start: 141
+  start: 143
 - end: 51
-  id: 241
+  id: 243
   properties:
     label: variableOfInterest
     type: Other
-  start: 141
-- end: 160
-  id: 242
-  properties:
-    label: bcSurrogateIds
-    type: List
-  start: 157
-- end: 161
-  id: 243
-  properties:
-    label: bcSurrogateIds
-    type: List
-  start: 157
+  start: 143
 - end: 162
   id: 244
   properties:
     label: bcSurrogateIds
     type: List
-  start: 157
+  start: 159
 - end: 163
   id: 245
   properties:
     label: bcSurrogateIds
     type: List
-  start: 157
+  start: 159
+- end: 164
+  id: 246
+  properties:
+    label: bcSurrogateIds
+    type: List
+  start: 159
+- end: 165
+  id: 247
+  properties:
+    label: bcSurrogateIds
+    type: List
+  start: 159

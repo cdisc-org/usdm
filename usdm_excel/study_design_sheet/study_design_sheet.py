@@ -42,11 +42,8 @@ class StudyDesignSheet(BaseSheet):
   def process_sheet(self):
     for rindex, row in self.sheet.iterrows():
       if rindex == self.TA_ROW:
-        items = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        parts = items.split(",")
-        for part in parts:
-          pass
-          #print("TA", items, part)
+        self.therapeutic_areas = self.other_code_cell_mutiple(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        print("TA:", self.therapeutic_areas)
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
