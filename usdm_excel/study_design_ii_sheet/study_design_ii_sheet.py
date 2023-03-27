@@ -30,16 +30,3 @@ class StudyDesignIISheet(BaseSheet):
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
-
-  # def _build_codes(self, row, index):
-  #   result = []
-  #   value = self.clean_cell(row, index, "codes")
-  #   #print("CODE1:", value)
-  #   items = value.split(",")
-  #   for item in items:
-  #     #print("CODE2:", item)
-  #     code = self.other_code_cell(item)
-  #     #print("CODE3:", code)
-  #     if not code == None:
-  #       result.append(code)
-  #   return result
