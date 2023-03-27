@@ -37,7 +37,7 @@ class Activity(BaseSheet):
       definedProcedures=[],
       activityIsConditional=False,
       activityIsConditionalReason="",
-      biomedicalConcepts=full_bc_items,
+      biomedicalConceptIds=full_bc_items,
       bcCategoryIds=[],
       bcSurrogateIds=surrogate_bc_items,
       activityTimelineId=""
