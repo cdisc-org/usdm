@@ -1032,6 +1032,25 @@
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_20",
+              "scheduledInstanceType": 2,
+              "scheduleSequenceNumber": 0,
+              "scheduleTimelineExitId": "",
+              "scheduledInstanceEncounterId": "",
+              "scheduledInstanceTimings": [],
+              "scheduledInstanceTimelineId": "",
+              "conditionAssignments": [
+                [
+                  "Cycle 12",
+                  "ScheduledActivityInstance_18"
+                ],
+                [
+                  "default",
+                  "ScheduledActivityInstance_21"
+                ]
+              ]
+            },
+            {
+              "scheduledInstanceId": "ScheduledActivityInstance_21",
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
@@ -1055,7 +1074,7 @@
                     "decode": "Start to start"
                   },
                   "timingWindow": "",
-                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_20",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_21",
                   "relativeToScheduledInstanceId": ""
                 }
               ],
@@ -1097,7 +1116,7 @@
               ]
             },
             {
-              "scheduledInstanceId": "ScheduledActivityInstance_21",
+              "scheduledInstanceId": "ScheduledActivityInstance_22",
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
@@ -1121,7 +1140,7 @@
                     "decode": "Start to start"
                   },
                   "timingWindow": "",
-                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_21",
+                  "relativeFromScheduledInstanceId": "ScheduledActivityInstance_22",
                   "relativeToScheduledInstanceId": ""
                 }
               ],
@@ -1129,7 +1148,7 @@
               "activityIds": []
             },
             {
-              "scheduledInstanceId": "ScheduledActivityInstance_22",
+              "scheduledInstanceId": "ScheduledActivityInstance_23",
               "scheduledInstanceType": 2,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
@@ -1139,7 +1158,7 @@
               "conditionAssignments": [
                 [
                   "Disease Progresssion",
-                  "ScheduledActivityInstance_20"
+                  "ScheduledActivityInstance_21"
                 ],
                 [
                   "default",
