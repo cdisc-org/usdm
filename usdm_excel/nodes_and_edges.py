@@ -93,12 +93,9 @@ class NodesAndEdges():
       return []
     
   def _get_id_field_and_klass(self, node):
-    #print("NODE:", node)
     klass = node['_type']
     id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
-    #print("ID NAME:", id_name)
     if id_name in self.fix_id_name:
       id_name = self.fix_id_name[id_name]
-      #print("ID NAME FIX:", id_name)
     return id_name, klass
 
