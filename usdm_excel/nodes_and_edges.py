@@ -76,8 +76,8 @@ class NodesAndEdges():
           else:
             if not value == "":
               self.add_edges.append( { 'start': this_node_index, 'end': value, 'properties': { 'label': key, 'type': 'Other' }})
-            else:
-              print("Key %s, value >%s<" % (key, value))
+            # else:
+            #   print("Key %s, value >%s<" % (key, value))
         else:
           indexes = self._process_node(value)
           if indexes == []:
