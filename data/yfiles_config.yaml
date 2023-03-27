@@ -3,6 +3,7 @@ colour_map:
   ScheduleTimeline: '#5D6D7E'
   ScheduleTimelineExit: '#5D6D7E'
   ScheduledActivityInstance: '#5D6D7E'
+  ScheduledDecisionInstance: '#5D6D7E'
   Timing: '#5D6D7E'
   Activity: '#27AE60'
   BCSurrogate: '#BB8FCE'
@@ -29,5 +30,5 @@ colour_map:
   Code: '#82E0AA'
   AliasCode: '#82E0AA'
 shape_map:
-  Condition: diamond
-  CycleStart: hexagon2
+  ScheduledDecisionInstance: diamond
+  ScheduledActivityInstance: hexagon2
