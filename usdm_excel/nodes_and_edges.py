@@ -45,7 +45,7 @@ class NodesAndEdges():
         self.edges.append(edge)
         self.edge_index += 1
       else:
-        print("***** %s -edge-> %s *****" % (edge['start'], edge['end']))
+        print("***** %s -edge-> %s [%s] *****" % (edge['start'], edge['end'], edge['properties']))
     return self.nodes, self.edges
   
   def _process_node(self, node):
@@ -69,12 +69,15 @@ class NodesAndEdges():
           if key == "conditionAssignments":
             # Special case, array of arrays of condition and link id
             for item in value:
-              self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': {'label': key}})
+              self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
           elif type(value) == list:
             for item in value:
-              self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': {'label': key}})
+              self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': { 'label': key, 'type': 'List' }})
           else:
-            self.add_edges.append( { 'start': this_node_index, 'end': value, 'properties': {'label': key}})
+            if not value == "":
+              self.add_edges.append( { 'start': this_node_index, 'end': value, 'properties': { 'label': key, 'type': 'Other' }})
+            else:
+              print("Key %s, value >%s<" % (key, value))
         else:
           indexes = self._process_node(value)
           if indexes == []:
