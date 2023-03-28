@@ -76,7 +76,6 @@ class StudySoASheet(BaseSheet):
         self.description = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.CONDITION_ROW:
         self.condition = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
-        print("COND:", self.condition)
       else:
         pass
 

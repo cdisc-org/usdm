@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm.activity import Activity as USDMActivity
 from usdm.biomedical_concept_surrogate import BiomedicalConceptSurrogate
@@ -30,6 +31,9 @@ class Activity(BaseSheet):
         surrogate = self._to_bc_surrogates(bc)
         surrogate_bc_items.append(surrogate.bcSurrogateId)
         self.usdm_biomedical_concept_surrogates.append(surrogate)
+    timelineId = ""
+    if len(self._prs) > 0:
+      timelineId = cross_references.get(self._prs[0])
     return USDMActivity(
       activityId=id_manager.build_id(Activity),
       activityName=self.name,
@@ -40,7 +44,7 @@ class Activity(BaseSheet):
       biomedicalConceptIds=full_bc_items,
       bcCategoryIds=[],
       bcSurrogateIds=surrogate_bc_items,
-      activityTimelineId=""
+      activityTimelineId=timelineId
     )
   
   def _to_bc_surrogates(self, name):
