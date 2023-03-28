@@ -21,6 +21,7 @@ class Activity(BaseSheet):
   def _as_usdm(self):
     surrogate_bc_items = []
     full_bc_items = []
+    procedures = []
     cdisc_bcs = CDISCBiomedicalConcepts()
     for bc in self._bcs:
       if cdisc_bcs.exists(bc):
@@ -34,11 +35,13 @@ class Activity(BaseSheet):
     timelineId = ""
     if len(self._tls) > 0:
       timelineId = cross_references.get(self._tls[0])
+    for procedure in self._prs:
+      procedures.append(cross_references.get(procedure))
     return USDMActivity(
       activityId=id_manager.build_id(Activity),
       activityName=self.name,
       activityDescription=self.name,
-      definedProcedures=[],
+      definedProcedures=procedures,
       activityIsConditional=False,
       activityIsConditionalReason="",
       biomedicalConceptIds=full_bc_items,

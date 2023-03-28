@@ -774,7 +774,8 @@
               "scheduledInstanceTimelineId": "",
               "activityIds": [
                 "Activity_3",
-                "Activity_4"
+                "Activity_4",
+                "Activity_5"
               ]
             },
             {
@@ -808,7 +809,8 @@
               ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
-                "Activity_4"
+                "Activity_4",
+                "Activity_5"
               ]
             },
             {
@@ -842,7 +844,8 @@
               ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
-                "Activity_4"
+                "Activity_4",
+                "Activity_5"
               ]
             },
             {
@@ -876,7 +879,8 @@
               ],
               "scheduledInstanceTimelineId": "",
               "activityIds": [
-                "Activity_4"
+                "Activity_4",
+                "Activity_5"
               ]
             },
             {
@@ -1260,7 +1264,7 @@
           "activityName": "Something Else",
           "activityDescription": "Something Else",
           "previousActivityId": "Activity_3",
-          "nextActivityId": null,
+          "nextActivityId": "Activity_5",
           "definedProcedures": [],
           "activityIsConditional": false,
           "activityIsConditionalReason": "",
@@ -1268,6 +1272,47 @@
           "bcCategoryIds": [],
           "bcSurrogateIds": [],
           "activityTimelineId": "ScheduleTimeline_1"
+        },
+        {
+          "activityId": "Activity_5",
+          "activityName": "Procedures",
+          "activityDescription": "Procedures",
+          "previousActivityId": "Activity_4",
+          "nextActivityId": null,
+          "definedProcedures": [
+            {
+              "procedureId": "Procedure_1",
+              "procedureType": "XXX",
+              "procedureCode": {
+                "codeId": "Code_11",
+                "code": "12345678",
+                "codeSystem": "SNOMED",
+                "codeSystemVersion": "January 31, 2018",
+                "decode": "Test"
+              },
+              "procedureIsConditional": false,
+              "procedureIsConditionalReason": ""
+            },
+            {
+              "procedureId": "Procedure_2",
+              "procedureType": "XXX",
+              "procedureCode": {
+                "codeId": "Code_12",
+                "code": "12345679",
+                "codeSystem": "SNOMED",
+                "codeSystemVersion": "January 31, 2018",
+                "decode": "Test"
+              },
+              "procedureIsConditional": true,
+              "procedureIsConditionalReason": "Only do it they have man flu"
+            }
+          ],
+          "activityIsConditional": false,
+          "activityIsConditionalReason": "",
+          "biomedicalConceptIds": [],
+          "bcCategoryIds": [],
+          "bcSurrogateIds": [],
+          "activityTimelineId": ""
         },
         {
           "activityId": "Activity_1",

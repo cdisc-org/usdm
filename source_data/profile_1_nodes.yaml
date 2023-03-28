@@ -1247,9 +1247,54 @@
     activityName: Something Else
     definedProcedures: []
     label: Activity_4
-    nextActivityId: null
+    nextActivityId: Activity_5
     previousActivityId: Activity_3
+- id: 150
+  properties:
+    _type: Code
+    code: '12345678'
+    codeId: Code_11
+    codeSystem: SNOMED
+    codeSystemVersion: January 31, 2018
+    decode: Test
+    label: Code_11
+- id: 149
+  properties:
+    _type: Procedure
+    label: Procedure_1
+    procedureId: Procedure_1
+    procedureIsConditional: false
+    procedureIsConditionalReason: ''
+    procedureType: XXX
+- id: 152
+  properties:
+    _type: Code
+    code: '12345679'
+    codeId: Code_12
+    codeSystem: SNOMED
+    codeSystemVersion: January 31, 2018
+    decode: Test
+    label: Code_12
+- id: 151
+  properties:
+    _type: Procedure
+    label: Procedure_2
+    procedureId: Procedure_2
+    procedureIsConditional: true
+    procedureIsConditionalReason: Only do it they have man flu
+    procedureType: XXX
 - id: 148
+  properties:
+    _type: Activity
+    activityDescription: Procedures
+    activityId: Activity_5
+    activityIsConditional: false
+    activityIsConditionalReason: ''
+    activityName: Procedures
+    label: Activity_5
+    nextActivityId: null
+    previousActivityId: Activity_4
+- id: 153
   properties:
     _type: Activity
     activityDescription: Weight
@@ -1261,7 +1306,7 @@
     label: Activity_1
     nextActivityId: Activity_2
     previousActivityId: null
-- id: 149
+- id: 154
   properties:
     _type: Activity
     activityDescription: Temperature
@@ -1273,7 +1318,7 @@
     label: Activity_2
     nextActivityId: null
     previousActivityId: Activity_1
-- id: 151
+- id: 156
   properties:
     _type: Code
     code: C49659
@@ -1282,13 +1327,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Open Label Study
     label: Code_15
-- id: 150
+- id: 155
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_2
     label: AliasCode_2
     standardCodeAliases: []
-- id: 155
+- id: 160
   properties:
     _type: Code
     code: C173522
@@ -1297,13 +1342,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_58
-- id: 154
+- id: 159
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_11
     label: AliasCode_11
     standardCodeAliases: []
-- id: 153
+- id: 158
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1313,7 +1358,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_6
-- id: 158
+- id: 163
   properties:
     _type: Code
     code: C28252
@@ -1322,13 +1367,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
     label: Code_59
-- id: 157
+- id: 162
   properties:
     _type: ResponseCode
     label: ResponseCode_5
     responseCodeEnabled: true
     responseCodeId: ResponseCode_5
-- id: 160
+- id: 165
   properties:
     _type: Code
     code: C48155
@@ -1337,13 +1382,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Gram
     label: Code_60
-- id: 159
+- id: 164
   properties:
     _type: ResponseCode
     label: ResponseCode_6
     responseCodeEnabled: true
     responseCodeId: ResponseCode_6
-- id: 162
+- id: 167
   properties:
     _type: Code
     code: C48531
@@ -1352,13 +1397,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Pound
     label: Code_61
-- id: 161
+- id: 166
   properties:
     _type: ResponseCode
     label: ResponseCode_7
     responseCodeEnabled: true
     responseCodeId: ResponseCode_7
-- id: 164
+- id: 169
   properties:
     _type: Code
     code: C48208
@@ -1367,13 +1412,13 @@
     codeSystemVersion: ''
     decode: Unit of Weight
     label: Code_62
-- id: 163
+- id: 168
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_12
     label: AliasCode_12
     standardCodeAliases: []
-- id: 156
+- id: 161
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1382,7 +1427,7 @@
     bcPropertyName: Unit of Weight
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_7
-- id: 166
+- id: 171
   properties:
     _type: Code
     code: C81328
@@ -1391,13 +1436,13 @@
     codeSystemVersion: ''
     decode: Body Weight
     label: Code_57
-- id: 165
+- id: 170
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_10
     label: AliasCode_10
     standardCodeAliases: []
-- id: 152
+- id: 157
   properties:
     _type: BiomedicalConcept
     bcName: Body Weight
@@ -1406,7 +1451,7 @@
     - Weight
     biomedicalConceptId: BiomedicalConcept_3
     label: BiomedicalConcept_3
-- id: 170
+- id: 175
   properties:
     _type: Code
     code: C173522
@@ -1415,13 +1460,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_37
-- id: 169
+- id: 174
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_4
     label: AliasCode_4
     standardCodeAliases: []
-- id: 168
+- id: 173
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1431,7 +1476,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_1
-- id: 173
+- id: 178
   properties:
     _type: Code
     code: C28252
@@ -1440,13 +1485,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
     label: Code_38
-- id: 172
+- id: 177
   properties:
     _type: ResponseCode
     label: ResponseCode_1
     responseCodeEnabled: true
     responseCodeId: ResponseCode_1
-- id: 175
+- id: 180
   properties:
     _type: Code
     code: C48155
@@ -1455,13 +1500,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Gram
     label: Code_39
-- id: 174
+- id: 179
   properties:
     _type: ResponseCode
     label: ResponseCode_2
     responseCodeEnabled: true
     responseCodeId: ResponseCode_2
-- id: 177
+- id: 182
   properties:
     _type: Code
     code: C48531
@@ -1470,13 +1515,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Pound
     label: Code_40
-- id: 176
+- id: 181
   properties:
     _type: ResponseCode
     label: ResponseCode_3
     responseCodeEnabled: true
     responseCodeId: ResponseCode_3
-- id: 179
+- id: 184
   properties:
     _type: Code
     code: C48208
@@ -1485,13 +1530,13 @@
     codeSystemVersion: ''
     decode: Unit of Weight
     label: Code_41
-- id: 178
+- id: 183
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_5
     label: AliasCode_5
     standardCodeAliases: []
-- id: 171
+- id: 176
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1500,7 +1545,7 @@
     bcPropertyName: Unit of Weight
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_2
-- id: 181
+- id: 186
   properties:
     _type: Code
     code: C81328
@@ -1509,13 +1554,13 @@
     codeSystemVersion: ''
     decode: Body Weight
     label: Code_36
-- id: 180
+- id: 185
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_3
     label: AliasCode_3
     standardCodeAliases: []
-- id: 167
+- id: 172
   properties:
     _type: BiomedicalConcept
     bcName: Body Weight
@@ -1524,7 +1569,7 @@
     - Weight
     biomedicalConceptId: BiomedicalConcept_1
     label: BiomedicalConcept_1
-- id: 185
+- id: 190
   properties:
     _type: Code
     code: C173522
@@ -1533,13 +1578,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_43
-- id: 184
+- id: 189
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_7
     label: AliasCode_7
     standardCodeAliases: []
-- id: 183
+- id: 188
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1549,7 +1594,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_3
-- id: 188
+- id: 193
   properties:
     _type: Code
     code: C42537
@@ -1558,13 +1603,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Kelvin
     label: Code_44
-- id: 187
+- id: 192
   properties:
     _type: ResponseCode
     label: ResponseCode_4
     responseCodeEnabled: true
     responseCodeId: ResponseCode_4
-- id: 190
+- id: 195
   properties:
     _type: Code
     code: C44276
@@ -1573,13 +1618,13 @@
     codeSystemVersion: ''
     decode: Unit of Temperature
     label: Code_45
-- id: 189
+- id: 194
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_8
     label: AliasCode_8
     standardCodeAliases: []
-- id: 186
+- id: 191
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1588,7 +1633,7 @@
     bcPropertyName: Unit of Temperature
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_4
-- id: 193
+- id: 198
   properties:
     _type: Code
     code: C83088
@@ -1597,13 +1642,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Location
     label: Code_46
-- id: 192
+- id: 197
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_9
     label: AliasCode_9
     standardCodeAliases: []
-- id: 191
+- id: 196
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1613,7 +1658,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_5
-- id: 195
+- id: 200
   properties:
     _type: Code
     code: C174446
@@ -1622,13 +1667,13 @@
     codeSystemVersion: ''
     decode: Body Temperature
     label: Code_42
-- id: 194
+- id: 199
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_6
     label: AliasCode_6
     standardCodeAliases: []
-- id: 182
+- id: 187
   properties:
     _type: BiomedicalConcept
     bcName: Body Temperature
@@ -1637,7 +1682,7 @@
     - Temperature
     biomedicalConceptId: BiomedicalConcept_2
     label: BiomedicalConcept_2
-- id: 196
+- id: 201
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Age
@@ -1645,7 +1690,7 @@
     bcSurrogateName: Age
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 197
+- id: 202
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Sex
@@ -1653,7 +1698,7 @@
     bcSurrogateName: Sex
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 198
+- id: 203
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Race

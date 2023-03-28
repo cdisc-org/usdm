@@ -24,7 +24,7 @@ class StudyDesignProcedureSheet(BaseSheet):
           procedureIsConditionalReason=reason
         )
         self.procedures.append(item)
-        cross_references.add(xref, item.procedureId)        
+        cross_references.add(xref, item)        
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
