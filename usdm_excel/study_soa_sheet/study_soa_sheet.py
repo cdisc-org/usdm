@@ -15,16 +15,25 @@ import pandas as pd
 
 class StudySoASheet(BaseSheet):
 
+  NAME_ROW = 0
+  DESCRIPTION_ROW = 1
+  CONDITION_ROW = 2
+  PARAMS_DATA_COL = 1
+
   def __init__(self, file_path, sheet_name):
     try:
       print("SHEET:", sheet_name)
       super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=None))
+      self.name = ""
+      self.description = ""
+      self.condition = ""
       self.timeline = None
       self.encounters = []
       self.activities = []
       self.timelines = []
       self.biomedical_concept_surrogates = []
       self.biomedical_concepts = []
+      self._process_sheet()
       self._raw_cycles = Cycles(self.sheet)
       self._raw_timepoints = Timepoints(self.sheet)
       self._raw_encounters = Encounters(self.sheet)
@@ -50,7 +59,7 @@ class StudySoASheet(BaseSheet):
         instance = raw_timepoint.usdm_timepoint
         instances.append(instance)
       exit = self._add_exit()
-      self.timeline = self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Potential subject identified', instances, exit)
+      self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
       print("Oops!", e, "occurred.")
@@ -58,7 +67,18 @@ class StudySoASheet(BaseSheet):
 
   def epoch_encounter_map(self, epoch):
     return self._raw_encounters.epoch_encounter_map(epoch)
-  
+
+  def _process_sheet(self):
+    for rindex in range(self.NAME_ROW, self.CONDITION_ROW):
+      if rindex == self.NAME_ROW:
+        self.name = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.DESCRIPTION_ROW:
+        self.description = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.CONDITION_ROW:
+        self.condition = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+      else:
+        pass
+
   def _add_exit(self):
     return ScheduleTimelineExit(scheduleTimelineExitId=id_manager.build_id(ScheduleTimelineExit))
 
