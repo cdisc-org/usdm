@@ -26,7 +26,8 @@ class NodesAndEdges():
       'scheduledDecisionInstanceId',
       'treatment',
       'variableOfInterest',
-      'conditionAssignments'
+      'conditionAssignments',
+      'activityTimelineId'
     ]
     self.fix_id_name = {
       'scheduledActivityInstanceId': 'scheduledInstanceId',
