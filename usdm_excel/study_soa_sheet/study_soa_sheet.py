@@ -19,7 +19,7 @@ class StudySoASheet(BaseSheet):
     try:
       print("SHEET:", sheet_name)
       super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=None))
-      self.timelines = []
+      self.timeline = None
       self.encounters = []
       self.activities = []
       self.timelines = []
@@ -50,7 +50,7 @@ class StudySoASheet(BaseSheet):
         instance = raw_timepoint.usdm_timepoint
         instances.append(instance)
       exit = self._add_exit()
-      self.timelines.append(self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Potential subject identified', instances, exit))
+      self.timeline = self._add_timeline('Main Timeline', 'This is the main timeline for the study design.', 'Potential subject identified', instances, exit)
 
     except Exception as e:
       print("Oops!", e, "occurred.")

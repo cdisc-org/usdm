@@ -60,7 +60,7 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.MAIN_TIMELINE_ROW:
         self.main_timeline = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.OTHER_TIMELINES_ROW:
-        self.other_timelines = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.other_timelines = self.clean_cell_unnamed_multiple(rindex, self.PARAMS_DATA_COL)
       else:
         pass
 

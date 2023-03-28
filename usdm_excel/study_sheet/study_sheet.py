@@ -8,6 +8,7 @@ from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_end
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm.study import Study
 from usdm.study_protocol_version import StudyProtocolVersion
 import traceback
@@ -41,9 +42,14 @@ class StudySheet(BaseSheet):
       self.study = None
       self.protocols = []
       self.therapeutic_areas = []
+      self.timelines = {}
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
+      for timeline in self.study_design.other_timelines:
+        tl = StudySoASheet(file_path, timeline)
+        self.timelines[timeline] = tl
+        cross_references.add(timeline, tl.timeline.scheduleTimelineId)
       self.soa = StudySoASheet(file_path, self.study_design.main_timeline)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
@@ -54,7 +60,7 @@ class StudySheet(BaseSheet):
         epoch.encounterIds = self.soa.epoch_encounter_map(epoch.studyEpochName)
 
       study_design = self.study_design.study_designs[0]
-      study_design.studyScheduleTimelines.append(self.soa.timelines[0])
+      study_design.studyScheduleTimelines.append(self.soa.timeline)
       study_design.encounters = self.soa.encounters
       study_design.activities = self.soa.activities
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
