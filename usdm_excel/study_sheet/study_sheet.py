@@ -6,6 +6,7 @@ from usdm_excel.study_design_ii_sheet.study_design_ii_sheet import StudyDesignII
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
+from usdm_excel.study_design_procedure_sheet.study_design_procedure_sheet import StudyDesignProcedureSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -45,6 +46,7 @@ class StudySheet(BaseSheet):
       self.timelines = {}
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path)
+      self.procedures = StudyDesignProcedureSheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
       for timeline in self.study_design.other_timelines:
         tl = StudySoASheet(file_path, timeline)

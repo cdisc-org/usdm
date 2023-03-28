@@ -15,7 +15,7 @@ class Activity(BaseSheet):
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
     self.name, activity_is_null = self.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
-    self._bcs, self._prs, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
+    self._bcs, self._prs, self._tls, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
     self.usdm_activity = self._as_usdm()
     
   def _as_usdm(self):
@@ -32,8 +32,8 @@ class Activity(BaseSheet):
         surrogate_bc_items.append(surrogate.bcSurrogateId)
         self.usdm_biomedical_concept_surrogates.append(surrogate)
     timelineId = ""
-    if len(self._prs) > 0:
-      timelineId = cross_references.get(self._prs[0])
+    if len(self._tls) > 0:
+      timelineId = cross_references.get(self._tls[0])
     return USDMActivity(
       activityId=id_manager.build_id(Activity),
       activityName=self.name,
@@ -58,9 +58,10 @@ class Activity(BaseSheet):
   def _get_observation_cell(self, row_index, col_index):
     bcs = []
     prs = []
+    tls = []
     is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
     if is_null:
-      return [], [], True
+      return [], [], [], True
     else:
       value = self.sheet.iloc[row_index, col_index]
       outer_parts = value.split(',')
@@ -70,6 +71,8 @@ class Activity(BaseSheet):
           bcs.append(parts[1].strip())
         elif parts[0].strip().upper() == "PR":
           prs.append(parts[1].strip())
+        elif parts[0].strip().upper() == "TL":
+          tls.append(parts[1].strip())
         else:
           pass
-      return bcs, prs, False
+      return bcs, prs, tls, False

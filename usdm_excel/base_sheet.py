@@ -62,6 +62,11 @@ class BaseSheet():
       print("Clean cell unnamed with previous error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
       return "", True
 
+  def boolean_cell(self, value):
+    if value.strip().upper() in ['Y', 'YES', 'TRUE', '1']:
+      return True
+    return False
+
   def cdisc_code_cell(self, value):
     if value.strip() == "":
       return None
