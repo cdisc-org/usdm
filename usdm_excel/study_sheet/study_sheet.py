@@ -48,7 +48,7 @@ class StudySheet(BaseSheet):
       self.study_design = StudyDesignSheet(file_path)
       for timeline in self.study_design.other_timelines:
         tl = StudySoASheet(file_path, timeline)
-        self.timelines[timeline] = tl
+        self.timelines[timeline] = tl.timeline
         cross_references.add(timeline, tl.timeline.scheduleTimelineId)
       self.soa = StudySoASheet(file_path, self.study_design.main_timeline)
       self.ii = StudyDesignIISheet(file_path)
@@ -61,6 +61,8 @@ class StudySheet(BaseSheet):
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
+      for key,tl in self.timelines.items():
+        study_design.studyScheduleTimelines.append(tl)
       study_design.encounters = self.soa.encounters
       study_design.activities = self.soa.activities
       study_design.biomedicalConcepts = self.soa.biomedical_concepts

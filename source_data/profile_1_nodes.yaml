@@ -891,7 +891,191 @@
     scheduleTimelineEntryId: ScheduledActivityInstance_6
     scheduleTimelineId: ScheduleTimeline_2
     scheduleTimelineName: Main Timeline
+- id: 110
+  properties:
+    _type: ScheduleTimelineExit
+    label: ScheduleTimelineExit_1
+    scheduleTimelineExitId: ScheduleTimelineExit_1
+- id: 113
+  properties:
+    _type: Code
+    code: NEXT
+    codeId: Code_24
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: next
+    label: Code_24
+- id: 114
+  properties:
+    _type: Code
+    code: START TO START
+    codeId: Code_25
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Start to start
+    label: Code_25
+- id: 112
+  properties:
+    _type: Timing
+    label: Timing_1
+    timingId: Timing_1
+    timingValue: 1 Hour
+    timingWindow: ''
+- id: 111
+  properties:
+    _type: ScheduledActivityInstance
+    label: ScheduledActivityInstance_1
+    scheduleSequenceNumber: 0
+    scheduleTimelineExitId: ''
+    scheduledInstanceId: ScheduledActivityInstance_1
+    scheduledInstanceTimelineId: ''
+    scheduledInstanceType: 1
+- id: 117
+  properties:
+    _type: Code
+    code: ANCHOR
+    codeId: Code_26
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: anchor
+    label: Code_26
+- id: 118
+  properties:
+    _type: Code
+    code: START TO START
+    codeId: Code_27
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Start to start
+    label: Code_27
+- id: 116
+  properties:
+    _type: Timing
+    label: Timing_2
+    timingId: Timing_2
+    timingValue: ''
+    timingWindow: ''
+- id: 115
+  properties:
+    _type: ScheduledActivityInstance
+    label: ScheduledActivityInstance_2
+    scheduleSequenceNumber: 0
+    scheduleTimelineExitId: ''
+    scheduledInstanceId: ScheduledActivityInstance_2
+    scheduledInstanceTimelineId: ''
+    scheduledInstanceType: 1
+- id: 121
+  properties:
+    _type: Code
+    code: PREVIOUS
+    codeId: Code_28
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: previous
+    label: Code_28
+- id: 122
+  properties:
+    _type: Code
+    code: START TO START
+    codeId: Code_29
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Start to start
+    label: Code_29
+- id: 120
+  properties:
+    _type: Timing
+    label: Timing_3
+    timingId: Timing_3
+    timingValue: 2 Hours
+    timingWindow: ''
+- id: 119
+  properties:
+    _type: ScheduledActivityInstance
+    label: ScheduledActivityInstance_3
+    scheduleSequenceNumber: 0
+    scheduleTimelineExitId: ''
+    scheduledInstanceId: ScheduledActivityInstance_3
+    scheduledInstanceTimelineId: ''
+    scheduledInstanceType: 1
+- id: 125
+  properties:
+    _type: Code
+    code: ANCHOR
+    codeId: Code_30
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: anchor
+    label: Code_30
+- id: 126
+  properties:
+    _type: Code
+    code: START TO START
+    codeId: Code_31
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Start to start
+    label: Code_31
+- id: 124
+  properties:
+    _type: Timing
+    label: Timing_4
+    timingId: Timing_4
+    timingValue: ''
+    timingWindow: ''
+- id: 123
+  properties:
+    _type: ScheduledActivityInstance
+    label: ScheduledActivityInstance_4
+    scheduleSequenceNumber: 0
+    scheduleTimelineExitId: ''
+    scheduledInstanceId: ScheduledActivityInstance_4
+    scheduledInstanceTimelineId: ''
+    scheduledInstanceType: 1
+- id: 129
+  properties:
+    _type: Code
+    code: PREVIOUS
+    codeId: Code_32
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: previous
+    label: Code_32
+- id: 130
+  properties:
+    _type: Code
+    code: START TO START
+    codeId: Code_33
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Start to start
+    label: Code_33
+- id: 128
+  properties:
+    _type: Timing
+    label: Timing_5
+    timingId: Timing_5
+    timingValue: 2 Hours
+    timingWindow: ''
+- id: 127
+  properties:
+    _type: ScheduledActivityInstance
+    label: ScheduledActivityInstance_5
+    scheduleSequenceNumber: 0
+    scheduleTimelineExitId: ''
+    scheduledInstanceId: ScheduledActivityInstance_5
+    scheduledInstanceTimelineId: ''
+    scheduledInstanceType: 1
 - id: 109
+  properties:
+    _type: ScheduleTimeline
+    entryCondition: Potential subject identified
+    label: ScheduleTimeline_1
+    scheduleTimelineDescription: This is the main timeline for the study design.
+    scheduleTimelineEntryId: ScheduledActivityInstance_1
+    scheduleTimelineId: ScheduleTimeline_1
+    scheduleTimelineName: Main Timeline
+- id: 131
   properties:
     _type: Code
     code: T2_DIABETES
@@ -900,7 +1084,7 @@
     codeSystemVersion: '12'
     decode: Type 2 diabetes
     label: Code_11
-- id: 110
+- id: 132
   properties:
     _type: Code
     code: '73211009'
@@ -909,13 +1093,13 @@
     codeSystemVersion: January 31, 2018
     decode: Diabetes mellitus (disorder)
     label: Code_12
-- id: 112
+- id: 134
   properties:
     _type: AnalysisPopulation
     analysisPopulationId: AnalysisPopulation_1
     label: AnalysisPopulation_1
     populationDescription: ITT
-- id: 113
+- id: 135
   properties:
     _type: IntercurrentEvent
     intercurrentEventDescription: IC Event Description
@@ -924,7 +1108,7 @@
     intercurrentEventStrategy: Patients with out of range lab values before dosing
       will be excluded
     label: IntercurrentEvent_1
-- id: 114
+- id: 136
   properties:
     _type: IntercurrentEvent
     intercurrentEventDescription: ''
@@ -932,7 +1116,7 @@
     intercurrentEventName: ''
     intercurrentEventStrategy: A second bad event
     label: IntercurrentEvent_2
-- id: 115
+- id: 137
   properties:
     _type: IntercurrentEvent
     intercurrentEventDescription: ''
@@ -940,19 +1124,19 @@
     intercurrentEventName: ''
     intercurrentEventStrategy: A third bad thing
     label: IntercurrentEvent_3
-- id: 111
+- id: 133
   properties:
     _type: Estimand
     estimandId: Estimand_1
     label: Estimand_1
     summaryMeasure: Survival of all patients
-- id: 117
+- id: 139
   properties:
     _type: AnalysisPopulation
     analysisPopulationId: AnalysisPopulation_2
     label: AnalysisPopulation_2
     populationDescription: ITT
-- id: 118
+- id: 140
   properties:
     _type: IntercurrentEvent
     intercurrentEventDescription: IC Event Description Number 2
@@ -960,13 +1144,13 @@
     intercurrentEventName: Bad stuff
     intercurrentEventStrategy: Really really bad shit
     label: IntercurrentEvent_4
-- id: 116
+- id: 138
   properties:
     _type: Estimand
     estimandId: Estimand_2
     label: Estimand_2
     summaryMeasure: Something else
-- id: 119
+- id: 141
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -981,7 +1165,7 @@
     previousEncounterId: null
     transitionEndRule: null
     transitionStartRule: null
-- id: 120
+- id: 142
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -996,7 +1180,7 @@
     previousEncounterId: Encounter_6
     transitionEndRule: null
     transitionStartRule: null
-- id: 121
+- id: 143
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1011,7 +1195,7 @@
     previousEncounterId: Encounter_7
     transitionEndRule: null
     transitionStartRule: null
-- id: 122
+- id: 144
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1026,7 +1210,7 @@
     previousEncounterId: Encounter_8
     transitionEndRule: null
     transitionStartRule: null
-- id: 123
+- id: 145
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1041,7 +1225,7 @@
     previousEncounterId: Encounter_9
     transitionEndRule: null
     transitionStartRule: null
-- id: 124
+- id: 146
   properties:
     _type: Activity
     activityDescription: Demographics
@@ -1054,7 +1238,7 @@
     label: Activity_3
     nextActivityId: Activity_4
     previousActivityId: null
-- id: 125
+- id: 147
   properties:
     _type: Activity
     activityDescription: Something Else
@@ -1067,7 +1251,7 @@
     label: Activity_4
     nextActivityId: null
     previousActivityId: Activity_3
-- id: 127
+- id: 149
   properties:
     _type: Code
     code: C49659
@@ -1076,13 +1260,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Open Label Study
     label: Code_13
-- id: 126
+- id: 148
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_2
     label: AliasCode_2
     standardCodeAliases: []
-- id: 131
+- id: 153
   properties:
     _type: Code
     code: C173522
@@ -1091,13 +1275,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_56
-- id: 130
+- id: 152
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_11
     label: AliasCode_11
     standardCodeAliases: []
-- id: 129
+- id: 151
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1107,7 +1291,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_6
-- id: 134
+- id: 156
   properties:
     _type: Code
     code: C28252
@@ -1116,13 +1300,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
     label: Code_57
-- id: 133
+- id: 155
   properties:
     _type: ResponseCode
     label: ResponseCode_5
     responseCodeEnabled: true
     responseCodeId: ResponseCode_5
-- id: 136
+- id: 158
   properties:
     _type: Code
     code: C48155
@@ -1131,13 +1315,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Gram
     label: Code_58
-- id: 135
+- id: 157
   properties:
     _type: ResponseCode
     label: ResponseCode_6
     responseCodeEnabled: true
     responseCodeId: ResponseCode_6
-- id: 138
+- id: 160
   properties:
     _type: Code
     code: C48531
@@ -1146,13 +1330,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Pound
     label: Code_59
-- id: 137
+- id: 159
   properties:
     _type: ResponseCode
     label: ResponseCode_7
     responseCodeEnabled: true
     responseCodeId: ResponseCode_7
-- id: 140
+- id: 162
   properties:
     _type: Code
     code: C48208
@@ -1161,13 +1345,13 @@
     codeSystemVersion: ''
     decode: Unit of Weight
     label: Code_60
-- id: 139
+- id: 161
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_12
     label: AliasCode_12
     standardCodeAliases: []
-- id: 132
+- id: 154
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1176,7 +1360,7 @@
     bcPropertyName: Unit of Weight
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_7
-- id: 142
+- id: 164
   properties:
     _type: Code
     code: C81328
@@ -1185,13 +1369,13 @@
     codeSystemVersion: ''
     decode: Body Weight
     label: Code_55
-- id: 141
+- id: 163
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_10
     label: AliasCode_10
     standardCodeAliases: []
-- id: 128
+- id: 150
   properties:
     _type: BiomedicalConcept
     bcName: Body Weight
@@ -1200,7 +1384,7 @@
     - Weight
     biomedicalConceptId: BiomedicalConcept_3
     label: BiomedicalConcept_3
-- id: 143
+- id: 165
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Age
@@ -1208,7 +1392,7 @@
     bcSurrogateName: Age
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 144
+- id: 166
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Sex
@@ -1216,7 +1400,7 @@
     bcSurrogateName: Sex
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 145
+- id: 167
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Race
