@@ -16,8 +16,10 @@ class StudyDesignSheet(BaseSheet):
   INTENT_ROW = 3
   TYPES_ROW = 4
   INT_ROW = 5
+  MAIN_TIMELINE_ROW = 6
+  OTHER_TIMELINES_ROW = 7
 
-  EPOCH_ARMS_START_ROW = 7
+  EPOCH_ARMS_START_ROW = 9
   
   PARAMS_DATA_COL = 1
 
@@ -34,6 +36,8 @@ class StudyDesignSheet(BaseSheet):
       self.trial_intents = []
       self.trial_types = []
       self.intervention_model = None
+      self.main_timeline = None
+      self.other_timelines = []
       self.process_sheet()
     except Exception as e:
       print("Oops! (Design Sheet)", e, "occurred.")
@@ -53,6 +57,10 @@ class StudyDesignSheet(BaseSheet):
         self.trial_types = self.cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.INT_ROW:
         self.intervention_model = self.cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+      elif rindex == self.MAIN_TIMELINE_ROW:
+        self.main_timeline = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.OTHER_TIMELINES_ROW:
+        self.other_timelines = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       else:
         pass
 

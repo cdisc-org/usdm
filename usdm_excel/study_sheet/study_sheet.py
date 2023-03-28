@@ -44,7 +44,7 @@ class StudySheet(BaseSheet):
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
-      self.soa = StudySoASheet(file_path)
+      self.soa = StudySoASheet(file_path, self.study_design.main_timeline)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)

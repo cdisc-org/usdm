@@ -15,9 +15,10 @@ import pandas as pd
 
 class StudySoASheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, sheet_name):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='soa', header=None))
+      print("SHEET:", sheet_name)
+      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=None))
       self.timelines = []
       self.encounters = []
       self.activities = []

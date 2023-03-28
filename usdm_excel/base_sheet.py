@@ -29,6 +29,13 @@ class BaseSheet():
       print("Clean cell unnamed error (%s) for cell [%s, %s]" % (e, rindex + 1, cindex + 1))
       return ""
 
+  def clean_cell_unnamed_multiple(self, rindex, cindex):
+    results = []
+    value = self.clean_cell_unnamed(rindex, cindex)
+    for part in value.split(","):
+      results.append(part.strip())
+    return results
+
   def clean_cell_unnamed_new(self, rindex, cindex):
     try:
       if pd.isnull(self.sheet.iloc[rindex, cindex]):
