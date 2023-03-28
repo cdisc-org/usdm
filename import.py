@@ -19,10 +19,11 @@ def save_as_edges_file(nodes, filename):
   save_as_yaml_file(nodes, 'source_data/%s_edges.yaml' % (filename))
 
 studies = [
-  "Roche Phase 3 NCT04320615",
-  "cycles_1",
-  "simple_1",
-  "simple_2"
+  #'Roche Phase 3 NCT04320615',
+  #'cycles_1',
+  #'simple_1',
+  #'simple_2',
+  'profile_1'
 ]
 
 program_path = os.path.abspath("import_excel.py")
