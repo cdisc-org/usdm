@@ -46,7 +46,6 @@ class Timepoints(BaseSheet):
         previous_condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
       previous_item = item        
 
-
   def _build_timepoints(self):    
     for col_index in range(self.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:

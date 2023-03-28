@@ -32,6 +32,8 @@ class BaseSheet():
   def clean_cell_unnamed_multiple(self, rindex, cindex):
     results = []
     value = self.clean_cell_unnamed(rindex, cindex)
+    if value.strip() == '':
+      return results
     for part in value.split(","):
       results.append(part.strip())
     return results
@@ -61,6 +63,8 @@ class BaseSheet():
       return "", True
 
   def cdisc_code_cell(self, value):
+    if value.strip() == "":
+      return None
     parts = value.split("=")
     try:
       return CDISCCT().code(code=parts[0].strip(), decode=parts[1].strip())
@@ -69,6 +73,8 @@ class BaseSheet():
       return None
 
   def other_code_cell(self, value):
+    if value.strip() == "":
+      return None
     outer_parts = value.split(":")
     if len(outer_parts) == 2:
       system = outer_parts[0].strip()
@@ -77,13 +83,15 @@ class BaseSheet():
         version = ct_version_manager.get(system)
         return Code(codeId=id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
       else:
-        print("Other code error for data %s, no '=' detected" % (value))
+        print("Other code error for data '%s', no '=' detected" % (value))
     else:
-      print("Other code error for data %s, no ':' detected" % (value))
+      print("Other code error for data '%s', no ':' detected" % (value))
     return None
   
   def other_code_cell_mutiple(self, value):
     result = []
+    if value.strip() == '':
+      return result
     items = value.split(",")
     for item in items:
       code = self.other_code_cell(item.strip())
