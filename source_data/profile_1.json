@@ -1268,6 +1268,38 @@
           "bcCategoryIds": [],
           "bcSurrogateIds": [],
           "activityTimelineId": "ScheduleTimeline_1"
+        },
+        {
+          "activityId": "Activity_1",
+          "activityName": "Weight",
+          "activityDescription": "Weight",
+          "previousActivityId": null,
+          "nextActivityId": "Activity_2",
+          "definedProcedures": [],
+          "activityIsConditional": false,
+          "activityIsConditionalReason": "",
+          "biomedicalConceptIds": [
+            "BiomedicalConcept_1"
+          ],
+          "bcCategoryIds": [],
+          "bcSurrogateIds": [],
+          "activityTimelineId": ""
+        },
+        {
+          "activityId": "Activity_2",
+          "activityName": "Temperature",
+          "activityDescription": "Temperature",
+          "previousActivityId": "Activity_1",
+          "nextActivityId": null,
+          "definedProcedures": [],
+          "activityIsConditional": false,
+          "activityIsConditionalReason": "",
+          "biomedicalConceptIds": [
+            "BiomedicalConcept_2"
+          ],
+          "bcCategoryIds": [],
+          "bcSurrogateIds": [],
+          "activityTimelineId": ""
         }
       ],
       "studyDesignRationale": "\"Study design rationale put here\"",
@@ -1372,6 +1404,189 @@
               "codeSystem": "NCI Thesaurus",
               "codeSystemVersion": "",
               "decode": "Body Weight"
+            },
+            "standardCodeAliases": []
+          }
+        },
+        {
+          "biomedicalConceptId": "BiomedicalConcept_1",
+          "bcName": "Body Weight",
+          "bcSynonyms": [
+            "Weight"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_1",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "decimal",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_4",
+                "standardCode": {
+                  "codeId": "Code_35",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_2",
+              "bcPropertyName": "Unit of Weight",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_1",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_36",
+                    "code": "C28252",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Kilogram"
+                  }
+                },
+                {
+                  "responseCodeId": "ResponseCode_2",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_37",
+                    "code": "C48155",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Gram"
+                  }
+                },
+                {
+                  "responseCodeId": "ResponseCode_3",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_38",
+                    "code": "C48531",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Pound"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_5",
+                "standardCode": {
+                  "codeId": "Code_39",
+                  "code": "C48208",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Unit of Weight"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_3",
+            "standardCode": {
+              "codeId": "Code_34",
+              "code": "C81328",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Body Weight"
+            },
+            "standardCodeAliases": []
+          }
+        },
+        {
+          "biomedicalConceptId": "BiomedicalConcept_2",
+          "bcName": "Body Temperature",
+          "bcSynonyms": [
+            "Temperature"
+          ],
+          "bcReference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C174446",
+          "bcProperties": [
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_3",
+              "bcPropertyName": "Vital Signs Result",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "decimal",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_7",
+                "standardCode": {
+                  "codeId": "Code_41",
+                  "code": "C173522",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Result"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_4",
+              "bcPropertyName": "Unit of Temperature",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [
+                {
+                  "responseCodeId": "ResponseCode_4",
+                  "responseCodeEnabled": true,
+                  "code": {
+                    "codeId": "Code_42",
+                    "code": "C42537",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Kelvin"
+                  }
+                }
+              ],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_8",
+                "standardCode": {
+                  "codeId": "Code_43",
+                  "code": "C44276",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Unit of Temperature"
+                },
+                "standardCodeAliases": []
+              }
+            },
+            {
+              "bcPropertyId": "BiomedicalConceptProperty_5",
+              "bcPropertyName": "Vital Signs Location",
+              "bcPropertyRequired": true,
+              "bcPropertyEnabled": true,
+              "bcPropertyDatatype": "string",
+              "bcPropertyResponseCodes": [],
+              "bcPropertyConceptCode": {
+                "aliasCodeId": "AliasCode_9",
+                "standardCode": {
+                  "codeId": "Code_44",
+                  "code": "C83088",
+                  "codeSystem": "NCI Thesaurus",
+                  "codeSystemVersion": "",
+                  "decode": "Vital Signs Location"
+                },
+                "standardCodeAliases": []
+              }
+            }
+          ],
+          "bcConceptCode": {
+            "aliasCodeId": "AliasCode_6",
+            "standardCode": {
+              "codeId": "Code_40",
+              "code": "C174446",
+              "codeSystem": "NCI Thesaurus",
+              "codeSystemVersion": "",
+              "decode": "Body Temperature"
             },
             "standardCodeAliases": []
           }
