@@ -10,20 +10,21 @@ class Encounters(BaseSheet):
     self.items = []
     self._map = {}
     self._epoch_map = {}
-    print("ENC1:")
+    #print("ENC1:")
     for col_index in range(self.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
         encounter = Encounter(self.sheet, col_index)
-        self.items.append(encounter)
-        self._map[encounter.key()] = encounter
-        print("ENC2:", encounter)
-        if encounter.epoch not in self._epoch_map:
-          self._epoch_map[encounter.epoch] = []
-        self._epoch_map[encounter.epoch].append(encounter.usdm_encounter.encounterId)
+        if not encounter.name == "":
+          self.items.append(encounter)
+          self._map[encounter.key()] = encounter
+          #print("ENC2:", encounter)
+          if encounter.epoch not in self._epoch_map:
+            self._epoch_map[encounter.epoch] = []
+          self._epoch_map[encounter.epoch].append(encounter.usdm_encounter.encounterId)
 
   def item_at(self, key):
     return self._map[key]
 
   def epoch_encounter_map(self, epoch):
-    print("ENC3:", epoch, self._epoch_map)
+    #print("ENC3:", epoch, self._epoch_map)
     return self._epoch_map[epoch]
