@@ -17,6 +17,7 @@ class Timepoint(BaseSheet):
     else:
       self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.encounter_xref = ""
+    self.has_activities = not additional
     self.has_encounter = False
     if not additional:
       self.encounter_xref, encounter_is_null = self._get_xref_cell(SoAColumnRows.VISIT_LABEL_ROW, col_index)

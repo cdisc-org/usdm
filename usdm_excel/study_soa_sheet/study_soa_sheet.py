@@ -90,11 +90,11 @@ class StudySoASheet(BaseSheet):
 
   def _link_instance_to_activities(self):
     for timepoint in self._raw_timepoints.items:
-      #if len(timepoint.activities) > 0:
-      for activity_name, selected in timepoint.activity_map.items():
-        if selected:
-          activity = self._raw_activities.item_by_name(activity_name)
-          timepoint.add_activity(activity)
+      if timepoint.has_activities:
+        for activity_name, selected in timepoint.activity_map.items():
+          if selected:
+            activity = self._raw_activities.item_by_name(activity_name)
+            timepoint.add_activity(activity)
 
   def _insert_cycles_into_timeline(self):
     cycle_offset = 0
