@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm.study_epoch import StudyEpoch
 from usdm.study_arm import StudyArm
 from usdm.study_cell import StudyCell
@@ -76,7 +77,12 @@ class StudyDesignSheet(BaseSheet):
             if cindex == 0:
               self.arms.append(self._add_arm(cell, cell))
             else:
-              self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1]))
+              elements = []
+              element_names = self.clean_cell_unnamed_multiple(rindex, cindex)
+              print("ELEMENTS:", element_names)
+              for name in element_names:
+                elements.append(cross_references.get(name))
+              self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1], elements=elements))
     
     self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
 
@@ -113,11 +119,12 @@ class StudyDesignSheet(BaseSheet):
       studyEpochType=epoch_type
     )
   
-  def _add_cell(self, arm, epoch):
+  def _add_cell(self, arm, epoch, elements):
     return StudyCell(
       studyCellId=id_manager.build_id(StudyCell), 
       studyArm=arm,
-      studyEpoch=epoch
+      studyEpoch=epoch,
+      studyElements=elements
     )
 
   def _add_design(self, name, description, cells, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
