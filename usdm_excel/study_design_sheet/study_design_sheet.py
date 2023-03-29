@@ -11,22 +11,26 @@ import traceback
 
 class StudyDesignSheet(BaseSheet):
 
-  TA_ROW = 0
-  RATIONALE_ROW = 1
-  BLINDING_ROW = 2
-  INTENT_ROW = 3
-  TYPES_ROW = 4
-  INT_ROW = 5
-  MAIN_TIMELINE_ROW = 6
-  OTHER_TIMELINES_ROW = 7
+  NAME_ROW = 0
+  DESCRIPTION_ROW = 1
+  TA_ROW = 2
+  RATIONALE_ROW = 3
+  BLINDING_ROW = 4
+  INTENT_ROW = 5
+  TYPES_ROW = 6
+  INT_ROW = 7
+  MAIN_TIMELINE_ROW = 8
+  OTHER_TIMELINES_ROW = 9
 
-  EPOCH_ARMS_START_ROW = 9
+  EPOCH_ARMS_START_ROW = 11
   
   PARAMS_DATA_COL = 1
 
   def __init__(self, file_path):
     try:
       super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesign', header=None))
+      self.name = "TEST"
+      self.description = "An Microsoft Excel test study design"
       self.epochs = []
       self.arms = []
       self.cells = []
@@ -46,7 +50,11 @@ class StudyDesignSheet(BaseSheet):
 
   def process_sheet(self):
     for rindex, row in self.sheet.iterrows():
-      if rindex == self.TA_ROW:
+      if rindex == self.NAME_ROW:
+        self.name = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.DESCRIPTION_ROW:
+        self.description = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.TA_ROW:
         self.therapeutic_areas = self.other_code_cell_mutiple(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
@@ -86,8 +94,8 @@ class StudyDesignSheet(BaseSheet):
     self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
 
     study_design = self._add_design(
-      name="Excel Study",
-      description="",
+      name=self.name,
+      description=self.description,
       cells=self.cells, 
       intent_types=self.trial_intents, 
       trial_types=self.trial_types, 
