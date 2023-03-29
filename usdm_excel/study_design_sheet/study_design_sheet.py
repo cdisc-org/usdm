@@ -79,7 +79,6 @@ class StudyDesignSheet(BaseSheet):
             else:
               elements = []
               element_names = self.clean_cell_unnamed_multiple(rindex, cindex)
-              print("ELEMENTS:", element_names)
               for name in element_names:
                 elements.append(cross_references.get(name))
               self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1], elements=elements))
