@@ -36,7 +36,8 @@ class IdManager():
       'Estimand': 0,
       'AnalysisPopulation': 0,
       'StudyProtocolVersion': 0,
-      'Procedure': 0
+      'Procedure': 0,
+      'TransitionRule': 0
     }
 
   def build_id(self, klass):
