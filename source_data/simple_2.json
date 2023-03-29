@@ -149,7 +149,21 @@
               "Encounter_2"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_1",
+              "studyElementName": "Treatment",
+              "studyElementDescription": "Treatment Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_3",
+                "transitionRuleDescription": "Radomized"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_4",
+                "transitionRuleDescription": "Completed treatment"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_2",
@@ -184,7 +198,21 @@
               "Encounter_3"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_2",
+              "studyElementName": "Follow Up",
+              "studyElementDescription": "Follow Up Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_5",
+                "transitionRuleDescription": "Treated"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_6",
+                "transitionRuleDescription": "Leave Study"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_3",
@@ -220,7 +248,21 @@
               "Encounter_2"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_1",
+              "studyElementName": "Treatment",
+              "studyElementDescription": "Treatment Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_3",
+                "transitionRuleDescription": "Radomized"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_4",
+                "transitionRuleDescription": "Completed treatment"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_4",
@@ -255,7 +297,21 @@
               "Encounter_3"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_2",
+              "studyElementName": "Follow Up",
+              "studyElementDescription": "Follow Up Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_5",
+                "transitionRuleDescription": "Treated"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_6",
+                "transitionRuleDescription": "Leave Study"
+              }
+            }
+          ]
         }
       ],
       "studyIndications": [
