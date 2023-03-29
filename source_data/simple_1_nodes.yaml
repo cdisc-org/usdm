@@ -966,82 +966,177 @@
     estimandId: Estimand_2
     label: Estimand_2
     summaryMeasure: Something else
+- id: 120
+  properties:
+    _type: Code
+    code: C25716
+    codeId: Code_13
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Visit
+    label: Code_13
+- id: 121
+  properties:
+    _type: Code
+    code: C51282
+    codeId: Code_14
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Clinic
+    label: Code_14
+- id: 122
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_1
+    transitionRuleDescription: Subject identifier
+    transitionRuleId: TransitionRule_1
+- id: 123
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_2
+    transitionRuleDescription: IEs passed
+    transitionRuleId: TransitionRule_2
 - id: 119
   properties:
     _type: Encounter
     encounterContactModes: []
-    encounterDescription: E1
-    encounterEnvironmentalSetting: null
-    encounterId: Encounter_6
-    encounterName: E1
+    encounterDescription: Screening encounter
+    encounterId: Encounter_1
+    encounterName: Screening
     encounterScheduledAtTimingId: null
-    encounterType: null
-    label: Encounter_6
-    nextEncounterId: Encounter_7
+    label: Encounter_1
+    nextEncounterId: Encounter_2
     previousEncounterId: null
-    transitionEndRule: null
-    transitionStartRule: null
-- id: 120
+- id: 125
   properties:
-    _type: Encounter
-    encounterContactModes: []
-    encounterDescription: E2
-    encounterEnvironmentalSetting: null
-    encounterId: Encounter_7
-    encounterName: E2
-    encounterScheduledAtTimingId: null
-    encounterType: null
-    label: Encounter_7
-    nextEncounterId: Encounter_8
-    previousEncounterId: Encounter_6
-    transitionEndRule: null
-    transitionStartRule: null
-- id: 121
+    _type: Code
+    code: C25716
+    codeId: Code_15
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Visit
+    label: Code_15
+- id: 126
   properties:
-    _type: Encounter
-    encounterContactModes: []
-    encounterDescription: E3
-    encounterEnvironmentalSetting: null
-    encounterId: Encounter_8
-    encounterName: E3
-    encounterScheduledAtTimingId: null
-    encounterType: null
-    label: Encounter_8
-    nextEncounterId: Encounter_9
-    previousEncounterId: Encounter_7
-    transitionEndRule: null
-    transitionStartRule: null
-- id: 122
-  properties:
-    _type: Encounter
-    encounterContactModes: []
-    encounterDescription: E4
-    encounterEnvironmentalSetting: null
-    encounterId: Encounter_9
-    encounterName: E4
-    encounterScheduledAtTimingId: null
-    encounterType: null
-    label: Encounter_9
-    nextEncounterId: Encounter_10
-    previousEncounterId: Encounter_8
-    transitionEndRule: null
-    transitionStartRule: null
-- id: 123
-  properties:
-    _type: Encounter
-    encounterContactModes: []
-    encounterDescription: E5
-    encounterEnvironmentalSetting: null
-    encounterId: Encounter_10
-    encounterName: E5
-    encounterScheduledAtTimingId: null
-    encounterType: null
-    label: Encounter_10
-    nextEncounterId: null
-    previousEncounterId: Encounter_9
-    transitionEndRule: null
-    transitionStartRule: null
+    _type: Code
+    code: C51282
+    codeId: Code_16
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Clinic
+    label: Code_16
 - id: 124
+  properties:
+    _type: Encounter
+    encounterContactModes: []
+    encounterDescription: Baseline encounter
+    encounterId: Encounter_2
+    encounterName: Baseline
+    encounterScheduledAtTimingId: null
+    label: Encounter_2
+    nextEncounterId: Encounter_3
+    previousEncounterId: Encounter_1
+    transitionEndRule: null
+    transitionStartRule: null
+- id: 128
+  properties:
+    _type: Code
+    code: C25716
+    codeId: Code_17
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Visit
+    label: Code_17
+- id: 129
+  properties:
+    _type: Code
+    code: C51282
+    codeId: Code_18
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Clinic
+    label: Code_18
+- id: 130
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_3
+    transitionRuleDescription: Radomized
+    transitionRuleId: TransitionRule_3
+- id: 127
+  properties:
+    _type: Encounter
+    encounterContactModes: []
+    encounterDescription: First dose
+    encounterId: Encounter_3
+    encounterName: 15 min
+    encounterScheduledAtTimingId: null
+    label: Encounter_3
+    nextEncounterId: Encounter_4
+    previousEncounterId: Encounter_2
+    transitionEndRule: null
+- id: 132
+  properties:
+    _type: Code
+    code: C25716
+    codeId: Code_19
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Visit
+    label: Code_19
+- id: 133
+  properties:
+    _type: Code
+    code: C51282
+    codeId: Code_20
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Clinic
+    label: Code_20
+- id: 131
+  properties:
+    _type: Encounter
+    encounterContactModes: []
+    encounterDescription: 2 week visit
+    encounterId: Encounter_4
+    encounterName: Day 24
+    encounterScheduledAtTimingId: null
+    label: Encounter_4
+    nextEncounterId: Encounter_5
+    previousEncounterId: Encounter_3
+    transitionEndRule: null
+    transitionStartRule: null
+- id: 135
+  properties:
+    _type: Code
+    code: C25716
+    codeId: Code_21
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Visit
+    label: Code_21
+- id: 136
+  properties:
+    _type: Code
+    code: C18002
+    codeId: Code_22
+    codeSystem: http://www.cdisc.org
+    codeSystemVersion: '2022-12-16'
+    decode: Home
+    label: Code_22
+- id: 134
+  properties:
+    _type: Encounter
+    encounterContactModes: []
+    encounterDescription: 5 week visit
+    encounterId: Encounter_5
+    encounterName: Day 35
+    encounterScheduledAtTimingId: null
+    label: Encounter_5
+    nextEncounterId: null
+    previousEncounterId: Encounter_4
+    transitionEndRule: null
+    transitionStartRule: null
+- id: 137
   properties:
     _type: Activity
     activityDescription: Demographics
@@ -1053,7 +1148,7 @@
     label: Activity_1
     nextActivityId: Activity_2
     previousActivityId: null
-- id: 125
+- id: 138
   properties:
     _type: Activity
     activityDescription: Something Else
@@ -1065,7 +1160,7 @@
     label: Activity_2
     nextActivityId: null
     previousActivityId: Activity_1
-- id: 127
+- id: 140
   properties:
     _type: Code
     code: C49659
@@ -1074,13 +1169,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Open Label Study
     label: Code_25
-- id: 126
+- id: 139
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_2
     label: AliasCode_2
     standardCodeAliases: []
-- id: 131
+- id: 144
   properties:
     _type: Code
     code: C173522
@@ -1089,13 +1184,13 @@
     codeSystemVersion: ''
     decode: Vital Signs Result
     label: Code_47
-- id: 130
+- id: 143
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_4
     label: AliasCode_4
     standardCodeAliases: []
-- id: 129
+- id: 142
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: decimal
@@ -1105,7 +1200,7 @@
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     label: BiomedicalConceptProperty_1
-- id: 134
+- id: 147
   properties:
     _type: Code
     code: C28252
@@ -1114,13 +1209,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
     label: Code_48
-- id: 133
+- id: 146
   properties:
     _type: ResponseCode
     label: ResponseCode_1
     responseCodeEnabled: true
     responseCodeId: ResponseCode_1
-- id: 136
+- id: 149
   properties:
     _type: Code
     code: C48155
@@ -1129,13 +1224,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Gram
     label: Code_49
-- id: 135
+- id: 148
   properties:
     _type: ResponseCode
     label: ResponseCode_2
     responseCodeEnabled: true
     responseCodeId: ResponseCode_2
-- id: 138
+- id: 151
   properties:
     _type: Code
     code: C48531
@@ -1144,13 +1239,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Pound
     label: Code_50
-- id: 137
+- id: 150
   properties:
     _type: ResponseCode
     label: ResponseCode_3
     responseCodeEnabled: true
     responseCodeId: ResponseCode_3
-- id: 140
+- id: 153
   properties:
     _type: Code
     code: C48208
@@ -1159,13 +1254,13 @@
     codeSystemVersion: ''
     decode: Unit of Weight
     label: Code_51
-- id: 139
+- id: 152
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_5
     label: AliasCode_5
     standardCodeAliases: []
-- id: 132
+- id: 145
   properties:
     _type: BiomedicalConceptProperty
     bcPropertyDatatype: string
@@ -1174,7 +1269,7 @@
     bcPropertyName: Unit of Weight
     bcPropertyRequired: true
     label: BiomedicalConceptProperty_2
-- id: 142
+- id: 155
   properties:
     _type: Code
     code: C81328
@@ -1183,13 +1278,13 @@
     codeSystemVersion: ''
     decode: Body Weight
     label: Code_46
-- id: 141
+- id: 154
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_3
     label: AliasCode_3
     standardCodeAliases: []
-- id: 128
+- id: 141
   properties:
     _type: BiomedicalConcept
     bcName: Body Weight
@@ -1198,7 +1293,7 @@
     - Weight
     biomedicalConceptId: BiomedicalConcept_1
     label: BiomedicalConcept_1
-- id: 143
+- id: 156
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Age
@@ -1206,7 +1301,7 @@
     bcSurrogateName: Age
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 144
+- id: 157
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Sex
@@ -1214,7 +1309,7 @@
     bcSurrogateName: Sex
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 145
+- id: 158
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Race

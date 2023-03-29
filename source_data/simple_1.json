@@ -208,7 +208,7 @@
             "previousStudyEpochId": null,
             "nextStudyEpochId": "StudyEpoch_2",
             "encounterIds": [
-              "Encounter_6"
+              "Encounter_1"
             ]
           },
           "studyElements": []
@@ -243,7 +243,7 @@
             "previousStudyEpochId": "StudyEpoch_1",
             "nextStudyEpochId": "StudyEpoch_3",
             "encounterIds": [
-              "Encounter_7"
+              "Encounter_2"
             ]
           },
           "studyElements": []
@@ -278,8 +278,8 @@
             "previousStudyEpochId": "StudyEpoch_2",
             "nextStudyEpochId": "StudyEpoch_4",
             "encounterIds": [
-              "Encounter_8",
-              "Encounter_9"
+              "Encounter_3",
+              "Encounter_4"
             ]
           },
           "studyElements": []
@@ -314,7 +314,7 @@
             "previousStudyEpochId": "StudyEpoch_3",
             "nextStudyEpochId": null,
             "encounterIds": [
-              "Encounter_10"
+              "Encounter_5"
             ]
           },
           "studyElements": []
@@ -349,7 +349,7 @@
             "previousStudyEpochId": null,
             "nextStudyEpochId": "StudyEpoch_2",
             "encounterIds": [
-              "Encounter_6"
+              "Encounter_1"
             ]
           },
           "studyElements": []
@@ -384,7 +384,7 @@
             "previousStudyEpochId": "StudyEpoch_1",
             "nextStudyEpochId": "StudyEpoch_3",
             "encounterIds": [
-              "Encounter_7"
+              "Encounter_2"
             ]
           },
           "studyElements": []
@@ -419,8 +419,8 @@
             "previousStudyEpochId": "StudyEpoch_2",
             "nextStudyEpochId": "StudyEpoch_4",
             "encounterIds": [
-              "Encounter_8",
-              "Encounter_9"
+              "Encounter_3",
+              "Encounter_4"
             ]
           },
           "studyElements": []
@@ -455,7 +455,7 @@
             "previousStudyEpochId": "StudyEpoch_3",
             "nextStudyEpochId": null,
             "encounterIds": [
-              "Encounter_10"
+              "Encounter_5"
             ]
           },
           "studyElements": []
@@ -747,7 +747,7 @@
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_6",
+              "scheduledInstanceEncounterId": "Encounter_1",
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_1",
@@ -782,7 +782,7 @@
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_7",
+              "scheduledInstanceEncounterId": "Encounter_2",
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_2",
@@ -816,7 +816,7 @@
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_8",
+              "scheduledInstanceEncounterId": "Encounter_3",
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_3",
@@ -850,7 +850,7 @@
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_9",
+              "scheduledInstanceEncounterId": "Encounter_4",
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_4",
@@ -884,7 +884,7 @@
               "scheduledInstanceType": 1,
               "scheduleSequenceNumber": 0,
               "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_10",
+              "scheduledInstanceEncounterId": "Encounter_5",
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_5",
@@ -984,65 +984,134 @@
       ],
       "encounters": [
         {
-          "encounterId": "Encounter_6",
-          "encounterName": "E1",
-          "encounterDescription": "E1",
+          "encounterId": "Encounter_1",
+          "encounterName": "Screening",
+          "encounterDescription": "Screening encounter",
           "previousEncounterId": null,
-          "nextEncounterId": "Encounter_7",
-          "encounterType": null,
-          "encounterEnvironmentalSetting": null,
+          "nextEncounterId": "Encounter_2",
+          "encounterType": {
+            "codeId": "Code_13",
+            "code": "C25716",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Visit"
+          },
+          "encounterEnvironmentalSetting": {
+            "codeId": "Code_14",
+            "code": "C51282",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Clinic"
+          },
+          "encounterContactModes": [],
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_1",
+            "transitionRuleDescription": "Subject identifier"
+          },
+          "transitionEndRule": {
+            "transitionRuleId": "TransitionRule_2",
+            "transitionRuleDescription": "IEs passed"
+          },
+          "encounterScheduledAtTimingId": null
+        },
+        {
+          "encounterId": "Encounter_2",
+          "encounterName": "Baseline",
+          "encounterDescription": "Baseline encounter",
+          "previousEncounterId": "Encounter_1",
+          "nextEncounterId": "Encounter_3",
+          "encounterType": {
+            "codeId": "Code_15",
+            "code": "C25716",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Visit"
+          },
+          "encounterEnvironmentalSetting": {
+            "codeId": "Code_16",
+            "code": "C51282",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Clinic"
+          },
           "encounterContactModes": [],
           "transitionStartRule": null,
           "transitionEndRule": null,
           "encounterScheduledAtTimingId": null
         },
         {
-          "encounterId": "Encounter_7",
-          "encounterName": "E2",
-          "encounterDescription": "E2",
-          "previousEncounterId": "Encounter_6",
-          "nextEncounterId": "Encounter_8",
-          "encounterType": null,
-          "encounterEnvironmentalSetting": null,
+          "encounterId": "Encounter_3",
+          "encounterName": "15 min",
+          "encounterDescription": "First dose",
+          "previousEncounterId": "Encounter_2",
+          "nextEncounterId": "Encounter_4",
+          "encounterType": {
+            "codeId": "Code_17",
+            "code": "C25716",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Visit"
+          },
+          "encounterEnvironmentalSetting": {
+            "codeId": "Code_18",
+            "code": "C51282",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Clinic"
+          },
+          "encounterContactModes": [],
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_3",
+            "transitionRuleDescription": "Radomized"
+          },
+          "transitionEndRule": null,
+          "encounterScheduledAtTimingId": null
+        },
+        {
+          "encounterId": "Encounter_4",
+          "encounterName": "Day 24",
+          "encounterDescription": "2 week visit",
+          "previousEncounterId": "Encounter_3",
+          "nextEncounterId": "Encounter_5",
+          "encounterType": {
+            "codeId": "Code_19",
+            "code": "C25716",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Visit"
+          },
+          "encounterEnvironmentalSetting": {
+            "codeId": "Code_20",
+            "code": "C51282",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Clinic"
+          },
           "encounterContactModes": [],
           "transitionStartRule": null,
           "transitionEndRule": null,
           "encounterScheduledAtTimingId": null
         },
         {
-          "encounterId": "Encounter_8",
-          "encounterName": "E3",
-          "encounterDescription": "E3",
-          "previousEncounterId": "Encounter_7",
-          "nextEncounterId": "Encounter_9",
-          "encounterType": null,
-          "encounterEnvironmentalSetting": null,
-          "encounterContactModes": [],
-          "transitionStartRule": null,
-          "transitionEndRule": null,
-          "encounterScheduledAtTimingId": null
-        },
-        {
-          "encounterId": "Encounter_9",
-          "encounterName": "E4",
-          "encounterDescription": "E4",
-          "previousEncounterId": "Encounter_8",
-          "nextEncounterId": "Encounter_10",
-          "encounterType": null,
-          "encounterEnvironmentalSetting": null,
-          "encounterContactModes": [],
-          "transitionStartRule": null,
-          "transitionEndRule": null,
-          "encounterScheduledAtTimingId": null
-        },
-        {
-          "encounterId": "Encounter_10",
-          "encounterName": "E5",
-          "encounterDescription": "E5",
-          "previousEncounterId": "Encounter_9",
+          "encounterId": "Encounter_5",
+          "encounterName": "Day 35",
+          "encounterDescription": "5 week visit",
+          "previousEncounterId": "Encounter_4",
           "nextEncounterId": null,
-          "encounterType": null,
-          "encounterEnvironmentalSetting": null,
+          "encounterType": {
+            "codeId": "Code_21",
+            "code": "C25716",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Visit"
+          },
+          "encounterEnvironmentalSetting": {
+            "codeId": "Code_22",
+            "code": "C18002",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Home"
+          },
           "encounterContactModes": [],
           "transitionStartRule": null,
           "transitionEndRule": null,
