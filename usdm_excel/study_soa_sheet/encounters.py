@@ -14,7 +14,7 @@ class Encounters(BaseSheet):
         self.xref, is_null = self._get_xref_cell(SoAColumnRows.VISIT_LABEL_ROW, col_index)
         self.epoch, is_null = self.clean_cell_unnamed_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
         if not self.xref == "":
-          print("XREF:", self.xref)
+          #print("XREF:", self.xref)
           encounter = cross_references.get(self.xref)
           if self.epoch not in self._epoch_map:
             self._epoch_map[self.epoch] = []

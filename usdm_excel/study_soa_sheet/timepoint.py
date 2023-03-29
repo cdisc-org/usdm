@@ -28,7 +28,7 @@ class Timepoint(BaseSheet):
     self.timing_value = value
     self.reference = None
     self.cycle = cycle
-    print("ENC:", self.encounter_xref, self.has_encounter)
+    #print("ENC:", self.encounter_xref, self.has_encounter)
     if not additional:
       self._process_timepoint()
       self._add_activities(activity_names)
