@@ -16,16 +16,20 @@ class Timepoint(BaseSheet):
       self._position_key = None
     else:
       self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
-    self.encounter_xref, encounter_is_null = self.clean_cell_unnamed_new(SoAColumnRows.VISIT_LABEL_ROW, self.col_index)
-    self.has_encounter = not encounter_is_null
-    print("ENC:", self.encounter_xref, self.has_encounter)
+    self.encounter_xref = ""
+    self.has_encounter = False
+    if not additional:
+      self.encounter_xref, encounter_is_null = self._get_xref_cell(SoAColumnRows.VISIT_LABEL_ROW, col_index)
+      if not self.encounter_xref == "":
+        self.has_encounter = True
     self.activities = []
     self.activity_map = {}
     self.timing_type = type
     self.timing_value = value
     self.reference = None
     self.cycle = cycle
-    if self.has_encounter:
+    print("ENC:", self.encounter_xref, self.has_encounter)
+    if not additional:
       self._process_timepoint()
       self._add_activities(activity_names)
     self.usdm_timepoint = self._as_usdm()
@@ -64,6 +68,7 @@ class Timepoint(BaseSheet):
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + rel_ref
 
   def _as_usdm(self):
+    instance = None
     if self.timing_type in ["anchor", "next", "previous", "cycle start"]:
       timing = self._to_timing()
       instance = ScheduledActivityInstance(
@@ -88,6 +93,8 @@ class Timepoint(BaseSheet):
         scheduledInstanceTimelineId="",
         conditionAssignments=[]
       )
+    else:
+      print("TYPE:", self.timing_type)
     return instance
 
   def _to_timing(self):
@@ -118,3 +125,15 @@ class Timepoint(BaseSheet):
         if cell.upper() == "X":
           self.activity_map[activity] = True
       row += 1
+
+  def _get_xref_cell(self, row_index, col_index):
+    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
+    if is_null:
+      return "", True
+    else:
+      value = str(self.sheet.iloc[row_index, col_index])
+      if value.upper() == "-":
+        return "", True
+      else:
+        return value, False
+      
