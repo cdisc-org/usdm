@@ -38,15 +38,15 @@ class StudySoASheet(BaseSheet):
       self._raw_encounters = Encounters(self.sheet)
       self._raw_activities = Activities(self.sheet)
 
-      self._link_instance_to_encounter()
+      #self._link_instance_to_encounter()
       self._link_instance_to_activities()
       self._insert_cycles_into_timeline()
       self._raw_timepoints.set_condition_refs()
 
       instances = []
-      for item in self._raw_encounters.items:
-        self.encounters.append(item.usdm_encounter)
-      self.double_link(self.encounters, 'encounterId', 'previousEncounterId', 'nextEncounterId')
+      # for item in self._raw_encounters.items:
+      #   self.encounters.append(item.usdm_encounter)
+      # self.double_link(self.encounters, 'encounterId', 'previousEncounterId', 'nextEncounterId')
 
       for item in self._raw_activities.items:
         self.activities.append(item.usdm_activity)
@@ -92,13 +92,13 @@ class StudySoASheet(BaseSheet):
       scheduleTimelineInstances=instances
     )
 
-  def _link_instance_to_encounter(self):
-    for timepoint in self._raw_timepoints.items:
-      if timepoint.has_encounter:
-        encounter = self._raw_encounters.item_at(timepoint.key())
-        if encounter == None:
-          continue
-        timepoint.add_encounter(encounter)
+  # def _link_instance_to_encounter(self):
+  #   for timepoint in self._raw_timepoints.items:
+  #     if timepoint.has_encounter:
+  #       encounter = self._raw_encounters.item_at(timepoint.key())
+  #       if encounter == None:
+  #         continue
+  #       timepoint.add_encounter(encounter)
   
   def _link_instance_to_activities(self):
     for timepoint in self._raw_timepoints.items:

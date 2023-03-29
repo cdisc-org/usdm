@@ -1,6 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm.timing import Timing
 from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
@@ -15,17 +16,22 @@ class Timepoint(BaseSheet):
       self._position_key = None
     else:
       self._position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
-    self.has_encounter = not additional
+    self.encounter_xref, encounter_is_null = self.clean_cell_unnamed_new(SoAColumnRows.VISIT_LABEL_ROW, self.col_index)
+    self.has_encounter = not encounter_is_null
+    print("ENC:", self.encounter_xref, self.has_encounter)
     self.activities = []
     self.activity_map = {}
     self.timing_type = type
     self.timing_value = value
     self.reference = None
     self.cycle = cycle
-    if not additional:
+    if self.has_encounter:
       self._process_timepoint()
       self._add_activities(activity_names)
     self.usdm_timepoint = self._as_usdm()
+    if self.has_encounter:
+      encounter = cross_references.get(self.encounter_xref)
+      self.usdm_timepoint.scheduledInstanceEncounterId = encounter.encounterId
 
   def key(self):
     return self._position_key

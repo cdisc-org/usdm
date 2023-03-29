@@ -65,7 +65,7 @@ class StudySheet(BaseSheet):
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
-      study_design.encounters = self.soa.encounters
+      study_design.encounters = self.encounters.items
       study_design.activities = self.soa.activities
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates

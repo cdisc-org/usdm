@@ -38,7 +38,8 @@ class StudyDesignEncounterSheet(BaseSheet):
           transitionEndRule=end_rule
         )
         self.items.append(item)
-        cross_references.add(xref, item)        
+        cross_references.add(xref, item)     
+      self.double_link(self.items, 'encounterId', 'previousEncounterId', 'nextEncounterId')   
     except Exception as e:
       print("Oops!", e, "occurred.")
       traceback.print_exc()
