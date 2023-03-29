@@ -211,7 +211,21 @@
               "Encounter_1"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_1",
+              "studyElementName": "Screening",
+              "studyElementDescription": "Screening Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_4",
+                "transitionRuleDescription": "Study Start"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_5",
+                "transitionRuleDescription": "Screened"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_2",
@@ -246,7 +260,21 @@
               "Encounter_2"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_2",
+              "studyElementName": "Baseline",
+              "studyElementDescription": "Baseline Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_6",
+                "transitionRuleDescription": "Screened"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_7",
+                "transitionRuleDescription": "Radomized"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_3",
@@ -282,7 +310,21 @@
               "Encounter_4"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_3",
+              "studyElementName": "Treatment",
+              "studyElementDescription": "Treatment Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_8",
+                "transitionRuleDescription": "Radomized"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_9",
+                "transitionRuleDescription": "Completed treatment"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_4",
@@ -317,7 +359,21 @@
               "Encounter_5"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_4",
+              "studyElementName": "Follow Up",
+              "studyElementDescription": "Follow Up Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_10",
+                "transitionRuleDescription": "Treated"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_11",
+                "transitionRuleDescription": "Leave Study"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_5",
@@ -352,7 +408,21 @@
               "Encounter_1"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_1",
+              "studyElementName": "Screening",
+              "studyElementDescription": "Screening Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_4",
+                "transitionRuleDescription": "Study Start"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_5",
+                "transitionRuleDescription": "Screened"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_6",
@@ -387,7 +457,21 @@
               "Encounter_2"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_2",
+              "studyElementName": "Baseline",
+              "studyElementDescription": "Baseline Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_6",
+                "transitionRuleDescription": "Screened"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_7",
+                "transitionRuleDescription": "Radomized"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_7",
@@ -423,7 +507,21 @@
               "Encounter_4"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_3",
+              "studyElementName": "Treatment",
+              "studyElementDescription": "Treatment Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_8",
+                "transitionRuleDescription": "Radomized"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_9",
+                "transitionRuleDescription": "Completed treatment"
+              }
+            }
+          ]
         },
         {
           "studyCellId": "StudyCell_8",
@@ -458,7 +556,21 @@
               "Encounter_5"
             ]
           },
-          "studyElements": []
+          "studyElements": [
+            {
+              "studyElementId": "StudyElement_4",
+              "studyElementName": "Follow Up",
+              "studyElementDescription": "Follow Up Element",
+              "transitionStartRule": {
+                "transitionRuleId": "TransitionRule_10",
+                "transitionRuleDescription": "Treated"
+              },
+              "transitionEndRule": {
+                "transitionRuleId": "TransitionRule_11",
+                "transitionRuleDescription": "Leave Study"
+              }
+            }
+          ]
         }
       ],
       "studyIndications": [

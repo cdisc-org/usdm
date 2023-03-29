@@ -189,13 +189,31 @@
     studyEpochDescription: Screening
     studyEpochId: StudyEpoch_1
     studyEpochName: Screening
+- id: 26
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_5
+    transitionRuleDescription: Study Start
+    transitionRuleId: TransitionRule_5
+- id: 27
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_6
+    transitionRuleDescription: Screened
+    transitionRuleId: TransitionRule_6
+- id: 25
+  properties:
+    _type: StudyElement
+    label: StudyElement_1
+    studyElementDescription: Screening Element
+    studyElementId: StudyElement_1
+    studyElementName: Screening
 - id: 20
   properties:
     _type: StudyCell
     label: StudyCell_1
     studyCellId: StudyCell_1
-    studyElements: []
-- id: 27
+- id: 30
   properties:
     _type: Code
     code: C165873
@@ -204,7 +222,7 @@
     codeSystemVersion: '2022-12-16'
     decode: OBSERVATION
     label: Code_40
-- id: 26
+- id: 29
   properties:
     _type: StudyEpoch
     label: StudyEpoch_2
@@ -213,13 +231,31 @@
     studyEpochDescription: Treatment
     studyEpochId: StudyEpoch_2
     studyEpochName: Treatment
-- id: 25
+- id: 32
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_7
+    transitionRuleDescription: Radomized
+    transitionRuleId: TransitionRule_7
+- id: 33
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_8
+    transitionRuleDescription: Completed treatment
+    transitionRuleId: TransitionRule_8
+- id: 31
+  properties:
+    _type: StudyElement
+    label: StudyElement_2
+    studyElementDescription: Treatment Element
+    studyElementId: StudyElement_2
+    studyElementName: Treatment
+- id: 28
   properties:
     _type: StudyCell
     label: StudyCell_2
     studyCellId: StudyCell_2
-    studyElements: []
-- id: 30
+- id: 36
   properties:
     _type: Code
     code: C165873
@@ -228,7 +264,7 @@
     codeSystemVersion: '2022-12-16'
     decode: OBSERVATION
     label: Code_41
-- id: 29
+- id: 35
   properties:
     _type: StudyEpoch
     label: StudyEpoch_3
@@ -237,13 +273,31 @@
     studyEpochDescription: Follow-Up
     studyEpochId: StudyEpoch_3
     studyEpochName: Follow-Up
-- id: 28
+- id: 38
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_9
+    transitionRuleDescription: Treated
+    transitionRuleId: TransitionRule_9
+- id: 39
+  properties:
+    _type: TransitionRule
+    label: TransitionRule_10
+    transitionRuleDescription: Leave Study
+    transitionRuleId: TransitionRule_10
+- id: 37
+  properties:
+    _type: StudyElement
+    label: StudyElement_3
+    studyElementDescription: Follow Up Element
+    studyElementId: StudyElement_3
+    studyElementName: Follow Up
+- id: 34
   properties:
     _type: StudyCell
     label: StudyCell_3
     studyCellId: StudyCell_3
-    studyElements: []
-- id: 33
+- id: 42
   properties:
     _type: Code
     code: C188866
@@ -252,7 +306,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Data Generated Within Study
     label: Code_43
-- id: 32
+- id: 41
   properties:
     _type: StudyArm
     label: StudyArm_2
@@ -261,25 +315,22 @@
     studyArmId: StudyArm_2
     studyArmName: Placebo
     studyArmType: ''
-- id: 31
+- id: 40
   properties:
     _type: StudyCell
     label: StudyCell_4
     studyCellId: StudyCell_4
-    studyElements: []
-- id: 34
+- id: 43
   properties:
     _type: StudyCell
     label: StudyCell_5
     studyCellId: StudyCell_5
-    studyElements: []
-- id: 35
+- id: 44
   properties:
     _type: StudyCell
     label: StudyCell_6
     studyCellId: StudyCell_6
-    studyElements: []
-- id: 37
+- id: 46
   properties:
     _type: Code
     code: '12345'
@@ -288,13 +339,13 @@
     codeSystemVersion: January 31, 2018
     decode: Indication1
     label: Code_86
-- id: 36
+- id: 45
   properties:
     _type: Indication
     indicationDescription: An indication
     indicationId: Indication_1
     label: Indication_1
-- id: 39
+- id: 48
   properties:
     _type: Code
     code: '345678'
@@ -303,13 +354,13 @@
     codeSystemVersion: January 31, 2018
     decode: Indication2
     label: Code_89
-- id: 38
+- id: 47
   properties:
     _type: Indication
     indicationDescription: An indication
     indicationId: Indication_2
     label: Indication_2
-- id: 41
+- id: 50
   properties:
     _type: Code
     code: X
@@ -318,7 +369,7 @@
     codeSystemVersion: ''
     decode: Y
     label: Code_87
-- id: 42
+- id: 51
   properties:
     _type: Code
     code: A
@@ -327,13 +378,13 @@
     codeSystemVersion: January 31, 2018
     decode: B
     label: Code_88
-- id: 40
+- id: 49
   properties:
     _type: InvestigationalIntervention
     interventionDescription: An intervention
     investigationalInterventionId: InvestigationalIntervention_1
     label: InvestigationalIntervention_1
-- id: 44
+- id: 53
   properties:
     _type: Code
     code: DD
@@ -342,7 +393,7 @@
     codeSystemVersion: ''
     decode: CC
     label: Code_90
-- id: 45
+- id: 54
   properties:
     _type: Code
     code: A
@@ -351,13 +402,13 @@
     codeSystemVersion: January 31, 2018
     decode: B
     label: Code_91
-- id: 43
+- id: 52
   properties:
     _type: InvestigationalIntervention
     interventionDescription: An intervention
     investigationalInterventionId: InvestigationalIntervention_2
     label: InvestigationalIntervention_2
-- id: 46
+- id: 55
   properties:
     _type: StudyDesignPopulation
     label: StudyDesignPopulation_1
@@ -367,7 +418,7 @@
     plannedSexOfParticipants: []
     populationDescription: Pop 1
     studyDesignPopulationId: StudyDesignPopulation_1
-- id: 47
+- id: 56
   properties:
     _type: StudyDesignPopulation
     label: StudyDesignPopulation_2
@@ -377,7 +428,7 @@
     plannedSexOfParticipants: []
     populationDescription: Pop 2
     studyDesignPopulationId: StudyDesignPopulation_2
-- id: 48
+- id: 57
   properties:
     _type: StudyDesignPopulation
     label: StudyDesignPopulation_3
@@ -387,7 +438,7 @@
     plannedSexOfParticipants: []
     populationDescription: Pop 3
     studyDesignPopulationId: StudyDesignPopulation_3
-- id: 50
+- id: 59
   properties:
     _type: Code
     code: C85826
@@ -396,7 +447,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Trial Primary Objective
     label: Code_95
-- id: 52
+- id: 61
   properties:
     _type: Code
     code: C94496
@@ -405,25 +456,25 @@
     codeSystemVersion: '2022-12-16'
     decode: Primary Endpoint
     label: Code_96
-- id: 51
+- id: 60
   properties:
     _type: Endpoint
     endpointDescription: End Desc
     endpointId: Endpoint_1
     endpointPurposeDescription: ''
     label: Endpoint_1
-- id: 49
+- id: 58
   properties:
     _type: Objective
     label: Objective_1
     objectiveDescription: Obj Desc
     objectiveId: Objective_1
-- id: 54
+- id: 63
   properties:
     _type: ScheduleTimelineExit
     label: ScheduleTimelineExit_1
     scheduleTimelineExitId: ScheduleTimelineExit_1
-- id: 57
+- id: 66
   properties:
     _type: Code
     code: NEXT
@@ -432,7 +483,7 @@
     codeSystemVersion: '2022-12-16'
     decode: next
     label: Code_44
-- id: 58
+- id: 67
   properties:
     _type: Code
     code: START TO START
@@ -441,14 +492,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_45
-- id: 56
+- id: 65
   properties:
     _type: Timing
     label: Timing_1
     timingId: Timing_1
     timingValue: 0..30 Days
     timingWindow: ''
-- id: 55
+- id: 64
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_1
@@ -457,7 +508,7 @@
     scheduledInstanceId: ScheduledActivityInstance_1
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 61
+- id: 70
   properties:
     _type: Code
     code: ANCHOR
@@ -466,7 +517,7 @@
     codeSystemVersion: '2022-12-16'
     decode: anchor
     label: Code_66
-- id: 62
+- id: 71
   properties:
     _type: Code
     code: START TO START
@@ -475,14 +526,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_67
-- id: 60
+- id: 69
   properties:
     _type: Timing
     label: Timing_12
     timingId: Timing_12
     timingValue: Day 1
     timingWindow: ''
-- id: 59
+- id: 68
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_12
@@ -491,7 +542,7 @@
     scheduledInstanceId: ScheduledActivityInstance_12
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 65
+- id: 74
   properties:
     _type: Code
     code: CYCLE START
@@ -500,7 +551,7 @@
     codeSystemVersion: '2022-12-16'
     decode: cycle start
     label: Code_46
-- id: 66
+- id: 75
   properties:
     _type: Code
     code: START TO START
@@ -509,14 +560,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_47
-- id: 64
+- id: 73
   properties:
     _type: Timing
     label: Timing_2
     timingId: Timing_2
     timingValue: ''
     timingWindow: ''
-- id: 63
+- id: 72
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_2
@@ -525,7 +576,7 @@
     scheduledInstanceId: ScheduledActivityInstance_2
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 69
+- id: 78
   properties:
     _type: Code
     code: PREVIOUS
@@ -534,7 +585,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_68
-- id: 70
+- id: 79
   properties:
     _type: Code
     code: START TO START
@@ -543,14 +594,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_69
-- id: 68
+- id: 77
   properties:
     _type: Timing
     label: Timing_13
     timingId: Timing_13
     timingValue: 15 Days
     timingWindow: ''
-- id: 67
+- id: 76
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_13
@@ -559,7 +610,7 @@
     scheduledInstanceId: ScheduledActivityInstance_13
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 73
+- id: 82
   properties:
     _type: Code
     code: PREVIOUS
@@ -568,7 +619,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_48
-- id: 74
+- id: 83
   properties:
     _type: Code
     code: START TO START
@@ -577,14 +628,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_49
-- id: 72
+- id: 81
   properties:
     _type: Timing
     label: Timing_3
     timingId: Timing_3
     timingValue: +14 Days
     timingWindow: ''
-- id: 71
+- id: 80
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_3
@@ -593,7 +644,7 @@
     scheduledInstanceId: ScheduledActivityInstance_3
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 77
+- id: 86
   properties:
     _type: Code
     code: ANCHOR
@@ -602,7 +653,7 @@
     codeSystemVersion: '2022-12-16'
     decode: anchor
     label: Code_70
-- id: 78
+- id: 87
   properties:
     _type: Code
     code: START TO START
@@ -611,14 +662,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_71
-- id: 76
+- id: 85
   properties:
     _type: Timing
     label: Timing_14
     timingId: Timing_14
     timingValue: Day 16
     timingWindow: ''
-- id: 75
+- id: 84
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_14
@@ -627,7 +678,7 @@
     scheduledInstanceId: ScheduledActivityInstance_14
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 81
+- id: 90
   properties:
     _type: Code
     code: CYCLE START
@@ -636,7 +687,7 @@
     codeSystemVersion: '2022-12-16'
     decode: cycle start
     label: Code_50
-- id: 82
+- id: 91
   properties:
     _type: Code
     code: START TO START
@@ -645,14 +696,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_51
-- id: 80
+- id: 89
   properties:
     _type: Timing
     label: Timing_4
     timingId: Timing_4
     timingValue: ''
     timingWindow: ''
-- id: 79
+- id: 88
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_4
@@ -661,7 +712,7 @@
     scheduledInstanceId: ScheduledActivityInstance_4
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 85
+- id: 94
   properties:
     _type: Code
     code: PREVIOUS
@@ -670,7 +721,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_72
-- id: 86
+- id: 95
   properties:
     _type: Code
     code: START TO START
@@ -679,14 +730,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_73
-- id: 84
+- id: 93
   properties:
     _type: Timing
     label: Timing_15
     timingId: Timing_15
     timingValue: 15 Days
     timingWindow: ''
-- id: 83
+- id: 92
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_15
@@ -695,7 +746,7 @@
     scheduledInstanceId: ScheduledActivityInstance_15
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 89
+- id: 98
   properties:
     _type: Code
     code: PREVIOUS
@@ -704,7 +755,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_52
-- id: 90
+- id: 99
   properties:
     _type: Code
     code: START TO START
@@ -713,14 +764,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_53
-- id: 88
+- id: 97
   properties:
     _type: Timing
     label: Timing_5
     timingId: Timing_5
     timingValue: +14 Days
     timingWindow: ''
-- id: 87
+- id: 96
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_5
@@ -729,7 +780,7 @@
     scheduledInstanceId: ScheduledActivityInstance_5
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 93
+- id: 102
   properties:
     _type: Code
     code: ANCHOR
@@ -738,7 +789,7 @@
     codeSystemVersion: '2022-12-16'
     decode: anchor
     label: Code_74
-- id: 94
+- id: 103
   properties:
     _type: Code
     code: START TO START
@@ -747,14 +798,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_75
-- id: 92
+- id: 101
   properties:
     _type: Timing
     label: Timing_16
     timingId: Timing_16
     timingValue: Day 31
     timingWindow: ''
-- id: 91
+- id: 100
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_16
@@ -763,7 +814,7 @@
     scheduledInstanceId: ScheduledActivityInstance_16
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 97
+- id: 106
   properties:
     _type: Code
     code: CYCLE START
@@ -772,7 +823,7 @@
     codeSystemVersion: '2022-12-16'
     decode: cycle start
     label: Code_54
-- id: 98
+- id: 107
   properties:
     _type: Code
     code: START TO START
@@ -781,14 +832,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_55
-- id: 96
+- id: 105
   properties:
     _type: Timing
     label: Timing_6
     timingId: Timing_6
     timingValue: ''
     timingWindow: ''
-- id: 95
+- id: 104
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_6
@@ -797,7 +848,7 @@
     scheduledInstanceId: ScheduledActivityInstance_6
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 101
+- id: 110
   properties:
     _type: Code
     code: PREVIOUS
@@ -806,7 +857,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_76
-- id: 102
+- id: 111
   properties:
     _type: Code
     code: START TO START
@@ -815,14 +866,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_77
-- id: 100
+- id: 109
   properties:
     _type: Timing
     label: Timing_17
     timingId: Timing_17
     timingValue: 15 Days
     timingWindow: ''
-- id: 99
+- id: 108
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_17
@@ -831,7 +882,7 @@
     scheduledInstanceId: ScheduledActivityInstance_17
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 105
+- id: 114
   properties:
     _type: Code
     code: PREVIOUS
@@ -840,7 +891,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_56
-- id: 106
+- id: 115
   properties:
     _type: Code
     code: START TO START
@@ -849,14 +900,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_57
-- id: 104
+- id: 113
   properties:
     _type: Timing
     label: Timing_7
     timingId: Timing_7
     timingValue: +14 Days
     timingWindow: ''
-- id: 103
+- id: 112
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_7
@@ -865,7 +916,7 @@
     scheduledInstanceId: ScheduledActivityInstance_7
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 109
+- id: 118
   properties:
     _type: Code
     code: ANCHOR
@@ -874,7 +925,7 @@
     codeSystemVersion: '2022-12-16'
     decode: anchor
     label: Code_78
-- id: 110
+- id: 119
   properties:
     _type: Code
     code: START TO START
@@ -883,14 +934,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_79
-- id: 108
+- id: 117
   properties:
     _type: Timing
     label: Timing_18
     timingId: Timing_18
     timingValue: Day 46
     timingWindow: ''
-- id: 107
+- id: 116
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_18
@@ -899,7 +950,7 @@
     scheduledInstanceId: ScheduledActivityInstance_18
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 113
+- id: 122
   properties:
     _type: Code
     code: CYCLE START
@@ -908,7 +959,7 @@
     codeSystemVersion: '2022-12-16'
     decode: cycle start
     label: Code_58
-- id: 114
+- id: 123
   properties:
     _type: Code
     code: START TO START
@@ -917,14 +968,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_59
-- id: 112
+- id: 121
   properties:
     _type: Timing
     label: Timing_8
     timingId: Timing_8
     timingValue: ''
     timingWindow: ''
-- id: 111
+- id: 120
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_8
@@ -933,7 +984,7 @@
     scheduledInstanceId: ScheduledActivityInstance_8
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 117
+- id: 126
   properties:
     _type: Code
     code: PREVIOUS
@@ -942,7 +993,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_80
-- id: 118
+- id: 127
   properties:
     _type: Code
     code: START TO START
@@ -951,14 +1002,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_81
-- id: 116
+- id: 125
   properties:
     _type: Timing
     label: Timing_19
     timingId: Timing_19
     timingValue: 15 Days
     timingWindow: ''
-- id: 115
+- id: 124
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_19
@@ -967,7 +1018,7 @@
     scheduledInstanceId: ScheduledActivityInstance_19
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 119
+- id: 128
   properties:
     _type: ScheduledDecisionInstance
     label: ScheduledActivityInstance_20
@@ -977,7 +1028,7 @@
     scheduledInstanceTimelineId: ''
     scheduledInstanceTimings: []
     scheduledInstanceType: 2
-- id: 122
+- id: 131
   properties:
     _type: Code
     code: ANCHOR
@@ -986,7 +1037,7 @@
     codeSystemVersion: '2022-12-16'
     decode: anchor
     label: Code_82
-- id: 123
+- id: 132
   properties:
     _type: Code
     code: START TO START
@@ -995,14 +1046,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_83
-- id: 121
+- id: 130
   properties:
     _type: Timing
     label: Timing_20
     timingId: Timing_20
     timingValue: Day 211
     timingWindow: ''
-- id: 120
+- id: 129
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_21
@@ -1011,7 +1062,7 @@
     scheduledInstanceId: ScheduledActivityInstance_21
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 126
+- id: 135
   properties:
     _type: Code
     code: CYCLE START
@@ -1020,7 +1071,7 @@
     codeSystemVersion: '2022-12-16'
     decode: cycle start
     label: Code_60
-- id: 127
+- id: 136
   properties:
     _type: Code
     code: START TO START
@@ -1029,14 +1080,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_61
-- id: 125
+- id: 134
   properties:
     _type: Timing
     label: Timing_9
     timingId: Timing_9
     timingValue: ''
     timingWindow: ''
-- id: 124
+- id: 133
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_9
@@ -1045,7 +1096,7 @@
     scheduledInstanceId: ScheduledActivityInstance_9
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 130
+- id: 139
   properties:
     _type: Code
     code: PREVIOUS
@@ -1054,7 +1105,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_84
-- id: 131
+- id: 140
   properties:
     _type: Code
     code: START TO START
@@ -1063,14 +1114,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_85
-- id: 129
+- id: 138
   properties:
     _type: Timing
     label: Timing_21
     timingId: Timing_21
     timingValue: 15 Days
     timingWindow: ''
-- id: 128
+- id: 137
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_22
@@ -1079,7 +1130,7 @@
     scheduledInstanceId: ScheduledActivityInstance_22
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 132
+- id: 141
   properties:
     _type: ScheduledDecisionInstance
     label: ScheduledActivityInstance_23
@@ -1089,7 +1140,7 @@
     scheduledInstanceTimelineId: ''
     scheduledInstanceTimings: []
     scheduledInstanceType: 2
-- id: 135
+- id: 144
   properties:
     _type: Code
     code: PREVIOUS
@@ -1098,7 +1149,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_62
-- id: 136
+- id: 145
   properties:
     _type: Code
     code: START TO START
@@ -1107,14 +1158,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_63
-- id: 134
+- id: 143
   properties:
     _type: Timing
     label: Timing_10
     timingId: Timing_10
     timingValue: Within 30 days of last dose
     timingWindow: ''
-- id: 133
+- id: 142
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_10
@@ -1123,7 +1174,7 @@
     scheduledInstanceId: ScheduledActivityInstance_10
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 139
+- id: 148
   properties:
     _type: Code
     code: PREVIOUS
@@ -1132,7 +1183,7 @@
     codeSystemVersion: '2022-12-16'
     decode: previous
     label: Code_64
-- id: 140
+- id: 149
   properties:
     _type: Code
     code: START TO START
@@ -1141,14 +1192,14 @@
     codeSystemVersion: '2022-12-16'
     decode: Start to start
     label: Code_65
-- id: 138
+- id: 147
   properties:
     _type: Timing
     label: Timing_11
     timingId: Timing_11
     timingValue: +12 weeks
     timingWindow: ''
-- id: 137
+- id: 146
   properties:
     _type: ScheduledActivityInstance
     label: ScheduledActivityInstance_11
@@ -1157,7 +1208,7 @@
     scheduledInstanceId: ScheduledActivityInstance_11
     scheduledInstanceTimelineId: ''
     scheduledInstanceType: 1
-- id: 53
+- id: 62
   properties:
     _type: ScheduleTimeline
     entryCondition: Potential subject identified
@@ -1166,7 +1217,7 @@
     scheduleTimelineEntryId: ScheduledActivityInstance_1
     scheduleTimelineId: ScheduleTimeline_1
     scheduleTimelineName: Main Timeline
-- id: 141
+- id: 150
   properties:
     _type: Code
     code: T2_DIABETES
@@ -1175,7 +1226,7 @@
     codeSystemVersion: '12'
     decode: Type 2 diabetes
     label: Code_32
-- id: 142
+- id: 151
   properties:
     _type: Code
     code: '73211009'
@@ -1184,13 +1235,13 @@
     codeSystemVersion: January 31, 2018
     decode: Diabetes mellitus (disorder)
     label: Code_33
-- id: 144
+- id: 153
   properties:
     _type: AnalysisPopulation
     analysisPopulationId: AnalysisPopulation_1
     label: AnalysisPopulation_1
     populationDescription: ITT
-- id: 145
+- id: 154
   properties:
     _type: IntercurrentEvent
     intercurrentEventDescription: IC Event Description
@@ -1199,13 +1250,13 @@
     intercurrentEventStrategy: Patients with out of range lab values before dosing
       will be excluded
     label: IntercurrentEvent_1
-- id: 143
+- id: 152
   properties:
     _type: Estimand
     estimandId: Estimand_1
     label: Estimand_1
     summaryMeasure: Survival of all patients
-- id: 147
+- id: 156
   properties:
     _type: Code
     code: C25716
@@ -1214,7 +1265,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_10
-- id: 148
+- id: 157
   properties:
     _type: Code
     code: C51282
@@ -1223,19 +1274,19 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_11
-- id: 149
+- id: 158
   properties:
     _type: TransitionRule
     label: TransitionRule_1
     transitionRuleDescription: Subject identifier
     transitionRuleId: TransitionRule_1
-- id: 150
+- id: 159
   properties:
     _type: TransitionRule
     label: TransitionRule_2
     transitionRuleDescription: IEs passed
     transitionRuleId: TransitionRule_2
-- id: 146
+- id: 155
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1246,7 +1297,7 @@
     label: Encounter_1
     nextEncounterId: Encounter_2
     previousEncounterId: null
-- id: 152
+- id: 161
   properties:
     _type: Code
     code: C25716
@@ -1255,7 +1306,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_12
-- id: 153
+- id: 162
   properties:
     _type: Code
     code: C51282
@@ -1264,13 +1315,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_13
-- id: 154
+- id: 163
   properties:
     _type: TransitionRule
     label: TransitionRule_3
     transitionRuleDescription: Radomized
     transitionRuleId: TransitionRule_3
-- id: 151
+- id: 160
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1282,7 +1333,7 @@
     nextEncounterId: Encounter_3
     previousEncounterId: Encounter_1
     transitionEndRule: null
-- id: 156
+- id: 165
   properties:
     _type: Code
     code: C25716
@@ -1291,7 +1342,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_14
-- id: 157
+- id: 166
   properties:
     _type: Code
     code: C51282
@@ -1300,7 +1351,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_15
-- id: 155
+- id: 164
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1313,7 +1364,7 @@
     previousEncounterId: Encounter_2
     transitionEndRule: null
     transitionStartRule: null
-- id: 159
+- id: 168
   properties:
     _type: Code
     code: C25716
@@ -1322,7 +1373,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_16
-- id: 160
+- id: 169
   properties:
     _type: Code
     code: C51282
@@ -1331,7 +1382,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_17
-- id: 158
+- id: 167
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1344,7 +1395,7 @@
     previousEncounterId: Encounter_3
     transitionEndRule: null
     transitionStartRule: null
-- id: 162
+- id: 171
   properties:
     _type: Code
     code: C25716
@@ -1353,7 +1404,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_18
-- id: 163
+- id: 172
   properties:
     _type: Code
     code: C51282
@@ -1362,7 +1413,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_19
-- id: 161
+- id: 170
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1375,7 +1426,7 @@
     previousEncounterId: Encounter_4
     transitionEndRule: null
     transitionStartRule: null
-- id: 165
+- id: 174
   properties:
     _type: Code
     code: C25716
@@ -1384,7 +1435,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_20
-- id: 166
+- id: 175
   properties:
     _type: Code
     code: C51282
@@ -1393,7 +1444,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_21
-- id: 164
+- id: 173
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1406,7 +1457,7 @@
     previousEncounterId: Encounter_5
     transitionEndRule: null
     transitionStartRule: null
-- id: 168
+- id: 177
   properties:
     _type: Code
     code: C25716
@@ -1415,7 +1466,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_22
-- id: 169
+- id: 178
   properties:
     _type: Code
     code: C51282
@@ -1424,7 +1475,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_23
-- id: 167
+- id: 176
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1437,7 +1488,7 @@
     previousEncounterId: Encounter_6
     transitionEndRule: null
     transitionStartRule: null
-- id: 171
+- id: 180
   properties:
     _type: Code
     code: C25716
@@ -1446,7 +1497,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_24
-- id: 172
+- id: 181
   properties:
     _type: Code
     code: C51282
@@ -1455,7 +1506,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_25
-- id: 170
+- id: 179
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1468,7 +1519,7 @@
     previousEncounterId: Encounter_7
     transitionEndRule: null
     transitionStartRule: null
-- id: 174
+- id: 183
   properties:
     _type: Code
     code: C25716
@@ -1477,7 +1528,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_26
-- id: 175
+- id: 184
   properties:
     _type: Code
     code: C51282
@@ -1486,7 +1537,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_27
-- id: 173
+- id: 182
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1499,7 +1550,7 @@
     previousEncounterId: Encounter_8
     transitionEndRule: null
     transitionStartRule: null
-- id: 177
+- id: 186
   properties:
     _type: Code
     code: C25716
@@ -1508,7 +1559,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_28
-- id: 178
+- id: 187
   properties:
     _type: Code
     code: C51282
@@ -1517,13 +1568,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     label: Code_29
-- id: 179
+- id: 188
   properties:
     _type: TransitionRule
     label: TransitionRule_4
     transitionRuleDescription: End of treatment
     transitionRuleId: TransitionRule_4
-- id: 176
+- id: 185
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1535,7 +1586,7 @@
     nextEncounterId: Encounter_11
     previousEncounterId: Encounter_9
     transitionStartRule: null
-- id: 181
+- id: 190
   properties:
     _type: Code
     code: C25716
@@ -1544,7 +1595,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Visit
     label: Code_30
-- id: 182
+- id: 191
   properties:
     _type: Code
     code: C18002
@@ -1553,7 +1604,7 @@
     codeSystemVersion: '2022-12-16'
     decode: Home
     label: Code_31
-- id: 180
+- id: 189
   properties:
     _type: Encounter
     encounterContactModes: []
@@ -1566,7 +1617,7 @@
     previousEncounterId: Encounter_10
     transitionEndRule: null
     transitionStartRule: null
-- id: 183
+- id: 192
   properties:
     _type: Activity
     activityDescription: Informed Consent
@@ -1578,7 +1629,7 @@
     label: Activity_1
     nextActivityId: Activity_2
     previousActivityId: null
-- id: 184
+- id: 193
   properties:
     _type: Activity
     activityDescription: Inclusion / Exclusion Criteria
@@ -1590,7 +1641,7 @@
     label: Activity_2
     nextActivityId: Activity_3
     previousActivityId: Activity_1
-- id: 185
+- id: 194
   properties:
     _type: Activity
     activityDescription: Physical Examination
@@ -1602,7 +1653,7 @@
     label: Activity_3
     nextActivityId: null
     previousActivityId: Activity_2
-- id: 187
+- id: 196
   properties:
     _type: Code
     code: C49659
@@ -1611,13 +1662,13 @@
     codeSystemVersion: '2022-12-16'
     decode: Open Label Study
     label: Code_34
-- id: 186
+- id: 195
   properties:
     _type: AliasCode
     aliasCodeId: AliasCode_2
     label: AliasCode_2
     standardCodeAliases: []
-- id: 188
+- id: 197
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: PE 1
@@ -1625,7 +1676,7 @@
     bcSurrogateName: PE 1
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_1
-- id: 189
+- id: 198
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: PE 2
@@ -1633,7 +1684,7 @@
     bcSurrogateName: PE 2
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_2
-- id: 190
+- id: 199
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Weight
@@ -1641,7 +1692,7 @@
     bcSurrogateName: Weight
     bcSurrogateReference: ''
     label: BiomedicalConceptSurrogate_3
-- id: 191
+- id: 200
   properties:
     _type: BiomedicalConceptSurrogate
     bcSurrogateDescription: Height
