@@ -24,7 +24,9 @@ class Encounters(BaseSheet):
           self._epoch_map[encounter.epoch].append(encounter.usdm_encounter.encounterId)
 
   def item_at(self, key):
-    return self._map[key]
+    if key in self._map:
+      return self._map[key]
+    return None
 
   def epoch_encounter_map(self, epoch):
     #print("ENC3:", epoch, self._epoch_map)

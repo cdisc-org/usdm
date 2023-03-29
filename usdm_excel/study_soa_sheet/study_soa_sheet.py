@@ -96,6 +96,8 @@ class StudySoASheet(BaseSheet):
     for timepoint in self._raw_timepoints.items:
       if timepoint.has_encounter:
         encounter = self._raw_encounters.item_at(timepoint.key())
+        if encounter == None:
+          continue
         timepoint.add_encounter(encounter)
   
   def _link_instance_to_activities(self):
