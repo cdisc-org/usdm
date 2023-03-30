@@ -1,7 +1,7 @@
 import pandas as pd
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm.code import Code
+from usdm_model.code import Code
 from usdm_excel.ct_version_manager import ct_version_manager
 
 class BaseSheet():

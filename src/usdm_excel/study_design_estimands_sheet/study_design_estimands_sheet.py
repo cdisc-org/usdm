@@ -3,9 +3,9 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
-from usdm.intercurrent_event import IntercurrentEvent
-from usdm.analysis_population import AnalysisPopulation
-from usdm.estimand import Estimand
+from usdm_model.intercurrent_event import IntercurrentEvent
+from usdm_model.analysis_population import AnalysisPopulation
+from usdm_model.estimand import Estimand
 from usdm_excel.cdisc_ct_library import cdisc_ct_library
 from usdm_excel.cdisc_ct import CDISCCT
 

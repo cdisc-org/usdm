@@ -1,5 +1,5 @@
 from usdm_excel.id_manager import id_manager
-from usdm.alias_code import AliasCode
+from usdm_model.alias_code import AliasCode
 
 class Alias():
 

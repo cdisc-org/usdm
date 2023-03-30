@@ -1,5 +1,5 @@
 from usdm_excel.id_manager import id_manager
-from usdm.code import Code
+from usdm_model.code import Code
 import json
 import os
 

@@ -3,8 +3,8 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
-from usdm.objective import Objective
-from usdm.endpoint import Endpoint
+from usdm_model.objective import Objective
+from usdm_model.endpoint import Endpoint
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 

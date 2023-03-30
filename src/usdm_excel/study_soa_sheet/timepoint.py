@@ -3,8 +3,8 @@ from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm.timing import Timing
-from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm_model.timing import Timing
+from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 import pandas as pd
 
 class Timepoint(BaseSheet):

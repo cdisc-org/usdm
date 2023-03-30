@@ -6,9 +6,9 @@ from usdm_excel.study_soa_sheet.timepoints import Timepoints
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
 from usdm_excel.study_soa_sheet.encounters import Encounters
 from usdm_excel.study_soa_sheet.activities import Activities
-from usdm.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
-from usdm.schedule_timeline import ScheduleTimeline
-from usdm.schedule_timeline_exit import ScheduleTimelineExit
+from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm_model.schedule_timeline import ScheduleTimeline
+from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
 import traceback
 import pandas as pd

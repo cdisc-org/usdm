@@ -3,8 +3,8 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
-from usdm.indication import Indication
-from usdm.investigational_intervention import InvestigationalIntervention
+from usdm_model.indication import Indication
+from usdm_model.investigational_intervention import InvestigationalIntervention
 
 class StudyDesignIISheet(BaseSheet):
 

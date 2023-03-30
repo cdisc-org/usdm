@@ -2,7 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
-from usdm.study_design_population import StudyDesignPopulation
+from usdm_model.study_design_population import StudyDesignPopulation
 
 class StudyDesignPopulationSheet(BaseSheet):
 

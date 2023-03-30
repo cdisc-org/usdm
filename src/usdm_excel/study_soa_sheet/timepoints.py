@@ -2,7 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
 from usdm_excel.id_manager import id_manager
-from usdm.scheduled_instance import ScheduledInstanceType
+from usdm_model.scheduled_instance import ScheduledInstanceType
 import pandas as pd
 
 class Timepoints(BaseSheet):

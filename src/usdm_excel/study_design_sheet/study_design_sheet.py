@@ -1,10 +1,10 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
-from usdm.study_epoch import StudyEpoch
-from usdm.study_arm import StudyArm
-from usdm.study_cell import StudyCell
-from usdm.study_design import StudyDesign
+from usdm_model.study_epoch import StudyEpoch
+from usdm_model.study_arm import StudyArm
+from usdm_model.study_cell import StudyCell
+from usdm_model.study_design import StudyDesign
 from usdm_excel.alias import Alias
 import pandas as pd
 import traceback

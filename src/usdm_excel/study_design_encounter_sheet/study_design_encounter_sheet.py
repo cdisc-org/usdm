@@ -3,8 +3,8 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
-from usdm.encounter import Encounter
-from usdm.transition_rule import TransitionRule
+from usdm_model.encounter import Encounter
+from usdm_model.transition_rule import TransitionRule
 
 class StudyDesignEncounterSheet(BaseSheet):
 

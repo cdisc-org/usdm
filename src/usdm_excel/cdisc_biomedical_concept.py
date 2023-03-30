@@ -5,10 +5,10 @@ from usdm_excel.cdisc_ct_library import cdisc_ct_library
 from usdm_excel.ncit import NCIt
 from usdm_excel.id_manager import id_manager
 from usdm_excel.alias import Alias
-from usdm.biomedical_concept import BiomedicalConcept
-from usdm.biomedical_concept_property import BiomedicalConceptProperty
-from usdm.response_code import ResponseCode
-from usdm.alias_code import AliasCode
+from usdm_model.biomedical_concept import BiomedicalConcept
+from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
+from usdm_model.response_code import ResponseCode
+from usdm_model.alias_code import AliasCode
 
 class CDISCBiomedicalConcepts():
 

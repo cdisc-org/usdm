@@ -12,8 +12,8 @@ from usdm_excel.study_design_element_sheet.study_design_element_sheet import Stu
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
-from usdm.study import Study
-from usdm.study_protocol_version import StudyProtocolVersion
+from usdm_model.study import Study
+from usdm_model.study_protocol_version import StudyProtocolVersion
 import traceback
 import pandas as pd
 import datetime
