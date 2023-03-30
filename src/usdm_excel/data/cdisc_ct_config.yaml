@@ -1,0 +1,57 @@
+---
+version: "2022-12-16"
+packages: 
+- ddf
+- sdtm
+- protocol
+required:
+- C71620
+- C99077 
+- C66737
+- C66736 
+- C66739
+- C99076
+- C174222
+- C188727
+- C99079
+- C127262
+- C171445
+- C188728
+- C188726 
+- C188725
+- C188723
+- C188724
+- C66728
+- C66735
+- C66732
+klass:
+  Study:
+    studyType: C99077
+    studyPhase: C66737
+  StudyProtocolVersion:
+    protocolStatus: C188723
+  Organisation:
+    organisationType: C188724
+  StudyDesign:
+    interventionModel: C99076
+  Objective:
+    objectiveLevel: C188725
+  Endpoint:
+    endpointLevel: C188726
+  StudyArm:
+    studyArmDataOriginType: C188727
+  StudyEpoch:
+    studyEpochType: C99079
+  Encounter:
+    encounterType: C188728
+    encounterEnvironmentalSetting: C127262
+    encounterContactMode: C171445
+  StudyDesign:
+    studyDesignBlindingScheme: C66735
+    trialIntentType: C66736
+    trialType: C66739
+    interventionModel: C99076
+  StudyDesignPopulation:
+    plannedSexOfParticipants: C66732
+  Timing:
+    timingType: C66728
