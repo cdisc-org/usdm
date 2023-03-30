@@ -10,7 +10,8 @@ class CDISCCTLibrary():
   HEADERS = { "Content-Type":"application/json", "api-key": os.getenv('CDISC_API_KEY') }
     
   def __init__(self):
-    f = open('data/cdisc_ct_config.yaml', 'r')
+    #f = open('data/cdisc_ct_config.yaml', 'r')
+    f = open(os.path.join(os.path.dirname(__file__), 'data', 'cdisc_ct_config.yaml'))
     self.cdisc_ct_config = yaml.load(f, Loader=yaml.FullLoader)
     #print("CONFIG:", self.cdisc_ct_config)
     self.version = self.cdisc_ct_config['version']

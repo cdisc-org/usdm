@@ -5,7 +5,8 @@ import json
 class ISO3166():
 
   def __init__(self):
-    f = open('data/iso_3166.json', 'r')
+    #f = open('data/iso_3166.json', 'r')
+    f = open(os.path.join(os.path.dirname(__file__), 'data', 'iso_3166.json'))
     self.db = json.load(f)
 
   def code(self, code):

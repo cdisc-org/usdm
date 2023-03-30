@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
   name="usdm",
-  version="0.18.4",
+  version="0.18.6",
   author="D Iberson-Hurst",
   author_email="demo@email.com",
   description="A python package for using the CDISC TransCelerate USDM",
@@ -14,7 +14,7 @@ setuptools.setup(
   install_requires=['pandas', 'openpyxl', 'pydantic', 'requests', 'stringcase'],
   packages=setuptools.find_packages(where="src"),
   package_dir={"": "src"},
-  package_data={"usdm_excel.data": ["*.yaml, *.json"]},
+  package_data={"usdm_excel": ["data/*.yaml", "data/*.json"]},
   classifiers=[
     "Intended Audience :: Developers",
     "Programming Language :: Python",
