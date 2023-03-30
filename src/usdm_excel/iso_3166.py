@@ -1,6 +1,7 @@
 from usdm_excel.id_manager import id_manager
 from usdm.code import Code
 import json
+import os
 
 class ISO3166():
 
