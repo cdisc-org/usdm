@@ -13,8 +13,6 @@ from .investigational_intervention import InvestigationalIntervention
 from .study_design_population import StudyDesignPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
-from .workflow import Workflow
-from .workflow_item import WorkflowItem
 from .estimand import Estimand
 import pandas as pd
 
