@@ -15,6 +15,7 @@ setuptools.setup(
   packages=setuptools.find_packages(where="src"),
   package_dir={"": "src"},
   package_data={"usdm_excel": ["data/*.yaml", "data/*.json"]},
+  tests_require=['pytest'],
   classifiers=[
     "Intended Audience :: Developers",
     "Programming Language :: Python",
