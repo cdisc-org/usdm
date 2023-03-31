@@ -7,3 +7,6 @@ class Errors():
 
   def add(self, sheet: str, row: int, column: int, message: str) -> None:
     self.items.append(Error(sheet, row, column, message))
+
+  def count(self) -> int:
+    return len(self.items)
