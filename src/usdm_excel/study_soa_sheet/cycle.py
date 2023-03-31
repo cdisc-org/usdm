@@ -1,12 +1,12 @@
-from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.id_manager import id_manager
 import pandas as pd
 
-class Cycle(BaseSheet):
+class Cycle():
   
-  def __init__(self, sheet, col_index, cycle, timepoint_index):
-    super().__init__(sheet)
+  def __init__(self, parent, col_index, cycle, timepoint_index):
+    #super().__init__(sheet)
+    self.parent = parent
     self.col_index = col_index
     self.position_key = col_index - SoAColumnRows.FIRST_VISIT_COL
     self.cycle = cycle
@@ -20,11 +20,11 @@ class Cycle(BaseSheet):
     self.end_timepoint_index = index
 
   def get_cycle_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
+    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
     if is_null:
       return "", True
     else:
-      value = str(self.sheet.iloc[row_index, col_index])
+      value = str(self.parent.sheet.iloc[row_index, col_index])
       if value.upper() == "-":
         return "", True
       else:

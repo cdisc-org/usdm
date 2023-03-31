@@ -4,18 +4,18 @@ from usdm_excel.study_soa_sheet.cycle import Cycle
 from usdm_excel.id_manager import id_manager
 import pandas as pd
 
-class Cycles(BaseSheet):
+class Cycles():
   
-  def __init__(self, sheet):
-    super().__init__(sheet)
+  def __init__(self, parent):
+    self.parent = parent
     self.items = []
     timepoint_index = -1
     in_cycle = False
     prev_cycle = None
-    for col_index in range(self.sheet.shape[1]):
+    for col_index in range(self.parent.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
         timepoint_index += 1
-        cycle, cycle_is_null = self.get_cycle_cell(SoAColumnRows.CYCLE_ROW, col_index)
+        cycle, cycle_is_null = self._get_cycle_cell(SoAColumnRows.CYCLE_ROW, col_index)
         if cycle_is_null:
           if in_cycle:
             cycle_record.add_end(self.previous_index(timepoint_index))
@@ -27,21 +27,21 @@ class Cycles(BaseSheet):
           cycle = str(cycle)
           if not in_cycle:
             in_cycle = True
-            cycle_record = Cycle(self.sheet, col_index, cycle, timepoint_index)
+            cycle_record = Cycle(self.parent, col_index, cycle, timepoint_index)
           elif prev_cycle == cycle:
             pass # Do nothing
           else:
             cycle_record.add_end(self.previous_index(timepoint_index))
             self.items.append(cycle_record)
-            cycle_record = Cycle(self.sheet, col_index, cycle, timepoint_index)
+            cycle_record = Cycle(self.parent, col_index, cycle, timepoint_index)
         prev_cycle = cycle
       
-  def get_cycle_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
+  def _get_cycle_cell(self, row_index, col_index):
+    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
     if is_null:
       return "", True
     else:
-      value = str(self.sheet.iloc[row_index, col_index])
+      value = str(self.parent.sheet.iloc[row_index, col_index])
       if value.upper() == "-":
         return "", True
       else:

@@ -11,7 +11,8 @@ class StudyIdentifiersSheet(BaseSheet):
 
   def __init__(self, file_path: str):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyIdentifiers'))
+      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyIdentifiers'))
+      super().__init__(file_path=file_path, sheet_name='studyIdentifiers')
       self.identifiers = []
       self.process_sheet()
     except Exception as e:

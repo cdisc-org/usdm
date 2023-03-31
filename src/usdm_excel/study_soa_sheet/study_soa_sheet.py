@@ -22,7 +22,8 @@ class StudySoASheet(BaseSheet):
 
   def __init__(self, file_path, sheet_name):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=None))
+      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=None))
+      super().__init__(file_path=file_path, sheet_name=sheet_name, header=None)
       self.name = ""
       self.description = ""
       self.condition = ""
@@ -33,10 +34,10 @@ class StudySoASheet(BaseSheet):
       self.biomedical_concept_surrogates = []
       self.biomedical_concepts = []
       self._process_sheet()
-      self._raw_cycles = Cycles(self.sheet)
-      self._raw_timepoints = Timepoints(self.sheet)
-      self._raw_encounters = Encounters(self.sheet)
-      self._raw_activities = Activities(self.sheet)
+      self._raw_cycles = Cycles(self)
+      self._raw_timepoints = Timepoints(self)
+      self._raw_encounters = Encounters(self)
+      self._raw_activities = Activities(self)
 
       self._link_instance_to_activities()
       self._insert_cycles_into_timeline()

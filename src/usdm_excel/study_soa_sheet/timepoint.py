@@ -7,10 +7,11 @@ from usdm_model.timing import Timing
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 import pandas as pd
 
-class Timepoint(BaseSheet):
+class Timepoint():
   
-  def __init__(self, sheet, activity_names, col_index, type="", value="", cycle=None, additional=False):
-    super().__init__(sheet)
+  def __init__(self, parent, activity_names, col_index, type="", value="", cycle=None, additional=False):
+    #super().__init__(sheet)
+    self.parent = parent
     self.col_index = col_index
     if col_index == None:
       self._position_key = None
@@ -49,7 +50,7 @@ class Timepoint(BaseSheet):
 
   def _process_timepoint(self):
     rel_ref = 0
-    timing_info, timing_info_is_null = self.clean_cell_unnamed_new(SoAColumnRows.TIMING_ROW, self.col_index)
+    timing_info, timing_info_is_null = self.parent.clean_cell_unnamed_new(SoAColumnRows.TIMING_ROW, self.col_index)
     if not timing_info_is_null:
       timing_parts = timing_info.split(":")
       if timing_parts[0].upper()[0] == "A":
@@ -118,21 +119,21 @@ class Timepoint(BaseSheet):
   def _add_activities(self, activity_names):
     for activity in activity_names:
       self.activity_map[activity] = False
-    column = self.sheet.iloc[:, self.col_index]
+    column = self.parent.sheet.iloc[:, self.col_index]
     row = 0
     for cell in column:
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity, activity_is_null = self.clean_cell_unnamed_new(row, SoAColumnRows.CHILD_ACTIVITY_COL)
+        activity, activity_is_null = self.parent.clean_cell_unnamed_new(row, SoAColumnRows.CHILD_ACTIVITY_COL)
         if cell.upper() == "X":
           self.activity_map[activity] = True
       row += 1
 
   def _get_xref_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
+    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
     if is_null:
       return "", True
     else:
-      value = str(self.sheet.iloc[row_index, col_index])
+      value = str(self.parent.sheet.iloc[row_index, col_index])
       if value.upper() == "-":
         return "", True
       else:

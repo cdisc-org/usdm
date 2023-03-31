@@ -7,14 +7,15 @@ from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
 import pandas as pd
 
-class Activity(BaseSheet):
+class Activity():
   
-  def __init__(self, sheet, row_index):
-    super().__init__(sheet)
+  def __init__(self, parent, row_index):
+    #super().__init__(sheet)
     #self._row_index = row_index
+    self.parent = parent
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
-    self.name, activity_is_null = self.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
+    self.name, activity_is_null = parent.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
     self._bcs, self._prs, self._tls, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
     self.usdm_activity = self._as_usdm()
     
@@ -62,11 +63,11 @@ class Activity(BaseSheet):
     bcs = []
     prs = []
     tls = []
-    is_null = pd.isnull(self.sheet.iloc[row_index, col_index])
+    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
     if is_null:
       return [], [], [], True
     else:
-      value = self.sheet.iloc[row_index, col_index]
+      value = self.parent.sheet.iloc[row_index, col_index]
       outer_parts = value.split(',')
       for outer_part in outer_parts:
         parts = outer_part.split(':')

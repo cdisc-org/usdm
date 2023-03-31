@@ -5,11 +5,11 @@ from usdm_excel.id_manager import id_manager
 from usdm_model.scheduled_instance import ScheduledInstanceType
 import pandas as pd
 
-class Timepoints(BaseSheet):
+class Timepoints():
   
-  def __init__(self, sheet):
-    super().__init__(sheet)
-    self.sheet = sheet
+  def __init__(self, parent):
+    #super().__init__(sheet)
+    self.parent = parent
     self.items = []
     self.map = {}
     self.activity_names = []
@@ -21,7 +21,7 @@ class Timepoints(BaseSheet):
     return self.map[key]
 
   def insert_at(self, insert_at_index, type, value, cycle, reference=None):
-    timepoint = Timepoint(self.sheet, self.activity_names, None, type, value, cycle, additional=True)
+    timepoint = Timepoint(self.parent, self.activity_names, None, type, value, cycle, additional=True)
     timepoint.reference = reference
     self.items.insert(insert_at_index, timepoint)
     return timepoint
@@ -47,16 +47,16 @@ class Timepoints(BaseSheet):
       previous_item = item        
 
   def _build_timepoints(self):    
-    for col_index in range(self.sheet.shape[1]):
+    for col_index in range(self.parent.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
-        record = Timepoint(self.sheet, self.activity_names, col_index)
+        record = Timepoint(self.parent, self.activity_names, col_index)
         self.items.append(record)
         self.map[record.key()] = record
 
   def _build_activities(self):    
-    for row_index, col_def in self.sheet.iterrows():
+    for row_index, col_def in self.parent.sheet.iterrows():
       if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity = self.clean_cell_unnamed(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
+        activity = self.parent.clean_cell_unnamed(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
         if not activity == "":
           self.activity_names.append(activity)
 

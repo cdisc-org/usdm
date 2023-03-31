@@ -35,7 +35,8 @@ class StudySheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study', header=None))
+      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study', header=None))
+      super().__init__(file_path=file_path, sheet_name='study', header=None)
       self.phase = None
       self.version = None
       self.type = None

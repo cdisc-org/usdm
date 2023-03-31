@@ -9,7 +9,8 @@ class StudyDesignProcedureSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignProcedures'))
+      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignProcedures'))
+      super().__init__(file_path=file_path, sheet_name='studyDesignProcedures')
       self.procedures = []
       for index, row in self.sheet.iterrows():
         xref = self.clean_cell(row, index, "xref")

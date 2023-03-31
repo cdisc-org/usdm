@@ -10,7 +10,8 @@ class StudyDesignEncounterSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignEncounters'))
+      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignEncounters'))
+      super().__init__(file_path=file_path, sheet_name='studyDesignEncounters')
       self.items = []
       for index, row in self.sheet.iterrows():
         start_rule = None

@@ -4,6 +4,7 @@ from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.nodes_and_edges import NodesAndEdges
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
+from usdm_excel.errors.errors import error_manager
 
 class USDMExcel():
 
