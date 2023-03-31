@@ -3,6 +3,7 @@ from usdm_model.code import Code
 import requests
 import os
 import yaml
+from usdm_excel.logger import package_logger
 
 class CDISCCTLibrary():
 
@@ -84,7 +85,7 @@ class CDISCCTLibrary():
     for package in self.cdisc_ct_config['packages']:
       package_full_name = "%sct-%s" % (package, self.version)
       api_url = self._url('/mdr/ct/packages/%s/codelists/%s' % (package_full_name, c_code))
-      print("URL:", api_url)
+      package_logger.info("CDISC Library: %s" % api_url)
       raw = requests.get(api_url, headers=self.__class__.HEADERS)
       if raw.status_code == 200:
         response = raw.json()

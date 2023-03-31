@@ -9,6 +9,7 @@ from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
 from usdm_model.response_code import ResponseCode
 from usdm_model.alias_code import AliasCode
+from usdm_excel.logger import package_logger
 
 class CDISCBiomedicalConcepts():
 
@@ -51,6 +52,7 @@ class CDISCBiomedicalConcepts():
 
   def _get_package_metadata(self):
     api_url = self._url('/mdr/bc/packages')
+    package_logger.info("CDISC Library: %s" % api_url)
     raw = requests.get(api_url, headers=self.headers)
     response = raw.json()
     packages = response['_links']['packages']
