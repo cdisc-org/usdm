@@ -4,7 +4,7 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.activity import Activity as USDMActivity
 from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
-from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
+from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 import pandas as pd
 
 class Activity():
@@ -23,10 +23,10 @@ class Activity():
     surrogate_bc_items = []
     full_bc_items = []
     procedures = []
-    cdisc_bcs = CDISCBiomedicalConcepts()
+    #cdisc_bcs = CDISCBiomedicalConcepts()
     for bc in self._bcs:
-      if cdisc_bcs.exists(bc):
-        full_bc = cdisc_bcs.usdm(bc)
+      if cdisc_bc_library.exists(bc):
+        full_bc = cdisc_bc_library.usdm(bc)
         full_bc_items.append(full_bc.biomedicalConceptId)
         self.usdm_biomedical_concepts.append(full_bc)
       else:
