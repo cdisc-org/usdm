@@ -16,7 +16,7 @@ class StudyDesignProcedureSheet(BaseSheet):
         xref = self.clean_cell(row, index, "xref")
         type = self.clean_cell(row, index, "procedureType")
         code = self.other_code_cell(self.clean_cell(row, index, 'procedureCode'))
-        conditional = self.boolean_cell(self.clean_cell(row, index, 'procedureIsConditional'))
+        conditional = self.read_boolean_cell(self.clean_cell(row, index, 'procedureIsConditional'))
         reason = self.clean_cell(row, index, 'procedureIsConditionalReason')
         item = Procedure(procedureId=id_manager.build_id(Procedure), 
           procedureType=type, 

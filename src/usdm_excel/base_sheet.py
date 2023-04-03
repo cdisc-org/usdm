@@ -14,6 +14,34 @@ class BaseSheet():
     self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header)
     package_logger.info("Reading sheet %s" % (sheet_name))
     
+  def read_cell_by_name(self, row_index, field_name):
+    try:
+      col_index = self.sheet.columns.get_loc(field_name)
+      return self.read_cell(row_index, col_index)
+    except Exception as e:
+      self.error(row_index + 1, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, field_name))
+      return ""
+
+  def read_cell(self, row_index, col_index):
+    try:
+      if pd.isnull(self.sheet.iloc[row_index, col_index]):
+        return ""
+      else:
+        return str(self.sheet.iloc[row_index, col_index]).strip()
+    except Exception as e:
+      self.error(row_index + 1, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
+      return ""
+
+  def read_cell_multiple(self, rindex, cindex):
+    results = []
+    value = self.read_cell(rindex, cindex)
+    if value.strip() == '':
+      return results
+    for part in value.split(","):
+      results.append(part.strip())
+    return results
+
+  #@DeprecationWarning
   def clean_cell(self, row, index, field_name):
     try:
       if pd.isnull(row[field_name]):
@@ -25,6 +53,7 @@ class BaseSheet():
       self.error(index + 1, col, "Cell error '%s'" % (e))
       return ""
 
+  #@DeprecationWarning
   def clean_cell_unnamed(self, rindex, cindex):
     try:
       if pd.isnull(self.sheet.iloc[rindex, cindex]):
@@ -35,6 +64,7 @@ class BaseSheet():
       self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
       return ""
 
+  #@DeprecationWarning
   def clean_cell_unnamed_multiple(self, rindex, cindex):
     results = []
     value = self.clean_cell_unnamed(rindex, cindex)
@@ -44,15 +74,15 @@ class BaseSheet():
       results.append(part.strip())
     return results
 
-  def clean_cell_unnamed_new(self, rindex, cindex):
-    try:
-      if pd.isnull(self.sheet.iloc[rindex, cindex]):
-        return "", True
-      else:
-        return self.sheet.iloc[rindex, cindex].strip(), False
-    except Exception as e:
-      self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
-      return "", True
+  # def clean_cell_unnamed_new(self, rindex, cindex):
+  #   try:
+  #     if pd.isnull(self.sheet.iloc[rindex, cindex]):
+  #       return "", True
+  #     else:
+  #       return self.sheet.iloc[rindex, cindex].strip(), False
+  #   except Exception as e:
+  #     self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
+  #     return "", True
 
   def clean_cell_unnamed_with_previous(self, rindex, cindex, first_cindex):
     try:
@@ -68,7 +98,7 @@ class BaseSheet():
       self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
       return "", True
 
-  def boolean_cell(self, value):
+  def read_boolean_cell(self, value):
     if value.strip().upper() in ['Y', 'YES', 'TRUE', '1']:
       return True
     return False
@@ -109,6 +139,9 @@ class BaseSheet():
       if not code == None:
         result.append(code)
     return result
+
+  def read_cdisc_klass_attribute_cell(self, klass, attribute, row, index):
+    return CDISCCT().code_for_attribute(klass, attribute, value)
 
   def cdisc_klass_attribute_cell(self, klass, attribute, value):
     return CDISCCT().code_for_attribute(klass, attribute, value)

@@ -15,7 +15,7 @@ class Activity():
     self.parent = parent
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
-    self.name, activity_is_null = parent.clean_cell_unnamed_new(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
+    self.name = parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
     self._bcs, self._prs, self._tls, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
     self.usdm_activity = self._as_usdm()
     

@@ -50,8 +50,8 @@ class Timepoint():
 
   def _process_timepoint(self):
     rel_ref = 0
-    timing_info, timing_info_is_null = self.parent.clean_cell_unnamed_new(SoAColumnRows.TIMING_ROW, self.col_index)
-    if not timing_info_is_null:
+    timing_info = self.parent.read_cell(SoAColumnRows.TIMING_ROW, self.col_index)
+    if not timing_info == "":
       timing_parts = timing_info.split(":")
       if timing_parts[0].upper()[0] == "A":
         self.timing_type = "anchor"
@@ -123,7 +123,7 @@ class Timepoint():
     row = 0
     for cell in column:
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity, activity_is_null = self.parent.clean_cell_unnamed_new(row, SoAColumnRows.CHILD_ACTIVITY_COL)
+        activity = self.parent.read_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
         if cell.upper() == "X":
           self.activity_map[activity] = True
       row += 1
