@@ -113,18 +113,18 @@ class StudySheet(BaseSheet):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
     for rindex, row in self.sheet.iterrows():
       if rindex == self.TITLE_ROW:
-        self.title = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.VERSION_ROW:
-        self.version = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TYPE_ROW:
         self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
       elif rindex == self.PHASE_ROW:
         phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
         self.phase = Alias().code(phase, [])
       elif rindex == self.ACRONYM_ROW:
-        self.acronym = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.acronym = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.RATIONALE_ROW:
-        self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TA_ROW:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
         #print("8", self.therapeutic_areas)
@@ -135,10 +135,10 @@ class StudySheet(BaseSheet):
           if field == 'protocolStatus':
             record[field] = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, cindex) 
           elif field == 'protocolEffectiveDate':
-            cell = self.clean_cell_unnamed(rindex, cindex)
+            cell = self.read_cell(rindex, cindex)
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
           else:
-            cell = self.clean_cell_unnamed(rindex, cindex)
+            cell = self.read_cell(rindex, cindex)
             record[field] = cell
         record['studyProtocolVersionId'] = id_manager.build_id(StudyProtocolVersion)
         spv = StudyProtocolVersion(**record)

@@ -12,10 +12,10 @@ class StudyDesignPopulationSheet(BaseSheet):
       super().__init__(file_path=file_path,  sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
-        description = self.clean_cell(row, index, "populationDescription")
-        number = self.clean_cell(row, index, "plannedNumberOfParticipants")
-        min = self.clean_cell(row, index, "plannedMinimumAgeOfParticipants")
-        max = self.clean_cell(row, index, "plannedMaximumAgeOfParticipants")
+        description = self.read_cell_by_name(index, "populationDescription")
+        number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
+        min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
+        max = self.read_cell_by_name(index, "plannedMaximumAgeOfParticipants")
         codes = self._build_codes(row, index)
         self.populations.append(
           StudyDesignPopulation(studyDesignPopulationId=id_manager.build_id(StudyDesignPopulation), 

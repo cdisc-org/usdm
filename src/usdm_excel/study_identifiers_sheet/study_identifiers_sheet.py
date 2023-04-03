@@ -23,18 +23,18 @@ class StudyIdentifiersSheet(BaseSheet):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
       organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organisation', 'organisationType', index, 'organisationType')
-      raw_address=self.clean_cell(row, index, 'organisationAddress')
+      raw_address=self.read_cell_by_name(index, 'organisationAddress')
       organisation = Organisation(
         organisationId=id_manager.build_id(Organisation),
-        organisationIdentifierScheme=self.clean_cell(row, index, 'organisationIdentifierScheme'), 
-        organisationIdentifier=self.clean_cell(row, index, 'organisationIdentifier'),
-        organisationName=self.clean_cell(row, index, 'organisationName'),
+        organisationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
+        organisationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
+        organisationName=self.read_cell_by_name(index, 'organisationName'),
         organisationType=organisation_type,
         organizationLegalAddress=self._build_address(raw_address)
       )
       self.identifiers.append(StudyIdentifier(
         studyIdentifierId=id_manager.build_id(StudyIdentifier),
-        studyIdentifier=self.clean_cell(row, index, 'studyIdentifier'), 
+        studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
         studyIdentifierScope=organisation)
       )
     

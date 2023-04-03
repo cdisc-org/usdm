@@ -15,9 +15,9 @@ class StudyDesignIISheet(BaseSheet):
       self.indications = []
       self.interventions = []
       for index, row in self.sheet.iterrows():
-        xref = self.clean_cell(row, index, "xref")
-        type = self.clean_cell(row, index, "type")
-        description = self.clean_cell(row, index, "description")
+        xref = self.read_cell_by_name(index, "xref")
+        type = self.read_cell_by_name(index, "type")
+        description = self.read_cell_by_name(index, "description")
         #codes = self._build_codes(row, index)
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         if type.upper() == "IND":

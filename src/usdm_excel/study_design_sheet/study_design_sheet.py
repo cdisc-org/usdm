@@ -52,13 +52,13 @@ class StudyDesignSheet(BaseSheet):
   def process_sheet(self):
     for rindex, row in self.sheet.iterrows():
       if rindex == self.NAME_ROW:
-        self.name = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.DESCRIPTION_ROW:
-        self.description = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TA_ROW:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.RATIONALE_ROW:
-        self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
         self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
       elif rindex == self.INTENT_ROW:
@@ -68,16 +68,16 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.INT_ROW:
         self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
       elif rindex == self.MAIN_TIMELINE_ROW:
-        self.main_timeline = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.main_timeline = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.OTHER_TIMELINES_ROW:
-        self.other_timelines = self.clean_cell_unnamed_multiple(rindex, self.PARAMS_DATA_COL)
+        self.other_timelines = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
       else:
         pass
 
     for rindex, row in self.sheet.iterrows():
       if rindex >= self.EPOCH_ARMS_START_ROW:
         for cindex in range(0, len(self.sheet.columns)):
-          cell = self.clean_cell_unnamed(rindex, cindex)
+          cell = self.read_cell(rindex, cindex)
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
               epoch = self._add_epoch(cell, cell)
@@ -87,7 +87,7 @@ class StudyDesignSheet(BaseSheet):
               self.arms.append(self._add_arm(cell, cell))
             else:
               elements = []
-              element_names = self.clean_cell_unnamed_multiple(rindex, cindex)
+              element_names = self.read_cell_multiple(rindex, cindex)
               for name in element_names:
                 elements.append(cross_references.get(name))
               self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1], elements=elements))

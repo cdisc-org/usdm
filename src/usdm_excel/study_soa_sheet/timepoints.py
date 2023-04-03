@@ -56,7 +56,7 @@ class Timepoints():
   def _build_activities(self):    
     for row_index, col_def in self.parent.sheet.iterrows():
       if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity = self.parent.clean_cell_unnamed(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
+        activity = self.parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
         if not activity == "":
           self.activity_names.append(activity)
 

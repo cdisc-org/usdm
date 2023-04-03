@@ -13,11 +13,11 @@ class StudyDesignProcedureSheet(BaseSheet):
       super().__init__(file_path=file_path, sheet_name='studyDesignProcedures')
       self.procedures = []
       for index, row in self.sheet.iterrows():
-        xref = self.clean_cell(row, index, "xref")
-        type = self.clean_cell(row, index, "procedureType")
+        xref = self.read_cell_by_name(index, "xref")
+        type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, 'procedureCode')
-        conditional = self.read_boolean_cell(self.clean_cell(row, index, 'procedureIsConditional'))
-        reason = self.clean_cell(row, index, 'procedureIsConditionalReason')
+        conditional = self.read_boolean_cell(self.read_cell_by_name(index, 'procedureIsConditional'))
+        reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
         item = Procedure(procedureId=id_manager.build_id(Procedure), 
           procedureType=type, 
           procedureCode=code, 

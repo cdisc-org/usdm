@@ -41,38 +41,35 @@ class BaseSheet():
       results.append(part.strip())
     return results
 
-  #@DeprecationWarning
-  def clean_cell(self, row, index, field_name):
-    try:
-      if pd.isnull(row[field_name]):
-        return ""
-      else:
-        return str(row[field_name]).strip()
-    except Exception as e:
-      col = self.sheet.columns.get_loc(field_name)
-      self.error(index + 1, col, "Cell error '%s'" % (e))
-      return ""
+  # def clean_cell(self, row, index, field_name):
+  #   try:
+  #     if pd.isnull(row[field_name]):
+  #       return ""
+  #     else:
+  #       return str(row[field_name]).strip()
+  #   except Exception as e:
+  #     col = self.sheet.columns.get_loc(field_name)
+  #     self.error(index + 1, col, "Cell error '%s'" % (e))
+  #     return ""
 
-  #@DeprecationWarning
-  def clean_cell_unnamed(self, rindex, cindex):
-    try:
-      if pd.isnull(self.sheet.iloc[rindex, cindex]):
-        return ""
-      else:
-        return str(self.sheet.iloc[rindex, cindex]).strip()
-    except Exception as e:
-      self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
-      return ""
+  # def clean_cell_unnamed(self, rindex, cindex):
+  #   try:
+  #     if pd.isnull(self.sheet.iloc[rindex, cindex]):
+  #       return ""
+  #     else:
+  #       return str(self.sheet.iloc[rindex, cindex]).strip()
+  #   except Exception as e:
+  #     self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
+  #     return ""
 
-  #@DeprecationWarning
-  def clean_cell_unnamed_multiple(self, rindex, cindex):
-    results = []
-    value = self.clean_cell_unnamed(rindex, cindex)
-    if value.strip() == '':
-      return results
-    for part in value.split(","):
-      results.append(part.strip())
-    return results
+  # def read_cell_multiple(self, rindex, cindex):
+  #   results = []
+  #   value = self.read_cell(rindex, cindex)
+  #   if value.strip() == '':
+  #     return results
+  #   for part in value.split(","):
+  #     results.append(part.strip())
+  #   return results
 
   # def clean_cell_unnamed_new(self, rindex, cindex):
   #   try:

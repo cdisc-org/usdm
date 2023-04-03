@@ -18,14 +18,14 @@ class StudyDesignEstimandsSheet(BaseSheet):
       self.estimands = []
       current = None
       for index, row in self.sheet.iterrows():
-        e_summary = self.clean_cell(row, index, "summaryMeasure")
-        ap_description = self.clean_cell(row, index, "populationDescription")
-        ice_name = self.clean_cell(row, index, "intercurrentEventName")
-        ice_description = self.clean_cell(row, index, "intercurrentEventDescription")
-        ice_strategy = self.clean_cell(row, index, "intercurrentEventStrategy")
-        treatment_xref = self.clean_cell(row, index, "treatmentXref")
+        e_summary = self.read_cell_by_name(index, "summaryMeasure")
+        ap_description = self.read_cell_by_name(index, "populationDescription")
+        ice_name = self.read_cell_by_name(index, "intercurrentEventName")
+        ice_description = self.read_cell_by_name(index, "intercurrentEventDescription")
+        ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
+        treatment_xref = self.read_cell_by_name(index, "treatmentXref")
         treatment_id = cross_references.get(treatment_xref)
-        endpoint_xref = self.clean_cell(row, index, "endpointXref")
+        endpoint_xref = self.read_cell_by_name(index, "endpointXref")
         endpoint_id = cross_references.get(endpoint_xref)
         if not e_summary == "":
           ap = AnalysisPopulation(analysisPopulationId=id_manager.build_id(AnalysisPopulation), populationDescription=ap_description) 

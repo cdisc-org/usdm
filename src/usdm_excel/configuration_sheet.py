@@ -19,8 +19,8 @@ class ConfigurationSheet(BaseSheet):
 
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
-      name = self.clean_cell_unnamed(rindex, self.PARAMS_NAME_COL)
-      value = self.clean_cell_unnamed(rindex, self.PARAMS_VALUE_COL)
+      name = self.read_cell(rindex, self.PARAMS_NAME_COL)
+      value = self.read_cell(rindex, self.PARAMS_VALUE_COL)
       if name.strip().upper() == 'CT VERSION':
         parts = value.split('=')
         if len(parts) == 2:

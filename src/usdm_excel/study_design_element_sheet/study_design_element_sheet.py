@@ -16,11 +16,11 @@ class StudyDesignElementSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
-        xref = self.clean_cell(row, index, 'xref')
-        name = self.clean_cell(row, index, 'studyElementName')
-        description = self.clean_cell(row, index, 'studyElementDescription')
-        start_rule_text = self.clean_cell(row, index, 'transitionStartRule')
-        end_rule_text = self.clean_cell(row, index, 'transitionEndRule')
+        xref = self.read_cell_by_name(index, 'xref')
+        name = self.read_cell_by_name(index, 'studyElementName')
+        description = self.read_cell_by_name(index, 'studyElementDescription')
+        start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
+        end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if not start_rule_text == "":
           start_rule = TransitionRule(transitionRuleId=id_manager.build_id(TransitionRule), transitionRuleDescription=start_rule_text)
         if not end_rule_text == "":

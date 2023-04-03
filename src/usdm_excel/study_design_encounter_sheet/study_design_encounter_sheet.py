@@ -16,14 +16,14 @@ class StudyDesignEncounterSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
-        xref = self.clean_cell(row, index, 'xref')
-        name = self.clean_cell(row, index, 'encounterName')
-        description = self.clean_cell(row, index, 'encounterDescription')
+        xref = self.read_cell_by_name(index, 'xref')
+        name = self.read_cell_by_name(index, 'encounterName')
+        description = self.read_cell_by_name(index, 'encounterDescription')
         type = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterType', index, 'encounterType')
         setting = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterEnvironmentalSetting', index, 'encounterEnvironmentalSetting')
         modes = self.read_cdisc_klass_attribute_cell_by_name_multiple('Encounter', 'encounterContactModes', index, 'encounterContactModes')
-        start_rule_text = self.clean_cell(row, index, 'transitionStartRule')
-        end_rule_text = self.clean_cell(row, index, 'transitionEndRule')
+        start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
+        end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if not start_rule_text == "":
           start_rule = TransitionRule(transitionRuleId=id_manager.build_id(TransitionRule), transitionRuleDescription=start_rule_text)
         if not end_rule_text == "":

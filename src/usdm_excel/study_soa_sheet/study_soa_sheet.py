@@ -67,11 +67,11 @@ class StudySoASheet(BaseSheet):
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
       if rindex == self.NAME_ROW:
-        self.name = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.DESCRIPTION_ROW:
-        self.description = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.CONDITION_ROW:
-        self.condition = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
+        self.condition = self.read_cell(rindex, self.PARAMS_DATA_COL)
       else:
         pass
 
