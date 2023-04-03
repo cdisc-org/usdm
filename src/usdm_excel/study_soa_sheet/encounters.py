@@ -13,7 +13,7 @@ class Encounters():
     for col_index in range(self.parent.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
         self.xref, is_null = self._get_xref_cell(SoAColumnRows.VISIT_LABEL_ROW, col_index)
-        self.epoch, is_null = self.parent.clean_cell_unnamed_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
+        self.epoch = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
         if not self.xref == "":
           #print("XREF:", self.xref)
           encounter = cross_references.get(self.xref)

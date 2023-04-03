@@ -84,19 +84,19 @@ class BaseSheet():
   #     self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
   #     return "", True
 
-  def clean_cell_unnamed_with_previous(self, rindex, cindex, first_cindex):
+  def read_cell_with_previous(self, row_index, col_index, first_col_index):
     try:
-      i = cindex
-      while i >= first_cindex:
-        if pd.isnull(self.sheet.iloc[rindex, i]):
+      i = col_index
+      while i >= first_col_index:
+        if pd.isnull(self.sheet.iloc[row_index, i]):
           i -= 1
         else:
-          return self.sheet.iloc[rindex, i].strip(), False
-      self.error(rindex + 1, cindex + 1, "Blank cell error")
-      return "", True
+          return self.sheet.iloc[row_index, i].strip()
+      self.error(row_index + 1, col_index + 1, "Blank cell error")
+      return ""
     except Exception as e:
-      self.error(rindex + 1, cindex + 1, "Cell error '%s'" % (e))
-      return "", True
+      self.error(row_index + 1, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
+      return ""
 
   def read_boolean_cell(self, value):
     if value.strip().upper() in ['Y', 'YES', 'TRUE', '1']:
