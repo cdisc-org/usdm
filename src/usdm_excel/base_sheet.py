@@ -105,7 +105,7 @@ class BaseSheet():
     value = self.read_cell(row_index, col_index)
     return CDISCCT().code_for_attribute(klass, attribute, value)
 
-  def read_cdisc_klass_attribute_cell_by_name_multiple(self, klass, attribute, row_index, field_name):
+  def read_cdisc_klass_attribute_cell_multiple_by_name(self, klass, attribute, row_index, field_name):
     col_index = self.sheet.columns.get_loc(field_name)
     return self.read_cdisc_klass_attribute_cell_multiple(klass, attribute, row_index, col_index)
 
