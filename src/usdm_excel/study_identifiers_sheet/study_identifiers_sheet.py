@@ -22,7 +22,7 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      organisation_type = self.cdisc_klass_attribute_cell('Organisation', 'organisationType', self.clean_cell(row, index, 'organisationType'))
+      organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organisation', 'organisationType', index, 'organisationType')
       raw_address=self.clean_cell(row, index, 'organisationAddress')
       organisation = Organisation(
         organisationId=id_manager.build_id(Organisation),

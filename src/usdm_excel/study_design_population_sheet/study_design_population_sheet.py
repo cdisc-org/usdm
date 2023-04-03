@@ -32,6 +32,5 @@ class StudyDesignPopulationSheet(BaseSheet):
       traceback.print_exc()
 
   def _build_codes(self, row, index):
-    result = []
-    value = self.clean_cell(row, index, "plannedSexOfParticipants")
-    return [self.cdisc_klass_attribute_cell('StudyDesignPopulation', 'plannedSexOfParticipants', value)]
+    #result = []
+    return [self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants")]

@@ -17,11 +17,11 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         o_xref = self.clean_cell(row, index, "objectiveXref")
         o_description = self.clean_cell(row, index, "objectiveDescription")
-        o_level = self.cdisc_klass_attribute_cell('Objective', 'objectiveLevel', self.clean_cell(row, index, "objectiveLevel"))
+        o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
         e_xref = self.clean_cell(row, index, "endpointXref")
         e_description = self.clean_cell(row, index, "endpointDescription")
         e_p_description = self.clean_cell(row, index, "endpointPurposeDescription")
-        e_level = self.cdisc_klass_attribute_cell('Endpoint', 'endpointLevel', self.clean_cell(row, index, "endpointLevel"))
+        e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
           current = Objective(objectiveId=id_manager.build_id(Objective),
             objectiveDescription=o_description, 

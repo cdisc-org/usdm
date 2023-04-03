@@ -117,9 +117,9 @@ class StudySheet(BaseSheet):
       elif rindex == self.VERSION_ROW:
         self.version = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TYPE_ROW:
-        self.type = self.cdisc_klass_attribute_cell('Study', 'studyType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
       elif rindex == self.PHASE_ROW:
-        phase = self.cdisc_klass_attribute_cell('Study', 'studyPhase', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
         self.phase = Alias().code(phase, [])
       elif rindex == self.ACRONYM_ROW:
         self.acronym = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
@@ -131,13 +131,14 @@ class StudySheet(BaseSheet):
       elif rindex >= self.PROTOCOL_DATA_ROW:
         record = {}
         for cindex in range(0, len(self.sheet.columns)):
-          cell = self.clean_cell_unnamed(rindex, cindex)
           field = fields[cindex]
           if field == 'protocolStatus':
-            record[field] = self.cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', cell) 
+            record[field] = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, cindex) 
           elif field == 'protocolEffectiveDate':
+            cell = self.clean_cell_unnamed(rindex, cindex)
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
           else:
+            cell = self.clean_cell_unnamed(rindex, cindex)
             record[field] = cell
         record['studyProtocolVersionId'] = id_manager.build_id(StudyProtocolVersion)
         spv = StudyProtocolVersion(**record)

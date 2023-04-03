@@ -156,11 +156,24 @@ class BaseSheet():
         result.append(code)
     return result
 
-  def cdisc_klass_attribute_cell(self, klass, attribute, value):
+  def read_cdisc_klass_attribute_cell_by_name(self, klass, attribute, row_index, field_name):
+    col_index = self.sheet.columns.get_loc(field_name)
+    return self.read_cdisc_klass_attribute_cell(klass, attribute, row_index, col_index)
+
+  def read_cdisc_klass_attribute_cell(self, klass, attribute, row_index, col_index):
+    value = self.read_cell(row_index, col_index)
     return CDISCCT().code_for_attribute(klass, attribute, value)
 
-  def cdisc_klass_attribute_cell_multiple(self, klass, attribute, value):
+  # def cdisc_klass_attribute_cell(self, klass, attribute, value):
+  #   return CDISCCT().code_for_attribute(klass, attribute, value)
+
+  def read_cdisc_klass_attribute_cell_by_name_multiple(self, klass, attribute, row_index, field_name):
+    col_index = self.sheet.columns.get_loc(field_name)
+    return self.read_cdisc_klass_attribute_cell_multiple(klass, attribute, row_index, col_index)
+
+  def read_cdisc_klass_attribute_cell_multiple(self, klass, attribute, row_index, col_index):
     result = []
+    value = self.read_cell(row_index, col_index)
     items = value.split(",")
     for item in items:
       code =  CDISCCT().code_for_attribute(klass, attribute, item.strip())

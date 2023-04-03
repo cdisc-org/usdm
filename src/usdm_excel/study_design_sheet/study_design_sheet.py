@@ -60,13 +60,13 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
-        self.blinding = Alias().code(self.cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)), [])
+        self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
       elif rindex == self.INTENT_ROW:
-        self.trial_intents = self.cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TYPES_ROW:
-        self.trial_types = self.cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
       elif rindex == self.INT_ROW:
-        self.intervention_model = self.cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
       elif rindex == self.MAIN_TIMELINE_ROW:
         self.main_timeline = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.OTHER_TIMELINES_ROW:
