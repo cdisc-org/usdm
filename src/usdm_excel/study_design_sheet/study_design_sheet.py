@@ -56,7 +56,7 @@ class StudyDesignSheet(BaseSheet):
       elif rindex == self.DESCRIPTION_ROW:
         self.description = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TA_ROW:
-        self.therapeutic_areas = self.other_code_cell_mutiple(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.BLINDING_ROW:
@@ -108,7 +108,8 @@ class StudyDesignSheet(BaseSheet):
     self.study_designs.append(study_design)
 
   def _add_arm(self, name, description):
-    arm_origin = self.cdisc_code_cell("C188866=Data Generated Within Study")
+    # TODO read the arm origin
+    arm_origin = self.set_cdisc_code("C188866=Data Generated Within Study")
     return StudyArm(
       studyArmId=id_manager.build_id(StudyArm), 
       studyArmName=name,
@@ -119,7 +120,8 @@ class StudyDesignSheet(BaseSheet):
     )
 
   def _add_epoch(self, name, description):
-    epoch_type = self.cdisc_code_cell("C165873=OBSERVATION")
+    # TODO read the epoch type
+    epoch_type = self.set_cdisc_code("C165873=OBSERVATION")
     return StudyEpoch(
       studyEpochId=id_manager.build_id(StudyEpoch), 
       studyEpochName=name, 

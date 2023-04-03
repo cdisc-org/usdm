@@ -12,7 +12,7 @@ class Errors():
   def add(self, sheet: str, row: int, column: int, message: str) -> None:
     error = Error(sheet, row, column, message)
     self.items.append(error)
-    package_logger.warning(error.to_log)
+    package_logger.warning(error.to_log())
 
   def count(self) -> int:
     return len(self.items)

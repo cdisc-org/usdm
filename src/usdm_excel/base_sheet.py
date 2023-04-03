@@ -103,7 +103,8 @@ class BaseSheet():
       return True
     return False
 
-  def cdisc_code_cell(self, value):
+  # Want to kill this method
+  def set_cdisc_code(self, value):
     if value.strip() == "":
       return None
     parts = value.split("=")
@@ -113,7 +114,17 @@ class BaseSheet():
       self.error(0, 0, "CDISC code error '%s'" % (e))
       return None
 
-  def other_code_cell(self, value):
+  def read_other_code_cell_by_name(self, row_index, field_name):
+    col_index = self.sheet.columns.get_loc(field_name)
+    return self.read_other_code_cell(row_index, col_index)
+
+  def read_other_code_cell(self, row_index, col_index):
+    value = self.read_cell(row_index, col_index)
+    if value.strip() == "":
+      return None
+    return self.decode_other_code(value)
+
+  def decode_other_code(self, value):
     if value.strip() == "":
       return None
     outer_parts = value.split(":")
@@ -129,19 +140,21 @@ class BaseSheet():
       self.error(0, 0, "Other code error for data '%s', no ':' detected" % (value))
     return None
   
-  def other_code_cell_mutiple(self, value):
+  def read_other_code_cell_multiple_by_name(self, row_index, field_name):
+    col_index = self.sheet.columns.get_loc(field_name)
+    return self.read_other_code_cell_mutiple(row_index, col_index)
+
+  def read_other_code_cell_mutiple(self, row_index, col_index):
+    value = self.read_cell(row_index, col_index)
     result = []
     if value.strip() == '':
       return result
     items = value.split(",")
     for item in items:
-      code = self.other_code_cell(item.strip())
+      code = self.decode_other_code(item.strip())
       if not code == None:
         result.append(code)
     return result
-
-  def read_cdisc_klass_attribute_cell(self, klass, attribute, row, index):
-    return CDISCCT().code_for_attribute(klass, attribute, value)
 
   def cdisc_klass_attribute_cell(self, klass, attribute, value):
     return CDISCCT().code_for_attribute(klass, attribute, value)

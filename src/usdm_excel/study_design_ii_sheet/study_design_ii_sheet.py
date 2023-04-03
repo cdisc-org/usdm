@@ -19,7 +19,7 @@ class StudyDesignIISheet(BaseSheet):
         type = self.clean_cell(row, index, "type")
         description = self.clean_cell(row, index, "description")
         #codes = self._build_codes(row, index)
-        codes = self.other_code_cell_mutiple(self.clean_cell(row, index, "codes"))
+        codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         if type.upper() == "IND":
           item = Indication(indicationId=id_manager.build_id(Indication), indicationDescription=description, codes=codes)
           self.indications.append(item)

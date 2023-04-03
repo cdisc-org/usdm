@@ -126,7 +126,7 @@ class StudySheet(BaseSheet):
       elif rindex == self.RATIONALE_ROW:
         self.rationale = self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TA_ROW:
-        self.therapeutic_areas = self.other_code_cell_mutiple(self.clean_cell_unnamed(rindex, self.PARAMS_DATA_COL))
+        self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
         #print("8", self.therapeutic_areas)
       elif rindex >= self.PROTOCOL_DATA_ROW:
         record = {}
