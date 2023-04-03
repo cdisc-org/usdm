@@ -52,7 +52,7 @@ class CDISCBiomedicalConcepts():
 
   def _get_package_metadata(self):
     api_url = self._url('/mdr/bc/packages')
-    package_logger.info("CDISC Library: %s" % api_url)
+    package_logger.info("CDISC BC Library: %s" % api_url)
     raw = requests.get(api_url, headers=self.headers)
     response = raw.json()
     packages = response['_links']['packages']
@@ -62,6 +62,7 @@ class CDISCBiomedicalConcepts():
     results = {}
     for package in self.package_metadata:
       api_url = self._url(package['href'])
+      package_logger.info("CDISC BC Library: %s" % api_url)
       raw = requests.get(api_url, headers=self.headers)
       response = raw.json()
       for item in response['_links']['biomedicalConcepts']:
@@ -98,3 +99,5 @@ class CDISCBiomedicalConcepts():
       bcPropertyResponseCodes=responses,
       bcPropertyConceptCode=Alias().code(concept_code, concept_aliases)
     )
+
+cdisc_bc_library = CDISCBiomedicalConcepts()
