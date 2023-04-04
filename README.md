@@ -29,9 +29,7 @@ Not further information as yet.
 
 ## Example Program
 
-The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
-
-Note: The logging is not needed.
+The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format. *Note: The logging is not needed.*
 
 ```
 import logging
@@ -66,9 +64,7 @@ The workbook consists of several sheets each with a dedicated purpose.
 - Study Design Elements sheet
 - Configuration sheet
 
-The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/sprint-11/Deliverables/IG/examples).
-
-Note: the link above points to the sprint 11 branch. This will be merged into the main branch prior to public review.
+The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/sprint-11/Deliverables/IG/examples). *Note: the link above points to the sprint 11 branch. This will be merged into the main branch prior to public review.*
 
 #### CDISC Terminology
 
