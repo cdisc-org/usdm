@@ -36,6 +36,11 @@ class BaseSheet():
       self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
       return ""
 
+  def read_cell_empty(self, row_index, col_index, empty_character):
+    value = self.read_cell(row_index, col_index)
+    value = "" if value == empty_character else value
+    return value
+
   def read_cell_multiple(self, rindex, cindex):
     results = []
     value = self.read_cell(rindex, cindex)

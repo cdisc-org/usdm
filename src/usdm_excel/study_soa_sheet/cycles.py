@@ -37,12 +37,11 @@ class Cycles():
         prev_cycle = cycle
       
   def _get_cycle_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
-    if is_null:
+    if self.parent.cell_empty(row_index, col_index):
       return "", True
     else:
-      value = str(self.parent.sheet.iloc[row_index, col_index])
-      if value.upper() == "-":
+      value = self.parent.read_cell_empty(row_index, col_index, '-')
+      if value == "":
         return "", True
       else:
         return value, False
