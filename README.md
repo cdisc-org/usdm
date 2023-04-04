@@ -169,7 +169,79 @@ As defined within the study design sheet, see above.
 
 #### Sheet Contents
 
-Not currently described
+##### General
+
+This is a complicated sheet. It is, in essence, an enhanced SoA. There are several sections within the sheet:
+
+- The name, description and condition located top right
+- The remainder of the sheet is the SoA with:
+  - The timing set in the top rows, the "timepoints"
+  - The activities down the left hand side
+  - The link between activities and "timepoints", the classic 'X'
+
+##### Name, Description, Condition
+
+The name description and condition are located in columns A and B, rows 1 and 2. It is a vertical name value pair configuration
+
+| Row | Row Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| 1 | Name | The timeline name | Text string |
+| 2 | Description | Timeline description | Text string |
+| 3 | Condition | Timeline entry condition | Text string |
+
+##### Timing
+
+The timing seciton consists of multiple columns starting in column D. As many columns as needed can be created. A title block is held in Column C. The section consists of eight rows in rows 1 to 8 as follows:
+
+| Row | Row Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| 1 | Epoch | The name of the epoch within which the timepoint falls. Note the cells in this row can be merged to link an epoch with many timepoints | Text string  |
+| 2 | Cycle | The cycle in which the "timepoint" exists. Can be empty or set to '-' (empty) | Text string |
+| 2 | First Cycle Start | The time at which the cycle starts. Should be specified. Empty if not part of a cycle | Text string |
+| 2 | Cycle Period | The cycle period. Shoudl be specified. Empty if not part of a cycle | Text string |
+| 2 | Cycle End Rule | The cycle end rule. Can be empty. Empty if not part of a cycle | Text string |
+| 2 | Timing | "Timepoint" timing.  | Text String |
+| 2 | Encounter xref | Cross reference tot he encounter in which the timepoint belongs. Can be empty | Text string |
+| 2 | Window | Timing window. Can be empty | Text string |
+
+The timepont timing takes the form defined as follows (using pseudo BNF). 
+
+```
+<entry> ::= <type> [<count>] : [<relative timing>]
+<type> ::= N | P| A | C
+<count> ::= any positive integer (will default to 1)
+<relative timing> ::= string
+```
+N = Next, P = Previous, A = Anchor and C = Cycle Start. The count when used with N or P indicates a relative to the Nth next or previous timepoint. When not specificed it defaults to 1.
+
+`P2: +14 Days` indicates the timepoiint is relative to the 2nd previous timepoint by 14 days.
+`N1: 1 Day` is equivalent to `N: 1 Day` and indicates the timepoiint is relative to the next timepoint by 1 day.
+`A:` is an anchor
+
+##### Activity
+
+The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | Parent Activity | Parent Activity. Not used currently | Set to '-' |
+| B | Child Activity | Child activity name | Text string |
+| C | BC/Procedure/Timeline | A set of BCs, procedures or timelines. Comma separated or the form detailed below | :--- |
+
+The BC, procedure, timeline format is defined as follows (using pseudo BNF):
+
+```
+<entries> ::= <entry> | <entries> <entry>
+<entry> ::= <type> : <name> | empty
+<type> ::= PR | BC | TL
+<name> ::= <name of item>
+```
+
+`BC: Age, BC: Sec, PR:Informed Consent Form, TL:Exercise` indicates the activity consists of the bcs Age and Sex, a procedure for the informed consent and a timeline specified in the Exercise sheet.
+
+##### Link
+
+The link section consists of a set of cells into which an upper case 'X' can be placed to link a timepoint with an activity. Otherwise the cell will be ignored. A '-' can be used to fill in cells but "empty".
 
 ### Study Design Indications and Interventions Sheet
 	
