@@ -6,15 +6,11 @@ import os
 class ISO3166():
 
   def __init__(self):
-    #f = open('data/iso_3166.json', 'r')
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'iso_3166.json'))
     self.db = json.load(f)
 
   def code(self, code):
     code, decode = self._get_decode(code)
-    if code == None:
-      code = 'DNK'
-      decode = 'Denmark'
     return Code(codeId=id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion='', decode=decode)
 
   def _get_decode(self, code):
@@ -24,6 +20,6 @@ class ISO3166():
       field = 'alpha-3'
     entry = next((item for item in self.db if item[field] == code), None)
     if entry == None:
-      return None, None
+      return 'DNK', 'Denmark'
     else:
       return entry['alpha-3'], entry['name']
