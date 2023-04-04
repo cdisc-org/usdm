@@ -122,8 +122,8 @@ A header row in row 9 followed by repeating rows from row 10, containing a proto
 A header row in row 1 followed by repeating rows from row 2, containing a study identifier: 
 
 | Column | Column Name | Description | Format and Values |
-| :--- | :--- | :--- | :--- | :--- |
-| A | organisationIdentifierScheme | The scheme for the organisation identifier.  | Example would be 'DUNS' |
+| :--- | :--- | :--- | :--- |
+| A | organisationIdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
 | B | organisationIdentifier | Organisation identifier | Text string |
 | C | organisationName | Organisation name | Text string |
 | D | organisationType | Organisation type | CDISC code reference |
