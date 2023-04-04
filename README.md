@@ -1,6 +1,6 @@
 # USDM CDISC / Transcelerate DDF USDM
 
-This package provides an implementation of the Digital Data Flow (DDF) CDISC / TransCelerate Unified Study Definitions Model (USDM). Two main parts are provided:
+This package provides an implementation of the Digital Data Flow (DDF) CDISC / TransCelerate Unified Study Definitions Model (USDM). Two main parText string are provided:
 
 - Within the `usdm_model` directory are a set of classes reflecting the USDM model as transported using the DDF USDM API 
 - Within the `usdm_excel` directory is a class, `USDMExcel`, that can be used to import an entire study definition from an excel file and build the equivalent json as defined by the API
@@ -17,7 +17,7 @@ Setup is via pip
 
 `pip install usdm`
 
-The package requires a single environment variable `CDISC_API_KEY` that should be set to your CDISC library API key. This is used to access CDISC CT and BC definitions.
+The package requires a single environment variable `CDISC_API_KEY` that should be set to your CDISC library API key. This is used to access CDISC CT and BC definitions in the CDISC library.
 
 See below for a simple example program.
 
@@ -29,7 +29,7 @@ Not further information as yet.
 
 ## Example Program
 
-The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
+The following code imporText string an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
 
 Note: The logging is not needed.
 ```
@@ -48,21 +48,21 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ### General
 
-#### Sheets
+#### SheeText string
 
-The workbook consists of several sheets each with a dedicated purpose.
+The workbook consisText string of several sheeText string each with a dedicated purpose.
 
 - Study sheet
 - Study Identifiers sheet
 - Study Design sheet
-- one or more Timeline sheets
+- one or more Timeline sheeText string
 - Study Design Indications and Interventions sheet
 - Study Design Populations sheet
-- Study Design Objectives and Endpoints sheet
+- Study Design Objectives and EndpoinText string sheet
 - Study Design Estimands sheet
 - Study Design Procedures sheet
 - Study Design Encounters sheet
-- Study Design Elements sheet
+- Study Design ElemenText string sheet
 - Configuration sheet
 
 The content of each sheet is described below
@@ -75,15 +75,19 @@ For those cells where CDISC codes are used the user can enter either the CDISC C
 
 For those cells where external CT is referenced the user can enter code in the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`.
 
+### Identifiers and Cross References
+
+Some content defined within the sheeText string contain unique identifiers such that the content can be cross referenced in other sheeText string. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
+
 ### Study Sheet
 
 #### Sheet Name
 
 `study`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
-The study sheet consists of two parts, the upper section for those single values and then a section for the potentially repeating protocol version informaion
+The study sheet consisText string of two parText string, the upper section for those single values and then a section for the potentially repeating protocol version informaion
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
@@ -116,7 +120,7 @@ For each Study Protocol Version a row containing:
 
 `studyIdentifiers`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
@@ -133,9 +137,9 @@ For each Study Protocol Version a row containing:
 
 `studyDesign`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
-The study design sheet consists of two parts, the upper section for those single values and then a section for the arms and epochs.
+The study design sheet consisText string of two parText string, the upper section for those single values and then a section for the arms and epochs.
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
@@ -150,21 +154,23 @@ For the single values, the keyword is in column A while the value is in column B
 | trialTypes | Code for the trial type | CDISC code reference|
 | interventionModel | | CDISC code reference |
 | mainTimeline | Name of main timeline sheet | This must be present |
-| otherTimelines | Names of other timeline sheets | Commma separated list of sheet names. Can be empty |
+| otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
 
-For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
+For the arms and epochs, a simple table is required. The table starText string in row 12 and can consisText string of a header row and 1 or more arm rows. 
 
-The header row consists of a cell that is ignored followed by 1 or more cells containing the epoch names.
+The header row consisText string of a cell that is ignored followed by 1 or more cells containing the epoch names.
 
-The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet.
+The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elemenText string defined in the studyDesignElemenText string sheet.
 
-### Timeline sheets
+### Timeline sheeText string
 
 #### Sheet Name
 
 As defined within the study design sheet, see above.
 
-#### Sheet Contents
+#### Sheet ContenText string
+
+Not currently described
 
 ### Study Design Indications and Interventions Sheet
 	
@@ -172,7 +178,7 @@ As defined within the study design sheet, see above.
 
 `studyDesignII`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
@@ -186,21 +192,33 @@ As defined within the study design sheet, see above.
 
 `studyDesignPopulations`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| populationDescription	| Description of the population | Text string | 
+| plannedNumberOfParticipanText string	| Number of participanText string | Integer | 
+| plannedMinimumAgeOfParticipanText string	| Min age | Text string | 
+| plannedMaximumAgeOfParticipanText string	| Mas Age | Text string |
+| plannedSexOfParticipanText string | Sex of participanText string | CDISC code reference | 
 
-
-
-### Study Design Objectives and Endpoints sheet
+### Study Design Objectives and EndpoinText string sheet
 
 #### Sheet Name
 
 `studyDesignOE`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
-
-
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| objectiveXref	| Identifier | Text string |
+| objectiveDescription	| Description | Text string |
+| objectiveLevel	| Objective level | CDISC code reference |
+| endpointXref	| Identifier | Text string |
+| endpointDescription	| Description | Text string |
+| endpointPurposeDescription	| | |
+| endpointLevel| Level | CDISC code reference |
 
 ### Study Design Estimands sheet
 
@@ -208,10 +226,20 @@ As defined within the study design sheet, see above.
 
 `studyDesignEstimands`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
+Note that column H can repeat for the same content in columns A through G.
 
-
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| xref	| Identifier | Text string |
+| summaryMeasure	| The summary measure | Text string |
+| populationDescription	| Description | Text string |
+| intercurrentEventName	| Name | Text string |
+| intercurrentEventDescription | Description | Text string |
+| treatmentXref	| Treatment cross reference | Cross reference to a treatment |
+| endpointXref	| Endpoint cross reference | Cross reference to an endpont |
+| intercurrentEvenText stringtrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
 
 ### Study Design Procedures sheet
 
@@ -219,10 +247,15 @@ As defined within the study design sheet, see above.
 
 `studyDesignProcedures`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
-
-
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| xref	| | |
+| procedureType	| Type | Text string |
+| procedureCode	| Code reference | External CT reference  |
+| procedureIsConditional | Conditional flag | Boolean |
+| procedureIsConditionalReason | Reason | Text string |
 
 ### Study Design Encounters sheet
 
@@ -230,21 +263,34 @@ As defined within the study design sheet, see above.
 
 `studyDesignEncounters`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| xref	| Identifier | Text string |
+| encounterName	| Name | Text string |
+| encounterDescription	| Description | Text string |
+| encounterType	| The type | CDISC code reference |
+| encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
+| encounterContactModes	| Contact modes | CDISC code reference |
+| transitionStartRule	| Start rule | Text string |
+| transitionEndRule| End Rule | Text string |
 
-
-
-### Study Design Elements sheet
+### Study Design ElemenText string sheet
 
 #### Sheet Name
 
-`studyDesignElements`
+`studyDesignElemenText string`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
-
-
+| Column Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| xref | Identifier | Text string |	
+| studyElementName | Name | Text string |	
+| studyElementDescription | Description | Text string |	
+| transitionStartRule | Start rule | Text string |	
+| transitionEndRule | End rule | Text string |
 
 ### Configuration Sheet
 
@@ -252,7 +298,7 @@ As defined within the study design sheet, see above.
 
 `configuration`
 
-#### Sheet Contents
+#### Sheet ContenText string
 
 A set of rows consisting of configuration parameters. The first column is the type of configuration parameter while the second is the value. The values for specific parameters may vary in their format
 
@@ -266,3 +312,4 @@ It is intended to support all of the content in the USDM. The following features
 
 - Full Arm definitions
 - Full Epoch definitions
+- Better handlingof content in timeline sheet (remove need for '-' characters)
