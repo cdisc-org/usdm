@@ -1,4 +1,4 @@
-# USDM CDISC / Transcelerate DDF USDM
+# CDISC / Transcelerate DDF USDM Package
 
 This package provides an implementation of the Digital Data Flow (DDF) CDISC / TransCelerate Unified Study Definitions Model (USDM). Two main parts are provided:
 
