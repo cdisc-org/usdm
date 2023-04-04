@@ -85,34 +85,34 @@ Some content defined within the sheeText string contain unique identifiers such 
 
 `study`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
 The study sheet consisText string of two parText string, the upper section for those single values and then a section for the potentially repeating protocol version informaion
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
-| Row Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| studyTitle | The study title | Text string |
-| studyVersion | String version | Text string |
-| studyType | The study type | CDISC code reference |
-| studyPhase | The study phase | CDISC code reference |
-| studyAcronym | The study acronym | Text string |
-| studyRationale | the study rationale | Text string |
-| businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
+| Row | Row Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| 1 | studyTitle | The study title | Text string |
+| 2 | studyVersion | String version | Text string |
+| 3 | studyType | The study type | CDISC code reference |
+| 4 | studyPhase | The study phase | CDISC code reference |
+| 5 | studyAcronym | The study acronym | Text string |
+| 6 | studyRationale | the study rationale | Text string |
+| 7 | businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
 
-For each Study Protocol Version a row containing:
+A header row in row 9 followed by repeating rows from row 10, containing a protocol version definition: 
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| briefTitle | The brief title | Text string | 
-| officialTitle	 | The officiall title | Text string| 
-| publicTitle	 | The public title | Text string| 
-| scientificTitle	 | The scientific title | Text string| 
-| protocolVersion	 | The version of the protocol | Text string | 
-| protocolAmendment	 |The version amendment | Text string | 
-| protocolEffectiveDate	 | Effective date of the protocol | Date field, dd/mm/yyyy | 
-| protocolStatus | The status | CDISC code reference | 
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | briefTitle | The brief title | Text string | 
+| B | officialTitle	 | The officiall title | Text string| 
+| C | publicTitle	 | The public title | Text string| 
+| D | scientificTitle	 | The scientific title | Text string| 
+| E | protocolVersion	 | The version of the protocol | Text string | 
+| F | protocolAmendment	 |The version amendment | Text string | 
+| G | protocolEffectiveDate	 | Effective date of the protocol | Date field, dd/mm/yyyy | 
+| H | protocolStatus | The status | CDISC code reference | 
 
 ### Study Identifiers	Sheet
 	
@@ -120,16 +120,18 @@ For each Study Protocol Version a row containing:
 
 `studyIdentifiers`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| organisationIdentifierScheme | The scheme for the organisation identifier.  | Example would be 'DUNS' |
-| organisationIdentifier | Organisation identifier | Text string |
-| organisationName | Organisation name | Text string |
-| organisationType | Organisation type | CDISC code reference |
-| studyIdentifier | The identifier for the study | Text string |
-| organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are Text string except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
+A header row in row 1 followed by repeating rows from row 2, containing a study identifier: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- | :--- |
+| A | organisationIdentifierScheme | The scheme for the organisation identifier.  | Example would be 'DUNS' |
+| B | organisationIdentifier | Organisation identifier | Text string |
+| C | organisationName | Organisation name | Text string |
+| D | organisationType | Organisation type | CDISC code reference |
+| E | studyIdentifier | The identifier for the study | Text string |
+| F | organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are Text string except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 
 ### Study Design sheet
 
@@ -137,24 +139,24 @@ For each Study Protocol Version a row containing:
 
 `studyDesign`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
 The study design sheet consisText string of two parText string, the upper section for those single values and then a section for the arms and epochs.
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
-| Row Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| studyDesignName | Study design name | Text string |
-| studyDesignDescription | Study design description | Text string |
-| therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
-| studyDesignRationale | Study design rationale | Text string |
-| studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
-| trialIntentTypes | Codes for the trial intent types | Comma separated string. Set of C Code, the submission value or the preferred term for the terms desired. |
-| trialTypes | Code for the trial type | CDISC code reference|
-| interventionModel | | CDISC code reference |
-| mainTimeline | Name of main timeline sheet | This must be present |
-| otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
+| Row | Row Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| 1 | studyDesignName | Study design name | Text string |
+| 2 | studyDesignDescription | Study design description | Text string |
+| 3 | therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
+| 4 | studyDesignRationale | Study design rationale | Text string |
+| 5 | studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
+| 6 | trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references |
+| 7 | trialTypes | Code for the trial type | CDISC code reference|
+| 8 | interventionModel | | CDISC code reference |
+| 9 | mainTimeline | Name of main timeline sheet | This must be present |
+| 10 | otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
 
 For the arms and epochs, a simple table is required. The table starText string in row 12 and can consisText string of a header row and 1 or more arm rows. 
 
@@ -162,13 +164,13 @@ The header row consisText string of a cell that is ignored followed by 1 or more
 
 The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elemenText string defined in the studyDesignElemenText string sheet.
 
-### Timeline sheeText string
+### Timeline sheets
 
 #### Sheet Name
 
 As defined within the study design sheet, see above.
 
-#### Sheet ContenText string
+#### Sheet Contents
 
 Not currently described
 
@@ -178,13 +180,16 @@ Not currently described
 
 `studyDesignII`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| type | The type, either IND for indication or INT for intervention | Text string |
-| description | A Text string description for the indication or intervvention | Text string |
-| codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
+A header row in row 1 followed by repeating rows from row 2, containing an indication or intervention: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | Identifier | The identifier | Text string | 
+| B | type | The type, either `IND` for indication or `INT` for intervention | Text string |
+| C | description | A Text string description for the indication or intervvention | Text string |
+| D | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
 
 ### Study Design Populations sheet
 
@@ -192,15 +197,17 @@ Not currently described
 
 `studyDesignPopulations`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| populationDescription	| Description of the population | Text string | 
-| plannedNumberOfParticipanText string	| Number of participanText string | Integer | 
-| plannedMinimumAgeOfParticipanText string	| Min age | Text string | 
-| plannedMaximumAgeOfParticipanText string	| Mas Age | Text string |
-| plannedSexOfParticipanText string | Sex of participanText string | CDISC code reference | 
+A header row in row 1 followed by repeating rows from row 2, containing a population definition: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | populationDescription	| Description of the population | Text string | 
+| B | plannedNumberOfParticipanText string	| Number of participanText string | Integer | 
+| C | plannedMinimumAgeOfParticipanText string	| Min age | Text string | 
+| D | plannedMaximumAgeOfParticipanText string	| Mas Age | Text string |
+| E | plannedSexOfParticipanText string | Sex of participanText string | CDISC code reference | 
 
 ### Study Design Objectives and EndpoinText string sheet
 
@@ -208,17 +215,19 @@ Not currently described
 
 `studyDesignOE`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| objectiveXref	| Identifier | Text string |
-| objectiveDescription	| Description | Text string |
-| objectiveLevel	| Objective level | CDISC code reference |
-| endpointXref	| Identifier | Text string |
-| endpointDescription	| Description | Text string |
-| endpointPurposeDescription	| | |
-| endpointLevel| Level | CDISC code reference |
+A header row in row 1 followed by repeating rows from row 2, containing objective and endpoint definitions. Note that columns D through G can repeat for the same content in columns A to C. For additional endpoint rows leave columns A to C blank.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | objectiveXref	| Identifier | Text string |
+| B | objectiveDescription	| Description | Text string |
+| C | objectiveLevel	| Objective level | CDISC code reference |
+| D | endpointXref	| Identifier | Text string. Note columns D to G can repeat for each endpoiint for an objective |
+| E | endpointDescription	| Description | Text string |
+| F | endpointPurposeDescription	| | |
+| G | endpointLevel| Level | CDISC code reference |
 
 ### Study Design Estimands sheet
 
@@ -226,20 +235,20 @@ Not currently described
 
 `studyDesignEstimands`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-Note that column H can repeat for the same content in columns A through G.
+A header row in row 1 followed by repeating rows from row 2, containing estimand definitions. Note that column H can repeat for the same content in columns A through G.
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| xref	| Identifier | Text string |
-| summaryMeasure	| The summary measure | Text string |
-| populationDescription	| Description | Text string |
-| intercurrentEventName	| Name | Text string |
-| intercurrentEventDescription | Description | Text string |
-| treatmentXref	| Treatment cross reference | Cross reference to a treatment |
-| endpointXref	| Endpoint cross reference | Cross reference to an endpont |
-| intercurrentEvenText stringtrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | xref	| Identifier | Text string |
+| B | summaryMeasure	| The summary measure | Text string |
+| C | populationDescription	| Description | Text string |
+| D | intercurrentEventName	| Name | Text string |
+| E | intercurrentEventDescription | Description | Text string |
+| F | treatmentXref	| Treatment cross reference | Cross reference to a treatment |
+| G | endpointXref	| Endpoint cross reference | Cross reference to an endpont |
+| H | intercurrentEvenText stringtrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
 
 ### Study Design Procedures sheet
 
@@ -247,15 +256,17 @@ Note that column H can repeat for the same content in columns A through G.
 
 `studyDesignProcedures`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| xref	| | |
-| procedureType	| Type | Text string |
-| procedureCode	| Code reference | External CT reference  |
-| procedureIsConditional | Conditional flag | Boolean |
-| procedureIsConditionalReason | Reason | Text string |
+A header row in row 1 followed by repeating rows from row 2, containing procedure definitions.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | xref | Identifier | Text string |
+| B | procedureType	| Type | Text string |
+| C | procedureCode	| Code reference | External CT reference  |
+| D | procedureIsConditional | Conditional flag | Boolean |
+| E | procedureIsConditionalReason | Reason | Text string |
 
 ### Study Design Encounters sheet
 
@@ -263,18 +274,20 @@ Note that column H can repeat for the same content in columns A through G.
 
 `studyDesignEncounters`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| xref	| Identifier | Text string |
-| encounterName	| Name | Text string |
-| encounterDescription	| Description | Text string |
-| encounterType	| The type | CDISC code reference |
-| encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
-| encounterContactModes	| Contact modes | CDISC code reference |
-| transitionStartRule	| Start rule | Text string |
-| transitionEndRule| End Rule | Text string |
+A header row in row 1 followed by repeating rows from row 2, containing encounter definitions.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | xref	| Identifier | Text string |
+| B | encounterName	| Name | Text string |
+| C | encounterDescription	| Description | Text string |
+| D | encounterType	| The type | CDISC code reference |
+| E | encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
+| F | encounterContactModes	| Contact modes | CDISC code reference |
+| G | transitionStartRule	| Start rule | Text string |
+| H | transitionEndRule| End Rule | Text string |
 
 ### Study Design ElemenText string sheet
 
@@ -282,15 +295,17 @@ Note that column H can repeat for the same content in columns A through G.
 
 `studyDesignElemenText string`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
-| Column Name | Description | Format and Values |
-| :--- | :--- | :--- |
-| xref | Identifier | Text string |	
-| studyElementName | Name | Text string |	
-| studyElementDescription | Description | Text string |	
-| transitionStartRule | Start rule | Text string |	
-| transitionEndRule | End rule | Text string |
+A header row in row 1 followed by repeating rows from row 2, containing element definitions.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | xref | Identifier | Text string |	
+| B | studyElementName | Name | Text string |	
+| C | studyElementDescription | Description | Text string |	
+| D | transitionStartRule | Start rule | Text string |	
+| E | transitionEndRule | End rule | Text string |
 
 ### Configuration Sheet
 
@@ -298,7 +313,7 @@ Note that column H can repeat for the same content in columns A through G.
 
 `configuration`
 
-#### Sheet ContenText string
+#### Sheet Contents
 
 A set of rows consisting of configuration parameters. The first column is the type of configuration parameter while the second is the value. The values for specific parameters may vary in their format
 
