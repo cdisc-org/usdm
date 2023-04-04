@@ -1,6 +1,48 @@
-# CDISC / Transcelerate Unified Study Definitions Model
+# USDM CDISC / Transcelerate DDF USDM
 
-## 
+This package provides an implementation of the Digital Data Flow (DDF) CDISC / TransCelerate Unified Study Definitions Model (USDM). Two main parts are provided:
+
+- Within the `usdm_model` directory are a set of classes reflecting the USDM model as transported using the DDF USDM API 
+- Within the `usdm_excel` directory is a class, `USDMExcel`, that can be used to import an entire study definition from an excel file and build the equivalent json as defined by the API
+
+# Warning
+
+When originally written, this package was not intended for public use and, consequently, only informal testing has been performed on the package. 
+
+Formal testing has just begun. Use this at your own risk.
+
+# Setup
+
+Setup is via pip
+
+`pip install usdm`
+
+The package requires a single environment variable `CDISC_API_KEY` that should be set to your CDISC library API key. This is used to access CDISC CT and BC definitions.
+
+See below for a simple example program.
+
+# USDM Model
+
+Not further information as yet.
+
+# Excel Import
+
+## Example Sinple Program
+
+The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
+
+Note: The logging is not needed.
+```
+import logging
+log = logging.basicConfig(level=logging.INFO)
+
+import json
+from usdm_excel import USDMExcel
+
+excel = USDMExcel("source_data/simple_1.xlsx")
+with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
+  f.write(json.dumps(json.loads(excel.to_json()), indent=2))
+```
 
 ## Format of Workbook
 
