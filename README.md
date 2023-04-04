@@ -47,7 +47,7 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 #### Sheets
 
-The workbook consists of several sheets each with a dedicated purpose.
+The workbook consists of several sheets each with a dedicated purpose. All sheets must be present.
 
 - Study sheet
 - Study Identifiers sheet
