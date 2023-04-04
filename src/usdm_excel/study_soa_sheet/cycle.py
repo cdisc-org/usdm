@@ -19,5 +19,5 @@ class Cycle():
     self.end_timepoint_index = index
 
   def get_cycle_cell(self, row_index, col_index):
-    self.parent.read_cell_empty(row_index, col_index, '-')
+    return self.parent.read_cell_empty(row_index, col_index, '-')
 

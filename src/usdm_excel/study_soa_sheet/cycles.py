@@ -15,9 +15,8 @@ class Cycles():
     for col_index in range(self.parent.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
         timepoint_index += 1
-        #cycle, cycle_is_null = self._get_cycle_cell(SoAColumnRows.CYCLE_ROW, col_index)
-        cycle = self.parent.read_cell_empty(SoAColumnRows.CYCLE_ROW, col_index, '-')
-        if cycle == "":
+        cycle, cycle_is_null = self._get_cycle_cell(SoAColumnRows.CYCLE_ROW, col_index)
+        if cycle_is_null:
           if in_cycle:
             cycle_record.add_end(self.previous_index(timepoint_index))
             self.items.append(cycle_record)
@@ -37,15 +36,15 @@ class Cycles():
             cycle_record = Cycle(self.parent, col_index, cycle, timepoint_index)
         prev_cycle = cycle
       
-  # def _get_cycle_cell(self, row_index, col_index):
-  #   if self.parent.cell_empty(row_index, col_index):
-  #     return "", True
-  #   else:
-  #     value = self.parent.read_cell_empty(row_index, col_index, '-')
-  #     if value == "":
-  #       return "", True
-  #     else:
-  #       return value, False
+  def _get_cycle_cell(self, row_index, col_index):
+    if self.parent.cell_empty(row_index, col_index):
+      return "", True
+    else:
+      value = self.parent.read_cell_empty(row_index, col_index, '-')
+      if value == "":
+        return "", True
+      else:
+        return value, False
 
   def previous_index(self, index):
     if index == 0:
