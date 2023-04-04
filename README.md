@@ -197,12 +197,12 @@ The timing seciton consists of multiple columns starting in column D. As many co
 | :--- | :--- | :--- | :--- |
 | 1 | Epoch | The name of the epoch within which the timepoint falls. Note the cells in this row can be merged to link an epoch with many timepoints | Text string  |
 | 2 | Cycle | The cycle in which the "timepoint" exists. Can be empty or set to '-' (empty) | Text string |
-| 2 | First Cycle Start | The time at which the cycle starts. Should be specified. Empty if not part of a cycle | Text string |
-| 2 | Cycle Period | The cycle period. Shoudl be specified. Empty if not part of a cycle | Text string |
-| 2 | Cycle End Rule | The cycle end rule. Can be empty. Empty if not part of a cycle | Text string |
-| 2 | Timing | "Timepoint" timing.  | Text String |
-| 2 | Encounter xref | Cross reference tot he encounter in which the timepoint belongs. Can be empty | Text string |
-| 2 | Window | Timing window. Can be empty | Text string |
+| 3 | First Cycle Start | The time at which the cycle starts. Should be specified. Empty if not part of a cycle | Text string |
+| 4 | Cycle Period | The cycle period. Shoudl be specified. Empty if not part of a cycle | Text string |
+| 5 | Cycle End Rule | The cycle end rule. Can be empty. Empty if not part of a cycle | Text string |
+| 6 | Timing | "Timepoint" timing.  | Text String |
+| 7 | Encounter xref | Cross reference tot he encounter in which the timepoint belongs. Can be empty | Text string |
+| 8 | Window | Timing window. Can be empty | Text string |
 
 The timepont timing takes the form defined as follows (using pseudo BNF). 
 
@@ -220,7 +220,7 @@ N = Next, P = Previous, A = Anchor and C = Cycle Start. The count when used with
 
 ##### Activity
 
-The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row.
+The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row. As many rows as needed can be added.
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
