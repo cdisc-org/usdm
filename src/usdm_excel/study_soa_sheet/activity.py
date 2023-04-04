@@ -16,7 +16,7 @@ class Activity():
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
     self.name = parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
-    self._bcs, self._prs, self._tls, obs_is_null = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
+    self._bcs, self._prs, self._tls = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
     self.usdm_activity = self._as_usdm()
     
   def _as_usdm(self):
@@ -63,11 +63,8 @@ class Activity():
     bcs = []
     prs = []
     tls = []
-    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
-    if is_null:
-      return [], [], [], True
-    else:
-      value = self.parent.sheet.iloc[row_index, col_index]
+    if not self.parent.cell_empty(row_index, col_index):
+      value = self.parent.read_cell(row_index, col_index)
       outer_parts = value.split(',')
       for outer_part in outer_parts:
         parts = outer_part.split(':')
@@ -79,4 +76,4 @@ class Activity():
           tls.append(parts[1].strip())
         else:
           pass
-      return bcs, prs, tls, False
+    return bcs, prs, tls

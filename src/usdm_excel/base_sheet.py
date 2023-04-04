@@ -13,7 +13,10 @@ class BaseSheet():
     self.sheet_name = sheet_name
     self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header)
     package_logger.info("Reading sheet %s" % (sheet_name))
-    
+
+  def cell_empty(self, row_index, col_index):
+    return pd.isnull(self.sheet.iloc[row_index, col_index])  
+
   def read_cell_by_name(self, row_index, field_name):
     try:
       col_index = self.sheet.columns.get_loc(field_name)

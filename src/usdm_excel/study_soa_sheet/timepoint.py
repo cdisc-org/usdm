@@ -124,7 +124,7 @@ class Timepoint():
     for cell in column:
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity = self.parent.read_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
-        if cell.upper() == "X":
+        if str(cell).upper() == "X":
           self.activity_map[activity] = True
       row += 1
 
