@@ -74,7 +74,8 @@ class BaseSheet():
       self._error(row_index + 1, col_index + 1, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
       return ""
 
-  def read_boolean_cell(self, value):
+  def read_boolean_cell_by_name(self, row_index, field_name):
+    value = self.read_cell_by_name(row_index, field_name)
     if value.strip().upper() in ['Y', 'YES', 'TRUE', '1']:
       return True
     return False

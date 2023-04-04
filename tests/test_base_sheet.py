@@ -137,27 +137,27 @@ def test_read_cell_multiple(mocker):
 
 # read_cell_with_previous
 
-def test_read_boolean_cell(mocker):
+def test_read_boolean_cell_by_name(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = {'col_1': [0, 1, 2, 3, 4, 5, 6, 7, 8], 'col_2': ['a', 'y', 'Y', 'true', 'True', 'yes', 1, '1', '']}
+  #data = [[0, 1, 2, 3, 4, 5, 6, 7, 8], ['a', 'y', 'Y', 'true', 'True', 'yes', 1, '1', '']]
+  data = [[0, 'a'], [1, 'y'], [2, 'Y'], [3, 'true'], [4, 'True'], [5, 'yes'], [6, 1,], [7, '1'], [8, '']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame.from_dict(data)
+  mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
   base = BaseSheet("", "sheet")
   test_data = [
-    (0,1,False),
-    (1,1,True),
-    (2,1,True),
-    (3,1,True),
-    (4,1,True),
-    (5,1,True),
-    (6,1,True),
-    (7,1,True),
-    (8,1,False),
+    (0,'Children',False),
+    (1,'Children',True),
+    (2,'Children',True),
+    (3,'Children',True),
+    (4,'Children',True),
+    (5,'Children',True),
+    (6,'Children',True),
+    (7,'Children',True),
+    (8,'Children',False),
   ]
   for test in test_data:
-    value = base.read_cell(test[0],test[1])
-    assert(base.read_boolean_cell(value)) == test[2]
+    assert(base.read_boolean_cell_by_name(test[0],test[1])) == test[2]
 
 @xfail
 def test_read_cell_with_previous():
