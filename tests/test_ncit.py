@@ -7,7 +7,7 @@ def test_code():
     id_manager.clear()
     item = NCIt()
     code = item.code(code="CODE", decode="DECODE")
-    assert code.codeId == "code_1"
+    assert code.codeId == "Code_1"
     assert code.code == "CODE"
     assert code.codeSystem == "NCI Thesaurus"
     assert code.codeSystemVersion == ""
