@@ -3,6 +3,59 @@ import pandas as pd
 
 from src.usdm_excel.base_sheet import BaseSheet
 
+def test_cell_empty(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': [3, 2, 1, 0], 'col_2': [None, 'b', 'c', None]}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0,0,False),
+    (3,0,False),
+    (0,1,True),
+    (3,1,True)
+  ]
+  for test in test_data:
+    assert(base.cell_empty(test[0],test[1])) == test[2]
+
+def test_cell_empty_legacy(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': [3, 2, 1, 0], 'col_2': [None, 'b', '-', None]}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0,0,'3',False),
+    (3,0,'0',False),
+    (0,1,'',True),
+    (2,1,'',True),
+    (3,1,'',True)
+  ]
+  for test in test_data:
+    value, is_null = base.read_cell_empty_legacy(test[0],test[1])
+    assert(value) == test[2]
+    assert(is_null) == test[3]
+
+def test_read_cell_empty(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': [3, 2, 1, 0], 'col_2': [None, 'b', '-', None]}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0,0,'3','3'),
+    (3,0,'0','0'),
+    (0,1,'',''),
+    (2,1,'','-'),
+    (3,1,'','')
+  ]
+  for test in test_data:
+    assert(base.read_cell_empty(test[0],test[1],'-')) == test[2]
+    assert(base.read_cell_empty(test[0],test[1],'=')) == test[3]
+
 def test_read_cell(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -79,3 +132,27 @@ def test_read_cell_multiple(mocker):
   ]
   for test in test_data:
     assert(base.read_cell_multiple(test[0],test[1])) == test[2]
+
+# read_cell_with_previous
+
+def test_read_boolean_cell(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': [0, 1, 2, 3, 4, 5, 6, 7, 8], 'col_2': ['a', 'y', 'Y', 'true', 'True', 'yes', 1, '1', '']}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0,1,False),
+    (1,1,True),
+    (2,1,True),
+    (3,1,True),
+    (4,1,True),
+    (5,1,True),
+    (6,1,True),
+    (7,1,True),
+    (8,1,False),
+  ]
+  for test in test_data:
+    value = base.read_cell(test[0],test[1])
+    assert(base.read_boolean_cell(value)) == test[2]
