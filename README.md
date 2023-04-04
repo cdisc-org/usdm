@@ -27,7 +27,7 @@ Not further information as yet.
 
 # Excel Import
 
-## Example Sinple Program
+## Example Program
 
 The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
 
@@ -48,17 +48,36 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ### General
 
+#### Sheets
+
 The workbook consists of several sheets each with a dedicated purpose.
 
 - Study sheet
 - Study Identifiers sheet
+- Study Design sheet
+- one or more Timeline sheets
 - Study Design Indications and Interventions sheet
+- Study Design Populations sheet
+- Study Design Objectives and Endpoints sheet
+- Study Design Estimands sheet
+- Study Design Procedures sheet
+- Study Design Encounters sheet
+- Study Design Elements sheet
+- Configuration sheet
 
-### CDISC Terminology
+The content of each sheet is described below
 
-For those cells containing definition where CDISC codes are used the user can enter either the CDISC C Code, for example `C15602`, the CDISC submission value, for example `PHASE III TRIAL`, or the preferred term, for example `Phase III Trial`
+#### CDISC Terminology
+
+For those cells  where CDISC codes are used the user can enter either the CDISC C Code, for example `C15602`, the CDISC submission value, for example `PHASE III TRIAL`, or the preferred term, for example `Phase III Trial`
 
 ### Study Sheet
+
+#### Sheet Name
+
+`study`
+
+#### Sheet Contents
 
 The study sheet consists of two parts, the upper section for those single values and then a section for the potentially repeating protocol version informaion
 
@@ -89,6 +108,12 @@ For each Study Protocol Version a row containing:
 
 ### Study Identifiers	Sheet
 	
+#### Sheet Name
+
+`study`
+
+#### Sheet Contents
+
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
 | organisationIdentifierScheme | The scheme for the organisation identifier.  | Example would be 'DUNS' |
@@ -97,16 +122,79 @@ For each Study Protocol Version a row containing:
 | organisationType | Organisation type | Set to either `registry`, `sponsor` or `regulatory` |
 | studyIdentifier | The identifier for the study | A text string |
 | organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are free text except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
-	
+
+- Study Design sheet
+- one or more Timeline sheets
+
 ### Study Design Indications and Interventions Sheet
 	
+#### Sheet Name
+
+`studyDesignII`
+
+#### Sheet Contents
+
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
 | type | The type, either IND for indication or INT for intervention ||
 | description | A free text description for the indication or intervvention ||
 | codes | A set of codes, comma separated | Each code is of the form `<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
-	
+
+### Study Design Populations sheet
+
+#### Sheet Name
+
+`studyDesignPopulations`
+
+#### Sheet Contents
+
+### Study Design Objectives and Endpoints sheet
+
+#### Sheet Name
+
+`studyDesignOE`
+
+#### Sheet Contents
+
+### Study Design Estimands sheet
+
+#### Sheet Name
+
+`studyDesignEstimands`
+
+#### Sheet Contents
+
+### Study Design Procedures sheet
+
+#### Sheet Name
+
+`studyDesignProcedures`
+
+#### Sheet Contents
+
+### Study Design Encounters sheet
+
+#### Sheet Name
+
+`studyDesignEncounters`
+
+#### Sheet Contents
+
+### Study Design Elements sheet
+
+#### Sheet Name
+
+`studyDesignElements`
+
+#### Sheet Contents
+
 ### Configuration Sheet
+
+#### Sheet Name
+
+`configuration`
+
+#### Sheet Contents
 
 A set of rows consisting of configuration parameters. The first column is the type of configuration parameter while the second is the value. The values for specific parameters may vary in their format
 
@@ -114,3 +202,9 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | :--- | :--- | :--- |
 | CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form CT name = Version value, For example `SNOMED = 21st June 2012`|
 
+### Content Not Suported As Yet
+
+It is intended to support all of the content in the USDM. The following features are not yet supported:
+
+- Full Arm definitions
+- Full Epoch definitions
