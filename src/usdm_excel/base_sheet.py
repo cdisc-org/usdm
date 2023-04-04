@@ -19,7 +19,7 @@ class BaseSheet():
       col_index = self.sheet.columns.get_loc(field_name)
       return self.read_cell(row_index, col_index)
     except Exception as e:
-      self._error(row_index + 1, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, field_name))
+      self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
       return ""
 
   def read_cell(self, row_index, col_index):
@@ -29,7 +29,7 @@ class BaseSheet():
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
-      self._error(row_index + 1, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
+      self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
       return ""
 
   def read_cell_multiple(self, rindex, cindex):
@@ -149,6 +149,6 @@ class BaseSheet():
     return None
 
   def _error(self, row, column, message):
-    error_manager.add("Needed", row, column, message)
+    error_manager.add(self.sheet_name, row, column, message)
 
 
