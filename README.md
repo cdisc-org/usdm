@@ -69,7 +69,11 @@ The content of each sheet is described below
 
 #### CDISC Terminology
 
-For those cells  where CDISC codes are used the user can enter either the CDISC C Code, for example `C15602`, the CDISC submission value, for example `PHASE III TRIAL`, or the preferred term, for example `Phase III Trial`
+For those cells where CDISC codes are used the user can enter either the CDISC C Code, for example `C15602`, the CDISC submission value, for example `PHASE III TRIAL`, or the preferred term, for example `Phase III Trial`
+
+#### External Terminology
+
+For those cells where external CT is referenced the user can enter code in the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`.
 
 ### Study Sheet
 
@@ -85,26 +89,26 @@ For the single values, the keyword is in column A while the value is in column B
 
 | Row Name | Description | Format and Values |
 | :--- | :--- | :--- |
-| studyTitle | The study title | Simple text string |
-| studyVersion | String version | Simple text string |
-| studyType | CDISC code | String. Either the C Code, the submission value or the preferred term for the term desired. |
-| studyPhase | CDISC code | String. Either the C Code, the submission value or the preferred term for the term desired.  |
-| studyAcronym | The study acronym | |
-| studyRationale | the study rationale | |
-| businessTherapeuticAreas | The set of business therapuetic area codes | Each code is of the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`. Likely filled with sponsor terms |
+| studyTitle | The study title | Text string |
+| studyVersion | String version | Text string |
+| studyType | The study type | CDISC code reference |
+| studyPhase | The study phase | CDISC code reference |
+| studyAcronym | The study acronym | Text string |
+| studyRationale | the study rationale | Text string |
+| businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
 
 For each Study Protocol Version a row containing:
 
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
-| briefTitle | The brief title | Simple text string | 
-| officialTitle	 | The officiall title | Simple text string| 
-| publicTitle	 | The public title | Simple text string| 
-| scientificTitle	 | The scientific title | Simple text string| 
-| protocolVersion	 | The version of the protocol | Simple text string | 
-| protocolAmendment	 |The version amendment | Simple text string | 
+| briefTitle | The brief title | Text string | 
+| officialTitle	 | The officiall title | Text string| 
+| publicTitle	 | The public title | Text string| 
+| scientificTitle	 | The scientific title | Text string| 
+| protocolVersion	 | The version of the protocol | Text string | 
+| protocolAmendment	 |The version amendment | Text string | 
 | protocolEffectiveDate	 | Effective date of the protocol | Date field, dd/mm/yyyy | 
-| protocolStatus | | String. Either the C Code, the submission value or the preferred term for the term desired.  | 
+| protocolStatus | The status | CDISC code reference | 
 
 ### Study Identifiers	Sheet
 	
@@ -117,11 +121,11 @@ For each Study Protocol Version a row containing:
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
 | organisationIdentifierScheme | The scheme for the organisation identifier.  | Example would be 'DUNS' |
-| organisationIdentifier | Organisation identifier | A text string |
-| organisationName | Organisation name | A text string |
-| organisationType | Organisation type | Set to either `registry`, `sponsor` or `regulatory` |
-| studyIdentifier | The identifier for the study | A text string |
-| organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are free text except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
+| organisationIdentifier | Organisation identifier | Text string |
+| organisationName | Organisation name | Text string |
+| organisationType | Organisation type | CDISC code reference |
+| studyIdentifier | The identifier for the study | Text string |
+| organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are Text string except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 
 ### Study Design sheet
 
@@ -137,14 +141,14 @@ For the single values, the keyword is in column A while the value is in column B
 
 | Row Name | Description | Format and Values |
 | :--- | :--- | :--- |
-| studyDesignName | Study design name | Free text |
-| studyDesignDescription | Study design description | Free text |
-| therapeuticAreas | Set of therapeutic area codes | Each code is of the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`. Likely filled with sponsor terms |
-| studyDesignRationale | Study design rationale | Free text |
-| studyDesignBlindingScheme | Code for the blinding scheme | String. Either the C Code, the submission value or the preferred term for the term desired. |
+| studyDesignName | Study design name | Text string |
+| studyDesignDescription | Study design description | Text string |
+| therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
+| studyDesignRationale | Study design rationale | Text string |
+| studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
 | trialIntentTypes | Codes for the trial intent types | Comma separated string. Set of C Code, the submission value or the preferred term for the terms desired. |
-| trialTypes | Code for the trial type | String. Either the C Code, the submission value or the preferred term for the term desired.|
-| interventionModel | | String. Either the C Code, the submission value or the preferred term for the term desired. |
+| trialTypes | Code for the trial type | CDISC code reference|
+| interventionModel | | CDISC code reference |
 | mainTimeline | Name of main timeline sheet | This must be present |
 | otherTimelines | Names of other timeline sheets | Commma separated list of sheet names. Can be empty |
 
@@ -158,7 +162,7 @@ The arm rows consist of the arm name in the first column followed by a cells for
 
 #### Sheet Name
 
-`studyDesignII`
+As defined within the study design sheet, see above.
 
 #### Sheet Contents
 
@@ -172,9 +176,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 
 | Column Name | Description | Format and Values |
 | :--- | :--- | :--- |
-| type | The type, either IND for indication or INT for intervention ||
-| description | A free text description for the indication or intervvention ||
-| codes | A set of codes, comma separated | Each code is of the form `<code system>: <code> = <decode>`. For example `SNOMED: 12345678 = decode, ICD-10: code = decode` |	
+| type | The type, either IND for indication or INT for intervention | Text string |
+| description | A Text string description for the indication or intervvention | Text string |
+| codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
 
 ### Study Design Populations sheet
 
@@ -184,6 +188,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 
 #### Sheet Contents
 
+
+
+
 ### Study Design Objectives and Endpoints sheet
 
 #### Sheet Name
@@ -191,6 +198,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 `studyDesignOE`
 
 #### Sheet Contents
+
+
+
 
 ### Study Design Estimands sheet
 
@@ -200,6 +210,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 
 #### Sheet Contents
 
+
+
+
 ### Study Design Procedures sheet
 
 #### Sheet Name
@@ -207,6 +220,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 `studyDesignProcedures`
 
 #### Sheet Contents
+
+
+
 
 ### Study Design Encounters sheet
 
@@ -216,6 +232,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 
 #### Sheet Contents
 
+
+
+
 ### Study Design Elements sheet
 
 #### Sheet Name
@@ -223,6 +242,9 @@ The arm rows consist of the arm name in the first column followed by a cells for
 `studyDesignElements`
 
 #### Sheet Contents
+
+
+
 
 ### Configuration Sheet
 
