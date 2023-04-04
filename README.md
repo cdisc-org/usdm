@@ -110,7 +110,7 @@ For each Study Protocol Version a row containing:
 	
 #### Sheet Name
 
-`study`
+`studyIdentifiers`
 
 #### Sheet Contents
 
@@ -123,8 +123,44 @@ For each Study Protocol Version a row containing:
 | studyIdentifier | The identifier for the study | A text string |
 | organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are free text except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 
-- Study Design sheet
-- one or more Timeline sheets
+### Study Design sheet
+
+#### Sheet Name
+
+`studyDesign`
+
+#### Sheet Contents
+
+The study design sheet consists of two parts, the upper section for those single values and then a section for the arms and epochs.
+
+For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
+
+| Row Name | Description | Format and Values |
+| :--- | :--- | :--- |
+| studyDesignName | Study design name | Free text |
+| studyDesignDescription | Study design description | Free text |
+| therapeuticAreas | Set of therapeutic area codes | Each code is of the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`. Likely filled with sponsor terms |
+| studyDesignRationale | Study design rationale | Free text |
+| studyDesignBlindingScheme | Code for the blinding scheme | String. Either the C Code, the submission value or the preferred term for the term desired. |
+| trialIntentTypes | Codes for the trial intent types | Comma separated string. Set of C Code, the submission value or the preferred term for the terms desired. |
+| trialTypes | Code for the trial type | String. Either the C Code, the submission value or the preferred term for the term desired.|
+| interventionModel | | String. Either the C Code, the submission value or the preferred term for the term desired. |
+| mainTimeline | Name of main timeline sheet | This must be present |
+| otherTimelines | Names of other timeline sheets | Commma separated list of sheet names. Can be empty |
+
+For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
+
+The header row consists of a cell that is ignored followed by 1 or more cells containing the epoch names.
+
+The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet.
+
+### Timeline sheets
+
+#### Sheet Name
+
+`studyDesignII`
+
+#### Sheet Contents
 
 ### Study Design Indications and Interventions Sheet
 	
