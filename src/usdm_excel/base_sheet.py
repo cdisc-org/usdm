@@ -36,6 +36,16 @@ class BaseSheet():
       self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
       return ""
 
+  def read_cell_empty_legacy(self, row_index, col_index):
+    if self.cell_empty(row_index, col_index):
+      return "", True
+    else:
+      value = self.read_cell_empty(row_index, col_index, '-')
+      if value == "":
+        return "", True
+      else:
+        return value, False
+
   def read_cell_empty(self, row_index, col_index, empty_character):
     value = self.read_cell(row_index, col_index)
     value = "" if value == empty_character else value

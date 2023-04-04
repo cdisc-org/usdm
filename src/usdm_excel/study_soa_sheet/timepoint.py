@@ -10,7 +10,6 @@ import pandas as pd
 class Timepoint():
   
   def __init__(self, parent, activity_names, col_index, type="", value="", cycle=None, additional=False):
-    #super().__init__(sheet)
     self.parent = parent
     self.col_index = col_index
     if col_index == None:
@@ -21,7 +20,7 @@ class Timepoint():
     self.has_activities = not additional
     self.has_encounter = False
     if not additional:
-      self.encounter_xref, encounter_is_null = self._get_xref_cell(SoAColumnRows.VISIT_LABEL_ROW, col_index)
+      self.encounter_xref, encounter_is_null = self.parent.read_cell_empty_legacy(SoAColumnRows.VISIT_LABEL_ROW, col_index)
       if not self.encounter_xref == "":
         self.has_encounter = True
     self.activities = []
@@ -128,14 +127,3 @@ class Timepoint():
           self.activity_map[activity] = True
       row += 1
 
-  def _get_xref_cell(self, row_index, col_index):
-    is_null = pd.isnull(self.parent.sheet.iloc[row_index, col_index])
-    if is_null:
-      return "", True
-    else:
-      value = str(self.parent.sheet.iloc[row_index, col_index])
-      if value.upper() == "-":
-        return "", True
-      else:
-        return value, False
-      
