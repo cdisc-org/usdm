@@ -1,6 +1,6 @@
 # USDM CDISC / Transcelerate DDF USDM
 
-This package provides an implementation of the Digital Data Flow (DDF) CDISC / TransCelerate Unified Study Definitions Model (USDM). Two main parText string are provided:
+This package provides an implementation of the Digital Data Flow (DDF) CDISC / TransCelerate Unified Study Definitions Model (USDM). Two main parts are provided:
 
 - Within the `usdm_model` directory are a set of classes reflecting the USDM model as transported using the DDF USDM API 
 - Within the `usdm_excel` directory is a class, `USDMExcel`, that can be used to import an entire study definition from an excel file and build the equivalent json as defined by the API
@@ -29,9 +29,10 @@ Not further information as yet.
 
 ## Example Program
 
-The following code imporText string an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
+The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format.
 
 Note: The logging is not needed.
+
 ```
 import logging
 log = logging.basicConfig(level=logging.INFO)
@@ -48,24 +49,26 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ### General
 
-#### SheeText string
+#### Sheets
 
-The workbook consisText string of several sheeText string each with a dedicated purpose.
+The workbook consists of several sheets each with a dedicated purpose.
 
 - Study sheet
 - Study Identifiers sheet
 - Study Design sheet
-- one or more Timeline sheeText string
+- one or more Timeline sheets
 - Study Design Indications and Interventions sheet
 - Study Design Populations sheet
-- Study Design Objectives and EndpoinText string sheet
+- Study Design Objectives and Endpoints sheet
 - Study Design Estimands sheet
 - Study Design Procedures sheet
 - Study Design Encounters sheet
-- Study Design ElemenText string sheet
+- Study Design Elements sheet
 - Configuration sheet
 
-The content of each sheet is described below
+The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/sprint-11/Deliverables/IG/examples).
+
+Note: the link above points to the sprint 11 branch. This will be merged into the main branch prior to public review.
 
 #### CDISC Terminology
 
@@ -77,7 +80,7 @@ For those cells where external CT is referenced the user can enter code in the f
 
 ### Identifiers and Cross References
 
-Some content defined within the sheeText string contain unique identifiers such that the content can be cross referenced in other sheeText string. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
+Some content defined within the sheets contain unique identifiers such that the content can be cross referenced in other sheets. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
 
 ### Study Sheet
 
@@ -87,7 +90,7 @@ Some content defined within the sheeText string contain unique identifiers such 
 
 #### Sheet Contents
 
-The study sheet consisText string of two parText string, the upper section for those single values and then a section for the potentially repeating protocol version informaion
+The study sheet consists of two parts, the upper section for those single values and then a section for the potentially repeating protocol version informaion
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
@@ -131,7 +134,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | C | organisationName | Organisation name | Text string |
 | D | organisationType | Organisation type | CDISC code reference |
 | E | studyIdentifier | The identifier for the study | Text string |
-| F | organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are Text string except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
+| F | organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 
 ### Study Design sheet
 
@@ -141,7 +144,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 
 #### Sheet Contents
 
-The study design sheet consisText string of two parText string, the upper section for those single values and then a section for the arms and epochs.
+The study design sheet consists of two parts, the upper section for those single values and then a section for the arms and epochs.
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
@@ -158,11 +161,11 @@ For the single values, the keyword is in column A while the value is in column B
 | 9 | mainTimeline | Name of main timeline sheet | This must be present |
 | 10 | otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
 
-For the arms and epochs, a simple table is required. The table starText string in row 12 and can consisText string of a header row and 1 or more arm rows. 
+For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
 
-The header row consisText string of a cell that is ignored followed by 1 or more cells containing the epoch names.
+The header row consists of a cell that is ignored followed by 1 or more cells containing the epoch names.
 
-The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elemenText string defined in the studyDesignElemenText string sheet.
+The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet.
 
 ### Timeline sheets
 
@@ -204,12 +207,12 @@ A header row in row 1 followed by repeating rows from row 2, containing a popula
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | populationDescription	| Description of the population | Text string | 
-| B | plannedNumberOfParticipanText string	| Number of participanText string | Integer | 
-| C | plannedMinimumAgeOfParticipanText string	| Min age | Text string | 
-| D | plannedMaximumAgeOfParticipanText string	| Mas Age | Text string |
-| E | plannedSexOfParticipanText string | Sex of participanText string | CDISC code reference | 
+| B | plannedNumberOfParticipants	| Number of participants | Integer | 
+| C | plannedMinimumAgeOfParticipants	| Min age | Text string | 
+| D | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
+| E | plannedSexOfParticipants | Sex of participants | CDISC code reference | 
 
-### Study Design Objectives and EndpoinText string sheet
+### Study Design Objectives and Endpoints sheet
 
 #### Sheet Name
 
@@ -248,7 +251,7 @@ A header row in row 1 followed by repeating rows from row 2, containing estimand
 | E | intercurrentEventDescription | Description | Text string |
 | F | treatmentXref	| Treatment cross reference | Cross reference to a treatment |
 | G | endpointXref	| Endpoint cross reference | Cross reference to an endpont |
-| H | intercurrentEvenText stringtrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
+| H | intercurrentEventstrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
 
 ### Study Design Procedures sheet
 
@@ -289,11 +292,11 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | G | transitionStartRule	| Start rule | Text string |
 | H | transitionEndRule| End Rule | Text string |
 
-### Study Design ElemenText string sheet
+### Study Design Elements sheet
 
 #### Sheet Name
 
-`studyDesignElemenText string`
+`studyDesignElements`
 
 #### Sheet Contents
 
