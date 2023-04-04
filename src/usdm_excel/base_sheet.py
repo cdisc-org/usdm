@@ -19,6 +19,7 @@ class BaseSheet():
       col_index = self.sheet.columns.get_loc(field_name)
       return self.read_cell(row_index, col_index)
     except Exception as e:
+      col_index = -2
       self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
       return ""
 
