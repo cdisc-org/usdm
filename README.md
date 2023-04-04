@@ -325,3 +325,6 @@ It is intended to support all of the content in the USDM. The following features
 - Full Arm definitions
 - Full Epoch definitions
 - Better handlingof content in timeline sheet (remove need for '-' characters)
+- BC categories
+
+See the (github issues)[https://github.com/data4knowledge/usdm/issues]
