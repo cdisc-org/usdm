@@ -7,9 +7,7 @@ This package provides an implementation of the Digital Data Flow (DDF) CDISC / T
 
 # Warning
 
-When originally written, this package was not intended for public use and, consequently, only informal testing has been performed on the package. 
-
-Formal testing has just begun. Use this at your own risk.
+This package was, originally, not intended for public use and, consequently, only informal testing has been performed on the package to date. Formal testing has just begun. Use this at your own risk.
 
 # Setup
 
