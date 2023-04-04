@@ -1,6 +1,8 @@
 import pytest
 import pandas as pd
 
+xfail = pytest.mark.xfail
+
 from src.usdm_excel.base_sheet import BaseSheet
 
 def test_cell_empty(mocker):
@@ -156,3 +158,39 @@ def test_read_boolean_cell(mocker):
   for test in test_data:
     value = base.read_cell(test[0],test[1])
     assert(base.read_boolean_cell(value)) == test[2]
+
+@xfail
+def test_read_cell_with_previous():
+  assert 0
+
+@xfail
+def test_read_other_code_cell_by_name():
+  assert 0
+
+@xfail
+def test_read_other_code_cell():
+  assert 0
+
+@xfail
+def test_read_other_code_cell_multiple_by_name():
+  assert 0
+
+@xfail
+def test_read_other_code_cell_mutiple():
+  assert 0
+
+@xfail
+def test_read_cdisc_klass_attribute_cell_by_name():
+  assert 0
+
+@xfail
+def test_read_cdisc_klass_attribute_cell():
+  assert 0
+
+@xfail
+def test_read_cdisc_klass_attribute_cell_multiple_by_name():
+  assert 0
+
+@xfail
+def test_read_cdisc_klass_attribute_cell_multiple(mocker):
+  assert 0
