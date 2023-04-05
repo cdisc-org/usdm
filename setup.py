@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
   name="usdm",
-  version="0.19.0",
+  version="0.20.0",
   author="D Iberson-Hurst",
-  author_email="demo@email.com",
+  author_email="",
   description="A python package for using the CDISC TransCelerate USDM",
   long_description=long_description,
   long_description_content_type="text/markdown",
