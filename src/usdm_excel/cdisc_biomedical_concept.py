@@ -47,7 +47,7 @@ class CDISCBiomedicalConcepts():
             term = cdisc_ct_library.preferred_term(example)
             if term != None:
               codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-        bc.bcProperties.append(self._bc_property_as_uasdm(item, codes))
+        bc.bcProperties.append(self._bc_property_as_usdm(item, codes))
       return bc
 
   def _get_package_metadata(self):
@@ -74,17 +74,17 @@ class CDISCBiomedicalConcepts():
 
   def _bc_as_usdm(self, api_bc):
     code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
-    aliases = []
+    synonyms = api_bc['synonym'] if 'synonym' in api_bc else []
     return BiomedicalConcept(
       biomedicalConceptId=id_manager.build_id(BiomedicalConcept),
       bcName=api_bc['shortName'],
-      bcSynonyms=api_bc['synonym'],
+      bcSynonyms=synonyms,
       bcReference=api_bc['_links']['self']['href'],
       bcProperties=[],
-      bcConceptCode=Alias().code(code, aliases)
+      bcConceptCode=Alias().code(code, [])
     )
 
-  def _bc_property_as_uasdm(self, property, codes):
+  def _bc_property_as_usdm(self, property, codes):
     concept_code = NCIt().code(property['conceptId'], property['shortName'])
     concept_aliases = []
     responses = []
