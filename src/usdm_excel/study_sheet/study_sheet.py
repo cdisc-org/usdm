@@ -97,8 +97,8 @@ class StudySheet(BaseSheet):
         studyDesigns=self.study_design.study_designs
       )
     except Exception as e:
-      print("Oops!", e, "occurred.")
-      traceback.print_exc()
+      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._traceback(f"{traceback.format_exc()}")
 
   def study_sponsor(self):
     return self.cdisc_code(code="C93453", decode="Study Registry")

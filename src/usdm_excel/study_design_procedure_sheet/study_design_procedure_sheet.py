@@ -27,5 +27,5 @@ class StudyDesignProcedureSheet(BaseSheet):
         self.procedures.append(item)
         cross_references.add(xref, item)        
     except Exception as e:
-      print("Oops!", e, "occurred.")
-      traceback.print_exc()
+      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._traceback(f"{traceback.format_exc()}")

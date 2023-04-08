@@ -39,5 +39,6 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         cross_references.add(e_xref, ep.endpointId)
         
     except Exception as e:
-      print("Oops!", e, "occurred.")
-      traceback.print_exc()
+      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._traceback(f"{traceback.format_exc()}")
+

@@ -30,3 +30,6 @@ class USDMExcel():
 
   def to_nodes_and_edges(self):
     return NodesAndEdges(self.study.the_study()).nodes_and_edges()
+
+  def errors(self):
+    return error_manager

@@ -34,5 +34,6 @@ class StudyDesignEstimandsSheet(BaseSheet):
         ice = IntercurrentEvent(intercurrentEventId=id_manager.build_id(IntercurrentEvent), intercurrentEventName=ice_name, intercurrentEventDescription=ice_description, intercurrentEventStrategy=ice_strategy)
         current.intercurrentEvents.append(ice)
     except Exception as e:
-      print("Oops!", e, "occurred.")
-      traceback.print_exc()
+      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._traceback(f"{traceback.format_exc()}")
+

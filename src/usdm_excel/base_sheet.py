@@ -12,7 +12,7 @@ class BaseSheet():
     self.file_path = file_path
     self.sheet_name = sheet_name
     self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header)
-    package_logger.info("Reading sheet %s" % (sheet_name))
+    self._general_info("Processed sheet %s" % (sheet_name))
 
   def cell_empty(self, row_index, col_index):
     return pd.isnull(self.sheet.iloc[row_index, col_index])  
@@ -23,7 +23,7 @@ class BaseSheet():
       return self.read_cell(row_index, col_index)
     except Exception as e:
       col_index = -2
-      self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
+      self._error(row_index, col_index, "Error (%s) reading cell" % (e))
       return ""
 
   def read_cell(self, row_index, col_index):
@@ -33,7 +33,7 @@ class BaseSheet():
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
-      self._error(row_index + 1, col_index + 1, "Error (%s) reading cell" % (e))
+      self._error(row_index, col_index, "Error (%s) reading cell" % (e))
       return ""
 
   def read_cell_empty_legacy(self, row_index, col_index):
@@ -68,10 +68,10 @@ class BaseSheet():
           i -= 1
         else:
           return self.sheet.iloc[row_index, i].strip()
-      self._error(row_index + 1, col_index + 1, "Blank cell error")
+      self._error(row_index, col_index, "Blank cell error")
       return ""
     except Exception as e:
-      self._error(row_index + 1, col_index + 1, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
+      self._error(row_index, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
       return ""
 
   def read_boolean_cell_by_name(self, row_index, field_name):
@@ -122,8 +122,15 @@ class BaseSheet():
     return self.read_cdisc_klass_attribute_cell(klass, attribute, row_index, col_index)
 
   def read_cdisc_klass_attribute_cell(self, klass, attribute, row_index, col_index):
+    code = None
     value = self.read_cell(row_index, col_index)
-    return CDISCCT().code_for_attribute(klass, attribute, value)
+    if value.strip() == "":
+      self._error(row_index, col_index, "Empty cell detected where CDISC CT value expected.")
+    else:
+      code = CDISCCT().code_for_attribute(klass, attribute, value)
+      if code is None:
+        self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
+    return code
 
   def read_cdisc_klass_attribute_cell_multiple_by_name(self, klass, attribute, row_index, field_name):
     col_index = self.sheet.columns.get_loc(field_name)
@@ -132,11 +139,16 @@ class BaseSheet():
   def read_cdisc_klass_attribute_cell_multiple(self, klass, attribute, row_index, col_index):
     result = []
     value = self.read_cell(row_index, col_index)
+    if value.strip() == "":
+      self._error(row_index, col_index, "Empty cell detected where multiple CDISC CT values expected.")
+      return result
     items = value.split(",")
     for item in items:
-      code =  CDISCCT().code_for_attribute(klass, attribute, item.strip())
-      if not code == None:
+      code = CDISCCT().code_for_attribute(klass, attribute, item.strip())
+      if code is not None:
         result.append(code)
+      else:
+        self._error(row_index, col_index, f"CDISC CT not found for value '{item.strip()}'.")
     return result
 
   def double_link(self, items, id, prev, next):
@@ -168,7 +180,28 @@ class BaseSheet():
       self._error(row_index, col_index, "Failed to decode code data '%s', no ':' detected" % (value))
     return None
 
+  def _info(self, row, column, message):
+     package_logger.info(self._format(row + 1, column + 1, message))
+     
+  def _general_info(self, message):
+     package_logger.info(self._format(None, None, message))
+     
   def _error(self, row, column, message):
-    error_manager.add(self.sheet_name, row, column, message)
+    error_manager.add(self.sheet_name, row + 1, column + 1, message)
 
+  def _general_error(self, message):
+    error_manager.add(self.sheet_name, None, None, message)
 
+  def _warning(self, row, column, message):
+    error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.WARNING)
+
+  def _traceback(self, message):
+    package_logger.debug(message)
+
+  def _format(self, row, column, message):
+    if self.sheet_name == None:
+      return f"{self.message}"
+    elif row == None:
+      return f"In sheet {self.sheet_name}: {message}"
+    else:
+      return f"In sheet {self.sheet_name} at [{row},{column}]: {message}"

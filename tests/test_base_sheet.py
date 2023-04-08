@@ -4,6 +4,7 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from src.usdm_excel.base_sheet import BaseSheet
+from src.usdm_model.code import Code
 
 def test_cell_empty(mocker):
   mocked_open = mocker.mock_open(read_data="File")
@@ -179,18 +180,60 @@ def test_read_other_code_cell_multiple_by_name():
 def test_read_other_code_cell_mutiple():
   assert 0
 
-@xfail
-def test_read_cdisc_klass_attribute_cell_by_name():
-  assert 0
+def test_read_cdisc_klass_attribute_cell_by_name(mocker):
+  expected = Code(codeId='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
+  mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
+  mock_code.side_effect=[expected, None]
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [[0, 'a'], [1, ''], [2, 'c']]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0, 'Children', expected, ""),
+    (1, 'Children', None, "sheet", 2, 2, "Empty cell detected where CDISC CT value expected."),
+    (2, 'Children', None, "sheet", 3, 2, "CDISC CT not found for value 'c'.")
+  ]
+  for test in test_data:
+    assert(base.read_cdisc_klass_attribute_cell_by_name( 'X', 'y', test[0], test[1])) == test[2]
+    if not test[3] == "":
+      mock_error.assert_called()
+      assert mock_error.call_args[0][0] == test[3]
+      assert mock_error.call_args[0][1] == test[4]
+      assert mock_error.call_args[0][2] == test[5]
+      assert mock_error.call_args[0][3] == test[6]
 
+def test_read_cdisc_klass_attribute_cell(mocker):
+  expected = Code(codeId='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
+  mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
+  mock_code.side_effect=[expected, None]
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', '', 'c', '']}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0, 1, expected, ""),
+    (1, 1, None, "sheet", 2, 2, "Empty cell detected where CDISC CT value expected."),
+    (2, 1, None, "sheet", 3, 2, "CDISC CT not found for value 'c'.")
+  ]
+  for test in test_data:
+    assert(base.read_cdisc_klass_attribute_cell( 'X', 'y', test[0], test[1])) == test[2]
+    if not test[3] == "":
+      mock_error.assert_called()
+      assert mock_error.call_args[0][0] == test[3]
+      assert mock_error.call_args[0][1] == test[4]
+      assert mock_error.call_args[0][2] == test[5]
+      assert mock_error.call_args[0][3] == test[6]
+     
 @xfail
-def test_read_cdisc_klass_attribute_cell():
+def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
   assert 0
-
-@xfail
-def test_read_cdisc_klass_attribute_cell_multiple_by_name():
-  assert 0
-
+  
 @xfail
 def test_read_cdisc_klass_attribute_cell_multiple(mocker):
   assert 0
