@@ -285,3 +285,32 @@ def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
       assert mock_error.call_args[0][1] == test[4]
       assert mock_error.call_args[0][2] == test[5]
       assert mock_error.call_args[0][3] == test[6]
+
+def test__decode_other_cell(mocker):
+  expected = Code(codeId='Code_1', code='c', codeSystem='a', codeSystemVersion='3', decode="d")
+  mock_version = mocker.patch("usdm_excel.ct_version_manager.get")
+  mock_version.side_effect=['3']
+  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id.side_effect=['Code_1']
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = []
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    ("", 0, 0, None, ""),
+    ("xxx", 1, 1, None, "sheet", 2, 2, "Failed to decode code data 'xxx', no ':' detected"),
+    ("a:", 1, 1, None, "sheet", 2, 2, "Failed to decode code data 'a:', no '=' detected"),
+    ("a:c", 1, 1, None, "sheet", 2, 2, "Failed to decode code data 'a:c', no '=' detected"),
+    ("a:c=d", 1, 1, expected, "")
+  ]
+  for test in test_data:
+    assert(base._decode_other_code(test[0], test[1], test[2])) == test[3]
+    if not test[4] == "":
+      mock_error.assert_called()
+      assert mock_error.call_args[0][0] == test[4]
+      assert mock_error.call_args[0][1] == test[5]
+      assert mock_error.call_args[0][2] == test[6]
+      assert mock_error.call_args[0][3] == test[7]
