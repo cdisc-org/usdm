@@ -32,8 +32,6 @@ klass:
     protocolStatus: C188723
   Organisation:
     organisationType: C188724
-  StudyDesign:
-    interventionModel: C99076
   Objective:
     objectiveLevel: C188725
   Endpoint:
@@ -45,12 +43,12 @@ klass:
   Encounter:
     encounterType: C188728
     encounterEnvironmentalSetting: C127262
-    encounterContactMode: C171445
+    encounterContactModes: C171445
   StudyDesign:
+    interventionModel: C99076
     studyDesignBlindingScheme: C66735
     trialIntentType: C66736
     trialType: C66739
-    interventionModel: C99076
   StudyDesignPopulation:
     plannedSexOfParticipants: C66732
   Timing:
