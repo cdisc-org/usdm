@@ -79,7 +79,7 @@ class StudySheet(BaseSheet):
         study_design.bcSurrogates += tl.biomedical_concept_surrogates
       study_design.studyIndications = self.ii.indications
       study_design.studyInvestigationalInterventions = self.ii.interventions
-      study_design.studyStudyDesignPopulations = self.study_populations.populations
+      study_design.studyPopulations = self.study_populations.populations
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
 

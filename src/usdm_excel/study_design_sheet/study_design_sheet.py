@@ -108,13 +108,14 @@ class StudyDesignSheet(BaseSheet):
     self.study_designs.append(study_design)
 
   def _add_arm(self, name, description):
-    # TODO read the arm origin
+    # TODO read the arm origin and type
     arm_origin = self.set_cdisc_code("C188866=Data Generated Within Study")
+    arm_type = self.set_cdisc_code("C174266=Experimental Arm")
     return StudyArm(
       studyArmId=id_manager.build_id(StudyArm), 
       studyArmName=name,
       studyArmDescription=description,
-      studyArmType="",
+      studyArmType=arm_type,
       studyArmDataOriginDescription="",
       studyArmDataOriginType=arm_origin
     )
