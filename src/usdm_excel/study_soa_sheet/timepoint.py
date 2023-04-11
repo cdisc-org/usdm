@@ -99,11 +99,17 @@ class Timepoint():
     return instance
 
   def _to_timing(self):
+    type_code = {
+      "ANCHOR": CDISCCT().code('C99901x3', 'Fixed Reference'),
+      "NEXT": CDISCCT().code('C99901x1', 'After'),
+      "PREVIOUS": CDISCCT().code('C99901x2', 'Before'),
+      "CYCLE START": CDISCCT().code('C99901x3', 'Fixed Reference'),
+    }
     return Timing(
       timingId=id_manager.build_id(Timing),
-      timingType=CDISCCT().code(self.timing_type.upper(), self.timing_type),
+      timingType=type_code[self.timing_type.upper()],
       timingValue=self.timing_value,
-      timingRelativeToFrom=CDISCCT().code('START TO START', 'Start to start'),
+      timingRelativeToFrom=CDISCCT().code('C99900x1', 'Start to Start'),
       timingWindow='',
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''
