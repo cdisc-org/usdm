@@ -1,3 +1,4 @@
+from typing import Union
 from .api_base_model import ApiBaseModel
 from .code import Code
 
@@ -7,5 +8,5 @@ class Timing(ApiBaseModel):
   timingValue: str
   timingRelativeToFrom: Code
   timingWindow: str
-  relativeFromScheduledInstanceId: str
-  relativeToScheduledInstanceId: str
+  relativeFromScheduledInstanceId: Union[str, None] = None
+  relativeToScheduledInstanceId: Union[str, None] = None

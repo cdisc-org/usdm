@@ -14,4 +14,4 @@ class Activity(ApiBaseModel):
   biomedicalConceptIds: List[str] = []
   bcCategoryIds: List[str] = []
   bcSurrogateIds: List[str] = []
-  activityTimelineId: str
+  activityTimelineId: Union[str, None] = None

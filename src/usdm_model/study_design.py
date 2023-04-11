@@ -26,7 +26,7 @@ class StudyDesign(ApiBaseModel):
   studyCells: List[StudyCell] = []
   studyIndications: List[Indication] = []
   studyInvestigationalInterventions: List[InvestigationalIntervention] = []
-  studyStudyDesignPopulations: List[StudyDesignPopulation] = []
+  studyPopulations: List[StudyDesignPopulation] = []
   studyObjectives: List[Objective] = []
   studyScheduleTimelines: List[ScheduleTimeline] = []
   therapeuticAreas: List[Code] = []

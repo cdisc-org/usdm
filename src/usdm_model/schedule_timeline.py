@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 
 from .api_base_model import ApiBaseModel
 from .schedule_timeline_exit import ScheduleTimelineExit
@@ -9,6 +9,6 @@ class ScheduleTimeline(ApiBaseModel):
     scheduleTimelineName: str
     scheduleTimelineDescription: str
     entryCondition: str
-    scheduleTimelineEntryId: str
+    scheduleTimelineEntryId: Union[str, None] = None
     scheduleTimelineExits: List[ScheduleTimelineExit] = []
     scheduleTimelineInstances: List[ScheduledInstance] = []

@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import List, Dict
+from typing import List, Dict, Union
 
 from .api_base_model import ApiBaseModel
 from .timing import Timing
@@ -12,10 +12,10 @@ class ScheduledInstance(ApiBaseModel):
     scheduledInstanceId: str
     scheduledInstanceType: ScheduledInstanceType
     scheduleSequenceNumber: int
-    scheduleTimelineExitId: str
-    scheduledInstanceEncounterId: str
+    scheduleTimelineExitId: Union[str, None] = None
+    scheduledInstanceEncounterId: Union[str, None] = None
     scheduledInstanceTimings: List[Timing] = []
-    scheduledInstanceTimelineId: str
+    scheduledInstanceTimelineId: Union[str, None] = None
 
 class ScheduledActivityInstance(ScheduledInstance):
     activityIds: List[str] = []

@@ -41,7 +41,7 @@ class StudyIdentifiersSheet(BaseSheet):
   def _build_address(self, raw_address):
     parts = raw_address.split("|")
     if len(parts) == 6:
-      return Address.add_address(
+      return self._to_address(
             id_manager.build_id(Address),
             parts[0].strip(), 
             parts[1].strip(), 
@@ -52,3 +52,8 @@ class StudyIdentifiersSheet(BaseSheet):
           )
     else:
       return None
+
+  def _to_address(self, id, line, city, district, state, postal_code, country):
+    text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
+    text = text.replace(' ,', '')
+    return Address(addressId=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
