@@ -12,11 +12,16 @@ from usdm_excel.study_design_element_sheet.study_design_element_sheet import Stu
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
+from usdm_excel.option_manager import *
+from usdm_model.api_base_model import ApiBaseModel
 from usdm_model.study import Study
 from usdm_model.study_protocol_version import StudyProtocolVersion
 import traceback
 import pandas as pd
 import datetime
+
+class SDRRoot(ApiBaseModel):
+  clinicalStudy: Study
 
 class StudySheet(BaseSheet):
 
@@ -109,6 +114,13 @@ class StudySheet(BaseSheet):
   def the_study(self):
     return self.study
   
+  def api_root(self):
+    if option_manager.get(Options.ROOT) == RootOption.SDR_COMPATABLE:
+      root = SDRRoot(clinicalStudy=self.study)
+    else:
+      root = self.study
+    return root
+
   def _process_sheet(self):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
     for rindex, row in self.sheet.iterrows():
