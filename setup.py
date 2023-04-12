@@ -3,9 +3,13 @@ import setuptools
 with open("README.md", "r") as fh:
   long_description = fh.read()
 
+version = {}
+with open("src/usdm_info/__init__.py") as fp:
+  exec(fp.read(), version)
+
 setuptools.setup(
   name="usdm",
-  version="0.22.0",
+  version=version['__package_version__'],
   author="D Iberson-Hurst",
   author_email="",
   description="A python package for using the CDISC TransCelerate USDM",
