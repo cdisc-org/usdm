@@ -12,6 +12,7 @@ class USDMExcel():
     id_manager.clear()
     cross_references.clear()
     ct_version_manager.clear()
+    error_manager.clear()
     self.configuration = ConfigurationSheet(file_path)
     self.study = StudySheet(file_path)
 
