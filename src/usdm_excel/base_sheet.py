@@ -5,6 +5,7 @@ from usdm_model.code import Code
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
+from usdm_excel.option_manager import *
 
 class BaseSheet():
 
@@ -154,12 +155,18 @@ class BaseSheet():
   def double_link(self, items, id, prev, next):
     for idx, item in enumerate(items):
       if idx == 0:
-        setattr(item, prev, None)
+        if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING:
+          setattr(item, prev, "")
+        else:
+          setattr(item, prev, None)
       else:
         the_id = getattr(items[idx-1], id)
         setattr(item, prev, the_id)
       if idx == len(items)-1:  
-        setattr(item, next, None)
+        if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING:
+          setattr(item, next, "")
+        else:
+          setattr(item, next, None)
       else:
         the_id = getattr(items[idx+1], id)
         setattr(item, next, the_id)

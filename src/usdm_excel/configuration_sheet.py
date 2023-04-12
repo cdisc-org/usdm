@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.ct_version_manager import ct_version_manager
+from usdm_excel.option_manager import * 
 import traceback
 import pandas as pd
 
@@ -10,20 +11,26 @@ class ConfigurationSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='configuration', header=None))
       super().__init__(file_path=file_path, sheet_name='configuration', header=None)
+      option_manager.set('previous_next', PrevNextOption.NONE)
+      option_manager.set('root', RootOption.API_COMPLIANT)
       self._process_sheet()
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
-
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
-      name = self.read_cell(rindex, self.PARAMS_NAME_COL)
+      name = self.read_cell(rindex, self.PARAMS_NAME_COL).strip().upper()
       value = self.read_cell(rindex, self.PARAMS_VALUE_COL)
-      if name.strip().upper() == 'CT VERSION':
+      if name == 'CT VERSION':
         parts = value.split('=')
         if len(parts) == 2:
           ct_version_manager.add(parts[0].strip(), parts[1].strip())
+      elif name == 'SDR PREV NEXT':
+        if value.strip().upper() == 'SDR':
+          option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NULL_STRING)
+      elif name == 'SDR ROOT':
+        if value.strip().upper() == 'SDR':
+          option_manager.set(Options.ROOT, RootOption.SDR_COMPATABLE)
   

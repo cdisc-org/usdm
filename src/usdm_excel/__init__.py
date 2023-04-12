@@ -5,6 +5,7 @@ from usdm_excel.nodes_and_edges import NodesAndEdges
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
+from usdm_excel.option_manager import *
 
 class USDMExcel():
 
@@ -13,6 +14,7 @@ class USDMExcel():
     cross_references.clear()
     ct_version_manager.clear()
     error_manager.clear()
+    option_manager.clear()
     self.configuration = ConfigurationSheet(file_path)
     self.study = StudySheet(file_path)
 
@@ -27,7 +29,7 @@ class USDMExcel():
     return self.study.the_study()
   
   def to_json(self):
-    return self.study.the_study().to_json()
+    return self.study.api_root().to_json()
 
   def to_nodes_and_edges(self):
     return NodesAndEdges(self.study.the_study()).nodes_and_edges()
