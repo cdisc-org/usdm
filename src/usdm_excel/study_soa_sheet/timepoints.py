@@ -2,7 +2,6 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
 from usdm_excel.id_manager import id_manager
-from usdm_model.scheduled_instance import ScheduledInstanceType
 import pandas as pd
 
 class Timepoints():
@@ -29,7 +28,7 @@ class Timepoints():
   def set_condition_refs(self):
     for item in self.items:
       condition = item.usdm_timepoint
-      if condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
+      if condition.scheduledInstanceType == 'DECISION':
         condition_instance = self.items[item.reference].usdm_timepoint
         text = item.timing_value
         if text == "":
@@ -41,7 +40,7 @@ class Timepoints():
         previous_item = item        
         continue
       previous_condition = previous_item.usdm_timepoint
-      if previous_condition.scheduledInstanceType == ScheduledInstanceType.DECISION:
+      if previous_condition.scheduledInstanceType == 'DECISION':
         current_instance = item.usdm_timepoint
         previous_condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
       previous_item = item        
