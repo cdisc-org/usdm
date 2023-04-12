@@ -332,10 +332,12 @@ A header row in row 1 followed by repeating rows from row 2, containing procedur
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref | Identifier | Text string |
-| B | procedureType	| Type | Text string |
-| C | procedureCode	| Code reference | External CT reference  |
-| D | procedureIsConditional | Conditional flag | Boolean |
-| E | procedureIsConditionalReason | Reason | Text string |
+| B | procedureName	| Type | Text string |
+| C | procedureDescription	| Type | Text string |
+| D | procedureType	| Type | Text string |
+| E | procedureCode	| Code reference | External CT reference  |
+| F | procedureIsConditional | Conditional flag | Boolean |
+| G | procedureIsConditionalReason | Reason | Text string |
 
 ### Study Design Encounters sheet
 
