@@ -11,7 +11,7 @@ class ISO3166():
 
   def code(self, code):
     code, decode = self._get_decode(code)
-    return Code(codeId=id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion='', decode=decode)
+    return Code(codeId=id_manager.build_id(Code), code=code, codeSystem='ISO 3166 1 alpha3', codeSystemVersion='2020-08', decode=decode)
 
   def _get_decode(self, code):
     if len(code) == 2:
