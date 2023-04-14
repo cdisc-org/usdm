@@ -130,7 +130,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | E | studyIdentifier | The identifier for the study | Text string |
 | F | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
 
-The organisation address is if the form: ```line|city|district|state|postal_code|<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code.
+The organisation address is of the form: ```line|city|district|state|postal_code|<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code.
 
 ### Study Design sheet
 
