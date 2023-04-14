@@ -28,7 +28,6 @@ class StudyDesignSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesign', header=None))
       super().__init__(file_path=file_path, sheet_name='studyDesign', header=None)
       self.name = "TEST"
       self.description = "An Microsoft Excel test study design"
@@ -80,11 +79,11 @@ class StudyDesignSheet(BaseSheet):
           cell = self.read_cell(rindex, cindex)
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
-              epoch = self._add_epoch(cell, cell)
+              epoch = self._add_epoch(cell)
               self.epochs.append(epoch)
           else:
             if cindex == 0:
-              self.arms.append(self._add_arm(cell, cell))
+              self.arms.append(self._add_arm(cell))
             else:
               elements = []
               element_names = self.read_cell_multiple(rindex, cindex)
@@ -107,28 +106,11 @@ class StudyDesignSheet(BaseSheet):
     )
     self.study_designs.append(study_design)
 
-  def _add_arm(self, name, description):
-    # TODO read the arm origin and type
-    arm_origin = self.set_cdisc_code("C188866=Data Generated Within Study")
-    arm_type = self.set_cdisc_code("C174266=Experimental Arm")
-    return StudyArm(
-      studyArmId=id_manager.build_id(StudyArm), 
-      studyArmName=name,
-      studyArmDescription=description,
-      studyArmType=arm_type,
-      studyArmDataOriginDescription="",
-      studyArmDataOriginType=arm_origin
-    )
+  def _add_arm(self, name):
+    return cross_references.get(name)
 
-  def _add_epoch(self, name, description):
-    # TODO read the epoch type
-    epoch_type = self.set_cdisc_code("C165873=OBSERVATION")
-    return StudyEpoch(
-      studyEpochId=id_manager.build_id(StudyEpoch), 
-      studyEpochName=name, 
-      studyEpochDescription=description,
-      studyEpochType=epoch_type
-    )
+  def _add_epoch(self, name):
+    return cross_references.get(name)
   
   def _add_cell(self, arm, epoch, elements):
     return StudyCell(
