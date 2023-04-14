@@ -128,7 +128,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | C | organisationName | Organisation name | Text string |
 | D | organisationType | Organisation type | CDISC code reference |
 | E | studyIdentifier | The identifier for the study | Text string |
-| F | organisationAddress | The organisation address | Formated using a pipe delimited - allows for commas in items within the address - form, i.e. `line|city|district|state|postal_code|<country code>`. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
+| F | organisationAddress | The organisation address | Formated using a pipe delimited form `line|city|district|state|postal_code|<country code>`. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 
 ### Study Design sheet
 
@@ -157,9 +157,43 @@ For the single values, the keyword is in column A while the value is in column B
 
 For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
 
-The header row consists of a cell that is ignored followed by 1 or more cells containing the epoch names.
+The header row consists of a cell in column A that is ignored followed by 1 or more cells (columns) containing the epoch names. Each epoch name should have a corresponding entry in the Study Design Epochs sheet, see below.
 
-The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet.
+The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet. Each arm name should have a corresponding entry in the Study Design Arms sheet, see bwlow.
+
+### Study Design Arms sheet
+
+#### Sheet Name
+
+`studyDesignArms`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing the details of a study arm: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | studyArmName | The study name | Text string. Should match an arm name in the Study Design sheet | 
+| B | studyArmDescription | A Text string description for the arm | Text string |
+| C | studyArmType | The arm type| CDISC code reference |
+| D | studyArmDataOriginDescription	| The description of the data origin for the arm | Text string |
+| E | studyArmDataOriginType | The type of arm data origin | CDISC code reference|
+
+### Study Design Epochs sheet
+
+#### Sheet Name
+
+`studyDesignEpochs`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing the details of a study epoch: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | studyEpochName | The epoch name | Text string. Should match an epoch name in the Study Design sheet | 
+| B | studyEpochDescription | A Text string description for the epoch | Text string |
+| C | studyEpochType | The epoch type| CDISC code reference |
 
 ### Timeline sheets
 
