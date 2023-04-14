@@ -430,12 +430,6 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | SDR Prev Next | Allows for next and previous ids to be set to '' rather than null values so as to accomodate the SDR validation checks | Set to 'SDR' to use '' or leave empty to set null values |
 | SDR Root | Allows for the API specification complant JSON output to be wrpaped in a root "clinicalStudy" element so as to accomodate the SDR validation checks | Set to 'SDR' to use wrapper or leave empty to just generate the API compliant JSON |
 
-### Content Not Suported As Yet
-
-It is intended to support all of the content in the USDM. The following features are not yet supported:
-
-- Full Arm definitions
-- Full Epoch definitions
-- BC categories
+### Issues
 
 See the [github issues](https://github.com/data4knowledge/usdm/issues)
