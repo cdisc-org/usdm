@@ -128,7 +128,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | C | organisationName | Organisation name | Text string |
 | D | organisationType | Organisation type | CDISC code reference |
 | E | studyIdentifier | The identifier for the study | Text string |
-| F | organisationAddress | The organisation address | Formated using a pipe delimited form `line|city|district|state|postal_code|<country code>`. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
+| F | organisationAddress | The organisation address | Formated using a pipe delimited form ```line|city|district|state|postal_code|<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. |
 
 ### Study Design sheet
 
