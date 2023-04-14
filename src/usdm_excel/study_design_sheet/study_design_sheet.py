@@ -79,11 +79,11 @@ class StudyDesignSheet(BaseSheet):
           cell = self.read_cell(rindex, cindex)
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
-              epoch = self._add_epoch(cell, cell)
+              epoch = self._add_epoch(cell)
               self.epochs.append(epoch)
           else:
             if cindex == 0:
-              self.arms.append(self._add_arm(cell, cell))
+              self.arms.append(self._add_arm(cell))
             else:
               elements = []
               element_names = self.read_cell_multiple(rindex, cindex)
@@ -109,7 +109,7 @@ class StudyDesignSheet(BaseSheet):
   def _add_arm(self, name):
     return cross_references.get(name)
 
-  def _add_epoch(self, name, description):
+  def _add_epoch(self, name):
     return cross_references.get(name)
   
   def _add_cell(self, arm, epoch, elements):
