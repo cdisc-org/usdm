@@ -20,6 +20,7 @@ class CDISCBiomedicalConcepts():
     self.headers =  {"Content-Type":"application/json", "api-key": self.api_key}
     self.package_metadata = self._get_package_metadata()
     self.package_items = self._get_package_items()
+    self._bc_responses = {}
 
   def exists(self, name):
     name_uc = name.upper() # Avoid case mismatches
@@ -28,29 +29,51 @@ class CDISCBiomedicalConcepts():
     else:
       return None
 
-  def catalogue(self):
+  def catalogue(self) -> list:
     return list(self.package_items.keys())
   
-  def usdm(self, name):
+  def synonyms(self, name) -> list:
+    metadata = self.exists(name)
+    if not metadata:
+      return []
+    else:
+      bc = self.usdm(name)
+      return bc.bcSynonyms
+
+  def to_cdisc_json(self, name) -> dict:
+    metadata = self.exists(name)
+    if not metadata:
+      return {}
+    else:
+      return self._get_bc(metadata['href'])
+
+  def to_usdm_json(self, name) -> dict:
+    metadata = self.exists(name)
+    if not metadata:
+      return {}
+    else:
+      bc = self.usdm(name)
+      return bc.to_json()
+
+  def usdm(self, name) -> BiomedicalConcept:
     metadata = self.exists(name)
     if not metadata:
       return None
     else:
-      api_url = self._url(metadata['href'])
-      raw = requests.get(api_url, headers=self.headers)
-      response = raw.json()
+      response = self._get_bc(metadata['href'])
       bc = self._bc_as_usdm(response)
-      for item in response['dataElementConcepts']:
-        codes = []
-        if 'exampleSet' in item:
-          for example in item['exampleSet']:
-            term = cdisc_ct_library.preferred_term(example)
-            if term != None:
-              codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-        bc.bcProperties.append(self._bc_property_as_usdm(item, codes))
+      if 'dataElementConcepts' in response:
+        for item in response['dataElementConcepts']:
+          codes = []
+          if 'exampleSet' in item:
+            for example in item['exampleSet']:
+              term = cdisc_ct_library.preferred_term(example)
+              if term != None:
+                codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+          bc.bcProperties.append(self._bc_property_as_usdm(item, codes))
       return bc
 
-  def _get_package_metadata(self):
+  def _get_package_metadata(self) -> dict:
     api_url = self._url('/mdr/bc/packages')
     package_logger.info("CDISC BC Library: %s" % api_url)
     raw = requests.get(api_url, headers=self.headers)
@@ -58,7 +81,7 @@ class CDISCBiomedicalConcepts():
     packages = response['_links']['packages']
     return packages
 
-  def _get_package_items(self):
+  def _get_package_items(self) -> dict:
     results = {}
     for package in self.package_metadata:
       api_url = self._url(package['href'])
@@ -69,10 +92,10 @@ class CDISCBiomedicalConcepts():
         results[item['title'].upper()] = item
     return results
     
-  def _url(self, relative_url):
+  def _url(self, relative_url) -> str:
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
 
-  def _bc_as_usdm(self, api_bc):
+  def _bc_as_usdm(self, api_bc) -> BiomedicalConcept:
     code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonym'] if 'synonym' in api_bc else []
     return BiomedicalConcept(
@@ -84,7 +107,7 @@ class CDISCBiomedicalConcepts():
       bcConceptCode=Alias().code(code, [])
     )
 
-  def _bc_property_as_usdm(self, property, codes):
+  def _bc_property_as_usdm(self, property, codes) -> BiomedicalConceptProperty:
     concept_code = NCIt().code(property['conceptId'], property['shortName'])
     concept_aliases = []
     responses = []
@@ -99,5 +122,15 @@ class CDISCBiomedicalConcepts():
       bcPropertyResponseCodes=responses,
       bcPropertyConceptCode=Alias().code(concept_code, concept_aliases)
     )
+
+  def _get_bc(self, url):
+    if url in self._bc_responses:
+      return self._bc_responses[url]
+    else:
+      api_url = self._url(url)
+      raw = requests.get(api_url, headers=self.headers)
+      result = raw.json()
+      self._bc_responses[url] = result
+      return result
 
 cdisc_bc_library = CDISCBiomedicalConcepts()

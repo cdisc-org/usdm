@@ -6,6 +6,7 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
 from usdm_excel.option_manager import *
+from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 
 class USDMExcel():
 
