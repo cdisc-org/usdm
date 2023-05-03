@@ -11,6 +11,7 @@ from usdm_excel.study_design_encounter_sheet.study_design_encounter_sheet import
 from usdm_excel.study_design_element_sheet.study_design_element_sheet import StudyDesignElementSheet
 from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
 from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDesignEpochSheet
+from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -61,6 +62,7 @@ class StudySheet(BaseSheet):
       self.elements = StudyDesignElementSheet(file_path)
       self.arms = StudyDesignArmSheet(file_path)
       self.epochs = StudyDesignEpochSheet(file_path)
+      self.activities = StudyDesignActivitySheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
       for timeline in self.study_design.other_timelines:
         tl = StudySoASheet(file_path, timeline)

@@ -142,7 +142,7 @@ def test_read_boolean_cell_by_name(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   #data = [[0, 1, 2, 3, 4, 5, 6, 7, 8], ['a', 'y', 'Y', 'true', 'True', 'yes', 1, '1', '']]
-  data = [[0, 'a'], [1, 'y'], [2, 'Y'], [3, 'true'], [4, 'True'], [5, 'yes'], [6, 1,], [7, '1'], [8, '']]
+  data = [[0, 'a'], [1, 'y'], [2, 'Y'], [3, 'true'], [4, 'True'], [5, 'yes'], [6, 1,], [7, '1'], [8, ''], [9, 'T']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
   base = BaseSheet("", "sheet")
@@ -156,6 +156,7 @@ def test_read_boolean_cell_by_name(mocker):
     (6,'Children',True),
     (7,'Children',True),
     (8,'Children',False),
+    (9,'Children',True),
   ]
   for test in test_data:
     assert(base.read_boolean_cell_by_name(test[0],test[1])) == test[2]

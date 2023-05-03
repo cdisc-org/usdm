@@ -39,9 +39,9 @@ class Activity():
     if activity == None:
       self._general_error(f"reference to activity '{self.name}' not found.")
     else:
-      activity.definedProcedures = procedures,
-      activity.biomedicalConceptIds = full_bc_items,
-      activity.bcSurrogateIds = surrogate_bc_items,
+      activity.definedProcedures = procedures
+      activity.biomedicalConceptIds = full_bc_items
+      activity.bcSurrogateIds = surrogate_bc_items
       activity.activityTimelineId = timelineId
     return activity
     # return USDMActivity(

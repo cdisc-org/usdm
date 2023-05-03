@@ -9,13 +9,13 @@ class StudyDesignActivitySheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignActivitys')
+      super().__init__(file_path=file_path, sheet_name='studyDesignActivities')
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'activityName')
         description = self.read_cell_by_name(index, 'activityDescription')
-        conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
-        reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
+        conditional = self.read_boolean_cell_by_name(index, 'activityIsConditional')
+        reason = self.read_cell_by_name(index, 'activityIsConditionalReason')
         item = Activity(
           activityId=id_manager.build_id(Activity), 
           activityName=name,

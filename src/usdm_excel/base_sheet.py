@@ -77,7 +77,7 @@ class BaseSheet():
 
   def read_boolean_cell_by_name(self, row_index, field_name):
     value = self.read_cell_by_name(row_index, field_name)
-    if value.strip().upper() in ['Y', 'YES', 'TRUE', '1']:
+    if value.strip().upper() in ['Y', 'YES', 'T', 'TRUE', '1']:
       return True
     return False
 
