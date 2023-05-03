@@ -43,9 +43,7 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ## Format of Workbook
 
-### General
-
-#### Sheets
+### Sheets
 
 The workbook consists of several sheets each with a dedicated purpose. All sheets must be present.
 
@@ -53,6 +51,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Identifiers sheet
 - Study Design sheet
 - one or more Timeline sheets
+- Study Design Activities sheet
 - Study Design Indications and Interventions sheet
 - Study Design Populations sheet
 - Study Design Objectives and Endpoints sheet
@@ -64,17 +63,23 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 
 The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/sprint-11/Deliverables/IG/examples). *Note: the link above points to the sprint 11 branch. This will be merged into the main branch prior to public review.*
 
-#### CDISC Terminology
+### CDISC Terminology
 
 For those cells where CDISC codes are used the user can enter either the CDISC C Code, for example `C15602`, the CDISC submission value, for example `PHASE III TRIAL`, or the preferred term, for example `Phase III Trial`
 
-#### External Terminology
+### External Terminology
 
 For those cells where external CT is referenced the user can enter code in the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`.
+
+### Boolean Values
+
+For boolean fields the following can be used to indicate a `true` value `'Y', 'YES', 'T', 'TRUE', '1'` or the lower case equivalents.
 
 ### Identifiers and Cross References
 
 Some content defined within the sheets contain unique identifiers such that the content can be cross referenced in other sheets. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
+
+See the [infographic](https://github.com/data4knowledge/usdm/blob/main/docs/sheets.png) for further information.
 
 ### Study Sheet
 
@@ -279,6 +284,23 @@ The BC, procedure, timeline format is defined as follows (using pseudo BNF):
 
 The link section consists of a set of cells into which an upper case 'X' can be placed to link a timepoint with an activity. Otherwise the cell will be ignored. A '-' can be used to fill in cells but "empty".
 
+### Study Design Activities sheet
+
+#### Sheet Name
+
+`studyDesignActivities`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing encounter definitions.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | activityName	| Name | Text string |
+| B | activityDescription	| Description | Text string |
+| C | activityIsConditional | Conditional flag | Boolean |
+| D | activityIsConditionalReason | Reason | Text string |
+
 ### Study Design Indications and Interventions Sheet
 	
 #### Sheet Name
@@ -429,6 +451,7 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form CT name = Version value, For example `SNOMED = 21st June 2012`|
 | SDR Prev Next | Allows for next and previous ids to be set to '' rather than null values so as to accomodate the SDR validation checks | Set to 'SDR' to use '' or leave empty to set null values |
 | SDR Root | Allows for the API specification complant JSON output to be wrpaped in a root "clinicalStudy" element so as to accomodate the SDR validation checks | Set to 'SDR' to use wrapper or leave empty to just generate the API compliant JSON |
+| SDR Description | Allows for the description fields within the JSON to be fillled with a string value rather than being set to an empty string if they are left blank in the excel sheets. Currently only applies to description fields | A non-empty string such as `'-', 'not set'` etc |
 
 ### Issues
 
