@@ -10,8 +10,6 @@ import pandas as pd
 class Activity():
   
   def __init__(self, parent, row_index):
-    #super().__init__(sheet)
-    #self._row_index = row_index
     self.parent = parent
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
@@ -23,7 +21,6 @@ class Activity():
     surrogate_bc_items = []
     full_bc_items = []
     procedures = []
-    #cdisc_bcs = CDISCBiomedicalConcepts()
     for bc in self._bcs:
       if cdisc_bc_library.exists(bc):
         full_bc = cdisc_bc_library.usdm(bc)
@@ -38,18 +35,27 @@ class Activity():
       timelineId = cross_references.get(self._tls[0])
     for procedure in self._prs:
       procedures.append(cross_references.get(procedure))
-    return USDMActivity(
-      activityId=id_manager.build_id(Activity),
-      activityName=self.name,
-      activityDescription=self.name,
-      definedProcedures=procedures,
-      activityIsConditional=False,
-      activityIsConditionalReason="",
-      biomedicalConceptIds=full_bc_items,
-      bcCategoryIds=[],
-      bcSurrogateIds=surrogate_bc_items,
-      activityTimelineId=timelineId
-    )
+    activity = cross_references.get(self.name)
+    if activity == None:
+      self._general_error(f"reference to activity '{self.name}' not found.")
+    else:
+      activity.definedProcedures = procedures
+      activity.biomedicalConceptIds = full_bc_items
+      activity.bcSurrogateIds = surrogate_bc_items
+      activity.activityTimelineId = timelineId
+    return activity
+    # return USDMActivity(
+    #   activityId=id_manager.build_id(Activity),
+    #   activityName=self.name,
+    #   activityDescription=self.name,
+    #   definedProcedures=procedures,
+    #   activityIsConditional=False,
+    #   activityIsConditionalReason="",
+    #   biomedicalConceptIds=full_bc_items,
+    #   bcCategoryIds=[],
+    #   bcSurrogateIds=surrogate_bc_items,
+    #   activityTimelineId=timelineId
+    # )
   
   def _to_bc_surrogates(self, name):
     return BiomedicalConceptSurrogate(
