@@ -38,7 +38,14 @@ def test_create_empty(mocker):
   assert len(activities.items) == 0
 
 def test_read_cell_by_name_error(mocker):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  
+  call_parameters = []
+  
+  def my_add(sheet, row, column, message, level=10):
+    call_parameters.append((sheet, row, column, message, level))
+    return None
+
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['Activity 1', 'Activity One']]
@@ -46,8 +53,9 @@ def test_read_cell_by_name_error(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription'])
   activities = StudyDesignActivitySheet("")
   mock_error.assert_called()
-  assert mock_error.call_args[0][0] == "studyDesignActivities"
-  assert mock_error.call_args[0][1] == 1
-  assert mock_error.call_args[0][2] == -1
-  assert mock_error.call_args[0][3] == "Exception ['activityIsConditional'] raised reading sheet."
+  print(call_parameters)
+  assert call_parameters == [
+    ("studyDesignActivities", 1, -1, "Error ('activityIsConditional') reading cell", 10),
+    ("studyDesignActivities", 1, -1, "Error ('activityIsConditionalReason') reading cell", 10),
+  ]
   

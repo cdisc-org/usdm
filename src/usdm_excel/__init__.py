@@ -5,7 +5,7 @@ from usdm_excel.nodes_and_edges import NodesAndEdges
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
-from usdm_excel.option_manager import *
+from usdm_excel.option_manager import option_manager as om # Using 'om' as a name clash in pytest
 from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 
 class USDMExcel():
@@ -15,7 +15,7 @@ class USDMExcel():
     cross_references.clear()
     ct_version_manager.clear()
     error_manager.clear()
-    option_manager.clear()
+    om.clear()
     self.configuration = ConfigurationSheet(file_path)
     self.study = StudySheet(file_path)
 

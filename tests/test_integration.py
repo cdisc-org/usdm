@@ -13,6 +13,3 @@ def run_test(filename):
 
 def test_simple_1():
   run_test('simple_1')
-
-
-  
