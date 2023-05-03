@@ -9,13 +9,12 @@ class StudyDesignProcedureSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignProcedures'))
       super().__init__(file_path=file_path, sheet_name='studyDesignProcedures')
       self.procedures = []
       for index, row in self.sheet.iterrows():
         xref = self.read_cell_by_name(index, "xref")
         name = self.read_cell_by_name(index, "procedureName")
-        description = self.read_cell_by_name(index, "procedureDescription")
+        description = self.read_description_by_name(index, 'procedureDescription')
         type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, 'procedureCode')
         conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')

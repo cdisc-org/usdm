@@ -12,9 +12,9 @@ class StudyDesignArmSheet(BaseSheet):
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'studyArmName')
-        description = self.read_cell_by_name(index, 'studyArmDescription')
+        description = self.read_description_by_name(index, 'studyArmDescription')
         arm_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmType', index, 'studyArmType')
-        arm_origin_description = self.read_cell_by_name(index, 'studyArmDataOriginDescription')
+        arm_origin_description = self.read_description_by_name(index, 'studyArmDataOriginDescription')
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, 'studyArmDataOriginType')
         item = StudyArm(
           studyArmId=id_manager.build_id(StudyArm), 

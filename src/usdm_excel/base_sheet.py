@@ -81,6 +81,13 @@ class BaseSheet():
       return True
     return False
 
+  def read_description_by_name(self, row_index, field_name):
+    value = self.read_cell_by_name(row_index, field_name)
+    empty_value = option_manager.get(Options.DESCRIPTION)
+    if value == "" and not empty_value == "":
+      return empty_value
+    return value
+
   # Want to kill this method
   def set_cdisc_code(self, value):
     if value.strip() == "":

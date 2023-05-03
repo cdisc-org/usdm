@@ -13,7 +13,7 @@ class StudyDesignActivitySheet(BaseSheet):
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'activityName')
-        description = self.read_cell_by_name(index, 'activityDescription')
+        description = self.read_description_by_name(index, 'activityDescription')
         conditional = self.read_boolean_cell_by_name(index, 'activityIsConditional')
         reason = self.read_cell_by_name(index, 'activityIsConditionalReason')
         item = Activity(
