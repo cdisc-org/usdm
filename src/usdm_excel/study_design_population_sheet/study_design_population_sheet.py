@@ -12,7 +12,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       super().__init__(file_path=file_path,  sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
-        description = self.read_cell_by_name(index, "populationDescription")
+        description = self.read_description_by_name(index, 'populationDescription')
         number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
         min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
         max = self.read_cell_by_name(index, "plannedMaximumAgeOfParticipants")

@@ -12,7 +12,7 @@ class StudyDesignEpochSheet(BaseSheet):
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'studyEpochName')
-        description = self.read_cell_by_name(index, 'studyEpochDescription')
+        description = self.read_description_by_name(index, 'studyEpochDescription')
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, 'studyEpochType')
         item = StudyEpoch(
           studyEpochId=id_manager.build_id(StudyEpoch), 

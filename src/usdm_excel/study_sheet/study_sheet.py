@@ -121,7 +121,7 @@ class StudySheet(BaseSheet):
     return self.study
   
   def api_root(self):
-    if option_manager.get(Options.ROOT) == RootOption.SDR_COMPATABLE:
+    if option_manager.get(Options.ROOT) == RootOption.SDR_COMPATABLE.value:
       root = SDRRoot(clinicalStudy=self.study)
     else:
       root = self.study

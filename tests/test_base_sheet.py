@@ -161,6 +161,23 @@ def test_read_boolean_cell_by_name(mocker):
   for test in test_data:
     assert(base.read_boolean_cell_by_name(test[0],test[1])) == test[2]
 
+def test_read_description_by_name(mocker):
+  mock_option = mocker.patch("usdm_excel.om.get")
+  mock_option.side_effect=['xxx', 'xxx', 'xxx']
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [[0, ''], [1, 'something'], [2, '  ']]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0,'Children','xxx'),
+    (1,'Children','something'),
+    (2,'Children','xxx'),
+  ]
+  for test in test_data:
+    assert(base.read_description_by_name(test[0],test[1])) == test[2]
+
 @xfail
 def test_read_cell_with_previous():
   assert 0

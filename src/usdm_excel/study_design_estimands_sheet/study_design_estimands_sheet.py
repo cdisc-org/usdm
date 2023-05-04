@@ -19,9 +19,9 @@ class StudyDesignEstimandsSheet(BaseSheet):
       current = None
       for index, row in self.sheet.iterrows():
         e_summary = self.read_cell_by_name(index, "summaryMeasure")
-        ap_description = self.read_cell_by_name(index, "populationDescription")
+        ap_description = self.read_description_by_name(index, 'populationDescription')
         ice_name = self.read_cell_by_name(index, "intercurrentEventName")
-        ice_description = self.read_cell_by_name(index, "intercurrentEventDescription")
+        ice_description = self.read_description_by_name(index, 'intercurrentEventDescription')
         ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
         treatment_xref = self.read_cell_by_name(index, "treatmentXref")
         treatment_id = cross_references.get(treatment_xref)

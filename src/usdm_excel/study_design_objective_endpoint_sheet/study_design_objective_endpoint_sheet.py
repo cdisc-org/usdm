@@ -10,16 +10,15 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignOE'))
       super().__init__(file_path=file_path, sheet_name='studyDesignOE')
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
         o_xref = self.read_cell_by_name(index, "objectiveXref")
-        o_description = self.read_cell_by_name(index, "objectiveDescription")
+        o_description = self.read_cell_by_name(index, 'objectiveDescription') # Note, dont use description read method, we need to know if really empty.
         e_xref = self.read_cell_by_name(index, "endpointXref")
-        e_description = self.read_cell_by_name(index, "endpointDescription")
-        e_p_description = self.read_cell_by_name(index, "endpointPurposeDescription")
+        e_description = self.read_description_by_name(index, 'endpointDescription')
+        e_p_description = self.read_description_by_name(index, 'endpointPurposeDescription')
         e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")

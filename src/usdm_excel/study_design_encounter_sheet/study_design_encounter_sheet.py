@@ -17,7 +17,7 @@ class StudyDesignEncounterSheet(BaseSheet):
         end_rule = None
         xref = self.read_cell_by_name(index, 'xref')
         name = self.read_cell_by_name(index, 'encounterName')
-        description = self.read_cell_by_name(index, 'encounterDescription')
+        description = self.read_description_by_name(index, 'encounterDescription')
         type = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterType', index, 'encounterType')
         setting = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterEnvironmentalSetting', index, 'encounterEnvironmentalSetting')
         modes = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterContactModes', index, 'encounterContactModes')
