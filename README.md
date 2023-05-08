@@ -45,13 +45,13 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ### Sheets
 
-The workbook consists of several sheets each with a dedicated purpose. All sheets must be present.
+The workbook consists of several sheets each with a dedicated purpose. All sheets must be present except for those marked optional.
 
 - Study sheet
 - Study Identifiers sheet
 - Study Design sheet
 - one or more Timeline sheets
-- Study Design Activities sheet
+- Study Design Activities sheet (optional)
 - Study Design Indications and Interventions sheet
 - Study Design Populations sheet
 - Study Design Objectives and Endpoints sheet
@@ -300,6 +300,10 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | B | activityDescription	| Description | Text string |
 | C | activityIsConditional | Conditional flag | Boolean |
 | D | activityIsConditionalReason | Reason | Text string |
+
+Note that this sheet is optional. If the sheet is not provided the activities will be created from those defined in the timeline sheets. These activities will have the name and description set to the name used in the timeline sheet and no condition will be set.
+
+If the sheet is provided but there is no definition in the sheet for an activity referenced in a timeline sheet then the name and description will be set to the name used in the timeline sheet and no condition will be set.
 
 ### Study Design Indications and Interventions Sheet
 	
