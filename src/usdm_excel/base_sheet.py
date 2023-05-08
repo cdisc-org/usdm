@@ -1,4 +1,5 @@
 import pandas as pd
+from openpyxl import load_workbook
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.code import Code
@@ -9,10 +10,13 @@ from usdm_excel.option_manager import *
 
 class BaseSheet():
 
-  def __init__(self, file_path, sheet_name, header=0):
+  def __init__(self, file_path, sheet_name, header=0, optional=False):
     self.file_path = file_path
     self.sheet_name = sheet_name
-    self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header)
+    if optional and not self._sheet_present(file_path, sheet_name):
+      self.sheet = None
+    else:
+      self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header)
     self._general_info("Processed sheet %s" % (sheet_name))
 
   def cell_empty(self, row_index, col_index):
@@ -219,3 +223,12 @@ class BaseSheet():
       return f"In sheet {self.sheet_name}: {message}"
     else:
       return f"In sheet {self.sheet_name} at [{row},{column}]: {message}"
+
+  def _get_sheet_names(self, file_path):
+    wb = load_workbook(file_path, read_only=True, keep_links=False)
+    return wb.sheetnames
+
+  def _sheet_present(self, file_path, sheet_name):
+    sheet_names = self._get_sheet_names(file_path)
+    return sheet_name in sheet_names
+

@@ -36,26 +36,25 @@ class Activity():
     for procedure in self._prs:
       procedures.append(cross_references.get(procedure))
     activity = cross_references.get(self.name)
-    if activity == None:
-      self._general_error(f"reference to activity '{self.name}' not found.")
+    if activity is None:
+      return USDMActivity(
+        activityId=id_manager.build_id(Activity),
+        activityName=self.name,
+        activityDescription=self.name,
+        definedProcedures=procedures,
+        activityIsConditional=False,
+        activityIsConditionalReason="",
+        biomedicalConceptIds=full_bc_items,
+        bcCategoryIds=[],
+        bcSurrogateIds=surrogate_bc_items,
+        activityTimelineId=timelineId
+      )
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items
       activity.bcSurrogateIds = surrogate_bc_items
       activity.activityTimelineId = timelineId
     return activity
-    # return USDMActivity(
-    #   activityId=id_manager.build_id(Activity),
-    #   activityName=self.name,
-    #   activityDescription=self.name,
-    #   definedProcedures=procedures,
-    #   activityIsConditional=False,
-    #   activityIsConditionalReason="",
-    #   biomedicalConceptIds=full_bc_items,
-    #   bcCategoryIds=[],
-    #   bcSurrogateIds=surrogate_bc_items,
-    #   activityTimelineId=timelineId
-    # )
   
   def _to_bc_surrogates(self, name):
     return BiomedicalConceptSurrogate(
