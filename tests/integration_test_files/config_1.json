@@ -212,7 +212,7 @@
                 "codeSystemVersion": "2022-12-16",
                 "decode": "Trial Screening"
               },
-              "previousStudyEpochId": null,
+              "previousStudyEpochId": "",
               "nextStudyEpochId": "StudyEpoch_2",
               "encounterIds": [
                 "Encounter_1"
@@ -392,7 +392,7 @@
                 "decode": "Clinical Study Follow-up"
               },
               "previousStudyEpochId": "StudyEpoch_3",
-              "nextStudyEpochId": null,
+              "nextStudyEpochId": "",
               "encounterIds": [
                 "Encounter_5"
               ]
@@ -446,7 +446,7 @@
                 "codeSystemVersion": "2022-12-16",
                 "decode": "Trial Screening"
               },
-              "previousStudyEpochId": null,
+              "previousStudyEpochId": "",
               "nextStudyEpochId": "StudyEpoch_2",
               "encounterIds": [
                 "Encounter_1"
@@ -626,7 +626,7 @@
                 "decode": "Clinical Study Follow-up"
               },
               "previousStudyEpochId": "StudyEpoch_3",
-              "nextStudyEpochId": null,
+              "nextStudyEpochId": "",
               "encounterIds": [
                 "Encounter_5"
               ]
@@ -1186,7 +1186,7 @@
             "encounterId": "Encounter_1",
             "encounterName": "Screening",
             "encounterDescription": "Screening encounter",
-            "previousEncounterId": null,
+            "previousEncounterId": "",
             "nextEncounterId": "Encounter_2",
             "encounterType": {
               "codeId": "Code_13",
@@ -1328,7 +1328,7 @@
             "encounterName": "Day 35",
             "encounterDescription": "5 week visit",
             "previousEncounterId": "Encounter_4",
-            "nextEncounterId": null,
+            "nextEncounterId": "",
             "encounterType": {
               "codeId": "Code_25",
               "code": "C25716",
@@ -1362,7 +1362,7 @@
             "activityId": "Activity_1",
             "activityName": "Demographics",
             "activityDescription": "No description set",
-            "previousActivityId": null,
+            "previousActivityId": "",
             "nextActivityId": "Activity_2",
             "definedProcedures": [],
             "activityIsConditional": false,
@@ -1383,7 +1383,7 @@
             "activityName": "Something Else",
             "activityDescription": "Something weird",
             "previousActivityId": "Activity_1",
-            "nextActivityId": null,
+            "nextActivityId": "",
             "definedProcedures": [],
             "activityIsConditional": true,
             "activityIsConditionalReason": "Only do this if they have two heads",

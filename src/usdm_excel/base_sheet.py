@@ -166,7 +166,7 @@ class BaseSheet():
   def double_link(self, items, id, prev, next):
     for idx, item in enumerate(items):
       if idx == 0:
-        if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING:
+        if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
           setattr(item, prev, "")
         else:
           setattr(item, prev, None)
@@ -174,7 +174,7 @@ class BaseSheet():
         the_id = getattr(items[idx-1], id)
         setattr(item, prev, the_id)
       if idx == len(items)-1:  
-        if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING:
+        if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
           setattr(item, next, "")
         else:
           setattr(item, next, None)
