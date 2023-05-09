@@ -11,10 +11,12 @@ class Activity():
   
   def __init__(self, parent, row_index):
     self.parent = parent
+    self.row_index = row_index
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
     self.name = parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
     self._bcs, self._prs, self._tls = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
+    self.parent._debug(row_index, SoAColumnRows.BC_COL, f"Activity {self.name} read. BC: {self._bcs}, PR: {self._prs}, TL: {self._tls}")
     self.usdm_activity = self._as_usdm()
     
   def _as_usdm(self):
@@ -34,7 +36,11 @@ class Activity():
     if len(self._tls) > 0:
       timelineId = cross_references.get(self._tls[0])
     for procedure in self._prs:
-      procedures.append(cross_references.get(procedure))
+      ref = cross_references.get(procedure)
+      if ref is not None:
+        procedures.append(cross_references.get(procedure))
+      else:
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
     activity = cross_references.get(self.name)
     if activity is None:
       return USDMActivity(

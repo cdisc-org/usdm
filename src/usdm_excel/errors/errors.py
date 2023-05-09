@@ -5,6 +5,7 @@ class Errors():
 
   WARNING = Error.WARNING
   ERROR = Error.ERROR
+  DEBUG = Error.DEBUG
 
   def __init__(self):
     self.items = []

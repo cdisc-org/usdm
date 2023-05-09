@@ -213,6 +213,9 @@ class BaseSheet():
   def _warning(self, row, column, message):
     error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.WARNING)
 
+  def _debug(self, row, column, message):
+    error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.DEBUG)
+
   def _traceback(self, message):
     package_logger.debug(message)
 

@@ -1,9 +1,11 @@
+import logging
+
 class Error():
 
-  ERROR = 40
-  WARNING = 30
-
-  LABEL = { 40: "error", 30: "warning"}
+  ERROR = logging.ERROR
+  WARNING = logging.WARNING
+  DEBUG = logging.DEBUG
+  LABEL = { ERROR: "error", WARNING: "warning", DEBUG: "debug" }
 
   def __init__(self, sheet: str, row: int, column: int, message: str, level: int=ERROR):
     self.sheet = sheet
