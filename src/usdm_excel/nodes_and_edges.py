@@ -3,7 +3,10 @@ import json
 
 class NodesAndEdges():
 
-  def __init__(self, study):
+  FULL = "full"
+  TIMELINE = "timeline"
+
+  def __init__(self, study, view=FULL):
     self.study = study
     self.nodes = []
     self.edges = []
@@ -35,7 +38,22 @@ class NodesAndEdges():
       'biomedicalConceptSurrogateId': 'bcSurrogateId',
       'biomedicalConceptPropertyId': 'bcPropertyId'
     }
-  
+    self.order_attributes = []
+    self.ignore_klass = []
+    self.collapse_klass = []
+    if view == self.__class__.TIMELINE:
+      self.ignore_klass = [
+        'StudyProtocolVersion', 'StudyIdentifier', 'Indication', 
+        'InvestigationalIntervention', 'Objective', 'StudyDesignPopulation', 
+        'Estimand', 'StudyCell', 'TransitionRule',
+        'BiomedicalConcept', 'BiomedicalConceptCategory', 'BiomedicalConceptSurrogate', 'Procedure', 'AliasCode'
+      ]
+      self.collapse_klass = ['Code']
+      self.order_attributes = [
+        'scheduleSequenceNumber'
+      ]
+    self.sequence_number_map = {}
+      
   def nodes_and_edges(self):
     node = json.loads(self.study.to_json_with_type())
     self._process_node(node)
@@ -54,6 +72,8 @@ class NodesAndEdges():
       result = []
       for item in node:
         indexes = self._process_node(item)
+        if indexes is None:
+          return None
         result = result + indexes
       return result
     elif type(node) == dict:
@@ -61,11 +81,25 @@ class NodesAndEdges():
         return []
       properties = {}
       id_field, klass = self._get_id_field_and_klass(node)
+      if klass in self.ignore_klass:
+        return None
       if node[id_field] in self.id_node_index_map:
         return [self.id_node_index_map[node[id_field]]]
       this_node_index = self.node_index
       self.node_index += 1
+      if klass in self.collapse_klass:
+        return []
       for key, value in node.items():
+        # Special case, get the ids for the sequence numbers but within scope of each timeline
+        if key == "scheduleTimelineInstances":
+          self.sequence_number_map = {}
+          for item in value:
+            self.sequence_number_map[item['scheduleSequenceNumber']] = item['scheduledInstanceId']
+        # Link the sequence numbers
+        if key in self.order_attributes:
+          seq = value + 1
+          if seq in self.sequence_number_map:
+            self.add_edges.append( { 'start': this_node_index, 'end': self.sequence_number_map[seq], 'properties': { 'label': key, 'type': 'Other' }})
         if key in self.edge_attributes:
           if key == "conditionAssignments":
             # Special case, array of arrays of condition and link id
@@ -77,11 +111,11 @@ class NodesAndEdges():
           else:
             if not value == "":
               self.add_edges.append( { 'start': this_node_index, 'end': value, 'properties': { 'label': key, 'type': 'Other' }})
-            # else:
-            #   print("Key %s, value >%s<" % (key, value))
         else:
           indexes = self._process_node(value)
-          if indexes == []:
+          if indexes == None:
+            properties[key] = {}
+          elif indexes == []:
             properties[key] = value
           else:
             for index in indexes:
