@@ -99,7 +99,7 @@ class NodesAndEdges():
         if key in self.order_attributes:
           seq = value + 1
           if seq in self.sequence_number_map:
-            self.add_edges.append( { 'start': this_node_index, 'end': self.sequence_number_map[seq], 'properties': { 'label': key, 'type': 'Other' }})
+            self.add_edges.append( { 'start': this_node_index, 'end': self.sequence_number_map[seq], 'properties': { 'label': key, 'type': 'Order' }})
         if key in self.edge_attributes:
           if key == "conditionAssignments":
             # Special case, array of arrays of condition and link id
