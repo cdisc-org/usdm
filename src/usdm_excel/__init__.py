@@ -10,6 +10,9 @@ from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 
 class USDMExcel():
 
+  FULL_VIEW = NodesAndEdges.FULL
+  TIMELINE_VIEW = NodesAndEdges.TIMELINE
+
   def __init__(self, file_path):
     id_manager.clear()
     cross_references.clear()
@@ -32,8 +35,8 @@ class USDMExcel():
   def to_json(self):
     return self.study.api_root().to_json()
 
-  def to_nodes_and_edges(self):
-    return NodesAndEdges(self.study.the_study()).nodes_and_edges()
+  def to_nodes_and_edges(self, view=FULL_VIEW):
+    return NodesAndEdges(self.study.the_study(), view).nodes_and_edges()
 
   def errors(self):
     return error_manager
