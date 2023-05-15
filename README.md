@@ -464,4 +464,5 @@ See the [github issues](https://github.com/data4knowledge/usdm/issues)
 # Build Notes
 
 Build with `python3 -m build --sdist --wheel`
-UPload to pypi using `twine upload dist/* `
+
+Upload to pypi using `twine upload dist/* `
