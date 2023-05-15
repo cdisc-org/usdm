@@ -457,6 +457,11 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | SDR Root | Allows for the API specification complant JSON output to be wrpaped in a root "clinicalStudy" element so as to accomodate the SDR validation checks | Set to 'SDR' to use wrapper or leave empty to just generate the API compliant JSON |
 | SDR Description | Allows for the description fields within the JSON to be fillled with a string value rather than being set to an empty string if they are left blank in the excel sheets. Currently only applies to description fields | A non-empty string such as `'-', 'not set'` etc |
 
-### Issues
+# Issues
 
 See the [github issues](https://github.com/data4knowledge/usdm/issues)
+
+# Build Notes
+
+Build with `python3 -m build --sdist --wheel`
+UPload to pypi using `twine upload dist/* `
