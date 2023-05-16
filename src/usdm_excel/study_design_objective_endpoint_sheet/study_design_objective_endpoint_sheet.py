@@ -22,21 +22,32 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
-          current = Objective(objectiveId=id_manager.build_id(Objective),
-            objectiveDescription=o_description, 
-            objectiveLevel=o_level,
-            objectiveEndpoints=[]
-          )
-          self.objectives.append(current)
-          cross_references.add(o_xref, current.objectiveId)
-        ep = Endpoint(endpointId=id_manager.build_id(Endpoint), 
-          endpointDescription=e_description, 
-          endpointPurposeDescription=e_p_description, 
-          endpointLevel=e_level
-        )  
-        current.objectiveEndpoints.append(ep)
-        cross_references.add(e_xref, ep.endpointId)
-        
+          try:
+            current = Objective(objectiveId=id_manager.build_id(Objective),
+              objectiveDescription=o_description, 
+              objectiveLevel=o_level,
+              objectiveEndpoints=[]
+            )
+          except Exception as e:
+            self._general_error(f"Failed to create Objective object, exception {e}")
+          else:
+            self.objectives.append(current)
+            cross_references.add(o_xref, current.objectiveId)
+        if current is not None:
+          try:
+            ep = Endpoint(endpointId=id_manager.build_id(Endpoint), 
+              endpointDescription=e_description, 
+              endpointPurposeDescription=e_p_description, 
+              endpointLevel=e_level
+            )  
+          except Exception as e:
+            self._general_error(f"Failed to create Endpoint object, exception {e}")
+          else:
+            current.objectiveEndpoints.append(ep)
+            cross_references.add(e_xref, ep.endpointId)
+        else:
+          self._general_error("Failed to add Endpoint, no Objective set")
+
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

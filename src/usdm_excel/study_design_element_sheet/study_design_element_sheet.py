@@ -25,15 +25,19 @@ class StudyDesignElementSheet(BaseSheet):
           start_rule = TransitionRule(transitionRuleId=id_manager.build_id(TransitionRule), transitionRuleDescription=start_rule_text)
         if not end_rule_text == "":
           end_rule = TransitionRule(transitionRuleId=id_manager.build_id(TransitionRule), transitionRuleDescription=end_rule_text)
-        item = StudyElement(
-          studyElementId=id_manager.build_id(StudyElement), 
-          studyElementName=name,
-          studyElementDescription=description,
-          transitionStartRule=start_rule,
-          transitionEndRule=end_rule
-        )
-        self.items.append(item)
-        cross_references.add(xref, item)     
+        try:
+          item = StudyElement(
+            studyElementId=id_manager.build_id(StudyElement), 
+            studyElementName=name,
+            studyElementDescription=description,
+            transitionStartRule=start_rule,
+            transitionEndRule=end_rule
+          )
+        except Exception as e:
+          self._general_error(f"Failed to create StudyElement object, exception {e}")
+        else:
+          self.items.append(item)
+          cross_references.add(xref, item)     
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

@@ -17,15 +17,18 @@ class StudyDesignPopulationSheet(BaseSheet):
         min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
         max = self.read_cell_by_name(index, "plannedMaximumAgeOfParticipants")
         codes = self._build_codes(row, index)
-        self.populations.append(
-          StudyDesignPopulation(studyDesignPopulationId=id_manager.build_id(StudyDesignPopulation), 
+        try:
+          pop = StudyDesignPopulation(studyDesignPopulationId=id_manager.build_id(StudyDesignPopulation), 
             populationDescription=description, 
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,
             plannedMaximumAgeOfParticipants=max,
             codes=codes
           )
-        )
+        except:
+          self._general_error(f"Failed to create StudyDesignPopulation object, exception {e}")
+        else:
+          self.populations.append(pop)
         
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")

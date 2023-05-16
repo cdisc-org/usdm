@@ -14,14 +14,18 @@ class StudyDesignEpochSheet(BaseSheet):
         name = self.read_cell_by_name(index, 'studyEpochName')
         description = self.read_description_by_name(index, 'studyEpochDescription')
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, 'studyEpochType')
-        item = StudyEpoch(
-          studyEpochId=id_manager.build_id(StudyEpoch), 
-          studyEpochName=name, 
-          studyEpochDescription=description,
-          studyEpochType=epoch_type
-        )
-        self.items.append(item)
-        cross_references.add(name, item)     
+        try:
+          item = StudyEpoch(
+            studyEpochId=id_manager.build_id(StudyEpoch), 
+            studyEpochName=name, 
+            studyEpochDescription=description,
+            studyEpochType=epoch_type
+          )
+        except Exception as e:
+          self._general_error(f"Failed to create StudyEpoch object, exception {e}")
+        else:
+          self.items.append(item)
+          cross_references.add(name, item)     
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

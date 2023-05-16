@@ -27,18 +27,22 @@ class StudyDesignEncounterSheet(BaseSheet):
           start_rule = TransitionRule(transitionRuleId=id_manager.build_id(TransitionRule), transitionRuleDescription=start_rule_text)
         if not end_rule_text == "":
           end_rule = TransitionRule(transitionRuleId=id_manager.build_id(TransitionRule), transitionRuleDescription=end_rule_text)
-        item = Encounter(
-          encounterId=id_manager.build_id(Encounter), 
-          encounterName=name,
-          encounterDescription=description,
-          encounterType=type, 
-          encounterEnvironmentalSetting=setting,
-          encounterContactModes=modes,
-          transitionStartRule=start_rule,
-          transitionEndRule=end_rule
-        )
-        self.items.append(item)
-        cross_references.add(xref, item)     
+        try:
+          item = Encounter(
+            encounterId=id_manager.build_id(Encounter), 
+            encounterName=name,
+            encounterDescription=description,
+            encounterType=type, 
+            encounterEnvironmentalSetting=setting,
+            encounterContactModes=modes,
+            transitionStartRule=start_rule,
+            transitionEndRule=end_rule
+          )
+        except Exception as e:
+          self._general_error(f"Failed to create Encounter object, exception {e}")
+        else:
+          self.items.append(item)
+          cross_references.add(xref, item)     
       self.double_link(self.items, 'encounterId', 'previousEncounterId', 'nextEncounterId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")

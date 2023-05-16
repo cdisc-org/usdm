@@ -16,16 +16,20 @@ class StudyDesignArmSheet(BaseSheet):
         arm_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmType', index, 'studyArmType')
         arm_origin_description = self.read_description_by_name(index, 'studyArmDataOriginDescription')
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, 'studyArmDataOriginType')
-        item = StudyArm(
-          studyArmId=id_manager.build_id(StudyArm), 
-          studyArmName=name,
-          studyArmDescription=description,
-          studyArmType=arm_type,
-          studyArmDataOriginDescription=arm_origin_description,
-          studyArmDataOriginType=arm_origin_type
-        )
-        self.items.append(item)
-        cross_references.add(name, item)     
+        try:
+          item = StudyArm(
+            studyArmId=id_manager.build_id(StudyArm), 
+            studyArmName=name,
+            studyArmDescription=description,
+            studyArmType=arm_type,
+            studyArmDataOriginDescription=arm_origin_description,
+            studyArmDataOriginType=arm_origin_type
+          )
+        except Exception as e:
+          self._general_error(f"Failed to create StudyArm object, exception {e}")
+        else:
+          self.items.append(item)
+          cross_references.add(name, item)     
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

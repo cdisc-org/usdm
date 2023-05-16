@@ -22,19 +22,26 @@ class StudyIdentifiersSheet(BaseSheet):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
       organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organisation', 'organisationType', index, 'organisationType')     
-      organisation = Organisation(
-        organisationId=id_manager.build_id(Organisation),
-        organisationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
-        organisationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
-        organisationName=self.read_cell_by_name(index, 'organisationName'),
-        organisationType=organisation_type,
-        organizationLegalAddress=self._build_address(index)
-      )
-      self.identifiers.append(StudyIdentifier(
-        studyIdentifierId=id_manager.build_id(StudyIdentifier),
-        studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
-        studyIdentifierScope=organisation)
-      )
+      try:
+        organisation = Organisation(
+          organisationId=id_manager.build_id(Organisation),
+          organisationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
+          organisationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
+          organisationName=self.read_cell_by_name(index, 'organisationName'),
+          organisationType=organisation_type,
+          organizationLegalAddress=self._build_address(index)
+        )
+      except Exception as e:
+        self._general_error(f"Failed to create Organisation object, exception {e}")
+      else:
+        try:
+          self.identifiers.append(StudyIdentifier(
+            studyIdentifierId=id_manager.build_id(StudyIdentifier),
+            studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
+            studyIdentifierScope=organisation)
+          )
+        except Exception as e:
+          self._general_error(f"Failed to create StudyIdentifier object, exception {e}")
     
   def _build_address(self, row_index):
     field_name = 'organisationAddress'
@@ -65,5 +72,9 @@ class StudyIdentifiersSheet(BaseSheet):
   def _to_address(self, id, line, city, district, state, postal_code, country):
     text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
     text = text.replace(' ,', '')
-    result = Address(addressId=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
+    try:
+      result = Address(addressId=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
+    except Exception as e:
+      self._general_error(f"Failed to create Address object, exception {e}")
+      result = None
     return result

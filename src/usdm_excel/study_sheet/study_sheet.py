@@ -98,19 +98,22 @@ class StudySheet(BaseSheet):
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
 
-      self.study = Study(
-        studyId=None, # No Id, will be allocated a UUID
-        studyTitle=self.title,
-        studyVersion=self.version,
-        studyType=self.type,
-        studyPhase=self.phase,
-        businessTherapeuticAreas=self.therapeutic_areas,
-        studyRationale=self.rationale,
-        studyAcronym=self.acronym,
-        studyIdentifiers=self.study_identifiers.identifiers,
-        studyProtocolVersions=self.protocols,
-        studyDesigns=self.study_design.study_designs
-      )
+      try:
+        self.study = Study(
+          studyId=None, # No Id, will be allocated a UUID
+          studyTitle=self.title,
+          studyVersion=self.version,
+          studyType=self.type,
+          studyPhase=self.phase,
+          businessTherapeuticAreas=self.therapeutic_areas,
+          studyRationale=self.rationale,
+          studyAcronym=self.acronym,
+          studyIdentifiers=self.study_identifiers.identifiers,
+          studyProtocolVersions=self.protocols,
+          studyDesigns=self.study_design.study_designs
+        )
+      except:
+        self._general_error(f"Failed to create Study object, exception {e}")
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

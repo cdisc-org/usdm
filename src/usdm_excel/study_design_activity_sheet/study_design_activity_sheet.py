@@ -17,15 +17,19 @@ class StudyDesignActivitySheet(BaseSheet):
           description = self.read_description_by_name(index, 'activityDescription')
           conditional = self.read_boolean_cell_by_name(index, 'activityIsConditional')
           reason = self.read_cell_by_name(index, 'activityIsConditionalReason')
-          item = Activity(
-            activityId=id_manager.build_id(Activity), 
-            activityName=name,
-            activityDescription=description,
-            activityIsConditional=conditional,
-            activityIsConditionalReason=reason
-          )
-          self.items.append(item)
-          cross_references.add(name, item)     
+          try:
+            item = Activity(
+              activityId=id_manager.build_id(Activity), 
+              activityName=name,
+              activityDescription=description,
+              activityIsConditional=conditional,
+              activityIsConditionalReason=reason
+            )
+          except Exception as e:
+            self._general_error(f"Failed to create Activity object, exception {e}")
+          else:
+            self.items.append(item)
+            cross_references.add(name, item)     
         self.double_link(self.items, 'activityId', 'previousActivityId', 'nextActivityId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")

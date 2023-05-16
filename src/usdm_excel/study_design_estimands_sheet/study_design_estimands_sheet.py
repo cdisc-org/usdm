@@ -13,7 +13,6 @@ class StudyDesignEstimandsSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignEstimands'))
       super().__init__(file_path=file_path, sheet_name='studyDesignEstimands')
       self.estimands = []
       current = None
@@ -28,11 +27,27 @@ class StudyDesignEstimandsSheet(BaseSheet):
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
         endpoint_id = cross_references.get(endpoint_xref)
         if not e_summary == "":
-          ap = AnalysisPopulation(analysisPopulationId=id_manager.build_id(AnalysisPopulation), populationDescription=ap_description) 
-          current = Estimand(estimandId=id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, treatment=treatment_id, variableOfInterest=endpoint_id, intercurrentEvents=[])
-          self.estimands.append(current)  
-        ice = IntercurrentEvent(intercurrentEventId=id_manager.build_id(IntercurrentEvent), intercurrentEventName=ice_name, intercurrentEventDescription=ice_description, intercurrentEventStrategy=ice_strategy)
-        current.intercurrentEvents.append(ice)
+          try:
+            ap = AnalysisPopulation(analysisPopulationId=id_manager.build_id(AnalysisPopulation), populationDescription=ap_description) 
+          except Exception as e:
+            self._general_error(f"Failed to create AnalysisPopulation object, exception {e}")
+          else:
+            try:
+              current = Estimand(estimandId=id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, treatment=treatment_id, variableOfInterest=endpoint_id, intercurrentEvents=[])
+            except Exception as e:
+              self._general_error(f"Failed to create Estimand object, exception {e}")
+            else:
+              self.estimands.append(current)  
+        if current is not None:
+          try:
+            ice = IntercurrentEvent(intercurrentEventId=id_manager.build_id(IntercurrentEvent), intercurrentEventName=ice_name, intercurrentEventDescription=ice_description, intercurrentEventStrategy=ice_strategy)
+          except Exception as e:
+            self._general_error(f"Failed to create IntercurrentEvent object, exception {e}")
+          else:
+            current.intercurrentEvents.append(ice)
+        else:
+          self._general_error("Failed to add IntercurrentEvent, no Estimand set")
+
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

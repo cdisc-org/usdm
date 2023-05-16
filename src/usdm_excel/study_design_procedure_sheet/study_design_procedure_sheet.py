@@ -19,16 +19,20 @@ class StudyDesignProcedureSheet(BaseSheet):
         code = self.read_other_code_cell_by_name(index, 'procedureCode')
         conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
         reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
-        item = Procedure(procedureId=id_manager.build_id(Procedure),
-          procedureName=name,
-          procedureDescription=description,
-          procedureType=type, 
-          procedureCode=code, 
-          procedureIsConditional=conditional, 
-          procedureIsConditionalReason=reason
-        )
-        self.procedures.append(item)
-        cross_references.add(xref, item)        
+        try:
+          item = Procedure(procedureId=id_manager.build_id(Procedure),
+            procedureName=name,
+            procedureDescription=description,
+            procedureType=type, 
+            procedureCode=code, 
+            procedureIsConditional=conditional, 
+            procedureIsConditionalReason=reason
+          )
+        except:
+          self._general_error(f"Failed to create Procedure object, exception {e}")
+        else:
+          self.procedures.append(item)
+          cross_references.add(xref, item)        
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

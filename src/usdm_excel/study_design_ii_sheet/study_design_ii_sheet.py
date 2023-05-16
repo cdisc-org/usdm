@@ -21,13 +21,21 @@ class StudyDesignIISheet(BaseSheet):
         #codes = self._build_codes(row, index)
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         if type.upper() == "IND":
-          item = Indication(indicationId=id_manager.build_id(Indication), indicationDescription=description, codes=codes)
-          self.indications.append(item)
-          cross_references.add(xref, item.indicationId)
+          try:
+            item = Indication(indicationId=id_manager.build_id(Indication), indicationDescription=description, codes=codes)
+          except Exception as e:
+            self._general_error(f"Failed to create Indication object, exception {e}")
+          else:
+            self.indications.append(item)
+            cross_references.add(xref, item.indicationId)
         else:
-          item = InvestigationalIntervention(investigationalInterventionId=id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes)
-          self.interventions.append(item)
-          cross_references.add(xref, item.investigationalInterventionId)        
+          try:
+            item = InvestigationalIntervention(investigationalInterventionId=id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes)
+          except Exception as e:
+            self._general_error(f"Failed to create InvestigationalIntervention object, exception {e}")
+          else:
+            self.interventions.append(item)
+            cross_references.add(xref, item.investigationalInterventionId)        
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
