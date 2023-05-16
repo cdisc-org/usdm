@@ -67,9 +67,13 @@ The content of each sheet is described below. Example workbooks can be found in 
 
 For those cells where CDISC codes are used the user can enter either the CDISC C Code, for example `C15602`, the CDISC submission value, for example `PHASE III TRIAL`, or the preferred term, for example `Phase III Trial`
 
+### Multiple Values
+
+Some cells allow for multiple values. These are all comma separated. If users wish to include a comma within such strings then the string can be enclosed in quotes. For example `123, "123,456", 789`.
+
 ### External Terminology
 
-For those cells where external CT is referenced the user can enter code in the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`.
+For those cells where external CT is referenced the user can enter code in the form `<code system>: <code> = <decode>`. For example `SPONSOR: A = decode 1, SPONSOR: B = decode 2`. Where multiple codes are needed then the values are separated by commas.
 
 ### Boolean Values
 
@@ -135,7 +139,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | E | studyIdentifier | The identifier for the study | Text string |
 | F | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
 
-The organisation address is of the form: ```line|city|district|state|postal_code|<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code.
+The organisation address is of the form: ```line,city,district,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
 
 ### Study Design sheet
 
