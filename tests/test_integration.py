@@ -22,3 +22,6 @@ def test_config_2():
 
 def test_no_activity_sheet():
   run_test('no_activity_sheet')
+
+def test_address_comma():
+  run_test('address')
