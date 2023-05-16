@@ -73,23 +73,34 @@ class StudyDesignSheet(BaseSheet):
       else:
         pass
 
+    resolved_epochs = [None] * self.sheet.shape[1] 
+    resolved_arms = [None] * self.sheet.shape[0] 
     for rindex, row in self.sheet.iterrows():
       if rindex >= self.EPOCH_ARMS_START_ROW:
         for cindex in range(0, len(self.sheet.columns)):
+          epoch_index = cindex - 1
           cell = self.read_cell(rindex, cindex)
           if rindex == self.EPOCH_ARMS_START_ROW:
             if cindex != 0:
-              epoch = self._add_epoch(cell)
-              self.epochs.append(epoch)
+              resolved_epochs[epoch_index] = self._add_epoch(cell)
           else:
+            arm_index = rindex - self.EPOCH_ARMS_START_ROW - 1
             if cindex == 0:
-              self.arms.append(self._add_arm(cell))
+              resolved_arms[arm_index] = self._add_arm(cell)
             else:
               elements = []
               element_names = self.read_cell_multiple(rindex, cindex)
               for name in element_names:
-                elements.append(cross_references.get(name))
-              self.cells.append(self._add_cell(arm=self.arms[-1], epoch=self.epochs[cindex-1], elements=elements))
+                element = self._add_element(name)
+                if element is not None:
+                  elements.append(element)
+              arm = resolved_arms[arm_index]
+              epoch = resolved_epochs[epoch_index]
+              if arm is not None and epoch is not None:
+                self.cells.append(self._add_cell(arm=arm, epoch=epoch, elements=elements))
+              else:
+                self._general_error(f"Cannot resolve arms and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
+              
     
     self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
 
@@ -107,11 +118,31 @@ class StudyDesignSheet(BaseSheet):
     self.study_designs.append(study_design)
 
   def _add_arm(self, name):
-    return cross_references.get(name)
+    arm = cross_references.get(name)
+    if arm is not None:
+      self.arms.append(arm)
+      return arm
+    else:
+      self._general_info(f"No arm definition found for arm '{name}'")
+      return None
 
   def _add_epoch(self, name):
-    return cross_references.get(name)
+    epoch = cross_references.get(name)
+    if epoch is not None:
+      self.epochs.append(epoch)
+      return epoch
+    else:
+      self._general_info(f"No epoch definition found for epoch '{name}'")
+      return None
   
+  def _add_element(self, name):
+    element = cross_references.get(name)
+    if element is not None:
+      return element
+    else:
+      self._general_info(f"No element definition found for element '{name}'")
+      return None
+
   def _add_cell(self, arm, epoch, elements):
     return StudyCell(
       studyCellId=id_manager.build_id(StudyCell), 

@@ -75,7 +75,11 @@ class StudySheet(BaseSheet):
       self.estimands = StudyDesignEstimandsSheet(file_path)
 
       for epoch in self.study_design.epochs:
-        epoch.encounterIds = self.soa.epoch_encounter_map(epoch.studyEpochName)
+        ids = self.soa.epoch_encounter_map(epoch.studyEpochName)
+        if ids is not None:
+          epoch.encounterIds = ids
+        else:
+          self._general_info(f"No encounters found for epoch '{epoch.studyEpochName}'")
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)

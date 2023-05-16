@@ -20,4 +20,7 @@ class Encounters():
           self._epoch_map[self.epoch].append(encounter.encounterId)
 
   def epoch_encounter_map(self, epoch):
-    return self._epoch_map[epoch]
+    if epoch in self._epoch_map:
+      return self._epoch_map[epoch]
+    else:
+      return None
