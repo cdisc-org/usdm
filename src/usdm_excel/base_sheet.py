@@ -1,3 +1,4 @@
+import shlex
 import pandas as pd
 from openpyxl import load_workbook
 from usdm_excel.id_manager import id_manager
@@ -9,6 +10,12 @@ from usdm_excel.logger import package_logger
 from usdm_excel.option_manager import *
 
 class BaseSheet():
+
+  class StateError(Exception):
+    pass
+
+  class FormatError(Exception):
+    pass
 
   def __init__(self, file_path, sheet_name, header=0, optional=False):
     self.file_path = file_path
@@ -57,13 +64,19 @@ class BaseSheet():
     return value
 
   def read_cell_multiple(self, rindex, cindex):
-    results = []
-    value = self.read_cell(rindex, cindex)
-    if value.strip() == '':
+    try:
+      results = []
+      value = self.read_cell(rindex, cindex)
+      if value.strip() == '':
+        return results
+      #for part in value.split(","):
+      for part in self._state_split(value):
+        results.append(part.strip())
       return results
-    for part in value.split(","):
-      results.append(part.strip())
-    return results
+    except BaseSheet.StateError as e:
+      self._error(rindex, cindex, f"Internal state error ({e}) reading cell")
+    except BaseSheet.FormatError as e:
+      self._error(rindex, cindex, "Format error reading cell, check the format of the cell")
 
   def read_cell_with_previous(self, row_index, col_index, first_col_index):
     try:
@@ -122,8 +135,7 @@ class BaseSheet():
     result = []
     if value.strip() == '':
       return result
-    items = value.split(",")
-    for item in items:
+    for item in self._state_split(value):
       code = self._decode_other_code(item.strip(), row_index, col_index)
       if not code == None:
         result.append(code)
@@ -154,8 +166,7 @@ class BaseSheet():
     if value.strip() == "":
       self._error(row_index, col_index, "Empty cell detected where multiple CDISC CT values expected.")
       return result
-    items = value.split(",")
-    for item in items:
+    for item in self._state_split(value):
       code = CDISCCT().code_for_attribute(klass, attribute, item.strip())
       if code is not None:
         result.append(code)
@@ -235,3 +246,62 @@ class BaseSheet():
     sheet_names = self._get_sheet_names(file_path)
     return sheet_name in sheet_names
 
+  def _state_split(self, s):
+
+    OUT = "out"
+    IN_QUOTED = "in_quoted"
+    OUT_QUOTED = "out_quoted"
+    IN_NORMAL = "in_normal"
+    ESC = "escape"
+
+    state = OUT
+    result = []
+    current = []
+    exit = ""
+    for c in s:
+      if state == OUT:
+        current = []
+        if c in ['"', "'"]:
+          state = IN_QUOTED
+          exit = c
+        elif c.isspace():
+          pass
+        else:
+          state = IN_NORMAL
+          current.append(c)
+      elif state == IN_QUOTED:
+        if c == '\\':
+          state = ESC
+        elif c == exit:
+          result.append("".join(current).strip())
+          state = OUT_QUOTED
+        else:
+          current.append(c)
+      elif state == OUT_QUOTED:
+        if c == ',':
+          state = OUT
+        else:
+          pass
+      elif state == IN_NORMAL:
+        if c == ',':
+          result.append("".join(current).strip())
+          state = OUT
+        else:
+          current.append(c)
+      elif state == ESC:
+        if c == exit:
+          current.append(c)
+          state = IN_QUOTED
+        else:
+          current.append('\\')
+          current.append(c)
+      else:
+        raise BaseSheet.StateError
+
+    if state == OUT or state == OUT_QUOTED:
+      pass
+    elif state == IN_NORMAL:
+      result.append("".join(current).strip())
+    else:
+      raise BaseSheet.FormatError
+    return result

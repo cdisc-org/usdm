@@ -124,14 +124,23 @@ def test_read_cell_by_name_error(mocker):
 def test_read_cell_multiple(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [['tom', ''], ['nick', 'Sam'], ['juli', ' Fred, Dick,   Harry  '], ['andy', 'John  , Jane']]
+  data = [
+    ['tom', ''], 
+    ['nick', 'Sam'], 
+    ['juli', ' Fred, Dick,   Harry  '], 
+    ['andy', 'John  , Jane'], 
+    ['andy', '"John, & Fred", Jane'],
+    ['andy', '"John, \\" & Fred", Jane']
+  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
   base = BaseSheet("", "sheet")
   test_data = [
     (0,1,[]),
     (2,1,['Fred', 'Dick', 'Harry']),
-    (3,1,['John', 'Jane'])
+    (3,1,['John', 'Jane']),
+    (4,1,['John, & Fred', 'Jane']),
+    (5,1,['John, " & Fred', 'Jane'])
   ]
   for test in test_data:
     assert(base.read_cell_multiple(test[0],test[1])) == test[2]
@@ -332,3 +341,23 @@ def test__decode_other_cell(mocker):
       assert mock_error.call_args[0][1] == test[5]
       assert mock_error.call_args[0][2] == test[6]
       assert mock_error.call_args[0][3] == test[7]
+
+def test__state_split(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = []
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    ('111', ['111']),
+    ('111,    ', ['111']),
+    ('"111", 222, 333', ['111', '222', '333']),
+    ('"111", 222, 333, "4"', ['111', '222', '333', '4']),
+    ('"111 \\" quote", 222, 333', ['111 " quote', '222', '333'])
+  ]
+  for test in test_data:
+    assert(base._state_split(test[0])) == test[1]
+
+  with pytest.raises(BaseSheet.FormatError):
+    base._state_split('123, "456')
