@@ -6,6 +6,7 @@ class Errors():
   WARNING = Error.WARNING
   ERROR = Error.ERROR
   DEBUG = Error.DEBUG
+  INFO = Error.INFO
 
   def __init__(self):
     self.items = []
@@ -21,10 +22,11 @@ class Errors():
   def count(self) -> int:
     return len(self.items)
   
-  def dump(self):
+  def dump(self, level):
     result = []
     for item in self.items:
-      result.append(item.__dict__)
+      if item.level >= level:
+        result.append(item.to_dict())
     return result
 
 error_manager = Errors()

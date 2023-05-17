@@ -1,10 +1,11 @@
+import json
 from usdm_excel.id_manager import id_manager
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.nodes_and_edges import NodesAndEdges
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
-from usdm_excel.errors.errors import error_manager
+from usdm_excel.errors.errors import error_manager, Errors
 from usdm_excel.option_manager import option_manager as om # Using 'om' as a name clash in pytest
 from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 
@@ -33,10 +34,16 @@ class USDMExcel():
     return self.study.the_study()
   
   def to_json(self):
-    return self.study.api_root().to_json()
-
+    try:
+      raw_json = self.study.api_root().to_json()
+    except Exception as e:
+      message = f"Failed to generate JSON output, exception {e}"
+      error_manager.add(None, None, None, message)
+      raw_json = json.dumps({'error': message}, indent = 2)
+    return raw_json
+  
   def to_nodes_and_edges(self, view=FULL_VIEW):
     return NodesAndEdges(self.study.the_study(), view).nodes_and_edges()
 
   def errors(self):
-    return error_manager
+    return error_manager.dump(Errors.WARNING)

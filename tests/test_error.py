@@ -16,4 +16,7 @@ def test_to_log():
   assert(error.to_log()) == "Error in sheet My Sheet: XXXXX"
   error = Error(sheet=None, row=None, column=None, message="XXXXX")
   assert(error.to_log()) == "Error: XXXXX"
-  
+
+def test_to_dict():
+  error = Error(sheet="My Sheet", row=1, column=99, message="XXXXX")
+  assert(error.to_dict()) == {'sheet': 'My Sheet', 'row': 1, 'column': 99, 'message': 'XXXXX', 'level': 'Error'}

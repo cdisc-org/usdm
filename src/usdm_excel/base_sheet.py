@@ -86,7 +86,7 @@ class BaseSheet():
           i -= 1
         else:
           return self.sheet.iloc[row_index, i].strip()
-      self._error(row_index, col_index, "Blank cell error")
+      self._warning(row_index, col_index, "No previous non-empty cell found.")
       return ""
     except Exception as e:
       self._error(row_index, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))

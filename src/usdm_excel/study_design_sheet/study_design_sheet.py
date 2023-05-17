@@ -123,7 +123,7 @@ class StudyDesignSheet(BaseSheet):
       self.arms.append(arm)
       return arm
     else:
-      self._general_info(f"No arm definition found for arm '{name}'")
+      self._general_error(f"No arm definition found for arm '{name}'")
       return None
 
   def _add_epoch(self, name):
@@ -132,7 +132,7 @@ class StudyDesignSheet(BaseSheet):
       self.epochs.append(epoch)
       return epoch
     else:
-      self._general_info(f"No epoch definition found for epoch '{name}'")
+      self._general_error(f"No epoch definition found for epoch '{name}'")
       return None
   
   def _add_element(self, name):
@@ -140,7 +140,7 @@ class StudyDesignSheet(BaseSheet):
     if element is not None:
       return element
     else:
-      self._general_info(f"No element definition found for element '{name}'")
+      self._general_error(f"No element definition found for element '{name}'")
       return None
 
   def _add_cell(self, arm, epoch, elements):
