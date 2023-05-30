@@ -6,7 +6,7 @@ def run_test(filename):
   result = excel.to_json()
   
   # Useful if you want to see the results. Normally comment out
-  #with open(f"tests/integration_test_files/{filename}_result.json", 'w', encoding='utf-8') as f:
+  #with open(f"tests/integration_test_files/{filename}.json", 'w', encoding='utf-8') as f:
   #  f.write(json.dumps(json.loads(excel.to_json()), indent=2))
   
   with open(f"tests/integration_test_files/{filename}.json", 'r') as f:

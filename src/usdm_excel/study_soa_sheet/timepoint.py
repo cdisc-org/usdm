@@ -27,6 +27,7 @@ class Timepoint():
     self.activity_map = {}
     self.timing_type = type
     self.timing_value = value
+    self.window = ''
     self.reference = None
     self.cycle = cycle
     #print("ENC:", self.encounter_xref, self.has_encounter)
@@ -51,6 +52,7 @@ class Timepoint():
     rel_ref = 0
     timing_info = self.parent.read_cell(SoAColumnRows.TIMING_ROW, self.col_index)
     if not timing_info == "":
+      self.window = self.parent.read_cell(SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
       timing_parts = timing_info.split(":")
       if timing_parts[0].upper()[0] == "A":
         self.timing_type = "anchor"
@@ -110,7 +112,7 @@ class Timepoint():
       timingType=type_code[self.timing_type.upper()],
       timingValue=self.timing_value,
       timingRelativeToFrom=CDISCCT().code('C99900x1', 'Start to Start'),
-      timingWindow='',
+      timingWindow=self.window,
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''
     )
