@@ -101,8 +101,8 @@ class Timepoint():
   def _to_timing(self):
     type_code = {
       "ANCHOR": CDISCCT().code('C99901x3', 'Fixed Reference'),
-      "NEXT": CDISCCT().code('C99901x1', 'After'),
-      "PREVIOUS": CDISCCT().code('C99901x2', 'Before'),
+      "PREVIOUS": CDISCCT().code('C99901x1', 'After'),
+      "NEXT": CDISCCT().code('C99901x2', 'Before'),
       "CYCLE START": CDISCCT().code('C99901x3', 'Fixed Reference'),
     }
     return Timing(
