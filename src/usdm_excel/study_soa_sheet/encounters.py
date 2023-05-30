@@ -17,7 +17,9 @@ class Encounters():
           encounter = cross_references.get(self.xref)
           if self.epoch not in self._epoch_map:
             self._epoch_map[self.epoch] = []
-          self._epoch_map[self.epoch].append(encounter.encounterId)
+          # Don't repeat ids
+          if encounter.encounterId not in self._epoch_map[self.epoch]:
+            self._epoch_map[self.epoch].append(encounter.encounterId)
 
   def epoch_encounter_map(self, epoch):
     if epoch in self._epoch_map:
