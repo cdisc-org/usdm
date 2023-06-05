@@ -5,6 +5,7 @@ from .schedule_timeline_exit import ScheduleTimelineExit
 from .scheduled_instance import ScheduledInstance
 
 class ScheduleTimeline(ApiBaseModel):
+    mainTimeline: bool
     scheduleTimelineId: str
     scheduleTimelineName: str
     scheduleTimelineDescription: str

@@ -20,14 +20,14 @@ class StudySoASheet(BaseSheet):
   CONDITION_ROW = 2
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, sheet_name):
+  def __init__(self, file_path, sheet_name, main=False):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=None))
       super().__init__(file_path=file_path, sheet_name=sheet_name, header=None)
       self.name = ""
       self.description = ""
       self.condition = ""
       self.timeline = None
+      self.main_timeline = main
       self.encounters = []
       self.activities = []
       self.timelines = []
@@ -84,6 +84,7 @@ class StudySoASheet(BaseSheet):
   def _add_timeline(self, name, description, condition, instances, exit):
     return ScheduleTimeline(
       scheduleTimelineId=id_manager.build_id(ScheduleTimeline),
+      mainTimeline=self.main_timeline,
       scheduleTimelineName=name,
       scheduleTimelineDescription=description,
       entryCondition=condition,

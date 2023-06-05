@@ -68,7 +68,7 @@ class StudySheet(BaseSheet):
         tl = StudySoASheet(file_path, timeline)
         self.timelines[timeline] = tl
         cross_references.add(timeline, tl.timeline.scheduleTimelineId)
-      self.soa = StudySoASheet(file_path, self.study_design.main_timeline)
+      self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
