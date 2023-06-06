@@ -1,5 +1,4 @@
 from typing import List, Union
-
 from .api_base_model import ApiBaseModel
 from .code import Code
 from .transition_rule import TransitionRule
@@ -8,7 +7,7 @@ from .transition_rule import TransitionRule
 class Encounter(ApiBaseModel):
   encounterId: str
   encounterName: str
-  encounterDescription: str
+  encounterDescription: Union[str, None] = None
   previousEncounterId: Union[str, None] = None
   nextEncounterId: Union[str, None] = None
   encounterType: Union[Code, None] = None

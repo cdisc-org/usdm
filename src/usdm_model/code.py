@@ -6,4 +6,3 @@ class Code(ApiBaseModel):
   codeSystem: str
   codeSystemVersion: str
   decode: str
-

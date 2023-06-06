@@ -5,12 +5,12 @@ from .procedure import Procedure
 class Activity(ApiBaseModel):
   activityId: str
   activityName: str
-  activityDescription: str
+  activityDescription: Union[str, None] = None
   previousActivityId: Union[str, None] = None
   nextActivityId: Union[str, None] = None
   definedProcedures: List[Procedure] = []
   activityIsConditional: bool
-  activityIsConditionalReason: str
+  activityIsConditionalReason: Union[str, None] = None
   biomedicalConceptIds: List[str] = []
   bcCategoryIds: List[str] = []
   bcSurrogateIds: List[str] = []

@@ -10,4 +10,3 @@ class Organisation(ApiBaseModel):
   organisationName: str
   organisationType: Code
   organizationLegalAddress: Union[Address, None] = None
-
