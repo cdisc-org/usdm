@@ -52,10 +52,8 @@ class Timepoint():
 
   def _process_timepoint(self):
     self.__timepoint_type = TimepointType(self.parent, SoAColumnRows.TIMING_ROW, self.col_index)
-    #self.timing_type = self.__timepoint_type.timing_type
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + self.__timepoint_type.relative_ref
     self.__window = WindowType(self.parent, SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
-    print(f"WIN {self.__window.description} {self.__window.lower}..{self.__window.upper}")
 
   def _as_usdm(self):
     instance = None
