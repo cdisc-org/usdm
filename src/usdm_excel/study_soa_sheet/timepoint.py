@@ -5,7 +5,7 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.timing import Timing
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
-import pandas as pd
+#import pandas as pd
 
 class Timepoint():
   
@@ -23,6 +23,8 @@ class Timepoint():
       self.encounter_xref, encounter_is_null = self.parent.read_cell_empty_legacy(SoAColumnRows.VISIT_LABEL_ROW, col_index)
       if not self.encounter_xref == "":
         self.has_encounter = True
+      self.epoch = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
+      epoch_ref = cross_references.get(self.epoch)
     self.activities = []
     self.activity_map = {}
     self.timing_type = type
@@ -30,20 +32,20 @@ class Timepoint():
     self.window = ''
     self.reference = None
     self.cycle = cycle
-    #print("ENC:", self.encounter_xref, self.has_encounter)
     if not additional:
       self._process_timepoint()
       self._add_activities(activity_names)
     self.usdm_timepoint = self._as_usdm()
     if self.has_encounter:
       encounter = cross_references.get(self.encounter_xref)
-      self.usdm_timepoint.scheduledInstanceEncounterId = encounter.encounterId
+      self.usdm_timepoint.scheduledActivityInstanceEncounterId = encounter.encounterId
+    self.usdm_timepoint.epochId = epoch_ref.studyEpochId
 
   def key(self):
     return self._position_key
   
-  def add_encounter(self, encounter):
-    self.usdm_timepoint.scheduledInstanceEncounterId = encounter.usdm_encounter.encounterId
+  # def add_encounter(self, encounter):
+  #   self.usdm_timepoint.scheduledInstanceEncounterId = encounter.usdm_encounter.encounterId
 
   def add_activity(self, activity):
     self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
@@ -77,11 +79,12 @@ class Timepoint():
       instance = ScheduledActivityInstance(
         scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='ACTIVITY',
-        scheduleSequenceNumber=0,
         scheduleTimelineExitId="",
         scheduledInstanceEncounterId="",
         scheduledInstanceTimings=[timing],
         scheduledInstanceTimelineId="",
+        defaultConditionId="",
+        epochId="",
         activityIds=[]
       )
       timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
@@ -89,11 +92,11 @@ class Timepoint():
       instance = ScheduledDecisionInstance(
         scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='DECISION',
-        scheduleSequenceNumber=0,
         scheduleTimelineExitId="",
         scheduledInstanceEncounterId="",
         scheduledInstanceTimings=[],
         scheduledInstanceTimelineId="",
+        defaultConditionId="",
         conditionAssignments=[]
       )
     else:

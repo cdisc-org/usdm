@@ -7,14 +7,15 @@ from .timing import Timing
 class ScheduledInstance(ApiBaseModel):
     scheduledInstanceId: str
     scheduledInstanceType: Literal['ACTIVITY', 'DECISION']
-    scheduleSequenceNumber: int
     scheduleTimelineExitId: Union[str, None] = None
-    scheduledInstanceEncounterId: Union[str, None] = None
     scheduledInstanceTimings: List[Timing] = []
     scheduledInstanceTimelineId: Union[str, None] = None
+    defaultConditionId: str
+    epochId: str
 
 class ScheduledActivityInstance(ScheduledInstance):
     activityIds: List[str] = []
+    scheduledActivityInstanceEncounterId: Union[str, None] = None
 
 class ScheduledDecisionInstance(ScheduledInstance):
     conditionAssignments: List[List] = []

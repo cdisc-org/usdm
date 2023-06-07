@@ -7,22 +7,23 @@ import pandas as pd
 class Encounters():
   
   def __init__(self, parent):
-    self.parent = parent
-    self._epoch_map = {}
-    for col_index in range(self.parent.sheet.shape[1]):
-      if col_index >= SoAColumnRows.FIRST_VISIT_COL:
-        self.xref, is_null = self.parent.read_cell_empty_legacy(SoAColumnRows.VISIT_LABEL_ROW, col_index)
-        self.epoch = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
-        if not self.xref == "":
-          encounter = cross_references.get(self.xref)
-          if self.epoch not in self._epoch_map:
-            self._epoch_map[self.epoch] = []
-          # Don't repeat ids
-          if encounter.encounterId not in self._epoch_map[self.epoch]:
-            self._epoch_map[self.epoch].append(encounter.encounterId)
-
-  def epoch_encounter_map(self, epoch):
-    if epoch in self._epoch_map:
-      return self._epoch_map[epoch]
-    else:
-      return None
+    # self.parent = parent
+    # self._epoch_map = {}
+    # for col_index in range(self.parent.sheet.shape[1]):
+    #   if col_index >= SoAColumnRows.FIRST_VISIT_COL:
+    #     self.xref, is_null = self.parent.read_cell_empty_legacy(SoAColumnRows.VISIT_LABEL_ROW, col_index)
+    #     self.epoch = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
+    #     if not self.xref == "":
+    #       encounter = cross_references.get(self.xref)
+    #       if self.epoch not in self._epoch_map:
+    #         self._epoch_map[self.epoch] = []
+    #       # Don't repeat ids
+    #       if encounter.encounterId not in self._epoch_map[self.epoch]:
+    #         self._epoch_map[self.epoch].append(encounter.encounterId)
+    pass
+  
+  # def epoch_encounter_map(self, epoch):
+  #   if epoch in self._epoch_map:
+  #     return self._epoch_map[epoch]
+  #   else:
+  #     return None

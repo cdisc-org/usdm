@@ -11,7 +11,8 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
 import traceback
-import pandas as pd
+import logging
+#import pandas as pd
 
 class StudySoASheet(BaseSheet):
 
@@ -22,6 +23,7 @@ class StudySoASheet(BaseSheet):
 
   def __init__(self, file_path, sheet_name, main=False):
     try:
+      print("TP: Entry")
       super().__init__(file_path=file_path, sheet_name=sheet_name, header=None)
       self.name = ""
       self.description = ""
@@ -36,7 +38,7 @@ class StudySoASheet(BaseSheet):
       self._process_sheet()
       self._raw_cycles = Cycles(self)
       self._raw_timepoints = Timepoints(self)
-      self._raw_encounters = Encounters(self)
+      #self._raw_encounters = Encounters(self)
       self._raw_activities = Activities(self)
 
       self._link_instance_to_activities()
@@ -54,18 +56,22 @@ class StudySoASheet(BaseSheet):
       seq_number = 1
       for raw_timepoint in self._raw_timepoints.items:
         instance = raw_timepoint.usdm_timepoint
-        instance.scheduleSequenceNumber = seq_number
+        #instance.scheduleSequenceNumber = seq_number
         instances.append(instance)
         seq_number += 1
       exit = self._add_exit()
+
+      print(f"Instances {instances}")
+
       self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
+      print(f"Exception [{e}] raised reading sheet")
       self._general_error(f"Exception [{e}] raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 
-  def epoch_encounter_map(self, epoch):
-    return self._raw_encounters.epoch_encounter_map(epoch)
+  # def epoch_encounter_map(self, epoch):
+  #   return self._raw_encounters.epoch_encounter_map(epoch)
 
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
