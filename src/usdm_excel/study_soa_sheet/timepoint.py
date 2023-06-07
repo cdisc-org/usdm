@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
+from usdm_excel.study_soa_sheet.timepoint_type import TimepointType
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
@@ -48,26 +49,10 @@ class Timepoint():
     self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
 
   def _process_timepoint(self):
-    rel_ref = 0
-    timing_info = self.parent.read_cell(SoAColumnRows.TIMING_ROW, self.col_index)
-    if not timing_info == "":
-      self.window = self.parent.read_cell(SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
-      timing_parts = timing_info.split(":")
-      if timing_parts[0].upper()[0] == "A":
-        self.timing_type = "anchor"
-        rel_ref = 0
-      if timing_parts[0].upper()[0] == "P":
-        self.timing_type = "previous"
-        rel_ref = self.get_relative_ref(timing_parts[0]) * -1
-      elif timing_parts[0].upper()[0] == "N":
-        self.timing_type = "next"
-        rel_ref = self.get_relative_ref(timing_parts[0])
-      elif timing_parts[0].upper()[0] == "C":
-        self.timing_type = "cycle start"
-        rel_ref = self.get_relative_ref(timing_parts[0])
-      if len(timing_parts) == 2:
-        self.timing_value = timing_parts[1].strip()
-    self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + rel_ref
+    timepoint_type = TimepointType(SoAColumnRows.TIMING_ROW, self.col_index)
+    self.timing_type = timepoint_type.timing_type
+    self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + timepoint_type.relative_ref
+    self.window = self.parent.read_cell(SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
 
   def _as_usdm(self):
     instance = None
