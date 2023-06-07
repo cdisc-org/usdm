@@ -930,7 +930,8 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Before"
                     },
-                    "timingValue": "0..2 Days",
+                    "timingValue": "PT0M",
+                    "timingDescription": "",
                     "timingRelativeToFrom": {
                       "codeId": "Code_47",
                       "code": "C99900x1",
@@ -938,9 +939,11 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Start to Start"
                     },
-                    "timingWindow": "",
                     "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2"
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "timingWindowLower": null,
+                    "timingWindowUpper": null,
+                    "timingWindow": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -966,7 +969,8 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Before"
                     },
-                    "timingValue": "Pre Dose",
+                    "timingValue": "PT0M",
+                    "timingDescription": "Pre Dose",
                     "timingRelativeToFrom": {
                       "codeId": "Code_52",
                       "code": "C99900x1",
@@ -974,9 +978,11 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Start to Start"
                     },
-                    "timingWindow": "0..4 Hours",
                     "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3"
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "timingWindowLower": "PT0H",
+                    "timingWindowUpper": "PT4H",
+                    "timingWindow": "0..4 Hours"
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -1001,7 +1007,8 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Fixed Reference"
                     },
-                    "timingValue": "",
+                    "timingValue": "PT0M",
+                    "timingDescription": "",
                     "timingRelativeToFrom": {
                       "codeId": "Code_57",
                       "code": "C99900x1",
@@ -1009,9 +1016,11 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Start to Start"
                     },
-                    "timingWindow": "0..1 Hours",
                     "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3"
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "timingWindowLower": "PT0H",
+                    "timingWindowUpper": "PT1H",
+                    "timingWindow": "0..1 Hours"
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -1036,7 +1045,8 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "After"
                     },
-                    "timingValue": "+24 Hours",
+                    "timingValue": "PT24H",
+                    "timingDescription": "+24 Hours",
                     "timingRelativeToFrom": {
                       "codeId": "Code_62",
                       "code": "C99900x1",
@@ -1044,9 +1054,11 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Start to Start"
                     },
-                    "timingWindow": "",
                     "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3"
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "timingWindowLower": null,
+                    "timingWindowUpper": null,
+                    "timingWindow": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -1071,7 +1083,8 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "After"
                     },
-                    "timingValue": "+7 Days",
+                    "timingValue": "P7D",
+                    "timingDescription": "+7 Days",
                     "timingRelativeToFrom": {
                       "codeId": "Code_67",
                       "code": "C99900x1",
@@ -1079,9 +1092,11 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Start to Start"
                     },
-                    "timingWindow": "-3..3 Days",
                     "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
+                    "timingWindowLower": "P3D",
+                    "timingWindowUpper": "P3D",
+                    "timingWindow": "-3..3 Days"
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
