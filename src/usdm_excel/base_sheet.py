@@ -224,6 +224,9 @@ class BaseSheet():
   def _warning(self, row, column, message):
     error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.WARNING)
 
+  def _general_warning(self, message):
+    error_manager.add(self.sheet_name, None, None, message, error_manager.WARNING)
+
   def _debug(self, row, column, message):
     error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.DEBUG)
 

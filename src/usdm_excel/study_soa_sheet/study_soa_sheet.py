@@ -11,8 +11,6 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
 import traceback
-import logging
-#import pandas as pd
 
 class StudySoASheet(BaseSheet):
 
@@ -23,7 +21,6 @@ class StudySoASheet(BaseSheet):
 
   def __init__(self, file_path, sheet_name, main=False):
     try:
-      print("TP: Entry")
       super().__init__(file_path=file_path, sheet_name=sheet_name, header=None)
       self.name = ""
       self.description = ""
@@ -62,18 +59,12 @@ class StudySoASheet(BaseSheet):
           prev_instance.defaultConditionId = instance.scheduledInstanceId
         prev_instance = instance
       exit = self._add_exit()
-
-      print(f"Instances {instances}")
-
       self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
       print(f"Exception [{e}] raised reading sheet")
       self._general_error(f"Exception [{e}] raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
-
-  # def epoch_encounter_map(self, epoch):
-  #   return self._raw_encounters.epoch_encounter_map(epoch)
 
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):

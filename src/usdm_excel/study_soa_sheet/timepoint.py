@@ -5,7 +5,6 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.timing import Timing
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
-#import pandas as pd
 
 class Timepoint():
   
@@ -101,7 +100,7 @@ class Timepoint():
         conditionAssignments=[]
       )
     else:
-      print("TYPE:", self.timing_type)
+      self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.timing_type}'")
     return instance
 
   def _to_timing(self):
