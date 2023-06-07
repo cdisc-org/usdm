@@ -44,9 +44,6 @@ class Timepoint():
   def key(self):
     return self._position_key
   
-  # def add_encounter(self, encounter):
-  #   self.usdm_timepoint.scheduledInstanceEncounterId = encounter.usdm_encounter.encounterId
-
   def add_activity(self, activity):
     self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
 
