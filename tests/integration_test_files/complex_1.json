@@ -165,10 +165,7 @@
               "decode": "Trial Screening"
             },
             "previousStudyEpochId": null,
-            "nextStudyEpochId": "StudyEpoch_2",
-            "encounterIds": [
-              "Encounter_1"
-            ]
+            "nextStudyEpochId": "StudyEpoch_2"
           },
           "studyElements": [
             {
@@ -220,11 +217,7 @@
               "decode": "Treatment Epoch"
             },
             "previousStudyEpochId": "StudyEpoch_1",
-            "nextStudyEpochId": "StudyEpoch_3",
-            "encounterIds": [
-              "Encounter_2",
-              "Encounter_3"
-            ]
+            "nextStudyEpochId": "StudyEpoch_3"
           },
           "studyElements": [
             {
@@ -276,10 +269,7 @@
               "decode": "Washout Period"
             },
             "previousStudyEpochId": "StudyEpoch_2",
-            "nextStudyEpochId": "StudyEpoch_4",
-            "encounterIds": [
-              "Encounter_4"
-            ]
+            "nextStudyEpochId": "StudyEpoch_4"
           },
           "studyElements": [
             {
@@ -331,11 +321,7 @@
               "decode": "Treatment Epoch"
             },
             "previousStudyEpochId": "StudyEpoch_3",
-            "nextStudyEpochId": "StudyEpoch_5",
-            "encounterIds": [
-              "Encounter_5",
-              "Encounter_6"
-            ]
+            "nextStudyEpochId": "StudyEpoch_5"
           },
           "studyElements": [
             {
@@ -387,10 +373,7 @@
               "decode": "Clinical Study Follow-up"
             },
             "previousStudyEpochId": "StudyEpoch_4",
-            "nextStudyEpochId": null,
-            "encounterIds": [
-              "Encounter_7"
-            ]
+            "nextStudyEpochId": null
           },
           "studyElements": [
             {
@@ -442,10 +425,7 @@
               "decode": "Trial Screening"
             },
             "previousStudyEpochId": null,
-            "nextStudyEpochId": "StudyEpoch_2",
-            "encounterIds": [
-              "Encounter_1"
-            ]
+            "nextStudyEpochId": "StudyEpoch_2"
           },
           "studyElements": [
             {
@@ -497,11 +477,7 @@
               "decode": "Treatment Epoch"
             },
             "previousStudyEpochId": "StudyEpoch_1",
-            "nextStudyEpochId": "StudyEpoch_3",
-            "encounterIds": [
-              "Encounter_2",
-              "Encounter_3"
-            ]
+            "nextStudyEpochId": "StudyEpoch_3"
           },
           "studyElements": [
             {
@@ -553,10 +529,7 @@
               "decode": "Washout Period"
             },
             "previousStudyEpochId": "StudyEpoch_2",
-            "nextStudyEpochId": "StudyEpoch_4",
-            "encounterIds": [
-              "Encounter_4"
-            ]
+            "nextStudyEpochId": "StudyEpoch_4"
           },
           "studyElements": [
             {
@@ -608,11 +581,7 @@
               "decode": "Treatment Epoch"
             },
             "previousStudyEpochId": "StudyEpoch_3",
-            "nextStudyEpochId": "StudyEpoch_5",
-            "encounterIds": [
-              "Encounter_5",
-              "Encounter_6"
-            ]
+            "nextStudyEpochId": "StudyEpoch_5"
           },
           "studyElements": [
             {
@@ -664,10 +633,7 @@
               "decode": "Clinical Study Follow-up"
             },
             "previousStudyEpochId": "StudyEpoch_4",
-            "nextStudyEpochId": null,
-            "encounterIds": [
-              "Encounter_7"
-            ]
+            "nextStudyEpochId": null
           },
           "studyElements": [
             {
@@ -901,9 +867,7 @@
             {
               "scheduledInstanceId": "ScheduledActivityInstance_22",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 1,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_1",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_22",
@@ -927,7 +891,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_23"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_23",
+              "epochId": "StudyEpoch_1",
               "activityIds": [
                 "Activity_1",
                 "Activity_5",
@@ -944,14 +910,13 @@
                 "Activity_25",
                 "Activity_26",
                 "Activity_27"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_1"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_23",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 2,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_2",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_23",
@@ -975,7 +940,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_27"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_24",
+              "epochId": "StudyEpoch_2",
               "activityIds": [
                 "Activity_3",
                 "Activity_6",
@@ -983,14 +950,13 @@
                 "Activity_24",
                 "Activity_30",
                 "Activity_32"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_2"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_24",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 3,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_3",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_24",
@@ -1014,17 +980,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_25"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_25",
+              "epochId": "StudyEpoch_2",
               "activityIds": [
                 "Activity_35"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_3"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_25",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 4,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_3",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_25",
@@ -1048,21 +1015,22 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_26"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_26",
+              "epochId": "StudyEpoch_2",
               "activityIds": [
                 "Activity_6",
                 "Activity_10",
                 "Activity_11",
                 "Activity_23",
                 "Activity_31"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_3"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_26",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 5,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_3",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_26",
@@ -1086,21 +1054,22 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_27"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_27",
+              "epochId": "StudyEpoch_2",
               "activityIds": [
                 "Activity_6",
                 "Activity_10",
                 "Activity_11",
                 "Activity_13",
                 "Activity_14"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_3"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_27",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 6,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_3",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_27",
@@ -1124,20 +1093,21 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_27"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_28",
+              "epochId": "StudyEpoch_2",
               "activityIds": [
                 "Activity_6",
                 "Activity_10",
                 "Activity_11",
                 "Activity_15"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_3"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_28",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 7,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_3",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_28",
@@ -1161,17 +1131,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_27"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_29",
+              "epochId": "StudyEpoch_2",
               "activityIds": [
                 "Activity_4"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_3"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_29",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 8,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_4",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_29",
@@ -1195,18 +1166,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_28"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_30",
+              "epochId": "StudyEpoch_3",
               "activityIds": [
                 "Activity_6",
                 "Activity_11"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_4"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_30",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 9,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_5",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_30",
@@ -1230,21 +1202,22 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_29"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_31",
+              "epochId": "StudyEpoch_4",
               "activityIds": [
                 "Activity_3",
                 "Activity_4",
                 "Activity_6",
                 "Activity_11",
                 "Activity_24"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_5"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_31",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 10,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_6",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_31",
@@ -1268,21 +1241,22 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_32"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_32",
+              "epochId": "StudyEpoch_4",
               "activityIds": [
                 "Activity_6",
                 "Activity_10",
                 "Activity_11",
                 "Activity_13",
                 "Activity_14"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_6"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_32",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 11,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_6",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_32",
@@ -1306,20 +1280,21 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_30"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_33",
+              "epochId": "StudyEpoch_4",
               "activityIds": [
                 "Activity_6",
                 "Activity_10",
                 "Activity_11",
                 "Activity_15"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_6"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_33",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 12,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_6",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_33",
@@ -1343,17 +1318,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_32"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_34",
+              "epochId": "StudyEpoch_4",
               "activityIds": [
                 "Activity_4"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_6"
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_34",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 13,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "Encounter_7",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_34",
@@ -1377,7 +1353,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_33"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": null,
+              "epochId": "StudyEpoch_5",
               "activityIds": [
                 "Activity_7",
                 "Activity_11",
@@ -1387,7 +1365,8 @@
                 "Activity_24",
                 "Activity_28",
                 "Activity_31"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": "Encounter_7"
             }
           ]
         },
@@ -1407,9 +1386,7 @@
             {
               "scheduledInstanceId": "ScheduledActivityInstance_1",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 1,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_1",
@@ -1433,7 +1410,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_2",
+              "epochId": null,
               "activityIds": [
                 "Activity_9",
                 "Activity_16",
@@ -1444,14 +1423,13 @@
                 "Activity_29",
                 "Activity_33",
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_2",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 2,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_2",
@@ -1475,17 +1453,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_3",
+              "epochId": null,
               "activityIds": [
                 "Activity_20"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_3",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 3,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_3",
@@ -1509,17 +1488,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_4",
+              "epochId": null,
               "activityIds": [
                 "Activity_20"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_4",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 4,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_4",
@@ -1543,17 +1523,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_5",
+              "epochId": null,
               "activityIds": [
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_5",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 5,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_5",
@@ -1577,18 +1558,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_6",
+              "epochId": null,
               "activityIds": [
                 "Activity_16",
                 "Activity_17"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_6",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 6,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_6",
@@ -1612,10 +1594,13 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_4"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": null,
+              "epochId": null,
               "activityIds": [
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             }
           ]
         },
@@ -1635,9 +1620,7 @@
             {
               "scheduledInstanceId": "ScheduledActivityInstance_7",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 1,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_7",
@@ -1661,21 +1644,22 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_8",
+              "epochId": null,
               "activityIds": [
                 "Activity_18",
                 "Activity_20",
                 "Activity_28",
                 "Activity_29",
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_8",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 2,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_8",
@@ -1699,17 +1683,18 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_9",
+              "epochId": null,
               "activityIds": [
                 "Activity_13"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_9",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 3,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_9",
@@ -1733,18 +1718,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_10",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_10",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 4,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_10",
@@ -1768,18 +1754,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_11",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_11",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 5,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_11",
@@ -1803,7 +1790,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_12",
+              "epochId": null,
               "activityIds": [
                 "Activity_18",
                 "Activity_20",
@@ -1811,14 +1800,13 @@
                 "Activity_29",
                 "Activity_33",
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_12",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 6,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_12",
@@ -1842,18 +1830,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_13",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_13",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 7,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_13",
@@ -1877,18 +1866,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_14",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_14",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 8,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_14",
@@ -1912,7 +1902,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_15",
+              "epochId": null,
               "activityIds": [
                 "Activity_18",
                 "Activity_20",
@@ -1920,14 +1912,13 @@
                 "Activity_29",
                 "Activity_33",
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_15",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 9,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_15",
@@ -1951,18 +1942,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_16",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_16",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 10,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_16",
@@ -1986,18 +1978,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_17",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_17",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 11,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_17",
@@ -2021,7 +2014,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_18",
+              "epochId": null,
               "activityIds": [
                 "Activity_18",
                 "Activity_20",
@@ -2029,14 +2024,13 @@
                 "Activity_29",
                 "Activity_33",
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_18",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 12,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_18",
@@ -2060,18 +2054,19 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_19",
+              "epochId": null,
               "activityIds": [
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_19",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 13,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_19",
@@ -2095,7 +2090,9 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_20",
+              "epochId": null,
               "activityIds": [
                 "Activity_18",
                 "Activity_20",
@@ -2103,14 +2100,13 @@
                 "Activity_29",
                 "Activity_33",
                 "Activity_34"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_20",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 14,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_20",
@@ -2134,21 +2130,22 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": "ScheduledActivityInstance_21",
+              "epochId": null,
               "activityIds": [
                 "Activity_7",
                 "Activity_18",
                 "Activity_20",
                 "Activity_28",
                 "Activity_29"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             },
             {
               "scheduledInstanceId": "ScheduledActivityInstance_21",
               "scheduledInstanceType": "ACTIVITY",
-              "scheduleSequenceNumber": 15,
-              "scheduleTimelineExitId": "",
-              "scheduledInstanceEncounterId": "",
+              "scheduleTimelineExitId": null,
               "scheduledInstanceTimings": [
                 {
                   "timingId": "Timing_21",
@@ -2172,10 +2169,13 @@
                   "relativeToScheduledInstanceId": "ScheduledActivityInstance_8"
                 }
               ],
-              "scheduledInstanceTimelineId": "",
+              "scheduledInstanceTimelineId": null,
+              "defaultConditionId": null,
+              "epochId": null,
               "activityIds": [
                 "Activity_12"
-              ]
+              ],
+              "scheduledActivityInstanceEncounterId": null
             }
           ]
         }

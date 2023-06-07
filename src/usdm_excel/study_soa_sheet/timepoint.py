@@ -39,7 +39,8 @@ class Timepoint():
     if self.has_encounter:
       encounter = cross_references.get(self.encounter_xref)
       self.usdm_timepoint.scheduledActivityInstanceEncounterId = encounter.encounterId
-    self.usdm_timepoint.epochId = epoch_ref.studyEpochId
+    if epoch_ref is not None:
+      self.usdm_timepoint.epochId = epoch_ref.studyEpochId
 
   def key(self):
     return self._position_key
@@ -79,12 +80,12 @@ class Timepoint():
       instance = ScheduledActivityInstance(
         scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='ACTIVITY',
-        scheduleTimelineExitId="",
-        scheduledInstanceEncounterId="",
+        scheduleTimelineExitId=None,
+        scheduledInstanceEncounterId=None,
         scheduledInstanceTimings=[timing],
-        scheduledInstanceTimelineId="",
-        defaultConditionId="",
-        epochId="",
+        scheduledInstanceTimelineId=None,
+        defaultConditionId=None,
+        epochId=None,
         activityIds=[]
       )
       timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
@@ -92,11 +93,11 @@ class Timepoint():
       instance = ScheduledDecisionInstance(
         scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='DECISION',
-        scheduleTimelineExitId="",
-        scheduledInstanceEncounterId="",
+        scheduleTimelineExitId=None,
+        scheduledInstanceEncounterId=None,
         scheduledInstanceTimings=[],
-        scheduledInstanceTimelineId="",
-        defaultConditionId="",
+        scheduledInstanceTimelineId=None,
+        defaultConditionId=None,
         conditionAssignments=[]
       )
     else:
