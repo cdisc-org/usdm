@@ -12,10 +12,8 @@ class TimepointType():
     self.description = ""
     self.value = ISO8601Duration.ZERO_DURATION
     timing_info = self.__parent.read_cell(row_index, col_index)
-    print(f"TI1 {timing_info}")
     if timing_info:
       timing_parts = timing_info.split(":")
-      print(f"TI2 {timing_parts}")
       if len(timing_parts) == 2:
         if timing_parts[0].upper()[0] == "A":
           self.timing_type = "anchor"
@@ -39,16 +37,12 @@ class TimepointType():
  
   def _set_text_and_encoded(self, duration):
     the_duration = duration.strip()
-    #duration_parts = duration.split(" ")
     duration_parts = re.findall(r"[^\W\d_]+|\d+", the_duration)
-    print(f"DUR PARTS: {duration_parts}")
     if len(duration_parts) == 2:
       try:
         self.description = the_duration
-        print(f"Encode {duration_parts[0].strip()} {duration_parts[1].strip()}")
         self.value = ISO8601Duration().encode(duration_parts[0].strip(), duration_parts[1].strip())
       except Exception as e:
-        print(f"Exception {e}")
         self._log_error(f"Could not decode the duration value '{duration}'")
     else:
       self._log_error(f"Could not decode the duration value, no value and units '{duration}'")
