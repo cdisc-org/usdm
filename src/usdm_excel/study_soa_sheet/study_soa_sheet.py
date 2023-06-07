@@ -53,12 +53,14 @@ class StudySoASheet(BaseSheet):
         self.biomedical_concepts += item.usdm_biomedical_concepts
       self.double_link(self.activities, 'activityId', 'previousActivityId', 'nextActivityId')
       
-      seq_number = 1
+      prev_instance = None
       for raw_timepoint in self._raw_timepoints.items:
         instance = raw_timepoint.usdm_timepoint
-        #instance.scheduleSequenceNumber = seq_number
+        instance.defaultConditionId = None
         instances.append(instance)
-        seq_number += 1
+        if prev_instance is not None:
+          prev_instance.defaultConditionId = instance.scheduledInstanceId
+        prev_instance = instance
       exit = self._add_exit()
 
       print(f"Instances {instances}")

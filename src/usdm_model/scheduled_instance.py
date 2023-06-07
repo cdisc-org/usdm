@@ -10,7 +10,7 @@ class ScheduledInstance(ApiBaseModel):
     scheduleTimelineExitId: Union[str, None] = None
     scheduledInstanceTimings: List[Timing] = []
     scheduledInstanceTimelineId: Union[str, None] = None
-    defaultConditionId: str
+    defaultConditionId: Union[str, None] = None
     epochId: str
 
 class ScheduledActivityInstance(ScheduledInstance):
