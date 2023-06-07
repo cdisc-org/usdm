@@ -49,7 +49,7 @@ class Timepoint():
     self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
 
   def _process_timepoint(self):
-    timepoint_type = TimepointType(SoAColumnRows.TIMING_ROW, self.col_index)
+    timepoint_type = TimepointType(self.parent, SoAColumnRows.TIMING_ROW, self.col_index)
     self.timing_type = timepoint_type.timing_type
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + timepoint_type.relative_ref
     self.window = self.parent.read_cell(SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)

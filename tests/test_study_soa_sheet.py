@@ -10,7 +10,7 @@ def test_timepoint_type(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   mock_read = mocker.patch("pandas.read_excel")
-  data = { 'col_1': [ 'A:', 'P: 2D ', 'P2:2D', 'C:', 'N3: 3 weeks' ] }
+  data = { 'col_1': [ 'A:', 'P: 2D ', 'P2:2D', 'C:', 'N3: 3 weeks', 'N: +2 days', 'P: -3 hrs' ] }
   mock_read.return_value = pd.DataFrame.from_dict(data)
   parent = BaseSheet("", "")
   test_data = [
@@ -19,8 +19,11 @@ def test_timepoint_type(mocker):
     (2,0,'previous', -2, "2D", "P2D"),
     (3,0,'cycle start', 1, "", ISO8601Duration.ZERO_DURATION),
     (4,0,'next', 3, "3 weeks", "P3W"),
+    (5,0,'next', 1, "+2 days", "P2D"),
+    (6,0,'previous', -1, "-3 hrs", "PT3H"),
   ]
   for index, test in enumerate(test_data):
+    print(f"IDX {index}")
     item = TimepointType(parent, test[0], test[1])
     assert(item.timing_type) == test[2]
     assert(item.relative_ref) == test[3]
@@ -36,7 +39,7 @@ def test_timepoint_type_error(mocker):
   parent = BaseSheet("", "Sheet X")
   test_data = [
     (0,0,"Could not decode the timing value, no ':' detected in 'A'"),
-    (1,0,"Could not decode the duration value, no value and units '2'"),
+    (1,0,"Could not decode the duration value, no value and units found in '2'"),
     (2,0,"Could not decode the timing value, cell was empty"),
     (3,0,"Could not decode the duration value '2 decades'"),
   ]

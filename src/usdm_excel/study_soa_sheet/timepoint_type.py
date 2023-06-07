@@ -21,15 +21,15 @@ class TimepointType():
         if timing_parts[0].upper()[0] == "P":
           self.timing_type = "previous"
           self.relative_ref = self._get_relative_ref(timing_parts[0]) * -1
-          self._set_text_and_encoded(timing_parts[1].strip())
+          self._set_text_and_encoded(timing_parts[1])
         elif timing_parts[0].upper()[0] == "N":
           self.timing_type = "next"
           self.relative_ref = self._get_relative_ref(timing_parts[0])
-          self._set_text_and_encoded(timing_parts[1].strip())
+          self._set_text_and_encoded(timing_parts[1])
         elif timing_parts[0].upper()[0] == "C":
           self.timing_type = "cycle start"
           self.relative_ref = self._get_relative_ref(timing_parts[0])
-          self._set_text_and_encoded(timing_parts[1].strip())
+          self._set_text_and_encoded(timing_parts[1])
       else:
         self._log_error(f"Could not decode the timing value, no ':' detected in '{timing_info}'")
     else:
@@ -37,18 +37,27 @@ class TimepointType():
  
   def _set_text_and_encoded(self, duration):
     the_duration = duration.strip()
+    original_duration = the_duration
+    for char in ['+', '-']:
+      if char in the_duration:
+        the_duration = the_duration.replace(char, "")
+        self._log_warning(f"Ignoring '{char}' in {original_duration}")
     duration_parts = re.findall(r"[^\W\d_]+|\d+", the_duration)
     if len(duration_parts) == 2:
       try:
-        self.description = the_duration
+        self.description = original_duration
         self.value = ISO8601Duration().encode(duration_parts[0].strip(), duration_parts[1].strip())
       except Exception as e:
-        self._log_error(f"Could not decode the duration value '{duration}'")
+        self._log_error(f"Could not decode the duration value '{the_duration}'")
     else:
-      self._log_error(f"Could not decode the duration value, no value and units '{duration}'")
+      self._log_error(f"Could not decode the duration value, no value and units found in '{the_duration}'")
 
   def _get_relative_ref(self, part):
+    part = part.strip()
     return int(part[1:]) if len(part) > 1 else 1
   
   def _log_error(self, message):
     self.__parent._error(self.__row, self.__col, message)
+
+  def _log_warning(self, message):
+    self.__parent._warning(self.__row, self.__col, message)
