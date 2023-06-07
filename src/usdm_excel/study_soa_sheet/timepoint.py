@@ -1,6 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.timepoint_type import TimepointType
+from usdm_excel.study_soa_sheet.window_type import WindowType
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
@@ -27,10 +28,11 @@ class Timepoint():
       epoch_ref = cross_references.get(self.epoch)
     self.activities = []
     self.activity_map = {}
-    self.timing_type = type
-    self.timing_value = value
-    self.window = ''
+    self.__timepoint_type = None
     self.reference = None
+    #self.timing_type = type
+    #self.timing_value = value
+    self.__window = None
     self.cycle = cycle
     if not additional:
       self._process_timepoint()
@@ -49,14 +51,15 @@ class Timepoint():
     self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
 
   def _process_timepoint(self):
-    timepoint_type = TimepointType(self.parent, SoAColumnRows.TIMING_ROW, self.col_index)
-    self.timing_type = timepoint_type.timing_type
-    self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + timepoint_type.relative_ref
-    self.window = self.parent.read_cell(SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
+    self.__timepoint_type = TimepointType(self.parent, SoAColumnRows.TIMING_ROW, self.col_index)
+    #self.timing_type = self.__timepoint_type.timing_type
+    self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + self.__timepoint_type.relative_ref
+    self.__window = WindowType(self.parent, SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
+    print(f"WIN {self.__window.description} {self.__window.lower}..{self.__window.upper}")
 
   def _as_usdm(self):
     instance = None
-    if self.timing_type in ["anchor", "next", "previous", "cycle start"]:
+    if self.__timepoint_type.timing_type in ["anchor", "next", "previous", "cycle start"]:
       timing = self._to_timing()
       instance = ScheduledActivityInstance(
         scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
@@ -70,7 +73,7 @@ class Timepoint():
         activityIds=[]
       )
       timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
-    elif self.timing_type == "condition":
+    elif self.__timepoint_type.timing_type == "condition":
       instance = ScheduledDecisionInstance(
         scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='DECISION',
@@ -82,7 +85,7 @@ class Timepoint():
         conditionAssignments=[]
       )
     else:
-      self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.timing_type}'")
+      self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
     return instance
 
   def _to_timing(self):
@@ -94,10 +97,13 @@ class Timepoint():
     }
     return Timing(
       timingId=id_manager.build_id(Timing),
-      timingType=type_code[self.timing_type.upper()],
-      timingValue=self.timing_value,
+      timingType=type_code[self.__timepoint_type.timing_type.upper()],
+      timingValue=self.__timepoint_type.value,
+      timingDescription=self.__timepoint_type.description,
       timingRelativeToFrom=CDISCCT().code('C99900x1', 'Start to Start'),
-      timingWindow=self.window,
+      timingWindow=self.__window.description,
+      timingWindowLower=self.__window.lower,
+      timingWindowUpper=self.__window.upper,
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''
     )
