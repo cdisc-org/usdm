@@ -14,24 +14,42 @@ class NodesAndEdges():
     self.node_index = 1
     self.edge_index = 1
     self.id_node_index_map = {}
-    self.edge_attributes = [
-      'encounterIds',
-      'timepointActivityIds',
-      'timepointEncounterId',
-      'bcSurrogateIds',
-      'bcCategoryIds',
-      'biomedicalConceptIds',
-      'biomedicalConceptSurrogateId',
-      'relativeFromScheduledInstanceId',
-      'relativeToScheduledInstanceId',
-      'scheduledInstanceEncounterId',
-      'activityIds',
-      'scheduledDecisionInstanceId',
-      'treatment',
-      'variableOfInterest',
-      'conditionAssignments',
-      'activityTimelineId'
-    ]
+    self.edge_attributes = {
+      'ScheduledActivityInstance': [
+        'timepointActivityIds',
+        'scheduledActivityInstanceEncounterId',
+        'activityIds',
+        'epochId',
+        'defaultConditionId',
+      ],
+      'ScheduledDecisionInstance': [
+        'timepointActivityIds',
+        'epochId',
+        'defaultConditionId',
+        'conditionAssignments',
+      ],
+      'Activity': [
+        'bcSurrogateIds',
+        'bcCategoryIds',
+        'biomedicalConceptIds',
+      ],
+      'Timing': [
+        'relativeFromScheduledInstanceId',
+        'relativeToScheduledInstanceId',
+      ],
+      'Estimand': [
+        'treatment',
+        'variableOfInterest',
+      ],
+      'ScheduledTimeline': [
+        'activityTimelineId',
+      ],
+      'StudyCell': [
+        'studyArmId',
+        'studyEpochId',
+        'studyElementIds',
+      ]
+    }
     self.fix_id_name = {
       'scheduledActivityInstanceId': 'scheduledInstanceId',
       'scheduledDecisionInstanceId': 'scheduledInstanceId',
@@ -45,14 +63,15 @@ class NodesAndEdges():
       self.ignore_klass = [
         'StudyProtocolVersion', 'StudyIdentifier', 'Indication', 
         'InvestigationalIntervention', 'Objective', 'StudyDesignPopulation', 
-        'Estimand', 'StudyCell', 'TransitionRule',
-        'BiomedicalConcept', 'BiomedicalConceptCategory', 'BiomedicalConceptSurrogate', 'Procedure', 'AliasCode'
+        'Estimand', 'StudyCell', 'TransitionRule', 'StudyArm', 'StudyEpoch',
+        'BiomedicalConcept', 'BiomedicalConceptCategory', 'BiomedicalConceptSurrogate', 
+        'Procedure', 'AliasCode'
       ]
       self.collapse_klass = ['Code']
-      self.order_attributes = [
-        'scheduleSequenceNumber'
-      ]
-    self.sequence_number_map = {}
+      #self.order_attributes = [
+      #  'scheduleSequenceNumber'
+      #]
+    #self.sequence_number_map = {}
       
   def nodes_and_edges(self):
     node = json.loads(self.study.to_json_with_type())
@@ -91,25 +110,26 @@ class NodesAndEdges():
         return []
       for key, value in node.items():
         # Special case, get the ids for the sequence numbers but within scope of each timeline
-        if key == "scheduleTimelineInstances":
-          self.sequence_number_map = {}
-          for item in value:
-            self.sequence_number_map[item['scheduleSequenceNumber']] = item['scheduledInstanceId']
+        # if key == "scheduleTimelineInstances":
+        #   self.sequence_number_map = {}
+        #   for item in value:
+        #     self.sequence_number_map[item['scheduleSequenceNumber']] = item['scheduledInstanceId']
         # Link the sequence numbers
-        if key in self.order_attributes:
-          seq = value + 1
-          if seq in self.sequence_number_map:
-            self.add_edges.append( { 'start': this_node_index, 'end': self.sequence_number_map[seq], 'properties': { 'label': key, 'type': 'Order' }})
-        if key in self.edge_attributes:
+        # if key in self.order_attributes:
+        #   seq = value + 1
+        #   if seq in self.sequence_number_map:
+        #     self.add_edges.append( { 'start': this_node_index, 'end': self.sequence_number_map[seq], 'properties': { 'label': key, 'type': 'Order' }})
+        if klass in self.edge_attributes and key in self.edge_attributes[klass]:
           if key == "conditionAssignments":
             # Special case, array of arrays of condition and link id
             for item in value:
               self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
           elif type(value) == list:
             for item in value:
-              self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': { 'label': key, 'type': 'List' }})
+              if not item:
+                self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': { 'label': key, 'type': 'List' }})
           else:
-            if not value == "":
+            if not value:
               self.add_edges.append( { 'start': this_node_index, 'end': value, 'properties': { 'label': key, 'type': 'Other' }})
         else:
           indexes = self._process_node(value)
