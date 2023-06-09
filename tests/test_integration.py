@@ -14,21 +14,18 @@ def run_test(filename):
   assert result == expected
 
 def run_test_ne(filename):
+  result = {}
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result_n, result_e = excel.to_nodes_and_edges()
+  result['n'], result['e'] = excel.to_nodes_and_edges()
+  for type in ['n', 'e']:
 
-  # Useful if you want to see the results. Normally comment out
-  #with open(f"tests/integration_test_files/{filename}_n.json", 'w', encoding='utf-8') as f:
-  #  f.write(json.dumps(result_n, indent=2))
-  #with open(f"tests/integration_test_files/{filename}_e.json", 'w', encoding='utf-8') as f:
-  #  f.write(json.dumps(result_e, indent=2))
-  
-  with open(f"tests/integration_test_files/{filename}_n.json", 'r') as f:
-    expected = json.load(f)
-  assert result_n == expected
-  with open(f"tests/integration_test_files/{filename}_e.json", 'r') as f:
-    expected = json.load(f)
-  assert result_e == expected
+    # Useful if you want to see the results. Normally comment out
+    #with open(f"tests/integration_test_files/{filename}_{type}.json", 'w', encoding='utf-8') as f:
+    #  f.write(json.dumps(result[type], indent=2))
+    
+    with open(f"tests/integration_test_files/{filename}_{type}.json", 'r') as f:
+      expected = json.load(f)
+    assert result[type] == expected
 
 def test_simple_1():
   run_test('simple_1')

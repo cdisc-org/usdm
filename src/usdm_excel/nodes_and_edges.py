@@ -63,7 +63,7 @@ class NodesAndEdges():
       self.ignore_klass = [
         'StudyProtocolVersion', 'StudyIdentifier', 'Indication', 
         'InvestigationalIntervention', 'Objective', 'StudyDesignPopulation', 
-        'Estimand', 'StudyCell', 'TransitionRule', 'StudyArm', 'StudyEpoch',
+        'Estimand', 'StudyCell', 'TransitionRule', 'StudyArm', 'StudyEpoch', 'StudyElement',
         'BiomedicalConcept', 'BiomedicalConceptCategory', 'BiomedicalConceptSurrogate', 
         'Procedure', 'AliasCode'
       ]
