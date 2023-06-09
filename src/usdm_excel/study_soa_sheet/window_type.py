@@ -16,7 +16,6 @@ class WindowType():
       match = re.match(r"(?P<lower>[+|-]*\d+)\s*\.\.\s*(?P<upper>[+|-]*\d+) \s*(?P<units>.+)", self.description)
       if match is not None:
         timing_parts = match.groupdict()
-        print(f"TP {timing_parts}")
         self.lower = self._set_encoded(f"{timing_parts['lower']}{timing_parts['units']}")
         self.upper = self._set_encoded(f"{timing_parts['upper']}{timing_parts['units']}")     
       else:

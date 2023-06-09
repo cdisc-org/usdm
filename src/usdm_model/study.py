@@ -19,4 +19,3 @@ class Study(ApiBaseModel):
   studyDesigns: List[StudyDesign] = []
   studyRationale: str
   studyAcronym: str
-

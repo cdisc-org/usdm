@@ -32,8 +32,11 @@ class StudyDesignSheet(BaseSheet):
       self.name = "TEST"
       self.description = "An Microsoft Excel test study design"
       self.epochs = []
+      self.epoch_names = {}
       self.arms = []
+      self.arm_names = {}
       self.cells = []
+      self.elements = {}
       self.study_designs = []
       self.therapeutic_areas = []
       self.rationale = ""
@@ -47,6 +50,7 @@ class StudyDesignSheet(BaseSheet):
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
+      print(f"{traceback.format_exc()}")
 
   def process_sheet(self):
     for rindex, row in self.sheet.iterrows():
@@ -88,26 +92,28 @@ class StudyDesignSheet(BaseSheet):
             if cindex == 0:
               resolved_arms[arm_index] = self._add_arm(cell)
             else:
-              elements = []
+              cell_elements = []
               element_names = self.read_cell_multiple(rindex, cindex)
               for name in element_names:
                 element = self._add_element(name)
                 if element is not None:
-                  elements.append(element)
-              arm = resolved_arms[arm_index]
-              epoch = resolved_epochs[epoch_index]
-              if arm is not None and epoch is not None:
-                self.cells.append(self._add_cell(arm=arm, epoch=epoch, elements=elements))
+                  cell_elements.append(element.studyElementId)
+              cell_arm = resolved_arms[arm_index].studyArmId
+              cell_epoch = resolved_epochs[epoch_index].studyEpochId
+              if cell_arm is not None and cell_epoch is not None:
+                self.cells.append(self._add_cell(arm=cell_arm, epoch=cell_epoch, elements=cell_elements))
               else:
-                self._general_error(f"Cannot resolve arms and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
+                self._general_error(f"Cannot resolve arm and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
               
-    
     self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
 
     study_design = self._add_design(
       name=self.name,
       description=self.description,
-      cells=self.cells, 
+      cells=self.cells,
+      epochs=self.epochs,
+      arms=self.arms,
+      elements=list(self.elements.values()),
       intent_types=self.trial_intents, 
       trial_types=self.trial_types, 
       intervention_model=self.intervention_model,
@@ -120,7 +126,9 @@ class StudyDesignSheet(BaseSheet):
   def _add_arm(self, name):
     arm = cross_references.get(name)
     if arm is not None:
-      self.arms.append(arm)
+      if name not in self.arm_names:
+        self.arm_names[name] = True
+        self.arms.append(arm)
       return arm
     else:
       self._general_error(f"No arm definition found for arm '{name}'")
@@ -129,7 +137,9 @@ class StudyDesignSheet(BaseSheet):
   def _add_epoch(self, name):
     epoch = cross_references.get(name)
     if epoch is not None:
-      self.epochs.append(epoch)
+      if name not in self.epoch_names:
+        self.epoch_names[name] = True
+        self.epochs.append(epoch)
       return epoch
     else:
       self._general_error(f"No epoch definition found for epoch '{name}'")
@@ -138,6 +148,8 @@ class StudyDesignSheet(BaseSheet):
   def _add_element(self, name):
     element = cross_references.get(name)
     if element is not None:
+      if name not in self.elements:
+        self.elements[name] = element
       return element
     else:
       self._general_error(f"No element definition found for element '{name}'")
@@ -146,12 +158,12 @@ class StudyDesignSheet(BaseSheet):
   def _add_cell(self, arm, epoch, elements):
     return StudyCell(
       studyCellId=id_manager.build_id(StudyCell), 
-      studyArm=arm,
-      studyEpoch=epoch,
-      studyElements=elements
+      studyArmId=arm,
+      studyEpochId=epoch,
+      studyElementIds=elements
     )
 
-  def _add_design(self, name, description, cells, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
+  def _add_design(self, name, description, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
     return StudyDesign(
       studyDesignId=id_manager.build_id(StudyDesign), 
       studyDesignName=name,
@@ -160,6 +172,9 @@ class StudyDesignSheet(BaseSheet):
       trialType=trial_types,
       interventionModel=intervention_model,
       studyCells=cells,
+      studyArms=arms,
+      studyEpochs=epochs,
+      studyElements=elements,
       therapeuticAreas=therapeutic_areas,
       studyDesignRationale=rationale,
       studyDesignBlindingScheme=blinding

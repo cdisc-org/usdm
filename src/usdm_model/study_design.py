@@ -10,6 +10,9 @@ from .encounter import Encounter
 from .study_cell import StudyCell
 from .indication import Indication
 from .investigational_intervention import InvestigationalIntervention
+from .study_arm import StudyArm
+from .study_epoch import StudyEpoch
+from .study_element import StudyElement
 from .study_design_population import StudyDesignPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
@@ -19,11 +22,11 @@ import pandas as pd
 class StudyDesign(ApiBaseModel):
   studyDesignId: str
   studyDesignName: str
-  studyDesignDescription: str
+  studyDesignDescription: Union[str, None] = None
   trialIntentTypes: List[Code] = []
   trialType: List[Code] = []
   interventionModel: Code
-  studyCells: List[StudyCell] = []
+  studyCells: List[StudyCell]
   studyIndications: List[Indication] = []
   studyInvestigationalInterventions: List[InvestigationalIntervention] = []
   studyPopulations: List[StudyDesignPopulation] = []
@@ -34,7 +37,10 @@ class StudyDesign(ApiBaseModel):
   encounters: List[Encounter] = []
   activities: List[Activity] = []
   studyDesignRationale: str
-  studyDesignBlindingScheme: AliasCode = None
+  studyDesignBlindingScheme: Union[AliasCode, None] = None
   biomedicalConcepts: List[BiomedicalConcept] = []
   bcCategories: List[BiomedicalConceptCategory] = []
   bcSurrogates: List[BiomedicalConceptSurrogate] = []
+  studyArms: List[StudyArm]
+  studyEpochs: List[StudyEpoch]
+  studyElements: List[StudyElement] = []
