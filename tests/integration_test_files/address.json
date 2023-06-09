@@ -180,444 +180,68 @@
       "studyCells": [
         {
           "studyCellId": "StudyCell_1",
-          "studyArm": {
-            "studyArmId": "StudyArm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active Substance",
-            "studyArmType": {
-              "codeId": "Code_28",
-              "code": "C174267",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Active Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_29",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_1",
-            "studyEpochName": "Screening",
-            "studyEpochDescription": "Screening Epoch",
-            "studyEpochType": {
-              "codeId": "Code_32",
-              "code": "C48262",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Trial Screening"
-            },
-            "previousStudyEpochId": null,
-            "nextStudyEpochId": "StudyEpoch_2"
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_1",
-              "studyElementName": "Screening",
-              "studyElementDescription": "Screening Element",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_4",
-                "transitionRuleDescription": "Study Start"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_5",
-                "transitionRuleDescription": "Screened"
-              }
-            }
+          "studyArmId": "StudyArm_1",
+          "studyEpochId": "StudyEpoch_1",
+          "studyElementIds": [
+            "StudyElement_1"
           ]
         },
         {
           "studyCellId": "StudyCell_2",
-          "studyArm": {
-            "studyArmId": "StudyArm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active Substance",
-            "studyArmType": {
-              "codeId": "Code_28",
-              "code": "C174267",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Active Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_29",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_2",
-            "studyEpochName": "Baseline",
-            "studyEpochDescription": "Baseline Epoch",
-            "studyEpochType": {
-              "codeId": "Code_33",
-              "code": "C125938",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Baseline Epoch"
-            },
-            "previousStudyEpochId": "StudyEpoch_1",
-            "nextStudyEpochId": "StudyEpoch_3"
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_2",
-              "studyElementName": "Baseline",
-              "studyElementDescription": "Baseline Element",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_6",
-                "transitionRuleDescription": "Screened"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_7",
-                "transitionRuleDescription": "Radomized"
-              }
-            }
+          "studyArmId": "StudyArm_1",
+          "studyEpochId": "StudyEpoch_2",
+          "studyElementIds": [
+            "StudyElement_2"
           ]
         },
         {
           "studyCellId": "StudyCell_3",
-          "studyArm": {
-            "studyArmId": "StudyArm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active Substance",
-            "studyArmType": {
-              "codeId": "Code_28",
-              "code": "C174267",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Active Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_29",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_3",
-            "studyEpochName": "Treatment",
-            "studyEpochDescription": "Treatment Epoch",
-            "studyEpochType": {
-              "codeId": "Code_34",
-              "code": "C101526",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Treatment Epoch"
-            },
-            "previousStudyEpochId": "StudyEpoch_2",
-            "nextStudyEpochId": "StudyEpoch_4"
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_3",
-              "studyElementName": "Treatment 1",
-              "studyElementDescription": "Treatment Element 1",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_8",
-                "transitionRuleDescription": "Radomized"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_9",
-                "transitionRuleDescription": "Completed treatment 1"
-              }
-            },
-            {
-              "studyElementId": "StudyElement_5",
-              "studyElementName": "Treatment 2",
-              "studyElementDescription": "Treatment Element 2",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_12",
-                "transitionRuleDescription": "Radomized"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_13",
-                "transitionRuleDescription": "Completed treatment 2"
-              }
-            }
+          "studyArmId": "StudyArm_1",
+          "studyEpochId": "StudyEpoch_3",
+          "studyElementIds": [
+            "StudyElement_3",
+            "StudyElement_5"
           ]
         },
         {
           "studyCellId": "StudyCell_4",
-          "studyArm": {
-            "studyArmId": "StudyArm_1",
-            "studyArmName": "Active",
-            "studyArmDescription": "Active Substance",
-            "studyArmType": {
-              "codeId": "Code_28",
-              "code": "C174267",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Active Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_29",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_4",
-            "studyEpochName": "Follow-Up",
-            "studyEpochDescription": "Follow-up Epoch",
-            "studyEpochType": {
-              "codeId": "Code_35",
-              "code": "C99158",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Clinical Study Follow-up"
-            },
-            "previousStudyEpochId": "StudyEpoch_3",
-            "nextStudyEpochId": null
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_4",
-              "studyElementName": "Follow Up",
-              "studyElementDescription": "Follow Up Element",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_10",
-                "transitionRuleDescription": "Treated"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_11",
-                "transitionRuleDescription": "Leave Study"
-              }
-            }
+          "studyArmId": "StudyArm_1",
+          "studyEpochId": "StudyEpoch_4",
+          "studyElementIds": [
+            "StudyElement_4"
           ]
         },
         {
           "studyCellId": "StudyCell_5",
-          "studyArm": {
-            "studyArmId": "StudyArm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": {
-              "codeId": "Code_30",
-              "code": "C174268",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Placebo Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_31",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_1",
-            "studyEpochName": "Screening",
-            "studyEpochDescription": "Screening Epoch",
-            "studyEpochType": {
-              "codeId": "Code_32",
-              "code": "C48262",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Trial Screening"
-            },
-            "previousStudyEpochId": null,
-            "nextStudyEpochId": "StudyEpoch_2"
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_1",
-              "studyElementName": "Screening",
-              "studyElementDescription": "Screening Element",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_4",
-                "transitionRuleDescription": "Study Start"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_5",
-                "transitionRuleDescription": "Screened"
-              }
-            }
+          "studyArmId": "StudyArm_2",
+          "studyEpochId": "StudyEpoch_1",
+          "studyElementIds": [
+            "StudyElement_1"
           ]
         },
         {
           "studyCellId": "StudyCell_6",
-          "studyArm": {
-            "studyArmId": "StudyArm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": {
-              "codeId": "Code_30",
-              "code": "C174268",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Placebo Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_31",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_2",
-            "studyEpochName": "Baseline",
-            "studyEpochDescription": "Baseline Epoch",
-            "studyEpochType": {
-              "codeId": "Code_33",
-              "code": "C125938",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Baseline Epoch"
-            },
-            "previousStudyEpochId": "StudyEpoch_1",
-            "nextStudyEpochId": "StudyEpoch_3"
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_2",
-              "studyElementName": "Baseline",
-              "studyElementDescription": "Baseline Element",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_6",
-                "transitionRuleDescription": "Screened"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_7",
-                "transitionRuleDescription": "Radomized"
-              }
-            }
+          "studyArmId": "StudyArm_2",
+          "studyEpochId": "StudyEpoch_2",
+          "studyElementIds": [
+            "StudyElement_2"
           ]
         },
         {
           "studyCellId": "StudyCell_7",
-          "studyArm": {
-            "studyArmId": "StudyArm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": {
-              "codeId": "Code_30",
-              "code": "C174268",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Placebo Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_31",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_3",
-            "studyEpochName": "Treatment",
-            "studyEpochDescription": "Treatment Epoch",
-            "studyEpochType": {
-              "codeId": "Code_34",
-              "code": "C101526",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Treatment Epoch"
-            },
-            "previousStudyEpochId": "StudyEpoch_2",
-            "nextStudyEpochId": "StudyEpoch_4"
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_5",
-              "studyElementName": "Treatment 2",
-              "studyElementDescription": "Treatment Element 2",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_12",
-                "transitionRuleDescription": "Radomized"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_13",
-                "transitionRuleDescription": "Completed treatment 2"
-              }
-            },
-            {
-              "studyElementId": "StudyElement_3",
-              "studyElementName": "Treatment 1",
-              "studyElementDescription": "Treatment Element 1",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_8",
-                "transitionRuleDescription": "Radomized"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_9",
-                "transitionRuleDescription": "Completed treatment 1"
-              }
-            }
+          "studyArmId": "StudyArm_2",
+          "studyEpochId": "StudyEpoch_3",
+          "studyElementIds": [
+            "StudyElement_5",
+            "StudyElement_3"
           ]
         },
         {
           "studyCellId": "StudyCell_8",
-          "studyArm": {
-            "studyArmId": "StudyArm_2",
-            "studyArmName": "Placebo",
-            "studyArmDescription": "Placebo",
-            "studyArmType": {
-              "codeId": "Code_30",
-              "code": "C174268",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Placebo Comparator Arm"
-            },
-            "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
-              "codeId": "Code_31",
-              "code": "C188866",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Data Generated Within Study"
-            }
-          },
-          "studyEpoch": {
-            "studyEpochId": "StudyEpoch_4",
-            "studyEpochName": "Follow-Up",
-            "studyEpochDescription": "Follow-up Epoch",
-            "studyEpochType": {
-              "codeId": "Code_35",
-              "code": "C99158",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2022-12-16",
-              "decode": "Clinical Study Follow-up"
-            },
-            "previousStudyEpochId": "StudyEpoch_3",
-            "nextStudyEpochId": null
-          },
-          "studyElements": [
-            {
-              "studyElementId": "StudyElement_4",
-              "studyElementName": "Follow Up",
-              "studyElementDescription": "Follow Up Element",
-              "transitionStartRule": {
-                "transitionRuleId": "TransitionRule_10",
-                "transitionRuleDescription": "Treated"
-              },
-              "transitionEndRule": {
-                "transitionRuleId": "TransitionRule_11",
-                "transitionRuleDescription": "Leave Study"
-              }
-            }
+          "studyArmId": "StudyArm_2",
+          "studyEpochId": "StudyEpoch_4",
+          "studyElementIds": [
+            "StudyElement_4"
           ]
         }
       ],
@@ -1613,6 +1237,173 @@
           "bcSurrogateName": "Age",
           "bcSurrogateDescription": "Age",
           "bcSurrogateReference": ""
+        }
+      ],
+      "studyArms": [
+        {
+          "studyArmId": "StudyArm_1",
+          "studyArmName": "Active",
+          "studyArmDescription": "Active Substance",
+          "studyArmType": {
+            "codeId": "Code_28",
+            "code": "C174267",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Active Comparator Arm"
+          },
+          "studyArmDataOriginDescription": "Data collected from subjects",
+          "studyArmDataOriginType": {
+            "codeId": "Code_29",
+            "code": "C188866",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Data Generated Within Study"
+          }
+        },
+        {
+          "studyArmId": "StudyArm_2",
+          "studyArmName": "Placebo",
+          "studyArmDescription": "Placebo",
+          "studyArmType": {
+            "codeId": "Code_30",
+            "code": "C174268",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Placebo Comparator Arm"
+          },
+          "studyArmDataOriginDescription": "Data collected from subjects",
+          "studyArmDataOriginType": {
+            "codeId": "Code_31",
+            "code": "C188866",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Data Generated Within Study"
+          }
+        }
+      ],
+      "studyEpochs": [
+        {
+          "studyEpochId": "StudyEpoch_1",
+          "studyEpochName": "Screening",
+          "studyEpochDescription": "Screening Epoch",
+          "studyEpochType": {
+            "codeId": "Code_32",
+            "code": "C48262",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Trial Screening"
+          },
+          "previousStudyEpochId": null,
+          "nextStudyEpochId": "StudyEpoch_2"
+        },
+        {
+          "studyEpochId": "StudyEpoch_2",
+          "studyEpochName": "Baseline",
+          "studyEpochDescription": "Baseline Epoch",
+          "studyEpochType": {
+            "codeId": "Code_33",
+            "code": "C125938",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Baseline Epoch"
+          },
+          "previousStudyEpochId": "StudyEpoch_1",
+          "nextStudyEpochId": "StudyEpoch_3"
+        },
+        {
+          "studyEpochId": "StudyEpoch_3",
+          "studyEpochName": "Treatment",
+          "studyEpochDescription": "Treatment Epoch",
+          "studyEpochType": {
+            "codeId": "Code_34",
+            "code": "C101526",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Treatment Epoch"
+          },
+          "previousStudyEpochId": "StudyEpoch_2",
+          "nextStudyEpochId": "StudyEpoch_4"
+        },
+        {
+          "studyEpochId": "StudyEpoch_4",
+          "studyEpochName": "Follow-Up",
+          "studyEpochDescription": "Follow-up Epoch",
+          "studyEpochType": {
+            "codeId": "Code_35",
+            "code": "C99158",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Clinical Study Follow-up"
+          },
+          "previousStudyEpochId": "StudyEpoch_3",
+          "nextStudyEpochId": null
+        }
+      ],
+      "studyElements": [
+        {
+          "studyElementId": "StudyElement_1",
+          "studyElementName": "Screening",
+          "studyElementDescription": "Screening Element",
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_4",
+            "transitionRuleDescription": "Study Start"
+          },
+          "transitionEndRule": {
+            "transitionRuleId": "TransitionRule_5",
+            "transitionRuleDescription": "Screened"
+          }
+        },
+        {
+          "studyElementId": "StudyElement_2",
+          "studyElementName": "Baseline",
+          "studyElementDescription": "Baseline Element",
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_6",
+            "transitionRuleDescription": "Screened"
+          },
+          "transitionEndRule": {
+            "transitionRuleId": "TransitionRule_7",
+            "transitionRuleDescription": "Radomized"
+          }
+        },
+        {
+          "studyElementId": "StudyElement_3",
+          "studyElementName": "Treatment 1",
+          "studyElementDescription": "Treatment Element 1",
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_8",
+            "transitionRuleDescription": "Radomized"
+          },
+          "transitionEndRule": {
+            "transitionRuleId": "TransitionRule_9",
+            "transitionRuleDescription": "Completed treatment 1"
+          }
+        },
+        {
+          "studyElementId": "StudyElement_5",
+          "studyElementName": "Treatment 2",
+          "studyElementDescription": "Treatment Element 2",
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_12",
+            "transitionRuleDescription": "Radomized"
+          },
+          "transitionEndRule": {
+            "transitionRuleId": "TransitionRule_13",
+            "transitionRuleDescription": "Completed treatment 2"
+          }
+        },
+        {
+          "studyElementId": "StudyElement_4",
+          "studyElementName": "Follow Up",
+          "studyElementDescription": "Follow Up Element",
+          "transitionStartRule": {
+            "transitionRuleId": "TransitionRule_10",
+            "transitionRuleDescription": "Treated"
+          },
+          "transitionEndRule": {
+            "transitionRuleId": "TransitionRule_11",
+            "transitionRuleDescription": "Leave Study"
+          }
         }
       ]
     }
