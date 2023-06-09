@@ -126,10 +126,10 @@ class NodesAndEdges():
               self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
           elif type(value) == list:
             for item in value:
-              if not item:
+              if item:
                 self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': { 'label': key, 'type': 'List' }})
           else:
-            if not value:
+            if value:
               self.add_edges.append( { 'start': this_node_index, 'end': value, 'properties': { 'label': key, 'type': 'Other' }})
         else:
           indexes = self._process_node(value)
