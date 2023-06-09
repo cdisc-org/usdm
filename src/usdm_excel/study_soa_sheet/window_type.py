@@ -7,16 +7,18 @@ class WindowType():
     self.__parent = parent
     self.__row = row_index
     self.__col = col_index
-    self.description = ""
+    self.description = None
     self.upper = None
     self.lower = None
     timing_info = self.__parent.read_cell(row_index, col_index)
-    self.description = timing_info.strip()
     if timing_info:
-      timing_parts = re.split("[\s]", self.description)
-      if len(timing_parts) == 4:
-        self.lower = self._set_encoded(f"{timing_parts[0]}{timing_parts[3]}")
-        self.upper = self._set_encoded(f"{timing_parts[2]}{timing_parts[3]}")     
+      self.description = timing_info.strip()
+      match = re.match(r"(?P<lower>[+|-]*\d+)\s*\.\.\s*(?P<upper>[+|-]*\d+) \s*(?P<units>.+)", self.description)
+      if match is not None:
+        timing_parts = match.groupdict()
+        print(f"TP {timing_parts}")
+        self.lower = self._set_encoded(f"{timing_parts['lower']}{timing_parts['units']}")
+        self.upper = self._set_encoded(f"{timing_parts['upper']}{timing_parts['units']}")     
       else:
         self._log_error(f"Could not decode the window value, not all required parts detected in '{timing_info}'")
     else:

@@ -15,10 +15,10 @@ def test_timepoint_type(mocker):
   mock_read.return_value = pd.DataFrame.from_dict(data)
   parent = BaseSheet("", "")
   test_data = [
-    (0,0,'anchor', 0, "", ISO8601Duration.ZERO_DURATION),
+    (0,0,'anchor', 0, None, ISO8601Duration.ZERO_DURATION),
     (1,0,'previous', -1, "2D", "P2D"),
     (2,0,'previous', -2, "2D", "P2D"),
-    (3,0,'cycle start', 1, "", ISO8601Duration.ZERO_DURATION),
+    (3,0,'cycle start', 1, None, ISO8601Duration.ZERO_DURATION),
     (4,0,'next', 3, "3 weeks", "P3W"),
     (5,0,'next', 1, "+2 days", "P2D"),
     (6,0,'previous', -1, "-3 hrs", "PT3H"),

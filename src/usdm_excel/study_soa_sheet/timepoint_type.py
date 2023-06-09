@@ -7,9 +7,9 @@ class TimepointType():
     self.__parent = parent
     self.__row = row_index
     self.__col = col_index
-    self.timing_type = ""
+    self.timing_type = None
     self.relative_ref = 0
-    self.description = ""
+    self.description = None
     self.value = ISO8601Duration.ZERO_DURATION
     timing_info = self.__parent.read_cell(row_index, col_index)
     if timing_info:
