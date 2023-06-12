@@ -5,7 +5,7 @@ from src.usdm_excel import USDMExcel
 SAVE_ALL = False
 
 def save_error_csv(file, contents):
-  writer = csv.DictWriter(file, fieldnames=list(contents[0].keys()))
+  writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
   writer.writeheader()
   writer.writerows(contents)
 
@@ -18,14 +18,17 @@ def read_error_csv(file):
   return items
 
 def run_test(filename, save=False):
+  print(f"RUN: S={save}")
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result = excel.to_json()
   errors = excel.errors()
 
   # Useful if you want to see the results.
+  print(f"ERRORS: S={save} E={errors}")
   if save or SAVE_ALL:
     with open(f"tests/integration_test_files/{filename}.json", 'w', encoding='utf-8') as f:
       f.write(json.dumps(json.loads(result), indent=2))
+    print(f"ERRORS: {errors}")
     with open(f"tests/integration_test_files/{filename}_errors.csv", 'w',newline='') as f:
       save_error_csv(f, errors) 
   
@@ -40,7 +43,6 @@ def run_test_ne(filename, save=False):
   result = {}
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result['n'], result['e'] = excel.to_nodes_and_edges()
-  errors = excel.errors()
   for type in ['n', 'e']:
 
     # Useful if you want to see the results.
@@ -76,8 +78,8 @@ def test_complex_1():
 def test_complex_1_ne():
   run_test_ne('complex_1')
 
-def test_complex_1():
+def test_arms_epochs_1():
   run_test('arms_epochs')
 
-def test_complex_1_ne():
+def test_arms_epochs_1_ne():
   run_test_ne('arms_epochs')
