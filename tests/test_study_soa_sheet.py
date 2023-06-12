@@ -82,8 +82,7 @@ def test_window_type_error(mocker):
     (0,0,"Could not decode the window value, not all required parts detected in '1.. Days'"),
     (1,0,"Could not decode the window value, not all required parts detected in '-1.1 days'"),
     (2,0,"Could not decode the window value, not all required parts detected in '-1 .. 1'"),
-    (3,0,"Could not decode the window value, not all required parts detected in '.. 1 Weeks'"),
-    (4,0,"Could not decode the window value, cell was empty"),
+    (3,0,"Could not decode the window value, not all required parts detected in '.. 1 Weeks'")
   ]
   for index, test in enumerate(test_data):
     mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")

@@ -21,7 +21,8 @@ class WindowType():
       else:
         self._log_error(f"Could not decode the window value, not all required parts detected in '{timing_info}'")
     else:
-      self._log_error(f"Could not decode the window value, cell was empty")
+      pass
+      #self._log_error(f"Could not decode the window value, cell was empty") # <<< Window can be empty
  
   def _set_encoded(self, duration):
     the_duration = duration.strip()
