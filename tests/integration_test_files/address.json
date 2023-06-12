@@ -102,6 +102,24 @@
           }
         }
       }
+    },
+    {
+      "studyIdentifierId": "StudyIdentifier_3",
+      "studyIdentifier": "EU12345",
+      "studyIdentifierScope": {
+        "organisationId": "Organisation_3",
+        "organisationIdentifierScheme": "EUDRACT",
+        "organisationIdentifier": "EU",
+        "organisationName": "EUDRACT",
+        "organisationType": {
+          "codeId": "Code_11",
+          "code": "C93453",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2022-12-16",
+          "decode": "Study Registry"
+        },
+        "organizationLegalAddress": null
+      }
     }
   ],
   "studyProtocolVersions": [
@@ -147,14 +165,14 @@
       "studyDesignDescription": "The main design for the study",
       "trialIntentTypes": [
         {
-          "codeId": "Code_39",
+          "codeId": "Code_40",
           "code": "C15714",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
           "decode": "Basic Research"
         },
         {
-          "codeId": "Code_40",
+          "codeId": "Code_41",
           "code": "C139174",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
@@ -163,7 +181,7 @@
       ],
       "trialType": [
         {
-          "codeId": "Code_41",
+          "codeId": "Code_42",
           "code": "C49666",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
@@ -171,7 +189,7 @@
         }
       ],
       "interventionModel": {
-        "codeId": "Code_42",
+        "codeId": "Code_43",
         "code": "C82639",
         "codeSystem": "http://www.cdisc.org",
         "codeSystemVersion": "2022-12-16",
@@ -251,7 +269,7 @@
           "indicationDescription": "An indication",
           "codes": [
             {
-              "codeId": "Code_82",
+              "codeId": "Code_83",
               "code": "12345",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "January 31, 2018",
@@ -264,7 +282,7 @@
           "indicationDescription": "An indication",
           "codes": [
             {
-              "codeId": "Code_85",
+              "codeId": "Code_86",
               "code": "345678",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "January 31, 2018",
@@ -279,14 +297,14 @@
           "interventionDescription": "An intervention",
           "codes": [
             {
-              "codeId": "Code_83",
+              "codeId": "Code_84",
               "code": "X",
               "codeSystem": "ICD-10",
               "codeSystemVersion": "",
               "decode": "Y"
             },
             {
-              "codeId": "Code_84",
+              "codeId": "Code_85",
               "code": "A",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "January 31, 2018",
@@ -299,14 +317,14 @@
           "interventionDescription": "An intervention",
           "codes": [
             {
-              "codeId": "Code_86",
+              "codeId": "Code_87",
               "code": "DD",
               "codeSystem": "ICD-10",
               "codeSystemVersion": "",
               "decode": "CC"
             },
             {
-              "codeId": "Code_87",
+              "codeId": "Code_88",
               "code": "A",
               "codeSystem": "SNOMED",
               "codeSystemVersion": "January 31, 2018",
@@ -346,7 +364,7 @@
           "objectiveId": "Objective_1",
           "objectiveDescription": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
           "objectiveLevel": {
-            "codeId": "Code_92",
+            "codeId": "Code_93",
             "code": "C85826",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -358,7 +376,7 @@
               "endpointDescription": "Clinical status assessed using a 7-category ordinal scale at Day 28",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_91",
+                "codeId": "Code_92",
                 "code": "C94496",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -371,7 +389,7 @@
           "objectiveId": "Objective_2",
           "objectiveDescription": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
           "objectiveLevel": {
-            "codeId": "Code_94",
+            "codeId": "Code_95",
             "code": "C85827",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -383,7 +401,7 @@
               "endpointDescription": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_93",
+                "codeId": "Code_94",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -395,7 +413,7 @@
               "endpointDescription": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_95",
+                "codeId": "Code_96",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -407,7 +425,7 @@
               "endpointDescription": "Incidence of mechanical ventilation",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_96",
+                "codeId": "Code_97",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -419,7 +437,7 @@
               "endpointDescription": "Ventilator-free days to Day 28",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_97",
+                "codeId": "Code_98",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -431,7 +449,7 @@
               "endpointDescription": "Incidence of intensive care unit (ICU) stay",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_98",
+                "codeId": "Code_99",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -443,7 +461,7 @@
               "endpointDescription": "Duration of ICU stay",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_99",
+                "codeId": "Code_100",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -455,7 +473,7 @@
               "endpointDescription": "Time to clinical failure, defined as the time to death, mechanical ventilation, ICU admission, or withdrawal (whichever occurs first). For patients entering the study already in ICU or on mechanical ventilation, clinical failure is defined as a one-category worsening on the ordinal scale, withdrawal or death.",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_100",
+                "codeId": "Code_101",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -467,7 +485,7 @@
               "endpointDescription": "Mortality rate at Days 7, 14, 21, 28, and 60",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_101",
+                "codeId": "Code_102",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -479,7 +497,7 @@
               "endpointDescription": "Time to hospital discharge or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen)",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_102",
+                "codeId": "Code_103",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -491,7 +509,7 @@
               "endpointDescription": "Time to recovery, defined as discharged or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU hospital ward (or \u201cready for hospital ward\u201d) not requiring supplemental oxygen",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_103",
+                "codeId": "Code_104",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -503,7 +521,7 @@
               "endpointDescription": "Duration of supplemental oxygen",
               "endpointPurposeDescription": "",
               "endpointLevel": {
-                "codeId": "Code_104",
+                "codeId": "Code_105",
                 "code": "C139173",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
@@ -535,7 +553,7 @@
                 {
                   "timingId": "Timing_1",
                   "timingType": {
-                    "codeId": "Code_45",
+                    "codeId": "Code_46",
                     "code": "C99901x2",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -544,7 +562,7 @@
                   "timingValue": "PT0M",
                   "timingDescription": null,
                   "timingRelativeToFrom": {
-                    "codeId": "Code_47",
+                    "codeId": "Code_48",
                     "code": "C99900x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -574,7 +592,7 @@
                 {
                   "timingId": "Timing_2",
                   "timingType": {
-                    "codeId": "Code_50",
+                    "codeId": "Code_51",
                     "code": "C99901x2",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -583,7 +601,7 @@
                   "timingValue": "PT0M",
                   "timingDescription": "Pre Dose",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_52",
+                    "codeId": "Code_53",
                     "code": "C99900x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -612,7 +630,7 @@
                 {
                   "timingId": "Timing_3",
                   "timingType": {
-                    "codeId": "Code_53",
+                    "codeId": "Code_54",
                     "code": "C99901x3",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -621,7 +639,7 @@
                   "timingValue": "PT0M",
                   "timingDescription": null,
                   "timingRelativeToFrom": {
-                    "codeId": "Code_57",
+                    "codeId": "Code_58",
                     "code": "C99900x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -650,7 +668,7 @@
                 {
                   "timingId": "Timing_4",
                   "timingType": {
-                    "codeId": "Code_59",
+                    "codeId": "Code_60",
                     "code": "C99901x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -659,7 +677,7 @@
                   "timingValue": "PT24H",
                   "timingDescription": "+24 Hours",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_62",
+                    "codeId": "Code_63",
                     "code": "C99900x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -688,7 +706,7 @@
                 {
                   "timingId": "Timing_5",
                   "timingType": {
-                    "codeId": "Code_64",
+                    "codeId": "Code_65",
                     "code": "C99901x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -697,7 +715,7 @@
                   "timingValue": "P7D",
                   "timingDescription": "+7 Days",
                   "timingRelativeToFrom": {
-                    "codeId": "Code_67",
+                    "codeId": "Code_68",
                     "code": "C99900x1",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -723,14 +741,14 @@
       ],
       "therapeuticAreas": [
         {
-          "codeId": "Code_36",
+          "codeId": "Code_37",
           "code": "T2_DIABETES",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "12",
           "decode": "Type 2 diabetes"
         },
         {
-          "codeId": "Code_37",
+          "codeId": "Code_38",
           "code": "73211009",
           "codeSystem": "SNOMED",
           "codeSystemVersion": "January 31, 2018",
@@ -795,14 +813,14 @@
           "previousEncounterId": null,
           "nextEncounterId": "Encounter_2",
           "encounterType": {
-            "codeId": "Code_13",
+            "codeId": "Code_14",
             "code": "C25716",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
             "decode": "Visit"
           },
           "encounterEnvironmentalSetting": {
-            "codeId": "Code_14",
+            "codeId": "Code_15",
             "code": "C51282",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -810,7 +828,7 @@
           },
           "encounterContactModes": [
             {
-              "codeId": "Code_15",
+              "codeId": "Code_16",
               "code": "C175574",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -834,14 +852,14 @@
           "previousEncounterId": "Encounter_1",
           "nextEncounterId": "Encounter_3",
           "encounterType": {
-            "codeId": "Code_16",
+            "codeId": "Code_17",
             "code": "C25716",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
             "decode": "Visit"
           },
           "encounterEnvironmentalSetting": {
-            "codeId": "Code_17",
+            "codeId": "Code_18",
             "code": "C51282",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -849,7 +867,7 @@
           },
           "encounterContactModes": [
             {
-              "codeId": "Code_18",
+              "codeId": "Code_19",
               "code": "C175574",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -867,14 +885,14 @@
           "previousEncounterId": "Encounter_2",
           "nextEncounterId": "Encounter_4",
           "encounterType": {
-            "codeId": "Code_19",
+            "codeId": "Code_20",
             "code": "C25716",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
             "decode": "Visit"
           },
           "encounterEnvironmentalSetting": {
-            "codeId": "Code_20",
+            "codeId": "Code_21",
             "code": "C51282",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -882,7 +900,7 @@
           },
           "encounterContactModes": [
             {
-              "codeId": "Code_21",
+              "codeId": "Code_22",
               "code": "C175574",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -903,14 +921,14 @@
           "previousEncounterId": "Encounter_3",
           "nextEncounterId": "Encounter_5",
           "encounterType": {
-            "codeId": "Code_22",
+            "codeId": "Code_23",
             "code": "C25716",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
             "decode": "Visit"
           },
           "encounterEnvironmentalSetting": {
-            "codeId": "Code_23",
+            "codeId": "Code_24",
             "code": "C51282",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -918,7 +936,7 @@
           },
           "encounterContactModes": [
             {
-              "codeId": "Code_24",
+              "codeId": "Code_25",
               "code": "C175574",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -936,14 +954,14 @@
           "previousEncounterId": "Encounter_4",
           "nextEncounterId": null,
           "encounterType": {
-            "codeId": "Code_25",
+            "codeId": "Code_26",
             "code": "C25716",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
             "decode": "Visit"
           },
           "encounterEnvironmentalSetting": {
-            "codeId": "Code_26",
+            "codeId": "Code_27",
             "code": "C18002",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -951,7 +969,7 @@
           },
           "encounterContactModes": [
             {
-              "codeId": "Code_27",
+              "codeId": "Code_28",
               "code": "C171537",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
@@ -1003,7 +1021,7 @@
       "studyDesignBlindingScheme": {
         "aliasCodeId": "AliasCode_2",
         "standardCode": {
-          "codeId": "Code_38",
+          "codeId": "Code_39",
           "code": "C49659",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2022-12-16",
@@ -1029,7 +1047,7 @@
                   "responseCodeId": "ResponseCode_1",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_69",
+                    "codeId": "Code_70",
                     "code": "C20197",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1040,7 +1058,7 @@
                   "responseCodeId": "ResponseCode_2",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_70",
+                    "codeId": "Code_71",
                     "code": "C16576",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1051,7 +1069,7 @@
                   "responseCodeId": "ResponseCode_3",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_71",
+                    "codeId": "Code_72",
                     "code": "C17998",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1062,7 +1080,7 @@
               "bcPropertyConceptCode": {
                 "aliasCodeId": "AliasCode_4",
                 "standardCode": {
-                  "codeId": "Code_72",
+                  "codeId": "Code_73",
                   "code": "C28421",
                   "codeSystem": "NCI Thesaurus",
                   "codeSystemVersion": "",
@@ -1075,7 +1093,7 @@
           "bcConceptCode": {
             "aliasCodeId": "AliasCode_3",
             "standardCode": {
-              "codeId": "Code_68",
+              "codeId": "Code_69",
               "code": "C28421",
               "codeSystem": "NCI Thesaurus",
               "codeSystemVersion": "",
@@ -1103,7 +1121,7 @@
                   "responseCodeId": "ResponseCode_4",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_74",
+                    "codeId": "Code_75",
                     "code": "C17998",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1114,7 +1132,7 @@
               "bcPropertyConceptCode": {
                 "aliasCodeId": "AliasCode_6",
                 "standardCode": {
-                  "codeId": "Code_75",
+                  "codeId": "Code_76",
                   "code": "C17049",
                   "codeSystem": "NCI Thesaurus",
                   "codeSystemVersion": "",
@@ -1127,7 +1145,7 @@
           "bcConceptCode": {
             "aliasCodeId": "AliasCode_5",
             "standardCode": {
-              "codeId": "Code_73",
+              "codeId": "Code_74",
               "code": "C17049",
               "codeSystem": "NCI Thesaurus",
               "codeSystemVersion": "",
@@ -1154,7 +1172,7 @@
               "bcPropertyConceptCode": {
                 "aliasCodeId": "AliasCode_8",
                 "standardCode": {
-                  "codeId": "Code_77",
+                  "codeId": "Code_78",
                   "code": "C173522",
                   "codeSystem": "NCI Thesaurus",
                   "codeSystemVersion": "",
@@ -1174,7 +1192,7 @@
                   "responseCodeId": "ResponseCode_5",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_78",
+                    "codeId": "Code_79",
                     "code": "C28252",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1185,7 +1203,7 @@
                   "responseCodeId": "ResponseCode_6",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_79",
+                    "codeId": "Code_80",
                     "code": "C48155",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1196,7 +1214,7 @@
                   "responseCodeId": "ResponseCode_7",
                   "responseCodeEnabled": true,
                   "code": {
-                    "codeId": "Code_80",
+                    "codeId": "Code_81",
                     "code": "C48531",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2022-12-16",
@@ -1207,7 +1225,7 @@
               "bcPropertyConceptCode": {
                 "aliasCodeId": "AliasCode_9",
                 "standardCode": {
-                  "codeId": "Code_81",
+                  "codeId": "Code_82",
                   "code": "C48208",
                   "codeSystem": "NCI Thesaurus",
                   "codeSystemVersion": "",
@@ -1220,7 +1238,7 @@
           "bcConceptCode": {
             "aliasCodeId": "AliasCode_7",
             "standardCode": {
-              "codeId": "Code_76",
+              "codeId": "Code_77",
               "code": "C81328",
               "codeSystem": "NCI Thesaurus",
               "codeSystemVersion": "",
@@ -1245,7 +1263,7 @@
           "studyArmName": "Active",
           "studyArmDescription": "Active Substance",
           "studyArmType": {
-            "codeId": "Code_28",
+            "codeId": "Code_29",
             "code": "C174267",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1253,7 +1271,7 @@
           },
           "studyArmDataOriginDescription": "Data collected from subjects",
           "studyArmDataOriginType": {
-            "codeId": "Code_29",
+            "codeId": "Code_30",
             "code": "C188866",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1265,7 +1283,7 @@
           "studyArmName": "Placebo",
           "studyArmDescription": "Placebo",
           "studyArmType": {
-            "codeId": "Code_30",
+            "codeId": "Code_31",
             "code": "C174268",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1273,7 +1291,7 @@
           },
           "studyArmDataOriginDescription": "Data collected from subjects",
           "studyArmDataOriginType": {
-            "codeId": "Code_31",
+            "codeId": "Code_32",
             "code": "C188866",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1287,7 +1305,7 @@
           "studyEpochName": "Screening",
           "studyEpochDescription": "Screening Epoch",
           "studyEpochType": {
-            "codeId": "Code_32",
+            "codeId": "Code_33",
             "code": "C48262",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1301,7 +1319,7 @@
           "studyEpochName": "Baseline",
           "studyEpochDescription": "Baseline Epoch",
           "studyEpochType": {
-            "codeId": "Code_33",
+            "codeId": "Code_34",
             "code": "C125938",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1315,7 +1333,7 @@
           "studyEpochName": "Treatment",
           "studyEpochDescription": "Treatment Epoch",
           "studyEpochType": {
-            "codeId": "Code_34",
+            "codeId": "Code_35",
             "code": "C101526",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
@@ -1329,7 +1347,7 @@
           "studyEpochName": "Follow-Up",
           "studyEpochDescription": "Follow-up Epoch",
           "studyEpochType": {
-            "codeId": "Code_35",
+            "codeId": "Code_36",
             "code": "C99158",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
