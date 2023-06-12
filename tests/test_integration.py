@@ -1,27 +1,50 @@
 import json
+import csv
 from src.usdm_excel import USDMExcel
+
+SAVE_ALL = False
+
+def save_error_csv(file, contents):
+  writer = csv.DictWriter(file, fieldnames=list(contents[0].keys()))
+  writer.writeheader()
+  writer.writerows(contents)
+
+def read_error_csv(file):
+  reader = csv.DictReader(file)
+  items = list(reader)
+  for item in items:
+    item['row'] = int(item['row'])
+    item['column'] = int(item['column'])
+  return items
 
 def run_test(filename, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result = excel.to_json()
+  errors = excel.errors()
 
   # Useful if you want to see the results.
-  if save:
+  if save or SAVE_ALL:
     with open(f"tests/integration_test_files/{filename}.json", 'w', encoding='utf-8') as f:
       f.write(json.dumps(json.loads(result), indent=2))
+    with open(f"tests/integration_test_files/{filename}_errors.csv", 'w',newline='') as f:
+      save_error_csv(f, errors) 
   
   with open(f"tests/integration_test_files/{filename}.json", 'r') as f:
     expected = json.dumps(json.load(f)) # Odd, but doing it for consistency of processing
   assert result == expected
+  with open(f"tests/integration_test_files/{filename}_errors.csv", 'r') as f:
+    expected = read_error_csv(f)
+  assert errors == expected
 
 def run_test_ne(filename, save=False):
   result = {}
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result['n'], result['e'] = excel.to_nodes_and_edges()
+  errors = excel.errors()
   for type in ['n', 'e']:
 
     # Useful if you want to see the results.
-    if save:
+    if save or SAVE_ALL:
       with open(f"tests/integration_test_files/{filename}_{type}.json", 'w', encoding='utf-8') as f:
         f.write(json.dumps(result[type], indent=2))
     
@@ -54,7 +77,7 @@ def test_complex_1_ne():
   run_test_ne('complex_1')
 
 def test_complex_1():
-  run_test('arms_epochs', True)
+  run_test('arms_epochs')
 
 def test_complex_1_ne():
-  run_test_ne('arms_epochs', True)
+  run_test_ne('arms_epochs')
