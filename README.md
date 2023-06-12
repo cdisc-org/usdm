@@ -61,7 +61,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Elements sheet
 - Configuration sheet
 
-The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/sprint-11/Deliverables/IG/examples). *Note: the link above points to the sprint 11 branch. This will be merged into the main branch prior to public review.*
+The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/main/Deliverables/IG/examples).
 
 ### CDISC Terminology
 
@@ -84,6 +84,21 @@ For boolean fields the following can be used to indicate a `true` value `'Y', 'Y
 Some content defined within the sheets contain unique identifiers such that the content can be cross referenced in other sheets. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
 
 See the [infographic](https://github.com/data4knowledge/usdm/blob/main/docs/sheets.png) for further information.
+
+### Timing Values
+
+A number of fields specify timing values, either single relative values or ranges. These can be entered as
+a *Timing Value* of ```<value> <unit>``` or a *Timing Range* of ```<lower>..<upper> <unit>```. The unit can be entered as follows:
+
+- Years: 'Y', 'YRS', 'YR', 'YEARS', 'YEAR'
+- Months: 'MTHS', 'MTH', 'MONTHS', 'MONTH'
+- Weeks: 'W', 'WKS', 'WK', 'WEEKS', 'WEEK'
+- Days: 'D', 'DYS', 'DY', 'DAYS', 'DAY'
+- Hours: 'H', 'HRS', 'HR', 'HOURS', 'HOUR'
+- Minutes: 'M', 'MINS', 'MIN', 'MINUTES', 'MINUTE'
+- Seconds: 'S', 'SECS', 'SEC', 'SECONDS', 'SECOND'
+
+So ```3 Y```, ```3 YRS```, ```3 YR```, ```3 YEARS```, ```3 YEAR``` are all equivalent. Only a single value and unit should be entered, i.e. combination values are not supported.
 
 ### Study Sheet
 
@@ -245,9 +260,9 @@ The timing seciton consists of multiple columns starting in column D. As many co
 | 3 | First Cycle Start | The time at which the cycle starts. Should be specified. Empty if not part of a cycle | Text string |
 | 4 | Cycle Period | The cycle period. Shoudl be specified. Empty if not part of a cycle | Text string |
 | 5 | Cycle End Rule | The cycle end rule. Can be empty. Empty if not part of a cycle | Text string |
-| 6 | Timing | "Timepoint" timing.  | Text String |
-| 7 | Encounter xref | Cross reference tot he encounter in which the timepoint belongs. Can be empty | Text string |
-| 8 | Window | Timing window. Can be empty | Text string |
+| 6 | Timing | "Timepoint" timing.  | A timing string, see below |
+| 7 | Encounter xref | Cross reference to the encounter in which the timepoint belongs. Can be empty | Text string |
+| 8 | Window | Timing window. Can be empty | A *Timing Range* |
 
 The timepont timing takes the form defined as follows (using pseudo BNF). 
 
@@ -255,11 +270,11 @@ The timepont timing takes the form defined as follows (using pseudo BNF).
 <entry> ::= <type> [<count>] : [<relative timing>]
 <type> ::= N | P| A | C
 <count> ::= any positive integer (will default to 1)
-<relative timing> ::= string
+<relative timing> ::= A single Timing Value
 ```
 N = Next, P = Previous, A = Anchor and C = Cycle Start. The count when used with N or P indicates a relative to the Nth next or previous timepoint. When not specificed it defaults to 1.
 
-`P2: +14 Days` indicates the timepoiint is relative to the 2nd previous timepoint by 14 days.
+`P2: +14 Days` indicates the timepoiint is relative to the 2nd previous timepoint by 14 days. A plus or minus sign can be entered but will be ignored as times are absolute.
 `N1: 1 Day` is equivalent to `N: 1 Day` and indicates the timepoiint is relative to the next timepoint by 1 day.
 `A:` is an anchor
 
