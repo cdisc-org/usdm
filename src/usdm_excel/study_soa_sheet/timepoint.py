@@ -11,6 +11,7 @@ from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDe
 class Timepoint():
   
   def __init__(self, parent, activity_names, col_index, type="", value="", cycle=None, additional=False):
+    epoch_ref = None
     self.parent = parent
     self.col_index = col_index
     if col_index == None:
@@ -30,6 +31,7 @@ class Timepoint():
     self.activity_map = {}
     self.__timepoint_type = None
     self.reference = None
+    self.timing_value = ""
     self.__window = None
     self.cycle = cycle
     if not additional:
@@ -58,7 +60,8 @@ class Timepoint():
   def _synthetic_timepoint(self, type, value, cycle):
     self.__timepoint_type = TimepointType(None, 0, 0)
     self.__timepoint_type.set_type(type, value, cycle)
-    self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + self.__timepoint_type.relative_ref
+    self.timing_value = value
+    #self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + self.__timepoint_type.relative_ref
     self.__window = WindowType(None, 0, 0)
 
   def _as_usdm(self):

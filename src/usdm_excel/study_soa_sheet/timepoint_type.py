@@ -36,10 +36,9 @@ class TimepointType():
       else:
         self._log_error(f"Could not decode the timing value, cell was empty")
     
-  def set_type(self, type, value):
+  def set_type(self, type, value, cycle):
+    #print(f"SET TYPE: T='{type}', V='{value}', C='{cycle}'")
     self.timing_type = type
-    self.relative_ref = self._get_relative_ref(value) * -1
-    self._set_text_and_encoded(timing_parts[1])
 
   def _set_text_and_encoded(self, duration):
     the_duration = duration.strip()

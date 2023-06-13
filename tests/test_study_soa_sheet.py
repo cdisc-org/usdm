@@ -24,12 +24,18 @@ def test_timepoint_type(mocker):
     (6,0,'previous', -1, "-3 hrs", "PT3H"),
   ]
   for index, test in enumerate(test_data):
-    print(f"IDX {index}")
     item = TimepointType(parent, test[0], test[1])
     assert(item.timing_type) == test[2]
     assert(item.relative_ref) == test[3]
     assert(item.description) == test[4]
     assert(item.value) == test[5]
+
+def test_synthetic_timepoint_type():
+  item = TimepointType(None, 0, 0)
+  assert(item.timing_type) == None
+  assert(item.relative_ref) == 0
+  assert(item.description) == None
+  assert(item.value) == ISO8601Duration.ZERO_DURATION
 
 def test_timepoint_type_error(mocker):
   mocked_open = mocker.mock_open(read_data="File")
