@@ -84,8 +84,8 @@ def test_arms_epochs_1():
 def test_arms_epochs_1_ne():
   run_test_ne('arms_epochs')
 
-def test_arms_epochs_1():
+def test_cycles_1():
   run_test('cycles_1')
 
-def test_arms_epochs_1_ne():
+def test_cycles_1_ne():
   run_test_ne('cycles_1')
