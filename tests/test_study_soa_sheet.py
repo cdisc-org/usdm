@@ -71,6 +71,12 @@ def test_window_type(mocker):
     assert(item.lower) == test[3]
     assert(item.upper) == test[4]
 
+def test_synthetic_window_type():
+  item = WindowType(None, 0, 0)
+  assert(item.description) == None
+  assert(item.lower) == None
+  assert(item.upper) == None
+
 def test_window_type_error(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

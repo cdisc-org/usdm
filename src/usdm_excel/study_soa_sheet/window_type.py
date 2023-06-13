@@ -4,25 +4,25 @@ from usdm_excel.iso_8601_duration import ISO8601Duration
 class WindowType():
 
   def __init__(self, parent, row_index, col_index):
-    self.__parent = parent
-    self.__row = row_index
-    self.__col = col_index
     self.description = None
     self.upper = None
     self.lower = None
-    timing_info = self.__parent.read_cell(row_index, col_index)
-    if timing_info:
-      self.description = timing_info.strip()
-      match = re.match(r"(?P<lower>[+|-]*\d+)\s*\.\.\s*(?P<upper>[+|-]*\d+) \s*(?P<units>.+)", self.description)
-      if match is not None:
-        timing_parts = match.groupdict()
-        self.lower = self._set_encoded(f"{timing_parts['lower']}{timing_parts['units']}")
-        self.upper = self._set_encoded(f"{timing_parts['upper']}{timing_parts['units']}")     
+    if parent is not None:
+      self.__parent = parent
+      self.__row = row_index
+      self.__col = col_index
+      timing_info = self.__parent.read_cell(row_index, col_index)
+      if timing_info:
+        self.description = timing_info.strip()
+        match = re.match(r"(?P<lower>[+|-]*\d+)\s*\.\.\s*(?P<upper>[+|-]*\d+) \s*(?P<units>.+)", self.description)
+        if match is not None:
+          timing_parts = match.groupdict()
+          self.lower = self._set_encoded(f"{timing_parts['lower']}{timing_parts['units']}")
+          self.upper = self._set_encoded(f"{timing_parts['upper']}{timing_parts['units']}")     
+        else:
+          self._log_error(f"Could not decode the window value, not all required parts detected in '{timing_info}'")
       else:
-        self._log_error(f"Could not decode the window value, not all required parts detected in '{timing_info}'")
-    else:
-      pass
-      #self._log_error(f"Could not decode the window value, cell was empty") # <<< Window can be empty
+        pass
  
   def _set_encoded(self, duration):
     the_duration = duration.strip()

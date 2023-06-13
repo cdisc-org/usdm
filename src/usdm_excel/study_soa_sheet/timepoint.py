@@ -30,13 +30,13 @@ class Timepoint():
     self.activity_map = {}
     self.__timepoint_type = None
     self.reference = None
-    #self.timing_type = type
-    #self.timing_value = value
     self.__window = None
     self.cycle = cycle
     if not additional:
       self._process_timepoint()
       self._add_activities(activity_names)
+    else:
+      self._synthetic_timepoint(type, value, cycle)
     self.usdm_timepoint = self._as_usdm()
     if self.has_encounter:
       encounter = cross_references.get(self.encounter_xref)
@@ -54,6 +54,12 @@ class Timepoint():
     self.__timepoint_type = TimepointType(self.parent, SoAColumnRows.TIMING_ROW, self.col_index)
     self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + self.__timepoint_type.relative_ref
     self.__window = WindowType(self.parent, SoAColumnRows.VISIT_WINDOW_ROW, self.col_index)
+
+  def _synthetic_timepoint(self, type, value, cycle):
+    self.__timepoint_type = TimepointType(None, 0, 0)
+    self.__timepoint_type.set_type(type, value, cycle)
+    self.reference = self.col_index - SoAColumnRows.FIRST_VISIT_COL + self.__timepoint_type.relative_ref
+    self.__window = WindowType(None, 0, 0)
 
   def _as_usdm(self):
     instance = None

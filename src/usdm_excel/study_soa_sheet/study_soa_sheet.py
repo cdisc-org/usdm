@@ -62,6 +62,7 @@ class StudySoASheet(BaseSheet):
 
     except Exception as e:
       print(f"Exception [{e}] raised reading sheet")
+      print(f"{traceback.format_exc()}")
       self._general_error(f"Exception [{e}] raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 
