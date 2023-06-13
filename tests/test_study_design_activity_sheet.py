@@ -59,7 +59,6 @@ def test_read_cell_by_name_error(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription'])
   activities = StudyDesignActivitySheet("")
   mock_error.assert_called()
-  print(call_parameters)
   assert call_parameters == [
     ("studyDesignActivities", 1, -1, "Error ('activityIsConditional') reading cell", 10),
     ("studyDesignActivities", 1, -1, "Error ('activityIsConditionalReason') reading cell", 10),

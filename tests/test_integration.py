@@ -18,17 +18,14 @@ def read_error_csv(file):
   return items
 
 def run_test(filename, save=False):
-  print(f"RUN: S={save}")
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result = excel.to_json()
   errors = excel.errors()
 
   # Useful if you want to see the results.
-  print(f"ERRORS: S={save} E={errors}")
   if save or SAVE_ALL:
     with open(f"tests/integration_test_files/{filename}.json", 'w', encoding='utf-8') as f:
       f.write(json.dumps(json.loads(result), indent=2))
-    print(f"ERRORS: {errors}")
     with open(f"tests/integration_test_files/{filename}_errors.csv", 'w',newline='') as f:
       save_error_csv(f, errors) 
   

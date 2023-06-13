@@ -4,7 +4,6 @@ import enum
 import datetime
 
 def _serialize_as_json(obj):
-  #print("OBJ:", type(obj))
   if isinstance(obj, enum.Enum):
     return obj.value
   elif isinstance(obj, datetime.date):

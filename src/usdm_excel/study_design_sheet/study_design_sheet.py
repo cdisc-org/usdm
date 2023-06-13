@@ -50,7 +50,6 @@ class StudyDesignSheet(BaseSheet):
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
-      print(f"{traceback.format_exc()}")
 
   def process_sheet(self):
     for rindex, row in self.sheet.iterrows():

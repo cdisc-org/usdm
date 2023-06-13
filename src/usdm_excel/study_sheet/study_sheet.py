@@ -152,7 +152,6 @@ class StudySheet(BaseSheet):
         self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TA_ROW:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
-        #print("8", self.therapeutic_areas)
       elif rindex >= self.PROTOCOL_DATA_ROW:
         record = {}
         for cindex in range(0, len(self.sheet.columns)):
