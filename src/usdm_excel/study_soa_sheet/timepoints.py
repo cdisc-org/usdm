@@ -2,12 +2,11 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
 from usdm_excel.id_manager import id_manager
-import pandas as pd
+#import pandas as pd
 
 class Timepoints():
   
   def __init__(self, parent):
-    #super().__init__(sheet)
     self.parent = parent
     self.items = []
     self.map = {}
@@ -32,18 +31,19 @@ class Timepoints():
         condition_instance = self.items[item.reference].usdm_timepoint
         text = item.timing_value
         if text == "":
-          text = "default, no condition set"
+          #text = "default, no condition set"
+          text = "no condition set"
         condition.conditionAssignments.append([text, condition_instance.scheduledInstanceId])
-    previous_item = None
-    for item in self.items:
-      if previous_item == None:
-        previous_item = item        
-        continue
-      previous_condition = previous_item.usdm_timepoint
-      if previous_condition.scheduledInstanceType == 'DECISION':
-        current_instance = item.usdm_timepoint
-        previous_condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
-      previous_item = item        
+    # previous_item = None
+    # for item in self.items:
+    #   if previous_item == None:
+    #     previous_item = item        
+    #     continue
+    #   previous_condition = previous_item.usdm_timepoint
+    #   if previous_condition.scheduledInstanceType == 'DECISION':
+    #     current_instance = item.usdm_timepoint
+    #     previous_condition.conditionAssignments.append(["default", current_instance.scheduledInstanceId])        
+    #   previous_item = item        
 
   def _build_timepoints(self):    
     for col_index in range(self.parent.sheet.shape[1]):
