@@ -104,7 +104,7 @@ class CDISCBiomedicalConcepts():
 
   def _bc_as_usdm(self, api_bc) -> BiomedicalConcept:
     code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
-    synonyms = api_bc['synonym'] if 'synonym' in api_bc else []
+    synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return BiomedicalConcept(
       id=id_manager.build_id(BiomedicalConcept),
       bcName=api_bc['shortName'],
