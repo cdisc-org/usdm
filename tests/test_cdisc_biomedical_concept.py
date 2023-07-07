@@ -49,7 +49,7 @@ def test__bc_as_usdm(mocker):
   data = {
     'conceptId': 'X1',
     'shortName': 'Name',
-    'synonym': ['shortie'],
+    'synonyms': ['shortie'],
     '_links': { 'self': { 'href': 'link' } }
   }
   bc = item._bc_as_usdm(data)
