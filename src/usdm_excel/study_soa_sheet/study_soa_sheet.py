@@ -55,7 +55,7 @@ class StudySoASheet(BaseSheet):
         instance.defaultConditionId = None
         instances.append(instance)
         if prev_instance is not None:
-          prev_instance.defaultConditionId = instance.scheduledInstanceId
+          prev_instance.defaultConditionId = instance.id
         prev_instance = instance
       exit = self._add_exit()
       self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
@@ -84,10 +84,10 @@ class StudySoASheet(BaseSheet):
     return ScheduleTimeline(
       id=id_manager.build_id(ScheduleTimeline),
       mainTimeline=self.main_timeline,
-      scheduleTimelineName=name,
-      scheduleTimelineDescription=description,
+      name=name,
+      description=description,
       entryCondition=condition,
-      scheduleTimelineEntryId=instances[0].scheduledInstanceId,
+      scheduleTimelineEntryId=instances[0].id,
       scheduleTimelineExits=[exit],
       scheduleTimelineInstances=instances
     )

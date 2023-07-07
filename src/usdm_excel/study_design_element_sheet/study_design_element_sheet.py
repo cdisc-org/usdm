@@ -27,14 +27,15 @@ class StudyDesignElementSheet(BaseSheet):
           end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), transitionRuleDescription=end_rule_text)
         try:
           item = StudyElement(
-            i=id_manager.build_id(StudyElement), 
-            studyElementName=name,
-            studyElementDescription=description,
+            id=id_manager.build_id(StudyElement), 
+            name=name,
+            description=description,
             transitionStartRule=start_rule,
             transitionEndRule=end_rule
           )
         except Exception as e:
           self._general_error(f"Failed to create StudyElement object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
           cross_references.add(xref, item)     

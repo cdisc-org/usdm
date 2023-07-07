@@ -17,12 +17,13 @@ class StudyDesignEpochSheet(BaseSheet):
         try:
           item = StudyEpoch(
             id=id_manager.build_id(StudyEpoch), 
-            studyEpochName=name, 
-            studyEpochDescription=description,
+            name=name, 
+            description=description,
             studyEpochType=epoch_type
           )
         except Exception as e:
           self._general_error(f"Failed to create StudyEpoch object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
           cross_references.add(name, item)     

@@ -42,15 +42,15 @@ class Timepoint():
     self.usdm_timepoint = self._as_usdm()
     if self.has_encounter:
       encounter = cross_references.get(self.encounter_xref)
-      self.usdm_timepoint.scheduledActivityInstanceEncounterId = encounter.encounterId
+      self.usdm_timepoint.scheduledActivityInstanceEncounterId = encounter.id
     if epoch_ref is not None:
-      self.usdm_timepoint.epochId = epoch_ref.studyEpochId
+      self.usdm_timepoint.epochId = epoch_ref.id
 
   def key(self):
     return self._position_key
   
   def add_activity(self, activity):
-    self.usdm_timepoint.activityIds.append(activity.usdm_activity.activityId)
+    self.usdm_timepoint.activityIds.append(activity.usdm_activity.id)
 
   def _process_timepoint(self):
     self.__timepoint_type = TimepointType(self.parent, SoAColumnRows.TIMING_ROW, self.col_index)
@@ -79,7 +79,7 @@ class Timepoint():
         epochId=None,
         activityIds=[]
       )
-      timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
+      timing.relativeFromScheduledInstanceId = instance.id
     elif self.__timepoint_type.timing_type == "condition":
       instance = ScheduledDecisionInstance(
         id=id_manager.build_id(ScheduledActivityInstance),

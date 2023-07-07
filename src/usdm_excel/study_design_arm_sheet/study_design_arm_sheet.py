@@ -19,14 +19,15 @@ class StudyDesignArmSheet(BaseSheet):
         try:
           item = StudyArm(
             id=id_manager.build_id(StudyArm), 
-            studyArmName=name,
-            studyArmDescription=description,
+            name=name,
+            description=description,
             studyArmType=arm_type,
             studyArmDataOriginDescription=arm_origin_description,
             studyArmDataOriginType=arm_origin_type
           )
         except Exception as e:
           self._general_error(f"Failed to create StudyArm object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
           cross_references.add(name, item)     

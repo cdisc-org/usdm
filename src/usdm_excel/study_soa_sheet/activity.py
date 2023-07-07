@@ -30,7 +30,7 @@ class Activity():
         self.usdm_biomedical_concepts.append(full_bc)
       else:
         surrogate = self._to_bc_surrogates(bc)
-        surrogate_bc_items.append(surrogate.bcSurrogateId)
+        surrogate_bc_items.append(surrogate.id)
         self.usdm_biomedical_concept_surrogates.append(surrogate)
     timelineId = ""
     if len(self._tls) > 0:
@@ -45,8 +45,8 @@ class Activity():
     if activity is None:
       return USDMActivity(
         id=id_manager.build_id(Activity),
-        activityName=self.name,
-        activityDescription=self.name,
+        name=self.name,
+        description=self.name,
         definedProcedures=procedures,
         activityIsConditional=False,
         activityIsConditionalReason="",
@@ -65,8 +65,8 @@ class Activity():
   def _to_bc_surrogates(self, name):
     return BiomedicalConceptSurrogate(
       id=id_manager.build_id(BiomedicalConceptSurrogate),
-      bcSurrogateName=name,
-      bcSurrogateDescription=name,
+      name=name,
+      description=name,
       bcSurrogateReference=''
     )
   

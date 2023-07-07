@@ -96,15 +96,15 @@ class StudyDesignSheet(BaseSheet):
               for name in element_names:
                 element = self._add_element(name)
                 if element is not None:
-                  cell_elements.append(element.studyElementId)
-              cell_arm = resolved_arms[arm_index].studyArmId
-              cell_epoch = resolved_epochs[epoch_index].studyEpochId
+                  cell_elements.append(element.id)
+              cell_arm = resolved_arms[arm_index].id
+              cell_epoch = resolved_epochs[epoch_index].id
               if cell_arm is not None and cell_epoch is not None:
                 self.cells.append(self._add_cell(arm=cell_arm, epoch=cell_epoch, elements=cell_elements))
               else:
                 self._general_error(f"Cannot resolve arm and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
               
-    self.double_link(self.epochs, 'studyEpochId', 'previousStudyEpochId', 'nextStudyEpochId')
+    self.double_link(self.epochs, 'id', 'previousStudyEpochId', 'nextStudyEpochId')
 
     study_design = self._add_design(
       name=self.name,
@@ -165,8 +165,8 @@ class StudyDesignSheet(BaseSheet):
   def _add_design(self, name, description, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
     return StudyDesign(
       id=id_manager.build_id(StudyDesign), 
-      studyDesignName=name,
-      studyDesignDescription=description,
+      name=name,
+      description=description,
       trialIntentTypes=intent_types,
       trialType=trial_types,
       interventionModel=intervention_model,

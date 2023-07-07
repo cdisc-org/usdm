@@ -33,6 +33,7 @@ class StudyIdentifiersSheet(BaseSheet):
         )
       except Exception as e:
         self._general_error(f"Failed to create Organisation object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
       else:
         try:
           self.identifiers.append(StudyIdentifier(
@@ -42,6 +43,7 @@ class StudyIdentifiersSheet(BaseSheet):
           )
         except Exception as e:
           self._general_error(f"Failed to create StudyIdentifier object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
     
   def _build_address(self, row_index):
     field_name = 'organisationAddress'
@@ -73,8 +75,9 @@ class StudyIdentifiersSheet(BaseSheet):
     text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
     text = text.replace(' ,', '')
     try:
-      result = Address(addressId=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
+      result = Address(id=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
     except Exception as e:
       self._general_error(f"Failed to create Address object, exception {e}")
+      self._traceback(f"{traceback.format_exc()}")
       result = None
     return result

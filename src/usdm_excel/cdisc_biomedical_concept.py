@@ -76,10 +76,14 @@ class CDISCBiomedicalConcepts():
   def _get_package_metadata(self) -> dict:
     api_url = self._url('/mdr/bc/packages')
     package_logger.info("CDISC BC Library: %s" % api_url)
-    raw = requests.get(api_url, headers=self.headers)
-    response = raw.json()
-    packages = response['_links']['packages']
-    return packages
+    try:
+      raw = requests.get(api_url, headers=self.headers)
+      response = raw.json()
+      packages = response['_links']['packages']
+      return packages
+    except:
+      package_logger.info("CDISC BC Library FAILED: %s" % api_url)
+      return {}
 
   def _get_package_items(self) -> dict:
     results = {}

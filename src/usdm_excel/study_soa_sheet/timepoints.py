@@ -29,7 +29,7 @@ class Timepoints():
         text = item.timing_value
         if text == "":
           text = "no condition set"
-        condition.conditionAssignments.append([text, condition_instance.scheduledInstanceId])
+        condition.conditionAssignments.append([text, condition_instance.id])
 
   def _build_timepoints(self):    
     for col_index in range(self.parent.sheet.shape[1]):
@@ -53,4 +53,4 @@ class Timepoints():
       if from_timing_type == "ANCHOR":
         continue
       to_instance = self.items[item.reference].usdm_timepoint
-      from_timing.relativeToScheduledInstanceId = to_instance.scheduledInstanceId
+      from_timing.relativeToScheduledInstanceId = to_instance.id

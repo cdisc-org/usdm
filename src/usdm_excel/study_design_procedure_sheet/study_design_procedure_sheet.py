@@ -20,16 +20,17 @@ class StudyDesignProcedureSheet(BaseSheet):
         conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
         reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
         try:
-          item = Procedure(i=id_manager.build_id(Procedure),
-            procedureName=name,
-            procedureDescription=description,
+          item = Procedure(id=id_manager.build_id(Procedure),
+            name=name,
+            description=description,
             procedureType=type, 
             procedureCode=code, 
             procedureIsConditional=conditional, 
             procedureIsConditionalReason=reason
           )
-        except:
+        except Exception as e:
           self._general_error(f"Failed to create Procedure object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
         else:
           self.procedures.append(item)
           cross_references.add(xref, item)        

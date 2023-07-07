@@ -1,3 +1,4 @@
+from pydantic import BaseModel
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
@@ -23,7 +24,7 @@ import traceback
 import pandas as pd
 import datetime
 
-class SDRRoot(ApiBaseModel):
+class SDRRoot(BaseModel):
   clinicalStudy: Study
 
 class StudySheet(BaseSheet):
@@ -114,6 +115,7 @@ class StudySheet(BaseSheet):
         )
       except:
         self._general_error(f"Failed to create Study object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
@@ -164,7 +166,7 @@ class StudySheet(BaseSheet):
           else:
             cell = self.read_cell(rindex, cindex)
             record[field] = cell
-        record['studyProtocolVersionId'] = id_manager.build_id(StudyProtocolVersion)
+        record['id'] = id_manager.build_id(StudyProtocolVersion)
         spv = StudyProtocolVersion(**record)
         self.protocols.append(spv)
   

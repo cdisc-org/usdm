@@ -30,8 +30,8 @@ class StudyDesignEncounterSheet(BaseSheet):
         try:
           item = Encounter(
             id=id_manager.build_id(Encounter), 
-            encounterName=name,
-            encounterDescription=description,
+            name=name,
+            description=description,
             encounterType=type, 
             encounterEnvironmentalSetting=setting,
             encounterContactModes=modes,
@@ -40,10 +40,11 @@ class StudyDesignEncounterSheet(BaseSheet):
           )
         except Exception as e:
           self._general_error(f"Failed to create Encounter object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
           cross_references.add(xref, item)     
-      self.double_link(self.items, 'encounterId', 'previousEncounterId', 'nextEncounterId')   
+      self.double_link(self.items, 'id', 'previousEncounterId', 'nextEncounterId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
