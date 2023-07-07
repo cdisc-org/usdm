@@ -1,10 +1,10 @@
 from datetime import date
 from typing import Union
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiIdModel
 from .code import Code
 from uuid import UUID
 
-class StudyProtocolVersion(ApiBaseModel):
+class StudyProtocolVersion(ApiIdModel):
   briefTitle: str
   officialTitle: str
   publicTitle: str

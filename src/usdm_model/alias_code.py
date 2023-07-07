@@ -1,9 +1,9 @@
 from typing import List
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiIdModel
 from .code import Code
 
 from uuid import UUID
 
-class AliasCode(ApiBaseModel):
+class AliasCode(ApiIdModel):
   standardCode: Code
   standardCodeAliases: List[Code] = []

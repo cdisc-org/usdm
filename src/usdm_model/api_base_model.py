@@ -23,7 +23,7 @@ def _serialize_as_json_with_type(obj):
     result['_type'] = obj.__class__.__name__
     return result
 
-class CoreModel(BaseModel):
+class ApiBaseModel(BaseModel):
 
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
@@ -31,11 +31,11 @@ class CoreModel(BaseModel):
   def to_json_with_type(self):
     return json.dumps(self, default=_serialize_as_json_with_type)
 
-class ApiBaseModel(CoreModel):
+class ApiIdModel(ApiBaseModel):
 
   id: str
 
-class ApiNameDescriptionModel(ApiBaseModel):
+class ApiNameDescriptionModel(ApiIdModel):
 
   name: str
   description: Union[str, None] = None

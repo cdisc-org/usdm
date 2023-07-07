@@ -1,9 +1,9 @@
 from typing import Union
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiIdModel
 from .code import Code
 from .address import Address
 
-class Organisation(ApiBaseModel):
+class Organisation(ApiIdModel):
   organisationIdentifierScheme: str
   organisationIdentifier: str
   organisationName: str

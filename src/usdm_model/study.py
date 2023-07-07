@@ -8,7 +8,7 @@ from .study_design import *
 from uuid import UUID
 
 class Study(CoreModel):
-  studyId: Union[UUID, None] = None
+  uuid: Union[UUID, None] = None
   studyTitle: str
   studyVersion: str
   studyType: Union[genericCode, None] = None

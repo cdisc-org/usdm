@@ -17,7 +17,7 @@ from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.option_manager import *
-from usdm_model.api_base_model import ApiBaseModel
+from usdm_model.api_base_model import ApiIdModel
 from usdm_model.study import Study
 from usdm_model.study_protocol_version import StudyProtocolVersion
 import traceback

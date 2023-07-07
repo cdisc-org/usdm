@@ -1,9 +1,9 @@
 from typing import List
 from pydantic import NonNegativeInt
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiIdModel
 from .code import Code
 
-class StudyDesignPopulation(ApiBaseModel):
+class StudyDesignPopulation(ApiIdModel):
   populationDescription: str
   plannedNumberOfParticipants: NonNegativeInt
   plannedMaximumAgeOfParticipants: str  

@@ -1,4 +1,4 @@
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiIdModel
 
-class AnalysisPopulation(ApiBaseModel):
+class AnalysisPopulation(ApiIdModel):
   populationDescription: str
