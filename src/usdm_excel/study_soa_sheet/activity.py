@@ -26,7 +26,7 @@ class Activity():
     for bc in self._bcs:
       if cdisc_bc_library.exists(bc):
         full_bc = cdisc_bc_library.usdm(bc)
-        full_bc_items.append(full_bc.biomedicalConceptId)
+        full_bc_items.append(full_bc.id)
         self.usdm_biomedical_concepts.append(full_bc)
       else:
         surrogate = self._to_bc_surrogates(bc)

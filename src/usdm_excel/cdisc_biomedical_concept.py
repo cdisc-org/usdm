@@ -13,7 +13,7 @@ from usdm_excel.logger import package_logger
 
 class CDISCBiomedicalConcepts():
 
-  API_ROOT = 'https://api.library.cdisc.org/api'    
+  API_ROOT = 'https://api.library.cdisc.org/api/cosmos/v2'    
   
   def __init__(self):
     self.api_key = os.getenv('CDISC_API_KEY')
@@ -87,15 +87,18 @@ class CDISCBiomedicalConcepts():
 
   def _get_package_items(self) -> dict:
     results = {}
-    for package in self.package_metadata:
-      api_url = self._url(package['href'])
-      package_logger.info("CDISC BC Library: %s" % api_url)
-      raw = requests.get(api_url, headers=self.headers)
-      response = raw.json()
-      for item in response['_links']['biomedicalConcepts']:
-        results[item['title'].upper()] = item
-    return results
-    
+    try:
+      for package in self.package_metadata:
+        api_url = self._url(package['href']) 
+        package_logger.info("CDISC BC Library: %s" % api_url)
+        raw = requests.get(api_url, headers=self.headers)
+        response = raw.json()
+        for item in response['_links']['biomedicalConcepts']:
+          results[item['title'].upper()] = item
+      return results
+    except:
+      results = {}
+
   def _url(self, relative_url) -> str:
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
 
