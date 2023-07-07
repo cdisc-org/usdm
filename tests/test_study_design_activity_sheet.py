@@ -15,7 +15,7 @@ def test_create(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = [['Activity 1', 'Activity One', '', ''], ['Activity 2', 'Activity Two', 'T', 'Condition 2'], ['Activity 3', 'Activity Three', 'F', '']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'activityIsConditional', 'activityIsConditionalReason'])
+  mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription', 'activityIsConditional', 'activityIsConditionalReason'])
   activities = StudyDesignActivitySheet("")
   assert len(activities.items) == 3
   assert activities.items[0].id == 'ActivityId_1'
