@@ -101,7 +101,7 @@ class StudySheet(BaseSheet):
 
       try:
         self.study = Study(
-          studyId=None, # No Id, will be allocated a UUID
+          uuid=None, # No Id, will be allocated a UUID
           studyTitle=self.title,
           studyVersion=self.version,
           studyType=self.type,
