@@ -31,7 +31,7 @@ class StudyDesignActivitySheet(BaseSheet):
           else:
             self.items.append(item)
             cross_references.add(name, item)     
-        self.double_link(self.items, 'activityId', 'previousActivityId', 'nextActivityId')   
+        self.double_link(self.items, 'previousActivityId', 'nextActivityId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

@@ -104,7 +104,7 @@ class StudyDesignSheet(BaseSheet):
               else:
                 self._general_error(f"Cannot resolve arm and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
               
-    self.double_link(self.epochs, 'id', 'previousStudyEpochId', 'nextStudyEpochId')
+    self.double_link(self.epochs, 'previousStudyEpochId', 'nextStudyEpochId')
 
     study_design = self._add_design(
       name=self.name,

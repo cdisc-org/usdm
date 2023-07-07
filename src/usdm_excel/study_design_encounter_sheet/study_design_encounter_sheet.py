@@ -44,7 +44,7 @@ class StudyDesignEncounterSheet(BaseSheet):
         else:
           self.items.append(item)
           cross_references.add(xref, item)     
-      self.double_link(self.items, 'id', 'previousEncounterId', 'nextEncounterId')   
+      self.double_link(self.items, 'previousEncounterId', 'nextEncounterId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

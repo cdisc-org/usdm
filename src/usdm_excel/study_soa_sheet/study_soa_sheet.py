@@ -47,7 +47,7 @@ class StudySoASheet(BaseSheet):
         self.activities.append(item.usdm_activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
         self.biomedical_concepts += item.usdm_biomedical_concepts
-      self.double_link(self.activities, 'activityId', 'previousActivityId', 'nextActivityId')
+      self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
       
       prev_instance = None
       for raw_timepoint in self._raw_timepoints.items:

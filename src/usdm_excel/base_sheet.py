@@ -174,7 +174,7 @@ class BaseSheet():
         self._error(row_index, col_index, f"CDISC CT not found for value '{item.strip()}'.")
     return result
 
-  def double_link(self, items, id, prev, next):
+  def double_link(self, items, prev, next):
     try: 
       for idx, item in enumerate(items):
         if idx == 0:
@@ -183,7 +183,7 @@ class BaseSheet():
           else:
             setattr(item, prev, None)
         else:
-          the_id = getattr(items[idx-1], id)
+          the_id = getattr(items[idx-1], 'id')
           setattr(item, prev, the_id)
         if idx == len(items)-1:  
           if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
@@ -191,7 +191,7 @@ class BaseSheet():
           else:
             setattr(item, next, None)
         else:
-          the_id = getattr(items[idx+1], id)
+          the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
     except:
       print(f"ITEMS: {items}")
