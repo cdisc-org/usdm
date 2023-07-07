@@ -56,7 +56,7 @@ def test_read_cell_by_name_error(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = [['Activity 1', 'Activity One']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description'])
+  mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription'])
   activities = StudyDesignActivitySheet("")
   mock_error.assert_called()
   assert call_parameters == [
