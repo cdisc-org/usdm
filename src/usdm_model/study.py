@@ -8,7 +8,7 @@ from .study_design import *
 from uuid import UUID
 
 class Study(ApiBaseModel):
-  uuid: Union[UUID, None] = None
+  id: Union[UUID, None] = None
   studyTitle: str
   studyVersion: str
   studyType: Union[genericCode, None] = None

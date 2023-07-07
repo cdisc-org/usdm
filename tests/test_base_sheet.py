@@ -208,7 +208,7 @@ def test_read_other_code_cell_mutiple():
   assert 0
 
 def test_read_cdisc_klass_attribute_cell_by_name(mocker):
-  expected = Code(codeId='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
+  expected = Code(id='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected, None]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -233,7 +233,7 @@ def test_read_cdisc_klass_attribute_cell_by_name(mocker):
       assert mock_error.call_args[0][3] == test[6]
 
 def test_read_cdisc_klass_attribute_cell(mocker):
-  expected = Code(codeId='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
+  expected = Code(id='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected, None]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -262,8 +262,8 @@ def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
   assert 0
   
 def test_read_cdisc_klass_attribute_cell_multiple(mocker):
-  expected_1 = Code(codeId='CodeX1', code='code1', codeSystem='codesys', codeSystemVersion='3', decode="label1")
-  expected_2 = Code(codeId='CodeX2', code='code2', codeSystem='codesys', codeSystemVersion='3', decode="label2")
+  expected_1 = Code(id='CodeX1', code='code1', codeSystem='codesys', codeSystemVersion='3', decode="label1")
+  expected_2 = Code(id='CodeX2', code='code2', codeSystem='codesys', codeSystemVersion='3', decode="label2")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, None]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -288,8 +288,8 @@ def test_read_cdisc_klass_attribute_cell_multiple(mocker):
       assert mock_error.call_args[0][3] == test[6]
 
 def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
-  expected_1 = Code(codeId='CodeX1', code='code1', codeSystem='codesys', codeSystemVersion='3', decode="label1")
-  expected_2 = Code(codeId='CodeX2', code='code2', codeSystem='codesys', codeSystemVersion='3', decode="label2")
+  expected_1 = Code(id='CodeX1', code='code1', codeSystem='codesys', codeSystemVersion='3', decode="label1")
+  expected_2 = Code(id='CodeX2', code='code2', codeSystem='codesys', codeSystemVersion='3', decode="label2")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, None]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -314,7 +314,7 @@ def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
       assert mock_error.call_args[0][3] == test[6]
 
 def test__decode_other_cell(mocker):
-  expected = Code(codeId='Code_1', code='c', codeSystem='a', codeSystemVersion='3', decode="d")
+  expected = Code(id='Code_1', code='c', codeSystem='a', codeSystemVersion='3', decode="d")
   mock_version = mocker.patch("usdm_excel.ct_version_manager.get")
   mock_version.side_effect=['3']
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")

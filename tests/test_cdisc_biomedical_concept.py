@@ -53,12 +53,12 @@ def test__bc_as_usdm(mocker):
     '_links': { 'self': { 'href': 'link' } }
   }
   bc = item._bc_as_usdm(data)
-  assert(bc.biomedicalConceptId) == 'BC_1'
+  assert(bc.id) == 'BC_1'
   assert(bc.bcName) == 'Name'
   assert(bc.bcSynonyms) == ['shortie']
   assert(bc.bcReference) == 'link'
-  assert(bc.bcConceptCode.aliasCodeId) == 'A1'
-  assert(bc.bcConceptCode.standardCode.codeId) == 'C1'
+  assert(bc.bcConceptCode.id) == 'A1'
+  assert(bc.bcConceptCode.standardCode.id) == 'C1'
   assert(bc.bcConceptCode.standardCode.code) == 'X1'
   assert(bc.bcConceptCode.standardCode.decode) == 'Name'
   assert(bc.bcConceptCode.standardCode.codeSystem) == "NCI Thesaurus"
@@ -70,7 +70,7 @@ def test__bc_as_usdm(mocker):
     '_links': { 'self': { 'href': 'link' } }
   }
   bc = item._bc_as_usdm(data)
-  assert(bc.biomedicalConceptId) == 'BC_2'
+  assert(bc.id) == 'BC_2'
   assert(bc.bcName) == 'Name1'
   assert(bc.bcSynonyms) == []
 

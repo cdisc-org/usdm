@@ -68,7 +68,7 @@ class StudySheet(BaseSheet):
       for timeline in self.study_design.other_timelines:
         tl = StudySoASheet(file_path, timeline)
         self.timelines[timeline] = tl
-        cross_references.add(timeline, tl.timeline.scheduleTimelineId)
+        cross_references.add(timeline, tl.timeline.id)
       self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
@@ -101,7 +101,7 @@ class StudySheet(BaseSheet):
 
       try:
         self.study = Study(
-          uuid=None, # No Id, will be allocated a UUID
+          id=None, # No Id, will be allocated a UUID
           studyTitle=self.title,
           studyVersion=self.version,
           studyType=self.type,

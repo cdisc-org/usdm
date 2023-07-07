@@ -18,22 +18,22 @@ def test_create(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['organisationIdentifierScheme', 'organisationIdentifier', 'organisationName', 'organisationType', 'studyIdentifier', 'organisationAddress'])
   mock_json = mocker.patch("json.load")
   mock_json.return_value = {}
-  expected_1 = Code(codeId='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="GBR")
-  expected_2 = Code(codeId='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
-  expected_3 = Code(codeId='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
+  expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="GBR")
+  expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
+  expected_3 = Code(id='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1, expected_2, expected_3]
   ids = StudyIdentifiersSheet("")
   assert len(ids.identifiers) == 3
-  assert ids.identifiers[0].studyIdentifierId == 'Id_1'
+  assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].studyIdentifier == 'NCT12345678'
   assert ids.identifiers[0].studyIdentifierScope.organisationName == 'ClinicalTrials.gov'
   assert ids.identifiers[0].studyIdentifierScope.organizationLegalAddress.city == 'city'
-  assert ids.identifiers[1].studyIdentifierId == 'Id_2'
+  assert ids.identifiers[1].id == 'Id_2'
   assert ids.identifiers[1].studyIdentifier == 'NCT12345679'
   assert ids.identifiers[1].studyIdentifierScope.organisationName == 'ClinicalTrials2.gov'
   assert ids.identifiers[1].studyIdentifierScope.organizationLegalAddress.city == 'city2'
-  assert ids.identifiers[2].studyIdentifierId == 'Id_3'
+  assert ids.identifiers[2].id == 'Id_3'
   assert ids.identifiers[2].studyIdentifier == 'NCT123456710'
   
 def test_create_empty(mocker):
@@ -72,7 +72,7 @@ def test_address_error(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['organisationIdentifierScheme', 'organisationIdentifier', 'organisationName', 'organisationType', 'studyIdentifier', 'organisationAddress'])
   mock_json = mocker.patch("json.load")
   mock_json.return_value = {}
-  expected_1 = Code(codeId='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="GBR")
+  expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="GBR")
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1]
   ids = StudyIdentifiersSheet("")

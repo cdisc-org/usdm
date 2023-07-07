@@ -15,19 +15,19 @@ def test_create(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = [['Activity 1', 'Activity One', '', ''], ['Activity 2', 'Activity Two', 'T', 'Condition 2'], ['Activity 3', 'Activity Three', 'F', '']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription', 'activityIsConditional', 'activityIsConditionalReason'])
+  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'activityIsConditional', 'activityIsConditionalReason'])
   activities = StudyDesignActivitySheet("")
   assert len(activities.items) == 3
-  assert activities.items[0].activityId == 'ActivityId_1'
-  assert activities.items[0].activityName == 'Activity 1'
-  assert activities.items[0].activityDescription == 'Activity One'
+  assert activities.items[0].id == 'ActivityId_1'
+  assert activities.items[0].name == 'Activity 1'
+  assert activities.items[0].description == 'Activity One'
   assert activities.items[0].activityIsConditional == False
   assert activities.items[0].activityIsConditionalReason == ''
-  assert activities.items[1].activityId == 'ActivityId_2'
-  assert activities.items[1].activityDescription == 'Activity Two'
+  assert activities.items[1].id == 'ActivityId_2'
+  assert activities.items[1].description == 'Activity Two'
   assert activities.items[1].activityIsConditional == True
   assert activities.items[1].activityIsConditionalReason == 'Condition 2'
-  assert activities.items[2].activityId == 'ActivityId_3'
+  assert activities.items[2].id == 'ActivityId_3'
   assert activities.items[2].activityIsConditional == False
   
 def test_create_empty(mocker):
@@ -56,7 +56,7 @@ def test_read_cell_by_name_error(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = [['Activity 1', 'Activity One']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription'])
+  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description'])
   activities = StudyDesignActivitySheet("")
   mock_error.assert_called()
   assert call_parameters == [

@@ -5,7 +5,7 @@ def test_code(mocker):
     mock_id.side_effect=['Code_1']
     item = NCIt()
     code = item.code(code="CODE", decode="DECODE")
-    assert code.codeId == "Code_1"
+    assert code.id == "Code_1"
     assert code.code == "CODE"
     assert code.codeSystem == "NCI Thesaurus"
     assert code.codeSystemVersion == ""

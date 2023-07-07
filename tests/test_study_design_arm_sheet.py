@@ -10,12 +10,12 @@ from src.usdm_model.code import Code
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
-  expected_1 = Code(codeId='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
-  expected_2 = Code(codeId='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
-  expected_3 = Code(codeId='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label3")
-  expected_4 = Code(codeId='Code4', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label4")
-  expected_5 = Code(codeId='Code5', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label5")
-  expected_6 = Code(codeId='Code6', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label6")
+  expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
+  expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
+  expected_3 = Code(id='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label3")
+  expected_4 = Code(id='Code4', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label4")
+  expected_5 = Code(id='Code5', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label5")
+  expected_6 = Code(id='Code6', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label6")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, expected_3, expected_4, expected_5, expected_6]
   mocked_open = mocker.mock_open(read_data="File")
@@ -25,13 +25,13 @@ def test_create(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription', 'studyArmType', 'studyArmDataOriginDescription', 'studyArmDataOriginType'])
   epochs = StudyDesignArmSheet("")
   assert len(epochs.items) == 3
-  assert epochs.items[0].studyArmId == 'ArmId_1'
-  assert epochs.items[0].studyArmName == 'Arm 1'
+  assert epochs.items[0].id == 'ArmId_1'
+  assert epochs.items[0].name == 'Arm 1'
   assert epochs.items[0].studyArmDataOriginDescription == 'Subject'
   assert epochs.items[0].studyArmDataOriginType == expected_2
-  assert epochs.items[1].studyArmId == 'ArmId_2'
-  assert epochs.items[1].studyArmDescription == 'Arm Two'
-  assert epochs.items[2].studyArmId == 'ArmId_3'
+  assert epochs.items[1].id == 'ArmId_2'
+  assert epochs.items[1].description == 'Arm Two'
+  assert epochs.items[2].id == 'ArmId_3'
   assert epochs.items[2].studyArmType == expected_5
   assert epochs.items[2].studyArmDataOriginDescription == 'ePRO'
   

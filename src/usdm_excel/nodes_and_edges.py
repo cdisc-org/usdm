@@ -50,12 +50,12 @@ class NodesAndEdges():
         'studyElementIds',
       ]
     }
-    self.fix_id_name = {
-      'scheduledActivityInstanceId': 'scheduledInstanceId',
-      'scheduledDecisionInstanceId': 'scheduledInstanceId',
-      'biomedicalConceptSurrogateId': 'bcSurrogateId',
-      'biomedicalConceptPropertyId': 'bcPropertyId'
-    }
+    # self.fix_id_name = {
+    #   'scheduledActivityInstanceId': 'scheduledInstanceId',
+    #   'scheduledDecisionInstanceId': 'scheduledInstanceId',
+    #   'biomedicalConceptSurrogateId': 'bcSurrogateId',
+    #   'biomedicalConceptPropertyId': 'bcPropertyId'
+    # }
     self.order_attributes = []
     self.ignore_klass = []
     self.collapse_klass = []
@@ -152,8 +152,8 @@ class NodesAndEdges():
     
   def _get_id_field_and_klass(self, node):
     klass = node['_type']
-    id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
-    if id_name in self.fix_id_name:
-      id_name = self.fix_id_name[id_name]
-    return id_name, klass
+    # id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
+    # if id_name in self.fix_id_name:
+    #   id_name = self.fix_id_name[id_name]
+    return 'id', klass
 

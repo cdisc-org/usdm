@@ -10,9 +10,9 @@ from src.usdm_model.code import Code
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['EpochId_1', 'EpochId_2', 'EpochId_3']
-  expected_1 = Code(codeId='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
-  expected_2 = Code(codeId='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
-  expected_3 = Code(codeId='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label3")
+  expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
+  expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
+  expected_3 = Code(id='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label3")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, expected_3]
   mocked_open = mocker.mock_open(read_data="File")
@@ -22,11 +22,11 @@ def test_create(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription', 'studyEpochType'])
   epochs = StudyDesignEpochSheet("")
   assert len(epochs.items) == 3
-  assert epochs.items[0].studyEpochId == 'EpochId_1'
-  assert epochs.items[0].studyEpochName == 'Epoch 1'
-  assert epochs.items[1].studyEpochId == 'EpochId_2'
-  assert epochs.items[1].studyEpochDescription == 'Epoch Two'
-  assert epochs.items[2].studyEpochId == 'EpochId_3'
+  assert epochs.items[0].id == 'EpochId_1'
+  assert epochs.items[0].name == 'Epoch 1'
+  assert epochs.items[1].id == 'EpochId_2'
+  assert epochs.items[1].description == 'Epoch Two'
+  assert epochs.items[2].id == 'EpochId_3'
   assert epochs.items[2].studyEpochType == expected_3
   
 def test_create_empty(mocker):
