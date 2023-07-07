@@ -52,7 +52,7 @@ def run_test_ne(filename, save=False):
     assert result[type] == expected
 
 def test_simple_1():
-  run_test('simple_1', True)
+  run_test('simple_1')
 
 def test_simple_1_ne():
   run_test_ne('simple_1')
