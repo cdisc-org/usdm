@@ -44,7 +44,7 @@ class Activity():
     activity = cross_references.get(self.name)
     if activity is None:
       return USDMActivity(
-        activityId=id_manager.build_id(Activity),
+        id=id_manager.build_id(Activity),
         activityName=self.name,
         activityDescription=self.name,
         definedProcedures=procedures,
@@ -64,7 +64,7 @@ class Activity():
   
   def _to_bc_surrogates(self, name):
     return BiomedicalConceptSurrogate(
-      bcSurrogateId=id_manager.build_id(BiomedicalConceptSurrogate),
+      id=id_manager.build_id(BiomedicalConceptSurrogate),
       bcSurrogateName=name,
       bcSurrogateDescription=name,
       bcSurrogateReference=''

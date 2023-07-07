@@ -99,7 +99,7 @@ class CDISCBiomedicalConcepts():
     code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonym'] if 'synonym' in api_bc else []
     return BiomedicalConcept(
-      biomedicalConceptId=id_manager.build_id(BiomedicalConcept),
+      id=id_manager.build_id(BiomedicalConcept),
       bcName=api_bc['shortName'],
       bcSynonyms=synonyms,
       bcReference=api_bc['_links']['self']['href'],
@@ -112,9 +112,9 @@ class CDISCBiomedicalConcepts():
     concept_aliases = []
     responses = []
     for code in codes:
-      responses.append(ResponseCode(responseCodeId=id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
+      responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
     return BiomedicalConceptProperty(
-      bcPropertyId=id_manager.build_id(BiomedicalConceptProperty),
+      id=id_manager.build_id(BiomedicalConceptProperty),
       bcPropertyName=property['shortName'],
       bcPropertyRequired=True,
       bcPropertyEnabled=True,

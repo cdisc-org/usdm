@@ -156,7 +156,7 @@ class StudyDesignSheet(BaseSheet):
 
   def _add_cell(self, arm, epoch, elements):
     return StudyCell(
-      studyCellId=id_manager.build_id(StudyCell), 
+      id=id_manager.build_id(StudyCell), 
       studyArmId=arm,
       studyEpochId=epoch,
       studyElementIds=elements
@@ -164,7 +164,7 @@ class StudyDesignSheet(BaseSheet):
 
   def _add_design(self, name, description, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
     return StudyDesign(
-      studyDesignId=id_manager.build_id(StudyDesign), 
+      id=id_manager.build_id(StudyDesign), 
       studyDesignName=name,
       studyDesignDescription=description,
       trialIntentTypes=intent_types,

@@ -23,7 +23,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         if not o_description == "":
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
           try:
-            current = Objective(objectiveId=id_manager.build_id(Objective),
+            current = Objective(id=id_manager.build_id(Objective),
               objectiveDescription=o_description, 
               objectiveLevel=o_level,
               objectiveEndpoints=[]
@@ -35,7 +35,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             cross_references.add(o_xref, current.objectiveId)
         if current is not None:
           try:
-            ep = Endpoint(endpointId=id_manager.build_id(Endpoint), 
+            ep = Endpoint(id=id_manager.build_id(Endpoint), 
               endpointDescription=e_description, 
               endpointPurposeDescription=e_p_description, 
               endpointLevel=e_level
@@ -44,7 +44,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._general_error(f"Failed to create Endpoint object, exception {e}")
           else:
             current.objectiveEndpoints.append(ep)
-            cross_references.add(e_xref, ep.endpointId)
+            cross_references.add(e_xref, ep.id)
         else:
           self._general_error("Failed to add Endpoint, no Objective set")
 

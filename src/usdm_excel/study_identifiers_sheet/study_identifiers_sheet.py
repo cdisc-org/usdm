@@ -24,7 +24,7 @@ class StudyIdentifiersSheet(BaseSheet):
       organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organisation', 'organisationType', index, 'organisationType')     
       try:
         organisation = Organisation(
-          organisationId=id_manager.build_id(Organisation),
+          id=id_manager.build_id(Organisation),
           organisationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
           organisationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
           organisationName=self.read_cell_by_name(index, 'organisationName'),
@@ -36,7 +36,7 @@ class StudyIdentifiersSheet(BaseSheet):
       else:
         try:
           self.identifiers.append(StudyIdentifier(
-            studyIdentifierId=id_manager.build_id(StudyIdentifier),
+            id=id_manager.build_id(StudyIdentifier),
             studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
             studyIdentifierScope=organisation)
           )

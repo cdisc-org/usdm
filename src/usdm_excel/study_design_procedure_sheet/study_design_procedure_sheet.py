@@ -20,7 +20,7 @@ class StudyDesignProcedureSheet(BaseSheet):
         conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
         reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
         try:
-          item = Procedure(procedureId=id_manager.build_id(Procedure),
+          item = Procedure(i=id_manager.build_id(Procedure),
             procedureName=name,
             procedureDescription=description,
             procedureType=type, 

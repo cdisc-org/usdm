@@ -69,7 +69,7 @@ class Timepoint():
     if self.__timepoint_type.timing_type in ["anchor", "next", "previous", "cycle start"]:
       timing = self._to_timing()
       instance = ScheduledActivityInstance(
-        scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
+        id=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='ACTIVITY',
         scheduleTimelineExitId=None,
         scheduledInstanceEncounterId=None,
@@ -82,7 +82,7 @@ class Timepoint():
       timing.relativeFromScheduledInstanceId = instance.scheduledInstanceId
     elif self.__timepoint_type.timing_type == "condition":
       instance = ScheduledDecisionInstance(
-        scheduledInstanceId=id_manager.build_id(ScheduledActivityInstance),
+        id=id_manager.build_id(ScheduledActivityInstance),
         scheduledInstanceType='DECISION',
         scheduleTimelineExitId=None,
         scheduledInstanceEncounterId=None,
@@ -103,7 +103,7 @@ class Timepoint():
       "CYCLE START": CDISCCT().code('C99901x3', 'Fixed Reference'),
     }
     return Timing(
-      timingId=id_manager.build_id(Timing),
+      id=id_manager.build_id(Timing),
       timingType=type_code[self.__timepoint_type.timing_type.upper()],
       timingValue=self.__timepoint_type.value,
       timingDescription=self.__timepoint_type.description,

@@ -18,7 +18,7 @@ class StudyDesignArmSheet(BaseSheet):
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, 'studyArmDataOriginType')
         try:
           item = StudyArm(
-            studyArmId=id_manager.build_id(StudyArm), 
+            id=id_manager.build_id(StudyArm), 
             studyArmName=name,
             studyArmDescription=description,
             studyArmType=arm_type,

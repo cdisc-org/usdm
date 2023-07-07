@@ -202,7 +202,7 @@ class BaseSheet():
       inner_parts = outer_parts[1].strip().split("=")
       if len(inner_parts) == 2:
         version = ct_version_manager.get(system)
-        return Code(codeId=id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
+        return Code(id=id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
       else:
         self._error(row_index, col_index, "Failed to decode code data '%s', no '=' detected" % (value))
     else:

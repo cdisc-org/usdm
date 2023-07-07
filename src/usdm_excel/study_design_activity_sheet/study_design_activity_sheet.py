@@ -19,9 +19,9 @@ class StudyDesignActivitySheet(BaseSheet):
           reason = self.read_cell_by_name(index, 'activityIsConditionalReason')
           try:
             item = Activity(
-              activityId=id_manager.build_id(Activity), 
-              activityName=name,
-              activityDescription=description,
+              id=id_manager.build_id(Activity), 
+              name=name,
+              description=description,
               activityIsConditional=conditional,
               activityIsConditionalReason=reason
             )

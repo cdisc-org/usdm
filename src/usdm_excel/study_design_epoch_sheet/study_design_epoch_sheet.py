@@ -16,7 +16,7 @@ class StudyDesignEpochSheet(BaseSheet):
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, 'studyEpochType')
         try:
           item = StudyEpoch(
-            studyEpochId=id_manager.build_id(StudyEpoch), 
+            id=id_manager.build_id(StudyEpoch), 
             studyEpochName=name, 
             studyEpochDescription=description,
             studyEpochType=epoch_type

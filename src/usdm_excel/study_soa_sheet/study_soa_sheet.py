@@ -78,11 +78,11 @@ class StudySoASheet(BaseSheet):
         pass
 
   def _add_exit(self):
-    return ScheduleTimelineExit(scheduleTimelineExitId=id_manager.build_id(ScheduleTimelineExit))
+    return ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
 
   def _add_timeline(self, name, description, condition, instances, exit):
     return ScheduleTimeline(
-      scheduleTimelineId=id_manager.build_id(ScheduleTimeline),
+      id=id_manager.build_id(ScheduleTimeline),
       mainTimeline=self.main_timeline,
       scheduleTimelineName=name,
       scheduleTimelineDescription=description,

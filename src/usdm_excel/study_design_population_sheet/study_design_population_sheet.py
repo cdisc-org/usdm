@@ -18,7 +18,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         max = self.read_cell_by_name(index, "plannedMaximumAgeOfParticipants")
         codes = self._build_codes(row, index)
         try:
-          pop = StudyDesignPopulation(studyDesignPopulationId=id_manager.build_id(StudyDesignPopulation), 
+          pop = StudyDesignPopulation(i=id_manager.build_id(StudyDesignPopulation), 
             populationDescription=description, 
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,
