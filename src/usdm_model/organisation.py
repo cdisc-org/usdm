@@ -4,7 +4,6 @@ from .code import Code
 from .address import Address
 
 class Organisation(ApiBaseModel):
-  organisationId: str
   organisationIdentifierScheme: str
   organisationIdentifier: str
   organisationName: str

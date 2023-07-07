@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Union
 import json
 import enum
 import datetime
@@ -24,9 +25,15 @@ def _serialize_as_json_with_type(obj):
 
 class ApiBaseModel(BaseModel):
 
+  id: str
+
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
 
   def to_json_with_type(self):
     return json.dumps(self, default=_serialize_as_json_with_type)
 
+class ApiNameDescriptionModel(BaseModel):
+
+  name: str
+  description: Union[str, None] = None

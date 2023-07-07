@@ -1,11 +1,8 @@
 from typing import List, Union
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiNameDescriptionModel
 from .procedure import Procedure
 
-class Activity(ApiBaseModel):
-  activityId: str
-  activityName: str
-  activityDescription: Union[str, None] = None
+class Activity(ApiNameDescriptionModel):
   previousActivityId: Union[str, None] = None
   nextActivityId: Union[str, None] = None
   definedProcedures: List[Procedure] = []

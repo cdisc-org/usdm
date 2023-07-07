@@ -1,3 +1,4 @@
+from pydantic import BaseModel
 from typing import List, Union
 from .api_base_model import ApiBaseModel
 from .study_identifier import *
@@ -7,7 +8,7 @@ from .code import Code as genericCode
 from .study_design import *
 from uuid import UUID
 
-class Study(ApiBaseModel):
+class Study(BaseModel):
   studyId: Union[UUID, None] = None
   studyTitle: str
   studyVersion: str

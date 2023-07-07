@@ -1,8 +1,4 @@
-from typing import List, Union
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiNameDescriptionModel
 
-class BiomedicalConceptSurrogate(ApiBaseModel):
-  bcSurrogateId: str
-  bcSurrogateName: str
-  bcSurrogateDescription: Union[str, None] = None
+class BiomedicalConceptSurrogate(ApiNameDescriptionModel):
   bcSurrogateReference: str

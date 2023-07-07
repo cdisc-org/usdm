@@ -5,7 +5,6 @@ from .code import Code
 from uuid import UUID
 
 class StudyProtocolVersion(ApiBaseModel):
-  studyProtocolVersionId: str
   briefTitle: str
   officialTitle: str
   publicTitle: str

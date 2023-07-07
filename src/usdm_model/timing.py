@@ -3,7 +3,6 @@ from .api_base_model import ApiBaseModel
 from .code import Code
 
 class Timing(ApiBaseModel):
-  timingId: str
   timingType: Code
   timingValue: str
   timingDescription: Union[str, None] = None

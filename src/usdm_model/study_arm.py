@@ -1,11 +1,8 @@
 from typing import Union
-from .api_base_model import ApiBaseModel
+from .api_base_model import ApiNameDescriptionModel
 from .code import Code
 
-class StudyArm(ApiBaseModel):
-  studyArmId: str
-  studyArmName: str
-  studyArmDescription: Union[str, None] = None
+class StudyArm(ApiNameDescriptionModel):
   studyArmType: Code
   studyArmDataOriginDescription: str
   studyArmDataOriginType: Code
