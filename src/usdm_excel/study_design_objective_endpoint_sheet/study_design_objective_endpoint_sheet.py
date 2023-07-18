@@ -19,6 +19,8 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         e_xref = self.read_cell_by_name(index, "endpointXref")
         e_description = self.read_description_by_name(index, 'endpointDescription')
         e_p_description = self.read_description_by_name(index, 'endpointPurposeDescription')
+        if not e_p_description:
+          e_p_description = "None provided" # Temp fix
         e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
