@@ -300,7 +300,7 @@
       "id": "Code_163",
       "code": "X",
       "codeSystem": "ICD-10",
-      "codeSystemVersion": "",
+      "codeSystemVersion": "None set",
       "decode": "Y",
       "_type": "Code",
       "label": "Code_163"
@@ -333,7 +333,7 @@
       "id": "Code_166",
       "code": "DD",
       "codeSystem": "ICD-10",
-      "codeSystemVersion": "",
+      "codeSystemVersion": "None set",
       "decode": "CC",
       "_type": "Code",
       "label": "Code_166"
@@ -361,6 +361,18 @@
     }
   },
   {
+    "id": 37,
+    "properties": {
+      "id": "Code_168",
+      "code": "C49636",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "Both",
+      "_type": "Code",
+      "label": "Code_168"
+    }
+  },
+  {
     "id": 36,
     "properties": {
       "id": "StudyDesignPopulation_1",
@@ -368,39 +380,60 @@
       "plannedNumberOfParticipants": 100,
       "plannedMaximumAgeOfParticipants": "40 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "plannedSexOfParticipants": [],
       "_type": "StudyDesignPopulation",
       "label": "StudyDesignPopulation_1"
     }
   },
   {
-    "id": 37,
+    "id": 39,
+    "properties": {
+      "id": "Code_169",
+      "code": "C20197",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "Male",
+      "_type": "Code",
+      "label": "Code_169"
+    }
+  },
+  {
+    "id": 38,
     "properties": {
       "id": "StudyDesignPopulation_2",
       "populationDescription": "Pop 2",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "60 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "plannedSexOfParticipants": [],
       "_type": "StudyDesignPopulation",
       "label": "StudyDesignPopulation_2"
     }
   },
   {
-    "id": 38,
+    "id": 41,
+    "properties": {
+      "id": "Code_170",
+      "code": "C16576",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "Female",
+      "_type": "Code",
+      "label": "Code_170"
+    }
+  },
+  {
+    "id": 40,
     "properties": {
       "id": "StudyDesignPopulation_3",
       "populationDescription": "Pop 3",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "70 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "plannedSexOfParticipants": [],
       "_type": "StudyDesignPopulation",
       "label": "StudyDesignPopulation_3"
     }
   },
   {
-    "id": 40,
+    "id": 43,
     "properties": {
       "id": "Code_172",
       "code": "C85826",
@@ -412,7 +445,7 @@
     }
   },
   {
-    "id": 42,
+    "id": 45,
     "properties": {
       "id": "Code_171",
       "code": "C94496",
@@ -424,17 +457,17 @@
     }
   },
   {
-    "id": 41,
+    "id": 44,
     "properties": {
       "id": "Endpoint_1",
       "endpointDescription": "End Desc",
-      "endpointPurposeDescription": "",
+      "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_1"
     }
   },
   {
-    "id": 39,
+    "id": 42,
     "properties": {
       "id": "Objective_1",
       "objectiveDescription": "Obj Desc",
@@ -443,7 +476,7 @@
     }
   },
   {
-    "id": 44,
+    "id": 47,
     "properties": {
       "id": "ScheduleTimelineExit_1",
       "_type": "ScheduleTimelineExit",
@@ -451,7 +484,7 @@
     }
   },
   {
-    "id": 47,
+    "id": 50,
     "properties": {
       "id": "Code_59",
       "code": "C99901x2",
@@ -463,7 +496,7 @@
     }
   },
   {
-    "id": 48,
+    "id": 51,
     "properties": {
       "id": "Code_61",
       "code": "C99900x1",
@@ -475,7 +508,7 @@
     }
   },
   {
-    "id": 46,
+    "id": 49,
     "properties": {
       "id": "Timing_1",
       "timingValue": "PT0M",
@@ -488,7 +521,7 @@
     }
   },
   {
-    "id": 45,
+    "id": 48,
     "properties": {
       "id": "ScheduledActivityInstance_1",
       "scheduledInstanceType": "ACTIVITY",
@@ -499,7 +532,7 @@
     }
   },
   {
-    "id": 51,
+    "id": 54,
     "properties": {
       "id": "Code_112",
       "code": "C99901x3",
@@ -511,7 +544,7 @@
     }
   },
   {
-    "id": 52,
+    "id": 55,
     "properties": {
       "id": "Code_116",
       "code": "C99900x1",
@@ -523,7 +556,7 @@
     }
   },
   {
-    "id": 50,
+    "id": 53,
     "properties": {
       "id": "Timing_12",
       "timingValue": "PT0M",
@@ -536,7 +569,7 @@
     }
   },
   {
-    "id": 49,
+    "id": 52,
     "properties": {
       "id": "ScheduledActivityInstance_12",
       "scheduledInstanceType": "ACTIVITY",
@@ -547,7 +580,7 @@
     }
   },
   {
-    "id": 55,
+    "id": 58,
     "properties": {
       "id": "Code_65",
       "code": "C99901x3",
@@ -559,7 +592,7 @@
     }
   },
   {
-    "id": 56,
+    "id": 59,
     "properties": {
       "id": "Code_66",
       "code": "C99900x1",
@@ -571,7 +604,7 @@
     }
   },
   {
-    "id": 54,
+    "id": 57,
     "properties": {
       "id": "Timing_2",
       "timingValue": "PT0M",
@@ -584,7 +617,7 @@
     }
   },
   {
-    "id": 53,
+    "id": 56,
     "properties": {
       "id": "ScheduledActivityInstance_2",
       "scheduledInstanceType": "ACTIVITY",
@@ -595,7 +628,7 @@
     }
   },
   {
-    "id": 59,
+    "id": 62,
     "properties": {
       "id": "Code_118",
       "code": "C99901x1",
@@ -607,7 +640,7 @@
     }
   },
   {
-    "id": 60,
+    "id": 63,
     "properties": {
       "id": "Code_121",
       "code": "C99900x1",
@@ -619,7 +652,7 @@
     }
   },
   {
-    "id": 58,
+    "id": 61,
     "properties": {
       "id": "Timing_13",
       "timingValue": "PT0M",
@@ -632,7 +665,7 @@
     }
   },
   {
-    "id": 57,
+    "id": 60,
     "properties": {
       "id": "ScheduledActivityInstance_13",
       "scheduledInstanceType": "ACTIVITY",
@@ -643,7 +676,7 @@
     }
   },
   {
-    "id": 63,
+    "id": 66,
     "properties": {
       "id": "Code_68",
       "code": "C99901x1",
@@ -655,7 +688,7 @@
     }
   },
   {
-    "id": 64,
+    "id": 67,
     "properties": {
       "id": "Code_71",
       "code": "C99900x1",
@@ -667,7 +700,7 @@
     }
   },
   {
-    "id": 62,
+    "id": 65,
     "properties": {
       "id": "Timing_3",
       "timingValue": "P14D",
@@ -680,7 +713,7 @@
     }
   },
   {
-    "id": 61,
+    "id": 64,
     "properties": {
       "id": "ScheduledActivityInstance_3",
       "scheduledInstanceType": "ACTIVITY",
@@ -691,7 +724,7 @@
     }
   },
   {
-    "id": 67,
+    "id": 70,
     "properties": {
       "id": "Code_122",
       "code": "C99901x3",
@@ -703,7 +736,7 @@
     }
   },
   {
-    "id": 68,
+    "id": 71,
     "properties": {
       "id": "Code_126",
       "code": "C99900x1",
@@ -715,7 +748,7 @@
     }
   },
   {
-    "id": 66,
+    "id": 69,
     "properties": {
       "id": "Timing_14",
       "timingValue": "PT0M",
@@ -728,7 +761,7 @@
     }
   },
   {
-    "id": 65,
+    "id": 68,
     "properties": {
       "id": "ScheduledActivityInstance_14",
       "scheduledInstanceType": "ACTIVITY",
@@ -739,7 +772,7 @@
     }
   },
   {
-    "id": 71,
+    "id": 74,
     "properties": {
       "id": "Code_75",
       "code": "C99901x3",
@@ -751,7 +784,7 @@
     }
   },
   {
-    "id": 72,
+    "id": 75,
     "properties": {
       "id": "Code_76",
       "code": "C99900x1",
@@ -763,7 +796,7 @@
     }
   },
   {
-    "id": 70,
+    "id": 73,
     "properties": {
       "id": "Timing_4",
       "timingValue": "PT0M",
@@ -776,7 +809,7 @@
     }
   },
   {
-    "id": 69,
+    "id": 72,
     "properties": {
       "id": "ScheduledActivityInstance_4",
       "scheduledInstanceType": "ACTIVITY",
@@ -787,7 +820,7 @@
     }
   },
   {
-    "id": 75,
+    "id": 78,
     "properties": {
       "id": "Code_128",
       "code": "C99901x1",
@@ -799,7 +832,7 @@
     }
   },
   {
-    "id": 76,
+    "id": 79,
     "properties": {
       "id": "Code_131",
       "code": "C99900x1",
@@ -811,7 +844,7 @@
     }
   },
   {
-    "id": 74,
+    "id": 77,
     "properties": {
       "id": "Timing_15",
       "timingValue": "PT0M",
@@ -824,7 +857,7 @@
     }
   },
   {
-    "id": 73,
+    "id": 76,
     "properties": {
       "id": "ScheduledActivityInstance_15",
       "scheduledInstanceType": "ACTIVITY",
@@ -835,7 +868,7 @@
     }
   },
   {
-    "id": 79,
+    "id": 82,
     "properties": {
       "id": "Code_78",
       "code": "C99901x1",
@@ -847,7 +880,7 @@
     }
   },
   {
-    "id": 80,
+    "id": 83,
     "properties": {
       "id": "Code_81",
       "code": "C99900x1",
@@ -859,7 +892,7 @@
     }
   },
   {
-    "id": 78,
+    "id": 81,
     "properties": {
       "id": "Timing_5",
       "timingValue": "P14D",
@@ -872,7 +905,7 @@
     }
   },
   {
-    "id": 77,
+    "id": 80,
     "properties": {
       "id": "ScheduledActivityInstance_5",
       "scheduledInstanceType": "ACTIVITY",
@@ -883,7 +916,7 @@
     }
   },
   {
-    "id": 83,
+    "id": 86,
     "properties": {
       "id": "Code_132",
       "code": "C99901x3",
@@ -895,7 +928,7 @@
     }
   },
   {
-    "id": 84,
+    "id": 87,
     "properties": {
       "id": "Code_136",
       "code": "C99900x1",
@@ -907,7 +940,7 @@
     }
   },
   {
-    "id": 82,
+    "id": 85,
     "properties": {
       "id": "Timing_16",
       "timingValue": "PT0M",
@@ -920,7 +953,7 @@
     }
   },
   {
-    "id": 81,
+    "id": 84,
     "properties": {
       "id": "ScheduledActivityInstance_16",
       "scheduledInstanceType": "ACTIVITY",
@@ -931,7 +964,7 @@
     }
   },
   {
-    "id": 87,
+    "id": 90,
     "properties": {
       "id": "Code_85",
       "code": "C99901x3",
@@ -943,7 +976,7 @@
     }
   },
   {
-    "id": 88,
+    "id": 91,
     "properties": {
       "id": "Code_86",
       "code": "C99900x1",
@@ -955,7 +988,7 @@
     }
   },
   {
-    "id": 86,
+    "id": 89,
     "properties": {
       "id": "Timing_6",
       "timingValue": "PT0M",
@@ -968,7 +1001,7 @@
     }
   },
   {
-    "id": 85,
+    "id": 88,
     "properties": {
       "id": "ScheduledActivityInstance_6",
       "scheduledInstanceType": "ACTIVITY",
@@ -979,7 +1012,7 @@
     }
   },
   {
-    "id": 91,
+    "id": 94,
     "properties": {
       "id": "Code_138",
       "code": "C99901x1",
@@ -991,7 +1024,7 @@
     }
   },
   {
-    "id": 92,
+    "id": 95,
     "properties": {
       "id": "Code_141",
       "code": "C99900x1",
@@ -1003,7 +1036,7 @@
     }
   },
   {
-    "id": 90,
+    "id": 93,
     "properties": {
       "id": "Timing_17",
       "timingValue": "PT0M",
@@ -1016,7 +1049,7 @@
     }
   },
   {
-    "id": 89,
+    "id": 92,
     "properties": {
       "id": "ScheduledActivityInstance_17",
       "scheduledInstanceType": "ACTIVITY",
@@ -1027,7 +1060,7 @@
     }
   },
   {
-    "id": 95,
+    "id": 98,
     "properties": {
       "id": "Code_88",
       "code": "C99901x1",
@@ -1039,7 +1072,7 @@
     }
   },
   {
-    "id": 96,
+    "id": 99,
     "properties": {
       "id": "Code_91",
       "code": "C99900x1",
@@ -1051,7 +1084,7 @@
     }
   },
   {
-    "id": 94,
+    "id": 97,
     "properties": {
       "id": "Timing_7",
       "timingValue": "P14D",
@@ -1064,7 +1097,7 @@
     }
   },
   {
-    "id": 93,
+    "id": 96,
     "properties": {
       "id": "ScheduledActivityInstance_7",
       "scheduledInstanceType": "ACTIVITY",
@@ -1075,7 +1108,7 @@
     }
   },
   {
-    "id": 99,
+    "id": 102,
     "properties": {
       "id": "Code_142",
       "code": "C99901x3",
@@ -1087,7 +1120,7 @@
     }
   },
   {
-    "id": 100,
+    "id": 103,
     "properties": {
       "id": "Code_146",
       "code": "C99900x1",
@@ -1099,7 +1132,7 @@
     }
   },
   {
-    "id": 98,
+    "id": 101,
     "properties": {
       "id": "Timing_18",
       "timingValue": "PT0M",
@@ -1112,7 +1145,7 @@
     }
   },
   {
-    "id": 97,
+    "id": 100,
     "properties": {
       "id": "ScheduledActivityInstance_18",
       "scheduledInstanceType": "ACTIVITY",
@@ -1123,7 +1156,7 @@
     }
   },
   {
-    "id": 103,
+    "id": 106,
     "properties": {
       "id": "Code_95",
       "code": "C99901x3",
@@ -1135,7 +1168,7 @@
     }
   },
   {
-    "id": 104,
+    "id": 107,
     "properties": {
       "id": "Code_96",
       "code": "C99900x1",
@@ -1147,7 +1180,7 @@
     }
   },
   {
-    "id": 102,
+    "id": 105,
     "properties": {
       "id": "Timing_8",
       "timingValue": "PT0M",
@@ -1160,7 +1193,7 @@
     }
   },
   {
-    "id": 101,
+    "id": 104,
     "properties": {
       "id": "ScheduledActivityInstance_8",
       "scheduledInstanceType": "ACTIVITY",
@@ -1171,7 +1204,7 @@
     }
   },
   {
-    "id": 107,
+    "id": 110,
     "properties": {
       "id": "Code_148",
       "code": "C99901x1",
@@ -1183,7 +1216,7 @@
     }
   },
   {
-    "id": 108,
+    "id": 111,
     "properties": {
       "id": "Code_151",
       "code": "C99900x1",
@@ -1195,7 +1228,7 @@
     }
   },
   {
-    "id": 106,
+    "id": 109,
     "properties": {
       "id": "Timing_19",
       "timingValue": "PT0M",
@@ -1208,7 +1241,7 @@
     }
   },
   {
-    "id": 105,
+    "id": 108,
     "properties": {
       "id": "ScheduledActivityInstance_19",
       "scheduledInstanceType": "ACTIVITY",
@@ -1219,7 +1252,7 @@
     }
   },
   {
-    "id": 109,
+    "id": 112,
     "properties": {
       "id": "ScheduledActivityInstance_20",
       "scheduledInstanceType": "DECISION",
@@ -1231,7 +1264,7 @@
     }
   },
   {
-    "id": 112,
+    "id": 115,
     "properties": {
       "id": "Code_152",
       "code": "C99901x3",
@@ -1243,7 +1276,7 @@
     }
   },
   {
-    "id": 113,
+    "id": 116,
     "properties": {
       "id": "Code_156",
       "code": "C99900x1",
@@ -1255,7 +1288,7 @@
     }
   },
   {
-    "id": 111,
+    "id": 114,
     "properties": {
       "id": "Timing_20",
       "timingValue": "PT0M",
@@ -1268,7 +1301,7 @@
     }
   },
   {
-    "id": 110,
+    "id": 113,
     "properties": {
       "id": "ScheduledActivityInstance_21",
       "scheduledInstanceType": "ACTIVITY",
@@ -1279,7 +1312,7 @@
     }
   },
   {
-    "id": 116,
+    "id": 119,
     "properties": {
       "id": "Code_100",
       "code": "C99901x3",
@@ -1291,7 +1324,7 @@
     }
   },
   {
-    "id": 117,
+    "id": 120,
     "properties": {
       "id": "Code_101",
       "code": "C99900x1",
@@ -1303,7 +1336,7 @@
     }
   },
   {
-    "id": 115,
+    "id": 118,
     "properties": {
       "id": "Timing_9",
       "timingValue": "PT0M",
@@ -1316,7 +1349,7 @@
     }
   },
   {
-    "id": 114,
+    "id": 117,
     "properties": {
       "id": "ScheduledActivityInstance_9",
       "scheduledInstanceType": "ACTIVITY",
@@ -1327,7 +1360,7 @@
     }
   },
   {
-    "id": 120,
+    "id": 123,
     "properties": {
       "id": "Code_158",
       "code": "C99901x1",
@@ -1339,7 +1372,7 @@
     }
   },
   {
-    "id": 121,
+    "id": 124,
     "properties": {
       "id": "Code_161",
       "code": "C99900x1",
@@ -1351,7 +1384,7 @@
     }
   },
   {
-    "id": 119,
+    "id": 122,
     "properties": {
       "id": "Timing_21",
       "timingValue": "PT0M",
@@ -1364,7 +1397,7 @@
     }
   },
   {
-    "id": 118,
+    "id": 121,
     "properties": {
       "id": "ScheduledActivityInstance_22",
       "scheduledInstanceType": "ACTIVITY",
@@ -1375,7 +1408,7 @@
     }
   },
   {
-    "id": 122,
+    "id": 125,
     "properties": {
       "id": "ScheduledActivityInstance_23",
       "scheduledInstanceType": "DECISION",
@@ -1387,7 +1420,7 @@
     }
   },
   {
-    "id": 125,
+    "id": 128,
     "properties": {
       "id": "Code_103",
       "code": "C99901x1",
@@ -1399,7 +1432,7 @@
     }
   },
   {
-    "id": 126,
+    "id": 129,
     "properties": {
       "id": "Code_106",
       "code": "C99900x1",
@@ -1411,7 +1444,7 @@
     }
   },
   {
-    "id": 124,
+    "id": 127,
     "properties": {
       "id": "Timing_10",
       "timingValue": "PT0M",
@@ -1424,7 +1457,7 @@
     }
   },
   {
-    "id": 123,
+    "id": 126,
     "properties": {
       "id": "ScheduledActivityInstance_10",
       "scheduledInstanceType": "ACTIVITY",
@@ -1435,7 +1468,7 @@
     }
   },
   {
-    "id": 129,
+    "id": 132,
     "properties": {
       "id": "Code_108",
       "code": "C99901x1",
@@ -1447,7 +1480,7 @@
     }
   },
   {
-    "id": 130,
+    "id": 133,
     "properties": {
       "id": "Code_111",
       "code": "C99900x1",
@@ -1459,7 +1492,7 @@
     }
   },
   {
-    "id": 128,
+    "id": 131,
     "properties": {
       "id": "Timing_11",
       "timingValue": "P12W",
@@ -1472,7 +1505,7 @@
     }
   },
   {
-    "id": 127,
+    "id": 130,
     "properties": {
       "id": "ScheduledActivityInstance_11",
       "scheduledInstanceType": "ACTIVITY",
@@ -1483,7 +1516,7 @@
     }
   },
   {
-    "id": 43,
+    "id": 46,
     "properties": {
       "id": "ScheduleTimeline_1",
       "name": "Main Timeline",
@@ -1496,7 +1529,7 @@
     }
   },
   {
-    "id": 131,
+    "id": 134,
     "properties": {
       "id": "Code_50",
       "code": "T2_DIABETES",
@@ -1508,7 +1541,7 @@
     }
   },
   {
-    "id": 132,
+    "id": 135,
     "properties": {
       "id": "Code_51",
       "code": "73211009",
@@ -1520,7 +1553,7 @@
     }
   },
   {
-    "id": 134,
+    "id": 137,
     "properties": {
       "id": "AnalysisPopulation_1",
       "populationDescription": "ITT",
@@ -1529,7 +1562,7 @@
     }
   },
   {
-    "id": 135,
+    "id": 138,
     "properties": {
       "id": "IntercurrentEvent_1",
       "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
@@ -1540,7 +1573,7 @@
     }
   },
   {
-    "id": 133,
+    "id": 136,
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
@@ -1549,7 +1582,7 @@
     }
   },
   {
-    "id": 137,
+    "id": 140,
     "properties": {
       "id": "Code_10",
       "code": "C25716",
@@ -1561,7 +1594,7 @@
     }
   },
   {
-    "id": 138,
+    "id": 141,
     "properties": {
       "id": "Code_11",
       "code": "C51282",
@@ -1573,7 +1606,7 @@
     }
   },
   {
-    "id": 139,
+    "id": 142,
     "properties": {
       "id": "Code_12",
       "code": "C175574",
@@ -1585,7 +1618,7 @@
     }
   },
   {
-    "id": 140,
+    "id": 143,
     "properties": {
       "id": "TransitionRule_1",
       "transitionRuleDescription": "Subject identifier",
@@ -1594,7 +1627,7 @@
     }
   },
   {
-    "id": 141,
+    "id": 144,
     "properties": {
       "id": "TransitionRule_2",
       "transitionRuleDescription": "IEs passed",
@@ -1603,7 +1636,7 @@
     }
   },
   {
-    "id": 136,
+    "id": 139,
     "properties": {
       "id": "Encounter_1",
       "name": "Screening",
@@ -1616,7 +1649,7 @@
     }
   },
   {
-    "id": 143,
+    "id": 146,
     "properties": {
       "id": "Code_13",
       "code": "C25716",
@@ -1628,7 +1661,7 @@
     }
   },
   {
-    "id": 144,
+    "id": 147,
     "properties": {
       "id": "Code_14",
       "code": "C51282",
@@ -1640,7 +1673,7 @@
     }
   },
   {
-    "id": 145,
+    "id": 148,
     "properties": {
       "id": "Code_15",
       "code": "C175574",
@@ -1652,7 +1685,7 @@
     }
   },
   {
-    "id": 146,
+    "id": 149,
     "properties": {
       "id": "TransitionRule_3",
       "transitionRuleDescription": "Radomized",
@@ -1661,7 +1694,7 @@
     }
   },
   {
-    "id": 142,
+    "id": 145,
     "properties": {
       "id": "Encounter_2",
       "name": "Day 1",
@@ -1675,7 +1708,7 @@
     }
   },
   {
-    "id": 148,
+    "id": 151,
     "properties": {
       "id": "Code_16",
       "code": "C25716",
@@ -1687,7 +1720,7 @@
     }
   },
   {
-    "id": 149,
+    "id": 152,
     "properties": {
       "id": "Code_17",
       "code": "C51282",
@@ -1699,7 +1732,7 @@
     }
   },
   {
-    "id": 150,
+    "id": 153,
     "properties": {
       "id": "Code_18",
       "code": "C175574",
@@ -1711,7 +1744,7 @@
     }
   },
   {
-    "id": 147,
+    "id": 150,
     "properties": {
       "id": "Encounter_3",
       "name": "Day 15",
@@ -1726,7 +1759,7 @@
     }
   },
   {
-    "id": 152,
+    "id": 155,
     "properties": {
       "id": "Code_19",
       "code": "C25716",
@@ -1738,7 +1771,7 @@
     }
   },
   {
-    "id": 153,
+    "id": 156,
     "properties": {
       "id": "Code_20",
       "code": "C51282",
@@ -1750,7 +1783,7 @@
     }
   },
   {
-    "id": 154,
+    "id": 157,
     "properties": {
       "id": "Code_21",
       "code": "C175574",
@@ -1762,7 +1795,7 @@
     }
   },
   {
-    "id": 151,
+    "id": 154,
     "properties": {
       "id": "Encounter_4",
       "name": "Day 1",
@@ -1777,7 +1810,7 @@
     }
   },
   {
-    "id": 156,
+    "id": 159,
     "properties": {
       "id": "Code_22",
       "code": "C25716",
@@ -1789,7 +1822,7 @@
     }
   },
   {
-    "id": 157,
+    "id": 160,
     "properties": {
       "id": "Code_23",
       "code": "C51282",
@@ -1801,7 +1834,7 @@
     }
   },
   {
-    "id": 158,
+    "id": 161,
     "properties": {
       "id": "Code_24",
       "code": "C175574",
@@ -1813,7 +1846,7 @@
     }
   },
   {
-    "id": 155,
+    "id": 158,
     "properties": {
       "id": "Encounter_5",
       "name": "Day 15",
@@ -1828,7 +1861,7 @@
     }
   },
   {
-    "id": 160,
+    "id": 163,
     "properties": {
       "id": "Code_25",
       "code": "C25716",
@@ -1840,7 +1873,7 @@
     }
   },
   {
-    "id": 161,
+    "id": 164,
     "properties": {
       "id": "Code_26",
       "code": "C51282",
@@ -1852,7 +1885,7 @@
     }
   },
   {
-    "id": 162,
+    "id": 165,
     "properties": {
       "id": "Code_27",
       "code": "C175574",
@@ -1864,7 +1897,7 @@
     }
   },
   {
-    "id": 159,
+    "id": 162,
     "properties": {
       "id": "Encounter_6",
       "name": "Day 1",
@@ -1879,7 +1912,7 @@
     }
   },
   {
-    "id": 164,
+    "id": 167,
     "properties": {
       "id": "Code_28",
       "code": "C25716",
@@ -1891,7 +1924,7 @@
     }
   },
   {
-    "id": 165,
+    "id": 168,
     "properties": {
       "id": "Code_29",
       "code": "C51282",
@@ -1903,7 +1936,7 @@
     }
   },
   {
-    "id": 166,
+    "id": 169,
     "properties": {
       "id": "Code_30",
       "code": "C175574",
@@ -1915,7 +1948,7 @@
     }
   },
   {
-    "id": 163,
+    "id": 166,
     "properties": {
       "id": "Encounter_7",
       "name": "Day 15",
@@ -1930,7 +1963,7 @@
     }
   },
   {
-    "id": 168,
+    "id": 171,
     "properties": {
       "id": "Code_31",
       "code": "C25716",
@@ -1942,7 +1975,7 @@
     }
   },
   {
-    "id": 169,
+    "id": 172,
     "properties": {
       "id": "Code_32",
       "code": "C51282",
@@ -1954,7 +1987,7 @@
     }
   },
   {
-    "id": 170,
+    "id": 173,
     "properties": {
       "id": "Code_33",
       "code": "C175574",
@@ -1966,7 +1999,7 @@
     }
   },
   {
-    "id": 167,
+    "id": 170,
     "properties": {
       "id": "Encounter_8",
       "name": "Day 1",
@@ -1981,7 +2014,7 @@
     }
   },
   {
-    "id": 172,
+    "id": 175,
     "properties": {
       "id": "Code_34",
       "code": "C25716",
@@ -1993,7 +2026,7 @@
     }
   },
   {
-    "id": 173,
+    "id": 176,
     "properties": {
       "id": "Code_35",
       "code": "C51282",
@@ -2005,7 +2038,7 @@
     }
   },
   {
-    "id": 174,
+    "id": 177,
     "properties": {
       "id": "Code_36",
       "code": "C175574",
@@ -2017,7 +2050,7 @@
     }
   },
   {
-    "id": 171,
+    "id": 174,
     "properties": {
       "id": "Encounter_9",
       "name": "Day 1",
@@ -2032,7 +2065,7 @@
     }
   },
   {
-    "id": 176,
+    "id": 179,
     "properties": {
       "id": "Code_37",
       "code": "C25716",
@@ -2044,7 +2077,7 @@
     }
   },
   {
-    "id": 177,
+    "id": 180,
     "properties": {
       "id": "Code_38",
       "code": "C51282",
@@ -2056,7 +2089,7 @@
     }
   },
   {
-    "id": 178,
+    "id": 181,
     "properties": {
       "id": "Code_39",
       "code": "C175574",
@@ -2068,7 +2101,7 @@
     }
   },
   {
-    "id": 179,
+    "id": 182,
     "properties": {
       "id": "TransitionRule_4",
       "transitionRuleDescription": "End of treatment",
@@ -2077,7 +2110,7 @@
     }
   },
   {
-    "id": 175,
+    "id": 178,
     "properties": {
       "id": "Encounter_10",
       "name": "EOT Visit",
@@ -2091,7 +2124,7 @@
     }
   },
   {
-    "id": 181,
+    "id": 184,
     "properties": {
       "id": "Code_40",
       "code": "C25716",
@@ -2103,7 +2136,7 @@
     }
   },
   {
-    "id": 182,
+    "id": 185,
     "properties": {
       "id": "Code_41",
       "code": "C18002",
@@ -2115,7 +2148,7 @@
     }
   },
   {
-    "id": 183,
+    "id": 186,
     "properties": {
       "id": "Code_42",
       "code": "C171537",
@@ -2127,7 +2160,7 @@
     }
   },
   {
-    "id": 180,
+    "id": 183,
     "properties": {
       "id": "Encounter_11",
       "name": "FU Visit",
@@ -2142,7 +2175,7 @@
     }
   },
   {
-    "id": 184,
+    "id": 187,
     "properties": {
       "id": "Activity_1",
       "name": "Informed Consent",
@@ -2158,7 +2191,7 @@
     }
   },
   {
-    "id": 185,
+    "id": 188,
     "properties": {
       "id": "Activity_2",
       "name": "Inclusion / Exclusion Criteria",
@@ -2174,7 +2207,7 @@
     }
   },
   {
-    "id": 186,
+    "id": 189,
     "properties": {
       "id": "Activity_3",
       "name": "Physical Examination",
@@ -2190,7 +2223,7 @@
     }
   },
   {
-    "id": 188,
+    "id": 191,
     "properties": {
       "id": "Code_52",
       "code": "C49659",
@@ -2202,7 +2235,7 @@
     }
   },
   {
-    "id": 187,
+    "id": 190,
     "properties": {
       "id": "AliasCode_2",
       "standardCodeAliases": [],
@@ -2211,51 +2244,51 @@
     }
   },
   {
-    "id": 189,
+    "id": 192,
     "properties": {
       "id": "BiomedicalConceptSurrogate_1",
       "name": "PE 1",
       "description": "PE 1",
-      "bcSurrogateReference": "",
+      "bcSurrogateReference": "None set",
       "_type": "BiomedicalConceptSurrogate",
       "label": "BiomedicalConceptSurrogate_1"
     }
   },
   {
-    "id": 190,
+    "id": 193,
     "properties": {
       "id": "BiomedicalConceptSurrogate_2",
       "name": "PE 2",
       "description": "PE 2",
-      "bcSurrogateReference": "",
+      "bcSurrogateReference": "None set",
       "_type": "BiomedicalConceptSurrogate",
       "label": "BiomedicalConceptSurrogate_2"
     }
   },
   {
-    "id": 191,
+    "id": 194,
     "properties": {
       "id": "BiomedicalConceptSurrogate_3",
       "name": "Weight",
       "description": "Weight",
-      "bcSurrogateReference": "",
+      "bcSurrogateReference": "None set",
       "_type": "BiomedicalConceptSurrogate",
       "label": "BiomedicalConceptSurrogate_3"
     }
   },
   {
-    "id": 192,
+    "id": 195,
     "properties": {
       "id": "BiomedicalConceptSurrogate_4",
       "name": "Height",
       "description": "Height",
-      "bcSurrogateReference": "",
+      "bcSurrogateReference": "None set",
       "_type": "BiomedicalConceptSurrogate",
       "label": "BiomedicalConceptSurrogate_4"
     }
   },
   {
-    "id": 194,
+    "id": 197,
     "properties": {
       "id": "Code_43",
       "code": "C174267",
@@ -2267,7 +2300,7 @@
     }
   },
   {
-    "id": 195,
+    "id": 198,
     "properties": {
       "id": "Code_44",
       "code": "C188866",
@@ -2279,7 +2312,7 @@
     }
   },
   {
-    "id": 193,
+    "id": 196,
     "properties": {
       "id": "StudyArm_1",
       "name": "Active",
@@ -2290,7 +2323,7 @@
     }
   },
   {
-    "id": 197,
+    "id": 200,
     "properties": {
       "id": "Code_45",
       "code": "C174268",
@@ -2302,7 +2335,7 @@
     }
   },
   {
-    "id": 198,
+    "id": 201,
     "properties": {
       "id": "Code_46",
       "code": "C188866",
@@ -2314,7 +2347,7 @@
     }
   },
   {
-    "id": 196,
+    "id": 199,
     "properties": {
       "id": "StudyArm_2",
       "name": "Placebo",
@@ -2325,7 +2358,7 @@
     }
   },
   {
-    "id": 200,
+    "id": 203,
     "properties": {
       "id": "Code_47",
       "code": "C48262",
@@ -2337,7 +2370,7 @@
     }
   },
   {
-    "id": 199,
+    "id": 202,
     "properties": {
       "id": "StudyEpoch_1",
       "name": "Screening",
@@ -2349,7 +2382,7 @@
     }
   },
   {
-    "id": 202,
+    "id": 205,
     "properties": {
       "id": "Code_48",
       "code": "C101526",
@@ -2361,7 +2394,7 @@
     }
   },
   {
-    "id": 201,
+    "id": 204,
     "properties": {
       "id": "StudyEpoch_2",
       "name": "Treatment",
@@ -2373,7 +2406,7 @@
     }
   },
   {
-    "id": 204,
+    "id": 207,
     "properties": {
       "id": "Code_49",
       "code": "C99158",
@@ -2385,7 +2418,7 @@
     }
   },
   {
-    "id": 203,
+    "id": 206,
     "properties": {
       "id": "StudyEpoch_3",
       "name": "Follow-Up",
@@ -2397,7 +2430,7 @@
     }
   },
   {
-    "id": 206,
+    "id": 209,
     "properties": {
       "id": "TransitionRule_5",
       "transitionRuleDescription": "Study Start",
@@ -2406,7 +2439,7 @@
     }
   },
   {
-    "id": 207,
+    "id": 210,
     "properties": {
       "id": "TransitionRule_6",
       "transitionRuleDescription": "Screened",
@@ -2415,7 +2448,7 @@
     }
   },
   {
-    "id": 205,
+    "id": 208,
     "properties": {
       "id": "StudyElement_1",
       "name": "Screening",
@@ -2425,7 +2458,7 @@
     }
   },
   {
-    "id": 209,
+    "id": 212,
     "properties": {
       "id": "TransitionRule_7",
       "transitionRuleDescription": "Radomized",
@@ -2434,7 +2467,7 @@
     }
   },
   {
-    "id": 210,
+    "id": 213,
     "properties": {
       "id": "TransitionRule_8",
       "transitionRuleDescription": "Completed treatment",
@@ -2443,7 +2476,7 @@
     }
   },
   {
-    "id": 208,
+    "id": 211,
     "properties": {
       "id": "StudyElement_2",
       "name": "Treatment",
@@ -2453,7 +2486,7 @@
     }
   },
   {
-    "id": 212,
+    "id": 215,
     "properties": {
       "id": "TransitionRule_9",
       "transitionRuleDescription": "Treated",
@@ -2462,7 +2495,7 @@
     }
   },
   {
-    "id": 213,
+    "id": 216,
     "properties": {
       "id": "TransitionRule_10",
       "transitionRuleDescription": "Leave Study",
@@ -2471,7 +2504,7 @@
     }
   },
   {
-    "id": 211,
+    "id": 214,
     "properties": {
       "id": "StudyElement_3",
       "name": "Follow Up",

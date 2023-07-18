@@ -224,7 +224,7 @@
               "id": "Code_163",
               "code": "X",
               "codeSystem": "ICD-10",
-              "codeSystemVersion": "",
+              "codeSystemVersion": "None set",
               "decode": "Y"
             },
             {
@@ -244,7 +244,7 @@
               "id": "Code_166",
               "code": "DD",
               "codeSystem": "ICD-10",
-              "codeSystemVersion": "",
+              "codeSystemVersion": "None set",
               "decode": "CC"
             },
             {
@@ -264,7 +264,15 @@
           "plannedNumberOfParticipants": 100,
           "plannedMaximumAgeOfParticipants": "40 years",
           "plannedMinimumAgeOfParticipants": "18 years",
-          "plannedSexOfParticipants": []
+          "plannedSexOfParticipants": [
+            {
+              "id": "Code_168",
+              "code": "C49636",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Both"
+            }
+          ]
         },
         {
           "id": "StudyDesignPopulation_2",
@@ -272,7 +280,15 @@
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "60 years",
           "plannedMinimumAgeOfParticipants": "18 years",
-          "plannedSexOfParticipants": []
+          "plannedSexOfParticipants": [
+            {
+              "id": "Code_169",
+              "code": "C20197",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Male"
+            }
+          ]
         },
         {
           "id": "StudyDesignPopulation_3",
@@ -280,7 +296,15 @@
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "70 years",
           "plannedMinimumAgeOfParticipants": "18 years",
-          "plannedSexOfParticipants": []
+          "plannedSexOfParticipants": [
+            {
+              "id": "Code_170",
+              "code": "C16576",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Female"
+            }
+          ]
         }
       ],
       "studyObjectives": [
@@ -298,7 +322,7 @@
             {
               "id": "Endpoint_1",
               "endpointDescription": "End Desc",
-              "endpointPurposeDescription": "",
+              "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_171",
                 "code": "C94496",
@@ -1615,25 +1639,25 @@
           "id": "BiomedicalConceptSurrogate_1",
           "name": "PE 1",
           "description": "PE 1",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_2",
           "name": "PE 2",
           "description": "PE 2",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_3",
           "name": "Weight",
           "description": "Weight",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_4",
           "name": "Height",
           "description": "Height",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         }
       ],
       "studyArms": [

@@ -39,11 +39,11 @@
         },
         "organizationLegalAddress": {
           "id": "Address_1",
-          "text": "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG, KOBE, HYOGO, 651-0086, Japan",
+          "text": "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG, KOBE, HYOGO, -, 651-0086, Japan",
           "line": "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG",
           "city": "KOBE",
           "district": "HYOGO",
-          "state": "",
+          "state": "-",
           "postalCode": "651-0086",
           "country": {
             "id": "Code_5",
@@ -72,10 +72,10 @@
         },
         "organizationLegalAddress": {
           "id": "Address_2",
-          "text": "Clinical trials, Washington, Washngton DC, 12345, United States of America",
+          "text": "Clinical trials, Washington, -, Washngton DC, 12345, United States of America",
           "line": "Clinical trials",
           "city": "Washington",
-          "district": "",
+          "district": "-",
           "state": "Washngton DC",
           "postalCode": "12345",
           "country": {
@@ -264,7 +264,7 @@
               "id": "Code_218",
               "code": "X",
               "codeSystem": "ICD-10",
-              "codeSystemVersion": "",
+              "codeSystemVersion": "None set",
               "decode": "Y"
             },
             {
@@ -284,7 +284,7 @@
               "id": "Code_221",
               "code": "DD",
               "codeSystem": "ICD-10",
-              "codeSystemVersion": "",
+              "codeSystemVersion": "None set",
               "decode": "CC"
             },
             {
@@ -304,7 +304,15 @@
           "plannedNumberOfParticipants": 100,
           "plannedMaximumAgeOfParticipants": "40 years",
           "plannedMinimumAgeOfParticipants": "18 years",
-          "plannedSexOfParticipants": []
+          "plannedSexOfParticipants": [
+            {
+              "id": "Code_223",
+              "code": "C49636",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Both"
+            }
+          ]
         },
         {
           "id": "StudyDesignPopulation_2",
@@ -312,7 +320,15 @@
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "60 years",
           "plannedMinimumAgeOfParticipants": "18 years",
-          "plannedSexOfParticipants": []
+          "plannedSexOfParticipants": [
+            {
+              "id": "Code_224",
+              "code": "C20197",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Male"
+            }
+          ]
         },
         {
           "id": "StudyDesignPopulation_3",
@@ -320,7 +336,15 @@
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "70 years",
           "plannedMinimumAgeOfParticipants": "18 years",
-          "plannedSexOfParticipants": []
+          "plannedSexOfParticipants": [
+            {
+              "id": "Code_225",
+              "code": "C16576",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Female"
+            }
+          ]
         }
       ],
       "studyObjectives": [
@@ -338,7 +362,7 @@
             {
               "id": "Endpoint_1",
               "endpointDescription": "The proportion of patients achieving treatment success defined as either an increase in PG to >70 mg/dL or an increase of >20 mg/dL from nadir within 30 minutes after administration of glucagon. The nadir is defined\nas the minimum PG value at the time of or within 10 minutes following glucagon administration.",
-              "endpointPurposeDescription": "",
+              "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_226",
                 "code": "C94496",
@@ -363,7 +387,7 @@
             {
               "id": "Endpoint_2",
               "endpointDescription": "SAE, TEAEs (including gastrointestinal, nasal,\nand non-nasal AEs), vital signs",
-              "endpointPurposeDescription": "",
+              "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_228",
                 "code": "C139173",
@@ -388,7 +412,7 @@
             {
               "id": "Endpoint_3",
               "endpointDescription": "PK parameters include AUC, Cmax, Tmax",
-              "endpointPurposeDescription": "",
+              "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_230",
                 "code": "C139173",
@@ -413,7 +437,7 @@
             {
               "id": "Endpoint_4",
               "endpointDescription": "PD parameters include BGmax and Tmax",
-              "endpointPurposeDescription": "",
+              "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_232",
                 "code": "C139173",
@@ -2935,91 +2959,91 @@
           "id": "BiomedicalConceptSurrogate_10",
           "name": "PE 1",
           "description": "PE 1",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_11",
           "name": "PE 2",
           "description": "PE 2",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_12",
           "name": "Weight",
           "description": "Weight",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_13",
           "name": "Height",
           "description": "Height",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_14",
           "name": "SBP",
           "description": "SBP",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_15",
           "name": "DBP",
           "description": "DBP",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_1",
           "name": "PE 1",
           "description": "PE 1",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_2",
           "name": "PE 2",
           "description": "PE 2",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_3",
           "name": "Weight",
           "description": "Weight",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_4",
           "name": "SBP",
           "description": "SBP",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_5",
           "name": "DBP",
           "description": "DBP",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_6",
           "name": "PE 1",
           "description": "PE 1",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_7",
           "name": "PE 2",
           "description": "PE 2",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_8",
           "name": "SBP",
           "description": "SBP",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         },
         {
           "id": "BiomedicalConceptSurrogate_9",
           "name": "DBP",
           "description": "DBP",
-          "bcSurrogateReference": ""
+          "bcSurrogateReference": "None set"
         }
       ],
       "studyArms": [

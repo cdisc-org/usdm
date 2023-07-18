@@ -283,7 +283,7 @@
                 "id": "Code_83",
                 "code": "X",
                 "codeSystem": "ICD-10",
-                "codeSystemVersion": "",
+                "codeSystemVersion": "None set",
                 "decode": "Y"
               },
               {
@@ -303,7 +303,7 @@
                 "id": "Code_86",
                 "code": "DD",
                 "codeSystem": "ICD-10",
-                "codeSystemVersion": "",
+                "codeSystemVersion": "None set",
                 "decode": "CC"
               },
               {
@@ -323,7 +323,15 @@
             "plannedNumberOfParticipants": 100,
             "plannedMaximumAgeOfParticipants": "40 years",
             "plannedMinimumAgeOfParticipants": "18 years",
-            "plannedSexOfParticipants": []
+            "plannedSexOfParticipants": [
+              {
+                "id": "Code_88",
+                "code": "C49636",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Both"
+              }
+            ]
           },
           {
             "id": "StudyDesignPopulation_2",
@@ -331,7 +339,15 @@
             "plannedNumberOfParticipants": 20,
             "plannedMaximumAgeOfParticipants": "60 years",
             "plannedMinimumAgeOfParticipants": "18 years",
-            "plannedSexOfParticipants": []
+            "plannedSexOfParticipants": [
+              {
+                "id": "Code_89",
+                "code": "C20197",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Male"
+              }
+            ]
           },
           {
             "id": "StudyDesignPopulation_3",
@@ -339,7 +355,15 @@
             "plannedNumberOfParticipants": 20,
             "plannedMaximumAgeOfParticipants": "70 years",
             "plannedMinimumAgeOfParticipants": "18 years",
-            "plannedSexOfParticipants": []
+            "plannedSexOfParticipants": [
+              {
+                "id": "Code_90",
+                "code": "C16576",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Female"
+              }
+            ]
           }
         ],
         "studyObjectives": [
@@ -1249,7 +1273,7 @@
             "id": "BiomedicalConceptSurrogate_1",
             "name": "Age",
             "description": "Age",
-            "bcSurrogateReference": ""
+            "bcSurrogateReference": "None set"
           }
         ],
         "studyArms": [
