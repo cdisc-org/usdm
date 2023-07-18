@@ -56,14 +56,17 @@ class StudyIdentifiersSheet(BaseSheet):
       sep = ','
       parts = self._state_split(raw_address)
     if len(parts) == 6:
+      # Put something in each part if empty. Temp fix
+      for part in parts:
+        part = '-' if not part else part.strip()
       result = self._to_address(
           id_manager.build_id(Address),
-          parts[0].strip(), 
-          parts[1].strip(), 
-          parts[2].strip(), 
-          parts[3].strip(), 
-          parts[4].strip(), 
-          ISO3166().code(parts[5].strip())
+          parts[0], 
+          parts[1], 
+          parts[2], 
+          parts[3], 
+          parts[4], 
+          ISO3166().code(parts[5])
         )
       return result
     else:

@@ -67,7 +67,7 @@ class Activity():
       id=id_manager.build_id(BiomedicalConceptSurrogate),
       name=name,
       description=name,
-      bcSurrogateReference=''
+      bcSurrogateReference='None set'
     )
   
   def _get_observation_cell(self, row_index, col_index):

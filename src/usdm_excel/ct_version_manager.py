@@ -13,7 +13,7 @@ class CTVersionManager():
     if name in self.versions:
       return self.versions[name]
     else:
-      return ""
+      return "None set"
     
 ct_version_manager = CTVersionManager()
 
