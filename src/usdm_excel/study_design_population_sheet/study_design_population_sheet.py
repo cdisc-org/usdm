@@ -8,7 +8,6 @@ class StudyDesignPopulationSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignPopulations'))
       super().__init__(file_path=file_path,  sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
@@ -23,7 +22,7 @@ class StudyDesignPopulationSheet(BaseSheet):
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,
             plannedMaximumAgeOfParticipants=max,
-            codes=codes
+            plannedSexOfParticipants=codes
           )
         except Exception as e:
           self._general_error(f"Failed to create StudyDesignPopulation object, exception {e}")
@@ -35,7 +34,9 @@ class StudyDesignPopulationSheet(BaseSheet):
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
-
   def _build_codes(self, row, index):
-    #result = []
-    return [self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants")]
+    code = self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants")
+    return [code] if code else []
+      
+
+        
