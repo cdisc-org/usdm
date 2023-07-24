@@ -354,7 +354,7 @@
     "id": 34,
     "properties": {
       "id": "Indication_1",
-      "indicationDescription": "An indication",
+      "description": "An indication",
       "_type": "Indication",
       "label": "Indication_1"
     }
@@ -375,7 +375,7 @@
     "id": 36,
     "properties": {
       "id": "Indication_2",
-      "indicationDescription": "An indication",
+      "description": "An indication",
       "_type": "Indication",
       "label": "Indication_2"
     }
@@ -408,7 +408,7 @@
     "id": 38,
     "properties": {
       "id": "InvestigationalIntervention_1",
-      "interventionDescription": "An intervention",
+      "description": null,
       "_type": "InvestigationalIntervention",
       "label": "InvestigationalIntervention_1"
     }
@@ -441,7 +441,7 @@
     "id": 41,
     "properties": {
       "id": "InvestigationalIntervention_2",
-      "interventionDescription": "An intervention",
+      "description": null,
       "_type": "InvestigationalIntervention",
       "label": "InvestigationalIntervention_2"
     }
@@ -462,7 +462,7 @@
     "id": 44,
     "properties": {
       "id": "StudyDesignPopulation_1",
-      "populationDescription": "Pop 1",
+      "description": "Pop 1",
       "plannedNumberOfParticipants": 100,
       "plannedMaximumAgeOfParticipants": "40 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -486,7 +486,7 @@
     "id": 46,
     "properties": {
       "id": "StudyDesignPopulation_2",
-      "populationDescription": "Pop 2",
+      "description": "Pop 2",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "60 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -510,7 +510,7 @@
     "id": 48,
     "properties": {
       "id": "StudyDesignPopulation_3",
-      "populationDescription": "Pop 3",
+      "description": "Pop 3",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "70 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -546,7 +546,7 @@
     "id": 52,
     "properties": {
       "id": "Endpoint_1",
-      "endpointDescription": "Clinical status assessed using a 7-category ordinal scale at Day 28",
+      "description": "Clinical status assessed using a 7-category ordinal scale at Day 28",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_1"
@@ -556,7 +556,7 @@
     "id": 50,
     "properties": {
       "id": "Objective_1",
-      "objectiveDescription": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+      "description": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
       "_type": "Objective",
       "label": "Objective_1"
     }
@@ -589,7 +589,7 @@
     "id": 56,
     "properties": {
       "id": "Endpoint_2",
-      "endpointDescription": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
+      "description": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_2"
@@ -611,7 +611,7 @@
     "id": 58,
     "properties": {
       "id": "Endpoint_3",
-      "endpointDescription": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
+      "description": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_3"
@@ -633,7 +633,7 @@
     "id": 60,
     "properties": {
       "id": "Endpoint_4",
-      "endpointDescription": "Incidence of mechanical ventilation",
+      "description": "Incidence of mechanical ventilation",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_4"
@@ -655,7 +655,7 @@
     "id": 62,
     "properties": {
       "id": "Endpoint_5",
-      "endpointDescription": "Ventilator-free days to Day 28",
+      "description": "Ventilator-free days to Day 28",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_5"
@@ -677,7 +677,7 @@
     "id": 64,
     "properties": {
       "id": "Endpoint_6",
-      "endpointDescription": "Incidence of intensive care unit (ICU) stay",
+      "description": "Incidence of intensive care unit (ICU) stay",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_6"
@@ -699,7 +699,7 @@
     "id": 66,
     "properties": {
       "id": "Endpoint_7",
-      "endpointDescription": "Duration of ICU stay",
+      "description": "Duration of ICU stay",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_7"
@@ -721,7 +721,7 @@
     "id": 68,
     "properties": {
       "id": "Endpoint_8",
-      "endpointDescription": "Time to clinical failure, defined as the time to death, mechanical ventilation, ICU admission, or withdrawal (whichever occurs first). For patients entering the study already in ICU or on mechanical ventilation, clinical failure is defined as a one-category worsening on the ordinal scale, withdrawal or death.",
+      "description": "Time to clinical failure, defined as the time to death, mechanical ventilation, ICU admission, or withdrawal (whichever occurs first). For patients entering the study already in ICU or on mechanical ventilation, clinical failure is defined as a one-category worsening on the ordinal scale, withdrawal or death.",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_8"
@@ -743,7 +743,7 @@
     "id": 70,
     "properties": {
       "id": "Endpoint_9",
-      "endpointDescription": "Mortality rate at Days 7, 14, 21, 28, and 60",
+      "description": "Mortality rate at Days 7, 14, 21, 28, and 60",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_9"
@@ -765,7 +765,7 @@
     "id": 72,
     "properties": {
       "id": "Endpoint_10",
-      "endpointDescription": "Time to hospital discharge or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen)",
+      "description": "Time to hospital discharge or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen)",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_10"
@@ -787,7 +787,7 @@
     "id": 74,
     "properties": {
       "id": "Endpoint_11",
-      "endpointDescription": "Time to recovery, defined as discharged or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU hospital ward (or \u201cready for hospital ward\u201d) not requiring supplemental oxygen",
+      "description": "Time to recovery, defined as discharged or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU hospital ward (or \u201cready for hospital ward\u201d) not requiring supplemental oxygen",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_11"
@@ -809,7 +809,7 @@
     "id": 76,
     "properties": {
       "id": "Endpoint_12",
-      "endpointDescription": "Duration of supplemental oxygen",
+      "description": "Duration of supplemental oxygen",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_12"
@@ -819,7 +819,7 @@
     "id": 54,
     "properties": {
       "id": "Objective_2",
-      "objectiveDescription": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+      "description": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
       "_type": "Objective",
       "label": "Objective_2"
     }
@@ -1113,7 +1113,7 @@
     "id": 103,
     "properties": {
       "id": "AnalysisPopulation_1",
-      "populationDescription": "ITT",
+      "description": "ITT",
       "_type": "AnalysisPopulation",
       "label": "AnalysisPopulation_1"
     }
@@ -1122,9 +1122,9 @@
     "id": 104,
     "properties": {
       "id": "IntercurrentEvent_1",
+      "name": "termination",
+      "description": "IC Event Description",
       "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
-      "intercurrentEventName": "termination",
-      "intercurrentEventDescription": "IC Event Description",
       "_type": "IntercurrentEvent",
       "label": "IntercurrentEvent_1"
     }
@@ -1133,9 +1133,9 @@
     "id": 105,
     "properties": {
       "id": "IntercurrentEvent_2",
+      "name": "",
+      "description": "",
       "intercurrentEventStrategy": "A second bad event",
-      "intercurrentEventName": "",
-      "intercurrentEventDescription": "",
       "_type": "IntercurrentEvent",
       "label": "IntercurrentEvent_2"
     }
@@ -1144,9 +1144,9 @@
     "id": 106,
     "properties": {
       "id": "IntercurrentEvent_3",
+      "name": "",
+      "description": "",
       "intercurrentEventStrategy": "A third bad thing",
-      "intercurrentEventName": "",
-      "intercurrentEventDescription": "",
       "_type": "IntercurrentEvent",
       "label": "IntercurrentEvent_3"
     }
@@ -1156,6 +1156,8 @@
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
+      "treatmentId": "InvestigationalIntervention_1",
+      "variableOfInterestId": "Endpoint_1",
       "_type": "Estimand",
       "label": "Estimand_1"
     }
@@ -1164,7 +1166,7 @@
     "id": 108,
     "properties": {
       "id": "AnalysisPopulation_2",
-      "populationDescription": "ITT",
+      "description": "ITT",
       "_type": "AnalysisPopulation",
       "label": "AnalysisPopulation_2"
     }
@@ -1173,9 +1175,9 @@
     "id": 109,
     "properties": {
       "id": "IntercurrentEvent_4",
+      "name": "Bad stuff",
+      "description": "IC Event Description Number 2",
       "intercurrentEventStrategy": "Really really bad shit",
-      "intercurrentEventName": "Bad stuff",
-      "intercurrentEventDescription": "IC Event Description Number 2",
       "_type": "IntercurrentEvent",
       "label": "IntercurrentEvent_4"
     }
@@ -1185,6 +1187,8 @@
     "properties": {
       "id": "Estimand_2",
       "summaryMeasure": "Something else",
+      "treatmentId": "InvestigationalIntervention_2",
+      "variableOfInterestId": "Endpoint_2",
       "_type": "Estimand",
       "label": "Estimand_2"
     }
@@ -1229,7 +1233,7 @@
     "id": 114,
     "properties": {
       "id": "TransitionRule_1",
-      "transitionRuleDescription": "Subject identified",
+      "description": "Subject identified",
       "_type": "TransitionRule",
       "label": "TransitionRule_1"
     }
@@ -1238,7 +1242,7 @@
     "id": 115,
     "properties": {
       "id": "TransitionRule_2",
-      "transitionRuleDescription": "IEs passed",
+      "description": "IEs passed",
       "_type": "TransitionRule",
       "label": "TransitionRule_2"
     }
@@ -1347,7 +1351,7 @@
     "id": 124,
     "properties": {
       "id": "TransitionRule_3",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_3"
     }
@@ -2082,7 +2086,7 @@
     "id": 188,
     "properties": {
       "id": "TransitionRule_4",
-      "transitionRuleDescription": "Study Start",
+      "description": "Study Start",
       "_type": "TransitionRule",
       "label": "TransitionRule_4"
     }
@@ -2091,7 +2095,7 @@
     "id": 189,
     "properties": {
       "id": "TransitionRule_5",
-      "transitionRuleDescription": "Screened",
+      "description": "Screened",
       "_type": "TransitionRule",
       "label": "TransitionRule_5"
     }
@@ -2110,7 +2114,7 @@
     "id": 191,
     "properties": {
       "id": "TransitionRule_6",
-      "transitionRuleDescription": "Screened",
+      "description": "Screened",
       "_type": "TransitionRule",
       "label": "TransitionRule_6"
     }
@@ -2119,7 +2123,7 @@
     "id": 192,
     "properties": {
       "id": "TransitionRule_7",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_7"
     }
@@ -2138,7 +2142,7 @@
     "id": 194,
     "properties": {
       "id": "TransitionRule_8",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_8"
     }
@@ -2147,7 +2151,7 @@
     "id": 195,
     "properties": {
       "id": "TransitionRule_9",
-      "transitionRuleDescription": "Completed treatment 1",
+      "description": "Completed treatment 1",
       "_type": "TransitionRule",
       "label": "TransitionRule_9"
     }
@@ -2166,7 +2170,7 @@
     "id": 197,
     "properties": {
       "id": "TransitionRule_12",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_12"
     }
@@ -2175,7 +2179,7 @@
     "id": 198,
     "properties": {
       "id": "TransitionRule_13",
-      "transitionRuleDescription": "Completed treatment 2",
+      "description": "Completed treatment 2",
       "_type": "TransitionRule",
       "label": "TransitionRule_13"
     }
@@ -2194,7 +2198,7 @@
     "id": 200,
     "properties": {
       "id": "TransitionRule_10",
-      "transitionRuleDescription": "Treated",
+      "description": "Treated",
       "_type": "TransitionRule",
       "label": "TransitionRule_10"
     }
@@ -2203,7 +2207,7 @@
     "id": 201,
     "properties": {
       "id": "TransitionRule_11",
-      "transitionRuleDescription": "Leave Study",
+      "description": "Leave Study",
       "_type": "TransitionRule",
       "label": "TransitionRule_11"
     }

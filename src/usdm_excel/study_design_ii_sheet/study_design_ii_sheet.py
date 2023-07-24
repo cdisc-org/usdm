@@ -31,7 +31,7 @@ class StudyDesignIISheet(BaseSheet):
             cross_references.add(xref, item.id)
         else:
           try:
-            item = InvestigationalIntervention(id=id_manager.build_id(InvestigationalIntervention), interventionDescription=description, codes=codes)
+            item = InvestigationalIntervention(id=id_manager.build_id(InvestigationalIntervention), description=description, codes=codes)
           except Exception as e:
             self._general_error(f"Failed to create InvestigationalIntervention object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")

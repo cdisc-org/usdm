@@ -173,7 +173,7 @@
       "studyIndications": [
         {
           "id": "Indication_1",
-          "indicationDescription": "An indication",
+          "description": "An indication",
           "codes": [
             {
               "id": "Code_59",
@@ -188,7 +188,7 @@
       "studyInvestigationalInterventions": [
         {
           "id": "InvestigationalIntervention_1",
-          "interventionDescription": "An intervention",
+          "description": null,
           "codes": [
             {
               "id": "Code_60",
@@ -210,7 +210,7 @@
       "studyPopulations": [
         {
           "id": "StudyDesignPopulation_1",
-          "populationDescription": "Pop 1",
+          "description": "Pop 1",
           "plannedNumberOfParticipants": 100,
           "plannedMaximumAgeOfParticipants": "40 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -228,7 +228,7 @@
       "studyObjectives": [
         {
           "id": "Objective_1",
-          "objectiveDescription": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+          "description": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
           "objectiveLevel": {
             "id": "Code_64",
             "code": "C85826",
@@ -239,7 +239,7 @@
           "objectiveEndpoints": [
             {
               "id": "Endpoint_1",
-              "endpointDescription": "Clinical status assessed using a 7-category ordinal scale at Day 28",
+              "description": "Clinical status assessed using a 7-category ordinal scale at Day 28",
               "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_63",
@@ -399,16 +399,16 @@
           "summaryMeasure": "Survival of all patients",
           "analysisPopulation": {
             "id": "AnalysisPopulation_1",
-            "populationDescription": "ITT"
+            "description": "ITT"
           },
-          "treatment": "InvestigationalIntervention_1",
-          "variableOfInterest": "Endpoint_1",
+          "treatmentId": "InvestigationalIntervention_1",
+          "variableOfInterestId": "Endpoint_1",
           "intercurrentEvents": [
             {
               "id": "IntercurrentEvent_1",
-              "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
-              "intercurrentEventName": "termination",
-              "intercurrentEventDescription": "IC Event Description"
+              "name": "termination",
+              "description": "IC Event Description",
+              "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded"
             }
           ]
         }
@@ -445,11 +445,11 @@
           ],
           "transitionStartRule": {
             "id": "TransitionRule_1",
-            "transitionRuleDescription": "Subject identified"
+            "description": "Subject identified"
           },
           "transitionEndRule": {
             "id": "TransitionRule_2",
-            "transitionRuleDescription": "IEs passed"
+            "description": "IEs passed"
           },
           "encounterScheduledAtTimingId": null
         },
@@ -517,7 +517,7 @@
           ],
           "transitionStartRule": {
             "id": "TransitionRule_3",
-            "transitionRuleDescription": "Radomized"
+            "description": "Radomized"
           },
           "transitionEndRule": null,
           "encounterScheduledAtTimingId": null
@@ -893,11 +893,11 @@
           "description": "Screening Element",
           "transitionStartRule": {
             "id": "TransitionRule_4",
-            "transitionRuleDescription": "Study Start"
+            "description": "Study Start"
           },
           "transitionEndRule": {
             "id": "TransitionRule_5",
-            "transitionRuleDescription": "Screened"
+            "description": "Screened"
           }
         },
         {
@@ -906,11 +906,11 @@
           "description": "Baseline Element",
           "transitionStartRule": {
             "id": "TransitionRule_6",
-            "transitionRuleDescription": "Screened"
+            "description": "Screened"
           },
           "transitionEndRule": {
             "id": "TransitionRule_7",
-            "transitionRuleDescription": "Radomized"
+            "description": "Radomized"
           }
         },
         {
@@ -919,11 +919,11 @@
           "description": "Treatment Element 1",
           "transitionStartRule": {
             "id": "TransitionRule_8",
-            "transitionRuleDescription": "Radomized"
+            "description": "Radomized"
           },
           "transitionEndRule": {
             "id": "TransitionRule_9",
-            "transitionRuleDescription": "Completed treatment"
+            "description": "Completed treatment"
           }
         }
       ]

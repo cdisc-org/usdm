@@ -268,7 +268,7 @@
     "id": 26,
     "properties": {
       "id": "Indication_1",
-      "indicationDescription": "An indication",
+      "description": "An indication",
       "_type": "Indication",
       "label": "Indication_1"
     }
@@ -289,7 +289,7 @@
     "id": 28,
     "properties": {
       "id": "Indication_2",
-      "indicationDescription": "An indication",
+      "description": "An indication",
       "_type": "Indication",
       "label": "Indication_2"
     }
@@ -322,7 +322,7 @@
     "id": 30,
     "properties": {
       "id": "InvestigationalIntervention_1",
-      "interventionDescription": "An intervention",
+      "description": null,
       "_type": "InvestigationalIntervention",
       "label": "InvestigationalIntervention_1"
     }
@@ -355,7 +355,7 @@
     "id": 33,
     "properties": {
       "id": "InvestigationalIntervention_2",
-      "interventionDescription": "An intervention",
+      "description": null,
       "_type": "InvestigationalIntervention",
       "label": "InvestigationalIntervention_2"
     }
@@ -376,7 +376,7 @@
     "id": 36,
     "properties": {
       "id": "StudyDesignPopulation_1",
-      "populationDescription": "Pop 1",
+      "description": "Pop 1",
       "plannedNumberOfParticipants": 100,
       "plannedMaximumAgeOfParticipants": "40 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -400,7 +400,7 @@
     "id": 38,
     "properties": {
       "id": "StudyDesignPopulation_2",
-      "populationDescription": "Pop 2",
+      "description": "Pop 2",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "60 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -424,7 +424,7 @@
     "id": 40,
     "properties": {
       "id": "StudyDesignPopulation_3",
-      "populationDescription": "Pop 3",
+      "description": "Pop 3",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "70 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -460,7 +460,7 @@
     "id": 44,
     "properties": {
       "id": "Endpoint_1",
-      "endpointDescription": "End Desc",
+      "description": "End Desc",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_1"
@@ -470,7 +470,7 @@
     "id": 42,
     "properties": {
       "id": "Objective_1",
-      "objectiveDescription": "Obj Desc",
+      "description": "Obj Desc",
       "_type": "Objective",
       "label": "Objective_1"
     }
@@ -1556,7 +1556,7 @@
     "id": 137,
     "properties": {
       "id": "AnalysisPopulation_1",
-      "populationDescription": "ITT",
+      "description": "ITT",
       "_type": "AnalysisPopulation",
       "label": "AnalysisPopulation_1"
     }
@@ -1565,9 +1565,9 @@
     "id": 138,
     "properties": {
       "id": "IntercurrentEvent_1",
+      "name": "termination",
+      "description": "IC Event Description",
       "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
-      "intercurrentEventName": "termination",
-      "intercurrentEventDescription": "IC Event Description",
       "_type": "IntercurrentEvent",
       "label": "IntercurrentEvent_1"
     }
@@ -1577,6 +1577,8 @@
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
+      "treatmentId": "InvestigationalIntervention_1",
+      "variableOfInterestId": "Endpoint_1",
       "_type": "Estimand",
       "label": "Estimand_1"
     }
@@ -1621,7 +1623,7 @@
     "id": 143,
     "properties": {
       "id": "TransitionRule_1",
-      "transitionRuleDescription": "Subject identifier",
+      "description": "Subject identifier",
       "_type": "TransitionRule",
       "label": "TransitionRule_1"
     }
@@ -1630,7 +1632,7 @@
     "id": 144,
     "properties": {
       "id": "TransitionRule_2",
-      "transitionRuleDescription": "IEs passed",
+      "description": "IEs passed",
       "_type": "TransitionRule",
       "label": "TransitionRule_2"
     }
@@ -1688,7 +1690,7 @@
     "id": 149,
     "properties": {
       "id": "TransitionRule_3",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_3"
     }
@@ -2104,7 +2106,7 @@
     "id": 182,
     "properties": {
       "id": "TransitionRule_4",
-      "transitionRuleDescription": "End of treatment",
+      "description": "End of treatment",
       "_type": "TransitionRule",
       "label": "TransitionRule_4"
     }
@@ -2433,7 +2435,7 @@
     "id": 209,
     "properties": {
       "id": "TransitionRule_5",
-      "transitionRuleDescription": "Study Start",
+      "description": "Study Start",
       "_type": "TransitionRule",
       "label": "TransitionRule_5"
     }
@@ -2442,7 +2444,7 @@
     "id": 210,
     "properties": {
       "id": "TransitionRule_6",
-      "transitionRuleDescription": "Screened",
+      "description": "Screened",
       "_type": "TransitionRule",
       "label": "TransitionRule_6"
     }
@@ -2461,7 +2463,7 @@
     "id": 212,
     "properties": {
       "id": "TransitionRule_7",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_7"
     }
@@ -2470,7 +2472,7 @@
     "id": 213,
     "properties": {
       "id": "TransitionRule_8",
-      "transitionRuleDescription": "Completed treatment",
+      "description": "Completed treatment",
       "_type": "TransitionRule",
       "label": "TransitionRule_8"
     }
@@ -2489,7 +2491,7 @@
     "id": 215,
     "properties": {
       "id": "TransitionRule_9",
-      "transitionRuleDescription": "Treated",
+      "description": "Treated",
       "_type": "TransitionRule",
       "label": "TransitionRule_9"
     }
@@ -2498,7 +2500,7 @@
     "id": 216,
     "properties": {
       "id": "TransitionRule_10",
-      "transitionRuleDescription": "Leave Study",
+      "description": "Leave Study",
       "_type": "TransitionRule",
       "label": "TransitionRule_10"
     }

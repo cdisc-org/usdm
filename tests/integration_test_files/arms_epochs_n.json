@@ -241,7 +241,7 @@
     "id": 24,
     "properties": {
       "id": "Indication_1",
-      "indicationDescription": "An indication",
+      "description": "An indication",
       "_type": "Indication",
       "label": "Indication_1"
     }
@@ -274,7 +274,7 @@
     "id": 26,
     "properties": {
       "id": "InvestigationalIntervention_1",
-      "interventionDescription": "An intervention",
+      "description": null,
       "_type": "InvestigationalIntervention",
       "label": "InvestigationalIntervention_1"
     }
@@ -295,7 +295,7 @@
     "id": 29,
     "properties": {
       "id": "StudyDesignPopulation_1",
-      "populationDescription": "Pop 1",
+      "description": "Pop 1",
       "plannedNumberOfParticipants": 100,
       "plannedMaximumAgeOfParticipants": "40 years",
       "plannedMinimumAgeOfParticipants": "18 years",
@@ -331,7 +331,7 @@
     "id": 33,
     "properties": {
       "id": "Endpoint_1",
-      "endpointDescription": "Clinical status assessed using a 7-category ordinal scale at Day 28",
+      "description": "Clinical status assessed using a 7-category ordinal scale at Day 28",
       "endpointPurposeDescription": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_1"
@@ -341,7 +341,7 @@
     "id": 31,
     "properties": {
       "id": "Objective_1",
-      "objectiveDescription": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+      "description": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
       "_type": "Objective",
       "label": "Objective_1"
     }
@@ -527,7 +527,7 @@
     "id": 51,
     "properties": {
       "id": "AnalysisPopulation_1",
-      "populationDescription": "ITT",
+      "description": "ITT",
       "_type": "AnalysisPopulation",
       "label": "AnalysisPopulation_1"
     }
@@ -536,9 +536,9 @@
     "id": 52,
     "properties": {
       "id": "IntercurrentEvent_1",
+      "name": "termination",
+      "description": "IC Event Description",
       "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
-      "intercurrentEventName": "termination",
-      "intercurrentEventDescription": "IC Event Description",
       "_type": "IntercurrentEvent",
       "label": "IntercurrentEvent_1"
     }
@@ -548,6 +548,8 @@
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
+      "treatmentId": "InvestigationalIntervention_1",
+      "variableOfInterestId": "Endpoint_1",
       "_type": "Estimand",
       "label": "Estimand_1"
     }
@@ -592,7 +594,7 @@
     "id": 57,
     "properties": {
       "id": "TransitionRule_1",
-      "transitionRuleDescription": "Subject identified",
+      "description": "Subject identified",
       "_type": "TransitionRule",
       "label": "TransitionRule_1"
     }
@@ -601,7 +603,7 @@
     "id": 58,
     "properties": {
       "id": "TransitionRule_2",
-      "transitionRuleDescription": "IEs passed",
+      "description": "IEs passed",
       "_type": "TransitionRule",
       "label": "TransitionRule_2"
     }
@@ -710,7 +712,7 @@
     "id": 67,
     "properties": {
       "id": "TransitionRule_3",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_3"
     }
@@ -1319,7 +1321,7 @@
     "id": 121,
     "properties": {
       "id": "TransitionRule_4",
-      "transitionRuleDescription": "Study Start",
+      "description": "Study Start",
       "_type": "TransitionRule",
       "label": "TransitionRule_4"
     }
@@ -1328,7 +1330,7 @@
     "id": 122,
     "properties": {
       "id": "TransitionRule_5",
-      "transitionRuleDescription": "Screened",
+      "description": "Screened",
       "_type": "TransitionRule",
       "label": "TransitionRule_5"
     }
@@ -1347,7 +1349,7 @@
     "id": 124,
     "properties": {
       "id": "TransitionRule_6",
-      "transitionRuleDescription": "Screened",
+      "description": "Screened",
       "_type": "TransitionRule",
       "label": "TransitionRule_6"
     }
@@ -1356,7 +1358,7 @@
     "id": 125,
     "properties": {
       "id": "TransitionRule_7",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_7"
     }
@@ -1375,7 +1377,7 @@
     "id": 127,
     "properties": {
       "id": "TransitionRule_8",
-      "transitionRuleDescription": "Radomized",
+      "description": "Radomized",
       "_type": "TransitionRule",
       "label": "TransitionRule_8"
     }
@@ -1384,7 +1386,7 @@
     "id": 128,
     "properties": {
       "id": "TransitionRule_9",
-      "transitionRuleDescription": "Completed treatment",
+      "description": "Completed treatment",
       "_type": "TransitionRule",
       "label": "TransitionRule_9"
     }

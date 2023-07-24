@@ -230,7 +230,7 @@
       "studyIndications": [
         {
           "id": "Indication_1",
-          "indicationDescription": "An indication",
+          "description": "An indication",
           "codes": [
             {
               "id": "Code_217",
@@ -243,7 +243,7 @@
         },
         {
           "id": "Indication_2",
-          "indicationDescription": "An indication",
+          "description": "An indication",
           "codes": [
             {
               "id": "Code_220",
@@ -258,7 +258,7 @@
       "studyInvestigationalInterventions": [
         {
           "id": "InvestigationalIntervention_1",
-          "interventionDescription": "An intervention",
+          "description": null,
           "codes": [
             {
               "id": "Code_218",
@@ -278,7 +278,7 @@
         },
         {
           "id": "InvestigationalIntervention_2",
-          "interventionDescription": "An intervention",
+          "description": null,
           "codes": [
             {
               "id": "Code_221",
@@ -300,7 +300,7 @@
       "studyPopulations": [
         {
           "id": "StudyDesignPopulation_1",
-          "populationDescription": "Pop 1",
+          "description": "Pop 1",
           "plannedNumberOfParticipants": 100,
           "plannedMaximumAgeOfParticipants": "40 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -316,7 +316,7 @@
         },
         {
           "id": "StudyDesignPopulation_2",
-          "populationDescription": "Pop 2",
+          "description": "Pop 2",
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "60 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -332,7 +332,7 @@
         },
         {
           "id": "StudyDesignPopulation_3",
-          "populationDescription": "Pop 3",
+          "description": "Pop 3",
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "70 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -350,7 +350,7 @@
       "studyObjectives": [
         {
           "id": "Objective_1",
-          "objectiveDescription": "To demonstrate that 3 mg LY900018 is non-inferior to 1 mg IMG for the proportion of patients achieving\ntreatment success from insulin-induced hypoglycemia using a non-inferiority margin of 10%",
+          "description": "To demonstrate that 3 mg LY900018 is non-inferior to 1 mg IMG for the proportion of patients achieving\ntreatment success from insulin-induced hypoglycemia using a non-inferiority margin of 10%",
           "objectiveLevel": {
             "id": "Code_227",
             "code": "C85826",
@@ -361,7 +361,7 @@
           "objectiveEndpoints": [
             {
               "id": "Endpoint_1",
-              "endpointDescription": "The proportion of patients achieving treatment success defined as either an increase in PG to >70 mg/dL or an increase of >20 mg/dL from nadir within 30 minutes after administration of glucagon. The nadir is defined\nas the minimum PG value at the time of or within 10 minutes following glucagon administration.",
+              "description": "The proportion of patients achieving treatment success defined as either an increase in PG to >70 mg/dL or an increase of >20 mg/dL from nadir within 30 minutes after administration of glucagon. The nadir is defined\nas the minimum PG value at the time of or within 10 minutes following glucagon administration.",
               "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_226",
@@ -375,7 +375,7 @@
         },
         {
           "id": "Objective_2",
-          "objectiveDescription": "To compare the safety and tolerability of 3 mg LY900018 with 1 mg IMG",
+          "description": "To compare the safety and tolerability of 3 mg LY900018 with 1 mg IMG",
           "objectiveLevel": {
             "id": "Code_229",
             "code": "C85827",
@@ -386,7 +386,7 @@
           "objectiveEndpoints": [
             {
               "id": "Endpoint_2",
-              "endpointDescription": "SAE, TEAEs (including gastrointestinal, nasal,\nand non-nasal AEs), vital signs",
+              "description": "SAE, TEAEs (including gastrointestinal, nasal,\nand non-nasal AEs), vital signs",
               "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_228",
@@ -400,7 +400,7 @@
         },
         {
           "id": "Objective_3",
-          "objectiveDescription": "To characterize the PK profile of 3 mg LY900018\ncompared to 1 mg IMG",
+          "description": "To characterize the PK profile of 3 mg LY900018\ncompared to 1 mg IMG",
           "objectiveLevel": {
             "id": "Code_231",
             "code": "C85827",
@@ -411,7 +411,7 @@
           "objectiveEndpoints": [
             {
               "id": "Endpoint_3",
-              "endpointDescription": "PK parameters include AUC, Cmax, Tmax",
+              "description": "PK parameters include AUC, Cmax, Tmax",
               "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_230",
@@ -425,7 +425,7 @@
         },
         {
           "id": "Objective_4",
-          "objectiveDescription": "To characterize the PD profile of 3 mg LY900018\ncompared to 1 mg IMG",
+          "description": "To characterize the PD profile of 3 mg LY900018\ncompared to 1 mg IMG",
           "objectiveLevel": {
             "id": "Code_233",
             "code": "C85827",
@@ -436,7 +436,7 @@
           "objectiveEndpoints": [
             {
               "id": "Endpoint_4",
-              "endpointDescription": "PD parameters include BGmax and Tmax",
+              "description": "PD parameters include BGmax and Tmax",
               "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_232",
@@ -1888,28 +1888,28 @@
           "summaryMeasure": "Treatment Success",
           "analysisPopulation": {
             "id": "AnalysisPopulation_1",
-            "populationDescription": "PP"
+            "description": "PP"
           },
-          "treatment": "InvestigationalIntervention_1",
-          "variableOfInterest": "Endpoint_1",
+          "treatmentId": "InvestigationalIntervention_1",
+          "variableOfInterestId": "Endpoint_1",
           "intercurrentEvents": [
             {
               "id": "IntercurrentEvent_1",
-              "intercurrentEventStrategy": "Exclude subject from analysis",
-              "intercurrentEventName": "no Hypo",
-              "intercurrentEventDescription": "No hypoglycemia induced after 3 hours"
+              "name": "no Hypo",
+              "description": "No hypoglycemia induced after 3 hours",
+              "intercurrentEventStrategy": "Exclude subject from analysis"
             },
             {
               "id": "IntercurrentEvent_2",
-              "intercurrentEventStrategy": "",
-              "intercurrentEventName": "",
-              "intercurrentEventDescription": ""
+              "name": "",
+              "description": "",
+              "intercurrentEventStrategy": ""
             },
             {
               "id": "IntercurrentEvent_3",
-              "intercurrentEventStrategy": "",
-              "intercurrentEventName": "",
-              "intercurrentEventDescription": ""
+              "name": "",
+              "description": "",
+              "intercurrentEventStrategy": ""
             }
           ]
         },
@@ -1918,16 +1918,16 @@
           "summaryMeasure": "Something else",
           "analysisPopulation": {
             "id": "AnalysisPopulation_2",
-            "populationDescription": "ITT"
+            "description": "ITT"
           },
-          "treatment": "InvestigationalIntervention_2",
-          "variableOfInterest": "Endpoint_2",
+          "treatmentId": "InvestigationalIntervention_2",
+          "variableOfInterestId": "Endpoint_2",
           "intercurrentEvents": [
             {
               "id": "IntercurrentEvent_4",
-              "intercurrentEventStrategy": "Really really bad shit",
-              "intercurrentEventName": "Bad stuff",
-              "intercurrentEventDescription": "IC Event Description Number 2"
+              "name": "Bad stuff",
+              "description": "IC Event Description Number 2",
+              "intercurrentEventStrategy": "Really really bad shit"
             }
           ]
         }
@@ -3167,11 +3167,11 @@
           "description": "Screening Element",
           "transitionStartRule": {
             "id": "TransitionRule_1",
-            "transitionRuleDescription": "Study Start"
+            "description": "Study Start"
           },
           "transitionEndRule": {
             "id": "TransitionRule_2",
-            "transitionRuleDescription": "Day -1 of treatment period 1"
+            "description": "Day -1 of treatment period 1"
           }
         },
         {
@@ -3180,11 +3180,11 @@
           "description": "IM Glucagon + LY900018",
           "transitionStartRule": {
             "id": "TransitionRule_3",
-            "transitionRuleDescription": "Day -1 of treatment period"
+            "description": "Day -1 of treatment period"
           },
           "transitionEndRule": {
             "id": "TransitionRule_4",
-            "transitionRuleDescription": "End of Day 1 of treatment period"
+            "description": "End of Day 1 of treatment period"
           }
         },
         {
@@ -3193,11 +3193,11 @@
           "description": "Wash Out Element",
           "transitionStartRule": {
             "id": "TransitionRule_7",
-            "transitionRuleDescription": "End of Day 1 of Treatment period 1"
+            "description": "End of Day 1 of Treatment period 1"
           },
           "transitionEndRule": {
             "id": "TransitionRule_8",
-            "transitionRuleDescription": "Day -1 of treatment period 2"
+            "description": "Day -1 of treatment period 2"
           }
         },
         {
@@ -3206,11 +3206,11 @@
           "description": "IM Glucagon",
           "transitionStartRule": {
             "id": "TransitionRule_5",
-            "transitionRuleDescription": "Day -1 of treatment period"
+            "description": "Day -1 of treatment period"
           },
           "transitionEndRule": {
             "id": "TransitionRule_6",
-            "transitionRuleDescription": "End of Day 1 of treatment period"
+            "description": "End of Day 1 of treatment period"
           }
         },
         {
@@ -3219,11 +3219,11 @@
           "description": "Follow Up Element",
           "transitionStartRule": {
             "id": "TransitionRule_9",
-            "transitionRuleDescription": "End of Day 1 of Treatment period 2"
+            "description": "End of Day 1 of Treatment period 2"
           },
           "transitionEndRule": {
             "id": "TransitionRule_10",
-            "transitionRuleDescription": "Leave Study"
+            "description": "Leave Study"
           }
         }
       ]

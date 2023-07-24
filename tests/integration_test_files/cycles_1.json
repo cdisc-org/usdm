@@ -190,7 +190,7 @@
       "studyIndications": [
         {
           "id": "Indication_1",
-          "indicationDescription": "An indication",
+          "description": "An indication",
           "codes": [
             {
               "id": "Code_162",
@@ -203,7 +203,7 @@
         },
         {
           "id": "Indication_2",
-          "indicationDescription": "An indication",
+          "description": "An indication",
           "codes": [
             {
               "id": "Code_165",
@@ -218,7 +218,7 @@
       "studyInvestigationalInterventions": [
         {
           "id": "InvestigationalIntervention_1",
-          "interventionDescription": "An intervention",
+          "description": null,
           "codes": [
             {
               "id": "Code_163",
@@ -238,7 +238,7 @@
         },
         {
           "id": "InvestigationalIntervention_2",
-          "interventionDescription": "An intervention",
+          "description": null,
           "codes": [
             {
               "id": "Code_166",
@@ -260,7 +260,7 @@
       "studyPopulations": [
         {
           "id": "StudyDesignPopulation_1",
-          "populationDescription": "Pop 1",
+          "description": "Pop 1",
           "plannedNumberOfParticipants": 100,
           "plannedMaximumAgeOfParticipants": "40 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -276,7 +276,7 @@
         },
         {
           "id": "StudyDesignPopulation_2",
-          "populationDescription": "Pop 2",
+          "description": "Pop 2",
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "60 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -292,7 +292,7 @@
         },
         {
           "id": "StudyDesignPopulation_3",
-          "populationDescription": "Pop 3",
+          "description": "Pop 3",
           "plannedNumberOfParticipants": 20,
           "plannedMaximumAgeOfParticipants": "70 years",
           "plannedMinimumAgeOfParticipants": "18 years",
@@ -310,7 +310,7 @@
       "studyObjectives": [
         {
           "id": "Objective_1",
-          "objectiveDescription": "Obj Desc",
+          "description": "Obj Desc",
           "objectiveLevel": {
             "id": "Code_172",
             "code": "C85826",
@@ -321,7 +321,7 @@
           "objectiveEndpoints": [
             {
               "id": "Endpoint_1",
-              "endpointDescription": "End Desc",
+              "description": "End Desc",
               "endpointPurposeDescription": "None provided",
               "endpointLevel": {
                 "id": "Code_171",
@@ -1180,16 +1180,16 @@
           "summaryMeasure": "Survival of all patients",
           "analysisPopulation": {
             "id": "AnalysisPopulation_1",
-            "populationDescription": "ITT"
+            "description": "ITT"
           },
-          "treatment": "InvestigationalIntervention_1",
-          "variableOfInterest": "Endpoint_1",
+          "treatmentId": "InvestigationalIntervention_1",
+          "variableOfInterestId": "Endpoint_1",
           "intercurrentEvents": [
             {
               "id": "IntercurrentEvent_1",
-              "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
-              "intercurrentEventName": "termination",
-              "intercurrentEventDescription": "IC Event Description"
+              "name": "termination",
+              "description": "IC Event Description",
+              "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded"
             }
           ]
         }
@@ -1226,11 +1226,11 @@
           ],
           "transitionStartRule": {
             "id": "TransitionRule_1",
-            "transitionRuleDescription": "Subject identifier"
+            "description": "Subject identifier"
           },
           "transitionEndRule": {
             "id": "TransitionRule_2",
-            "transitionRuleDescription": "IEs passed"
+            "description": "IEs passed"
           },
           "encounterScheduledAtTimingId": null
         },
@@ -1265,7 +1265,7 @@
           ],
           "transitionStartRule": {
             "id": "TransitionRule_3",
-            "transitionRuleDescription": "Radomized"
+            "description": "Radomized"
           },
           "transitionEndRule": null,
           "encounterScheduledAtTimingId": null
@@ -1533,7 +1533,7 @@
           "transitionStartRule": null,
           "transitionEndRule": {
             "id": "TransitionRule_4",
-            "transitionRuleDescription": "End of treatment"
+            "description": "End of treatment"
           },
           "encounterScheduledAtTimingId": null
         },
@@ -1753,11 +1753,11 @@
           "description": "Screening Element",
           "transitionStartRule": {
             "id": "TransitionRule_5",
-            "transitionRuleDescription": "Study Start"
+            "description": "Study Start"
           },
           "transitionEndRule": {
             "id": "TransitionRule_6",
-            "transitionRuleDescription": "Screened"
+            "description": "Screened"
           }
         },
         {
@@ -1766,11 +1766,11 @@
           "description": "Treatment Element",
           "transitionStartRule": {
             "id": "TransitionRule_7",
-            "transitionRuleDescription": "Radomized"
+            "description": "Radomized"
           },
           "transitionEndRule": {
             "id": "TransitionRule_8",
-            "transitionRuleDescription": "Completed treatment"
+            "description": "Completed treatment"
           }
         },
         {
@@ -1779,11 +1779,11 @@
           "description": "Follow Up Element",
           "transitionStartRule": {
             "id": "TransitionRule_9",
-            "transitionRuleDescription": "Treated"
+            "description": "Treated"
           },
           "transitionEndRule": {
             "id": "TransitionRule_10",
-            "transitionRuleDescription": "Leave Study"
+            "description": "Leave Study"
           }
         }
       ]
