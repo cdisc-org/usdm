@@ -32,10 +32,11 @@ class ApiBaseModel(BaseModel):
     return json.dumps(self, default=_serialize_as_json_with_type)
 
 class ApiIdModel(ApiBaseModel):
-
   id: str
 
 class ApiNameDescriptionModel(ApiIdModel):
-
   name: str
+  description: Union[str, None] = None
+
+class ApiDescriptionModel(ApiIdModel):
   description: Union[str, None] = None
