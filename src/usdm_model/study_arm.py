@@ -1,4 +1,3 @@
-from typing import Union
 from .api_base_model import ApiNameDescriptionModel
 from .code import Code
 
