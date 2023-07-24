@@ -26,7 +26,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
           try:
             current = Objective(id=id_manager.build_id(Objective),
-              objectiveDescription=o_description, 
+              description=o_description, 
               objectiveLevel=o_level,
               objectiveEndpoints=[]
             )
@@ -39,7 +39,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         if current is not None:
           try:
             ep = Endpoint(id=id_manager.build_id(Endpoint), 
-              endpointDescription=e_description, 
+              description=e_description, 
               endpointPurposeDescription=e_p_description, 
               endpointLevel=e_level
             )  

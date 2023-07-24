@@ -18,7 +18,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         codes = self._build_codes(row, index)
         try:
           pop = StudyDesignPopulation(id=id_manager.build_id(StudyDesignPopulation), 
-            populationDescription=description, 
+            description=description, 
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,
             plannedMaximumAgeOfParticipants=max,

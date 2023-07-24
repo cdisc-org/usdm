@@ -1,8 +1,7 @@
 from typing import Union
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiDescriptionModel
 from .code import Code
 
-class Endpoint(ApiIdModel):
-  endpointDescription: str
+class Endpoint(ApiDescriptionModel):
   endpointPurposeDescription: str
   endpointLevel: Union[Code, None] = None

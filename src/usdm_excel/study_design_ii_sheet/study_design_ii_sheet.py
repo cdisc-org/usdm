@@ -22,7 +22,7 @@ class StudyDesignIISheet(BaseSheet):
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         if type.upper() == "IND":
           try:
-            item = Indication(id=id_manager.build_id(Indication), indicationDescription=description, codes=codes)
+            item = Indication(id=id_manager.build_id(Indication), description=description, codes=codes)
           except Exception as e:
             self._general_error(f"Failed to create Indication object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")

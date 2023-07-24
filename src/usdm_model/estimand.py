@@ -6,6 +6,6 @@ from .intercurrent_event import IntercurrentEvent
 class Estimand(ApiIdModel):
   summaryMeasure: str
   analysisPopulation: AnalysisPopulation
-  treatment: Union[str, None] = None
-  variableOfInterest: Union[str, None] = None
+  treatmentId: Union[str, None] = None
+  variableOfInterestId: Union[str, None] = None
   intercurrentEvents: List[IntercurrentEvent] = []
