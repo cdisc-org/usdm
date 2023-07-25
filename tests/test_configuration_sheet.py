@@ -20,13 +20,19 @@ def test_defaults(mocker):
   assert om.get(Options.DESCRIPTION) == ""
 
 def test_set(mocker):
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': ['Ct Version', 'SDR Prev Next', 'sdr ROOT', 'sdr Description'], 'col_2': ['THIS=that', 'sdr', 'SDR', 'No desc set']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
   configuration = ConfigurationSheet("")
-  assert om.get(Options.ROOT) == RootOption.SDR_COMPATABLE.value
+  assert om.get(Options.ROOT) == RootOption.API_COMPLIANT.value
   assert om.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value
   assert om.get(Options.DESCRIPTION) == "No desc set"
   assert ctvm.get('THIS') == 'that'
+  mock_error.assert_called()
+  assert mock_error.call_args[0][0] == "configuration"
+  assert mock_error.call_args[0][1] == None
+  assert mock_error.call_args[0][2] == None
+  assert mock_error.call_args[0][3] == "The SDR_ROOT option is now deprecated and will be ignored."

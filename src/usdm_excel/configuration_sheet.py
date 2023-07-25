@@ -35,7 +35,8 @@ class ConfigurationSheet(BaseSheet):
         if value.strip().upper() == 'SDR':
           option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NULL_STRING)
       elif name == 'SDR ROOT':
-        if value.strip().upper() == 'SDR':
-          option_manager.set(Options.ROOT, RootOption.SDR_COMPATABLE)
+        self._general_warning("The SDR_ROOT option is now deprecated and will be ignored.")
+#        if value.strip().upper() == 'SDR':
+#          option_manager.set(Options.ROOT, RootOption.SDR_COMPATABLE)
       elif name == 'SDR DESCRIPTION':
         option_manager.set(Options.DESCRIPTION, value)

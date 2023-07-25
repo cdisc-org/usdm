@@ -20,12 +20,14 @@ from usdm_excel.option_manager import *
 from usdm_model.api_base_model import ApiBaseModel
 from usdm_model.study import Study
 from usdm_model.study_protocol_version import StudyProtocolVersion
+from usdm_model.wrapper import Wrapper
+
 import traceback
 import pandas as pd
 import datetime
 
-class SDRRoot(ApiBaseModel):
-  clinicalStudy: Study
+# class SDRRoot(ApiBaseModel):
+#   clinicalStudy: Study
 
 class StudySheet(BaseSheet):
 
@@ -130,11 +132,12 @@ class StudySheet(BaseSheet):
     return self.study
   
   def api_root(self):
-    if option_manager.get(Options.ROOT) == RootOption.SDR_COMPATABLE.value:
-      root = SDRRoot(clinicalStudy=self.study)
-    else:
-      root = self.study
-    return root
+    # if option_manager.get(Options.ROOT) == RootOption.SDR_COMPATABLE.value:
+    #   root = SDRRoot(clinicalStudy=self.study)
+    # else:
+    #   root = self.study
+    # return root
+    return Wrapper(study=self.study)
 
   def _process_sheet(self):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
