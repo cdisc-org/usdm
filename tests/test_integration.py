@@ -2,19 +2,25 @@ import json
 import csv
 from src.usdm_excel import USDMExcel
 
-SAVE_ALL = True
+SAVE_ALL = False
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
   writer.writeheader()
   writer.writerows(contents)
 
+def to_int(value):
+  try:
+    return int(value)
+  except:
+    return None
+
 def read_error_csv(file):
   reader = csv.DictReader(file)
   items = list(reader)
   for item in items:
-    item['row'] = int(item['row'])
-    item['column'] = int(item['column'])
+    item['row'] = to_int(item['row'])
+    item['column'] = to_int(item['column'])
   return items
 
 def run_test(filename, save=False):
