@@ -194,7 +194,7 @@ class BaseSheet():
           the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
     except:
-      print(f"ITEMS: {items}")
+      self._general_error(f"Exception in double_link: {items}")
 
   def _decode_other_code(self, value, row_index, col_index):
     if value.strip() == "":

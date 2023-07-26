@@ -88,11 +88,15 @@ class StudySheet(BaseSheet):
       study_design.studyScheduleTimelines.append(self.soa.timeline)
       study_design.encounters = self.encounters.items
       study_design.activities = self.soa.activities
+      activity_ids = [item.id for item in study_design.activities]
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
       for key,tl in self.timelines.items():
         study_design.studyScheduleTimelines.append(tl.timeline)
-        study_design.activities += tl.activities
+        for activity in tl.activities:
+          if activity.id not in activity_ids:
+            study_design.activities.append(activity)
+            activity_ids.append(activity.id)
         study_design.biomedicalConcepts += tl.biomedical_concepts
         study_design.bcSurrogates += tl.biomedical_concept_surrogates
       study_design.studyIndications = self.ii.indications

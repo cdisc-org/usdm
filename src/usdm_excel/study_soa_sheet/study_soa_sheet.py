@@ -44,7 +44,8 @@ class StudySoASheet(BaseSheet):
       instances = []
 
       for item in self._raw_activities.items:
-        self.activities.append(item.usdm_activity)
+        activity = item.usdm_activity
+        self.activities.append(activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
         self.biomedical_concepts += item.usdm_biomedical_concepts
       self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
@@ -61,8 +62,6 @@ class StudySoASheet(BaseSheet):
       self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
-      #print(f"Exception [{e}] raised reading sheet")
-      #print(f"{traceback.format_exc()}")
       self._general_error(f"Exception [{e}] raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 

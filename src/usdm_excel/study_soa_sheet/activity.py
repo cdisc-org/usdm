@@ -43,7 +43,7 @@ class Activity():
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
     activity = cross_references.get(self.name)
     if activity is None:
-      return USDMActivity(
+      activity = USDMActivity(
         id=id_manager.build_id(Activity),
         name=self.name,
         description=self.name,
