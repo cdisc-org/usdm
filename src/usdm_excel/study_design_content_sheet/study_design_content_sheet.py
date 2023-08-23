@@ -50,24 +50,26 @@ class StudyDesignContentSheet(BaseSheet):
             contentChildIds=[]
           )
           self.items.append(item)
-          print(f"ITEM: {item.id}")
+          #print(f"ITEM: {item.id}")
           if new_level == current_level:
             # Same level
             parent = current_parent[-1]
-            print(f"PARENT1: P={parent.id}, C={item.id}")
+            #print(f"PARENT1: P={parent.id}, C={item.id}")
             parent.contentChildIds.append(item.id)
           elif new_level > current_level:
             # Down
             current_parent.append(previous_item)
             current_level = new_level
             parent = current_parent[-1]
-            print(f"PARENT2: P={parent.id}, C={item.id} ")
+            #print(f"PARENT2: P={parent.id}, C={item.id} ")
             parent.contentChildIds.append(item.id)
           else:
             # Up
-            current_parent.pop()
+            for p_count in range(new_level, current_level):
+              #print(f"POP")
+              current_parent.pop()
             parent = current_parent[-1]
-            print(f"PARENT3: P={parent.id}, C={item.id}")
+            #print(f"PARENT3: P={parent.id}, C={item.id}")
             parent.contentChildIds.append(item.id)
             current_level = new_level
           previous_item = item
