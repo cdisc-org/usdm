@@ -32,8 +32,10 @@ class StudyDesignContentSheet(BaseSheet):
         self.items.append(previous_item)
         for index, row in self.sheet.iterrows():
           for level in range(first_level, last_level):
+            #print(f"LEVEL1: Level={level}")
             number = str(self.read_cell_by_name(index, self._level_column_name(level)))
             if number != "":
+              #print(f"LEVEL2: Number={number}")
               new_level = level
               break
           title = self.read_cell_by_name(index, 'sectionTitle')
@@ -42,6 +44,7 @@ class StudyDesignContentSheet(BaseSheet):
           name = f"SECTION {number}" if name == "" else name
           #print(f"PARAMS: New={new_level}, Current={current_level}, Num={number}, Title={title}, Text={text}, Name={name}")
           try:
+            #print(f"N1")
             item = Content(
               id=id_manager.build_id(Content), 
               name=name,
@@ -50,6 +53,7 @@ class StudyDesignContentSheet(BaseSheet):
               text=text,
               contentChildIds=[]
             )
+            #print(f"N2")
             self.items.append(item)
             #print(f"ITEM: {item.id}")
             if new_level == current_level:
@@ -67,8 +71,8 @@ class StudyDesignContentSheet(BaseSheet):
             else:
               # Up
               for p_count in range(new_level, current_level):
-                #print(f"POP")
-                current_parent.pop()
+                popped = current_parent.pop()
+                #print(f"POP {popped.id}")
               parent = current_parent[-1]
               #print(f"PARENT3: P={parent.id}, C={item.id}")
               parent.contentChildIds.append(item.id)
