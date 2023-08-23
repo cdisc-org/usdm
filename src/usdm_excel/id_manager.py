@@ -9,7 +9,7 @@ class IdManager():
       'Address': 0,
       'Code': 0,
       'AliasCode': 0,
-      'Organisation': 0,
+      'Organization': 0,
       'StudyIdentifier': 0,
       'StudyEpoch': 0,
       'StudyArm': 0,

@@ -21,15 +21,19 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, 'organisationType')     
+      org_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, 'organisationType')     
+      org_id_scheme=self.read_cell_by_name(index, 'organisationIdentifierScheme')
+      org_identifier=self.read_cell_by_name(index, 'organisationIdentifier')
+      org_name=self.read_cell_by_name(index, 'organisationName')
+      org_address=self._build_address(index)
       try:
         organisation = Organization(
           id=id_manager.build_id(Organization),
-          organizationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
-          organizationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
-          name=self.read_cell_by_name(index, 'organisationName'),
-          organizationType=organisation_type,
-          organizationLegalAddress=self._build_address(index)
+          organizationIdentifierScheme=org_id_scheme, 
+          organizationIdentifier=org_identifier,
+          name=org_name,
+          organizationType=org_type,
+          organizationLegalAddress=org_address
         )
       except Exception as e:
         self._general_error(f"Failed to create Organization object, exception {e}")
