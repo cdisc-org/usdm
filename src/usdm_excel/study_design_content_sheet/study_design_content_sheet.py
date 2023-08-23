@@ -35,7 +35,7 @@ class StudyDesignContentSheet(BaseSheet):
         text = self.read_cell_by_name(index, 'text')
         name = self.read_cell_by_name(index, 'name')
         name = f"SECTION {number}" if name == "" else name
-        print(f"PARAMS: New={new_level}, Current={current_level}, Num={number}, Title={title}, Text={text}, Name={name}")
+        #print(f"PARAMS: New={new_level}, Current={current_level}, Num={number}, Title={title}, Text={text}, Name={name}")
         try:
           item = Content(
             id=id_manager.build_id(Content), 
@@ -46,32 +46,32 @@ class StudyDesignContentSheet(BaseSheet):
             contentChildIds=[]
           )
           self.items.append(item)
-          print(f"ITEM: {item}")
+          #print(f"ITEM: {item}")
           if new_level == current_level:
             # Same level
             parent = current_parent[-1]
-            print(f"PARENT1: P={parent.id}, C={item.id}")
+            #print(f"PARENT1: P={parent.id}, C={item.id}")
             parent.contentChildIds.append(item.id)
           elif new_level > current_level:
             # Down
             current_parent.append(previous_item)
             current_level = new_level
             parent = current_parent[-1]
-            print(f"PARENT2: P={parent.id}, C={item.id} ")
+            #print(f"PARENT2: P={parent.id}, C={item.id} ")
             parent.contentChildIds.append(item.id)
           else:
             # Up
             current_parent.pop()
             current_level = new_level
           previous_item = item
-          print("")
-          print("")
+          #print("")
+          #print("")
         except Exception as e:
           self._general_error(f"Failed to create Content object, exception {e}")
-          print(f"{traceback.format_exc()}")
+          #print(f"{traceback.format_exc()}")
           self._traceback(f"{traceback.format_exc()}")
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
-      print(f"{traceback.format_exc()}")
+      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
