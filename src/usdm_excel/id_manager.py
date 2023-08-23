@@ -38,7 +38,8 @@ class IdManager():
       'StudyProtocolVersion': 0,
       'Procedure': 0,
       'TransitionRule': 0,
-      'StudyElement': 0
+      'StudyElement': 0,
+      'Content': 0
     }
 
   def build_id(self, klass):
