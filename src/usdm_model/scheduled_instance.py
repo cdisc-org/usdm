@@ -4,9 +4,9 @@ from .timing import Timing
 
 class ScheduledInstance(ApiIdModel):
   scheduledInstanceType: Literal['ACTIVITY', 'DECISION']
-  scheduleTimelineExitId: Union[str, None] = None
   scheduledInstanceTimings: List[Timing] = []
   scheduledInstanceTimelineId: Union[str, None] = None
+  scheduleTimelineExitId: Union[str, None] = None
   defaultConditionId: Union[str, None] = None
   epochId: Union[str, None] = None
 

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, constr
 from typing import Union
 import json
 import enum
@@ -23,7 +23,12 @@ def _serialize_as_json_with_type(obj):
     result['_type'] = obj.__class__.__name__
     return result
 
+
 class ApiBaseModel(BaseModel):
+
+  IdField = Field(min_length=1)
+  NameField = Field(min_length=1)
+  DescriptionField = Union[constr(), None] = None
 
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
@@ -32,11 +37,14 @@ class ApiBaseModel(BaseModel):
     return json.dumps(self, default=_serialize_as_json_with_type)
 
 class ApiIdModel(ApiBaseModel):
-  id: str
+  id: ApiBaseModel.IdField
 
 class ApiNameDescriptionModel(ApiIdModel):
-  name: str
-  description: Union[str, None] = None
+  name: ApiBaseModel.NameField
+  description: ApiBaseModel.DescriptionField
 
 class ApiDescriptionModel(ApiIdModel):
-  description: Union[str, None] = None
+  description: ApiBaseModel.DescriptionField
+
+class ApiNameModel(ApiIdModel):
+  name: ApiBaseModel.NameField
