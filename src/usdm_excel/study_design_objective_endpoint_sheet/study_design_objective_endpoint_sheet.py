@@ -26,6 +26,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
           try:
             current = Objective(id=id_manager.build_id(Objective),
+              name=o_xref,
               description=o_description, 
               objectiveLevel=o_level,
               objectiveEndpoints=[]
