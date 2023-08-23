@@ -21,14 +21,14 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organisationType', index, 'organisationType')     
+      organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, 'organisationType')     
       try:
         organisation = Organization(
           id=id_manager.build_id(Organization),
-          organisationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
-          organisationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
-          organisationName=self.read_cell_by_name(index, 'organisationName'),
-          organisationType=organisation_type,
+          organizationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
+          organizationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
+          name=self.read_cell_by_name(index, 'organisationName'),
+          organizationType=organisation_type,
           organizationLegalAddress=self._build_address(index)
         )
       except Exception as e:
@@ -48,7 +48,7 @@ class StudyIdentifiersSheet(BaseSheet):
   def _build_address(self, row_index):
     field_name = 'organisationAddress'
     raw_address = self.read_cell_by_name(row_index, field_name)
-    # The '|' separator is preserved for legacy reasons but should be removed in the future
+    # TODO The '|' separator is preserved for legacy reasons but should be removed in the future
     if '|' in raw_address:
       sep = '|'
       parts = raw_address.split(sep)
@@ -56,7 +56,7 @@ class StudyIdentifiersSheet(BaseSheet):
       sep = ','
       parts = self._state_split(raw_address)
     if len(parts) == 6:
-      # Put something in each part if empty. Temp fix
+      # TODO Put something in each part if empty. Temp fix
       for index, part in enumerate(parts):
         parts[index] = '-' if part == '' else part.strip()
       result = self._to_address(

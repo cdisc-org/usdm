@@ -27,11 +27,11 @@ def test_create(mocker):
   assert len(ids.identifiers) == 3
   assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].studyIdentifier == 'NCT12345678'
-  assert ids.identifiers[0].studyIdentifierScope.organisationName == 'ClinicalTrials.gov'
+  assert ids.identifiers[0].studyIdentifierScope.name == 'ClinicalTrials.gov'
   assert ids.identifiers[0].studyIdentifierScope.organizationLegalAddress.city == 'city'
   assert ids.identifiers[1].id == 'Id_2'
   assert ids.identifiers[1].studyIdentifier == 'NCT12345679'
-  assert ids.identifiers[1].studyIdentifierScope.organisationName == 'ClinicalTrials2.gov'
+  assert ids.identifiers[1].studyIdentifierScope.name == 'ClinicalTrials2.gov'
   assert ids.identifiers[1].studyIdentifierScope.organizationLegalAddress.city == 'city2'
   assert ids.identifiers[2].id == 'Id_3'
   assert ids.identifiers[2].studyIdentifier == 'NCT123456710'

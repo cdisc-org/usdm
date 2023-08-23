@@ -54,7 +54,7 @@ def test__bc_as_usdm(mocker):
   }
   bc = item._bc_as_usdm(data)
   assert(bc.id) == 'BC_1'
-  assert(bc.bcName) == 'Name'
+  assert(bc.name) == 'Name'
   assert(bc.bcSynonyms) == ['shortie']
   assert(bc.bcReference) == 'link'
   assert(bc.bcConceptCode.id) == 'A1'
@@ -71,7 +71,7 @@ def test__bc_as_usdm(mocker):
   }
   bc = item._bc_as_usdm(data)
   assert(bc.id) == 'BC_2'
-  assert(bc.bcName) == 'Name1'
+  assert(bc.name) == 'Name1'
   assert(bc.bcSynonyms) == []
 
 @xfail
