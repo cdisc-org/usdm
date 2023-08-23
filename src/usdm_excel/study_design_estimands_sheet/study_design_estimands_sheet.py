@@ -16,6 +16,8 @@ class StudyDesignEstimandsSheet(BaseSheet):
       super().__init__(file_path=file_path, sheet_name='studyDesignEstimands')
       self.estimands = []
       current = None
+      current_ice_name = None
+      current_ice_description = None
       for index, row in self.sheet.iterrows():
         e_summary = self.read_cell_by_name(index, "summaryMeasure")
         ap_description = self.read_description_by_name(index, 'populationDescription')
@@ -42,7 +44,11 @@ class StudyDesignEstimandsSheet(BaseSheet):
               self.estimands.append(current)  
         if current is not None:
           try:
+            ice_name = current_ice_name if ice_name == "" else ice_name
+            ice_description = current_ice_description if ice_description == "" else ice_description
             ice = IntercurrentEvent(id=id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, intercurrentEventStrategy=ice_strategy)
+            current_ice_name = ice_name
+            current_ice_description = ice_description
           except Exception as e:
             self._general_error(f"Failed to create IntercurrentEvent object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, constr
+from pydantic import BaseModel, constr
 from typing import Union
 import json
 import enum
@@ -28,8 +28,7 @@ class ApiBaseModel(BaseModel):
 
   IdField = constr(min_length=1)
   NameField = constr(min_length=1)
-  DescriptionField = constr()
-
+  
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
 
@@ -41,10 +40,10 @@ class ApiIdModel(ApiBaseModel):
 
 class ApiNameDescriptionModel(ApiIdModel):
   name: ApiBaseModel.NameField
-  description: ApiBaseModel.DescriptionField
+  description: Union[str, None] = None
 
 class ApiDescriptionModel(ApiIdModel):
-  description: ApiBaseModel.DescriptionField
+  description: Union[str, None] = None
 
 class ApiNameModel(ApiIdModel):
   name: ApiBaseModel.NameField
