@@ -212,6 +212,12 @@ class BaseSheet():
       self._error(row_index, col_index, "Failed to decode code data '%s', no ':' detected" % (value))
     return None
 
+  def _to_int(self, value):
+    try:
+      return int(value)
+    except:
+      return None
+
   def _info(self, row, column, message):
      package_logger.info(self._format(row + 1, column + 1, message))
      

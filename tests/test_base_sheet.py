@@ -361,3 +361,13 @@ def test__state_split(mocker):
 
   with pytest.raises(BaseSheet.FormatError):
     base._state_split('123, "456')
+
+def test__to_int(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = []
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data)
+  base = BaseSheet("", "sheet")
+  assert(base._to_int("4")) == 4
+  assert(base._to_int("dd")) == None
