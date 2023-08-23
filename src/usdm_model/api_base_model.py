@@ -26,9 +26,9 @@ def _serialize_as_json_with_type(obj):
 
 class ApiBaseModel(BaseModel):
 
-  IdField = Field(min_length=1)
-  NameField = Field(min_length=1)
-  DescriptionField = Union[constr(), None] = None
+  IdField = constr(min_length=1)
+  NameField = constr(min_length=1)
+  DescriptionField = constr()
 
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)

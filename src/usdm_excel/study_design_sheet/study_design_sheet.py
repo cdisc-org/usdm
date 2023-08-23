@@ -176,5 +176,6 @@ class StudyDesignSheet(BaseSheet):
       studyElements=elements,
       therapeuticAreas=therapeutic_areas,
       studyDesignRationale=rationale,
-      studyDesignBlindingScheme=blinding
+      studyDesignBlindingScheme=blinding,
+      contents=[]
     )
