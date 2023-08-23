@@ -8,6 +8,7 @@ from .biomedical_concept_property import *
 from .biomedical_concept_surrogate import *
 from .biomedical_concept import *
 from .code import *
+from .content import *
 from .encounter import *
 from .endpoint import *
 from .estimand import *
@@ -43,6 +44,7 @@ __all__ = [
   'BiomedicalConceptSurrogate',
   'BiomedicalConcept',
   'Code',
+  'Content',
   'Encounter',
   'Endpoint',
   'Estimand',
