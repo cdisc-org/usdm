@@ -85,12 +85,12 @@
   {
     "id": 7,
     "properties": {
-      "id": "Organisation_1",
-      "organisationIdentifierScheme": "USGOV",
-      "organisationIdentifier": "CT-GOV",
-      "organisationName": "ClinicalTrials.gov",
-      "_type": "Organisation",
-      "label": "Organisation_1"
+      "id": "Organization_1",
+      "name": "ClinicalTrials.gov",
+      "organizationIdentifierScheme": "USGOV",
+      "organizationIdentifier": "CT-GOV",
+      "_type": "Organization",
+      "label": "Organization_1"
     }
   },
   {
@@ -461,7 +461,7 @@
     "properties": {
       "id": "Endpoint_1",
       "description": "End Desc",
-      "endpointPurposeDescription": "None provided",
+      "purpose": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_1"
     }
@@ -511,13 +511,14 @@
     "id": 49,
     "properties": {
       "id": "Timing_1",
+      "name": "TIMING_3",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": "-",
-      "_type": "Timing",
-      "label": "Timing_1"
+      "label": "Timing_1",
+      "_type": "Timing"
     }
   },
   {
@@ -525,8 +526,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_1",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_1"
     }
@@ -559,13 +560,14 @@
     "id": 53,
     "properties": {
       "id": "Timing_12",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_12"
+      "label": "Timing_12",
+      "_type": "Timing"
     }
   },
   {
@@ -573,8 +575,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_12",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_12"
     }
@@ -607,13 +609,14 @@
     "id": 57,
     "properties": {
       "id": "Timing_2",
+      "name": "TIMING_4",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": "-",
-      "_type": "Timing",
-      "label": "Timing_2"
+      "label": "Timing_2",
+      "_type": "Timing"
     }
   },
   {
@@ -621,8 +624,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_2",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_2"
     }
@@ -655,13 +658,14 @@
     "id": 61,
     "properties": {
       "id": "Timing_13",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_13"
+      "label": "Timing_13",
+      "_type": "Timing"
     }
   },
   {
@@ -669,8 +673,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_13",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_13"
     }
@@ -703,13 +707,14 @@
     "id": 65,
     "properties": {
       "id": "Timing_3",
+      "name": "TIMING_5",
+      "description": "+14 Days",
       "timingValue": "P14D",
-      "timingDescription": "+14 Days",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_3"
+      "label": "Timing_3",
+      "_type": "Timing"
     }
   },
   {
@@ -717,8 +722,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_3",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_3"
     }
@@ -751,13 +756,14 @@
     "id": 69,
     "properties": {
       "id": "Timing_14",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_14"
+      "label": "Timing_14",
+      "_type": "Timing"
     }
   },
   {
@@ -765,8 +771,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_14",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_14"
     }
@@ -799,13 +805,14 @@
     "id": 73,
     "properties": {
       "id": "Timing_4",
+      "name": "TIMING_6",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_4"
+      "label": "Timing_4",
+      "_type": "Timing"
     }
   },
   {
@@ -813,8 +820,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_4",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_4"
     }
@@ -847,13 +854,14 @@
     "id": 77,
     "properties": {
       "id": "Timing_15",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_15"
+      "label": "Timing_15",
+      "_type": "Timing"
     }
   },
   {
@@ -861,8 +869,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_15",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_15"
     }
@@ -895,13 +903,14 @@
     "id": 81,
     "properties": {
       "id": "Timing_5",
+      "name": "TIMING_7",
+      "description": "+14 Days",
       "timingValue": "P14D",
-      "timingDescription": "+14 Days",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_5"
+      "label": "Timing_5",
+      "_type": "Timing"
     }
   },
   {
@@ -909,8 +918,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_5",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_5"
     }
@@ -943,13 +952,14 @@
     "id": 85,
     "properties": {
       "id": "Timing_16",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_16"
+      "label": "Timing_16",
+      "_type": "Timing"
     }
   },
   {
@@ -957,8 +967,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_16",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_16"
     }
@@ -991,13 +1001,14 @@
     "id": 89,
     "properties": {
       "id": "Timing_6",
+      "name": "TIMING_8",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_6"
+      "label": "Timing_6",
+      "_type": "Timing"
     }
   },
   {
@@ -1005,8 +1016,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_6",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_6"
     }
@@ -1039,13 +1050,14 @@
     "id": 93,
     "properties": {
       "id": "Timing_17",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_17"
+      "label": "Timing_17",
+      "_type": "Timing"
     }
   },
   {
@@ -1053,8 +1065,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_17",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_17"
     }
@@ -1087,13 +1099,14 @@
     "id": 97,
     "properties": {
       "id": "Timing_7",
+      "name": "TIMING_9",
+      "description": "+14 Days",
       "timingValue": "P14D",
-      "timingDescription": "+14 Days",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_7"
+      "label": "Timing_7",
+      "_type": "Timing"
     }
   },
   {
@@ -1101,8 +1114,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_7",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_7"
     }
@@ -1135,13 +1148,14 @@
     "id": 101,
     "properties": {
       "id": "Timing_18",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_18"
+      "label": "Timing_18",
+      "_type": "Timing"
     }
   },
   {
@@ -1149,8 +1163,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_18",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_18"
     }
@@ -1183,13 +1197,14 @@
     "id": 105,
     "properties": {
       "id": "Timing_8",
+      "name": "TIMING_10",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_8"
+      "label": "Timing_8",
+      "_type": "Timing"
     }
   },
   {
@@ -1197,8 +1212,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_8",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_8"
     }
@@ -1231,13 +1246,14 @@
     "id": 109,
     "properties": {
       "id": "Timing_19",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_19"
+      "label": "Timing_19",
+      "_type": "Timing"
     }
   },
   {
@@ -1245,8 +1261,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_19",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_19"
     }
@@ -1256,9 +1272,9 @@
     "properties": {
       "id": "ScheduledActivityInstance_20",
       "scheduledInstanceType": "DECISION",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimings": [],
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledDecisionInstance",
       "label": "ScheduledActivityInstance_20"
     }
@@ -1291,13 +1307,14 @@
     "id": 114,
     "properties": {
       "id": "Timing_20",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_20"
+      "label": "Timing_20",
+      "_type": "Timing"
     }
   },
   {
@@ -1305,8 +1322,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_21",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_21"
     }
@@ -1339,13 +1356,14 @@
     "id": 118,
     "properties": {
       "id": "Timing_9",
+      "name": "TIMING_11",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "_type": "Timing",
-      "label": "Timing_9"
+      "label": "Timing_9",
+      "_type": "Timing"
     }
   },
   {
@@ -1353,8 +1371,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_9",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_9"
     }
@@ -1387,13 +1405,14 @@
     "id": 122,
     "properties": {
       "id": "Timing_21",
+      "name": "TIMING_None",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_21"
+      "label": "Timing_21",
+      "_type": "Timing"
     }
   },
   {
@@ -1401,8 +1420,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_22",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_22"
     }
@@ -1412,9 +1431,9 @@
     "properties": {
       "id": "ScheduledActivityInstance_23",
       "scheduledInstanceType": "DECISION",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimings": [],
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledDecisionInstance",
       "label": "ScheduledActivityInstance_23"
     }
@@ -1447,13 +1466,14 @@
     "id": 127,
     "properties": {
       "id": "Timing_10",
+      "name": "TIMING_12",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": "P0D",
       "timingWindowUpper": "P5D",
       "timingWindow": "0..5 Days",
-      "_type": "Timing",
-      "label": "Timing_10"
+      "label": "Timing_10",
+      "_type": "Timing"
     }
   },
   {
@@ -1461,8 +1481,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_10",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_10"
     }
@@ -1495,13 +1515,14 @@
     "id": 131,
     "properties": {
       "id": "Timing_11",
+      "name": "TIMING_13",
+      "description": "+12 weeks",
       "timingValue": "P12W",
-      "timingDescription": "+12 weeks",
       "timingWindowLower": "P0W",
       "timingWindowUpper": "P2W",
       "timingWindow": "0..2 Weeks",
-      "_type": "Timing",
-      "label": "Timing_11"
+      "label": "Timing_11",
+      "_type": "Timing"
     }
   },
   {
@@ -1509,8 +1530,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_11",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_11"
     }
@@ -2524,6 +2545,7 @@
       "studyDesignRationale": "Multiple cycles test",
       "biomedicalConcepts": [],
       "bcCategories": [],
+      "contents": [],
       "_type": "StudyDesign",
       "label": "StudyDesign_1"
     }

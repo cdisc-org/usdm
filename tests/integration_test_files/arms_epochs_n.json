@@ -85,12 +85,12 @@
   {
     "id": 7,
     "properties": {
-      "id": "Organisation_1",
-      "organisationIdentifierScheme": "USGOV",
-      "organisationIdentifier": "CT-GOV",
-      "organisationName": "ClinicalTrials.gov",
-      "_type": "Organisation",
-      "label": "Organisation_1"
+      "id": "Organization_1",
+      "name": "ClinicalTrials.gov",
+      "organizationIdentifierScheme": "USGOV",
+      "organizationIdentifier": "CT-GOV",
+      "_type": "Organization",
+      "label": "Organization_1"
     }
   },
   {
@@ -332,7 +332,7 @@
     "properties": {
       "id": "Endpoint_1",
       "description": "Clinical status assessed using a 7-category ordinal scale at Day 28",
-      "endpointPurposeDescription": "None provided",
+      "purpose": "None provided",
       "_type": "Endpoint",
       "label": "Endpoint_1"
     }
@@ -382,13 +382,14 @@
     "id": 38,
     "properties": {
       "id": "Timing_1",
+      "name": "TIMING_3",
+      "description": "2 Days",
       "timingValue": "P2D",
-      "timingDescription": "2 Days",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_1"
+      "label": "Timing_1",
+      "_type": "Timing"
     }
   },
   {
@@ -396,8 +397,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_1",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_1"
     }
@@ -430,13 +431,14 @@
     "id": 42,
     "properties": {
       "id": "Timing_2",
+      "name": "TIMING_4",
+      "description": null,
       "timingValue": "PT0M",
-      "timingDescription": null,
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "_type": "Timing",
-      "label": "Timing_2"
+      "label": "Timing_2",
+      "_type": "Timing"
     }
   },
   {
@@ -444,8 +446,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_2",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_2"
     }
@@ -478,13 +480,14 @@
     "id": 46,
     "properties": {
       "id": "Timing_3",
+      "name": "TIMING_5",
+      "description": "3 Days",
       "timingValue": "P3D",
-      "timingDescription": "3 Days",
       "timingWindowLower": "PT12H",
       "timingWindowUpper": "PT12H",
       "timingWindow": "12..12 Hours",
-      "_type": "Timing",
-      "label": "Timing_3"
+      "label": "Timing_3",
+      "_type": "Timing"
     }
   },
   {
@@ -492,8 +495,8 @@
     "properties": {
       "id": "ScheduledActivityInstance_3",
       "scheduledInstanceType": "ACTIVITY",
-      "scheduleTimelineExitId": null,
       "scheduledInstanceTimelineId": null,
+      "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_3"
     }
@@ -872,7 +875,7 @@
     "id": 73,
     "properties": {
       "id": "BiomedicalConceptProperty_1",
-      "bcPropertyName": "Sex",
+      "name": "Sex",
       "bcPropertyRequired": true,
       "bcPropertyEnabled": true,
       "bcPropertyDatatype": "string",
@@ -905,7 +908,7 @@
     "id": 72,
     "properties": {
       "id": "BiomedicalConcept_1",
-      "bcName": "Sex",
+      "name": "Sex",
       "bcSynonyms": [],
       "bcReference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421",
       "_type": "BiomedicalConcept",
@@ -958,7 +961,7 @@
     "id": 85,
     "properties": {
       "id": "BiomedicalConceptProperty_2",
-      "bcPropertyName": "Race",
+      "name": "Race",
       "bcPropertyRequired": true,
       "bcPropertyEnabled": true,
       "bcPropertyDatatype": "string",
@@ -991,7 +994,7 @@
     "id": 84,
     "properties": {
       "id": "BiomedicalConcept_2",
-      "bcName": "Race",
+      "name": "Race",
       "bcSynonyms": [
         "Racial Group"
       ],
@@ -1025,7 +1028,7 @@
     "id": 93,
     "properties": {
       "id": "BiomedicalConceptProperty_3",
-      "bcPropertyName": "Vital Signs Result",
+      "name": "Vital Signs Result",
       "bcPropertyRequired": true,
       "bcPropertyEnabled": true,
       "bcPropertyDatatype": "decimal",
@@ -1122,7 +1125,7 @@
     "id": 96,
     "properties": {
       "id": "BiomedicalConceptProperty_4",
-      "bcPropertyName": "Unit of Weight",
+      "name": "Unit of Weight",
       "bcPropertyRequired": true,
       "bcPropertyEnabled": true,
       "bcPropertyDatatype": "string",
@@ -1155,7 +1158,7 @@
     "id": 92,
     "properties": {
       "id": "BiomedicalConcept_3",
-      "bcName": "Body Weight",
+      "name": "Body Weight",
       "bcSynonyms": [
         "Weight"
       ],
@@ -1409,6 +1412,7 @@
       "description": "The main design for the study",
       "studyDesignRationale": "Basic study",
       "bcCategories": [],
+      "contents": [],
       "_type": "StudyDesign",
       "label": "StudyDesign_1"
     }

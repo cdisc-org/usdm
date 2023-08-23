@@ -35,11 +35,11 @@
         "id": "StudyIdentifier_1",
         "studyIdentifier": "NCT12345678",
         "studyIdentifierScope": {
-          "id": "Organisation_1",
-          "organisationIdentifierScheme": "USGOV",
-          "organisationIdentifier": "CT-GOV",
-          "organisationName": "ClinicalTrials.gov",
-          "organisationType": {
+          "id": "Organization_1",
+          "name": "ClinicalTrials.gov",
+          "organizationIdentifierScheme": "USGOV",
+          "organizationIdentifier": "CT-GOV",
+          "organizationType": {
             "id": "Code_5",
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
@@ -241,7 +241,7 @@
               {
                 "id": "Endpoint_1",
                 "description": "Clinical status assessed using a 7-category ordinal scale at Day 28",
-                "endpointPurposeDescription": "None provided",
+                "purpose": "None provided",
                 "endpointLevel": {
                   "id": "Code_63",
                   "code": "C94496",
@@ -270,10 +270,11 @@
               {
                 "id": "ScheduledActivityInstance_1",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_1",
+                    "name": "TIMING_3",
+                    "description": "2 Days",
                     "timingType": {
                       "id": "Code_32",
                       "code": "C99901x2",
@@ -282,7 +283,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "P2D",
-                    "timingDescription": "2 Days",
                     "timingRelativeToFrom": {
                       "id": "Code_34",
                       "code": "C99900x1",
@@ -294,10 +294,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_2",
                 "epochId": "StudyEpoch_1",
                 "activityIds": [
@@ -309,10 +311,11 @@
               {
                 "id": "ScheduledActivityInstance_2",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_2",
+                    "name": "TIMING_4",
+                    "description": null,
                     "timingType": {
                       "id": "Code_35",
                       "code": "C99901x3",
@@ -321,7 +324,6 @@
                       "decode": "Fixed Reference"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_39",
                       "code": "C99900x1",
@@ -333,10 +335,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_3",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -347,10 +351,11 @@
               {
                 "id": "ScheduledActivityInstance_3",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_3",
+                    "name": "TIMING_5",
+                    "description": "3 Days",
                     "timingType": {
                       "id": "Code_41",
                       "code": "C99901x1",
@@ -359,7 +364,6 @@
                       "decode": "After"
                     },
                     "timingValue": "P3D",
-                    "timingDescription": "3 Days",
                     "timingRelativeToFrom": {
                       "id": "Code_44",
                       "code": "C99900x1",
@@ -371,10 +375,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
                     "timingWindowLower": "PT12H",
                     "timingWindowUpper": "PT12H",
-                    "timingWindow": "12..12 Hours"
+                    "timingWindow": "12..12 Hours",
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": null,
                 "epochId": "StudyEpoch_3",
                 "activityIds": [
@@ -576,13 +582,13 @@
         "biomedicalConcepts": [
           {
             "id": "BiomedicalConcept_1",
-            "bcName": "Sex",
+            "name": "Sex",
             "bcSynonyms": [],
             "bcReference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421",
             "bcProperties": [
               {
                 "id": "BiomedicalConceptProperty_1",
-                "bcPropertyName": "Sex",
+                "name": "Sex",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "string",
@@ -648,7 +654,7 @@
           },
           {
             "id": "BiomedicalConcept_2",
-            "bcName": "Race",
+            "name": "Race",
             "bcSynonyms": [
               "Racial Group"
             ],
@@ -656,7 +662,7 @@
             "bcProperties": [
               {
                 "id": "BiomedicalConceptProperty_2",
-                "bcPropertyName": "Race",
+                "name": "Race",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "string",
@@ -700,7 +706,7 @@
           },
           {
             "id": "BiomedicalConcept_3",
-            "bcName": "Body Weight",
+            "name": "Body Weight",
             "bcSynonyms": [
               "Weight"
             ],
@@ -708,7 +714,7 @@
             "bcProperties": [
               {
                 "id": "BiomedicalConceptProperty_3",
-                "bcPropertyName": "Vital Signs Result",
+                "name": "Vital Signs Result",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "decimal",
@@ -727,7 +733,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_4",
-                "bcPropertyName": "Unit of Weight",
+                "name": "Unit of Weight",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "string",
@@ -927,7 +933,8 @@
               "description": "Completed treatment"
             }
           }
-        ]
+        ],
+        "contents": []
       }
     ],
     "studyRationale": "A simple test",

@@ -27,11 +27,11 @@
         "id": "StudyIdentifier_1",
         "studyIdentifier": "LY900018",
         "studyIdentifierScope": {
-          "id": "Organisation_1",
-          "organisationIdentifierScheme": "DUNS",
-          "organisationIdentifier": "006421325",
-          "organisationName": "Eli Lilly Japan K.K",
-          "organisationType": {
+          "id": "Organization_1",
+          "name": "Eli Lilly Japan K.K",
+          "organizationIdentifierScheme": "DUNS",
+          "organizationIdentifier": "006421325",
+          "organizationType": {
             "id": "Code_4",
             "code": "C70793",
             "codeSystem": "http://www.cdisc.org",
@@ -60,11 +60,11 @@
         "id": "StudyIdentifier_2",
         "studyIdentifier": "NCT03421379",
         "studyIdentifierScope": {
-          "id": "Organisation_2",
-          "organisationIdentifierScheme": "USGOV",
-          "organisationIdentifier": "CT-GOV",
-          "organisationName": "ClinicalTrials.gov",
-          "organisationType": {
+          "id": "Organization_2",
+          "name": "ClinicalTrials.gov",
+          "organizationIdentifierScheme": "USGOV",
+          "organizationIdentifier": "CT-GOV",
+          "organizationType": {
             "id": "Code_6",
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
@@ -363,7 +363,7 @@
               {
                 "id": "Endpoint_1",
                 "description": "The proportion of patients achieving treatment success defined as either an increase in PG to >70 mg/dL or an increase of >20 mg/dL from nadir within 30 minutes after administration of glucagon. The nadir is defined\nas the minimum PG value at the time of or within 10 minutes following glucagon administration.",
-                "endpointPurposeDescription": "None provided",
+                "purpose": "None provided",
                 "endpointLevel": {
                   "id": "Code_226",
                   "code": "C94496",
@@ -388,7 +388,7 @@
               {
                 "id": "Endpoint_2",
                 "description": "SAE, TEAEs (including gastrointestinal, nasal,\nand non-nasal AEs), vital signs",
-                "endpointPurposeDescription": "None provided",
+                "purpose": "None provided",
                 "endpointLevel": {
                   "id": "Code_228",
                   "code": "C139173",
@@ -413,7 +413,7 @@
               {
                 "id": "Endpoint_3",
                 "description": "PK parameters include AUC, Cmax, Tmax",
-                "endpointPurposeDescription": "None provided",
+                "purpose": "None provided",
                 "endpointLevel": {
                   "id": "Code_230",
                   "code": "C139173",
@@ -438,7 +438,7 @@
               {
                 "id": "Endpoint_4",
                 "description": "PD parameters include BGmax and Tmax",
-                "endpointPurposeDescription": "None provided",
+                "purpose": "None provided",
                 "endpointLevel": {
                   "id": "Code_232",
                   "code": "C139173",
@@ -467,10 +467,11 @@
               {
                 "id": "ScheduledActivityInstance_22",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_22",
+                    "name": "TIMING_3",
+                    "description": null,
                     "timingType": {
                       "id": "Code_154",
                       "code": "C99901x2",
@@ -479,7 +480,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_156",
                       "code": "C99900x1",
@@ -491,10 +491,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_23",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_23",
                 "epochId": "StudyEpoch_1",
                 "activityIds": [
@@ -519,10 +521,11 @@
               {
                 "id": "ScheduledActivityInstance_23",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_23",
+                    "name": "TIMING_4",
+                    "description": "1 Day",
                     "timingType": {
                       "id": "Code_159",
                       "code": "C99901x2",
@@ -531,7 +534,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "P1D",
-                    "timingDescription": "1 Day",
                     "timingRelativeToFrom": {
                       "id": "Code_161",
                       "code": "C99900x1",
@@ -543,10 +545,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_24",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -562,10 +566,11 @@
               {
                 "id": "ScheduledActivityInstance_24",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_24",
+                    "name": "TIMING_5",
+                    "description": null,
                     "timingType": {
                       "id": "Code_164",
                       "code": "C99901x2",
@@ -574,7 +579,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_166",
                       "code": "C99900x1",
@@ -586,10 +590,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_25",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_25",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -600,10 +606,11 @@
               {
                 "id": "ScheduledActivityInstance_25",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_25",
+                    "name": "TIMING_6",
+                    "description": null,
                     "timingType": {
                       "id": "Code_169",
                       "code": "C99901x2",
@@ -612,7 +619,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_171",
                       "code": "C99900x1",
@@ -624,10 +630,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_26",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_26",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -642,10 +650,11 @@
               {
                 "id": "ScheduledActivityInstance_26",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_26",
+                    "name": "TIMING_7",
+                    "description": null,
                     "timingType": {
                       "id": "Code_174",
                       "code": "C99901x2",
@@ -654,7 +663,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_176",
                       "code": "C99900x1",
@@ -666,10 +674,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_27",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -684,10 +694,11 @@
               {
                 "id": "ScheduledActivityInstance_27",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_27",
+                    "name": "TIMING_8",
+                    "description": null,
                     "timingType": {
                       "id": "Code_177",
                       "code": "C99901x3",
@@ -696,7 +707,6 @@
                       "decode": "Fixed Reference"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_181",
                       "code": "C99900x1",
@@ -708,10 +718,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_28",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -725,10 +737,11 @@
               {
                 "id": "ScheduledActivityInstance_28",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_28",
+                    "name": "TIMING_9",
+                    "description": null,
                     "timingType": {
                       "id": "Code_183",
                       "code": "C99901x1",
@@ -737,7 +750,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_186",
                       "code": "C99900x1",
@@ -749,10 +761,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_29",
                 "epochId": "StudyEpoch_2",
                 "activityIds": [
@@ -763,10 +777,11 @@
               {
                 "id": "ScheduledActivityInstance_29",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_29",
+                    "name": "TIMING_10",
+                    "description": "0 Days",
                     "timingType": {
                       "id": "Code_188",
                       "code": "C99901x1",
@@ -775,7 +790,6 @@
                       "decode": "After"
                     },
                     "timingValue": "P0D",
-                    "timingDescription": "0 Days",
                     "timingRelativeToFrom": {
                       "id": "Code_191",
                       "code": "C99900x1",
@@ -787,10 +801,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_28",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_30",
                 "epochId": "StudyEpoch_3",
                 "activityIds": [
@@ -802,10 +818,11 @@
               {
                 "id": "ScheduledActivityInstance_30",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_30",
+                    "name": "TIMING_11",
+                    "description": "2 Days",
                     "timingType": {
                       "id": "Code_193",
                       "code": "C99901x1",
@@ -814,7 +831,6 @@
                       "decode": "After"
                     },
                     "timingValue": "P2D",
-                    "timingDescription": "2 Days",
                     "timingRelativeToFrom": {
                       "id": "Code_196",
                       "code": "C99900x1",
@@ -826,10 +842,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_29",
                     "timingWindowLower": "P0D",
                     "timingWindowUpper": "P11D",
-                    "timingWindow": "0..11 Days"
+                    "timingWindow": "0..11 Days",
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_31",
                 "epochId": "StudyEpoch_4",
                 "activityIds": [
@@ -844,10 +862,11 @@
               {
                 "id": "ScheduledActivityInstance_31",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_31",
+                    "name": "TIMING_12",
+                    "description": null,
                     "timingType": {
                       "id": "Code_199",
                       "code": "C99901x2",
@@ -856,7 +875,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_201",
                       "code": "C99900x1",
@@ -868,10 +886,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_32",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_32",
                 "epochId": "StudyEpoch_4",
                 "activityIds": [
@@ -886,10 +906,11 @@
               {
                 "id": "ScheduledActivityInstance_32",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_32",
+                    "name": "TIMING_13",
+                    "description": "1 Day",
                     "timingType": {
                       "id": "Code_203",
                       "code": "C99901x1",
@@ -898,7 +919,6 @@
                       "decode": "After"
                     },
                     "timingValue": "P1D",
-                    "timingDescription": "1 Day",
                     "timingRelativeToFrom": {
                       "id": "Code_206",
                       "code": "C99900x1",
@@ -910,10 +930,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_30",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_33",
                 "epochId": "StudyEpoch_4",
                 "activityIds": [
@@ -927,10 +949,11 @@
               {
                 "id": "ScheduledActivityInstance_33",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_33",
+                    "name": "TIMING_14",
+                    "description": null,
                     "timingType": {
                       "id": "Code_208",
                       "code": "C99901x1",
@@ -939,7 +962,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_211",
                       "code": "C99900x1",
@@ -951,10 +973,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_32",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_34",
                 "epochId": "StudyEpoch_4",
                 "activityIds": [
@@ -965,10 +989,11 @@
               {
                 "id": "ScheduledActivityInstance_34",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_34",
+                    "name": "TIMING_15",
+                    "description": "28 Days",
                     "timingType": {
                       "id": "Code_213",
                       "code": "C99901x1",
@@ -977,7 +1002,6 @@
                       "decode": "After"
                     },
                     "timingValue": "P28D",
-                    "timingDescription": "28 Days",
                     "timingRelativeToFrom": {
                       "id": "Code_216",
                       "code": "C99900x1",
@@ -989,10 +1013,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_33",
                     "timingWindowLower": "P2D",
                     "timingWindowUpper": "P2D",
-                    "timingWindow": "-2..2 Days"
+                    "timingWindow": "-2..2 Days",
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": null,
                 "epochId": "StudyEpoch_5",
                 "activityIds": [
@@ -1025,10 +1051,11 @@
               {
                 "id": "ScheduledActivityInstance_1",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_1",
+                    "name": "TIMING_3",
+                    "description": "pre-hypoglycemia induction",
                     "timingType": {
                       "id": "Code_49",
                       "code": "C99901x2",
@@ -1037,7 +1064,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": "pre-hypoglycemia induction",
                     "timingRelativeToFrom": {
                       "id": "Code_51",
                       "code": "C99900x1",
@@ -1049,10 +1075,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_2",
                 "epochId": null,
                 "activityIds": [
@@ -1071,10 +1099,11 @@
               {
                 "id": "ScheduledActivityInstance_2",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_2",
+                    "name": "TIMING_4",
+                    "description": "30 min",
                     "timingType": {
                       "id": "Code_54",
                       "code": "C99901x2",
@@ -1083,7 +1112,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT30M",
-                    "timingDescription": "30 min",
                     "timingRelativeToFrom": {
                       "id": "Code_56",
                       "code": "C99900x1",
@@ -1095,10 +1123,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_3",
                 "epochId": null,
                 "activityIds": [
@@ -1109,10 +1139,11 @@
               {
                 "id": "ScheduledActivityInstance_3",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_3",
+                    "name": "TIMING_5",
+                    "description": "15min",
                     "timingType": {
                       "id": "Code_59",
                       "code": "C99901x2",
@@ -1121,7 +1152,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT15M",
-                    "timingDescription": "15min",
                     "timingRelativeToFrom": {
                       "id": "Code_61",
                       "code": "C99900x1",
@@ -1133,10 +1163,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_4",
                 "epochId": null,
                 "activityIds": [
@@ -1147,10 +1179,11 @@
               {
                 "id": "ScheduledActivityInstance_4",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_4",
+                    "name": "TIMING_6",
+                    "description": null,
                     "timingType": {
                       "id": "Code_62",
                       "code": "C99901x3",
@@ -1159,7 +1192,6 @@
                       "decode": "Fixed Reference"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_66",
                       "code": "C99900x1",
@@ -1171,10 +1203,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_5",
                 "epochId": null,
                 "activityIds": [
@@ -1185,10 +1219,11 @@
               {
                 "id": "ScheduledActivityInstance_5",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_5",
+                    "name": "TIMING_7",
+                    "description": "90 min",
                     "timingType": {
                       "id": "Code_68",
                       "code": "C99901x1",
@@ -1197,7 +1232,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT90M",
-                    "timingDescription": "90 min",
                     "timingRelativeToFrom": {
                       "id": "Code_71",
                       "code": "C99900x1",
@@ -1209,10 +1243,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_6",
                 "epochId": null,
                 "activityIds": [
@@ -1224,10 +1260,11 @@
               {
                 "id": "ScheduledActivityInstance_6",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_6",
+                    "name": "TIMING_8",
+                    "description": null,
                     "timingType": {
                       "id": "Code_73",
                       "code": "C99901x1",
@@ -1236,7 +1273,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_76",
                       "code": "C99900x1",
@@ -1248,10 +1284,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": null,
                 "epochId": null,
                 "activityIds": [
@@ -1277,10 +1315,11 @@
               {
                 "id": "ScheduledActivityInstance_7",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_7",
+                    "name": "TIMING_3",
+                    "description": "Pre dose",
                     "timingType": {
                       "id": "Code_79",
                       "code": "C99901x2",
@@ -1289,7 +1328,6 @@
                       "decode": "Before"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": "Pre dose",
                     "timingRelativeToFrom": {
                       "id": "Code_81",
                       "code": "C99900x1",
@@ -1301,10 +1339,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_8",
                 "epochId": null,
                 "activityIds": [
@@ -1319,10 +1359,11 @@
               {
                 "id": "ScheduledActivityInstance_8",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_8",
+                    "name": "TIMING_4",
+                    "description": null,
                     "timingType": {
                       "id": "Code_82",
                       "code": "C99901x3",
@@ -1331,7 +1372,6 @@
                       "decode": "Fixed Reference"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_86",
                       "code": "C99900x1",
@@ -1343,10 +1383,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_9",
                 "epochId": null,
                 "activityIds": [
@@ -1357,10 +1399,11 @@
               {
                 "id": "ScheduledActivityInstance_9",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_9",
+                    "name": "TIMING_5",
+                    "description": "5 min",
                     "timingType": {
                       "id": "Code_88",
                       "code": "C99901x1",
@@ -1369,7 +1412,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT5M",
-                    "timingDescription": "5 min",
                     "timingRelativeToFrom": {
                       "id": "Code_91",
                       "code": "C99900x1",
@@ -1381,10 +1423,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_10",
                 "epochId": null,
                 "activityIds": [
@@ -1396,10 +1440,11 @@
               {
                 "id": "ScheduledActivityInstance_10",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_10",
+                    "name": "TIMING_6",
+                    "description": "10 min",
                     "timingType": {
                       "id": "Code_93",
                       "code": "C99901x1",
@@ -1408,7 +1453,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT10M",
-                    "timingDescription": "10 min",
                     "timingRelativeToFrom": {
                       "id": "Code_96",
                       "code": "C99900x1",
@@ -1420,10 +1464,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_11",
                 "epochId": null,
                 "activityIds": [
@@ -1435,10 +1481,11 @@
               {
                 "id": "ScheduledActivityInstance_11",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_11",
+                    "name": "TIMING_7",
+                    "description": "15 min",
                     "timingType": {
                       "id": "Code_98",
                       "code": "C99901x1",
@@ -1447,7 +1494,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT15M",
-                    "timingDescription": "15 min",
                     "timingRelativeToFrom": {
                       "id": "Code_101",
                       "code": "C99900x1",
@@ -1459,10 +1505,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_12",
                 "epochId": null,
                 "activityIds": [
@@ -1478,10 +1526,11 @@
               {
                 "id": "ScheduledActivityInstance_12",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_12",
+                    "name": "TIMING_8",
+                    "description": "20 min",
                     "timingType": {
                       "id": "Code_103",
                       "code": "C99901x1",
@@ -1490,7 +1539,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT20M",
-                    "timingDescription": "20 min",
                     "timingRelativeToFrom": {
                       "id": "Code_106",
                       "code": "C99900x1",
@@ -1502,10 +1550,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_13",
                 "epochId": null,
                 "activityIds": [
@@ -1517,10 +1567,11 @@
               {
                 "id": "ScheduledActivityInstance_13",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_13",
+                    "name": "TIMING_9",
+                    "description": "25 min",
                     "timingType": {
                       "id": "Code_108",
                       "code": "C99901x1",
@@ -1529,7 +1580,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT25M",
-                    "timingDescription": "25 min",
                     "timingRelativeToFrom": {
                       "id": "Code_111",
                       "code": "C99900x1",
@@ -1541,10 +1591,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_14",
                 "epochId": null,
                 "activityIds": [
@@ -1556,10 +1608,11 @@
               {
                 "id": "ScheduledActivityInstance_14",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_14",
+                    "name": "TIMING_10",
+                    "description": "30 min",
                     "timingType": {
                       "id": "Code_113",
                       "code": "C99901x1",
@@ -1568,7 +1621,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT30M",
-                    "timingDescription": "30 min",
                     "timingRelativeToFrom": {
                       "id": "Code_116",
                       "code": "C99900x1",
@@ -1580,10 +1632,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_15",
                 "epochId": null,
                 "activityIds": [
@@ -1599,10 +1653,11 @@
               {
                 "id": "ScheduledActivityInstance_15",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_15",
+                    "name": "TIMING_11",
+                    "description": "40 min",
                     "timingType": {
                       "id": "Code_118",
                       "code": "C99901x1",
@@ -1611,7 +1666,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT40M",
-                    "timingDescription": "40 min",
                     "timingRelativeToFrom": {
                       "id": "Code_121",
                       "code": "C99900x1",
@@ -1623,10 +1677,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_16",
                 "epochId": null,
                 "activityIds": [
@@ -1638,10 +1694,11 @@
               {
                 "id": "ScheduledActivityInstance_16",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_16",
+                    "name": "TIMING_12",
+                    "description": "50min",
                     "timingType": {
                       "id": "Code_123",
                       "code": "C99901x1",
@@ -1650,7 +1707,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT50M",
-                    "timingDescription": "50min",
                     "timingRelativeToFrom": {
                       "id": "Code_126",
                       "code": "C99900x1",
@@ -1662,10 +1718,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_17",
                 "epochId": null,
                 "activityIds": [
@@ -1677,10 +1735,11 @@
               {
                 "id": "ScheduledActivityInstance_17",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_17",
+                    "name": "TIMING_13",
+                    "description": "60min",
                     "timingType": {
                       "id": "Code_128",
                       "code": "C99901x1",
@@ -1689,7 +1748,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT60M",
-                    "timingDescription": "60min",
                     "timingRelativeToFrom": {
                       "id": "Code_131",
                       "code": "C99900x1",
@@ -1701,10 +1759,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_18",
                 "epochId": null,
                 "activityIds": [
@@ -1720,10 +1780,11 @@
               {
                 "id": "ScheduledActivityInstance_18",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_18",
+                    "name": "TIMING_14",
+                    "description": "90 min",
                     "timingType": {
                       "id": "Code_133",
                       "code": "C99901x1",
@@ -1732,7 +1793,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT90M",
-                    "timingDescription": "90 min",
                     "timingRelativeToFrom": {
                       "id": "Code_136",
                       "code": "C99900x1",
@@ -1744,10 +1804,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_19",
                 "epochId": null,
                 "activityIds": [
@@ -1759,10 +1821,11 @@
               {
                 "id": "ScheduledActivityInstance_19",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_19",
+                    "name": "TIMING_15",
+                    "description": "120 min",
                     "timingType": {
                       "id": "Code_138",
                       "code": "C99901x1",
@@ -1771,7 +1834,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT120M",
-                    "timingDescription": "120 min",
                     "timingRelativeToFrom": {
                       "id": "Code_141",
                       "code": "C99900x1",
@@ -1783,10 +1845,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_20",
                 "epochId": null,
                 "activityIds": [
@@ -1802,10 +1866,11 @@
               {
                 "id": "ScheduledActivityInstance_20",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_20",
+                    "name": "TIMING_16",
+                    "description": "240 min",
                     "timingType": {
                       "id": "Code_143",
                       "code": "C99901x1",
@@ -1814,7 +1879,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT240M",
-                    "timingDescription": "240 min",
                     "timingRelativeToFrom": {
                       "id": "Code_146",
                       "code": "C99900x1",
@@ -1826,10 +1890,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": "ScheduledActivityInstance_21",
                 "epochId": null,
                 "activityIds": [
@@ -1844,10 +1910,11 @@
               {
                 "id": "ScheduledActivityInstance_21",
                 "scheduledInstanceType": "ACTIVITY",
-                "scheduleTimelineExitId": null,
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_21",
+                    "name": "TIMING_17",
+                    "description": null,
                     "timingType": {
                       "id": "Code_148",
                       "code": "C99901x1",
@@ -1856,7 +1923,6 @@
                       "decode": "After"
                     },
                     "timingValue": "PT0M",
-                    "timingDescription": null,
                     "timingRelativeToFrom": {
                       "id": "Code_151",
                       "code": "C99900x1",
@@ -1868,10 +1934,12 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null
+                    "timingWindow": null,
+                    "label": ""
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
+                "scheduleTimelineExitId": null,
                 "defaultConditionId": null,
                 "epochId": null,
                 "activityIds": [
@@ -1902,14 +1970,14 @@
               },
               {
                 "id": "IntercurrentEvent_2",
-                "name": "",
-                "description": "",
+                "name": "no Hypo",
+                "description": "No hypoglycemia induced after 3 hours",
                 "intercurrentEventStrategy": ""
               },
               {
                 "id": "IntercurrentEvent_3",
-                "name": "",
-                "description": "",
+                "name": "no Hypo",
+                "description": "No hypoglycemia induced after 3 hours",
                 "intercurrentEventStrategy": ""
               }
             ]
@@ -3005,7 +3073,8 @@
               "description": "Leave Study"
             }
           }
-        ]
+        ],
+        "contents": []
       }
     ],
     "studyRationale": "Test of a cross over study",
