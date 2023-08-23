@@ -1,4 +1,4 @@
-from usdm_model.organisation import Organisation
+from usdm_model.organization import Organization
 from usdm_model.address import Address
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
@@ -21,10 +21,10 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organisation', 'organisationType', index, 'organisationType')     
+      organisation_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organisationType', index, 'organisationType')     
       try:
-        organisation = Organisation(
-          id=id_manager.build_id(Organisation),
+        organisation = Organization(
+          id=id_manager.build_id(Organization),
           organisationIdentifierScheme=self.read_cell_by_name(index, 'organisationIdentifierScheme'), 
           organisationIdentifier=self.read_cell_by_name(index, 'organisationIdentifier'),
           organisationName=self.read_cell_by_name(index, 'organisationName'),
@@ -32,7 +32,7 @@ class StudyIdentifiersSheet(BaseSheet):
           organizationLegalAddress=self._build_address(index)
         )
       except Exception as e:
-        self._general_error(f"Failed to create Organisation object, exception {e}")
+        self._general_error(f"Failed to create Organization object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
       else:
         try:

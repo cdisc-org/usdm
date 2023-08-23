@@ -15,7 +15,7 @@ from .indication import *
 from .intercurrent_event import *
 from .investigational_intervention import *
 from .objective import *
-from .organisation import *
+from .organization import *
 from .procedure import *
 from .response_code import *
 from .schedule_timeline_exit import *
@@ -50,7 +50,7 @@ __all__ = [
   'IntercurrentEvent',
   'InvestigationalIntervention',
   'Objective',
-  'Organisation',
+  'Organization',
   'Procedure',
   'ResponseCode',
   'ScheduleTimelineExit',
