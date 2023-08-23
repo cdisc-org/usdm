@@ -10,24 +10,28 @@ class StudyDesignContentSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignContent')
+      first_level = 1 
+      last_level = self.__class__.SECTION_LEVELS + 1
+      converters = {}
+      for level in range(first_level, last_level):
+        converters[self._level_column_name(level)] = str
+      super().__init__(file_path=file_path, sheet_name='studyDesignContent', optional=True, converters=converters)
       self.items = []
       current_level = 0
       new_level = 0
       current_parent = []
       previous_item = Content(
-        id="DUMMY", 
+        id=id_manager.build_id(Content), 
         name="ROOT",
         sectionNumber="0",
-        sectionTitle="Top Level",
+        sectionTitle="Root",
         text="",
         contentChildIds=[]
       )
-      first_level = 1 
-      last_level = self.__class__.SECTION_LEVELS + 1
+      self.items.append(previous_item)
       for index, row in self.sheet.iterrows():
         for level in range(first_level, last_level):
-          number = str(self.read_cell_by_name(index, f"sectionNumber{level}"))
+          number = str(self.read_cell_by_name(index, self._level_column_name(level)))
           if number != "":
             new_level = level
             break
@@ -46,22 +50,25 @@ class StudyDesignContentSheet(BaseSheet):
             contentChildIds=[]
           )
           self.items.append(item)
-          #print(f"ITEM: {item}")
+          print(f"ITEM: {item.id}")
           if new_level == current_level:
             # Same level
             parent = current_parent[-1]
-            #print(f"PARENT1: P={parent.id}, C={item.id}")
+            print(f"PARENT1: P={parent.id}, C={item.id}")
             parent.contentChildIds.append(item.id)
           elif new_level > current_level:
             # Down
             current_parent.append(previous_item)
             current_level = new_level
             parent = current_parent[-1]
-            #print(f"PARENT2: P={parent.id}, C={item.id} ")
+            print(f"PARENT2: P={parent.id}, C={item.id} ")
             parent.contentChildIds.append(item.id)
           else:
             # Up
             current_parent.pop()
+            parent = current_parent[-1]
+            print(f"PARENT3: P={parent.id}, C={item.id}")
+            parent.contentChildIds.append(item.id)
             current_level = new_level
           previous_item = item
           #print("")
@@ -75,3 +82,5 @@ class StudyDesignContentSheet(BaseSheet):
       #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
+  def _level_column_name(self, level):
+    return f"sectionNumber{level}"

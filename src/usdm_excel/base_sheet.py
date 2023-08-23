@@ -17,13 +17,13 @@ class BaseSheet():
   class FormatError(Exception):
     pass
 
-  def __init__(self, file_path, sheet_name, header=0, optional=False):
+  def __init__(self, file_path, sheet_name, header=0, optional=False, converters={}):
     self.file_path = file_path
     self.sheet_name = sheet_name
     if optional and not self._sheet_present(file_path, sheet_name):
       self.sheet = None
     else:
-      self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header)
+      self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header, converters=converters)
     self._general_info("Processed sheet %s" % (sheet_name))
 
   def cell_empty(self, row_index, col_index):

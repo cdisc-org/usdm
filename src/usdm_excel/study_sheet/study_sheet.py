@@ -13,6 +13,7 @@ from usdm_excel.study_design_element_sheet.study_design_element_sheet import Stu
 from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
 from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDesignEpochSheet
 from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
+from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -46,7 +47,6 @@ class StudySheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='study', header=None))
       super().__init__(file_path=file_path, sheet_name='study', header=None)
       self.phase = None
       self.version = None
@@ -76,13 +76,7 @@ class StudySheet(BaseSheet):
       self.study_populations = StudyDesignPopulationSheet(file_path)
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
-
-      # for epoch in self.study_design.epochs:
-      #   ids = self.soa.epoch_encounter_map(epoch.studyEpochName)
-      #   if ids is not None:
-      #     epoch.encounterIds = ids
-      #   else:
-      #     self._general_info(f"No encounters found for epoch '{epoch.studyEpochName}'")
+      self.contents = StudyDesignContentSheet(file_path)
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
@@ -104,6 +98,7 @@ class StudySheet(BaseSheet):
       study_design.studyPopulations = self.study_populations.populations
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
+      study_design.contents = self.contents.items
 
       try:
         self.study = Study(
@@ -136,11 +131,6 @@ class StudySheet(BaseSheet):
     return self.study
   
   def api_root(self):
-    # if option_manager.get(Options.ROOT) == RootOption.SDR_COMPATABLE.value:
-    #   root = SDRRoot(clinicalStudy=self.study)
-    # else:
-    #   root = self.study
-    # return root
     return Wrapper(study=self.study)
 
   def _process_sheet(self):
