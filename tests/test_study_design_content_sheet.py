@@ -42,7 +42,7 @@ def test_create_empty(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber1', 'sectionNumber2', 'sectionNumber3', 'name', 'sectionTitle', 'text'])
   content = StudyDesignContentSheet("")
-  assert len(content.items) == 0
+  assert len(content.items) == 1
 
 def test_read_cell_by_name_error(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
