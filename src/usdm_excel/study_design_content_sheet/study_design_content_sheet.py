@@ -1,8 +1,8 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
-import traceback
 from usdm_model.content import Content
+from usdm_excel.option_manager import Options, option_manager
+import traceback
 
 class StudyDesignContentSheet(BaseSheet):
 
@@ -12,7 +12,7 @@ class StudyDesignContentSheet(BaseSheet):
     try:
       self.items = []
       first_level = 1 
-      last_level = self.__class__.SECTION_LEVELS + 1
+      last_level = int(option_manager.get(Options.CONTENT_LEVELS)) + 1 # self.__class__.SECTION_LEVELS + 1
       converters = {}
       for level in range(first_level, last_level):
         converters[self._level_column_name(level)] = str
