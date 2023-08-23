@@ -17,10 +17,10 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         o_xref = self.read_cell_by_name(index, "objectiveXref")
         o_description = self.read_cell_by_name(index, 'objectiveDescription') # Note, dont use description read method, we need to know if really empty.
         e_xref = self.read_cell_by_name(index, "endpointXref")
-        e_description = self.read_description_by_name(index, 'endpointDescription')
-        e_p_description = self.read_description_by_name(index, 'endpointPurposeDescription')
-        if not e_p_description:
-          e_p_description = "None provided" # Temp fix
+        ep_description = self.read_description_by_name(index, 'endpointDescription')
+        ep_purpose = self.read_description_by_name(index, 'endpointPurposeDescription')
+        if not ep_purpose:
+          ep_purpose = "None provided" # Temp fix
         e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
@@ -39,8 +39,8 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         if current is not None:
           try:
             ep = Endpoint(id=id_manager.build_id(Endpoint), 
-              description=e_description, 
-              endpointPurposeDescription=e_p_description, 
+              description=ep_description, 
+              purpose=ep_purpose, 
               endpointLevel=e_level
             )  
           except Exception as e:

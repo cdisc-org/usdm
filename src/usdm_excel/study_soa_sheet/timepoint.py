@@ -106,7 +106,9 @@ class Timepoint():
       id=id_manager.build_id(Timing),
       timingType=type_code[self.__timepoint_type.timing_type.upper()],
       timingValue=self.__timepoint_type.value,
-      timingDescription=self.__timepoint_type.description,
+      name=f"TIMING_{self.col_index}", # TODO: Temporary fix, need something better
+      description=self.__timepoint_type.description,
+      label="",
       timingRelativeToFrom=CDISCCT().code('C99900x1', 'Start to Start'),
       timingWindow=self.__window.description,
       timingWindowLower=self.__window.lower,

@@ -107,7 +107,7 @@ class CDISCBiomedicalConcepts():
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return BiomedicalConcept(
       id=id_manager.build_id(BiomedicalConcept),
-      bcName=api_bc['shortName'],
+      name=api_bc['shortName'],
       bcSynonyms=synonyms,
       bcReference=api_bc['_links']['self']['href'],
       bcProperties=[],
@@ -122,7 +122,7 @@ class CDISCBiomedicalConcepts():
       responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
     return BiomedicalConceptProperty(
       id=id_manager.build_id(BiomedicalConceptProperty),
-      bcPropertyName=property['shortName'],
+      name=property['shortName'],
       bcPropertyRequired=True,
       bcPropertyEnabled=True,
       bcPropertyDatatype=property['dataType'],
