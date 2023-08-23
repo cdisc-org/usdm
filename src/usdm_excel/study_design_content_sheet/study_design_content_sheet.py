@@ -22,9 +22,11 @@ class StudyDesignContentSheet(BaseSheet):
         sectionTitle="Top Level",
         text="",
         contentChildIds=[]
-      ) 
+      )
+      first_level = 1 
+      last_level = self.__class__.SECTION_LEVELS + 1
       for index, row in self.sheet.iterrows():
-        for level in range(1, self.__class__.SECTION_LEVELS):
+        for level in range(first_level, last_level):
           number = str(self.read_cell_by_name(index, f"sectionNumber{level}"))
           if number != "":
             new_level = level
@@ -33,7 +35,7 @@ class StudyDesignContentSheet(BaseSheet):
         text = self.read_cell_by_name(index, 'text')
         name = self.read_cell_by_name(index, 'name')
         name = f"SECTION {number}" if name == "" else name
-        print(f"PARAMS: {new_level}, {current_level}, {number}, {title}, {text}, {name}")
+        print(f"PARAMS: New={new_level}, Current={current_level}, Num={number}, Title={title}, Text={text}, Name={name}")
         try:
           item = Content(
             id=id_manager.build_id(Content), 
@@ -62,6 +64,8 @@ class StudyDesignContentSheet(BaseSheet):
             current_parent.pop()
             current_level = new_level
           previous_item = item
+          print("")
+          print("")
         except Exception as e:
           self._general_error(f"Failed to create Content object, exception {e}")
           print(f"{traceback.format_exc()}")
