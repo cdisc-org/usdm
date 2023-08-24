@@ -473,8 +473,8 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | sectionNumber | The section number | Text string with section numbers separated by '.' characters. Section numbers from row to row can only increase by a single level | 
-| B | name | Name of the section. | Text string. Can be left blank in which case a default value will be entered |
+| A | sectionNumber | The section number | Text string with section numbers separated by '.' characters. Section numbers from row to row can only increase by a single level down, e.g. '1.2' to '1.2.1' and not '1.2.1.1'. The section numbers will be used to create parent child relationships in the data created. | 
+| B | name | Name of the section. | Text string. Can be left blank in which case a default value will be used based on the section number |
 | C | sectionTitle | The section title | Text String |
 | D | sectionText | The section text | HTML formatted text String |
 
