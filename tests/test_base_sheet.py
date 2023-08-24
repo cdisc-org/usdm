@@ -106,6 +106,18 @@ def test_read_cell_by_name(mocker):
   for test in test_data:
     assert(base.read_cell_by_name(test[0],test[1])) == test[2]
 
+def test_read_cell_by_name_default(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [['tom', 10], ['nick', 15], ['juli', 14]]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
+  base = BaseSheet("", "sheet")
+  assert(base.read_cell_by_name(0, 'NameX', 'Default')) == 'Default'
+  assert(base.read_cell_by_name(0, 'Name', 'Default')) == 'tom'
+  assert(base.read_cell_by_name(0, ['NameX', 'XXX'], 'Default')) == 'Default'
+  assert(base.read_cell_by_name(0, ['NameX', 'XXX', 'Age'], 'Default')) == '10'
+
 def test_read_cell_by_name_error(mocker):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
@@ -119,7 +131,7 @@ def test_read_cell_by_name_error(mocker):
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 2
   assert mock_error.call_args[0][2] == -1
-  assert mock_error.call_args[0][3] == "Error ('Not There') reading cell"
+  assert mock_error.call_args[0][3] == "Error reading cell 'Not There'"
   
 def test_read_cell_multiple(mocker):
   mocked_open = mocker.mock_open(read_data="File")
@@ -207,6 +219,20 @@ def test_read_other_code_cell_multiple_by_name():
 def test_read_other_code_cell_mutiple():
   assert 0
 
+def test_column_present(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = []
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
+  base = BaseSheet("", "sheet")
+  assert(base.column_present("Name")) == 0
+  assert(base.column_present(["Name"])) == 0
+  assert(base.column_present(["Children"])) == 1
+  assert(base.column_present(["ChildrenX", "Children"])) == 1
+  with pytest.raises(BaseSheet.FormatError):
+    assert(base.column_present(["Fred"]))
+  
 def test_read_cdisc_klass_attribute_cell_by_name(mocker):
   expected = Code(id='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")

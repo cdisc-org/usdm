@@ -29,15 +29,28 @@ class BaseSheet():
   def cell_empty(self, row_index, col_index):
     return pd.isnull(self.sheet.iloc[row_index, col_index])  
 
-  def read_cell_by_name(self, row_index, field_name):
+  def read_cell_by_name(self, row_index, field_name, default=None):
     try:
-      col_index = self.sheet.columns.get_loc(field_name)
+      col_index = self.column_present(field_name)
       return self.read_cell(row_index, col_index)
     except Exception as e:
-      col_index = -2
-      self._error(row_index, col_index, "Error (%s) reading cell" % (e))
-      return ""
+      if default:
+        return default
+      else:
+        col_index = -2
+        self._error(row_index, col_index, f"Error reading cell '{field_name}'")
+        return ""
 
+  def column_present(self, names):
+    fields = [names] if isinstance(names, str) else names
+    for field in fields:
+      try:
+        col_index = self.sheet.columns.get_loc(field)
+        return col_index
+      except:
+        pass
+    raise BaseSheet.FormatError
+      
   def read_cell(self, row_index, col_index):
     try:
       if pd.isnull(self.sheet.iloc[row_index, col_index]):
@@ -69,7 +82,6 @@ class BaseSheet():
       value = self.read_cell(rindex, cindex)
       if value.strip() == '':
         return results
-      #for part in value.split(","):
       for part in self._state_split(value):
         results.append(part.strip())
       return results
