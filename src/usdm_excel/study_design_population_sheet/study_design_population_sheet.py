@@ -11,11 +11,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       super().__init__(file_path=file_path,  sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
-        # 'name' added, preserve backward compatibility
-        if self.column_present(self, 'name'):
-          name = self.read_description_by_name(index, 'name') 
-        else:
-          name = f"POP {index}"
+        name = self.read_cell_by_name(index, 'name', f"POP {index}") # 'name' added, preserve backward compatibility so defaulted
         description = self.read_description_by_name(index, ['description', 'populationDescription']) # Allow multiple names for column
         number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
         min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
@@ -38,6 +34,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
+      print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
   def _build_codes(self, row, index):
