@@ -4,7 +4,6 @@ class Options(Enum):
   PREVIOUS_NEXT = 'previous'
   ROOT = 'root'
   DESCRIPTION = 'description'
-  CONTENT_LEVELS = 'ContentLevels'
 
 class PrevNextOption(Enum):
   NULL_STRING = 'null_string'

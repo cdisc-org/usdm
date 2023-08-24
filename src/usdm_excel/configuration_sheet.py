@@ -15,7 +15,6 @@ class ConfigurationSheet(BaseSheet):
       option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NONE)
       option_manager.set(Options.ROOT, RootOption.API_COMPLIANT)
       option_manager.set(Options.DESCRIPTION, "")
-      option_manager.set(Options.CONTENT_LEVELS, 3)
       self._process_sheet()
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
@@ -39,7 +38,3 @@ class ConfigurationSheet(BaseSheet):
         self._general_warning("The SDR_ROOT option is now deprecated and will be ignored.")
       elif name == 'SDR DESCRIPTION':
         option_manager.set(Options.DESCRIPTION, value)
-      elif name == 'CONTENT LEVELS':
-        value = self._to_int(value)
-        if value is not None:
-          option_manager.set(Options.CONTENT_LEVELS, value)
