@@ -92,3 +92,6 @@ def test_cycles_1():
 
 def test_cycles_1_ne():
   run_test_ne('cycles_1')
+
+def test_multiple_column_names():
+  run_test('multiple_column_names')
