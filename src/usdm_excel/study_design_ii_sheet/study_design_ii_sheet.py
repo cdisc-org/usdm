@@ -10,12 +10,11 @@ class StudyDesignIISheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignII'))
       super().__init__(file_path=file_path, sheet_name='studyDesignII')
       self.indications = []
       self.interventions = []
       for index, row in self.sheet.iterrows():
-        xref = self.read_cell_by_name(index, "xref")
+        xref = self.read_cell_by_name(index, ["xref", "name"])
         type = self.read_cell_by_name(index, "type")
         description = self.read_description_by_name(index, "description")
         #codes = self._build_codes(row, index)

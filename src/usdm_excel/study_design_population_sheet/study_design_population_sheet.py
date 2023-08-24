@@ -11,14 +11,19 @@ class StudyDesignPopulationSheet(BaseSheet):
       super().__init__(file_path=file_path,  sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
-        description = self.read_description_by_name(index, 'populationDescription')
+        # 'name' added, preserve backward compatibility
+        if self.column_present(self, 'name'):
+          name = self.read_description_by_name(index, 'name') 
+        else:
+          name = f"POP {index}"
+        description = self.read_description_by_name(index, ['description', 'populationDescription']) # Allow multiple names for column
         number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
         min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
         max = self.read_cell_by_name(index, "plannedMaximumAgeOfParticipants")
         codes = self._build_codes(row, index)
         try:
           pop = StudyDesignPopulation(id=id_manager.build_id(StudyDesignPopulation),
-            name="Something Here",
+            name=name,
             description=description, 
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,

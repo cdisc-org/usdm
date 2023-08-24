@@ -14,7 +14,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
-        o_xref = self.read_cell_by_name(index, "objectiveXref")
+        o_xref = self.read_cell_by_name(index, ["objectiveXref", "xref", "name"]) #
         o_description = self.read_cell_by_name(index, 'objectiveDescription') # Note, dont use description read method, we need to know if really empty.
         e_xref = self.read_cell_by_name(index, "endpointXref")
         ep_description = self.read_description_by_name(index, 'endpointDescription')
