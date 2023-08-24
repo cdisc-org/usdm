@@ -321,8 +321,8 @@
         "studyPopulations": [
           {
             "id": "StudyDesignPopulation_1",
-            "name": "POP 0",
-            "description": "",
+            "name": "POP 1",
+            "description": "Younger population",
             "plannedNumberOfParticipants": 100,
             "plannedMaximumAgeOfParticipants": "40 years",
             "plannedMinimumAgeOfParticipants": "18 years",
@@ -338,8 +338,8 @@
           },
           {
             "id": "StudyDesignPopulation_2",
-            "name": "POP 1",
-            "description": "",
+            "name": "POP 2",
+            "description": "Mid range population",
             "plannedNumberOfParticipants": 20,
             "plannedMaximumAgeOfParticipants": "60 years",
             "plannedMinimumAgeOfParticipants": "18 years",
@@ -355,8 +355,8 @@
           },
           {
             "id": "StudyDesignPopulation_3",
-            "name": "POP 2",
-            "description": "",
+            "name": "POP 3",
+            "description": "Old population",
             "plannedNumberOfParticipants": 20,
             "plannedMaximumAgeOfParticipants": "70 years",
             "plannedMinimumAgeOfParticipants": "18 years",
@@ -371,7 +371,180 @@
             ]
           }
         ],
-        "studyObjectives": [],
+        "studyObjectives": [
+          {
+            "id": "Objective_1",
+            "name": "OBJ1",
+            "description": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+            "objectiveLevel": {
+              "id": "Code_92",
+              "code": "C85826",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Trial Primary Objective"
+            },
+            "objectiveEndpoints": [
+              {
+                "id": "Endpoint_1",
+                "description": "Clinical status assessed using a 7-category ordinal scale at Day 28",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_91",
+                  "code": "C94496",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Primary Endpoint"
+                }
+              }
+            ]
+          },
+          {
+            "id": "Objective_2",
+            "name": "OBJ2",
+            "description": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+            "objectiveLevel": {
+              "id": "Code_94",
+              "code": "C85827",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2022-12-16",
+              "decode": "Trial Secondary Objective"
+            },
+            "objectiveEndpoints": [
+              {
+                "id": "Endpoint_2",
+                "description": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_93",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_3",
+                "description": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_95",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_4",
+                "description": "Incidence of mechanical ventilation",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_96",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_5",
+                "description": "Ventilator-free days to Day 28",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_97",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_6",
+                "description": "Incidence of intensive care unit (ICU) stay",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_98",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_7",
+                "description": "Duration of ICU stay",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_99",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_8",
+                "description": "Time to clinical failure, defined as the time to death, mechanical ventilation, ICU admission, or withdrawal (whichever occurs first). For patients entering the study already in ICU or on mechanical ventilation, clinical failure is defined as a one-category worsening on the ordinal scale, withdrawal or death.",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_100",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_9",
+                "description": "Mortality rate at Days 7, 14, 21, 28, and 60",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_101",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_10",
+                "description": "Time to hospital discharge or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen)",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_102",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_11",
+                "description": "Time to recovery, defined as discharged or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU hospital ward (or \u201cready for hospital ward\u201d) not requiring supplemental oxygen",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_103",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              },
+              {
+                "id": "Endpoint_12",
+                "description": "Duration of supplemental oxygen",
+                "purpose": "None provided",
+                "endpointLevel": {
+                  "id": "Code_104",
+                  "code": "C139173",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Secondary Endpoint"
+                }
+              }
+            ]
+          }
+        ],
         "studyScheduleTimelines": [
           {
             "id": "ScheduleTimeline_1",
@@ -615,7 +788,7 @@
               "description": "ITT"
             },
             "treatmentId": "InvestigationalIntervention_1",
-            "variableOfInterestId": null,
+            "variableOfInterestId": "Endpoint_1",
             "intercurrentEvents": [
               {
                 "id": "IntercurrentEvent_1",
@@ -645,7 +818,7 @@
               "description": "ITT"
             },
             "treatmentId": "InvestigationalIntervention_2",
-            "variableOfInterestId": null,
+            "variableOfInterestId": "Endpoint_2",
             "intercurrentEvents": [
               {
                 "id": "IntercurrentEvent_4",

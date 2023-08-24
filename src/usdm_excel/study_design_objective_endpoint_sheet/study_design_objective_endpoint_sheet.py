@@ -14,7 +14,6 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
-        o_xref = self.read_cell_by_name(index, ["objectiveXref", "xref", "name"]) #
         o_description = self.read_cell_by_name(index, 'objectiveDescription') # Note, dont use description read method, we need to know if really empty.
         e_xref = self.read_cell_by_name(index, "endpointXref")
         ep_description = self.read_description_by_name(index, 'endpointDescription')
@@ -23,6 +22,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           ep_purpose = "None provided" # Temp fix
         e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
+          o_xref = self.read_cell_by_name(index, ["objectiveXref", "xref", "name"]) 
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
           try:
             current = Objective(id=id_manager.build_id(Objective),

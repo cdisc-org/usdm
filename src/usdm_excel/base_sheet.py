@@ -50,7 +50,7 @@ class BaseSheet():
       except:
         pass
     raise BaseSheet.FormatError
-      
+
   def read_cell(self, row_index, col_index):
     try:
       if pd.isnull(self.sheet.iloc[row_index, col_index]):
