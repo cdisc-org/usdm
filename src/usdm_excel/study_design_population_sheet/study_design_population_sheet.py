@@ -8,10 +8,10 @@ class StudyDesignPopulationSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(file_path=file_path,  sheet_name='studyDesignPopulations')
+      super().__init__(file_path=file_path, sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
-        name = self.read_cell_by_name(index, 'name', f"POP {index}") # 'name' added, preserve backward compatibility so defaulted
+        name = self.read_cell_by_name(index, 'name', f"POP {index + 1}") # 'name' added, preserve backward compatibility so defaulted
         description = self.read_description_by_name(index, ['description', 'populationDescription']) # Allow multiple names for column
         number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
         min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
