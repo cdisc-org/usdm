@@ -230,6 +230,9 @@ class BaseSheet():
     except:
       return None
 
+  def _get_column_index(self, column_name):
+    return self.sheet.columns.get_loc(column_name)
+
   def _info(self, row, column, message):
      package_logger.info(self._format(row + 1, column + 1, message))
      
