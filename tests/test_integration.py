@@ -95,3 +95,6 @@ def test_cycles_1_ne():
 
 def test_multiple_column_names():
   run_test('multiple_column_names')
+
+def test_invalid_section_levels():
+  run_test('invalid_section_levels')

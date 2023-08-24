@@ -8,8 +8,6 @@ xfail = pytest.mark.xfail
 from src.usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
 
 def test_create(mocker):
-  mock_option = mocker.patch("usdm_excel.option_manager.OptionManager.get")
-  mock_option.side_effect=['3']  
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
@@ -47,8 +45,6 @@ def test_create(mocker):
 def test_create_4_levels(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_option = mocker.patch("usdm_excel.option_manager.OptionManager.get")
-  mock_option.side_effect=['4']  
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
@@ -83,8 +79,7 @@ def test_create_4_levels(mocker):
 def test_create_invalid_levels(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_option = mocker.patch("usdm_excel.option_manager.OptionManager.get")
-  mock_option.side_effect=['4']  
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
@@ -100,14 +95,16 @@ def test_create_invalid_levels(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  with pytest.raises(BaseSheet.FormatError):
-    assert(StudyDesignContentSheet(""))
+  StudyDesignContentSheet("")
+  mock_error.assert_called()
+  assert mock_error.call_args[0][0] == "studyDesignContent"
+  assert mock_error.call_args[0][1] == None
+  assert mock_error.call_args[0][2] == None
+  assert mock_error.call_args[0][3] == "Exception [] raised reading sheet."
 
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_option = mocker.patch("usdm_excel.option_manager.OptionManager.get")
-  mock_option.side_effect=['3']  
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -119,8 +116,6 @@ def test_create_empty(mocker):
 def test_read_cell_by_name_error(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_option = mocker.patch("usdm_excel.option_manager.OptionManager.get")
-  mock_option.side_effect=['3']  
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

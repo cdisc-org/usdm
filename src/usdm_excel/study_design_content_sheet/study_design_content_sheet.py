@@ -30,9 +30,7 @@ class StudyDesignContentSheet(BaseSheet):
           text = self.read_cell_by_name(index, 'text')
           name = self.read_cell_by_name(index, 'name')
           name = f"SECTION {section_number}" if name == "" else name
-          #print(f"PARAMS: New={new_level}, Current={current_level}, Num={number}, Title={title}, Text={text}, Name={name}")
           try:
-            #print(f"N1")
             item = Content(
               id=id_manager.build_id(Content), 
               name=name,
@@ -41,43 +39,34 @@ class StudyDesignContentSheet(BaseSheet):
               text=text,
               contentChildIds=[]
             )
-            #print(f"N2")
-            self.items.append(item)
-            #print(f"ITEM: {item.id}")
-            if new_level == current_level:
-              # Same level
-              parent = current_parent[-1]
-              #print(f"PARENT1: P={parent.id}, C={item.id}")
-              parent.contentChildIds.append(item.id)
-            elif new_level > current_level:
-              # Down
-              if (new_level - current_level) > 1:
-                self._error(index, self._get_column_index('sectionNumber'), f"Error with section number incresing by more than one level, section '{section_number}'.")
-                raise BaseSheet.FormatError
-              current_parent.append(previous_item)
-              current_level = new_level
-              parent = current_parent[-1]
-              #print(f"PARENT2: P={parent.id}, C={item.id} ")
-              parent.contentChildIds.append(item.id)
-            else:
-              # Up
-              for p_count in range(new_level, current_level):
-                popped = current_parent.pop()
-                #print(f"POP {popped.id}")
-              parent = current_parent[-1]
-              #print(f"PARENT3: P={parent.id}, C={item.id}")
-              parent.contentChildIds.append(item.id)
-              current_level = new_level
-            previous_item = item
-            #print("")
-            #print("")
-          except Exception as e:
+          except Exception as e:  
             self._general_error(f"Failed to create Content object, exception {e}")
-            #print(f"{traceback.format_exc()}")
             self._traceback(f"{traceback.format_exc()}")
+          self.items.append(item)
+          #print(f"ITEM: {item.id}")
+          if new_level == current_level:
+            # Same level
+            parent = current_parent[-1]
+            parent.contentChildIds.append(item.id)
+          elif new_level > current_level:
+            # Down
+            if (new_level - current_level) > 1:
+              self._error(index, self._get_column_index('sectionNumber'), f"Error with section number incresing by more than one level, section '{section_number}'.")
+              raise BaseSheet.FormatError
+            current_parent.append(previous_item)
+            current_level = new_level
+            parent = current_parent[-1]
+            parent.contentChildIds.append(item.id)
+          else:
+            # Up
+            for p_count in range(new_level, current_level):
+              popped = current_parent.pop()
+            parent = current_parent[-1]
+            parent.contentChildIds.append(item.id)
+            current_level = new_level
+          previous_item = item
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
-      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
   def _get_level(self, section_number):
