@@ -59,6 +59,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Procedures sheet
 - Study Design Encounters sheet
 - Study Design Elements sheet
+- Study Design Content sheet
 - Configuration sheet
 
 The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/main/Deliverables/IG/examples).
@@ -336,7 +337,7 @@ A header row in row 1 followed by repeating rows from row 2, containing an indic
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | Identifier | The identifier | Text string | 
+| A | xref or name | The name / identifier for the item | Text string | 
 | B | type | The type, either `IND` for indication or `INT` for intervention | Text string |
 | C | description | A Text string description for the indication or intervvention | Text string |
 | D | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
@@ -353,11 +354,12 @@ A header row in row 1 followed by repeating rows from row 2, containing a popula
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | populationDescription	| Description of the population | Text string | 
-| B | plannedNumberOfParticipants	| Number of participants | Integer | 
-| C | plannedMinimumAgeOfParticipants	| Min age | Text string | 
-| D | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
-| E | plannedSexOfParticipants | Sex of participants | CDISC code reference | 
+| A | name	| Name for the population | Text string | 
+| B | populationDescription or description	| Description of the population | Text string | 
+| C | plannedNumberOfParticipants	| Number of participants | Integer | 
+| D | plannedMinimumAgeOfParticipants	| Min age | Text string | 
+| E | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
+| F | plannedSexOfParticipants | Sex of participants | CDISC code reference | 
 
 ### Study Design Objectives and Endpoints sheet
 
@@ -371,7 +373,7 @@ A header row in row 1 followed by repeating rows from row 2, containing objectiv
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | objectiveXref	| Identifier | Text string |
+| A | objectiveXref	or xref or name | Identifier | Text string |
 | B | objectiveDescription	| Description | Text string |
 | C | objectiveLevel	| Objective level | CDISC code reference |
 | D | endpointXref	| Identifier | Text string. Note columns D to G can repeat for each endpoiint for an objective |
@@ -458,6 +460,23 @@ A header row in row 1 followed by repeating rows from row 2, containing element 
 | C | studyElementDescription | Description | Text string |	
 | D | transitionStartRule | Start rule | Text string |	
 | E | transitionEndRule | End rule | Text string |
+
+### Study Design Content sheet
+
+#### Sheet Name
+
+`studyDesignContent`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing the narrative content: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | sectionNumber | The section number | Text string with section numbers separated by '.' characters. Section numbers from row to row can only increase by a single level | 
+| B | name | Name of the section. | Text string. Can be left blank in which case a default value will be entered |
+| C | sectionTitle | The section title | Text String |
+| D | sectionText | The section text | HTML formatted text String |
 
 ### Configuration Sheet
 
