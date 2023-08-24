@@ -60,7 +60,7 @@ def test_read_cell_by_name_error(mocker):
   activities = StudyDesignActivitySheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ("studyDesignActivities", 1, -1, "Error ('activityIsConditional') reading cell", 10),
-    ("studyDesignActivities", 1, -1, "Error ('activityIsConditionalReason') reading cell", 10),
+    ("studyDesignActivities", 1, -1, "Error reading cell 'activityIsConditional'", 10),
+    ("studyDesignActivities", 1, -1, "Error reading cell 'activityIsConditionalReason'", 10),
   ]
   

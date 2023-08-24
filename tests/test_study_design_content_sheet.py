@@ -107,5 +107,5 @@ def test_read_cell_by_name_error(mocker):
   assert mock_error.call_args[0][0] == "studyDesignContent"
   assert mock_error.call_args[0][1] == 1
   assert mock_error.call_args[0][2] == -1
-  assert mock_error.call_args[0][3] == "Error ('name') reading cell"
+  assert mock_error.call_args[0][3] == "Error reading cell 'name'"
   
