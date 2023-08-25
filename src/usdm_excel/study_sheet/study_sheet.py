@@ -135,10 +135,10 @@ class StudySheet(BaseSheet):
     return Wrapper(study=self.study)
 
   def to_html(self):
-    return NarrativeContent(self.study.studyDesigns[0]).to_html()
+    return NarrativeContent(self.title, self.study.studyDesigns[0]).to_html()
 
   def to_pdf(self):
-    return NarrativeContent(self.study.studyDesigns[0]).to_pdf()
+    return NarrativeContent(self.title, self.study.studyDesigns[0]).to_pdf()
 
   def _process_sheet(self):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    

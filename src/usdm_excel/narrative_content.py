@@ -3,8 +3,9 @@ import docraptor
 
 class NarrativeContent():
 
-  def __init__(self, study_design):
+  def __init__(self, doc_title, study_design):
     #print("NC INIT:")
+    self.doc_title = doc_title
     self.study_design = study_design
 
   def to_pdf(self):
@@ -32,9 +33,7 @@ class NarrativeContent():
       print(error.body)
 
   def to_html(self):
-    #print("NC TH1:")
     root = self.study_design.contents[0]
-    #print(f"NC TH2: {root.sectionNumber}")
     doc = Doc()
     doc.asis('<!DOCTYPE html>')
     style = """
@@ -73,7 +72,7 @@ class NarrativeContent():
 
       #title-page h1 {
         padding: 500px 0 40px 0;
-        font-size: 75px;
+        font-size: 30px;
       }
 
       /* Dynamically create a table of contents with leaders */
@@ -103,16 +102,25 @@ class NarrativeContent():
     </style>
     <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'>
     """
-    front_sheet = """
+    chapters = []
+    for id in root.contentChildIds:
+      content = next((x for x in self.study_design.contents if x.id == id), None)
+      level = len(content.sectionNumber.split('.'))
+      if level == 1:
+        chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
+    front_sheet = f"""
       <div id="title-page" class="page">
-        <h1>The Official DocRaptor eBook</h1>
+        <h1>{self.doc_title}</h1>
+        <div id="header-and-footer">
+          <span id="page-number"></span> | {self.doc_title}
+        </div>
+      </div>
+      <div id="toc-page" class="page">
         <div id="table-of-contents">
-          <a href="#chapter-1"></a>
-          <a href="#chapter-2"></a>
-          <a href="#chapter-3"></a>
+          {''.join(chapters)}
         </div>
         <div id="header-and-footer">
-          <span id="page-number"></span> | The Official DocRaptor eBook
+          <span id="page-number"></span> | {self.doc_title}
         </div>
       </div>
     """
@@ -132,14 +140,12 @@ class NarrativeContent():
   
   def _content_to_html(self, content, doc):
     level = len(content.sectionNumber.split('.'))
-    if level == 1:
-      with doc.tag('div', klass="page"):
-        with doc.tag(f'h{level}', id=f"chapter-{content.sectionNumber}"):
-          doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
-    else:
-      with doc.tag(f'h{level}'):
+    klass = "page" if level == 1 else ""
+    id = f"section-{content.sectionNumber}"
+    with doc.tag('div', klass=klass):
+      with doc.tag(f'h{level}', id=id):
         doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
-    doc.asis(content.text)
-    for id in content.contentChildIds:
-      content = next((x for x in self.study_design.contents if x.id == id), None)
-      self._content_to_html(content, doc)
+      doc.asis(content.text)
+      for id in content.contentChildIds:
+        content = next((x for x in self.study_design.contents if x.id == id), None)
+        self._content_to_html(content, doc)
