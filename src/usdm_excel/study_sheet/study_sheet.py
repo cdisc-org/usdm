@@ -22,6 +22,7 @@ from usdm_model.api_base_model import ApiBaseModel
 from usdm_model.study import Study
 from usdm_model.study_protocol_version import StudyProtocolVersion
 from usdm_model.wrapper import Wrapper
+from usdm_excel.narrative_content import NarrativeContent
 
 import traceback
 import pandas as pd
@@ -132,6 +133,12 @@ class StudySheet(BaseSheet):
   
   def api_root(self):
     return Wrapper(study=self.study)
+
+  def to_html(self):
+    return NarrativeContent(self.study.studyDesigns[0]).to_html()
+
+  def to_pdf(self):
+    return NarrativeContent(self.study.studyDesigns[0]).to_pdf()
 
   def _process_sheet(self):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    

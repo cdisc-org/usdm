@@ -41,7 +41,26 @@ class USDMExcel():
       error_manager.add(None, None, None, message)
       raw_json = json.dumps({'error': message}, indent = 2)
     return raw_json
-  
+
+  def to_html(self):
+    try:
+      html = self.study.to_html()
+    except Exception as e:
+      message = f"Failed to generate HTML output, exception {e}"
+      error_manager.add(None, None, None, message)
+      html = f"<p>{message}</p>"
+    return html
+
+  def to_pdf(self):
+    try:
+      bytes = self.study.to_pdf()
+    except Exception as e:
+      message = f"Failed to generate PDF output, exception {e}"
+      error_manager.add(None, None, None, message)
+      bytes = bytearray()
+      bytes.extend(map(ord, message))    
+    return bytes
+
   def to_nodes_and_edges(self, view=FULL_VIEW):
     return NodesAndEdges(self.study.the_study(), view).nodes_and_edges()
 
