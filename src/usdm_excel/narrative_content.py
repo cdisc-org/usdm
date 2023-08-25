@@ -64,14 +64,13 @@ class NarrativeContent():
       }
 
       @page title-page {
-        background: url('https://docraptor-production-cdn.s3.amazonaws.com/tutorials/raptor.svg') 50% 50px / 80% no-repeat #DDE4F3;
         @top {
           content: "";
         }
       }
 
       #title-page h1 {
-        padding: 500px 0 40px 0;
+        padding: 200px 0 40px 0;
         font-size: 30px;
       }
 
@@ -112,7 +111,7 @@ class NarrativeContent():
       <div id="title-page" class="page">
         <h1>{self.doc_title}</h1>
         <div id="header-and-footer">
-          <span id="page-number"></span> | {self.doc_title}
+          <span id="page-number"></span>
         </div>
       </div>
       <div id="toc-page" class="page">
@@ -120,7 +119,7 @@ class NarrativeContent():
           {''.join(chapters)}
         </div>
         <div id="header-and-footer">
-          <span id="page-number"></span> | {self.doc_title}
+          <span id="page-number"></span>
         </div>
       </div>
     """
