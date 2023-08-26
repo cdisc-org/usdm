@@ -1,5 +1,7 @@
-from yattag import Doc
 import docraptor
+from yattag import Doc
+from bs4 import BeautifulSoup   
+from usdm_excel.cross_ref import cross_references
 
 class NarrativeContent():
 
@@ -144,7 +146,16 @@ class NarrativeContent():
     with doc.tag('div', klass=klass):
       with doc.tag(f'h{level}', id=id):
         doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
-      doc.asis(content.text)
+      doc.asis(self._translate_references(content.text))
       for id in content.contentChildIds:
         content = next((x for x in self.study_design.contents if x.id == id), None)
         self._content_to_html(content, doc)
+
+  def _translate_references(self, content_text):
+    soup = BeautifulSoup(content_text, 'html.parser')
+    for ref in soup(['usdm:ref']):
+      attributes = ref.attrs
+      instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
+      translated_text = self._translate_references(getattr(instance, attributes['attribute']))
+      ref.replace_with(translated_text)
+    return str(soup)
