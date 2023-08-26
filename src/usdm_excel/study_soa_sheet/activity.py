@@ -5,7 +5,8 @@ from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.activity import Activity as USDMActivity
 from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
-import pandas as pd
+from usdm_model.procedure import Procedure
+from usdm_model.schedule_timeline import ScheduleTimeline
 
 class Activity():
   
@@ -34,14 +35,15 @@ class Activity():
         self.usdm_biomedical_concept_surrogates.append(surrogate)
     timelineId = ""
     if len(self._tls) > 0:
-      timelineId = cross_references.get(self._tls[0])
+      timeline = cross_references.get(ScheduleTimeline, self._tls[0])
+      timelineId = timeline.id
     for procedure in self._prs:
-      ref = cross_references.get(procedure)
+      ref = cross_references.get(Procedure, procedure)
       if ref is not None:
-        procedures.append(cross_references.get(procedure))
+        procedures.append(ref)
       else:
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
-    activity = cross_references.get(self.name)
+    activity = cross_references.get(Activity, self.name)
     if activity is None:
       activity = USDMActivity(
         id=id_manager.build_id(Activity),

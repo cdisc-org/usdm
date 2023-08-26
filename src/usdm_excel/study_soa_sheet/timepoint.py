@@ -7,6 +7,8 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.timing import Timing
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm_model.encounter import Encounter
+from usdm_model.study_epoch import StudyEpoch
 
 class Timepoint():
   
@@ -26,7 +28,7 @@ class Timepoint():
       if not self.encounter_xref == "":
         self.has_encounter = True
       self.epoch = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
-      epoch_ref = cross_references.get(self.epoch)
+      epoch_ref = cross_references.get(StudyEpoch, self.epoch)
     self.activities = []
     self.activity_map = {}
     self.__timepoint_type = None
@@ -41,7 +43,7 @@ class Timepoint():
       self._synthetic_timepoint(type, value, cycle)
     self.usdm_timepoint = self._as_usdm()
     if self.has_encounter:
-      encounter = cross_references.get(self.encounter_xref)
+      encounter = cross_references.get(Encounter, self.encounter_xref)
       self.usdm_timepoint.scheduledActivityInstanceEncounterId = encounter.id
     if epoch_ref is not None:
       self.usdm_timepoint.epochId = epoch_ref.id

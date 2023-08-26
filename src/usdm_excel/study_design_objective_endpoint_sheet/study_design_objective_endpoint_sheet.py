@@ -36,7 +36,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.objectives.append(current)
-            cross_references.add(o_xref, current.id)
+            cross_references.add(o_xref, current)
         if current is not None:
           try:
             ep = Endpoint(id=id_manager.build_id(Endpoint), 
@@ -49,7 +49,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             current.objectiveEndpoints.append(ep)
-            cross_references.add(e_xref, ep.id)
+            cross_references.add(e_xref, ep)
         else:
           self._general_error("Failed to add Endpoint, no Objective set")
 

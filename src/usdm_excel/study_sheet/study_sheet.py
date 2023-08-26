@@ -71,7 +71,7 @@ class StudySheet(BaseSheet):
       for timeline in self.study_design.other_timelines:
         tl = StudySoASheet(file_path, timeline)
         self.timelines[timeline] = tl
-        cross_references.add(timeline, tl.timeline.id)
+        cross_references.add(timeline, tl.timeline)
       self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)

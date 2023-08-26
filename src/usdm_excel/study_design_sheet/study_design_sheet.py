@@ -3,6 +3,7 @@ from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_model.study_epoch import StudyEpoch
 from usdm_model.study_arm import StudyArm
+from usdm_model.study_element import StudyElement
 from usdm_model.study_cell import StudyCell
 from usdm_model.study_design import StudyDesign
 from usdm_excel.alias import Alias
@@ -123,7 +124,7 @@ class StudyDesignSheet(BaseSheet):
     self.study_designs.append(study_design)
 
   def _add_arm(self, name):
-    arm = cross_references.get(name)
+    arm = cross_references.get(StudyArm, name)
     if arm is not None:
       if name not in self.arm_names:
         self.arm_names[name] = True
@@ -134,7 +135,7 @@ class StudyDesignSheet(BaseSheet):
       return None
 
   def _add_epoch(self, name):
-    epoch = cross_references.get(name)
+    epoch = cross_references.get(StudyEpoch, name)
     if epoch is not None:
       if name not in self.epoch_names:
         self.epoch_names[name] = True
@@ -145,7 +146,7 @@ class StudyDesignSheet(BaseSheet):
       return None
   
   def _add_element(self, name):
-    element = cross_references.get(name)
+    element = cross_references.get(StudyElement, name)
     if element is not None:
       if name not in self.elements:
         self.elements[name] = element

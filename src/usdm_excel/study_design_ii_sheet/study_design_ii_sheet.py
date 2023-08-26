@@ -27,7 +27,7 @@ class StudyDesignIISheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.indications.append(item)
-            cross_references.add(xref, item.id)
+            cross_references.add(xref, item)
         else:
           try:
             item = InvestigationalIntervention(id=id_manager.build_id(InvestigationalIntervention), description=description, codes=codes)
@@ -36,7 +36,7 @@ class StudyDesignIISheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.interventions.append(item)
-            cross_references.add(xref, item.id)        
+            cross_references.add(xref, item)        
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
