@@ -4,6 +4,7 @@ from usdm_model.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_excel.iso_3166 import ISO3166
+from usdm_excel.cross_ref import cross_references
 import pandas as pd
 import traceback
 
@@ -40,15 +41,17 @@ class StudyIdentifiersSheet(BaseSheet):
         self._traceback(f"{traceback.format_exc()}")
       else:
         try:
-          self.identifiers.append(StudyIdentifier(
+          item = StudyIdentifier(
             id=id_manager.build_id(StudyIdentifier),
             studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
-            studyIdentifierScope=organisation)
+            studyIdentifierScope=organisation
           )
         except Exception as e:
           self._general_error(f"Failed to create StudyIdentifier object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
-    
+        else:
+          self.identifiers.append(item)
+          cross_references.add(item.studyIdentifier, item)         
   def _build_address(self, row_index):
     field_name = 'organisationAddress'
     raw_address = self.read_cell_by_name(row_index, field_name)

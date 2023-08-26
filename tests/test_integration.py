@@ -2,7 +2,7 @@ import json
 import csv
 from src.usdm_excel import USDMExcel
 
-SAVE_ALL = False
+SAVE_ALL = True
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
@@ -42,6 +42,19 @@ def run_test(filename, save=False):
     expected = read_error_csv(f)
   assert errors == expected
 
+def run_test_html(filename, save=False):
+  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
+  result = excel.to_html()
+
+  # Useful if you want to see the results.
+  if save or SAVE_ALL:
+    with open(f"tests/integration_test_files/{filename}.html", 'w') as f:
+      f.write(result)
+  
+  with open(f"tests/integration_test_files/{filename}.html", 'r') as f:
+    expected = f.read()
+  assert result == expected
+
 def run_test_ne(filename, save=False):
   result = {}
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
@@ -62,6 +75,9 @@ def test_simple_1():
 
 def test_simple_1_ne():
   run_test_ne('simple_1')
+
+def test_simple_1_html():
+  run_test_html('simple_1')
 
 def test_config_1():
   run_test('config_1')
