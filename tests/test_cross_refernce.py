@@ -31,6 +31,7 @@ def test_get_by_id():
   cross_references.identifiers = {}
   cross_references.identifiers["CRTest.1234"] = item
   assert cross_references.get_by_id(CRTest, "1234") == item
+  assert cross_references.get_by_id("CRTest", "1234") == item
 
 def test_clear():
   item = CRTest(id="1234", name="name")
