@@ -10,7 +10,6 @@ class CrossRef():
     klass = object.__class__
     key = self._key(klass, name)
     if not key in self.references:
-      print(f"CR: Adding {key}")
       self.references[key] = object
     else:
       pass # Need exception here
@@ -18,13 +17,12 @@ class CrossRef():
   def get(self, klass, name):
     key = self._key(klass, name)
     if key in self.references:
-      print(f"CR: Get {key} OK")
       return self.references[key]
     else:
-      print(f"CR: Get {key} failed")
       return None
 
   def _key(self, klass, name):
-    return f"{klass.__name__}.{name}"
+    key = f"{klass.__name__}.{name}"
+    return key
   
 cross_references = CrossRef()
