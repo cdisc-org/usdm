@@ -156,15 +156,18 @@ class NarrativeContent():
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
       try:
-        if 'nameXref' in attributes:
-          instance = cross_references.get(attributes['klass'], attributes['nameXref'])
+        #print(f"TR: Attributes={attributes}")
+        if 'namexref' in attributes:
+          instance = cross_references.get(attributes['klass'], attributes['namexref'])
+          #print("TR: Name xref instance")
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
+          #print("TR: Id instance")
         try:
           translated_text = self._translate_references(getattr(instance, attributes['attribute']))
           ref.replace_with(translated_text)
         except:
-          ref.replace_with("<p>***** Failed to translate reference, attribute not found *****</p>")
+          ref.replace_with("***** Failed to translate reference, attribute not found *****")
       except:
-        ref.replace_with("<p>***** Failed to translate reference, instance not foound *****</p>")
+        ref.replace_with("***** Failed to translate reference, instance not foound *****")
     return str(soup)
