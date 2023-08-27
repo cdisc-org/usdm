@@ -156,7 +156,10 @@ class NarrativeContent():
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
       try:
-        instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
+        if 'nameXref' in attributes:
+          instance = cross_references.get(attributes['klass'], attributes['nameXref'])
+        else:
+          instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
         try:
           translated_text = self._translate_references(getattr(instance, attributes['attribute']))
           ref.replace_with(translated_text)
