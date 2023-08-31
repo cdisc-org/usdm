@@ -79,7 +79,7 @@ class NarrativeContent():
       /* Dynamically create a table of contents with leaders */
       #table-of-contents a {
         content: target-content(attr(href)) leader('.') target-counter(attr(href), page);
-        color: #135697;
+        color: #000000;
         text-decoration: none;
         display: block;
         padding-top: 5px;
@@ -97,8 +97,8 @@ class NarrativeContent():
 
       body {
         counter-reset: chapter;
-        font-family: 'Open Sans';
-        color: #135697;
+        font-family: 'Times New Roman';
+        color: #000000;
       }
     </style>
     <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'>
@@ -159,12 +159,13 @@ class NarrativeContent():
         #print(f"TR: Attributes={attributes}")
         if 'namexref' in attributes:
           instance = cross_references.get(attributes['klass'], attributes['namexref'])
-          #print("TR: Name xref instance")
+          #print(f"TR: Name xref instance {instance}")
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
-          #print("TR: Id instance")
+          #print(f"TR: Id instance {instance}")
         try:
           translated_text = self._translate_references(getattr(instance, attributes['attribute']))
+          #print(f"TR: text {translated_text}")
           ref.replace_with(translated_text)
         except:
           ref.replace_with("***** Failed to translate reference, attribute not found *****")

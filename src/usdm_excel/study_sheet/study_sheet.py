@@ -115,6 +115,7 @@ class StudySheet(BaseSheet):
           studyProtocolVersions=self.protocols,
           studyDesigns=self.study_design.study_designs
         )
+        cross_references.add("STUDY", self.study)
       except:
         self._general_error(f"Failed to create Study object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
@@ -173,4 +174,5 @@ class StudySheet(BaseSheet):
         record['id'] = id_manager.build_id(StudyProtocolVersion)
         spv = StudyProtocolVersion(**record)
         self.protocols.append(spv)
+        cross_references.add(record['id'], spv)
   
