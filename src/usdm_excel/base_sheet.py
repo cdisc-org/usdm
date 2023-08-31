@@ -3,7 +3,7 @@ import pandas as pd
 from openpyxl import load_workbook
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm_model.code import Code
+from usdm_excel.other_ct import OtherCT
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
@@ -217,7 +217,7 @@ class BaseSheet():
       inner_parts = outer_parts[1].strip().split("=")
       if len(inner_parts) == 2:
         version = ct_version_manager.get(system)
-        return Code(id=id_manager.build_id(Code), code=inner_parts[0].strip(), codeSystem=system, codeSystemVersion=version, decode=inner_parts[1].strip())
+        return OtherCT().code(code=inner_parts[0].strip(), system=system, version=version, decode=inner_parts[1].strip())
       else:
         self._error(row_index, col_index, "Failed to decode code data '%s', no '=' detected" % (value))
     else:
