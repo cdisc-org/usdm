@@ -4,6 +4,6 @@ from .code import Code
 
 class Procedure(ApiBaseModelWithIdNameLabelAndDesc):
   procedureType: str
-  procedureCode: Code
+  code: Code
   procedureIsConditional: bool
   procedureIsConditionalReason: Union[str, None] = None

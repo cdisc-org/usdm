@@ -11,7 +11,7 @@ class Study(ApiBaseModel):
   id: Union[UUID, None] = None
   studyTitle: str
   studyVersion: str
-  studyType: Union[genericCode, None] = None
+  type: Union[genericCode, None] = None
   studyPhase: Union[AliasCode, None] = None
   businessTherapeuticAreas: List[Code] = []
   studyIdentifiers: List[StudyIdentifier] = []

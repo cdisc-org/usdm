@@ -5,4 +5,4 @@ from .alias_code import AliasCode
 class BiomedicalConceptCategory(ApiBaseModelWithIdNameLabelAndDesc):
   bcCategoryChildIds: List[str] = []
   bcCategoryMemberIds: List[str] = []
-  bcCategoryCode: Union[AliasCode, None] = None
+  code: Union[AliasCode, None] = None

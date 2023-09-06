@@ -3,7 +3,7 @@ from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 
 class Timing(ApiBaseModelWithIdNameLabelAndDesc):
-  timingType: Code
+  type: Code
   timingValue: str
   timingRelativeToFrom: Code
   relativeFromScheduledInstanceId: Union[str, None] = None
@@ -11,4 +11,3 @@ class Timing(ApiBaseModelWithIdNameLabelAndDesc):
   timingWindowLower: Union[str, None] = None
   timingWindowUpper: Union[str, None] = None
   timingWindow: Union[str, None] = None
-  label: Union[str, None] = None

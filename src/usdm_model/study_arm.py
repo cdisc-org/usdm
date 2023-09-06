@@ -2,6 +2,6 @@ from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 
 class StudyArm(ApiBaseModelWithIdNameLabelAndDesc):
-  studyArmType: Code
+  type: Code
   studyArmDataOriginDescription: str
-  studyArmDataOriginType: Code
+  dataOriginType: Code

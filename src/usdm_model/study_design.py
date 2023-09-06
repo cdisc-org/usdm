@@ -18,28 +18,27 @@ from .study_design_population import StudyDesignPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
-import pandas as pd
 
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   trialIntentTypes: List[Code] = []
-  trialType: List[Code] = []
-  interventionModel: Code
-  studyCells: List[StudyCell]
-  studyIndications: List[Indication] = []
-  studyInvestigationalInterventions: List[InvestigationalIntervention] = []
-  studyPopulations: List[StudyDesignPopulation] = []
-  studyObjectives: List[Objective] = []
-  studyScheduleTimelines: List[ScheduleTimeline] = []
+  trialTypes: List[Code] = []
   therapeuticAreas: List[Code] = []
-  studyEstimands: List[Estimand] = []
+  interventionModel: Code
+  contents: List[Content] = []
   encounters: List[Encounter] = []
   activities: List[Activity] = []
-  studyDesignRationale: str
-  studyDesignBlindingScheme: Union[AliasCode, None] = None
   biomedicalConcepts: List[BiomedicalConcept] = []
   bcCategories: List[BiomedicalConceptCategory] = []
   bcSurrogates: List[BiomedicalConceptSurrogate] = []
   studyArms: List[StudyArm]
+  studyCells: List[StudyCell]
+  studyDesignBlindingScheme: Union[AliasCode, None] = None
+  studyDesignRationale: str
   studyEpochs: List[StudyEpoch]
   studyElements: List[StudyElement] = []
-  contents: List[Content] = []
+  studyEstimands: List[Estimand] = []
+  studyIndications: List[Indication] = []
+  studyInvestigationalInterventions: List[InvestigationalIntervention] = []
+  studyObjectives: List[Objective] = []
+  studyPopulations: List[StudyDesignPopulation] = []
+  studyScheduleTimelines: List[ScheduleTimeline] = []

@@ -1,10 +1,10 @@
 from typing import List
 from .alias_code import AliasCode
-from .api_base_model import ApiBaseModelWithIdAndName
+from .api_base_model import ApiBaseModelWithIdNameAndLabel
 from .biomedical_concept_property import BiomedicalConceptProperty
 
-class BiomedicalConcept(ApiBaseModelWithIdAndName):
+class BiomedicalConcept(ApiBaseModelWithIdNameAndLabel):
   bcSynonyms: List[str] = []
   bcReference: str
   bcProperties: List[BiomedicalConceptProperty] = []
-  bcConceptCode: AliasCode
+  code: AliasCode

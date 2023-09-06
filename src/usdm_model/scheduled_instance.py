@@ -3,7 +3,7 @@ from .api_base_model import ApiBaseModelWithId
 from .timing import Timing
 
 class ScheduledInstance(ApiBaseModelWithId):
-  scheduledInstanceType: Literal['ACTIVITY', 'DECISION']
+  instanceType: Literal['ACTIVITY', 'DECISION']
   scheduledInstanceTimings: List[Timing] = []
   scheduledInstanceTimelineId: Union[str, None] = None
   scheduleTimelineExitId: Union[str, None] = None
