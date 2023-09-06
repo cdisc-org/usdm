@@ -23,7 +23,6 @@ def _serialize_as_json_with_type(obj):
     result['_type'] = obj.__class__.__name__
     return result
 
-
 class ApiBaseModel(BaseModel):
 
   IdField = constr(min_length=1)
