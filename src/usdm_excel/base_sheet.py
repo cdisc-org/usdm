@@ -34,7 +34,7 @@ class BaseSheet():
       col_index = self.column_present(field_name)
       return self.read_cell(row_index, col_index)
     except Exception as e:
-      if default:
+      if default is not None:
         return default
       else:
         col_index = -2
@@ -49,7 +49,7 @@ class BaseSheet():
         return col_index
       except:
         pass
-    raise BaseSheet.FormatError
+    raise BaseSheet.FormatError(f"Failed to detect column(s) '{', '.join(fields)}' in sheet")
 
   def read_cell(self, row_index, col_index):
     try:
@@ -154,7 +154,8 @@ class BaseSheet():
     return result
 
   def read_cdisc_klass_attribute_cell_by_name(self, klass, attribute, row_index, field_name):
-    col_index = self.sheet.columns.get_loc(field_name)
+    #col_index = self.sheet.columns.get_loc(field_name)
+    col_index = self.column_present(field_name)
     return self.read_cdisc_klass_attribute_cell(klass, attribute, row_index, col_index)
 
   def read_cdisc_klass_attribute_cell(self, klass, attribute, row_index, col_index):

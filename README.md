@@ -101,6 +101,13 @@ a *Timing Value* of ```<value> <unit>``` or a *Timing Range* of ```<lower>..<upp
 
 So ```3 Y```, ```3 YRS```, ```3 YR```, ```3 YEARS```, ```3 YEAR``` are all equivalent. Only a single value and unit should be entered, i.e. combination values are not supported.
 
+### Sheet Descriptions
+
+The sheet descriptions detail the fields found within each sheet and the details of the data required. Note:
+
+- Some fields have multiple names due to model changes and a desire to preserve backwards compatibility. Any of the choices documented can be used. 
+- Some columns are optional and thus can be included or omitted. Again this is to preserve backwards compatibility. A default value is specified if the column is not included.
+
 ### Study Sheet
 
 #### Sheet Name
@@ -200,11 +207,12 @@ A header row in row 1 followed by repeating rows from row 2, containing the deta
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | studyArmName | The study name | Text string. Should match an arm name in the Study Design sheet | 
-| B | studyArmDescription | A Text string description for the arm | Text string |
-| C | studyArmType | The arm type| CDISC code reference |
-| D | studyArmDataOriginDescription	| The description of the data origin for the arm | Text string |
-| E | studyArmDataOriginType | The type of arm data origin | CDISC code reference|
+| A | studyArmName or name | The study name | Text string. Should match an arm name in the Study Design sheet | 
+| B | studyArmDescription or description | A Text string description for the arm | Text string |
+| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| D | studyArmType or type | The arm type| CDISC code reference |
+| E | studyArmDataOriginDescription	| The description of the data origin for the arm | Text string |
+| F | studyArmDataOriginType or dataOriginType | The type of arm data origin | CDISC code reference|
 
 ### Study Design Epochs sheet
 
