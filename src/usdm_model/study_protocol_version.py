@@ -1,9 +1,9 @@
 from datetime import date
 from typing import Union
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiBaseModelWithId
 from .code import Code
 
-class StudyProtocolVersion(ApiIdModel):
+class StudyProtocolVersion(ApiBaseModelWithId):
   briefTitle: str
   officialTitle: str
   publicTitle: str

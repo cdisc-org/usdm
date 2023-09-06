@@ -1,4 +1,4 @@
-from .api_base_model import ApiDescriptionModel
+from .api_base_model import ApiBaseModelWithIdAndDesc
 
-class TransitionRule(ApiDescriptionModel):
+class TransitionRule(ApiBaseModelWithIdAndDesc):
   pass

@@ -1,6 +1,6 @@
 from typing import List, Union
 from .activity import Activity
-from .api_base_model import ApiNameDescriptionModel
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .alias_code import AliasCode
 from .biomedical_concept import BiomedicalConcept
 from .biomedical_concept_category import BiomedicalConceptCategory
@@ -20,7 +20,7 @@ from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
 import pandas as pd
 
-class StudyDesign(ApiNameDescriptionModel):
+class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   trialIntentTypes: List[Code] = []
   trialType: List[Code] = []
   interventionModel: Code

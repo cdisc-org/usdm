@@ -1,4 +1,4 @@
-from .api_base_model import ApiNameDescriptionModel
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 
-class IntercurrentEvent(ApiNameDescriptionModel):
+class IntercurrentEvent(ApiBaseModelWithIdNameLabelAndDesc):
   intercurrentEventStrategy: str

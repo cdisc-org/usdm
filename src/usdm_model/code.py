@@ -1,6 +1,6 @@
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiBaseModelWithId
 
-class Code(ApiIdModel):
+class Code(ApiBaseModelWithId):
   code: str
   codeSystem: str
   codeSystemVersion: str

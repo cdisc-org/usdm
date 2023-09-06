@@ -1,8 +1,8 @@
 from typing import List, Dict, Union, Literal
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiBaseModelWithId
 from .timing import Timing
 
-class ScheduledInstance(ApiIdModel):
+class ScheduledInstance(ApiBaseModelWithId):
   scheduledInstanceType: Literal['ACTIVITY', 'DECISION']
   scheduledInstanceTimings: List[Timing] = []
   scheduledInstanceTimelineId: Union[str, None] = None

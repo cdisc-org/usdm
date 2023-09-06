@@ -1,8 +1,8 @@
 from typing import Union
-from .api_base_model import ApiNameDescriptionModel
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 
-class Timing(ApiNameDescriptionModel):
+class Timing(ApiBaseModelWithIdNameLabelAndDesc):
   timingType: Code
   timingValue: str
   timingRelativeToFrom: Code

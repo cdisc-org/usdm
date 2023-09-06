@@ -1,10 +1,10 @@
 from typing import List, Union
-from .api_base_model import ApiNameDescriptionModel
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 from .transition_rule import TransitionRule
 
 
-class Encounter(ApiNameDescriptionModel):
+class Encounter(ApiBaseModelWithIdNameLabelAndDesc):
   previousEncounterId: Union[str, None] = None
   nextEncounterId: Union[str, None] = None
   encounterType: Union[Code, None] = None

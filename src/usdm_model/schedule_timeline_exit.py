@@ -1,4 +1,4 @@
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiBaseModelWithId
 
-class ScheduleTimelineExit(ApiIdModel):
+class ScheduleTimelineExit(ApiBaseModelWithId):
   pass

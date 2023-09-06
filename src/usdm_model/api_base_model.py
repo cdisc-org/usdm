@@ -35,15 +35,20 @@ class ApiBaseModel(BaseModel):
   def to_json_with_type(self):
     return json.dumps(self, default=_serialize_as_json_with_type)
 
-class ApiIdModel(ApiBaseModel):
+class ApiBaseModelWithId(ApiBaseModel):
   id: ApiBaseModel.IdField
 
-class ApiNameDescriptionModel(ApiIdModel):
-  name: ApiBaseModel.NameField
+class ApiBaseModelWithIdAndDesc(ApiBaseModelWithId):
   description: Union[str, None] = None
 
-class ApiDescriptionModel(ApiIdModel):
+class ApiBaseModelWithIdAndName(ApiBaseModelWithId):
+  name: ApiBaseModel.NameField
+
+class ApiBaseModelWithIdNameAndLabel(ApiBaseModelWithIdAndName):
+  label: Union[str, None] = None
+
+class ApiBaseModelWithIdNameLabelAndDesc(ApiBaseModelWithIdNameAndLabel):
   description: Union[str, None] = None
 
-class ApiNameModel(ApiIdModel):
-  name: ApiBaseModel.NameField
+class ApiBaseModelWithIdNameAndDesc(ApiBaseModelWithIdAndName):
+  description: Union[str, None] = None

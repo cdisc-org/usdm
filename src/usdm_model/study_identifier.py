@@ -1,6 +1,6 @@
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiBaseModelWithId
 from .organization import Organization
 
-class StudyIdentifier(ApiIdModel):
+class StudyIdentifier(ApiBaseModelWithId):
   studyIdentifier: str
   studyIdentifierScope: Organization

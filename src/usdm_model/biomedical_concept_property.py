@@ -1,9 +1,9 @@
 from typing import List
 from .alias_code import AliasCode
-from .api_base_model import ApiNameModel
+from .api_base_model import ApiBaseModelWithIdAndName
 from .response_code import ResponseCode
 
-class BiomedicalConceptProperty(ApiNameModel):
+class BiomedicalConceptProperty(ApiBaseModelWithIdAndName):
   bcPropertyRequired: bool
   bcPropertyEnabled: bool
   bcPropertyDatatype: str

@@ -1,6 +1,6 @@
-from .api_base_model import ApiIdModel
+from .api_base_model import ApiBaseModelWithId
 from .code import Code
 
-class ResponseCode(ApiIdModel):
+class ResponseCode(ApiBaseModelWithId):
   responseCodeEnabled: bool
   code: Code

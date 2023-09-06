@@ -1,6 +1,6 @@
 from typing import List
-from .api_base_model import ApiNameDescriptionModel
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 
-class Indication(ApiNameDescriptionModel):
+class Indication(ApiBaseModelWithIdNameLabelAndDesc):
   codes: List[Code] = []

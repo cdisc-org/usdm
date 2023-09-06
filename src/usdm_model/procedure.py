@@ -1,8 +1,8 @@
 from typing import Union
-from .api_base_model import ApiNameDescriptionModel
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 
-class Procedure(ApiNameDescriptionModel):
+class Procedure(ApiBaseModelWithIdNameLabelAndDesc):
   procedureType: str
   procedureCode: Code
   procedureIsConditional: bool
