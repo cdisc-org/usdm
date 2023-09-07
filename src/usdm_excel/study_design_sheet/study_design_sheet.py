@@ -12,19 +12,39 @@ import traceback
 
 class StudyDesignSheet(BaseSheet):
 
-  NAME_ROW = 0
-  DESCRIPTION_ROW = 1
-  TA_ROW = 2
-  RATIONALE_ROW = 3
-  BLINDING_ROW = 4
-  INTENT_ROW = 5
-  TYPES_ROW = 6
-  INT_ROW = 7
-  MAIN_TIMELINE_ROW = 8
-  OTHER_TIMELINES_ROW = 9
+  VERSION_ROWS = { 
+    'therapeuticAreas': {
+      'NAME_ROW': 0,
+      'DESCRIPTION_ROW': 1,
+      'LABEL_ROW': -1,
+      'TA_ROW': 2,
+      'RATIONALE_ROW': 3,
+      'BLINDING_ROW': 4,
+      'INTENT_ROW': 5,
+      'TYPES_ROW': 6,
+      'INT_ROW': 7,
+      'MAIN_TIMELINE_ROW': 8,
+      'OTHER_TIMELINES_ROW': 9,
+      'EPOCH_ARMS_START_ROW': 10
+    },
+    'label': { 
+      'NAME_ROW': 0,
+      'DESCRIPTION_ROW': 1,
+      'LABEL_ROW': 2,
+      'TA_ROW': 3,
+      'RATIONALE_ROW': 4,
+      'BLINDING_ROW': 5,
+      'INTENT_ROW': 6,
+      'TYPES_ROW': 7,
+      'INT_ROW': 8,
+      'MAIN_TIMELINE_ROW': 9,
+      'OTHER_TIMELINES_ROW': 10,
+      'EPOCH_ARMS_START_ROW': 11
+    }
+  }
 
-  EPOCH_ARMS_START_ROW = 11
-  
+  CHECK_ROW = 2
+  PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
 
   def __init__(self, file_path):
@@ -32,6 +52,7 @@ class StudyDesignSheet(BaseSheet):
       super().__init__(file_path=file_path, sheet_name='studyDesign', header=None)
       self.name = "TEST"
       self.description = "An Microsoft Excel test study design"
+      self.label=""
       self.epochs = []
       self.epoch_names = {}
       self.arms = []
@@ -53,26 +74,29 @@ class StudyDesignSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def process_sheet(self):
+    key = self.read_cell(self.CHECK_ROW, self.PARAMS_NAME_COL)
     for rindex, row in self.sheet.iterrows():
-      if rindex == self.NAME_ROW:
+      if rindex == self.VERSION_ROWS[key]['NAME_ROW']:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.DESCRIPTION_ROW:
+      if rindex == self.VERSION_ROWS[key]['LABEL_ROW']:
+        self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.VERSION_ROWS[key]['DESCRIPTION_ROW']:
         self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.TA_ROW:
+      elif rindex == self.VERSION_ROWS[key]['TA_ROW']:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.RATIONALE_ROW:
+      elif rindex == self.VERSION_ROWS[key]['RATIONALE_ROW']:
         self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.BLINDING_ROW:
+      elif rindex == self.VERSION_ROWS[key]['BLINDING_ROW']:
         self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
-      elif rindex == self.INTENT_ROW:
+      elif rindex == self.VERSION_ROWS[key]['INTENT_ROW']:
         self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.TYPES_ROW:
+      elif rindex == self.VERSION_ROWS[key]['TYPES_ROW']:
         self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.INT_ROW:
+      elif rindex == self.VERSION_ROWS[key]['INT_ROW']:
         self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.MAIN_TIMELINE_ROW:
+      elif rindex == self.VERSION_ROWS[key]['MAIN_TIMELINE_ROW']:
         self.main_timeline = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.OTHER_TIMELINES_ROW:
+      elif rindex == self.VERSION_ROWS[key]['OTHER_TIMELINES_ROW']:
         self.other_timelines = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
       else:
         pass
@@ -110,6 +134,7 @@ class StudyDesignSheet(BaseSheet):
     study_design = self._add_design(
       name=self.name,
       description=self.description,
+      label=self.label,
       cells=self.cells,
       epochs=self.epochs,
       arms=self.arms,
@@ -163,13 +188,14 @@ class StudyDesignSheet(BaseSheet):
       studyElementIds=elements
     )
 
-  def _add_design(self, name, description, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
+  def _add_design(self, name, description, label, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
     return StudyDesign(
       id=id_manager.build_id(StudyDesign), 
       name=name,
       description=description,
+      label=label,
       trialIntentTypes=intent_types,
-      trialType=trial_types,
+      trialTypes=trial_types,
       interventionModel=intervention_model,
       studyCells=cells,
       studyArms=arms,

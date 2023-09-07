@@ -158,7 +158,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | A | organisationIdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
 | B | organisationIdentifier | Organisation identifier | Text string |
 | C | organisationName or name | Organisation name | Text string |
-| D (optional) | label | Organisation label | Text string |
+| D (optional) | label | Organisation label. Defaults value is '' | Text string |
 | E | organisationType or type | Organisation type | CDISC code reference |
 | F | studyIdentifier | The identifier for the study | Text string |
 | G | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
@@ -179,16 +179,17 @@ For the single values, the keyword is in column A while the value is in column B
 
 | Row | Row Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| 1 | studyDesignName | Study design name | Text string |
-| 2 | studyDesignDescription | Study design description | Text string |
-| 3 | therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
-| 4 | studyDesignRationale | Study design rationale | Text string |
-| 5 | studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
-| 6 | trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references |
-| 7 | trialTypes | Code for the trial type | CDISC code reference|
-| 8 | interventionModel | | CDISC code reference |
-| 9 | mainTimeline | Name of main timeline sheet | This must be present |
-| 10 | otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
+| 1 | studyDesignName or name | Study design name | Text string |
+| 2 | studyDesignDescription or description | Study design description | Text string |
+| 3 (optional) | label | Study design label. Default value is '' | Text string |
+| 4 | therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
+| 5 | studyDesignRationale | Study design rationale | Text string |
+| 6 | studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
+| 7 | trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references |
+| 8 | trialTypes | Code for the trial type | CDISC code reference|
+| 9 | interventionModel | | CDISC code reference |
+| 10 | mainTimeline | Name of main timeline sheet | This must be present |
+| 11 | otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
 
 For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
 
