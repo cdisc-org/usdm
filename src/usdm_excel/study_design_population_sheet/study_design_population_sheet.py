@@ -13,6 +13,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'name', f"POP {index + 1}") # 'name' added, preserve backward compatibility so defaulted
         description = self.read_description_by_name(index, ['description', 'populationDescription']) # Allow multiple names for column
+        label = self.read_cell_by_name(index, 'label', default="")
         number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
         min = self.read_cell_by_name(index, "plannedMinimumAgeOfParticipants")
         max = self.read_cell_by_name(index, "plannedMaximumAgeOfParticipants")
@@ -20,7 +21,8 @@ class StudyDesignPopulationSheet(BaseSheet):
         try:
           pop = StudyDesignPopulation(id=id_manager.build_id(StudyDesignPopulation),
             name=name,
-            description=description, 
+            description=description,
+            label=label,
             plannedNumberOfParticipants=number,
             plannedMinimumAgeOfParticipants=min,
             plannedMaximumAgeOfParticipants=max,
