@@ -23,7 +23,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
         if not o_description == "":
           o_xref = self.read_cell_by_name(index, ["objectiveXref", "objectiveName"]) 
-          o_label = self.read_cell_by_name(index, ["objectiveLabel"]) 
+          o_label = self.read_cell_by_name(index, ["objectiveLabel"], default='') 
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
           try:
             current = Objective(id=id_manager.build_id(Objective),

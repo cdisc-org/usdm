@@ -19,7 +19,7 @@ class StudyDesignElementSheet(BaseSheet):
         xref = self.read_cell_by_name(index, 'xref')
         name = self.read_cell_by_name(index, ['studyElementName', 'name'])
         description = self.read_description_by_name(index, ['studyElementDescription', 'description'])
-        label = self.read_description_by_name(index, 'label')
+        label = self.read_cell_by_name(index, 'label', default="")
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if not start_rule_text == "":
@@ -31,6 +31,7 @@ class StudyDesignElementSheet(BaseSheet):
             id=id_manager.build_id(StudyElement), 
             name=name,
             description=description,
+            label=label,
             transitionStartRule=start_rule,
             transitionEndRule=end_rule
           )
