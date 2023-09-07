@@ -22,7 +22,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
         ap_description = self.read_description_by_name(index, 'populationDescription')
         ice_name = self.read_cell_by_name(index, ['intercurrentEventName', 'name'])
         ice_description = self.read_description_by_name(index, ['intercurrentEventDescription', 'description'])
-        ice_label = self.read_description_by_name(index, 'label', default='')
+        ice_label = self.read_cell_by_name(index, 'label', default='')
         ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
         treatment_xref = self.read_cell_by_name(index, "treatmentXref")
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
