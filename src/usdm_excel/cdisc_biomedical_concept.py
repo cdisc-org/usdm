@@ -108,10 +108,11 @@ class CDISCBiomedicalConcepts():
     return BiomedicalConcept(
       id=id_manager.build_id(BiomedicalConcept),
       name=api_bc['shortName'],
+      label=api_bc['shortName'],
       bcSynonyms=synonyms,
       bcReference=api_bc['_links']['self']['href'],
       bcProperties=[],
-      bcConceptCode=Alias().code(code, [])
+      code=Alias().code(code, [])
     )
 
   def _bc_property_as_usdm(self, property, codes) -> BiomedicalConceptProperty:
@@ -123,11 +124,12 @@ class CDISCBiomedicalConcepts():
     return BiomedicalConceptProperty(
       id=id_manager.build_id(BiomedicalConceptProperty),
       name=property['shortName'],
+      label=property['shortName'],
       bcPropertyRequired=True,
       bcPropertyEnabled=True,
       bcPropertyDatatype=property['dataType'],
       bcPropertyResponseCodes=responses,
-      bcPropertyConceptCode=Alias().code(concept_code, concept_aliases)
+      code=Alias().code(concept_code, concept_aliases)
     )
 
   def _get_bc(self, url):

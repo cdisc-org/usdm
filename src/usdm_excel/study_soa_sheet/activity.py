@@ -69,6 +69,7 @@ class Activity():
       id=id_manager.build_id(BiomedicalConceptSurrogate),
       name=name,
       description=name,
+      label=name,
       bcSurrogateReference='None set'
     )
   
