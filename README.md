@@ -410,11 +410,12 @@ A header row in row 1 followed by repeating rows from row 2, containing estimand
 | A | xref	| Identifier | Text string |
 | B | summaryMeasure	| The summary measure | Text string |
 | C | populationDescription	| Description | Text string |
-| D | intercurrentEventName	| Name | Text string |
-| E | intercurrentEventDescription | Description | Text string |
-| F | treatmentXref	| Treatment cross reference | Cross reference to a treatment |
-| G | endpointXref	| Endpoint cross reference | Cross reference to an endpont |
-| H | intercurrentEventstrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
+| D | intercurrentEventName or name	| Name | Text string |
+| E | intercurrentEventDescription or description| Description | Text string |
+| F (optional) | label | A display label for the arm. Default value is '' | Text string |
+| G | treatmentXref	| Treatment cross reference | Cross reference to a treatment |
+| H | endpointXref	| Endpoint cross reference | Cross reference to an endpont |
+| I | intercurrentEventstrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
 
 ### Study Design Procedures sheet
 

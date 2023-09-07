@@ -20,8 +20,9 @@ class StudyDesignEstimandsSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         e_summary = self.read_cell_by_name(index, "summaryMeasure")
         ap_description = self.read_description_by_name(index, 'populationDescription')
-        ice_name = self.read_cell_by_name(index, "intercurrentEventName")
-        ice_description = self.read_description_by_name(index, 'intercurrentEventDescription')
+        ice_name = self.read_cell_by_name(index, ['intercurrentEventName', 'name'])
+        ice_description = self.read_description_by_name(index, ['intercurrentEventDescription', 'description'])
+        ice_label = self.read_description_by_name(index, 'label', default='')
         ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
         treatment_xref = self.read_cell_by_name(index, "treatmentXref")
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
@@ -47,7 +48,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           try:
             ice_name = current_ice_name if ice_name == "" else ice_name
             ice_description = current_ice_description if ice_description == "" else ice_description
-            ice = IntercurrentEvent(id=id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, intercurrentEventStrategy=ice_strategy)
+            ice = IntercurrentEvent(id=id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, label=ice_label, intercurrentEventStrategy=ice_strategy)
             current_ice_name = ice_name
             current_ice_description = ice_description
           except Exception as e:
