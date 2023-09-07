@@ -17,11 +17,11 @@ class StudyDesignIISheet(BaseSheet):
         xref = self.read_cell_by_name(index, ["xref", "name"])
         type = self.read_cell_by_name(index, "type")
         description = self.read_description_by_name(index, "description")
-        #codes = self._build_codes(row, index)
+        label = self.read_cell_by_name(index, 'label', default="")
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         if type.upper() == "IND":
           try:
-            item = Indication(id=id_manager.build_id(Indication), name=xref, description=description, codes=codes)
+            item = Indication(id=id_manager.build_id(Indication), name=xref, description=description, label=label, codes=codes)
           except Exception as e:
             self._general_error(f"Failed to create Indication object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")

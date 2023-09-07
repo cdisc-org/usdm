@@ -351,7 +351,8 @@ A header row in row 1 followed by repeating rows from row 2, containing an indic
 | A | xref or name | The name / identifier for the item | Text string | 
 | B | type | The type, either `IND` for indication or `INT` for intervention | Text string |
 | C | description | A Text string description for the indication or intervvention | Text string |
-| D | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
+| D (optional) | label | A display label for the arm. Default value is '' | Text string |
+| E | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
 
 ### Study Design Populations sheet
 
@@ -367,10 +368,11 @@ A header row in row 1 followed by repeating rows from row 2, containing a popula
 | :--- | :--- | :--- | :--- |
 | A | name	| Name for the population | Text string | 
 | B | populationDescription or description	| Description of the population | Text string | 
-| C | plannedNumberOfParticipants	| Number of participants | Integer | 
-| D | plannedMinimumAgeOfParticipants	| Min age | Text string | 
-| E | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
-| F | plannedSexOfParticipants | Sex of participants | CDISC code reference | 
+| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| D | plannedNumberOfParticipants	| Number of participants | Integer | 
+| E | plannedMinimumAgeOfParticipants	| Min age | Text string | 
+| F | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
+| G | plannedSexOfParticipants | Sex of participants | CDISC code reference | 
 
 ### Study Design Objectives and Endpoints sheet
 
@@ -426,10 +428,10 @@ A header row in row 1 followed by repeating rows from row 2, containing procedur
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref | Identifier | Text string |
-| B | procedureName	| Type | Text string |
-| C | procedureDescription	| Type | Text string |
+| B | procedureName or name	| Type | Text string |
+| C | procedureDescription or description	| Type | Text string |
 | D | procedureType	| Type | Text string |
-| E | procedureCode	| Code reference | External CT reference  |
+| E | procedureCode or code	| Code reference | External CT reference  |
 | F | procedureIsConditional | Conditional flag | Boolean |
 | G | procedureIsConditionalReason | Reason | Text string |
 

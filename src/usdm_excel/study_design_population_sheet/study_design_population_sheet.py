@@ -11,7 +11,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       super().__init__(file_path=file_path, sheet_name='studyDesignPopulations')
       self.populations = []
       for index, row in self.sheet.iterrows():
-        name = self.read_cell_by_name(index, 'name', f"POP {index + 1}") # 'name' added, preserve backward compatibility so defaulted
+        name = self.read_cell_by_name(index, 'name', default=f"POP {index + 1}") # 'name' added, preserve backward compatibility so defaulted
         description = self.read_description_by_name(index, ['description', 'populationDescription']) # Allow multiple names for column
         label = self.read_cell_by_name(index, 'label', default="")
         number = self.read_cell_by_name(index, "plannedNumberOfParticipants")
