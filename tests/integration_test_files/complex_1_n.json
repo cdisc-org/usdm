@@ -75,10 +75,10 @@
     "properties": {
       "id": "Organization_1",
       "name": "Eli Lilly Japan K.K",
+      "label": "Organization_1",
       "organizationIdentifierScheme": "DUNS",
       "organizationIdentifier": "006421325",
-      "_type": "Organization",
-      "label": "Organization_1"
+      "_type": "Organization"
     }
   },
   {
@@ -133,10 +133,10 @@
     "properties": {
       "id": "Organization_2",
       "name": "ClinicalTrials.gov",
+      "label": "Organization_2",
       "organizationIdentifierScheme": "USGOV",
       "organizationIdentifier": "CT-GOV",
-      "_type": "Organization",
-      "label": "Organization_2"
+      "_type": "Organization"
     }
   },
   {
@@ -320,9 +320,9 @@
     "properties": {
       "id": "Indication_1",
       "name": "IND1",
+      "label": "Indication_1",
       "description": "An indication",
-      "_type": "Indication",
-      "label": "Indication_1"
+      "_type": "Indication"
     }
   },
   {
@@ -342,9 +342,9 @@
     "properties": {
       "id": "Indication_2",
       "name": "IND2",
+      "label": "Indication_2",
       "description": "An indication",
-      "_type": "Indication",
-      "label": "Indication_2"
+      "_type": "Indication"
     }
   },
   {
@@ -430,12 +430,12 @@
     "properties": {
       "id": "StudyDesignPopulation_1",
       "name": "POP 1",
+      "label": "StudyDesignPopulation_1",
       "description": "Pop 1",
       "plannedNumberOfParticipants": 100,
       "plannedMaximumAgeOfParticipants": "40 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation",
-      "label": "StudyDesignPopulation_1"
+      "_type": "StudyDesignPopulation"
     }
   },
   {
@@ -455,12 +455,12 @@
     "properties": {
       "id": "StudyDesignPopulation_2",
       "name": "POP 2",
+      "label": "StudyDesignPopulation_2",
       "description": "Pop 2",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "60 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation",
-      "label": "StudyDesignPopulation_2"
+      "_type": "StudyDesignPopulation"
     }
   },
   {
@@ -480,12 +480,12 @@
     "properties": {
       "id": "StudyDesignPopulation_3",
       "name": "POP 3",
+      "label": "StudyDesignPopulation_3",
       "description": "Pop 3",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "70 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation",
-      "label": "StudyDesignPopulation_3"
+      "_type": "StudyDesignPopulation"
     }
   },
   {
@@ -527,9 +527,9 @@
     "properties": {
       "id": "Objective_1",
       "name": "OBJ1",
+      "label": "Objective_1",
       "description": "To demonstrate that 3 mg LY900018 is non-inferior to 1 mg IMG for the proportion of patients achieving\ntreatment success from insulin-induced hypoglycemia using a non-inferiority margin of 10%",
-      "_type": "Objective",
-      "label": "Objective_1"
+      "_type": "Objective"
     }
   },
   {
@@ -571,9 +571,9 @@
     "properties": {
       "id": "Objective_2",
       "name": "OBJ2",
+      "label": "Objective_2",
       "description": "To compare the safety and tolerability of 3 mg LY900018 with 1 mg IMG",
-      "_type": "Objective",
-      "label": "Objective_2"
+      "_type": "Objective"
     }
   },
   {
@@ -615,9 +615,9 @@
     "properties": {
       "id": "Objective_3",
       "name": "OBJ3",
+      "label": "Objective_3",
       "description": "To characterize the PK profile of 3 mg LY900018\ncompared to 1 mg IMG",
-      "_type": "Objective",
-      "label": "Objective_3"
+      "_type": "Objective"
     }
   },
   {
@@ -659,9 +659,9 @@
     "properties": {
       "id": "Objective_4",
       "name": "OBJ4",
+      "label": "Objective_4",
       "description": "To characterize the PD profile of 3 mg LY900018\ncompared to 1 mg IMG",
-      "_type": "Objective",
-      "label": "Objective_4"
+      "_type": "Objective"
     }
   },
   {
@@ -701,12 +701,12 @@
     "properties": {
       "id": "Timing_22",
       "name": "TIMING_3",
+      "label": "Timing_22",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_22",
       "_type": "Timing"
     }
   },
@@ -714,7 +714,7 @@
     "id": 66,
     "properties": {
       "id": "ScheduledActivityInstance_22",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -750,12 +750,12 @@
     "properties": {
       "id": "Timing_23",
       "name": "TIMING_4",
+      "label": "Timing_23",
       "description": "1 Day",
       "timingValue": "P1D",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_23",
       "_type": "Timing"
     }
   },
@@ -763,7 +763,7 @@
     "id": 70,
     "properties": {
       "id": "ScheduledActivityInstance_23",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -799,12 +799,12 @@
     "properties": {
       "id": "Timing_24",
       "name": "TIMING_5",
+      "label": "Timing_24",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_24",
       "_type": "Timing"
     }
   },
@@ -812,7 +812,7 @@
     "id": 74,
     "properties": {
       "id": "ScheduledActivityInstance_24",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -848,12 +848,12 @@
     "properties": {
       "id": "Timing_25",
       "name": "TIMING_6",
+      "label": "Timing_25",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_25",
       "_type": "Timing"
     }
   },
@@ -861,7 +861,7 @@
     "id": 78,
     "properties": {
       "id": "ScheduledActivityInstance_25",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -897,12 +897,12 @@
     "properties": {
       "id": "Timing_26",
       "name": "TIMING_7",
+      "label": "Timing_26",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_26",
       "_type": "Timing"
     }
   },
@@ -910,7 +910,7 @@
     "id": 82,
     "properties": {
       "id": "ScheduledActivityInstance_26",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -946,12 +946,12 @@
     "properties": {
       "id": "Timing_27",
       "name": "TIMING_8",
+      "label": "Timing_27",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_27",
       "_type": "Timing"
     }
   },
@@ -959,7 +959,7 @@
     "id": 86,
     "properties": {
       "id": "ScheduledActivityInstance_27",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -995,12 +995,12 @@
     "properties": {
       "id": "Timing_28",
       "name": "TIMING_9",
+      "label": "Timing_28",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_28",
       "_type": "Timing"
     }
   },
@@ -1008,7 +1008,7 @@
     "id": 90,
     "properties": {
       "id": "ScheduledActivityInstance_28",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1044,12 +1044,12 @@
     "properties": {
       "id": "Timing_29",
       "name": "TIMING_10",
+      "label": "Timing_29",
       "description": "0 Days",
       "timingValue": "P0D",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_29",
       "_type": "Timing"
     }
   },
@@ -1057,7 +1057,7 @@
     "id": 94,
     "properties": {
       "id": "ScheduledActivityInstance_29",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1093,12 +1093,12 @@
     "properties": {
       "id": "Timing_30",
       "name": "TIMING_11",
+      "label": "Timing_30",
       "description": "2 Days",
       "timingValue": "P2D",
       "timingWindowLower": "P0D",
       "timingWindowUpper": "P11D",
       "timingWindow": "0..11 Days",
-      "label": "Timing_30",
       "_type": "Timing"
     }
   },
@@ -1106,7 +1106,7 @@
     "id": 98,
     "properties": {
       "id": "ScheduledActivityInstance_30",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1142,12 +1142,12 @@
     "properties": {
       "id": "Timing_31",
       "name": "TIMING_12",
+      "label": "Timing_31",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_31",
       "_type": "Timing"
     }
   },
@@ -1155,7 +1155,7 @@
     "id": 102,
     "properties": {
       "id": "ScheduledActivityInstance_31",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1191,12 +1191,12 @@
     "properties": {
       "id": "Timing_32",
       "name": "TIMING_13",
+      "label": "Timing_32",
       "description": "1 Day",
       "timingValue": "P1D",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_32",
       "_type": "Timing"
     }
   },
@@ -1204,7 +1204,7 @@
     "id": 106,
     "properties": {
       "id": "ScheduledActivityInstance_32",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1240,12 +1240,12 @@
     "properties": {
       "id": "Timing_33",
       "name": "TIMING_14",
+      "label": "Timing_33",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_33",
       "_type": "Timing"
     }
   },
@@ -1253,7 +1253,7 @@
     "id": 110,
     "properties": {
       "id": "ScheduledActivityInstance_33",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1289,12 +1289,12 @@
     "properties": {
       "id": "Timing_34",
       "name": "TIMING_15",
+      "label": "Timing_34",
       "description": "28 Days",
       "timingValue": "P28D",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_34",
       "_type": "Timing"
     }
   },
@@ -1302,7 +1302,7 @@
     "id": 114,
     "properties": {
       "id": "ScheduledActivityInstance_34",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1314,12 +1314,12 @@
     "properties": {
       "id": "ScheduleTimeline_3",
       "name": "Main Timeline",
+      "label": "ScheduleTimeline_3",
       "description": "This is the main timeline for the study design.",
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
       "scheduleTimelineEntryId": "ScheduledActivityInstance_22",
-      "_type": "ScheduleTimeline",
-      "label": "ScheduleTimeline_3"
+      "_type": "ScheduleTimeline"
     }
   },
   {
@@ -1359,12 +1359,12 @@
     "properties": {
       "id": "Timing_1",
       "name": "TIMING_3",
+      "label": "Timing_1",
       "description": "pre-hypoglycemia induction",
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_1",
       "_type": "Timing"
     }
   },
@@ -1372,7 +1372,7 @@
     "id": 120,
     "properties": {
       "id": "ScheduledActivityInstance_1",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1408,12 +1408,12 @@
     "properties": {
       "id": "Timing_2",
       "name": "TIMING_4",
+      "label": "Timing_2",
       "description": "30 min",
       "timingValue": "PT30M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_2",
       "_type": "Timing"
     }
   },
@@ -1421,7 +1421,7 @@
     "id": 124,
     "properties": {
       "id": "ScheduledActivityInstance_2",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1457,12 +1457,12 @@
     "properties": {
       "id": "Timing_3",
       "name": "TIMING_5",
+      "label": "Timing_3",
       "description": "15min",
       "timingValue": "PT15M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_3",
       "_type": "Timing"
     }
   },
@@ -1470,7 +1470,7 @@
     "id": 128,
     "properties": {
       "id": "ScheduledActivityInstance_3",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1506,12 +1506,12 @@
     "properties": {
       "id": "Timing_4",
       "name": "TIMING_6",
+      "label": "Timing_4",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_4",
       "_type": "Timing"
     }
   },
@@ -1519,7 +1519,7 @@
     "id": 132,
     "properties": {
       "id": "ScheduledActivityInstance_4",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1555,12 +1555,12 @@
     "properties": {
       "id": "Timing_5",
       "name": "TIMING_7",
+      "label": "Timing_5",
       "description": "90 min",
       "timingValue": "PT90M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_5",
       "_type": "Timing"
     }
   },
@@ -1568,7 +1568,7 @@
     "id": 136,
     "properties": {
       "id": "ScheduledActivityInstance_5",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1604,12 +1604,12 @@
     "properties": {
       "id": "Timing_6",
       "name": "TIMING_8",
+      "label": "Timing_6",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_6",
       "_type": "Timing"
     }
   },
@@ -1617,7 +1617,7 @@
     "id": 140,
     "properties": {
       "id": "ScheduledActivityInstance_6",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1629,12 +1629,12 @@
     "properties": {
       "id": "ScheduleTimeline_1",
       "name": "Hypoinduction",
+      "label": "ScheduleTimeline_1",
       "description": "Hypoinduction profile",
       "mainTimeline": false,
       "entryCondition": "Potential subject identified",
       "scheduleTimelineEntryId": "ScheduledActivityInstance_1",
-      "_type": "ScheduleTimeline",
-      "label": "ScheduleTimeline_1"
+      "_type": "ScheduleTimeline"
     }
   },
   {
@@ -1674,12 +1674,12 @@
     "properties": {
       "id": "Timing_7",
       "name": "TIMING_3",
+      "label": "Timing_7",
       "description": "Pre dose",
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_7",
       "_type": "Timing"
     }
   },
@@ -1687,7 +1687,7 @@
     "id": 146,
     "properties": {
       "id": "ScheduledActivityInstance_7",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1723,12 +1723,12 @@
     "properties": {
       "id": "Timing_8",
       "name": "TIMING_4",
+      "label": "Timing_8",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_8",
       "_type": "Timing"
     }
   },
@@ -1736,7 +1736,7 @@
     "id": 150,
     "properties": {
       "id": "ScheduledActivityInstance_8",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1772,12 +1772,12 @@
     "properties": {
       "id": "Timing_9",
       "name": "TIMING_5",
+      "label": "Timing_9",
       "description": "5 min",
       "timingValue": "PT5M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_9",
       "_type": "Timing"
     }
   },
@@ -1785,7 +1785,7 @@
     "id": 154,
     "properties": {
       "id": "ScheduledActivityInstance_9",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1821,12 +1821,12 @@
     "properties": {
       "id": "Timing_10",
       "name": "TIMING_6",
+      "label": "Timing_10",
       "description": "10 min",
       "timingValue": "PT10M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_10",
       "_type": "Timing"
     }
   },
@@ -1834,7 +1834,7 @@
     "id": 158,
     "properties": {
       "id": "ScheduledActivityInstance_10",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1870,12 +1870,12 @@
     "properties": {
       "id": "Timing_11",
       "name": "TIMING_7",
+      "label": "Timing_11",
       "description": "15 min",
       "timingValue": "PT15M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_11",
       "_type": "Timing"
     }
   },
@@ -1883,7 +1883,7 @@
     "id": 162,
     "properties": {
       "id": "ScheduledActivityInstance_11",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1919,12 +1919,12 @@
     "properties": {
       "id": "Timing_12",
       "name": "TIMING_8",
+      "label": "Timing_12",
       "description": "20 min",
       "timingValue": "PT20M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_12",
       "_type": "Timing"
     }
   },
@@ -1932,7 +1932,7 @@
     "id": 166,
     "properties": {
       "id": "ScheduledActivityInstance_12",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1968,12 +1968,12 @@
     "properties": {
       "id": "Timing_13",
       "name": "TIMING_9",
+      "label": "Timing_13",
       "description": "25 min",
       "timingValue": "PT25M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_13",
       "_type": "Timing"
     }
   },
@@ -1981,7 +1981,7 @@
     "id": 170,
     "properties": {
       "id": "ScheduledActivityInstance_13",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2017,12 +2017,12 @@
     "properties": {
       "id": "Timing_14",
       "name": "TIMING_10",
+      "label": "Timing_14",
       "description": "30 min",
       "timingValue": "PT30M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_14",
       "_type": "Timing"
     }
   },
@@ -2030,7 +2030,7 @@
     "id": 174,
     "properties": {
       "id": "ScheduledActivityInstance_14",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2066,12 +2066,12 @@
     "properties": {
       "id": "Timing_15",
       "name": "TIMING_11",
+      "label": "Timing_15",
       "description": "40 min",
       "timingValue": "PT40M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_15",
       "_type": "Timing"
     }
   },
@@ -2079,7 +2079,7 @@
     "id": 178,
     "properties": {
       "id": "ScheduledActivityInstance_15",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2115,12 +2115,12 @@
     "properties": {
       "id": "Timing_16",
       "name": "TIMING_12",
+      "label": "Timing_16",
       "description": "50min",
       "timingValue": "PT50M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_16",
       "_type": "Timing"
     }
   },
@@ -2128,7 +2128,7 @@
     "id": 182,
     "properties": {
       "id": "ScheduledActivityInstance_16",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2164,12 +2164,12 @@
     "properties": {
       "id": "Timing_17",
       "name": "TIMING_13",
+      "label": "Timing_17",
       "description": "60min",
       "timingValue": "PT60M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_17",
       "_type": "Timing"
     }
   },
@@ -2177,7 +2177,7 @@
     "id": 186,
     "properties": {
       "id": "ScheduledActivityInstance_17",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2213,12 +2213,12 @@
     "properties": {
       "id": "Timing_18",
       "name": "TIMING_14",
+      "label": "Timing_18",
       "description": "90 min",
       "timingValue": "PT90M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_18",
       "_type": "Timing"
     }
   },
@@ -2226,7 +2226,7 @@
     "id": 190,
     "properties": {
       "id": "ScheduledActivityInstance_18",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2262,12 +2262,12 @@
     "properties": {
       "id": "Timing_19",
       "name": "TIMING_15",
+      "label": "Timing_19",
       "description": "120 min",
       "timingValue": "PT120M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_19",
       "_type": "Timing"
     }
   },
@@ -2275,7 +2275,7 @@
     "id": 194,
     "properties": {
       "id": "ScheduledActivityInstance_19",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2311,12 +2311,12 @@
     "properties": {
       "id": "Timing_20",
       "name": "TIMING_16",
+      "label": "Timing_20",
       "description": "240 min",
       "timingValue": "PT240M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_20",
       "_type": "Timing"
     }
   },
@@ -2324,7 +2324,7 @@
     "id": 198,
     "properties": {
       "id": "ScheduledActivityInstance_20",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2360,12 +2360,12 @@
     "properties": {
       "id": "Timing_21",
       "name": "TIMING_17",
+      "label": "Timing_21",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_21",
       "_type": "Timing"
     }
   },
@@ -2373,7 +2373,7 @@
     "id": 202,
     "properties": {
       "id": "ScheduledActivityInstance_21",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -2385,12 +2385,12 @@
     "properties": {
       "id": "ScheduleTimeline_2",
       "name": "Treatment Phase",
+      "label": "ScheduleTimeline_2",
       "description": "Timeline for the treatment phase",
       "mainTimeline": false,
       "entryCondition": "Potential subject identified",
       "scheduleTimelineEntryId": "ScheduledActivityInstance_7",
-      "_type": "ScheduleTimeline",
-      "label": "ScheduleTimeline_2"
+      "_type": "ScheduleTimeline"
     }
   },
   {
@@ -2407,10 +2407,10 @@
     "properties": {
       "id": "IntercurrentEvent_1",
       "name": "no Hypo",
+      "label": "IntercurrentEvent_1",
       "description": "No hypoglycemia induced after 3 hours",
       "intercurrentEventStrategy": "Exclude subject from analysis",
-      "_type": "IntercurrentEvent",
-      "label": "IntercurrentEvent_1"
+      "_type": "IntercurrentEvent"
     }
   },
   {
@@ -2418,10 +2418,10 @@
     "properties": {
       "id": "IntercurrentEvent_2",
       "name": "no Hypo",
+      "label": "IntercurrentEvent_2",
       "description": "No hypoglycemia induced after 3 hours",
       "intercurrentEventStrategy": "",
-      "_type": "IntercurrentEvent",
-      "label": "IntercurrentEvent_2"
+      "_type": "IntercurrentEvent"
     }
   },
   {
@@ -2429,10 +2429,10 @@
     "properties": {
       "id": "IntercurrentEvent_3",
       "name": "no Hypo",
+      "label": "IntercurrentEvent_3",
       "description": "No hypoglycemia induced after 3 hours",
       "intercurrentEventStrategy": "",
-      "_type": "IntercurrentEvent",
-      "label": "IntercurrentEvent_3"
+      "_type": "IntercurrentEvent"
     }
   },
   {
@@ -2460,10 +2460,10 @@
     "properties": {
       "id": "IntercurrentEvent_4",
       "name": "Bad stuff",
+      "label": "IntercurrentEvent_4",
       "description": "IC Event Description Number 2",
       "intercurrentEventStrategy": "Really really bad shit",
-      "_type": "IntercurrentEvent",
-      "label": "IntercurrentEvent_4"
+      "_type": "IntercurrentEvent"
     }
   },
   {
@@ -2518,14 +2518,14 @@
     "properties": {
       "id": "Encounter_1",
       "name": "Screening",
+      "label": "Encounter_1",
       "description": "",
       "previousEncounterId": null,
       "nextEncounterId": "Encounter_2",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_1"
+      "_type": "Encounter"
     }
   },
   {
@@ -2569,14 +2569,14 @@
     "properties": {
       "id": "Encounter_2",
       "name": "Period 1, Day -1",
+      "label": "Encounter_2",
       "description": "",
       "previousEncounterId": "Encounter_1",
       "nextEncounterId": "Encounter_3",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_2"
+      "_type": "Encounter"
     }
   },
   {
@@ -2620,14 +2620,14 @@
     "properties": {
       "id": "Encounter_3",
       "name": "Period 1, Day 1",
+      "label": "Encounter_3",
       "description": "",
       "previousEncounterId": "Encounter_2",
       "nextEncounterId": "Encounter_4",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_3"
+      "_type": "Encounter"
     }
   },
   {
@@ -2671,14 +2671,14 @@
     "properties": {
       "id": "Encounter_4",
       "name": "Wash Out",
+      "label": "Encounter_4",
       "description": "",
       "previousEncounterId": "Encounter_3",
       "nextEncounterId": "Encounter_5",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_4"
+      "_type": "Encounter"
     }
   },
   {
@@ -2722,14 +2722,14 @@
     "properties": {
       "id": "Encounter_5",
       "name": "Period 2, Day -1",
+      "label": "Encounter_5",
       "description": "",
       "previousEncounterId": "Encounter_4",
       "nextEncounterId": "Encounter_6",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_5"
+      "_type": "Encounter"
     }
   },
   {
@@ -2773,14 +2773,14 @@
     "properties": {
       "id": "Encounter_6",
       "name": "Period 2, Day 1",
+      "label": "Encounter_6",
       "description": "",
       "previousEncounterId": "Encounter_5",
       "nextEncounterId": "Encounter_7",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_6"
+      "_type": "Encounter"
     }
   },
   {
@@ -2824,14 +2824,14 @@
     "properties": {
       "id": "Encounter_7",
       "name": "Follow-up",
+      "label": "Encounter_7",
       "description": "",
       "previousEncounterId": "Encounter_6",
       "nextEncounterId": null,
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_7"
+      "_type": "Encounter"
     }
   },
   {
@@ -2851,12 +2851,12 @@
     "properties": {
       "id": "Procedure_1",
       "name": "Informed Consent",
+      "label": "Procedure_1",
       "description": "",
       "procedureType": "XXX",
       "procedureIsConditional": false,
       "procedureIsConditionalReason": "",
-      "_type": "Procedure",
-      "label": "Procedure_1"
+      "_type": "Procedure"
     }
   },
   {
@@ -2864,14 +2864,14 @@
     "properties": {
       "id": "Activity_1",
       "name": "Informed Consent",
+      "label": "Activity_1",
       "description": "Informed Consent",
       "previousActivityId": null,
       "nextActivityId": "Activity_35",
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_1"
+      "_type": "Activity"
     }
   },
   {
@@ -2879,6 +2879,7 @@
     "properties": {
       "id": "Activity_35",
       "name": "Randomization",
+      "label": "Activity_35",
       "description": "Randomization",
       "previousActivityId": "Activity_1",
       "nextActivityId": "Activity_3",
@@ -2886,8 +2887,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_35"
+      "_type": "Activity"
     }
   },
   {
@@ -2907,12 +2907,12 @@
     "properties": {
       "id": "Procedure_2",
       "name": "Admission",
+      "label": "Procedure_2",
       "description": "",
       "procedureType": "XXX",
       "procedureIsConditional": false,
       "procedureIsConditionalReason": "",
-      "_type": "Procedure",
-      "label": "Procedure_2"
+      "_type": "Procedure"
     }
   },
   {
@@ -2920,14 +2920,14 @@
     "properties": {
       "id": "Activity_3",
       "name": "Admission to CRU",
+      "label": "Activity_3",
       "description": "Admission to CRU",
       "previousActivityId": "Activity_35",
       "nextActivityId": "Activity_4",
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_3"
+      "_type": "Activity"
     }
   },
   {
@@ -2947,12 +2947,12 @@
     "properties": {
       "id": "Procedure_3",
       "name": "Discharge",
+      "label": "Procedure_3",
       "description": "",
       "procedureType": "XXX",
       "procedureIsConditional": false,
       "procedureIsConditionalReason": "",
-      "_type": "Procedure",
-      "label": "Procedure_3"
+      "_type": "Procedure"
     }
   },
   {
@@ -2960,14 +2960,14 @@
     "properties": {
       "id": "Activity_4",
       "name": "Discharge from CRU",
+      "label": "Activity_4",
       "description": "Discharge from CRU",
       "previousActivityId": "Activity_3",
       "nextActivityId": "Activity_5",
       "activityIsConditional": false,
       "activityIsConditionalReason": "At the discretion of the investigator",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_4"
+      "_type": "Activity"
     }
   },
   {
@@ -2975,6 +2975,7 @@
     "properties": {
       "id": "Activity_5",
       "name": "Medical History",
+      "label": "Activity_5",
       "description": "Medical History",
       "previousActivityId": "Activity_4",
       "nextActivityId": "Activity_6",
@@ -2982,8 +2983,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_5"
+      "_type": "Activity"
     }
   },
   {
@@ -2991,6 +2991,7 @@
     "properties": {
       "id": "Activity_6",
       "name": "Collect Pre-existing Conditions and Adverse Events",
+      "label": "Activity_6",
       "description": "Collect Pre-existing Conditions and Adverse Events",
       "previousActivityId": "Activity_5",
       "nextActivityId": "Activity_7",
@@ -2998,8 +2999,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_6"
+      "_type": "Activity"
     }
   },
   {
@@ -3007,6 +3007,7 @@
     "properties": {
       "id": "Activity_7",
       "name": "Physical Exam",
+      "label": "Activity_7",
       "description": "Physical Exam",
       "previousActivityId": "Activity_6",
       "nextActivityId": "Activity_8",
@@ -3014,8 +3015,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_7"
+      "_type": "Activity"
     }
   },
   {
@@ -3023,6 +3023,7 @@
     "properties": {
       "id": "Activity_8",
       "name": "Height and Weight",
+      "label": "Activity_8",
       "description": "Height and Weight",
       "previousActivityId": "Activity_7",
       "nextActivityId": "Activity_10",
@@ -3030,8 +3031,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_8"
+      "_type": "Activity"
     }
   },
   {
@@ -3039,6 +3039,7 @@
     "properties": {
       "id": "Activity_10",
       "name": "Collect Hypoglycemic Events",
+      "label": "Activity_10",
       "description": "Hypoglycemic Events",
       "previousActivityId": "Activity_8",
       "nextActivityId": "Activity_11",
@@ -3046,8 +3047,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_10"
+      "_type": "Activity"
     }
   },
   {
@@ -3055,6 +3055,7 @@
     "properties": {
       "id": "Activity_11",
       "name": "Collect Concomitant Medications",
+      "label": "Activity_11",
       "description": "Concomitant Medication",
       "previousActivityId": "Activity_10",
       "nextActivityId": "Activity_13",
@@ -3062,8 +3063,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_11"
+      "_type": "Activity"
     }
   },
   {
@@ -3071,6 +3071,7 @@
     "properties": {
       "id": "Activity_13",
       "name": "Insulin infusion",
+      "label": "Activity_13",
       "description": "Insulin infusion",
       "previousActivityId": "Activity_11",
       "nextActivityId": "Activity_14",
@@ -3078,8 +3079,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "Stopped once bedside PG is <60 mg/dL",
       "activityTimelineId": "ScheduleTimeline_1",
-      "_type": "Activity",
-      "label": "Activity_13"
+      "_type": "Activity"
     }
   },
   {
@@ -3087,6 +3087,7 @@
     "properties": {
       "id": "Activity_14",
       "name": "PG Monitoring",
+      "label": "Activity_14",
       "description": "PG Monitoring",
       "previousActivityId": "Activity_13",
       "nextActivityId": "Activity_15",
@@ -3094,8 +3095,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_14"
+      "_type": "Activity"
     }
   },
   {
@@ -3103,6 +3103,7 @@
     "properties": {
       "id": "Activity_15",
       "name": "Study Treatment administration",
+      "label": "Activity_15",
       "description": "Study Treatment administration",
       "previousActivityId": "Activity_14",
       "nextActivityId": "Activity_18",
@@ -3110,8 +3111,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
       "activityTimelineId": "ScheduleTimeline_2",
-      "_type": "Activity",
-      "label": "Activity_15"
+      "_type": "Activity"
     }
   },
   {
@@ -3119,6 +3119,7 @@
     "properties": {
       "id": "Activity_18",
       "name": "Vital Signs",
+      "label": "Activity_18",
       "description": "Vital Signs",
       "previousActivityId": "Activity_15",
       "nextActivityId": "Activity_19",
@@ -3126,8 +3127,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_18"
+      "_type": "Activity"
     }
   },
   {
@@ -3135,6 +3135,7 @@
     "properties": {
       "id": "Activity_19",
       "name": "Single 12-lead ECG",
+      "label": "Activity_19",
       "description": "Single 12-lead ECG",
       "previousActivityId": "Activity_18",
       "nextActivityId": "Activity_20",
@@ -3142,8 +3143,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_19"
+      "_type": "Activity"
     }
   },
   {
@@ -3151,6 +3151,7 @@
     "properties": {
       "id": "Activity_20",
       "name": "Triplicate 12-lead ECG",
+      "label": "Activity_20",
       "description": "Triplicate 12-lead ECG",
       "previousActivityId": "Activity_19",
       "nextActivityId": "Activity_21",
@@ -3158,8 +3159,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_20"
+      "_type": "Activity"
     }
   },
   {
@@ -3167,6 +3167,7 @@
     "properties": {
       "id": "Activity_21",
       "name": "Clinical Serology Tests",
+      "label": "Activity_21",
       "description": "Clinical Serology Tests",
       "previousActivityId": "Activity_20",
       "nextActivityId": "Activity_22",
@@ -3174,8 +3175,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_21"
+      "_type": "Activity"
     }
   },
   {
@@ -3183,6 +3183,7 @@
     "properties": {
       "id": "Activity_22",
       "name": "Clinical Lab Tests",
+      "label": "Activity_22",
       "description": "Clinical Lab Tests",
       "previousActivityId": "Activity_21",
       "nextActivityId": "Activity_23",
@@ -3190,8 +3191,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_22"
+      "_type": "Activity"
     }
   },
   {
@@ -3199,6 +3199,7 @@
     "properties": {
       "id": "Activity_23",
       "name": "HbA1c",
+      "label": "Activity_23",
       "description": "HbA1c",
       "previousActivityId": "Activity_22",
       "nextActivityId": "Activity_24",
@@ -3206,8 +3207,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_23"
+      "_type": "Activity"
     }
   },
   {
@@ -3215,6 +3215,7 @@
     "properties": {
       "id": "Activity_24",
       "name": "PREGN",
+      "label": "Activity_24",
       "description": "Serum Pregnancy Tests",
       "previousActivityId": "Activity_23",
       "nextActivityId": "Activity_25",
@@ -3222,8 +3223,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "Only females of childbearing potential",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_24"
+      "_type": "Activity"
     }
   },
   {
@@ -3231,6 +3231,7 @@
     "properties": {
       "id": "Activity_25",
       "name": "FSH",
+      "label": "Activity_25",
       "description": "FSH",
       "previousActivityId": "Activity_24",
       "nextActivityId": "Activity_26",
@@ -3238,8 +3239,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_25"
+      "_type": "Activity"
     }
   },
   {
@@ -3247,6 +3247,7 @@
     "properties": {
       "id": "Activity_26",
       "name": "Ethanol testing",
+      "label": "Activity_26",
       "description": "Ethanol testing",
       "previousActivityId": "Activity_25",
       "nextActivityId": "Activity_27",
@@ -3254,8 +3255,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "Only Females when needed to confirm postmenopausal status",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_26"
+      "_type": "Activity"
     }
   },
   {
@@ -3263,6 +3263,7 @@
     "properties": {
       "id": "Activity_27",
       "name": "Urine Drug Screen",
+      "label": "Activity_27",
       "description": "Urine Drug Screen",
       "previousActivityId": "Activity_26",
       "nextActivityId": "Activity_28",
@@ -3270,8 +3271,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_27"
+      "_type": "Activity"
     }
   },
   {
@@ -3279,6 +3279,7 @@
     "properties": {
       "id": "Activity_28",
       "name": "PK (Glucagon)",
+      "label": "Activity_28",
       "description": "PK (Glucagon)",
       "previousActivityId": "Activity_27",
       "nextActivityId": "Activity_29",
@@ -3286,8 +3287,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_28"
+      "_type": "Activity"
     }
   },
   {
@@ -3295,6 +3295,7 @@
     "properties": {
       "id": "Activity_29",
       "name": "Plasma Glucose for PD",
+      "label": "Activity_29",
       "description": "Plasma Glucose for PD",
       "previousActivityId": "Activity_28",
       "nextActivityId": "Activity_30",
@@ -3302,8 +3303,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_29"
+      "_type": "Activity"
     }
   },
   {
@@ -3311,6 +3311,7 @@
     "properties": {
       "id": "Activity_30",
       "name": "Genetic Sample",
+      "label": "Activity_30",
       "description": "Genetic Sample",
       "previousActivityId": "Activity_29",
       "nextActivityId": "Activity_31",
@@ -3318,8 +3319,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_30"
+      "_type": "Activity"
     }
   },
   {
@@ -3327,6 +3327,7 @@
     "properties": {
       "id": "Activity_31",
       "name": "Anti-glucagon antibodies",
+      "label": "Activity_31",
       "description": "Anti-glucagon antibodies",
       "previousActivityId": "Activity_30",
       "nextActivityId": "Activity_32",
@@ -3334,8 +3335,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_31"
+      "_type": "Activity"
     }
   },
   {
@@ -3343,6 +3343,7 @@
     "properties": {
       "id": "Activity_32",
       "name": "Clarke Hypoglycemia Awareness Survey",
+      "label": "Activity_32",
       "description": "Clarke Hypoglycemia Awareness Survey",
       "previousActivityId": "Activity_31",
       "nextActivityId": null,
@@ -3350,8 +3351,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_32"
+      "_type": "Activity"
     }
   },
   {
@@ -3359,6 +3359,7 @@
     "properties": {
       "id": "Activity_9",
       "name": "Weight",
+      "label": "Activity_9",
       "description": "Weight",
       "previousActivityId": "Activity_7",
       "nextActivityId": "Activity_16",
@@ -3366,8 +3367,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_9"
+      "_type": "Activity"
     }
   },
   {
@@ -3375,6 +3375,7 @@
     "properties": {
       "id": "Activity_16",
       "name": "Injection Site Assessment",
+      "label": "Activity_16",
       "description": "Injection Site Assessment",
       "previousActivityId": "Activity_9",
       "nextActivityId": "Activity_17",
@@ -3382,8 +3383,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "For IMG only",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_16"
+      "_type": "Activity"
     }
   },
   {
@@ -3391,6 +3391,7 @@
     "properties": {
       "id": "Activity_17",
       "name": "Nasal inspection",
+      "label": "Activity_17",
       "description": "Nasal inspection",
       "previousActivityId": "Activity_16",
       "nextActivityId": "Activity_18",
@@ -3398,8 +3399,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_17"
+      "_type": "Activity"
     }
   },
   {
@@ -3407,6 +3407,7 @@
     "properties": {
       "id": "Activity_33",
       "name": "Nasal and Non-nasal Score Quaestionnaire",
+      "label": "Activity_33",
       "description": "Nasal and Non-nasal Score Quaestionnaire",
       "previousActivityId": "Activity_29",
       "nextActivityId": "Activity_34",
@@ -3414,8 +3415,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_33"
+      "_type": "Activity"
     }
   },
   {
@@ -3423,6 +3423,7 @@
     "properties": {
       "id": "Activity_34",
       "name": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
+      "label": "Activity_34",
       "description": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
       "previousActivityId": "Activity_33",
       "nextActivityId": "Activity_12",
@@ -3430,8 +3431,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_34"
+      "_type": "Activity"
     }
   },
   {
@@ -3451,12 +3451,12 @@
     "properties": {
       "id": "Procedure_4",
       "name": "Meal",
+      "label": "Procedure_4",
       "description": "",
       "procedureType": "XXX",
       "procedureIsConditional": false,
       "procedureIsConditionalReason": "",
-      "_type": "Procedure",
-      "label": "Procedure_4"
+      "_type": "Procedure"
     }
   },
   {
@@ -3464,14 +3464,14 @@
     "properties": {
       "id": "Activity_12",
       "name": "Meal",
+      "label": "Activity_12",
       "description": "Meal",
       "previousActivityId": "Activity_34",
       "nextActivityId": null,
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_12"
+      "_type": "Activity"
     }
   },
   {
@@ -3500,10 +3500,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_10",
       "name": "PE 1",
+      "label": "BiomedicalConceptSurrogate_10",
       "description": "PE 1",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_10"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3511,10 +3511,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_11",
       "name": "PE 2",
+      "label": "BiomedicalConceptSurrogate_11",
       "description": "PE 2",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_11"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3522,10 +3522,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_12",
       "name": "Weight",
+      "label": "BiomedicalConceptSurrogate_12",
       "description": "Weight",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_12"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3533,10 +3533,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_13",
       "name": "Height",
+      "label": "BiomedicalConceptSurrogate_13",
       "description": "Height",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_13"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3544,10 +3544,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_14",
       "name": "SBP",
+      "label": "BiomedicalConceptSurrogate_14",
       "description": "SBP",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_14"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3555,10 +3555,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_15",
       "name": "DBP",
+      "label": "BiomedicalConceptSurrogate_15",
       "description": "DBP",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_15"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3566,10 +3566,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_1",
       "name": "PE 1",
+      "label": "BiomedicalConceptSurrogate_1",
       "description": "PE 1",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_1"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3577,10 +3577,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_2",
       "name": "PE 2",
+      "label": "BiomedicalConceptSurrogate_2",
       "description": "PE 2",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_2"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3588,10 +3588,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_3",
       "name": "Weight",
+      "label": "BiomedicalConceptSurrogate_3",
       "description": "Weight",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_3"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3599,10 +3599,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_4",
       "name": "SBP",
+      "label": "BiomedicalConceptSurrogate_4",
       "description": "SBP",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_4"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3610,10 +3610,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_5",
       "name": "DBP",
+      "label": "BiomedicalConceptSurrogate_5",
       "description": "DBP",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_5"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3621,10 +3621,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_6",
       "name": "PE 1",
+      "label": "BiomedicalConceptSurrogate_6",
       "description": "PE 1",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_6"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3632,10 +3632,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_7",
       "name": "PE 2",
+      "label": "BiomedicalConceptSurrogate_7",
       "description": "PE 2",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_7"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3643,10 +3643,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_8",
       "name": "SBP",
+      "label": "BiomedicalConceptSurrogate_8",
       "description": "SBP",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_8"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3654,10 +3654,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_9",
       "name": "DBP",
+      "label": "BiomedicalConceptSurrogate_9",
       "description": "DBP",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_9"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -3689,10 +3689,10 @@
     "properties": {
       "id": "StudyArm_1",
       "name": "LY-G",
+      "label": "StudyArm_1",
       "description": "LY900018-IMG",
       "studyArmDataOriginDescription": "Data collected from subjects",
-      "_type": "StudyArm",
-      "label": "StudyArm_1"
+      "_type": "StudyArm"
     }
   },
   {
@@ -3724,10 +3724,10 @@
     "properties": {
       "id": "StudyArm_2",
       "name": "G-LY",
+      "label": "StudyArm_2",
       "description": "IMG-LY900018",
       "studyArmDataOriginDescription": "Data collected from subjects",
-      "_type": "StudyArm",
-      "label": "StudyArm_2"
+      "_type": "StudyArm"
     }
   },
   {
@@ -3747,11 +3747,11 @@
     "properties": {
       "id": "StudyEpoch_1",
       "name": "Screening",
+      "label": "StudyEpoch_1",
       "description": "Screening Epoch",
       "previousStudyEpochId": null,
       "nextStudyEpochId": "StudyEpoch_2",
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_1"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -3771,11 +3771,11 @@
     "properties": {
       "id": "StudyEpoch_2",
       "name": "Period 1",
+      "label": "StudyEpoch_2",
       "description": "Treatment Epoch",
       "previousStudyEpochId": "StudyEpoch_1",
       "nextStudyEpochId": "StudyEpoch_3",
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_2"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -3795,11 +3795,11 @@
     "properties": {
       "id": "StudyEpoch_3",
       "name": "Wash Out",
+      "label": "StudyEpoch_3",
       "description": "Treatment Epoch",
       "previousStudyEpochId": "StudyEpoch_2",
       "nextStudyEpochId": "StudyEpoch_4",
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_3"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -3819,11 +3819,11 @@
     "properties": {
       "id": "StudyEpoch_4",
       "name": "Period 2",
+      "label": "StudyEpoch_4",
       "description": "Treatment Epoch",
       "previousStudyEpochId": "StudyEpoch_3",
       "nextStudyEpochId": "StudyEpoch_5",
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_4"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -3843,11 +3843,11 @@
     "properties": {
       "id": "StudyEpoch_5",
       "name": "Follow-Up",
+      "label": "StudyEpoch_5",
       "description": "Follow-up Epoch",
       "previousStudyEpochId": "StudyEpoch_4",
       "nextStudyEpochId": null,
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_5"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -3873,9 +3873,9 @@
     "properties": {
       "id": "StudyElement_1",
       "name": "Screening",
+      "label": "StudyElement_1",
       "description": "Screening Element",
-      "_type": "StudyElement",
-      "label": "StudyElement_1"
+      "_type": "StudyElement"
     }
   },
   {
@@ -3901,9 +3901,9 @@
     "properties": {
       "id": "StudyElement_2",
       "name": "GLUC_LY900018",
+      "label": "StudyElement_2",
       "description": "IM Glucagon + LY900018",
-      "_type": "StudyElement",
-      "label": "StudyElement_2"
+      "_type": "StudyElement"
     }
   },
   {
@@ -3929,9 +3929,9 @@
     "properties": {
       "id": "StudyElement_4",
       "name": "Wash Out",
+      "label": "StudyElement_4",
       "description": "Wash Out Element",
-      "_type": "StudyElement",
-      "label": "StudyElement_4"
+      "_type": "StudyElement"
     }
   },
   {
@@ -3957,9 +3957,9 @@
     "properties": {
       "id": "StudyElement_3",
       "name": "GLUC",
+      "label": "StudyElement_3",
       "description": "IM Glucagon",
-      "_type": "StudyElement",
-      "label": "StudyElement_3"
+      "_type": "StudyElement"
     }
   },
   {
@@ -3985,9 +3985,9 @@
     "properties": {
       "id": "StudyElement_5",
       "name": "Follow Up",
+      "label": "StudyElement_5",
       "description": "Follow Up Element",
-      "_type": "StudyElement",
-      "label": "StudyElement_5"
+      "_type": "StudyElement"
     }
   },
   {
@@ -3995,14 +3995,14 @@
     "properties": {
       "id": "StudyDesign_1",
       "name": "Study Design 1",
+      "label": "StudyDesign_1",
       "description": "The main design for the study",
       "therapeuticAreas": [],
       "studyDesignRationale": "Basic study",
       "biomedicalConcepts": [],
       "bcCategories": [],
       "contents": [],
-      "_type": "StudyDesign",
-      "label": "StudyDesign_1"
+      "_type": "StudyDesign"
     }
   },
   {

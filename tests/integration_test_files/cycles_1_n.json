@@ -87,10 +87,10 @@
     "properties": {
       "id": "Organization_1",
       "name": "ClinicalTrials.gov",
+      "label": "Organization_1",
       "organizationIdentifierScheme": "USGOV",
       "organizationIdentifier": "CT-GOV",
-      "_type": "Organization",
-      "label": "Organization_1"
+      "_type": "Organization"
     }
   },
   {
@@ -269,9 +269,9 @@
     "properties": {
       "id": "Indication_1",
       "name": "IND1",
+      "label": "Indication_1",
       "description": "An indication",
-      "_type": "Indication",
-      "label": "Indication_1"
+      "_type": "Indication"
     }
   },
   {
@@ -291,9 +291,9 @@
     "properties": {
       "id": "Indication_2",
       "name": "IND2",
+      "label": "Indication_2",
       "description": "An indication",
-      "_type": "Indication",
-      "label": "Indication_2"
+      "_type": "Indication"
     }
   },
   {
@@ -379,12 +379,12 @@
     "properties": {
       "id": "StudyDesignPopulation_1",
       "name": "POP 1",
+      "label": "StudyDesignPopulation_1",
       "description": "Pop 1",
       "plannedNumberOfParticipants": 100,
       "plannedMaximumAgeOfParticipants": "40 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation",
-      "label": "StudyDesignPopulation_1"
+      "_type": "StudyDesignPopulation"
     }
   },
   {
@@ -404,12 +404,12 @@
     "properties": {
       "id": "StudyDesignPopulation_2",
       "name": "POP 2",
+      "label": "StudyDesignPopulation_2",
       "description": "Pop 2",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "60 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation",
-      "label": "StudyDesignPopulation_2"
+      "_type": "StudyDesignPopulation"
     }
   },
   {
@@ -429,12 +429,12 @@
     "properties": {
       "id": "StudyDesignPopulation_3",
       "name": "POP 3",
+      "label": "StudyDesignPopulation_3",
       "description": "Pop 3",
       "plannedNumberOfParticipants": 20,
       "plannedMaximumAgeOfParticipants": "70 years",
       "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation",
-      "label": "StudyDesignPopulation_3"
+      "_type": "StudyDesignPopulation"
     }
   },
   {
@@ -476,9 +476,9 @@
     "properties": {
       "id": "Objective_1",
       "name": "OBJ1",
+      "label": "Objective_1",
       "description": "Obj Desc",
-      "_type": "Objective",
-      "label": "Objective_1"
+      "_type": "Objective"
     }
   },
   {
@@ -518,12 +518,12 @@
     "properties": {
       "id": "Timing_1",
       "name": "TIMING_3",
+      "label": "Timing_1",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": "-",
-      "label": "Timing_1",
       "_type": "Timing"
     }
   },
@@ -531,7 +531,7 @@
     "id": 48,
     "properties": {
       "id": "ScheduledActivityInstance_1",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -567,12 +567,12 @@
     "properties": {
       "id": "Timing_12",
       "name": "TIMING_None",
+      "label": "Timing_12",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_12",
       "_type": "Timing"
     }
   },
@@ -580,7 +580,7 @@
     "id": 52,
     "properties": {
       "id": "ScheduledActivityInstance_12",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -616,12 +616,12 @@
     "properties": {
       "id": "Timing_2",
       "name": "TIMING_4",
+      "label": "Timing_2",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": "-",
-      "label": "Timing_2",
       "_type": "Timing"
     }
   },
@@ -629,7 +629,7 @@
     "id": 56,
     "properties": {
       "id": "ScheduledActivityInstance_2",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -665,12 +665,12 @@
     "properties": {
       "id": "Timing_13",
       "name": "TIMING_None",
+      "label": "Timing_13",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_13",
       "_type": "Timing"
     }
   },
@@ -678,7 +678,7 @@
     "id": 60,
     "properties": {
       "id": "ScheduledActivityInstance_13",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -714,12 +714,12 @@
     "properties": {
       "id": "Timing_3",
       "name": "TIMING_5",
+      "label": "Timing_3",
       "description": "+14 Days",
       "timingValue": "P14D",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_3",
       "_type": "Timing"
     }
   },
@@ -727,7 +727,7 @@
     "id": 64,
     "properties": {
       "id": "ScheduledActivityInstance_3",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -763,12 +763,12 @@
     "properties": {
       "id": "Timing_14",
       "name": "TIMING_None",
+      "label": "Timing_14",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_14",
       "_type": "Timing"
     }
   },
@@ -776,7 +776,7 @@
     "id": 68,
     "properties": {
       "id": "ScheduledActivityInstance_14",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -812,12 +812,12 @@
     "properties": {
       "id": "Timing_4",
       "name": "TIMING_6",
+      "label": "Timing_4",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_4",
       "_type": "Timing"
     }
   },
@@ -825,7 +825,7 @@
     "id": 72,
     "properties": {
       "id": "ScheduledActivityInstance_4",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -861,12 +861,12 @@
     "properties": {
       "id": "Timing_15",
       "name": "TIMING_None",
+      "label": "Timing_15",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_15",
       "_type": "Timing"
     }
   },
@@ -874,7 +874,7 @@
     "id": 76,
     "properties": {
       "id": "ScheduledActivityInstance_15",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -910,12 +910,12 @@
     "properties": {
       "id": "Timing_5",
       "name": "TIMING_7",
+      "label": "Timing_5",
       "description": "+14 Days",
       "timingValue": "P14D",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_5",
       "_type": "Timing"
     }
   },
@@ -923,7 +923,7 @@
     "id": 80,
     "properties": {
       "id": "ScheduledActivityInstance_5",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -959,12 +959,12 @@
     "properties": {
       "id": "Timing_16",
       "name": "TIMING_None",
+      "label": "Timing_16",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_16",
       "_type": "Timing"
     }
   },
@@ -972,7 +972,7 @@
     "id": 84,
     "properties": {
       "id": "ScheduledActivityInstance_16",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1008,12 +1008,12 @@
     "properties": {
       "id": "Timing_6",
       "name": "TIMING_8",
+      "label": "Timing_6",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_6",
       "_type": "Timing"
     }
   },
@@ -1021,7 +1021,7 @@
     "id": 88,
     "properties": {
       "id": "ScheduledActivityInstance_6",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1057,12 +1057,12 @@
     "properties": {
       "id": "Timing_17",
       "name": "TIMING_None",
+      "label": "Timing_17",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_17",
       "_type": "Timing"
     }
   },
@@ -1070,7 +1070,7 @@
     "id": 92,
     "properties": {
       "id": "ScheduledActivityInstance_17",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1106,12 +1106,12 @@
     "properties": {
       "id": "Timing_7",
       "name": "TIMING_9",
+      "label": "Timing_7",
       "description": "+14 Days",
       "timingValue": "P14D",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_7",
       "_type": "Timing"
     }
   },
@@ -1119,7 +1119,7 @@
     "id": 96,
     "properties": {
       "id": "ScheduledActivityInstance_7",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1155,12 +1155,12 @@
     "properties": {
       "id": "Timing_18",
       "name": "TIMING_None",
+      "label": "Timing_18",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_18",
       "_type": "Timing"
     }
   },
@@ -1168,7 +1168,7 @@
     "id": 100,
     "properties": {
       "id": "ScheduledActivityInstance_18",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1204,12 +1204,12 @@
     "properties": {
       "id": "Timing_8",
       "name": "TIMING_10",
+      "label": "Timing_8",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_8",
       "_type": "Timing"
     }
   },
@@ -1217,7 +1217,7 @@
     "id": 104,
     "properties": {
       "id": "ScheduledActivityInstance_8",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1253,12 +1253,12 @@
     "properties": {
       "id": "Timing_19",
       "name": "TIMING_None",
+      "label": "Timing_19",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_19",
       "_type": "Timing"
     }
   },
@@ -1266,7 +1266,7 @@
     "id": 108,
     "properties": {
       "id": "ScheduledActivityInstance_19",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1277,7 +1277,7 @@
     "id": 112,
     "properties": {
       "id": "ScheduledActivityInstance_20",
-      "scheduledInstanceType": "DECISION",
+      "instanceType": "DECISION",
       "scheduledInstanceTimings": [],
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
@@ -1314,12 +1314,12 @@
     "properties": {
       "id": "Timing_20",
       "name": "TIMING_None",
+      "label": "Timing_20",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_20",
       "_type": "Timing"
     }
   },
@@ -1327,7 +1327,7 @@
     "id": 113,
     "properties": {
       "id": "ScheduledActivityInstance_21",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1363,12 +1363,12 @@
     "properties": {
       "id": "Timing_9",
       "name": "TIMING_11",
+      "label": "Timing_9",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": "P2D",
       "timingWindowUpper": "P2D",
       "timingWindow": "-2..2 Days",
-      "label": "Timing_9",
       "_type": "Timing"
     }
   },
@@ -1376,7 +1376,7 @@
     "id": 117,
     "properties": {
       "id": "ScheduledActivityInstance_9",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1412,12 +1412,12 @@
     "properties": {
       "id": "Timing_21",
       "name": "TIMING_None",
+      "label": "Timing_21",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": null,
       "timingWindowUpper": null,
       "timingWindow": null,
-      "label": "Timing_21",
       "_type": "Timing"
     }
   },
@@ -1425,7 +1425,7 @@
     "id": 121,
     "properties": {
       "id": "ScheduledActivityInstance_22",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1436,7 +1436,7 @@
     "id": 125,
     "properties": {
       "id": "ScheduledActivityInstance_23",
-      "scheduledInstanceType": "DECISION",
+      "instanceType": "DECISION",
       "scheduledInstanceTimings": [],
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
@@ -1473,12 +1473,12 @@
     "properties": {
       "id": "Timing_10",
       "name": "TIMING_12",
+      "label": "Timing_10",
       "description": null,
       "timingValue": "PT0M",
       "timingWindowLower": "P0D",
       "timingWindowUpper": "P5D",
       "timingWindow": "0..5 Days",
-      "label": "Timing_10",
       "_type": "Timing"
     }
   },
@@ -1486,7 +1486,7 @@
     "id": 126,
     "properties": {
       "id": "ScheduledActivityInstance_10",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1522,12 +1522,12 @@
     "properties": {
       "id": "Timing_11",
       "name": "TIMING_13",
+      "label": "Timing_11",
       "description": "+12 weeks",
       "timingValue": "P12W",
       "timingWindowLower": "P0W",
       "timingWindowUpper": "P2W",
       "timingWindow": "0..2 Weeks",
-      "label": "Timing_11",
       "_type": "Timing"
     }
   },
@@ -1535,7 +1535,7 @@
     "id": 130,
     "properties": {
       "id": "ScheduledActivityInstance_11",
-      "scheduledInstanceType": "ACTIVITY",
+      "instanceType": "ACTIVITY",
       "scheduledInstanceTimelineId": null,
       "scheduleTimelineExitId": null,
       "_type": "ScheduledActivityInstance",
@@ -1547,12 +1547,12 @@
     "properties": {
       "id": "ScheduleTimeline_1",
       "name": "Main Timeline",
+      "label": "ScheduleTimeline_1",
       "description": "This is the main timeline for the study design.",
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
       "scheduleTimelineEntryId": "ScheduledActivityInstance_1",
-      "_type": "ScheduleTimeline",
-      "label": "ScheduleTimeline_1"
+      "_type": "ScheduleTimeline"
     }
   },
   {
@@ -1593,10 +1593,10 @@
     "properties": {
       "id": "IntercurrentEvent_1",
       "name": "termination",
+      "label": "IntercurrentEvent_1",
       "description": "IC Event Description",
       "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
-      "_type": "IntercurrentEvent",
-      "label": "IntercurrentEvent_1"
+      "_type": "IntercurrentEvent"
     }
   },
   {
@@ -1669,12 +1669,12 @@
     "properties": {
       "id": "Encounter_1",
       "name": "Screening",
+      "label": "Encounter_1",
       "description": "Screening encounter",
       "previousEncounterId": null,
       "nextEncounterId": "Encounter_2",
       "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_1"
+      "_type": "Encounter"
     }
   },
   {
@@ -1727,13 +1727,13 @@
     "properties": {
       "id": "Encounter_2",
       "name": "Day 1",
+      "label": "Encounter_2",
       "description": "Cycle 1, Day 1",
       "previousEncounterId": "Encounter_1",
       "nextEncounterId": "Encounter_3",
-      "transitionEndRule": null,
       "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_2"
+      "transitionEndRule": null,
+      "_type": "Encounter"
     }
   },
   {
@@ -1777,14 +1777,14 @@
     "properties": {
       "id": "Encounter_3",
       "name": "Day 15",
+      "label": "Encounter_3",
       "description": "Cycle 1, Day 15",
       "previousEncounterId": "Encounter_2",
       "nextEncounterId": "Encounter_4",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_3"
+      "_type": "Encounter"
     }
   },
   {
@@ -1828,14 +1828,14 @@
     "properties": {
       "id": "Encounter_4",
       "name": "Day 1",
+      "label": "Encounter_4",
       "description": "Cycle 2, Day 1",
       "previousEncounterId": "Encounter_3",
       "nextEncounterId": "Encounter_5",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_4"
+      "_type": "Encounter"
     }
   },
   {
@@ -1879,14 +1879,14 @@
     "properties": {
       "id": "Encounter_5",
       "name": "Day 15",
+      "label": "Encounter_5",
       "description": "Cycle 2, Day 15",
       "previousEncounterId": "Encounter_4",
       "nextEncounterId": "Encounter_6",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_5"
+      "_type": "Encounter"
     }
   },
   {
@@ -1930,14 +1930,14 @@
     "properties": {
       "id": "Encounter_6",
       "name": "Day 1",
+      "label": "Encounter_6",
       "description": "Cycle 3, Day 1",
       "previousEncounterId": "Encounter_5",
       "nextEncounterId": "Encounter_7",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_6"
+      "_type": "Encounter"
     }
   },
   {
@@ -1981,14 +1981,14 @@
     "properties": {
       "id": "Encounter_7",
       "name": "Day 15",
+      "label": "Encounter_7",
       "description": "Cycle 3, Day 15",
       "previousEncounterId": "Encounter_6",
       "nextEncounterId": "Encounter_8",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_7"
+      "_type": "Encounter"
     }
   },
   {
@@ -2032,14 +2032,14 @@
     "properties": {
       "id": "Encounter_8",
       "name": "Day 1",
+      "label": "Encounter_8",
       "description": "Cycle 4 to 12, Day 1",
       "previousEncounterId": "Encounter_7",
       "nextEncounterId": "Encounter_9",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_8"
+      "_type": "Encounter"
     }
   },
   {
@@ -2083,14 +2083,14 @@
     "properties": {
       "id": "Encounter_9",
       "name": "Day 1",
+      "label": "Encounter_9",
       "description": "Cycle 13 onwards, Day 15",
       "previousEncounterId": "Encounter_8",
       "nextEncounterId": "Encounter_10",
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_9"
+      "_type": "Encounter"
     }
   },
   {
@@ -2143,13 +2143,13 @@
     "properties": {
       "id": "Encounter_10",
       "name": "EOT Visit",
+      "label": "Encounter_10",
       "description": "End of Treatment Visit",
       "previousEncounterId": "Encounter_9",
       "nextEncounterId": "Encounter_11",
-      "transitionStartRule": null,
       "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_10"
+      "transitionStartRule": null,
+      "_type": "Encounter"
     }
   },
   {
@@ -2193,14 +2193,14 @@
     "properties": {
       "id": "Encounter_11",
       "name": "FU Visit",
+      "label": "Encounter_11",
       "description": "Follow Up Visit",
       "previousEncounterId": "Encounter_10",
       "nextEncounterId": null,
+      "encounterScheduledAtTimingId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
-      "encounterScheduledAtTimingId": null,
-      "_type": "Encounter",
-      "label": "Encounter_11"
+      "_type": "Encounter"
     }
   },
   {
@@ -2208,6 +2208,7 @@
     "properties": {
       "id": "Activity_1",
       "name": "Informed Consent",
+      "label": "Activity_1",
       "description": "Informed Consent",
       "previousActivityId": null,
       "nextActivityId": "Activity_2",
@@ -2215,8 +2216,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_1"
+      "_type": "Activity"
     }
   },
   {
@@ -2224,6 +2224,7 @@
     "properties": {
       "id": "Activity_2",
       "name": "Inclusion / Exclusion Criteria",
+      "label": "Activity_2",
       "description": "Inclusion / Exclusion Criteria",
       "previousActivityId": "Activity_1",
       "nextActivityId": "Activity_3",
@@ -2231,8 +2232,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_2"
+      "_type": "Activity"
     }
   },
   {
@@ -2240,6 +2240,7 @@
     "properties": {
       "id": "Activity_3",
       "name": "Physical Examination",
+      "label": "Activity_3",
       "description": "Physical Examination",
       "previousActivityId": "Activity_2",
       "nextActivityId": null,
@@ -2247,8 +2248,7 @@
       "activityIsConditional": false,
       "activityIsConditionalReason": "",
       "activityTimelineId": "",
-      "_type": "Activity",
-      "label": "Activity_3"
+      "_type": "Activity"
     }
   },
   {
@@ -2277,10 +2277,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_1",
       "name": "PE 1",
+      "label": "BiomedicalConceptSurrogate_1",
       "description": "PE 1",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_1"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -2288,10 +2288,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_2",
       "name": "PE 2",
+      "label": "BiomedicalConceptSurrogate_2",
       "description": "PE 2",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_2"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -2299,10 +2299,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_3",
       "name": "Weight",
+      "label": "BiomedicalConceptSurrogate_3",
       "description": "Weight",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_3"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -2310,10 +2310,10 @@
     "properties": {
       "id": "BiomedicalConceptSurrogate_4",
       "name": "Height",
+      "label": "BiomedicalConceptSurrogate_4",
       "description": "Height",
       "bcSurrogateReference": "None set",
-      "_type": "BiomedicalConceptSurrogate",
-      "label": "BiomedicalConceptSurrogate_4"
+      "_type": "BiomedicalConceptSurrogate"
     }
   },
   {
@@ -2345,10 +2345,10 @@
     "properties": {
       "id": "StudyArm_1",
       "name": "Active",
+      "label": "StudyArm_1",
       "description": "Active Substance",
       "studyArmDataOriginDescription": "Data collected from subjects",
-      "_type": "StudyArm",
-      "label": "StudyArm_1"
+      "_type": "StudyArm"
     }
   },
   {
@@ -2380,10 +2380,10 @@
     "properties": {
       "id": "StudyArm_2",
       "name": "Placebo",
+      "label": "StudyArm_2",
       "description": "Placebo",
       "studyArmDataOriginDescription": "Data collected from subjects",
-      "_type": "StudyArm",
-      "label": "StudyArm_2"
+      "_type": "StudyArm"
     }
   },
   {
@@ -2403,11 +2403,11 @@
     "properties": {
       "id": "StudyEpoch_1",
       "name": "Screening",
+      "label": "StudyEpoch_1",
       "description": "Screening Epoch",
       "previousStudyEpochId": null,
       "nextStudyEpochId": "StudyEpoch_2",
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_1"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -2427,11 +2427,11 @@
     "properties": {
       "id": "StudyEpoch_2",
       "name": "Treatment",
+      "label": "StudyEpoch_2",
       "description": "Treatment Epoch",
       "previousStudyEpochId": "StudyEpoch_1",
       "nextStudyEpochId": "StudyEpoch_3",
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_2"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -2451,11 +2451,11 @@
     "properties": {
       "id": "StudyEpoch_3",
       "name": "Follow-Up",
+      "label": "StudyEpoch_3",
       "description": "Follow-up Epoch",
       "previousStudyEpochId": "StudyEpoch_2",
       "nextStudyEpochId": null,
-      "_type": "StudyEpoch",
-      "label": "StudyEpoch_3"
+      "_type": "StudyEpoch"
     }
   },
   {
@@ -2481,9 +2481,9 @@
     "properties": {
       "id": "StudyElement_1",
       "name": "Screening",
+      "label": "StudyElement_1",
       "description": "Screening Element",
-      "_type": "StudyElement",
-      "label": "StudyElement_1"
+      "_type": "StudyElement"
     }
   },
   {
@@ -2509,9 +2509,9 @@
     "properties": {
       "id": "StudyElement_2",
       "name": "Treatment",
+      "label": "StudyElement_2",
       "description": "Treatment Element",
-      "_type": "StudyElement",
-      "label": "StudyElement_2"
+      "_type": "StudyElement"
     }
   },
   {
@@ -2537,9 +2537,9 @@
     "properties": {
       "id": "StudyElement_3",
       "name": "Follow Up",
+      "label": "StudyElement_3",
       "description": "Follow Up Element",
-      "_type": "StudyElement",
-      "label": "StudyElement_3"
+      "_type": "StudyElement"
     }
   },
   {
@@ -2547,13 +2547,13 @@
     "properties": {
       "id": "StudyDesign_1",
       "name": "Study Design 1",
+      "label": "StudyDesign_1",
       "description": "The main design for the study",
       "studyDesignRationale": "Multiple cycles test",
       "biomedicalConcepts": [],
       "bcCategories": [],
       "contents": [],
-      "_type": "StudyDesign",
-      "label": "StudyDesign_1"
+      "_type": "StudyDesign"
     }
   },
   {

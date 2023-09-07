@@ -3,7 +3,7 @@
     "id": null,
     "studyTitle": "Simple Test 1",
     "studyVersion": "1",
-    "studyType": {
+    "type": {
       "id": "Code_1",
       "code": "C98388",
       "codeSystem": "http://www.cdisc.org",
@@ -37,15 +37,16 @@
         "studyIdentifierScope": {
           "id": "Organization_1",
           "name": "ClinicalTrials.gov",
-          "organizationIdentifierScheme": "USGOV",
-          "organizationIdentifier": "CT-GOV",
-          "organizationType": {
+          "label": "",
+          "type": {
             "id": "Code_5",
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2022-12-16",
             "decode": "Study Registry"
           },
+          "organizationIdentifierScheme": "USGOV",
+          "organizationIdentifier": "CT-GOV",
           "organizationLegalAddress": {
             "id": "Address_1",
             "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
@@ -88,6 +89,7 @@
       {
         "id": "StudyDesign_1",
         "name": "Study Design 1",
+        "label": "",
         "description": "The main design for the study",
         "trialIntentTypes": [
           {
@@ -105,7 +107,7 @@
             "decode": "Device Feasibility Study"
           }
         ],
-        "trialType": [
+        "trialTypes": [
           {
             "id": "Code_28",
             "code": "C49666",
@@ -175,6 +177,7 @@
           {
             "id": "Indication_1",
             "name": "IND1",
+            "label": "",
             "description": "An indication",
             "codes": [
               {
@@ -213,6 +216,7 @@
           {
             "id": "StudyDesignPopulation_1",
             "name": "POP 1",
+            "label": "",
             "description": "Pop 1",
             "plannedNumberOfParticipants": 100,
             "plannedMaximumAgeOfParticipants": "40 years",
@@ -232,6 +236,7 @@
           {
             "id": "Objective_1",
             "name": "OBJ1",
+            "label": "",
             "description": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
             "objectiveLevel": {
               "id": "Code_64",
@@ -260,6 +265,7 @@
           {
             "id": "ScheduleTimeline_1",
             "name": "Main Timeline",
+            "label": "Main Timeline",
             "description": "This is the main timeline for the study design.",
             "mainTimeline": true,
             "entryCondition": "Potential subject identified",
@@ -272,13 +278,14 @@
             "scheduleTimelineInstances": [
               {
                 "id": "ScheduledActivityInstance_1",
-                "scheduledInstanceType": "ACTIVITY",
+                "instanceType": "ACTIVITY",
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_1",
                     "name": "TIMING_3",
+                    "label": "",
                     "description": "2 Days",
-                    "timingType": {
+                    "type": {
                       "id": "Code_32",
                       "code": "C99901x2",
                       "codeSystem": "http://www.cdisc.org",
@@ -297,8 +304,7 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null,
-                    "label": ""
+                    "timingWindow": null
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -313,13 +319,14 @@
               },
               {
                 "id": "ScheduledActivityInstance_2",
-                "scheduledInstanceType": "ACTIVITY",
+                "instanceType": "ACTIVITY",
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_2",
                     "name": "TIMING_4",
+                    "label": "",
                     "description": null,
-                    "timingType": {
+                    "type": {
                       "id": "Code_35",
                       "code": "C99901x3",
                       "codeSystem": "http://www.cdisc.org",
@@ -338,8 +345,7 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
                     "timingWindowLower": null,
                     "timingWindowUpper": null,
-                    "timingWindow": null,
-                    "label": ""
+                    "timingWindow": null
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -353,13 +359,14 @@
               },
               {
                 "id": "ScheduledActivityInstance_3",
-                "scheduledInstanceType": "ACTIVITY",
+                "instanceType": "ACTIVITY",
                 "scheduledInstanceTimings": [
                   {
                     "id": "Timing_3",
                     "name": "TIMING_5",
+                    "label": "",
                     "description": "3 Days",
-                    "timingType": {
+                    "type": {
                       "id": "Code_41",
                       "code": "C99901x1",
                       "codeSystem": "http://www.cdisc.org",
@@ -378,8 +385,7 @@
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
                     "timingWindowLower": "PT12H",
                     "timingWindowUpper": "PT12H",
-                    "timingWindow": "12..12 Hours",
-                    "label": ""
+                    "timingWindow": "12..12 Hours"
                   }
                 ],
                 "scheduledInstanceTimelineId": null,
@@ -417,6 +423,7 @@
               {
                 "id": "IntercurrentEvent_1",
                 "name": "termination",
+                "label": "",
                 "description": "IC Event Description",
                 "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded"
               }
@@ -427,16 +434,18 @@
           {
             "id": "Encounter_1",
             "name": "Screening",
+            "label": "",
             "description": "Screening encounter",
-            "previousEncounterId": null,
-            "nextEncounterId": "Encounter_2",
-            "encounterType": {
+            "type": {
               "id": "Code_8",
               "code": "C25716",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
               "decode": "Visit"
             },
+            "previousEncounterId": null,
+            "nextEncounterId": "Encounter_2",
+            "encounterScheduledAtTimingId": null,
             "encounterEnvironmentalSetting": {
               "id": "Code_9",
               "code": "C51282",
@@ -460,22 +469,23 @@
             "transitionEndRule": {
               "id": "TransitionRule_2",
               "description": "IEs passed"
-            },
-            "encounterScheduledAtTimingId": null
+            }
           },
           {
             "id": "Encounter_2",
             "name": "Baseline",
+            "label": "",
             "description": "Baseline encounter",
-            "previousEncounterId": "Encounter_1",
-            "nextEncounterId": "Encounter_3",
-            "encounterType": {
+            "type": {
               "id": "Code_11",
               "code": "C25716",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
               "decode": "Visit"
             },
+            "previousEncounterId": "Encounter_1",
+            "nextEncounterId": "Encounter_3",
+            "encounterScheduledAtTimingId": null,
             "encounterEnvironmentalSetting": {
               "id": "Code_12",
               "code": "C51282",
@@ -493,22 +503,23 @@
               }
             ],
             "transitionStartRule": null,
-            "transitionEndRule": null,
-            "encounterScheduledAtTimingId": null
+            "transitionEndRule": null
           },
           {
             "id": "Encounter_3",
             "name": "Day 1",
+            "label": "",
             "description": "First dose",
-            "previousEncounterId": "Encounter_2",
-            "nextEncounterId": null,
-            "encounterType": {
+            "type": {
               "id": "Code_14",
               "code": "C25716",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2022-12-16",
               "decode": "Visit"
             },
+            "previousEncounterId": "Encounter_2",
+            "nextEncounterId": null,
+            "encounterScheduledAtTimingId": null,
             "encounterEnvironmentalSetting": {
               "id": "Code_15",
               "code": "C51282",
@@ -529,14 +540,14 @@
               "id": "TransitionRule_3",
               "description": "Radomized"
             },
-            "transitionEndRule": null,
-            "encounterScheduledAtTimingId": null
+            "transitionEndRule": null
           }
         ],
         "activities": [
           {
             "id": "Activity_1",
             "name": "Demographics",
+            "label": "",
             "description": "Basic Demog",
             "previousActivityId": null,
             "nextActivityId": "Activity_2",
@@ -556,6 +567,7 @@
           {
             "id": "Activity_2",
             "name": "Vital Signs",
+            "label": "",
             "description": "Vital Signs",
             "previousActivityId": "Activity_1",
             "nextActivityId": null,
@@ -586,12 +598,14 @@
           {
             "id": "BiomedicalConcept_1",
             "name": "Sex",
+            "label": "Sex",
             "bcSynonyms": [],
             "bcReference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421",
             "bcProperties": [
               {
                 "id": "BiomedicalConceptProperty_1",
                 "name": "Sex",
+                "label": "Sex",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "string",
@@ -630,7 +644,7 @@
                     }
                   }
                 ],
-                "bcPropertyConceptCode": {
+                "code": {
                   "id": "AliasCode_4",
                   "standardCode": {
                     "id": "Code_49",
@@ -643,7 +657,7 @@
                 }
               }
             ],
-            "bcConceptCode": {
+            "code": {
               "id": "AliasCode_3",
               "standardCode": {
                 "id": "Code_45",
@@ -658,6 +672,7 @@
           {
             "id": "BiomedicalConcept_2",
             "name": "Race",
+            "label": "Race",
             "bcSynonyms": [
               "Racial Group"
             ],
@@ -666,6 +681,7 @@
               {
                 "id": "BiomedicalConceptProperty_2",
                 "name": "Race",
+                "label": "Race",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "string",
@@ -682,7 +698,7 @@
                     }
                   }
                 ],
-                "bcPropertyConceptCode": {
+                "code": {
                   "id": "AliasCode_6",
                   "standardCode": {
                     "id": "Code_52",
@@ -695,7 +711,7 @@
                 }
               }
             ],
-            "bcConceptCode": {
+            "code": {
               "id": "AliasCode_5",
               "standardCode": {
                 "id": "Code_50",
@@ -710,6 +726,7 @@
           {
             "id": "BiomedicalConcept_3",
             "name": "Body Weight",
+            "label": "Body Weight",
             "bcSynonyms": [
               "Weight"
             ],
@@ -718,11 +735,12 @@
               {
                 "id": "BiomedicalConceptProperty_3",
                 "name": "Vital Signs Result",
+                "label": "Vital Signs Result",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "decimal",
                 "bcPropertyResponseCodes": [],
-                "bcPropertyConceptCode": {
+                "code": {
                   "id": "AliasCode_8",
                   "standardCode": {
                     "id": "Code_54",
@@ -737,6 +755,7 @@
               {
                 "id": "BiomedicalConceptProperty_4",
                 "name": "Unit of Weight",
+                "label": "Unit of Weight",
                 "bcPropertyRequired": true,
                 "bcPropertyEnabled": true,
                 "bcPropertyDatatype": "string",
@@ -775,7 +794,7 @@
                     }
                   }
                 ],
-                "bcPropertyConceptCode": {
+                "code": {
                   "id": "AliasCode_9",
                   "standardCode": {
                     "id": "Code_58",
@@ -788,7 +807,7 @@
                 }
               }
             ],
-            "bcConceptCode": {
+            "code": {
               "id": "AliasCode_7",
               "standardCode": {
                 "id": "Code_53",
@@ -806,6 +825,7 @@
           {
             "id": "BiomedicalConceptSurrogate_1",
             "name": "Age",
+            "label": "Age",
             "description": "Age",
             "bcSurrogateReference": "None set"
           }
@@ -814,8 +834,9 @@
           {
             "id": "StudyArm_1",
             "name": "Active",
+            "label": "",
             "description": "Active Substance",
-            "studyArmType": {
+            "type": {
               "id": "Code_17",
               "code": "C174267",
               "codeSystem": "http://www.cdisc.org",
@@ -823,7 +844,7 @@
               "decode": "Active Comparator Arm"
             },
             "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
+            "dataOriginType": {
               "id": "Code_18",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
@@ -834,8 +855,9 @@
           {
             "id": "StudyArm_2",
             "name": "Placebo",
+            "label": "",
             "description": "Placebo",
-            "studyArmType": {
+            "type": {
               "id": "Code_19",
               "code": "C174268",
               "codeSystem": "http://www.cdisc.org",
@@ -843,7 +865,7 @@
               "decode": "Placebo Comparator Arm"
             },
             "studyArmDataOriginDescription": "Data collected from subjects",
-            "studyArmDataOriginType": {
+            "dataOriginType": {
               "id": "Code_20",
               "code": "C188866",
               "codeSystem": "http://www.cdisc.org",
@@ -856,8 +878,9 @@
           {
             "id": "StudyEpoch_1",
             "name": "Screening",
+            "label": "",
             "description": "Screening Epoch",
-            "studyEpochType": {
+            "type": {
               "id": "Code_21",
               "code": "C48262",
               "codeSystem": "http://www.cdisc.org",
@@ -870,8 +893,9 @@
           {
             "id": "StudyEpoch_2",
             "name": "Baseline",
+            "label": "",
             "description": "Baseline Epoch",
-            "studyEpochType": {
+            "type": {
               "id": "Code_22",
               "code": "C125938",
               "codeSystem": "http://www.cdisc.org",
@@ -884,8 +908,9 @@
           {
             "id": "StudyEpoch_3",
             "name": "Treatment",
+            "label": "",
             "description": "Treatment Epoch",
-            "studyEpochType": {
+            "type": {
               "id": "Code_23",
               "code": "C101526",
               "codeSystem": "http://www.cdisc.org",
@@ -900,6 +925,7 @@
           {
             "id": "StudyElement_1",
             "name": "Screening",
+            "label": "",
             "description": "Screening Element",
             "transitionStartRule": {
               "id": "TransitionRule_4",
@@ -913,6 +939,7 @@
           {
             "id": "StudyElement_2",
             "name": "Baseline",
+            "label": "",
             "description": "Baseline Element",
             "transitionStartRule": {
               "id": "TransitionRule_6",
@@ -926,6 +953,7 @@
           {
             "id": "StudyElement_3",
             "name": "Treatment 1",
+            "label": "",
             "description": "Treatment Element 1",
             "transitionStartRule": {
               "id": "TransitionRule_8",
