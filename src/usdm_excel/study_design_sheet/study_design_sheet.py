@@ -102,7 +102,6 @@ class StudyDesignSheet(BaseSheet):
         pass
 
     start_row = self.VERSION_ROWS[key]['EPOCH_ARMS_START_ROW']
-    print(f"SOA1: start_row {start_row}")
     resolved_epochs = [None] * self.sheet.shape[1] 
     resolved_arms = [None] * self.sheet.shape[0] 
     for rindex, row in self.sheet.iterrows():
@@ -110,7 +109,6 @@ class StudyDesignSheet(BaseSheet):
         for cindex in range(0, len(self.sheet.columns)):
           epoch_index = cindex - 1
           cell = self.read_cell(rindex, cindex)
-          print(f"SOA2: cell {cell}")
           if rindex == start_row:
             if cindex != 0:
               resolved_epochs[epoch_index] = self._add_epoch(cell)
