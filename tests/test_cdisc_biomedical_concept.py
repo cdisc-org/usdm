@@ -57,13 +57,13 @@ def test__bc_as_usdm(mocker):
   assert(bc.name) == 'Name'
   assert(bc.bcSynonyms) == ['shortie']
   assert(bc.bcReference) == 'link'
-  assert(bc.bcConceptCode.id) == 'A1'
-  assert(bc.bcConceptCode.standardCode.id) == 'C1'
-  assert(bc.bcConceptCode.standardCode.code) == 'X1'
-  assert(bc.bcConceptCode.standardCode.decode) == 'Name'
-  assert(bc.bcConceptCode.standardCode.codeSystem) == "NCI Thesaurus"
-  assert(bc.bcConceptCode.standardCode.codeSystemVersion) == "" 
-  assert(bc.bcConceptCode.standardCodeAliases) == []
+  assert(bc.code.id) == 'A1'
+  assert(bc.code.standardCode.id) == 'C1'
+  assert(bc.code.standardCode.code) == 'X1'
+  assert(bc.code.standardCode.decode) == 'Name'
+  assert(bc.code.standardCode.codeSystem) == "NCI Thesaurus"
+  assert(bc.code.standardCode.codeSystemVersion) == "" 
+  assert(bc.code.standardCodeAliases) == []
   data = {
     'conceptId': 'X2',
     'shortName': 'Name1',
