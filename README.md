@@ -157,10 +157,11 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | :--- | :--- | :--- | :--- |
 | A | organisationIdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
 | B | organisationIdentifier | Organisation identifier | Text string |
-| C | organisationName | Organisation name | Text string |
-| D | organisationType | Organisation type | CDISC code reference |
-| E | studyIdentifier | The identifier for the study | Text string |
-| F | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
+| C | organisationName or name | Organisation name | Text string |
+| D (optional) | label | Organisation label | Text string |
+| E | organisationType or type | Organisation type | CDISC code reference |
+| F | studyIdentifier | The identifier for the study | Text string |
+| G | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
 
 The organisation address is of the form: ```line,city,district,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
 
