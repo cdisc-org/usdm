@@ -72,7 +72,7 @@ class Timepoint():
       timing = self._to_timing()
       instance = ScheduledActivityInstance(
         id=id_manager.build_id(ScheduledActivityInstance),
-        scheduledInstanceType='ACTIVITY',
+        instanceType='ACTIVITY',
         scheduleTimelineExitId=None,
         scheduledInstanceEncounterId=None,
         scheduledInstanceTimings=[timing],
@@ -85,7 +85,7 @@ class Timepoint():
     elif self.__timepoint_type.timing_type == "condition":
       instance = ScheduledDecisionInstance(
         id=id_manager.build_id(ScheduledActivityInstance),
-        scheduledInstanceType='DECISION',
+        instanceType='DECISION',
         scheduleTimelineExitId=None,
         scheduledInstanceEncounterId=None,
         scheduledInstanceTimings=[],
@@ -106,7 +106,7 @@ class Timepoint():
     }
     return Timing(
       id=id_manager.build_id(Timing),
-      timingType=type_code[self.__timepoint_type.timing_type.upper()],
+      type=type_code[self.__timepoint_type.timing_type.upper()],
       timingValue=self.__timepoint_type.value,
       name=f"TIMING_{self.col_index}", # TODO: Temporary fix, need something better
       description=self.__timepoint_type.description,

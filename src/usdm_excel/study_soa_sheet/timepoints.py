@@ -24,7 +24,7 @@ class Timepoints():
   def set_condition_refs(self):
     for item in self.items:
       condition = item.usdm_timepoint
-      if condition.scheduledInstanceType == 'DECISION':
+      if condition.instanceType == 'DECISION':
         condition_instance = self.items[item.reference].usdm_timepoint
         text = item.timing_value
         if text == "":
