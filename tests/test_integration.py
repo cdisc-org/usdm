@@ -115,5 +115,5 @@ def test_multiple_column_names():
 def test_invalid_section_levels():
   run_test('invalid_section_levels')
 
-def test_new_labels():
+def test_new_field_names():
   run_test('new_labels')
