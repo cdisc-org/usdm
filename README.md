@@ -446,13 +446,14 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref	| Identifier | Text string |
-| B | encounterName	| Name | Text string |
-| C | encounterDescription	| Description | Text string |
-| D | encounterType	| The type | CDISC code reference |
-| E | encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
-| F | encounterContactModes	| Contact modes | CDISC code reference |
-| G | transitionStartRule	| Start rule | Text string |
-| H | transitionEndRule| End Rule | Text string |
+| B | encounterName or name	| Name | Text string |
+| C | encounterDescription or description	| Description | Text string |
+| D (optional) | label | A display label for the arm. Default value is '' | Text string |
+| E | encounterType or type	| The type | CDISC code reference |
+| F | encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
+| G | encounterContactModes	| Contact modes | CDISC code reference |
+| H | transitionStartRule	| Start rule | Text string |
+| I | transitionEndRule| End Rule | Text string |
 
 ### Study Design Elements sheet
 
