@@ -386,13 +386,14 @@ A header row in row 1 followed by repeating rows from row 2, containing objectiv
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | objectiveXref	or xref or name | Identifier | Text string |
+| A | objectiveXref	or objectiveName | Identifier | Text string |
 | B | objectiveDescription	| Description | Text string |
-| C | objectiveLevel	| Objective level | CDISC code reference |
-| D | endpointXref	| Identifier | Text string. Note columns D to G can repeat for each endpoiint for an objective |
-| E | endpointDescription	| Description | Text string |
-| F | endpointPurposeDescription	| | |
-| G | endpointLevel| Level | CDISC code reference |
+| C (optional) | objectiveLabel | A display label for the arm. Default value is '' | Text string |
+| D | objectiveLevel	| Objective level | CDISC code reference |
+| E | endpointXref	| Identifier | Text string. Note columns D to G can repeat for each endpoiint for an objective |
+| F | endpointDescription	| Description | Text string |
+| G | endpointPurposeDescription	| | |
+| H | endpointLevel| Level | CDISC code reference |
 
 ### Study Design Estimands sheet
 
