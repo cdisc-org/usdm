@@ -129,7 +129,8 @@ class BaseSheet():
       return None
 
   def read_other_code_cell_by_name(self, row_index, field_name):
-    col_index = self.sheet.columns.get_loc(field_name)
+    #col_index = self.sheet.columns.get_loc(field_name)
+    col_index = self.column_present(field_name)
     return self.read_other_code_cell(row_index, col_index)
 
   def read_other_code_cell(self, row_index, col_index):
