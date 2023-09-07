@@ -114,3 +114,6 @@ def test_multiple_column_names():
 
 def test_invalid_section_levels():
   run_test('invalid_section_levels')
+
+def test_study_type():
+  run_test('new_labels')

@@ -106,7 +106,7 @@ class StudySheet(BaseSheet):
           id=None, # No Id, will be allocated a UUID
           studyTitle=self.title,
           studyVersion=self.version,
-          studyType=self.type,
+          type=self.type,
           studyPhase=self.phase,
           businessTherapeuticAreas=self.therapeutic_areas,
           studyRationale=self.rationale,

@@ -124,7 +124,7 @@ For the single values, the keyword is in column A while the value is in column B
 | :--- | :--- | :--- | :--- |
 | 1 | studyTitle | The study title | Text string |
 | 2 | studyVersion | String version | Text string |
-| 3 | studyType | The study type | CDISC code reference |
+| 3 | studyType or type | The study type | CDISC code reference |
 | 4 | studyPhase | The study phase | CDISC code reference |
 | 5 | studyAcronym | The study acronym | Text string |
 | 6 | studyRationale | the study rationale | Text string |
