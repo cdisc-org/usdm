@@ -13,8 +13,9 @@ class StudyDesignActivitySheet(BaseSheet):
       self.items = []
       if self.sheet is not None:
         for index, row in self.sheet.iterrows():
-          name = self.read_cell_by_name(index, 'activityName')
-          description = self.read_description_by_name(index, 'activityDescription')
+          name = self.read_cell_by_name(index, ['activityName', 'name'])
+          description = self.read_description_by_name(index, ['activityDescription', 'description'])
+          label = self.read_cell_by_name(index, 'label', default="")
           conditional = self.read_boolean_cell_by_name(index, 'activityIsConditional')
           reason = self.read_cell_by_name(index, 'activityIsConditionalReason')
           try:
@@ -22,6 +23,7 @@ class StudyDesignActivitySheet(BaseSheet):
               id=id_manager.build_id(Activity), 
               name=name,
               description=description,
+              label=label,
               activityIsConditional=conditional,
               activityIsConditionalReason=reason
             )

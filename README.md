@@ -327,10 +327,11 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | activityName	| Name | Text string |
-| B | activityDescription	| Description | Text string |
-| C | activityIsConditional | Conditional flag | Boolean |
-| D | activityIsConditionalReason | Reason | Text string |
+| A | activityName or name	| Name | Text string |
+| B | activityDescription or description| Description | Text string |
+| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| D | activityIsConditional | Conditional flag | Boolean |
+| E | activityIsConditionalReason | Reason | Text string |
 
 Note that this sheet is optional. If the sheet is not provided the activities will be created from those defined in the timeline sheets. These activities will have the name and description set to the name used in the timeline sheet and no condition will be set.
 

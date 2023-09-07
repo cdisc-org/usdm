@@ -85,6 +85,7 @@ class StudySoASheet(BaseSheet):
       mainTimeline=self.main_timeline,
       name=name,
       description=description,
+      label=name,
       entryCondition=condition,
       scheduleTimelineEntryId=instances[0].id,
       scheduleTimelineExits=[exit],
