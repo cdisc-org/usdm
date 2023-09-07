@@ -228,9 +228,10 @@ A header row in row 1 followed by repeating rows from row 2, containing the deta
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | studyEpochName | The epoch name | Text string. Should match an epoch name in the Study Design sheet | 
-| B | studyEpochDescription | A Text string description for the epoch | Text string |
-| C | studyEpochType | The epoch type| CDISC code reference |
+| A | studyEpochName or name | The epoch name | Text string. Should match an epoch name in the Study Design sheet | 
+| B | studyEpochDescription or description | A Text string description for the epoch | Text string |
+| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| D | studyEpochType or type | The epoch type| CDISC code reference |
 
 ### Timeline sheets
 
