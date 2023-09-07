@@ -471,10 +471,11 @@ A header row in row 1 followed by repeating rows from row 2, containing element 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref | Identifier | Text string |	
-| B | studyElementName | Name | Text string |	
-| C | studyElementDescription | Description | Text string |	
-| D | transitionStartRule | Start rule | Text string |	
-| E | transitionEndRule | End rule | Text string |
+| B | studyElementName or name| Name | Text string |	
+| C | studyElementDescription or description | Description | Text string |	
+| D (optional) | label | A display label for the arm. Default value is '' | Text string |
+| E | transitionStartRule | Start rule | Text string |	
+| F | transitionEndRule | End rule | Text string |
 
 ### Study Design Content sheet
 
