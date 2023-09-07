@@ -22,18 +22,20 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      org_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, 'organisationType')     
-      org_id_scheme=self.read_cell_by_name(index, 'organisationIdentifierScheme')
-      org_identifier=self.read_cell_by_name(index, 'organisationIdentifier')
-      org_name=self.read_cell_by_name(index, 'organisationName')
-      org_address=self._build_address(index)
+      org_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, ['organisationType', 'type'])     
+      org_id_scheme = self.read_cell_by_name(index, 'organisationIdentifierScheme')
+      org_identifier = self.read_cell_by_name(index, 'organisationIdentifier')
+      org_name = self.read_cell_by_name(index, ['organisationName', 'name'])
+      org_label = self.read_cell_by_name(index, 'label', default="")
+      org_address = self._build_address(index)
       try:
         organisation = Organization(
           id=id_manager.build_id(Organization),
           organizationIdentifierScheme=org_id_scheme, 
           organizationIdentifier=org_identifier,
           name=org_name,
-          organizationType=org_type,
+          label=org_label,
+          type=org_type,
           organizationLegalAddress=org_address
         )
       except Exception as e:
