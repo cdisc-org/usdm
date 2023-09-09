@@ -2,6 +2,9 @@ import json
 
 class ExportAsNeo4jDict():
 
+  class LogicError(Exception):
+    pass
+  
   def __init__(self, study):
     self.study = study
     self.nodes = {}
@@ -16,13 +19,10 @@ class ExportAsNeo4jDict():
     self._process_node(node)
     for edge in self.add_edges:
       if edge['end'] in self.id_node_index_map:
-        #edge['id'] = self.edge_index
-        #edge['end'] = self.id_node_index_map[edge['end']]
-        #self.edges.append(edge)
         self._add_edge(edge['start'], self.id_node_index_map[edge['end']], self.edge_index, edge['label'], edge['type'])
         self.edge_index += 1
       else:
-        print("***** %s -edge-> %s [%s] *****" % (edge['start'], edge['end'], edge))
+        raise self.LogicError(f"{edge['start']} --edge-> {edge['end']} [{edge}]")
     return {'nodes': self.nodes, 'edges': self.edges}
   
   def _process_node(self, node):
