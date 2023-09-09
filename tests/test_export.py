@@ -1,7 +1,7 @@
-import json
 import yaml
 import csv
 from src.usdm_excel import USDMExcel
+from uuid import UUID
 
 SAVE_ALL = True
 
@@ -32,6 +32,8 @@ def run_test(filename, save=False):
     expected = yaml.safe_load(f) 
   assert result == expected
 
-def test_simple_1():
+def test_simple_1(mocker):
+  fake_uuids = (UUID(f'00000000-0000-4000-8000-{i:012}', version=4) for i in range(10000))
+  mocker.patch("usdm_excel.export_as_neo4j_dict.uuid4", side_effect=fake_uuids)
   run_test('simple_1')
 

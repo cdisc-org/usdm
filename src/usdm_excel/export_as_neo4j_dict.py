@@ -43,7 +43,6 @@ class ExportAsNeo4jDict():
       if node['id'] in self.node_id_to_uuid_map:
         return [self.node_id_to_uuid_map[node['id']]]
       this_node_uuid = str(uuid4())
-      #self.node_index += 1
       for key, value in node.items():
         if self._is_edge_field(key):
           self._edge_field(key, value, this_node_uuid)
@@ -56,9 +55,8 @@ class ExportAsNeo4jDict():
           else:
             for uuid in uuids:
               self._add_edge(this_node_uuid, uuid, key)
-              #self.edge_index += 1
       if klass == "Study":
-        properties['id'] = "Study"   
+        properties['id'] = this_node_uuid 
       self._add_node(klass, this_node_uuid, properties)
       self.node_id_to_uuid_map[properties['id']] = this_node_uuid
       return [this_node_uuid]
