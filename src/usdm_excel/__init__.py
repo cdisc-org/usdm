@@ -2,7 +2,8 @@ import json
 from usdm_excel.id_manager import id_manager
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
-from usdm_excel.nodes_and_edges import NodesAndEdges
+from usdm_excel.export_as_yworks_dict import ExportAsYworksDict
+from usdm_excel.export_as_neo4j_dict import ExportAsNeo4jDict
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager, Errors
@@ -11,8 +12,8 @@ from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 
 class USDMExcel():
 
-  FULL_VIEW = NodesAndEdges.FULL
-  TIMELINE_VIEW = NodesAndEdges.TIMELINE
+  FULL_VIEW = ExportAsYworksDict.FULL
+  TIMELINE_VIEW = ExportAsYworksDict.TIMELINE
 
   def __init__(self, file_path):
     id_manager.clear()
@@ -62,7 +63,13 @@ class USDMExcel():
     return bytes
 
   def to_nodes_and_edges(self, view=FULL_VIEW):
-    return NodesAndEdges(self.study.the_study(), view).nodes_and_edges()
+    return ExportAsYworksDict(self.study.the_study(), view).export()
+
+  def to_yworks_dict(self, view=FULL_VIEW):
+    return ExportAsYworksDict(self.study.the_study(), view).export()
+
+  def to_neo4j_dict(self):
+    return ExportAsNeo4jDict(self.study.the_study()).export()
 
   def errors(self):
     return error_manager.dump(Errors.WARNING)

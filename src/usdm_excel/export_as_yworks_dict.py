@@ -1,7 +1,7 @@
 import stringcase
 import json
 
-class NodesAndEdges():
+class ExportAsYworksDict():
 
   FULL = "full"
   TIMELINE = "timeline"
@@ -73,7 +73,7 @@ class NodesAndEdges():
       #]
     #self.sequence_number_map = {}
       
-  def nodes_and_edges(self):
+  def export(self):
     node = json.loads(self.study.to_json_with_type())
     self._process_node(node)
     for edge in self.add_edges:
