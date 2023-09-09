@@ -19,10 +19,10 @@ class ExportAsNeo4jDict():
         #edge['id'] = self.edge_index
         #edge['end'] = self.id_node_index_map[edge['end']]
         #self.edges.append(edge)
-        self._add_edge(edge['start'], self.id_node_index_map[edge['end']], self.edge_index, edge['properties']['label'], edge['properties']['type'])
+        self._add_edge(edge['start'], self.id_node_index_map[edge['end']], self.edge_index, edge['label'], edge['type'])
         self.edge_index += 1
       else:
-        print("***** %s -edge-> %s [%s] *****" % (edge['start'], edge['end'], edge['properties']))
+        print("***** %s -edge-> %s [%s] *****" % (edge['start'], edge['end'], edge))
     return {'nodes': self.nodes, 'edges': self.edges}
   
   def _process_node(self, node):
@@ -88,13 +88,13 @@ class ExportAsNeo4jDict():
 
   def _add_post_edge(self, start, end, key, type):
     rel = self._rel_name(key)
-    self.add_edges.append({'start': start, 'end': end, 'properties': {'label': key, 'relation': rel, 'type': type}})
+    self.add_edges.append({'start': start, 'end': end, 'label': key, 'relation': rel, 'type': type})
 
   def _add_edge(self, start, end, id, key, type):
     rel = self._rel_name(key)
     if rel not in self.edges:
       self.edges[rel] = []
-    self.edges[rel].append({'id': id, 'start': start, 'end': end, 'properties': {'label': key, 'relation': rel, 'type': type}})
+    self.edges[rel].append({'id': id, 'start': start, 'end': end, 'label': key, 'relation': rel, 'type': type})
 
   def _rel_name(self, key):
     if key == "conditionAssignments":
