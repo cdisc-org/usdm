@@ -1704,834 +1704,714 @@ edges:
     start: 107
 nodes:
   Activity:
-  - _id: 133
-    _type: Activity
-    activityIsConditional: false
+  - activityIsConditional: false
     activityIsConditionalReason: ''
     definedProcedures: []
     description: Basic Demog
     id: Activity_1
     label: ''
     name: Demographics
-  - _id: 134
-    _type: Activity
-    activityIsConditional: true
+    nid: 133
+  - activityIsConditional: true
     activityIsConditionalReason: Only do this if they have two heads
     definedProcedures: []
     description: Something weird
     id: Activity_2
     label: ''
     name: Something Else
+    nid: 134
   Address:
-  - _id: 10
-    _type: Address
-    city: city
+  - city: city
     district: district
     id: Address_1
     line: line
+    nid: 10
     postalCode: postal_code
     state: state
     text: line, city, district, state, postal_code, United Kingdom of Great Britain
       and Northern Ireland
-  - _id: 15
-    _type: Address
-    city: In a City
+  - city: In a City
     district: In a District
     id: Address_2
     line: Somewhere
+    nid: 15
     postalCode: '12345'
     state: In a big state
     text: Somewhere, In a City, In a District, In a big state, 12345, France
   AliasCode:
-  - _id: 3
-    _type: AliasCode
-    id: AliasCode_1
+  - id: AliasCode_1
+    nid: 3
     standardCodeAliases: []
-  - _id: 135
-    _type: AliasCode
-    id: AliasCode_2
+  - id: AliasCode_2
+    nid: 135
     standardCodeAliases: []
-  - _id: 145
-    _type: AliasCode
-    id: AliasCode_4
+  - id: AliasCode_4
+    nid: 145
     standardCodeAliases: []
-  - _id: 147
-    _type: AliasCode
-    id: AliasCode_3
+  - id: AliasCode_3
+    nid: 147
     standardCodeAliases: []
-  - _id: 153
-    _type: AliasCode
-    id: AliasCode_6
+  - id: AliasCode_6
+    nid: 153
     standardCodeAliases: []
-  - _id: 155
-    _type: AliasCode
-    id: AliasCode_5
+  - id: AliasCode_5
+    nid: 155
     standardCodeAliases: []
-  - _id: 159
-    _type: AliasCode
-    id: AliasCode_8
+  - id: AliasCode_8
+    nid: 159
     standardCodeAliases: []
-  - _id: 168
-    _type: AliasCode
-    id: AliasCode_9
+  - id: AliasCode_9
+    nid: 168
     standardCodeAliases: []
-  - _id: 170
-    _type: AliasCode
-    id: AliasCode_7
+  - id: AliasCode_7
+    nid: 170
     standardCodeAliases: []
   AnalysisPopulation:
-  - _id: 103
-    _type: AnalysisPopulation
-    description: ITT
+  - description: ITT
     id: AnalysisPopulation_1
-  - _id: 108
-    _type: AnalysisPopulation
-    description: ITT
+    nid: 103
+  - description: ITT
     id: AnalysisPopulation_2
+    nid: 108
   BiomedicalConcept:
-  - _id: 137
-    _type: BiomedicalConcept
-    bcReference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421
+  - bcReference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421
     bcSynonyms: []
     id: BiomedicalConcept_1
     label: Sex
     name: Sex
-  - _id: 149
-    _type: BiomedicalConcept
-    bcReference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C17049
+    nid: 137
+  - bcReference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C17049
     bcSynonyms:
     - Racial Group
     id: BiomedicalConcept_2
     label: Race
     name: Race
-  - _id: 157
-    _type: BiomedicalConcept
-    bcReference: /mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328
+    nid: 149
+  - bcReference: /mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328
     bcSynonyms:
     - Weight
     id: BiomedicalConcept_3
     label: Body Weight
     name: Body Weight
+    nid: 157
   BiomedicalConceptProperty:
-  - _id: 138
-    _type: BiomedicalConceptProperty
-    bcPropertyDatatype: string
+  - bcPropertyDatatype: string
     bcPropertyEnabled: true
     bcPropertyRequired: true
     id: BiomedicalConceptProperty_1
     label: Sex
     name: Sex
-  - _id: 150
-    _type: BiomedicalConceptProperty
-    bcPropertyDatatype: string
+    nid: 138
+  - bcPropertyDatatype: string
     bcPropertyEnabled: true
     bcPropertyRequired: true
     id: BiomedicalConceptProperty_2
     label: Race
     name: Race
-  - _id: 158
-    _type: BiomedicalConceptProperty
-    bcPropertyDatatype: decimal
+    nid: 150
+  - bcPropertyDatatype: decimal
     bcPropertyEnabled: true
     bcPropertyRequired: true
     bcPropertyResponseCodes: []
     id: BiomedicalConceptProperty_3
     label: Vital Signs Result
     name: Vital Signs Result
-  - _id: 161
-    _type: BiomedicalConceptProperty
-    bcPropertyDatatype: string
+    nid: 158
+  - bcPropertyDatatype: string
     bcPropertyEnabled: true
     bcPropertyRequired: true
     id: BiomedicalConceptProperty_4
     label: Unit of Weight
     name: Unit of Weight
+    nid: 161
   BiomedicalConceptSurrogate:
-  - _id: 172
-    _type: BiomedicalConceptSurrogate
-    bcSurrogateReference: None set
+  - bcSurrogateReference: None set
     description: Age
     id: BiomedicalConceptSurrogate_1
     label: Age
     name: Age
+    nid: 172
   Code:
-  - _id: 2
-    _type: Code
-    code: C98388
+  - code: C98388
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Interventional Study
     id: Code_1
-  - _id: 4
-    _type: Code
-    code: C15602
+    nid: 2
+  - code: C15602
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Phase III Trial
     id: Code_2
-  - _id: 5
-    _type: Code
-    code: VAC
+    nid: 4
+  - code: VAC
     codeSystem: SPONSOR
     codeSystemVersion: '12'
     decode: Vacines Group
     id: Code_3
-  - _id: 6
-    _type: Code
-    code: REG
+    nid: 5
+  - code: REG
     codeSystem: SPONSOR
     codeSystemVersion: '12'
     decode: Regulatory
     id: Code_4
-  - _id: 9
-    _type: Code
-    code: C93453
+    nid: 6
+  - code: C93453
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Study Registry
     id: Code_7
-  - _id: 11
-    _type: Code
-    code: GBR
+    nid: 9
+  - code: GBR
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: United Kingdom of Great Britain and Northern Ireland
     id: Code_8
-  - _id: 14
-    _type: Code
-    code: C70793
+    nid: 11
+  - code: C70793
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Clinical Study Sponsor
     id: Code_9
-  - _id: 16
-    _type: Code
-    code: FRA
+    nid: 14
+  - code: FRA
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: France
     id: Code_10
-  - _id: 18
-    _type: Code
-    code: C85255
+    nid: 16
+  - code: C85255
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Draft
     id: Code_5
-  - _id: 20
-    _type: Code
-    code: C85255
+    nid: 18
+  - code: C85255
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Draft
     id: Code_6
-  - _id: 22
-    _type: Code
-    code: C15714
+    nid: 20
+  - code: C15714
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Basic Research
     id: Code_39
-  - _id: 23
-    _type: Code
-    code: C139174
+    nid: 22
+  - code: C139174
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Device Feasibility Study
     id: Code_40
-  - _id: 24
-    _type: Code
-    code: C49666
+    nid: 23
+  - code: C49666
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Efficacy Study
     id: Code_41
-  - _id: 25
-    _type: Code
-    code: C82639
+    nid: 24
+  - code: C82639
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Parallel Study
     id: Code_42
-  - _id: 35
-    _type: Code
-    code: '12345'
+    nid: 25
+  - code: '12345'
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: Indication1
     id: Code_82
-  - _id: 37
-    _type: Code
-    code: '345678'
+    nid: 35
+  - code: '345678'
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: Indication2
     id: Code_85
-  - _id: 39
-    _type: Code
-    code: X
+    nid: 37
+  - code: X
     codeSystem: ICD-10
     codeSystemVersion: None set
     decode: Y
     id: Code_83
-  - _id: 40
-    _type: Code
-    code: A
+    nid: 39
+  - code: A
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: B
     id: Code_84
-  - _id: 42
-    _type: Code
-    code: DD
+    nid: 40
+  - code: DD
     codeSystem: ICD-10
     codeSystemVersion: None set
     decode: CC
     id: Code_86
-  - _id: 43
-    _type: Code
-    code: A
+    nid: 42
+  - code: A
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: B
     id: Code_87
-  - _id: 45
-    _type: Code
-    code: C49636
+    nid: 43
+  - code: C49636
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Both
     id: Code_88
-  - _id: 47
-    _type: Code
-    code: C20197
+    nid: 45
+  - code: C20197
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Male
     id: Code_89
-  - _id: 49
-    _type: Code
-    code: C16576
+    nid: 47
+  - code: C16576
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Female
     id: Code_90
-  - _id: 51
-    _type: Code
-    code: C85826
+    nid: 49
+  - code: C85826
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Trial Primary Objective
     id: Code_92
-  - _id: 53
-    _type: Code
-    code: C94496
+    nid: 51
+  - code: C94496
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Primary Endpoint
     id: Code_91
-  - _id: 55
-    _type: Code
-    code: C85827
+    nid: 53
+  - code: C85827
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Trial Secondary Objective
     id: Code_94
-  - _id: 57
-    _type: Code
-    code: C139173
+    nid: 55
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_93
-  - _id: 59
-    _type: Code
-    code: C139173
+    nid: 57
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_95
-  - _id: 61
-    _type: Code
-    code: C139173
+    nid: 59
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_96
-  - _id: 63
-    _type: Code
-    code: C139173
+    nid: 61
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_97
-  - _id: 65
-    _type: Code
-    code: C139173
+    nid: 63
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_98
-  - _id: 67
-    _type: Code
-    code: C139173
+    nid: 65
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_99
-  - _id: 69
-    _type: Code
-    code: C139173
+    nid: 67
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_100
-  - _id: 71
-    _type: Code
-    code: C139173
+    nid: 69
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_101
-  - _id: 73
-    _type: Code
-    code: C139173
+    nid: 71
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_102
-  - _id: 75
-    _type: Code
-    code: C139173
+    nid: 73
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_103
-  - _id: 77
-    _type: Code
-    code: C139173
+    nid: 75
+  - code: C139173
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Secondary Endpoint
     id: Code_104
-  - _id: 82
-    _type: Code
-    code: C99901x2
+    nid: 77
+  - code: C99901x2
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Before
     id: Code_45
-  - _id: 83
-    _type: Code
-    code: C99900x1
+    nid: 82
+  - code: C99900x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Start to Start
     id: Code_47
-  - _id: 86
-    _type: Code
-    code: C99901x2
+    nid: 83
+  - code: C99901x2
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Before
     id: Code_50
-  - _id: 87
-    _type: Code
-    code: C99900x1
+    nid: 86
+  - code: C99900x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Start to Start
     id: Code_52
-  - _id: 90
-    _type: Code
-    code: C99901x3
+    nid: 87
+  - code: C99901x3
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Fixed Reference
     id: Code_53
-  - _id: 91
-    _type: Code
-    code: C99900x1
+    nid: 90
+  - code: C99900x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Start to Start
     id: Code_57
-  - _id: 94
-    _type: Code
-    code: C99901x1
+    nid: 91
+  - code: C99901x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: After
     id: Code_59
-  - _id: 95
-    _type: Code
-    code: C99900x1
+    nid: 94
+  - code: C99900x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Start to Start
     id: Code_62
-  - _id: 98
-    _type: Code
-    code: C99901x1
+    nid: 95
+  - code: C99901x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: After
     id: Code_64
-  - _id: 99
-    _type: Code
-    code: C99900x1
+    nid: 98
+  - code: C99900x1
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Start to Start
     id: Code_67
-  - _id: 100
-    _type: Code
-    code: T2_DIABETES
+    nid: 99
+  - code: T2_DIABETES
     codeSystem: SPONSOR
     codeSystemVersion: '12'
     decode: Type 2 diabetes
     id: Code_36
-  - _id: 101
-    _type: Code
-    code: '73211009'
+    nid: 100
+  - code: '73211009'
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: Diabetes mellitus (disorder)
     id: Code_37
-  - _id: 111
-    _type: Code
-    code: C25716
+    nid: 101
+  - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Visit
     id: Code_13
-  - _id: 112
-    _type: Code
-    code: C51282
+    nid: 111
+  - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     id: Code_14
-  - _id: 113
-    _type: Code
-    code: C175574
+    nid: 112
+  - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: In Person
     id: Code_15
-  - _id: 117
-    _type: Code
-    code: C25716
+    nid: 113
+  - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Visit
     id: Code_16
-  - _id: 118
-    _type: Code
-    code: C51282
+    nid: 117
+  - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     id: Code_17
-  - _id: 119
-    _type: Code
-    code: C175574
+    nid: 118
+  - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: In Person
     id: Code_18
-  - _id: 121
-    _type: Code
-    code: C25716
+    nid: 119
+  - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Visit
     id: Code_19
-  - _id: 122
-    _type: Code
-    code: C51282
+    nid: 121
+  - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     id: Code_20
-  - _id: 123
-    _type: Code
-    code: C175574
+    nid: 122
+  - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: In Person
     id: Code_21
-  - _id: 126
-    _type: Code
-    code: C25716
+    nid: 123
+  - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Visit
     id: Code_22
-  - _id: 127
-    _type: Code
-    code: C51282
+    nid: 126
+  - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Clinic
     id: Code_23
-  - _id: 128
-    _type: Code
-    code: C175574
+    nid: 127
+  - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: In Person
     id: Code_24
-  - _id: 130
-    _type: Code
-    code: C25716
+    nid: 128
+  - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Visit
     id: Code_25
-  - _id: 131
-    _type: Code
-    code: C18002
+    nid: 130
+  - code: C18002
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Home
     id: Code_26
-  - _id: 132
-    _type: Code
-    code: C171537
+    nid: 131
+  - code: C171537
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Telephone Call
     id: Code_27
-  - _id: 136
-    _type: Code
-    code: C49659
+    nid: 132
+  - code: C49659
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Open Label Study
     id: Code_38
-  - _id: 140
-    _type: Code
-    code: C20197
+    nid: 136
+  - code: C20197
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Male
     id: Code_69
-  - _id: 142
-    _type: Code
-    code: C16576
+    nid: 140
+  - code: C16576
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Female
     id: Code_70
-  - _id: 144
-    _type: Code
-    code: C17998
+    nid: 142
+  - code: C17998
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Unknown
     id: Code_71
-  - _id: 146
-    _type: Code
-    code: C28421
+    nid: 144
+  - code: C28421
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Sex
     id: Code_72
-  - _id: 148
-    _type: Code
-    code: C28421
+    nid: 146
+  - code: C28421
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Sex
     id: Code_68
-  - _id: 152
-    _type: Code
-    code: C17998
+    nid: 148
+  - code: C17998
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Unknown
     id: Code_74
-  - _id: 154
-    _type: Code
-    code: C17049
+    nid: 152
+  - code: C17049
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Race
     id: Code_75
-  - _id: 156
-    _type: Code
-    code: C17049
+    nid: 154
+  - code: C17049
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Race
     id: Code_73
-  - _id: 160
-    _type: Code
-    code: C173522
+    nid: 156
+  - code: C173522
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Vital Signs Result
     id: Code_77
-  - _id: 163
-    _type: Code
-    code: C28252
+    nid: 160
+  - code: C28252
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Kilogram
     id: Code_78
-  - _id: 165
-    _type: Code
-    code: C48155
+    nid: 163
+  - code: C48155
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Gram
     id: Code_79
-  - _id: 167
-    _type: Code
-    code: C48531
+    nid: 165
+  - code: C48531
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Pound
     id: Code_80
-  - _id: 169
-    _type: Code
-    code: C48208
+    nid: 167
+  - code: C48208
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Unit of Weight
     id: Code_81
-  - _id: 171
-    _type: Code
-    code: C81328
+    nid: 169
+  - code: C81328
     codeSystem: NCI Thesaurus
     codeSystemVersion: ''
     decode: Body Weight
     id: Code_76
-  - _id: 174
-    _type: Code
-    code: C174267
+    nid: 171
+  - code: C174267
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Active Comparator Arm
     id: Code_28
-  - _id: 175
-    _type: Code
-    code: C188866
+    nid: 174
+  - code: C188866
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Data Generated Within Study
     id: Code_29
-  - _id: 177
-    _type: Code
-    code: C174268
+    nid: 175
+  - code: C174268
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Placebo Comparator Arm
     id: Code_30
-  - _id: 178
-    _type: Code
-    code: C188866
+    nid: 177
+  - code: C188866
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Data Generated Within Study
     id: Code_31
-  - _id: 180
-    _type: Code
-    code: C48262
+    nid: 178
+  - code: C48262
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Trial Screening
     id: Code_32
-  - _id: 182
-    _type: Code
-    code: C125938
+    nid: 180
+  - code: C125938
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Baseline Epoch
     id: Code_33
-  - _id: 184
-    _type: Code
-    code: C101526
+    nid: 182
+  - code: C101526
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Treatment Epoch
     id: Code_34
-  - _id: 186
-    _type: Code
-    code: C99158
+    nid: 184
+  - code: C99158
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2022-12-16'
     decode: Clinical Study Follow-up
     id: Code_35
+    nid: 186
   Content:
-  - _id: 202
-    _type: Content
-    id: Content_1
+  - id: Content_1
     name: ROOT
+    nid: 202
     sectionNumber: '0'
     sectionTitle: Root
     text: ''
-  - _id: 203
-    _type: Content
-    id: Content_2
+  - id: Content_2
     name: SECTION 1
+    nid: 203
     sectionNumber: '1'
     sectionTitle: PROTOCOL SUMMARY
     text: <usdm:ref klass="StudyIdentifier" id="StudyIdentifier_1" attribute="studyIdentifier"/>
-  - _id: 204
-    _type: Content
-    id: Content_3
+  - id: Content_3
     name: SECTION 1.1
+    nid: 204
     sectionNumber: '1.1'
     sectionTitle: Protocol Synopsis
     text: ''
-  - _id: 205
-    _type: Content
-    id: Content_4
+  - id: Content_4
     name: SECTION 1.2
+    nid: 205
     sectionNumber: '1.2'
     sectionTitle: Trial Schema
     text: ''
-  - _id: 206
-    _type: Content
-    id: Content_5
+  - id: Content_5
     name: SECTION 1.3
+    nid: 206
     sectionNumber: '1.3'
     sectionTitle: Schedule of Activities
     text: ''
-  - _id: 207
-    _type: Content
-    id: Content_6
+  - id: Content_6
     name: SECTION 2
+    nid: 207
     sectionNumber: '2'
     sectionTitle: INTRODUCTION
     text: ''
-  - _id: 208
-    _type: Content
-    id: Content_7
+  - id: Content_7
     name: SECTION 2.1
+    nid: 208
     sectionNumber: '2.1'
     sectionTitle: Purpose of Trial
     text: ''
-  - _id: 209
-    _type: Content
-    id: Content_8
+  - id: Content_8
     name: SECTION 2.2
+    nid: 209
     sectionNumber: '2.2'
     sectionTitle: Summary of Benefits and Risks
     text: ''
-  - _id: 210
-    _type: Content
-    id: Content_9
+  - id: Content_9
     name: SECTION 3
+    nid: 210
     sectionNumber: '3'
     sectionTitle: TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS
     text: ''
-  - _id: 211
-    _type: Content
-    id: Content_10
+  - id: Content_10
     name: SECTION 3.1
+    nid: 211
     sectionNumber: '3.1'
     sectionTitle: Primary Objectives
     text: "<table>\n  <tr>\n    <th style=\"vertical-align: top\">Primary Objective</th>\n\
@@ -2540,1297 +2420,1102 @@ nodes:
       OBJ1\" attribute=\"description\"/></td>\n    <td style=\"vertical-align: top\"\
       ><usdm:ref klass=\"Endpoint\" id=\"Endpoint_1\" attribute=\"description\"/></td>\n\
       \  </tr>\n</table>"
-  - _id: 212
-    _type: Content
-    id: Content_11
+  - id: Content_11
     name: SECTION 4
+    nid: 212
     sectionNumber: '4'
     sectionTitle: TRIAL DESIGN
     text: ''
-  - _id: 213
-    _type: Content
-    id: Content_12
+  - id: Content_12
     name: SECTION 4.1
+    nid: 213
     sectionNumber: '4.1'
     sectionTitle: Description of Trial Design
     text: ''
-  - _id: 214
-    _type: Content
-    id: Content_13
+  - id: Content_13
     name: SECTION 4.1.1
+    nid: 214
     sectionNumber: 4.1.1
     sectionTitle: Participant Input into Design
     text: ''
-  - _id: 215
-    _type: Content
-    id: Content_14
+  - id: Content_14
     name: SECTION 4.2
+    nid: 215
     sectionNumber: '4.2'
     sectionTitle: Rationale for Trial Design
     text: ''
-  - _id: 216
-    _type: Content
-    id: Content_15
+  - id: Content_15
     name: SECTION 4.2.1
+    nid: 216
     sectionNumber: 4.2.1
     sectionTitle: Rationale for Comparator
     text: ''
-  - _id: 217
-    _type: Content
-    id: Content_16
+  - id: Content_16
     name: SECTION 4.2.2
+    nid: 217
     sectionNumber: 4.2.2
     sectionTitle: Rationale for Adaptive or Novel Trial Design
     text: ''
-  - _id: 218
-    _type: Content
-    id: Content_17
+  - id: Content_17
     name: SECTION 4.2.3
+    nid: 218
     sectionNumber: 4.2.3
     sectionTitle: Other Trial Design Considerations
     text: ''
-  - _id: 219
-    _type: Content
-    id: Content_18
+  - id: Content_18
     name: SECTION 4.3
+    nid: 219
     sectionNumber: '4.3'
     sectionTitle: Access to Trial Intervention After End of Trial
     text: ''
-  - _id: 220
-    _type: Content
-    id: Content_19
+  - id: Content_19
     name: SECTION 4.4
+    nid: 220
     sectionNumber: '4.4'
     sectionTitle: Start of Trial and End of Trial
     text: ''
-  - _id: 221
-    _type: Content
-    id: Content_20
+  - id: Content_20
     name: SECTION 5
+    nid: 221
     sectionNumber: '5'
     sectionTitle: TRIAL POPULATION
     text: ''
-  - _id: 222
-    _type: Content
-    id: Content_21
+  - id: Content_21
     name: SECTION 5.1
+    nid: 222
     sectionNumber: '5.1'
     sectionTitle: Selection of Trial Population
     text: ''
-  - _id: 223
-    _type: Content
-    id: Content_22
+  - id: Content_22
     name: SECTION 5.2
+    nid: 223
     sectionNumber: '5.2'
     sectionTitle: Rationale for Trial Population
     text: ''
-  - _id: 224
-    _type: Content
-    id: Content_23
+  - id: Content_23
     name: SECTION 5.3
+    nid: 224
     sectionNumber: '5.3'
     sectionTitle: Inclusion Criteria
     text: "<p>Inclusion criteria are:</p>\n<ul>\n  <li>1. Something</li>\n  <li>2.\
       \ Something else</li>\n</ul>"
-  - _id: 225
-    _type: Content
-    id: Content_24
+  - id: Content_24
     name: SECTION 5.4
+    nid: 225
     sectionNumber: '5.4'
     sectionTitle: Exclusion Criteria
     text: "<p>Exclusion criteria are:</p>\n<ul>\n  <li>1. Dont do this</li>\n  <li>2.\
       \ And don't do that</li>\n</ul>"
-  - _id: 226
-    _type: Content
-    id: Content_25
+  - id: Content_25
     name: SECTION 5.5
+    nid: 226
     sectionNumber: '5.5'
     sectionTitle: Lifestyle Considerations
     text: ''
-  - _id: 227
-    _type: Content
-    id: Content_26
+  - id: Content_26
     name: SECTION 5.5.1
+    nid: 227
     sectionNumber: 5.5.1
     sectionTitle: Meals and Dietary Restrictions
     text: ''
-  - _id: 228
-    _type: Content
-    id: Content_27
+  - id: Content_27
     name: SECTION 5.5.2
+    nid: 228
     sectionNumber: 5.5.2
     sectionTitle: Caffeine, Alcohol, Tobacco, and Other Habits
     text: ''
-  - _id: 229
-    _type: Content
-    id: Content_28
+  - id: Content_28
     name: SECTION 5.5.3
+    nid: 229
     sectionNumber: 5.5.3
     sectionTitle: Physical Activity
     text: ''
-  - _id: 230
-    _type: Content
-    id: Content_29
+  - id: Content_29
     name: SECTION 5.5.4
+    nid: 230
     sectionNumber: 5.5.4
     sectionTitle: Other Activity
     text: ''
-  - _id: 231
-    _type: Content
-    id: Content_30
+  - id: Content_30
     name: SECTION 5.6
+    nid: 231
     sectionNumber: '5.6'
     sectionTitle: Screen Failures
     text: ''
-  - _id: 232
-    _type: Content
-    id: Content_31
+  - id: Content_31
     name: SECTION 6
+    nid: 232
     sectionNumber: '6'
     sectionTitle: TRIAL INTERVENTION AND CONCOMITANT THERAPY
     text: ''
-  - _id: 233
-    _type: Content
-    id: Content_32
+  - id: Content_32
     name: SECTION 6.1
+    nid: 233
     sectionNumber: '6.1'
     sectionTitle: Description of Trial Intervention
     text: ''
-  - _id: 234
-    _type: Content
-    id: Content_33
+  - id: Content_33
     name: SECTION 6.2
+    nid: 234
     sectionNumber: '6.2'
     sectionTitle: Rationale for Trial Intervention
     text: ''
-  - _id: 235
-    _type: Content
-    id: Content_34
+  - id: Content_34
     name: SECTION 6.3
+    nid: 235
     sectionNumber: '6.3'
     sectionTitle: Dosing and Administration
     text: ''
-  - _id: 236
-    _type: Content
-    id: Content_35
+  - id: Content_35
     name: SECTION 6.3.1
+    nid: 236
     sectionNumber: 6.3.1
     sectionTitle: Trial Intervention Dose Modification
     text: ''
-  - _id: 237
-    _type: Content
-    id: Content_36
+  - id: Content_36
     name: SECTION 6.4
+    nid: 237
     sectionNumber: '6.4'
     sectionTitle: Treatment of Overdose
     text: ''
-  - _id: 238
-    _type: Content
-    id: Content_37
+  - id: Content_37
     name: SECTION 6.5
+    nid: 238
     sectionNumber: '6.5'
     sectionTitle: Preparation, Handling, Storage and Accountability
     text: ''
-  - _id: 239
-    _type: Content
-    id: Content_38
+  - id: Content_38
     name: SECTION 6.5.1
+    nid: 239
     sectionNumber: 6.5.1
     sectionTitle: Preparation of Trial Intervention
     text: ''
-  - _id: 240
-    _type: Content
-    id: Content_39
+  - id: Content_39
     name: SECTION 6.5.2
+    nid: 240
     sectionNumber: 6.5.2
     sectionTitle: Handling and Storage of Trial Intervention
     text: ''
-  - _id: 241
-    _type: Content
-    id: Content_40
+  - id: Content_40
     name: SECTION 6.5.3
+    nid: 241
     sectionNumber: 6.5.3
     sectionTitle: Accountability of Trial Intervention
     text: ''
-  - _id: 242
-    _type: Content
-    id: Content_41
+  - id: Content_41
     name: SECTION 6.6
+    nid: 242
     sectionNumber: '6.6'
     sectionTitle: Participant Assignment, Randomisation and Blinding
     text: ''
-  - _id: 243
-    _type: Content
-    id: Content_42
+  - id: Content_42
     name: SECTION 6.6.1
+    nid: 243
     sectionNumber: 6.6.1
     sectionTitle: Participant Assignment
     text: ''
-  - _id: 244
-    _type: Content
-    id: Content_43
+  - id: Content_43
     name: SECTION 6.6.2
+    nid: 244
     sectionNumber: 6.6.2
     sectionTitle: Randomisation
     text: ''
-  - _id: 245
-    _type: Content
-    id: Content_44
+  - id: Content_44
     name: SECTION 6.6.3
+    nid: 245
     sectionNumber: 6.6.3
     sectionTitle: Blinding and Unblinding
     text: <p>Blinding and unblinding text here please</p>
-  - _id: 246
-    _type: Content
-    id: Content_45
+  - id: Content_45
     name: SECTION 6.7
+    nid: 246
     sectionNumber: '6.7'
     sectionTitle: Trial Intervention Compliance
     text: ''
-  - _id: 247
-    _type: Content
-    id: Content_46
+  - id: Content_46
     name: SECTION 6.8
+    nid: 247
     sectionNumber: '6.8'
     sectionTitle: Concomitant Therapy
     text: ''
-  - _id: 248
-    _type: Content
-    id: Content_47
+  - id: Content_47
     name: SECTION 6.8.1
+    nid: 248
     sectionNumber: 6.8.1
     sectionTitle: Prohibited Concomitant Therapy
     text: ''
-  - _id: 249
-    _type: Content
-    id: Content_48
+  - id: Content_48
     name: SECTION 6.8.2
+    nid: 249
     sectionNumber: 6.8.2
     sectionTitle: Permitted Concomitant Therapy
     text: ''
-  - _id: 250
-    _type: Content
-    id: Content_49
+  - id: Content_49
     name: SECTION 6.8.3
+    nid: 250
     sectionNumber: 6.8.3
     sectionTitle: Rescue Therapy
     text: ''
-  - _id: 251
-    _type: Content
-    id: Content_50
+  - id: Content_50
     name: SECTION 6.8.4
+    nid: 251
     sectionNumber: 6.8.4
     sectionTitle: Other Therapy
     text: ''
-  - _id: 252
-    _type: Content
-    id: Content_51
+  - id: Content_51
     name: SECTION 7
+    nid: 252
     sectionNumber: '7'
     sectionTitle: DISCONTINUATION OF TRIAL INTERVENTION AND PARTICIPANT WITHDRAWAL
       FROM TRIAL
     text: ''
-  - _id: 253
-    _type: Content
-    id: Content_52
+  - id: Content_52
     name: SECTION 7.1
+    nid: 253
     sectionNumber: '7.1'
     sectionTitle: Discontinuation of Trial Intervention
     text: ''
-  - _id: 254
-    _type: Content
-    id: Content_53
+  - id: Content_53
     name: SECTION 7.1.1
+    nid: 254
     sectionNumber: 7.1.1
     sectionTitle: Criteria for Permanent Discontinuation of Trial Intervention
     text: ''
-  - _id: 255
-    _type: Content
-    id: Content_54
+  - id: Content_54
     name: SECTION 7.1.2
+    nid: 255
     sectionNumber: 7.1.2
     sectionTitle: Temporary Discontinuation or Interruption of Trial Intervention
     text: ''
-  - _id: 256
-    _type: Content
-    id: Content_55
+  - id: Content_55
     name: SECTION 7.1.3
+    nid: 256
     sectionNumber: 7.1.3
     sectionTitle: Rechallenge
     text: ''
-  - _id: 257
-    _type: Content
-    id: Content_56
+  - id: Content_56
     name: SECTION 7.2
+    nid: 257
     sectionNumber: '7.2'
     sectionTitle: Participant Withdrawal from the Trial
     text: ''
-  - _id: 258
-    _type: Content
-    id: Content_57
+  - id: Content_57
     name: SECTION 7.3
+    nid: 258
     sectionNumber: '7.3'
     sectionTitle: Lost to Follow-Up
     text: ''
-  - _id: 259
-    _type: Content
-    id: Content_58
+  - id: Content_58
     name: SECTION 7.4
+    nid: 259
     sectionNumber: '7.4'
     sectionTitle: Trial Stopping Rules
     text: ''
-  - _id: 260
-    _type: Content
-    id: Content_59
+  - id: Content_59
     name: SECTION 8
+    nid: 260
     sectionNumber: '8'
     sectionTitle: TRIAL ASSESSMENTS AND PROCEDURES
     text: ''
-  - _id: 261
-    _type: Content
-    id: Content_60
+  - id: Content_60
     name: SECTION 8.1
+    nid: 261
     sectionNumber: '8.1'
     sectionTitle: Screening/Baseline Assessments and Procedures
     text: ''
-  - _id: 262
-    _type: Content
-    id: Content_61
+  - id: Content_61
     name: SECTION 8.2
+    nid: 262
     sectionNumber: '8.2'
     sectionTitle: Efficacy Assessments and Procedures
     text: ''
-  - _id: 263
-    _type: Content
-    id: Content_62
+  - id: Content_62
     name: SECTION 8.3
+    nid: 263
     sectionNumber: '8.3'
     sectionTitle: Safety Assessments and Procedures
     text: ''
-  - _id: 264
-    _type: Content
-    id: Content_63
+  - id: Content_63
     name: SECTION 8.3.1
+    nid: 264
     sectionNumber: 8.3.1
     sectionTitle: Physical Examination
     text: ''
-  - _id: 265
-    _type: Content
-    id: Content_64
+  - id: Content_64
     name: SECTION 8.3.2
+    nid: 265
     sectionNumber: 8.3.2
     sectionTitle: Vital Signs
     text: ''
-  - _id: 266
-    _type: Content
-    id: Content_65
+  - id: Content_65
     name: SECTION 8.3.3
+    nid: 266
     sectionNumber: 8.3.3
     sectionTitle: Electrocardiograms
     text: ''
-  - _id: 267
-    _type: Content
-    id: Content_66
+  - id: Content_66
     name: SECTION 8.3.4
+    nid: 267
     sectionNumber: 8.3.4
     sectionTitle: Clinical Laboratory Assessments
     text: ''
-  - _id: 268
-    _type: Content
-    id: Content_67
+  - id: Content_67
     name: SECTION 8.3.5
+    nid: 268
     sectionNumber: 8.3.5
     sectionTitle: Suicidal Ideation and Behaviour Risk Monitoring
     text: ''
-  - _id: 269
-    _type: Content
-    id: Content_68
+  - id: Content_68
     name: SECTION 8.4
+    nid: 269
     sectionNumber: '8.4'
     sectionTitle: Adverse Events and Serious Adverse Events
     text: ''
-  - _id: 270
-    _type: Content
-    id: Content_69
+  - id: Content_69
     name: SECTION 8.4.1
+    nid: 270
     sectionNumber: 8.4.1
     sectionTitle: Definitions of AE and SAE
     text: ''
-  - _id: 271
-    _type: Content
-    id: Content_70
+  - id: Content_70
     name: SECTION 8.4.2
+    nid: 271
     sectionNumber: 8.4.2
     sectionTitle: Time Period and Frequency for Collecting AE and SAE Information
     text: ''
-  - _id: 272
-    _type: Content
-    id: Content_71
+  - id: Content_71
     name: SECTION 8.4.3
+    nid: 272
     sectionNumber: 8.4.3
     sectionTitle: Identifying AEs and SAEs
     text: ''
-  - _id: 273
-    _type: Content
-    id: Content_72
+  - id: Content_72
     name: SECTION 8.4.4
+    nid: 273
     sectionNumber: 8.4.4
     sectionTitle: Recording of AEs and SAEs
     text: ''
-  - _id: 274
-    _type: Content
-    id: Content_73
+  - id: Content_73
     name: SECTION 8.4.5
+    nid: 274
     sectionNumber: 8.4.5
     sectionTitle: Follow-up of AEs and SAEs
     text: ''
-  - _id: 275
-    _type: Content
-    id: Content_74
+  - id: Content_74
     name: SECTION 8.4.6
+    nid: 275
     sectionNumber: 8.4.6
     sectionTitle: Reporting of SAEs
     text: ''
-  - _id: 276
-    _type: Content
-    id: Content_75
+  - id: Content_75
     name: SECTION 8.4.7
+    nid: 276
     sectionNumber: 8.4.7
     sectionTitle: Regulatory Reporting Requirements for SAEs
     text: ''
-  - _id: 277
-    _type: Content
-    id: Content_76
+  - id: Content_76
     name: SECTION 8.4.8
+    nid: 277
     sectionNumber: 8.4.8
     sectionTitle: Serious and Unexpected Adverse Reaction Reporting
     text: ''
-  - _id: 278
-    _type: Content
-    id: Content_77
+  - id: Content_77
     name: SECTION 8.4.9
+    nid: 278
     sectionNumber: 8.4.9
     sectionTitle: Adverse Events of Special Interest
     text: ''
-  - _id: 279
-    _type: Content
-    id: Content_78
+  - id: Content_78
     name: SECTION 8.4.10
+    nid: 279
     sectionNumber: 8.4.10
     sectionTitle: Disease-related Events or Outcomes Not Qualifying as AEs or SAEs
     text: ''
-  - _id: 280
-    _type: Content
-    id: Content_79
+  - id: Content_79
     name: SECTION 8.5
+    nid: 280
     sectionNumber: '8.5'
     sectionTitle: Pregnancy and Postpartum Information
     text: ''
-  - _id: 281
-    _type: Content
-    id: Content_80
+  - id: Content_80
     name: SECTION 8.5.1
+    nid: 281
     sectionNumber: 8.5.1
     sectionTitle: Participants Who Become Pregnant During the Trial
     text: ''
-  - _id: 282
-    _type: Content
-    id: Content_81
+  - id: Content_81
     name: SECTION 8.5.2
+    nid: 282
     sectionNumber: 8.5.2
     sectionTitle: Participants Whose Partners Become Pregnant
     text: ''
-  - _id: 283
-    _type: Content
-    id: Content_82
+  - id: Content_82
     name: SECTION 8.6
+    nid: 283
     sectionNumber: '8.6'
     sectionTitle: Medical Device Product Complaints for Drug/Device Combination Products
     text: ''
-  - _id: 284
-    _type: Content
-    id: Content_83
+  - id: Content_83
     name: SECTION 8.6.1
+    nid: 284
     sectionNumber: 8.6.1
     sectionTitle: Definition of Medical Device Product Complaints
     text: ''
-  - _id: 285
-    _type: Content
-    id: Content_84
+  - id: Content_84
     name: SECTION 8.6.2
+    nid: 285
     sectionNumber: 8.6.2
     sectionTitle: Recording of Medical Device Product Complaints
     text: ''
-  - _id: 286
-    _type: Content
-    id: Content_85
+  - id: Content_85
     name: SECTION 8.6.3
+    nid: 286
     sectionNumber: 8.6.3
     sectionTitle: Time Period and Frequency for Collecting Medical Device Product
       Complaints .
     text: ''
-  - _id: 287
-    _type: Content
-    id: Content_86
+  - id: Content_86
     name: SECTION 8.6.4
+    nid: 287
     sectionNumber: 8.6.4
     sectionTitle: Follow-Up of Medical Device Product Complaints
     text: ''
-  - _id: 288
-    _type: Content
-    id: Content_87
+  - id: Content_87
     name: SECTION 8.6.5
+    nid: 288
     sectionNumber: 8.6.5
     sectionTitle: Regulatory Reporting Requirements for Medical Device Product Complaints
     text: ''
-  - _id: 289
-    _type: Content
-    id: Content_88
+  - id: Content_88
     name: SECTION 8.7
+    nid: 289
     sectionNumber: '8.7'
     sectionTitle: Pharmacokinetics
     text: ''
-  - _id: 290
-    _type: Content
-    id: Content_89
+  - id: Content_89
     name: SECTION 8.8
+    nid: 290
     sectionNumber: '8.8'
     sectionTitle: Genetics
     text: ''
-  - _id: 291
-    _type: Content
-    id: Content_90
+  - id: Content_90
     name: SECTION 8.9
+    nid: 291
     sectionNumber: '8.9'
     sectionTitle: Biomarkers
     text: ''
-  - _id: 292
-    _type: Content
-    id: Content_91
+  - id: Content_91
     name: SECTION 8.1
+    nid: 292
     sectionNumber: '8.1'
     sectionTitle: Immunogenicity Assessments
     text: ''
-  - _id: 293
-    _type: Content
-    id: Content_92
+  - id: Content_92
     name: SECTION 8.1.1
+    nid: 293
     sectionNumber: 8.1.1
     sectionTitle: Medical Resource Utilisation and Health Economics
     text: ''
-  - _id: 294
-    _type: Content
-    id: Content_93
+  - id: Content_93
     name: SECTION 9
+    nid: 294
     sectionNumber: '9'
     sectionTitle: STATISTICAL CONSIDERATIONS
     text: ''
-  - _id: 295
-    _type: Content
-    id: Content_94
+  - id: Content_94
     name: SECTION 9.1
+    nid: 295
     sectionNumber: '9.1'
     sectionTitle: Analysis Sets
     text: ''
-  - _id: 296
-    _type: Content
-    id: Content_95
+  - id: Content_95
     name: SECTION 9.2
+    nid: 296
     sectionNumber: '9.2'
     sectionTitle: Analyses Supporting Primary Objective(s)
     text: ''
-  - _id: 297
-    _type: Content
-    id: Content_96
+  - id: Content_96
     name: SECTION 9.2.1
+    nid: 297
     sectionNumber: 9.2.1
     sectionTitle: Statistical Model, Hypothesis, and Method of Analysis
     text: ''
-  - _id: 298
-    _type: Content
-    id: Content_97
+  - id: Content_97
     name: SECTION 9.2.2
+    nid: 298
     sectionNumber: 9.2.2
     sectionTitle: Handling of Intercurrent Events of Primary Estimand(s)
     text: ''
-  - _id: 299
-    _type: Content
-    id: Content_98
+  - id: Content_98
     name: SECTION 9.2.3
+    nid: 299
     sectionNumber: 9.2.3
     sectionTitle: Handling of Missing Data
     text: ''
-  - _id: 300
-    _type: Content
-    id: Content_99
+  - id: Content_99
     name: SECTION 9.2.4
+    nid: 300
     sectionNumber: 9.2.4
     sectionTitle: Sensitivity Analysis
     text: ''
-  - _id: 301
-    _type: Content
-    id: Content_100
+  - id: Content_100
     name: SECTION 9.2.5
+    nid: 301
     sectionNumber: 9.2.5
     sectionTitle: Supplementary Analysis
     text: ''
-  - _id: 302
-    _type: Content
-    id: Content_101
+  - id: Content_101
     name: SECTION 9.3
+    nid: 302
     sectionNumber: '9.3'
     sectionTitle: Analysis Supporting Secondary Objective(s)
     text: ''
-  - _id: 303
-    _type: Content
-    id: Content_102
+  - id: Content_102
     name: SECTION 9.4
+    nid: 303
     sectionNumber: '9.4'
     sectionTitle: Analysis of Exploratory Objective(s)
     text: ''
-  - _id: 304
-    _type: Content
-    id: Content_103
+  - id: Content_103
     name: SECTION 9.5
+    nid: 304
     sectionNumber: '9.5'
     sectionTitle: Safety Analyses
     text: ''
-  - _id: 305
-    _type: Content
-    id: Content_104
+  - id: Content_104
     name: SECTION 9.6
+    nid: 305
     sectionNumber: '9.6'
     sectionTitle: Other Analyses
     text: ''
-  - _id: 306
-    _type: Content
-    id: Content_105
+  - id: Content_105
     name: SECTION 9.7
+    nid: 306
     sectionNumber: '9.7'
     sectionTitle: Interim Analyses
     text: ''
-  - _id: 307
-    _type: Content
-    id: Content_106
+  - id: Content_106
     name: SECTION 9.8
+    nid: 307
     sectionNumber: '9.8'
     sectionTitle: Sample Size Determination
     text: ''
-  - _id: 308
-    _type: Content
-    id: Content_107
+  - id: Content_107
     name: SECTION 9.9
+    nid: 308
     sectionNumber: '9.9'
     sectionTitle: Protocol Deviations
     text: ''
-  - _id: 309
-    _type: Content
-    id: Content_108
+  - id: Content_108
     name: SECTION 10
+    nid: 309
     sectionNumber: '10'
     sectionTitle: 'GENERAL CONSIDERATIONS: REGULATORY, ETHICAL, AND TRIAL OVERSIGHT'
     text: ''
-  - _id: 310
-    _type: Content
-    id: Content_109
+  - id: Content_109
     name: SECTION 10.1
+    nid: 310
     sectionNumber: '10.1'
     sectionTitle: Regulatory and Ethical Considerations
     text: ''
-  - _id: 311
-    _type: Content
-    id: Content_110
+  - id: Content_110
     name: SECTION 10.2
+    nid: 311
     sectionNumber: '10.2'
     sectionTitle: Committees
     text: ''
-  - _id: 312
-    _type: Content
-    id: Content_111
+  - id: Content_111
     name: SECTION 10.3
+    nid: 312
     sectionNumber: '10.3'
     sectionTitle: Informed Consent Process
     text: ''
-  - _id: 313
-    _type: Content
-    id: Content_112
+  - id: Content_112
     name: SECTION 10.4
+    nid: 313
     sectionNumber: '10.4'
     sectionTitle: Data Protection
     text: ''
-  - _id: 314
-    _type: Content
-    id: Content_113
+  - id: Content_113
     name: SECTION 10.5
+    nid: 314
     sectionNumber: '10.5'
     sectionTitle: Early Site Closure or Trial Termination
     text: ''
-  - _id: 315
-    _type: Content
-    id: Content_114
+  - id: Content_114
     name: SECTION 11
+    nid: 315
     sectionNumber: '11'
     sectionTitle: 'GENERAL CONSIDERATIONS: RISK MANAGEMENT AND QUALITY ASSURANCE'
     text: ''
-  - _id: 316
-    _type: Content
-    id: Content_115
+  - id: Content_115
     name: SECTION 11.1
+    nid: 316
     sectionNumber: '11.1'
     sectionTitle: Quality Tolerance Limits
     text: ''
-  - _id: 317
-    _type: Content
-    id: Content_116
+  - id: Content_116
     name: SECTION 11.2
+    nid: 317
     sectionNumber: '11.2'
     sectionTitle: Data Quality Assurance
     text: ''
-  - _id: 318
-    _type: Content
-    id: Content_117
+  - id: Content_117
     name: SECTION 11.3
+    nid: 318
     sectionNumber: '11.3'
     sectionTitle: Source Data
     text: ''
-  - _id: 319
-    _type: Content
-    id: Content_118
+  - id: Content_118
     name: SECTION 12
+    nid: 319
     sectionNumber: '12'
     sectionTitle: 'APPENDIX: ADVERSE EVENTS AND SERIOUS ADVERSE EVENTS - DEFINITIONS,
       SEVERITY, AND CAUSALITY'
     text: ''
-  - _id: 320
-    _type: Content
-    id: Content_119
+  - id: Content_119
     name: SECTION 12.1
+    nid: 320
     sectionNumber: '12.1'
     sectionTitle: Further Details and Clarifications on the AE Definition
     text: ''
-  - _id: 321
-    _type: Content
-    id: Content_120
+  - id: Content_120
     name: SECTION 12.2
+    nid: 321
     sectionNumber: '12.2'
     sectionTitle: Further Details and Clarifications on the SAE Definition
     text: ''
-  - _id: 322
-    _type: Content
-    id: Content_121
+  - id: Content_121
     name: SECTION 12.3
+    nid: 322
     sectionNumber: '12.3'
     sectionTitle: Severity
     text: ''
-  - _id: 323
-    _type: Content
-    id: Content_122
+  - id: Content_122
     name: SECTION 12.4
+    nid: 323
     sectionNumber: '12.4'
     sectionTitle: Causality
     text: ''
-  - _id: 324
-    _type: Content
-    id: Content_123
+  - id: Content_123
     name: SECTION 13
+    nid: 324
     sectionNumber: '13'
     sectionTitle: 'APPENDIX: DEFINITIONS AND SUPPORTING OPERATIONAL DETAILS'
     text: ''
-  - _id: 325
-    _type: Content
-    id: Content_124
+  - id: Content_124
     name: SECTION 13.1
+    nid: 325
     sectionNumber: '13.1'
     sectionTitle: Contraception and Pregnancy Testing
     text: ''
-  - _id: 326
-    _type: Content
-    id: Content_125
+  - id: Content_125
     name: SECTION 13.1.1
+    nid: 326
     sectionNumber: 13.1.1
     sectionTitle: Definitions Related to Childbearing Potential
     text: ''
-  - _id: 327
-    _type: Content
-    id: Content_126
+  - id: Content_126
     name: SECTION 13.1.2
+    nid: 327
     sectionNumber: 13.1.2
     sectionTitle: Contraception
     text: ''
-  - _id: 328
-    _type: Content
-    id: Content_127
+  - id: Content_127
     name: SECTION 13.1.3
+    nid: 328
     sectionNumber: 13.1.3
     sectionTitle: Pregnancy Testing
     text: ''
-  - _id: 329
-    _type: Content
-    id: Content_128
+  - id: Content_128
     name: SECTION 13.2
+    nid: 329
     sectionNumber: '13.2'
     sectionTitle: Clinical Laboratory Tests
     text: ''
-  - _id: 330
-    _type: Content
-    id: Content_129
+  - id: Content_129
     name: SECTION 13.3
+    nid: 330
     sectionNumber: '13.3'
     sectionTitle: Country/Region-Specific Differences
     text: ''
-  - _id: 331
-    _type: Content
-    id: Content_130
+  - id: Content_130
     name: SECTION 13.4
+    nid: 331
     sectionNumber: '13.4'
     sectionTitle: Prior Protocol Amendments
     text: ''
-  - _id: 332
-    _type: Content
-    id: Content_131
+  - id: Content_131
     name: SECTION 14
+    nid: 332
     sectionNumber: '14'
     sectionTitle: 'APPENDIX: GLOSSARY OF TERMS'
     text: ''
-  - _id: 333
-    _type: Content
-    id: Content_132
+  - id: Content_132
     name: SECTION 15
+    nid: 333
     sectionNumber: '15'
     sectionTitle: 'APPENDIX: REFERENCES'
     text: ''
   Encounter:
-  - _id: 110
-    _type: Encounter
-    description: Screening encounter
+  - description: Screening encounter
     id: Encounter_1
     label: ''
     name: Screening
-  - _id: 116
-    _type: Encounter
-    description: Baseline encounter
+    nid: 110
+  - description: Baseline encounter
     id: Encounter_2
     label: ''
     name: Baseline
+    nid: 116
     transitionEndRule: null
     transitionStartRule: null
-  - _id: 120
-    _type: Encounter
-    description: First dose
+  - description: First dose
     id: Encounter_3
     label: ''
     name: 15 min
+    nid: 120
     transitionEndRule: null
-  - _id: 125
-    _type: Encounter
-    description: 2 week visit
+  - description: 2 week visit
     id: Encounter_4
     label: ''
     name: Day 24
+    nid: 125
     transitionEndRule: null
     transitionStartRule: null
-  - _id: 129
-    _type: Encounter
-    description: 5 week visit
+  - description: 5 week visit
     id: Encounter_5
     label: ''
     name: Day 35
+    nid: 129
     transitionEndRule: null
     transitionStartRule: null
   Endpoint:
-  - _id: 52
-    _type: Endpoint
-    description: Clinical status assessed using a 7-category ordinal scale at Day
+  - description: Clinical status assessed using a 7-category ordinal scale at Day
       28
     id: Endpoint_1
+    nid: 52
     purpose: None provided
-  - _id: 56
-    _type: Endpoint
-    description: Time to clinical improvement (TTCI) defined as a National Early Warning
+  - description: Time to clinical improvement (TTCI) defined as a National Early Warning
       Score 2 (NEWS2) of <=2 maintained for 24 hours
     id: Endpoint_2
+    nid: 56
     purpose: None provided
-  - _id: 58
-    _type: Endpoint
-    description: Time to improvement of at least 2 categories relative to baseline
+  - description: Time to improvement of at least 2 categories relative to baseline
       on a 7-category ordinal scale of clinical status
     id: Endpoint_3
+    nid: 58
     purpose: None provided
-  - _id: 60
-    _type: Endpoint
-    description: Incidence of mechanical ventilation
+  - description: Incidence of mechanical ventilation
     id: Endpoint_4
+    nid: 60
     purpose: None provided
-  - _id: 62
-    _type: Endpoint
-    description: Ventilator-free days to Day 28
+  - description: Ventilator-free days to Day 28
     id: Endpoint_5
+    nid: 62
     purpose: None provided
-  - _id: 64
-    _type: Endpoint
-    description: Incidence of intensive care unit (ICU) stay
+  - description: Incidence of intensive care unit (ICU) stay
     id: Endpoint_6
+    nid: 64
     purpose: None provided
-  - _id: 66
-    _type: Endpoint
-    description: Duration of ICU stay
+  - description: Duration of ICU stay
     id: Endpoint_7
+    nid: 66
     purpose: None provided
-  - _id: 68
-    _type: Endpoint
-    description: Time to clinical failure, defined as the time to death, mechanical
+  - description: Time to clinical failure, defined as the time to death, mechanical
       ventilation, ICU admission, or withdrawal (whichever occurs first). For patients
       entering the study already in ICU or on mechanical ventilation, clinical failure
       is defined as a one-category worsening on the ordinal scale, withdrawal or death.
     id: Endpoint_8
+    nid: 68
     purpose: None provided
-  - _id: 70
-    _type: Endpoint
-    description: Mortality rate at Days 7, 14, 21, 28, and 60
+  - description: Mortality rate at Days 7, 14, 21, 28, and 60
     id: Endpoint_9
+    nid: 70
     purpose: None provided
-  - _id: 72
-    _type: Endpoint
-    description: "Time to hospital discharge or \u201Cready for discharge\u201D (as\
+  - description: "Time to hospital discharge or \u201Cready for discharge\u201D (as\
       \ evidenced by normal body temperature and respiratory rate, and stable oxygen\
       \ saturation on ambient air or <= 2L supplemental oxygen)"
     id: Endpoint_10
+    nid: 72
     purpose: None provided
-  - _id: 74
-    _type: Endpoint
-    description: "Time to recovery, defined as discharged or \u201Cready for discharge\u201D\
+  - description: "Time to recovery, defined as discharged or \u201Cready for discharge\u201D\
       \ (as evidenced by normal body temperature and respiratory rate, and stable\
       \ oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU\
       \ hospital ward (or \u201Cready for hospital ward\u201D) not requiring supplemental\
       \ oxygen"
     id: Endpoint_11
+    nid: 74
     purpose: None provided
-  - _id: 76
-    _type: Endpoint
-    description: Duration of supplemental oxygen
+  - description: Duration of supplemental oxygen
     id: Endpoint_12
+    nid: 76
     purpose: None provided
   Estimand:
-  - _id: 102
-    _type: Estimand
-    id: Estimand_1
+  - id: Estimand_1
+    nid: 102
     summaryMeasure: Survival of all patients
-  - _id: 107
-    _type: Estimand
-    id: Estimand_2
+  - id: Estimand_2
+    nid: 107
     summaryMeasure: Something else
   Indication:
-  - _id: 34
-    _type: Indication
-    description: An indication
+  - description: An indication
     id: Indication_1
     label: ''
     name: IND1
-  - _id: 36
-    _type: Indication
-    description: An indication
+    nid: 34
+  - description: An indication
     id: Indication_2
     label: ''
     name: IND2
+    nid: 36
   IntercurrentEvent:
-  - _id: 104
-    _type: IntercurrentEvent
-    description: IC Event Description
+  - description: IC Event Description
     id: IntercurrentEvent_1
     intercurrentEventStrategy: Patients with out of range lab values before dosing
       will be excluded
     label: ''
     name: termination
-  - _id: 105
-    _type: IntercurrentEvent
-    description: IC Event Description
+    nid: 104
+  - description: IC Event Description
     id: IntercurrentEvent_2
     intercurrentEventStrategy: A second bad event
     label: ''
     name: termination
-  - _id: 106
-    _type: IntercurrentEvent
-    description: IC Event Description
+    nid: 105
+  - description: IC Event Description
     id: IntercurrentEvent_3
     intercurrentEventStrategy: A third bad thing
     label: ''
     name: termination
-  - _id: 109
-    _type: IntercurrentEvent
-    description: IC Event Description Number 2
+    nid: 106
+  - description: IC Event Description Number 2
     id: IntercurrentEvent_4
     intercurrentEventStrategy: Really really bad shit
     label: ''
     name: Bad stuff
+    nid: 109
   InvestigationalIntervention:
-  - _id: 38
-    _type: InvestigationalIntervention
-    description: An intervention
+  - description: An intervention
     id: InvestigationalIntervention_1
-  - _id: 41
-    _type: InvestigationalIntervention
-    description: An intervention
+    nid: 38
+  - description: An intervention
     id: InvestigationalIntervention_2
+    nid: 41
   Objective:
-  - _id: 50
-    _type: Objective
-    description: The primary efficacy objective for this study is to evaluate the
+  - description: The primary efficacy objective for this study is to evaluate the
       efficacy of TCZ compared with placebo in combination with SOC for the treatment
       of severe COVID-19 pneumonia
     id: Objective_1
     label: ''
     name: OBJ1
-  - _id: 54
-    _type: Objective
-    description: The secondary efficacy objective for this study is to evaluate the
+    nid: 50
+  - description: The secondary efficacy objective for this study is to evaluate the
       efficacy of TCZ compared with placebo in combination with SOC for the treatment
       of severe COVID-19 pneumonia
     id: Objective_2
     label: ''
     name: OBJ2
+    nid: 54
   Organization:
-  - _id: 8
-    _type: Organization
-    id: Organization_1
+  - id: Organization_1
     label: ''
     name: ClinicalTrials.gov
+    nid: 8
     organizationIdentifier: CT-GOV
     organizationIdentifierScheme: USGOV
-  - _id: 13
-    _type: Organization
-    id: Organization_2
+  - id: Organization_2
     label: ''
     name: ACME Pharma
+    nid: 13
     organizationIdentifier: '123456789'
     organizationIdentifierScheme: DUNS
   ResponseCode:
-  - _id: 139
-    _type: ResponseCode
-    id: ResponseCode_1
+  - id: ResponseCode_1
+    nid: 139
     responseCodeEnabled: true
-  - _id: 141
-    _type: ResponseCode
-    id: ResponseCode_2
+  - id: ResponseCode_2
+    nid: 141
     responseCodeEnabled: true
-  - _id: 143
-    _type: ResponseCode
-    id: ResponseCode_3
+  - id: ResponseCode_3
+    nid: 143
     responseCodeEnabled: true
-  - _id: 151
-    _type: ResponseCode
-    id: ResponseCode_4
+  - id: ResponseCode_4
+    nid: 151
     responseCodeEnabled: true
-  - _id: 162
-    _type: ResponseCode
-    id: ResponseCode_5
+  - id: ResponseCode_5
+    nid: 162
     responseCodeEnabled: true
-  - _id: 164
-    _type: ResponseCode
-    id: ResponseCode_6
+  - id: ResponseCode_6
+    nid: 164
     responseCodeEnabled: true
-  - _id: 166
-    _type: ResponseCode
-    id: ResponseCode_7
+  - id: ResponseCode_7
+    nid: 166
     responseCodeEnabled: true
   ScheduleTimeline:
-  - _id: 78
-    _type: ScheduleTimeline
-    description: This is the main timeline for the study design.
+  - description: This is the main timeline for the study design.
     entryCondition: Potential subject identified
     id: ScheduleTimeline_1
     label: Main Timeline
     mainTimeline: true
     name: Main Timeline
+    nid: 78
   ScheduleTimelineExit:
-  - _id: 79
-    _type: ScheduleTimelineExit
-    id: ScheduleTimelineExit_1
+  - id: ScheduleTimelineExit_1
+    nid: 79
   ScheduledActivityInstance:
-  - _id: 80
-    _type: ScheduledActivityInstance
-    id: ScheduledActivityInstance_1
+  - id: ScheduledActivityInstance_1
     instanceType: ACTIVITY
-  - _id: 84
-    _type: ScheduledActivityInstance
-    id: ScheduledActivityInstance_2
+    nid: 80
+  - id: ScheduledActivityInstance_2
     instanceType: ACTIVITY
-  - _id: 88
-    _type: ScheduledActivityInstance
-    id: ScheduledActivityInstance_3
+    nid: 84
+  - id: ScheduledActivityInstance_3
     instanceType: ACTIVITY
-  - _id: 92
-    _type: ScheduledActivityInstance
-    id: ScheduledActivityInstance_4
+    nid: 88
+  - id: ScheduledActivityInstance_4
     instanceType: ACTIVITY
-  - _id: 96
-    _type: ScheduledActivityInstance
-    id: ScheduledActivityInstance_5
+    nid: 92
+  - id: ScheduledActivityInstance_5
     instanceType: ACTIVITY
+    nid: 96
   Study:
-  - _id: 1
-    _type: Study
-    id: Study
+  - id: Study
+    nid: 1
     studyAcronym: SIMPLE
     studyRationale: A simple test
     studyTitle: Simple Test 1
     studyVersion: '1'
   StudyArm:
-  - _id: 173
-    _type: StudyArm
-    description: Active Substance
+  - description: Active Substance
     id: StudyArm_1
     label: ''
     name: Active
+    nid: 173
     studyArmDataOriginDescription: Data collected from subjects
-  - _id: 176
-    _type: StudyArm
-    description: Placebo
+  - description: Placebo
     id: StudyArm_2
     label: ''
     name: Placebo
+    nid: 176
     studyArmDataOriginDescription: Data collected from subjects
   StudyCell:
-  - _id: 26
-    _type: StudyCell
-    id: StudyCell_1
-  - _id: 27
-    _type: StudyCell
-    id: StudyCell_2
-  - _id: 28
-    _type: StudyCell
-    id: StudyCell_3
-  - _id: 29
-    _type: StudyCell
-    id: StudyCell_4
-  - _id: 30
-    _type: StudyCell
-    id: StudyCell_5
-  - _id: 31
-    _type: StudyCell
-    id: StudyCell_6
-  - _id: 32
-    _type: StudyCell
-    id: StudyCell_7
-  - _id: 33
-    _type: StudyCell
-    id: StudyCell_8
+  - id: StudyCell_1
+    nid: 26
+  - id: StudyCell_2
+    nid: 27
+  - id: StudyCell_3
+    nid: 28
+  - id: StudyCell_4
+    nid: 29
+  - id: StudyCell_5
+    nid: 30
+  - id: StudyCell_6
+    nid: 31
+  - id: StudyCell_7
+    nid: 32
+  - id: StudyCell_8
+    nid: 33
   StudyDesign:
-  - _id: 21
-    _type: StudyDesign
-    bcCategories: []
+  - bcCategories: []
     description: The main design for the study
     id: StudyDesign_1
     label: ''
     name: Study Design 1
+    nid: 21
     studyDesignRationale: Basic study
   StudyDesignPopulation:
-  - _id: 44
-    _type: StudyDesignPopulation
-    description: Pop 1
+  - description: Pop 1
     id: StudyDesignPopulation_1
     label: ''
     name: POP 1
+    nid: 44
     plannedMaximumAgeOfParticipants: 40 years
     plannedMinimumAgeOfParticipants: 18 years
     plannedNumberOfParticipants: 100
-  - _id: 46
-    _type: StudyDesignPopulation
-    description: Pop 2
+  - description: Pop 2
     id: StudyDesignPopulation_2
     label: ''
     name: POP 2
+    nid: 46
     plannedMaximumAgeOfParticipants: 60 years
     plannedMinimumAgeOfParticipants: 18 years
     plannedNumberOfParticipants: 20
-  - _id: 48
-    _type: StudyDesignPopulation
-    description: Pop 3
+  - description: Pop 3
     id: StudyDesignPopulation_3
     label: ''
     name: POP 3
+    nid: 48
     plannedMaximumAgeOfParticipants: 70 years
     plannedMinimumAgeOfParticipants: 18 years
     plannedNumberOfParticipants: 20
   StudyElement:
-  - _id: 187
-    _type: StudyElement
-    description: Screening Element
+  - description: Screening Element
     id: StudyElement_1
     label: ''
     name: Screening
-  - _id: 190
-    _type: StudyElement
-    description: Baseline Element
+    nid: 187
+  - description: Baseline Element
     id: StudyElement_2
     label: ''
     name: Baseline
-  - _id: 193
-    _type: StudyElement
-    description: Treatment Element 1
+    nid: 190
+  - description: Treatment Element 1
     id: StudyElement_3
     label: ''
     name: Treatment 1
-  - _id: 196
-    _type: StudyElement
-    description: Treatment Element 2
+    nid: 193
+  - description: Treatment Element 2
     id: StudyElement_5
     label: ''
     name: Treatment 2
-  - _id: 199
-    _type: StudyElement
-    description: Follow Up Element
+    nid: 196
+  - description: Follow Up Element
     id: StudyElement_4
     label: ''
     name: Follow Up
+    nid: 199
   StudyEpoch:
-  - _id: 179
-    _type: StudyEpoch
-    description: Screening Epoch
+  - description: Screening Epoch
     id: StudyEpoch_1
     label: ''
     name: Screening
-  - _id: 181
-    _type: StudyEpoch
-    description: Baseline Epoch
+    nid: 179
+  - description: Baseline Epoch
     id: StudyEpoch_2
     label: ''
     name: Baseline
-  - _id: 183
-    _type: StudyEpoch
-    description: Treatment Epoch
+    nid: 181
+  - description: Treatment Epoch
     id: StudyEpoch_3
     label: ''
     name: Treatment
-  - _id: 185
-    _type: StudyEpoch
-    description: Follow-up Epoch
+    nid: 183
+  - description: Follow-up Epoch
     id: StudyEpoch_4
     label: ''
     name: Follow-Up
+    nid: 185
   StudyIdentifier:
-  - _id: 7
-    _type: StudyIdentifier
-    id: StudyIdentifier_1
+  - id: StudyIdentifier_1
+    nid: 7
     studyIdentifier: NCT12345678
-  - _id: 12
-    _type: StudyIdentifier
-    id: StudyIdentifier_2
+  - id: StudyIdentifier_2
+    nid: 12
     studyIdentifier: AP1234
   StudyProtocolVersion:
-  - _id: 17
-    _type: StudyProtocolVersion
-    briefTitle: Something Brief
+  - briefTitle: Something Brief
     id: StudyProtocolVersion_1
+    nid: 17
     officialTitle: Something Very Official
     protocolAmendment: ''
     protocolEffectiveDate: '2010-01-01'
     protocolVersion: '1'
     publicTitle: Something Public
     scientificTitle: Somethign Clever
-  - _id: 19
-    _type: StudyProtocolVersion
-    briefTitle: Something Brief
+  - briefTitle: Something Brief
     id: StudyProtocolVersion_2
+    nid: 19
     officialTitle: Something Very Official
     protocolAmendment: A
     protocolEffectiveDate: '2011-01-01'
@@ -3838,106 +3523,88 @@ nodes:
     publicTitle: Something Public
     scientificTitle: Somethign Clever But New
   Timing:
-  - _id: 81
-    _type: Timing
-    description: null
+  - description: null
     id: Timing_1
     label: ''
     name: TIMING_3
+    nid: 81
     timingValue: PT0M
     timingWindow: null
     timingWindowLower: null
     timingWindowUpper: null
-  - _id: 85
-    _type: Timing
-    description: Pre Dose
+  - description: Pre Dose
     id: Timing_2
     label: ''
     name: TIMING_4
+    nid: 85
     timingValue: PT0M
     timingWindow: 0..4 Hours
     timingWindowLower: PT0H
     timingWindowUpper: PT4H
-  - _id: 89
-    _type: Timing
-    description: null
+  - description: null
     id: Timing_3
     label: ''
     name: TIMING_5
+    nid: 89
     timingValue: PT0M
     timingWindow: 0..1 Hours
     timingWindowLower: PT0H
     timingWindowUpper: PT1H
-  - _id: 93
-    _type: Timing
-    description: +24 Hours
+  - description: +24 Hours
     id: Timing_4
     label: ''
     name: TIMING_6
+    nid: 93
     timingValue: PT24H
     timingWindow: null
     timingWindowLower: null
     timingWindowUpper: null
-  - _id: 97
-    _type: Timing
-    description: +7 Days
+  - description: +7 Days
     id: Timing_5
     label: ''
     name: TIMING_7
+    nid: 97
     timingValue: P7D
     timingWindow: -3..3 Days
     timingWindowLower: P3D
     timingWindowUpper: P3D
   TransitionRule:
-  - _id: 114
-    _type: TransitionRule
-    description: Subject identified
+  - description: Subject identified
     id: TransitionRule_1
-  - _id: 115
-    _type: TransitionRule
-    description: IEs passed
+    nid: 114
+  - description: IEs passed
     id: TransitionRule_2
-  - _id: 124
-    _type: TransitionRule
-    description: Radomized
+    nid: 115
+  - description: Radomized
     id: TransitionRule_3
-  - _id: 188
-    _type: TransitionRule
-    description: Study Start
+    nid: 124
+  - description: Study Start
     id: TransitionRule_4
-  - _id: 189
-    _type: TransitionRule
-    description: Screened
+    nid: 188
+  - description: Screened
     id: TransitionRule_5
-  - _id: 191
-    _type: TransitionRule
-    description: Screened
+    nid: 189
+  - description: Screened
     id: TransitionRule_6
-  - _id: 192
-    _type: TransitionRule
-    description: Radomized
+    nid: 191
+  - description: Radomized
     id: TransitionRule_7
-  - _id: 194
-    _type: TransitionRule
-    description: Radomized
+    nid: 192
+  - description: Radomized
     id: TransitionRule_8
-  - _id: 195
-    _type: TransitionRule
-    description: Completed treatment 1
+    nid: 194
+  - description: Completed treatment 1
     id: TransitionRule_9
-  - _id: 197
-    _type: TransitionRule
-    description: Radomized
+    nid: 195
+  - description: Radomized
     id: TransitionRule_12
-  - _id: 198
-    _type: TransitionRule
-    description: Completed treatment 2
+    nid: 197
+  - description: Completed treatment 2
     id: TransitionRule_13
-  - _id: 200
-    _type: TransitionRule
-    description: Treated
+    nid: 198
+  - description: Treated
     id: TransitionRule_10
-  - _id: 201
-    _type: TransitionRule
-    description: Leave Study
+    nid: 200
+  - description: Leave Study
     id: TransitionRule_11
+    nid: 201
