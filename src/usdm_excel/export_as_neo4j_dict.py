@@ -59,16 +59,17 @@ class ExportAsNeo4jDict():
               self.edge_index += 1
       if klass == "Study":
         properties['id'] = "Study"   
-      self._add_node(klass, properties)
+      self._add_node(klass, this_node_index, properties)
       self.id_node_index_map[properties['id']] = this_node_index
       return [this_node_index]
     else:
       return []
 
-  def _add_node(self, klass, properties):
+  def _add_node(self, klass, key, properties):
     if klass not in self.nodes:
       self.nodes[klass] = []
     properties.pop('_type')
+    properties['nid'] = key
     self.nodes[klass].append(properties)
 
   def _is_edge_field(self, key):
