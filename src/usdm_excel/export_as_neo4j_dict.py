@@ -1,3 +1,4 @@
+import stringcase
 import json
 
 class ExportAsNeo4jDict():
@@ -67,6 +68,7 @@ class ExportAsNeo4jDict():
   def _add_node(self, klass, properties):
     if klass not in self.nodes:
       self.nodes[klass] = []
+    properties.pop('_type')
     self.nodes[klass].append(properties)
 
   def _is_edge_field(self, key):
@@ -92,9 +94,10 @@ class ExportAsNeo4jDict():
 
   def _add_edge(self, start, end, id, key, type):
     rel = self._rel_name(key)
-    if rel not in self.edges:
-      self.edges[rel] = []
-    self.edges[rel].append({'id': id, 'start': start, 'end': end, 'label': key, 'relation': rel, 'type': type})
+    name = stringcase.snakecase(rel).upper()
+    if name not in self.edges:
+      self.edges[name] = []
+    self.edges[name].append({'id': id, 'start': start, 'end': end})
 
   def _rel_name(self, key):
     if key == "conditionAssignments":

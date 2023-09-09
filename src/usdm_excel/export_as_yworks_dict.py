@@ -1,4 +1,3 @@
-import stringcase
 import json
 
 class ExportAsYworksDict():
