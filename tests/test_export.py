@@ -3,7 +3,7 @@ import yaml
 import csv
 from src.usdm_excel import USDMExcel
 
-SAVE_ALL = True
+SAVE_ALL = False
 
 def to_int(value):
   try:
