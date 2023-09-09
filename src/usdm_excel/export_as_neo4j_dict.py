@@ -4,8 +4,8 @@ class ExportAsNeo4jDict():
 
   def __init__(self, study):
     self.study = study
-    self.nodes = []
-    self.edges = []
+    self.nodes = {}
+    self.edges = {}
     self.add_edges = []
     self.node_index = 1
     self.edge_index = 1
@@ -16,9 +16,10 @@ class ExportAsNeo4jDict():
     self._process_node(node)
     for edge in self.add_edges:
       if edge['end'] in self.id_node_index_map:
-        edge['id'] = self.edge_index
-        edge['end'] = self.id_node_index_map[edge['end']]
-        self.edges.append(edge)
+        #edge['id'] = self.edge_index
+        #edge['end'] = self.id_node_index_map[edge['end']]
+        #self.edges.append(edge)
+        self._add_edge(edge['start'], self.id_node_index_map[edge['end']], self.edge_index, edge['properties']['label'], edge['properties']['type'])
         self.edge_index += 1
       else:
         print("***** %s -edge-> %s [%s] *****" % (edge['start'], edge['end'], edge['properties']))
@@ -53,16 +54,21 @@ class ExportAsNeo4jDict():
             properties[key] = value
           else:
             for index in indexes:
-              self.edges.append( {'id': self.edge_index, 'start': this_node_index, 'end': index, 'properties': {'label': key}})
+              self._add_edge(this_node_index, index, self.edge_index, key, 'Normal')
               self.edge_index += 1
       if klass == "Study":
-        properties['id'] = "Study"
-      self.nodes.append({ 'id': this_node_index, 'properties': properties })
+        properties['id'] = "Study"   
+      self._add_node(klass, properties)
       self.id_node_index_map[properties['id']] = this_node_index
       return [this_node_index]
     else:
       return []
-    
+
+  def _add_node(self, klass, properties):
+    if klass not in self.nodes:
+      self.nodes[klass] = []
+    self.nodes[klass].append(properties)
+
   def _is_edge_field(self, key):
     if key == "conditionAssignments" or key.endswith('Ids') or key.endswith('Id'):
       return True
@@ -71,11 +77,30 @@ class ExportAsNeo4jDict():
   def _edge_field(self, key, value, current_index):
     if key == "conditionAssignments":
       for item in value:
-        self.add_edges.append( { 'start': current_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
+        self._add_post_edge(current_index, item[1], key, 'Condition')
     elif key.endswith('Ids'):
       for item in value:
         if item:
-          self.add_edges.append( { 'start': current_index, 'end': item, 'properties': { 'label': key, 'type': 'List' }})
+          self._add_post_edge(current_index, item, key, 'List')
     elif key.endswith('Id'):
       if value:
-        self.add_edges.append( { 'start': current_index, 'end': value, 'properties': { 'label': key, 'type': 'Other' }})
+        self._add_post_edge(current_index, value, key, 'Other')
+
+  def _add_post_edge(self, start, end, key, type):
+    rel = self._rel_name(key)
+    self.add_edges.append({'start': start, 'end': end, 'properties': {'label': key, 'relation': rel, 'type': type}})
+
+  def _add_edge(self, start, end, id, key, type):
+    rel = self._rel_name(key)
+    if rel not in self.edges:
+      self.edges[rel] = []
+    self.edges[rel].append({'id': id, 'start': start, 'end': end, 'properties': {'label': key, 'relation': rel, 'type': type}})
+
+  def _rel_name(self, key):
+    if key == "conditionAssignments":
+      return key
+    elif key.endswith('Ids'):
+      return key[:-3]
+    elif key.endswith('Id'):
+      return key[:-2]
+    return key
