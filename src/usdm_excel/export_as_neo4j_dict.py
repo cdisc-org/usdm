@@ -56,7 +56,7 @@ class ExportAsNeo4jDict():
               self.edges.append( {'id': self.edge_index, 'start': this_node_index, 'end': index, 'properties': {'label': key}})
               self.edge_index += 1
       if klass == "Study":
-        node['id'] = "Study"
+        properties['id'] = "Study"
       self.nodes.append({ 'id': this_node_index, 'properties': properties })
       self.id_node_index_map[properties['id']] = this_node_index
       return [this_node_index]
