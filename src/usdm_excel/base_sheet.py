@@ -232,6 +232,10 @@ class BaseSheet():
     except:
       return None
 
+  def _add_errors(self, errors, row, column):
+    for error in errors:
+      self._error(row, column, error)
+      
   def _get_column_index(self, column_name):
     return self.sheet.columns.get_loc(column_name)
 

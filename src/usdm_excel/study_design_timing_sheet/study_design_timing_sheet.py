@@ -27,14 +27,15 @@ class StudyDesignTimingSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'name')
         description = self.read_description_by_name(index, 'description')
-        label = self.read_cell_by_name(index, 'label', default="")
+        label = self.read_cell_by_name(index, 'label')
         type = self._set_type(self.read_cell_by_name(index, 'type'))
         from_name = self.read_cell_by_name(index, 'from')
         to_name = self.read_cell_by_name(index, 'to')
         timing_value = self._set_text_and_encoded(self.read_cell_by_name(index, 'timingValue'))
-        to_from_type = self.read_cdisc_klass_attribute_cell_by_name('Timing', 'timingRelativeToFrom', index, 'toFrom')
-        window = WindowType(self.parent, self.read_cell_by_name(index, 'label', default=""))
-
+        to_from_type = self._set_to_from_type(self.read_cell_by_name(index, 'toFrom'))
+        window = WindowType(self.read_cell_by_name(index, 'window'))
+        if window.errors:
+          self._add_errors(window.errors, index, self._get_column_index('window'))
         try:
           item = Timing(
             id=id_manager.build_id(Timing),
@@ -43,19 +44,18 @@ class StudyDesignTimingSheet(BaseSheet):
             name=name,
             description=description,
             label=label,
-            timingRelativeToFrom=CDISCCT().code('C99900x1', 'Start to Start'),
-            timingWindow=window.description,
+            timingRelativeToFrom=to_from_type,
+            timingWindow=window.label,
             timingWindowLower=window.lower,
             timingWindowUpper=window.upper,
-            relativeFromScheduledInstanceId=cross_references.get(from_name).id,
-            relativeToScheduledInstanceId=cross_references.get(from_name).id
+            relativeFromScheduledInstanceId=None,
+            relativeToScheduledInstanceId=None
           )
         except Exception as e:
           self._general_error(f"Failed to create Timing object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
-          cross_references.add(name, item)     
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
@@ -78,8 +78,19 @@ class StudyDesignTimingSheet(BaseSheet):
 
   def _set_type(self, text):
     type_code = {
-      "FIXED": CDISCCT().code('C99901x3', 'Fixed Reference'),
-      "PREVIOUS": CDISCCT().code('C99901x1', 'After'),
-      "NEXT": CDISCCT().code('C99901x2', 'Before'),
+      "FIXED": {'c_code': 'C99901x3', 'pt': 'Fixed Reference'},
+      "AFTER": {'c_code': 'C99901x1', 'pt': 'After'},
+      "BEFORE": {'c_code': 'C99901x2', 'pt': 'Before'}
+    }   
+    key = text.strip().upper()
+    return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])
+
+  def _set_to_from_type(self, text):
+    type_code = {
+      "S2S": {'c_code': 'C99900x1', 'pt': 'Start to Start'},
+      "S2E": {'c_code': 'C99900x2', 'pt': 'Start to End'},
+      "E2S": {'c_code': 'C99900x3', 'pt': 'End to Start'},
+      "E2E": {'c_code': 'C99900x4', 'pt': 'End to End'},
     }    
-    return type_code[text.strip().upper()]
+    key = text.strip().upper()
+    return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])
