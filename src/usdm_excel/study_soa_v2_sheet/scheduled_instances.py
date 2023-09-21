@@ -1,5 +1,5 @@
-from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
-from usdm_excel.study_soa_sheet.timepoint import Timepoint
+from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
+from usdm_excel.study_soa_v2_sheet.scheduled_instance import ScheduledInstance
 
 class ScheduledInstances():
   
@@ -9,7 +9,6 @@ class ScheduledInstances():
     self.map = {}
     self.activity_names = []
     self._build_activities()
-    self._build_timepoints()
 #    self._set_to_timing_refs()
 
   # def item_at(self, key):
@@ -31,12 +30,12 @@ class ScheduledInstances():
           text = "no condition set"
         condition.conditionAssignments.append([text, condition_instance.id])
 
-  # def _build_timepoints(self):    
-  #   for col_index in range(self.parent.sheet.shape[1]):
-  #     if col_index >= SoAColumnRows.FIRST_VISIT_COL:
-  #       record = Timepoint(self.parent, self.activity_names, col_index)
-  #       self.items.append(record)
-  #       self.map[record.key()] = record
+  def _build_instances(self):    
+    for col_index in range(self.parent.sheet.shape[1]):
+      if col_index >= SoAColumnRows.FIRST_VISIT_COL:
+        record = ScheduledInstance(self.parent, self.activity_names, col_index)
+        self.items.append(record)
+        self.map[record.name] = record
 
   def _build_activities(self):    
     for row_index, col_def in self.parent.sheet.iterrows():

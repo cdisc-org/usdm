@@ -34,6 +34,7 @@ class StudySoAV2Sheet(BaseSheet):
       self._raw_activities = Activities(self)
 
       self._link_instance_to_activities()
+
       self._raw_instances.set_condition_refs()
 
       for item in self._raw_activities.items:

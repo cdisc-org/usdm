@@ -7,60 +7,57 @@ from usdm_model.timing import Timing
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.encounter import Encounter
 from usdm_model.study_epoch import StudyEpoch
+import traceback
 
 class ScheduledInstance():
   
   def __init__(self, parent, activity_names, col_index):
-    epoch_ref = None
     self.parent = parent
-    self.encounter_xref = None
-    self.epoch_name = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
-    self.encounter_name = self.read_cell(SoAColumnRows.ENCOUNTER_ROW, col_index)
-    self.type = self.read_cell(SoAColumnRows.TYPE_ROW, col_index)
-    self.default_name = self.read_cell(SoAColumnRows.DEFAULT_ROW, col_index)
-    self.conditions = self.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index)
-    self.activities = []
-    self.activity_map = {}
+    epoch_name = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
+    encounter_name = self.read_cell(SoAColumnRows.ENCOUNTER_ROW, col_index)
+    type = self.read_cell(SoAColumnRows.TYPE_ROW, col_index)
+    default_name = self.read_cell(SoAColumnRows.DEFAULT_ROW, col_index)
+    conditions = self.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index)
+    activities = []
+    activity_map = {}
     self._add_activities(activity_names)
-    self.usdm_timepoint = self._as_usdm()
-    if self.encounter_name:
-      encounter = cross_references.get(Encounter, self.encounter_name)
-      self.encounter_id = encounter.id
-    if self.epoch_name:
-      epoch = cross_references.get(StudyEpoch, self.epoch)
-      self.epoch_id = epoch.id
+    if encounter_name:
+      encounter = cross_references.get(Encounter, encounter_name)
+    if epoch_name:
+      epoch = cross_references.get(StudyEpoch, epoch_name)
+    try:
+      instance = None
+      if type.upper() == "ACTIVITY":
+        instance = ScheduledActivityInstance(
+          id=id_manager.build_id(ScheduledActivityInstance),
+          instanceType=self.type,
+          scheduleTimelineExitId=None,
+          scheduledInstanceEncounterId=encounter.id,
+          scheduledInstanceTimings=[],
+          scheduledInstanceTimelineId=None,
+          defaultConditionId=None,
+          epochId=epoch.id,
+          activityIds=[]
+        )
+      elif type.upper() == "CONDITION":
+        instance = ScheduledDecisionInstance(
+          id=id_manager.build_id(ScheduledActivityInstance),
+          instanceType=self.type,
+          scheduleTimelineExitId=None,
+          scheduledInstanceEncounterId=None,
+          scheduledInstanceTimings=[],
+          scheduledInstanceTimelineId=None,
+          defaultConditionId=None,
+          conditionAssignments=[]
+        )
+      else:
+        self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
+    except Exception as e:
+      self._general_error(f"Exception [{e}] raised reading sheet")
+      self._traceback(f"{traceback.format_exc()}")
 
-  def add_activity(self, activity):
-    self.usdm_timepoint.activityIds.append(activity.usdm_activity.id)
-
-  def _as_usdm(self):
-    instance = None
-    if self.type.upper() == "ACTIVITY":
-      instance = ScheduledActivityInstance(
-        id=id_manager.build_id(ScheduledActivityInstance),
-        instanceType=self.type,
-        scheduleTimelineExitId=None,
-        scheduledInstanceEncounterId=self.encounter_id,
-        scheduledInstanceTimings=[],
-        scheduledInstanceTimelineId=None,
-        defaultConditionId=None,
-        epochId=self.epoch_id,
-        activityIds=[]
-      )
-    elif self.type == "CONDITION":
-      instance = ScheduledDecisionInstance(
-        id=id_manager.build_id(ScheduledActivityInstance),
-        instanceType=self.type,
-        scheduleTimelineExitId=None,
-        scheduledInstanceEncounterId=None,
-        scheduledInstanceTimings=[],
-        scheduledInstanceTimelineId=None,
-        defaultConditionId=None,
-        conditionAssignments=[]
-      )
-    else:
-      self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
-    return instance
+  # def add_activity(self, activity):
+  #   self.usdm_timepoint.activityIds.append(activity.usdm_activity.id)
 
   def _add_activities(self, activity_names):
     for activity in activity_names:
