@@ -33,10 +33,6 @@ class StudySoAV2Sheet(BaseSheet):
       self._raw_instances = ScheduledInstances(self)
       self._raw_activities = Activities(self)
 
-      self._link_instance_to_activities()
-
-      self._raw_instances.set_condition_refs()
-
       for item in self._raw_activities.items:
         activity = item.usdm_activity
         self.activities.append(activity)
@@ -45,16 +41,10 @@ class StudySoAV2Sheet(BaseSheet):
       self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
       
       instances = []
-      prev_instance = None
       for raw_instance in self._raw_instances.items:
-        instance = raw_instance.usdm_timepoint
-        instance.defaultConditionId = None
+        instance = raw_instance.item
         instances.append(instance)
-        if prev_instance is not None:
-          prev_instance.defaultConditionId = instance.id
-        prev_instance = instance
       exit = self._add_exit()
-
       self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
@@ -88,12 +78,6 @@ class StudySoAV2Sheet(BaseSheet):
       scheduleTimelineInstances=instances
     )
 
-  def _link_instance_to_activities(self):
-    for instance in self._raw_instances.items:
-      if instance.has_activities:
-        for activity_name, selected in instance.activity_map.items():
-          if selected:
-            activity = self._raw_activities.item_by_name(activity_name)
-            instance.add_activity(activity)
+
 
 
