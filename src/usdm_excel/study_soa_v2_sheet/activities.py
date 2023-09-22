@@ -6,7 +6,6 @@ import pandas as pd
 class Activities():
   
   def __init__(self, parent):
-    #super().__init__(sheet)
     self.parent = parent
     self.items = []
     self.map = {}
@@ -14,7 +13,7 @@ class Activities():
       if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity = Activity(self.parent, row_index)
         self.items.append(activity)
-        self.map[activity.name] = activity
+        #self.map[activity.name] = activity
 
-  def item_by_name(self, name):
-    return self.map[name]
+  # def item_by_name(self, name):
+  #   return self.map[name]

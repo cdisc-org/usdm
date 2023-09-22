@@ -51,6 +51,16 @@ class StudySoAV2Sheet(BaseSheet):
       self._general_error(f"Exception [{e}] raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 
+  def set_timing_references(self, timings):
+    for timing in timings:
+      instance = self._raw_instances.match(timing.relativeFromScheduledInstanceId)
+      if instance:
+        timing.relativeFromScheduledInstanceId = instance.id
+        instance.scheduledInstanceTimings.append(timing)
+      instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
+      if instance:
+        timing.relativeToScheduledInstanceId = instance.id
+      
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
       if rindex == self.NAME_ROW:

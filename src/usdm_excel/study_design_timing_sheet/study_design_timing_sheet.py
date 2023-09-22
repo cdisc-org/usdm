@@ -48,8 +48,8 @@ class StudyDesignTimingSheet(BaseSheet):
             timingWindow=window.label,
             timingWindowLower=window.lower,
             timingWindowUpper=window.upper,
-            relativeFromScheduledInstanceId=None,
-            relativeToScheduledInstanceId=None
+            relativeFromScheduledInstanceId=from_name,
+            relativeToScheduledInstanceId=to_name
           )
         except Exception as e:
           self._general_error(f"Failed to create Timing object, exception {e}")
