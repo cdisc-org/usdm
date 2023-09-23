@@ -2,19 +2,19 @@
 graph LR
 ScheduleTimeline_1([Potential subject identified])
 ScheduledActivityInstance_1(ScheduledActivityInstance_1)
-ScheduleTimeline_1 --> ScheduledActivityInstance_1
+ScheduleTimeline_1 -->|first| ScheduledActivityInstance_1
 ScheduledActivityInstance_2(ScheduledActivityInstance_2)
-ScheduledActivityInstance_1 --> ScheduledActivityInstance_2
+ScheduledActivityInstance_1 -->|default| ScheduledActivityInstance_2
 ScheduledActivityInstance_3(ScheduledActivityInstance_3)
-ScheduledActivityInstance_2 --> ScheduledActivityInstance_3
+ScheduledActivityInstance_2 -->|default| ScheduledActivityInstance_3
 ScheduledActivityInstance_4(ScheduledActivityInstance_4)
-ScheduledActivityInstance_3 --> ScheduledActivityInstance_4
+ScheduledActivityInstance_3 -->|default| ScheduledActivityInstance_4
 ScheduledDecisionInstance_1{{ScheduledDecisionInstance_1}}
-ScheduledDecisionInstance_1 --> ScheduledActivityInstance_3
-ScheduledDecisionInstance_1 --> ScheduledActivityInstance_4
-ScheduledActivityInstance_4 --> ScheduledDecisionInstance_1
+ScheduledDecisionInstance_1 -->|if major rash| ScheduledActivityInstance_3
+ScheduledDecisionInstance_1 -->|If minor rash| ScheduledActivityInstance_4
+ScheduledActivityInstance_4 -->|default| ScheduledDecisionInstance_1
 ScheduledActivityInstance_5(ScheduledActivityInstance_5)
-ScheduledDecisionInstance_1 --> ScheduledActivityInstance_5
+ScheduledDecisionInstance_1 -->|default| ScheduledActivityInstance_5
 ScheduleTimelineExit_1([Exit])
 ScheduledActivityInstance_5 --> ScheduleTimelineExit_1
 </pre><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
