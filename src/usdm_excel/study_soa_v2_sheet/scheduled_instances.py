@@ -31,7 +31,7 @@ class ScheduledInstances():
         instance.item.defaultConditionId = self.map[instance.default_name].item.id
       elif instance.default_name.upper() == "(EXIT)":
         exit = self._add_exit()
-        instance.item.scheduleTimelineExitId = exit.id
+        item.scheduleTimelineExitId = exit.id
         self.exits.append(exit)
       else:
         self.parent._general_error(f"Default reference from {instance.name} to {instance.default_name} cannot be made, not found on the same timeline")
@@ -44,19 +44,11 @@ class ScheduledInstances():
   def _set_condition_references(self):
     for instance in self.items:
       item = instance.item
-      if item.instanceType == 'CONDITION':
+      if item.instanceType == 'DECISION':
         for condition in instance.conditions.items:
+          print(f"COND: {condition} ")
           if condition['name'] in self.map.keys():
-            condition.conditionAssignments.append([condition['condition'], self.map[condition['name']].item.id])
+            item.conditionAssignments.append([condition['condition'], self.map[condition['name']].item.id])
           else:
             self.parent._general_error(f"Conditonal reference from {instance.name} to {condition['name']} cannot be made, not found on the same timeline")
   
-  # def _set_to_timing_refs(self):    
-  #   for item in self.items:
-  #     from_instance = item.usdm_timepoint
-  #     from_timing = from_instance.scheduledInstanceTimings[0]
-  #     from_timing_type = from_timing.type.code
-  #     if from_timing_type == "ANCHOR":
-  #       continue
-  #     to_instance = self.items[item.reference].usdm_timepoint
-  #     from_timing.relativeToScheduledInstanceId = to_instance.id

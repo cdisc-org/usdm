@@ -17,6 +17,7 @@ class IdManager():
       'Entry': 0, 
       'ScheduleTimelineExit': 0, 
       'ScheduledActivityInstance': 0,
+      'ScheduledDecisionInstance': 0,
       'ScheduleTimeline': 0, 
       'Timing': 0, 
       'StudyDesign': 0, 

@@ -45,10 +45,10 @@ class ScheduledInstance():
           activityIds=self._add_activities()
         )
         cross_references.add(self.item.id, self.item)
-      elif type.upper() == "CONDITION":
+      elif type.upper() == "DECISION":
         self.item = ScheduledDecisionInstance(
-          id=id_manager.build_id(ScheduledActivityInstance),
-          instanceType='CONDITION',
+          id=id_manager.build_id(ScheduledDecisionInstance),
+          instanceType='DECISION',
           scheduleTimelineExitId=None,
           scheduledInstanceEncounterId=None,
           scheduledInstanceTimings=[],
@@ -58,7 +58,7 @@ class ScheduledInstance():
         )
         cross_references.add(self.item.id, self.item)
       else:
-        self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
+        self.parent._general_warning(f"Unrecognized ScheduledInstance type: '{type}'")
     except Exception as e:
       self.parent._general_error(f"Exception [{e}] raised reading sheet")
       self.parent._traceback(f"{traceback.format_exc()}")

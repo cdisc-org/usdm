@@ -39,10 +39,14 @@ class ExportAsTimeline():
                   doc.asis(f'{instance.id}({instance.id})\n')
                 else:
                   doc.asis(f'{instance.id}{{{{{instance.id}}}}}\n')
+                  for condition in instance.conditionAssignments:
+                    doc.asis(f'{instance.id} --> {condition[1]}\n') 
+                    print(f"COND: {instance.id} --> {condition[1]}")
                 print(f"LINK: {prev_instance.id} --> {instance.id}")
                 doc.asis(f'{prev_instance.id} --> {instance.id}\n')      
                 prev_instance = instance
-                instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
+                instance = self._get_cross_reference(prev_instance.defaultConditionId)
+                print(f"NEXT: {instance}")
               exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.scheduleTimelineExitId)
               doc.asis(f'{exit.id}([Exit])\n')
               doc.asis(f'{prev_instance.id} --> {exit.id}\n')      
@@ -53,4 +57,11 @@ class ExportAsTimeline():
     except:
       print(f"{traceback.format_exc()}")
     return doc.getvalue()
+
+  def _get_cross_reference(self, id):
+    for klass in [ScheduledActivityInstance, ScheduledDecisionInstance]:
+      instance = cross_references.get_by_id(klass, id)
+      if instance:
+        return instance 
+    return None
 
