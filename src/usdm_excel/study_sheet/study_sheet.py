@@ -50,7 +50,7 @@ class StudySheet(BaseSheet):
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='study', header=None)
-      self.soa_version = 1
+      self.soa_version = None
       self.phase = None
       self.version = None
       self.type = None
@@ -177,7 +177,7 @@ class StudySheet(BaseSheet):
   def _process_soa(self, file_path):
     for timeline in self.study_design.other_timelines:
       if not self.soa_version:
-        tl = StudySoASheet(file_path, timeline)
+        tl = StudySoASheet(file_path, timeline, require={'row': 0, 'column': 2, 'value': 'name'})
         if tl:
           self.soa_version = 1 
         else:

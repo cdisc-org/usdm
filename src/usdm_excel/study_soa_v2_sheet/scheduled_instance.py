@@ -11,14 +11,19 @@ import traceback
 
 class ScheduledInstance():
   
-  def __init__(self, parent, activity_names, col_index):
+  def __init__(self, parent, col_index):
     self.parent = parent
     self.item = None
-    epoch_name = self.parent.read_cell_with_previous(SoAColumnRows.EPOCH_ROW, col_index, SoAColumnRows.FIRST_VISIT_COL)
-    encounter_name = self.read_cell(SoAColumnRows.ENCOUNTER_ROW, col_index)
-    type = self.read_cell(SoAColumnRows.TYPE_ROW, col_index)
-    self.default_name = self.read_cell(SoAColumnRows.DEFAULT_ROW, col_index)
-    self.conditions = Conditons(self.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index))
+    self.col_index = col_index
+    name = self.parent.read_cell(SoAColumnRows.NAME_ROW, col_index)
+    self.name = name
+    description = self.parent.read_cell(SoAColumnRows.DESCRIPTION_ROW, col_index)
+    label = self.parent.read_cell(SoAColumnRows.LABEL_ROW, col_index)
+    epoch_name = self.parent.read_cell(SoAColumnRows.EPOCH_ROW, col_index)
+    encounter_name = self.parent.read_cell(SoAColumnRows.ENCOUNTER_ROW, col_index)
+    type = self.parent.read_cell(SoAColumnRows.TYPE_ROW, col_index)
+    self.default_name = self.parent.read_cell(SoAColumnRows.DEFAULT_ROW, col_index)
+    self.conditions = Conditons(self.parent.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index))
     if encounter_name:
       encounter = cross_references.get(Encounter, encounter_name)
     if epoch_name:
@@ -27,7 +32,10 @@ class ScheduledInstance():
       if type.upper() == "ACTIVITY":
         self.item = ScheduledActivityInstance(
           id=id_manager.build_id(ScheduledActivityInstance),
-          instanceType=self.type,
+#          name=name,
+#          description=description,
+#          label=label,
+          instanceType='ACTIVITY',
           scheduleTimelineExitId=None,
           scheduledInstanceEncounterId=encounter.id,
           scheduledInstanceTimings=[],
@@ -39,7 +47,7 @@ class ScheduledInstance():
       elif type.upper() == "CONDITION":
         self.item = ScheduledDecisionInstance(
           id=id_manager.build_id(ScheduledActivityInstance),
-          instanceType=self.type,
+          instanceType='CONDITION',
           scheduleTimelineExitId=None,
           scheduledInstanceEncounterId=None,
           scheduledInstanceTimings=[],
@@ -50,8 +58,8 @@ class ScheduledInstance():
       else:
         self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet")
-      self._traceback(f"{traceback.format_exc()}")
+      self.parent._general_error(f"Exception [{e}] raised reading sheet")
+      self.parent._traceback(f"{traceback.format_exc()}")
 
   def _add_activities(self):
     activities = []
@@ -61,7 +69,8 @@ class ScheduledInstance():
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity_name = self.parent.read_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
         if str(cell).upper() == "X":
-          activity = cross_references(Activity, activity_name)
+          activity = cross_references.get(Activity, activity_name)
           activities.append(activity.id)
       row += 1
+    return activities
 

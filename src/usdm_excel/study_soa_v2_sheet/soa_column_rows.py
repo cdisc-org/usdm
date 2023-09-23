@@ -1,8 +1,8 @@
 class SoAColumnRows:
   
   NAME_ROW = 0
-  DESCRIPTON_ROW = 1
-  LABLE_ROW = 2
+  DESCRIPTION_ROW = 1
+  LABEL_ROW = 2
   TYPE_ROW = 3
   DEFAULT_ROW = 4
   CONDITIONS_ROW = 5

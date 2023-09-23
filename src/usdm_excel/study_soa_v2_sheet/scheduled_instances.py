@@ -12,7 +12,7 @@ class ScheduledInstances():
   def _build_instances(self):    
     for col_index in range(self.parent.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:
-        record = ScheduledInstance(self.parent, self.activity_names, col_index)
+        record = ScheduledInstance(self.parent, col_index)
         self.items.append(record)
         self.map[record.name] = record
 
