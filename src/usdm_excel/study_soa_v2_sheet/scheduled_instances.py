@@ -24,6 +24,8 @@ class ScheduledInstances():
       if item.instanceType == 'ACTIVITY':
         if instance.default_name in self.map.keys():
           instance.item.defaultConditionId = self.map[instance.default_name].item.id
+        elif not instance.default_name:
+          pass # blank, this is ok, will put exit in here
         else:
           self.parent._general_error(f"Default reference from {instance.name} to {instance.default_name} cannot be made, not found on the same timeline")
 
