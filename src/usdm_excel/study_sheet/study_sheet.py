@@ -188,7 +188,6 @@ class StudySheet(BaseSheet):
       else:
         tl = StudySoAV2Sheet(file_path, timeline)
       self.timelines[timeline] = tl
-      cross_references.add(timeline, tl.timeline)
     if self.soa_version == 1:
       self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
     else:

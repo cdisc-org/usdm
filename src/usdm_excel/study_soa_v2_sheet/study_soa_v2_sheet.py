@@ -1,6 +1,7 @@
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_v2_sheet.activities import Activities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 #from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
@@ -45,6 +46,7 @@ class StudySoAV2Sheet(BaseSheet):
         instance = raw_instance.item
         instances.append(instance)
       exit = self._add_exit()
+      instances[-1].scheduleTimelineExitId = exit.id
       self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
@@ -73,10 +75,12 @@ class StudySoAV2Sheet(BaseSheet):
         pass
 
   def _add_exit(self):
-    return ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
+    exit = ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
+    cross_references.add(exit.id, exit)
+    return exit
 
   def _add_timeline(self, name, description, condition, instances, exit):
-    return ScheduleTimeline(
+    timeline = ScheduleTimeline(
       id=id_manager.build_id(ScheduleTimeline),
       mainTimeline=self.main_timeline,
       name=name,
@@ -87,6 +91,8 @@ class StudySoAV2Sheet(BaseSheet):
       scheduleTimelineExits=[exit],
       scheduleTimelineInstances=instances
     )
+    cross_references.add(timeline.id, timeline)
+    return timeline
 
 
 
