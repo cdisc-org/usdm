@@ -4,6 +4,7 @@ from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.export_as_yworks_dict import ExportAsYworksDict
 from usdm_excel.export_as_neo4j_dict import ExportAsNeo4jDict
+from usdm_excel.export_as_timeline import ExportAsTimeline
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager, Errors
@@ -70,6 +71,9 @@ class USDMExcel():
 
   def to_neo4j_dict(self):
     return ExportAsNeo4jDict(self.study.the_study()).export()
+
+  def to_timeline(self):
+    return ExportAsTimeline(self.study.the_study()).export()
 
   def errors(self):
     return error_manager.dump(Errors.WARNING)

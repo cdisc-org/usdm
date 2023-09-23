@@ -55,6 +55,19 @@ def run_test_html(filename, save=False):
     expected = f.read()
   assert result == expected
 
+def run_test_timeline(filename, save=False):
+  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
+  result = excel.to_timeline()
+
+  # Useful if you want to see the results.
+  if save or SAVE_ALL:
+    with open(f"tests/integration_test_files/{filename}_timeline.html", 'w') as f:
+      f.write(result)
+  
+  with open(f"tests/integration_test_files/{filename}_timeline.html", 'r') as f:
+    expected = f.read()
+  assert result == expected
+
 def run_test_ne(filename, save=False):
   result = {}
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
@@ -120,3 +133,6 @@ def test_new_field_names():
 
 def test_v2_soa():
   run_test('simple_1_v2')
+
+def test_timeline_1():
+  run_test_timeline('simple_1_v2')

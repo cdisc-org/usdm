@@ -44,6 +44,7 @@ class ScheduledInstance():
           epochId=epoch.id,
           activityIds=self._add_activities()
         )
+        cross_references.add(self.item.id, self.item)
       elif type.upper() == "CONDITION":
         self.item = ScheduledDecisionInstance(
           id=id_manager.build_id(ScheduledActivityInstance),
@@ -55,6 +56,7 @@ class ScheduledInstance():
           defaultConditionId=None,
           conditionAssignments=[]
         )
+        cross_references.add(self.item.id, self.item)
       else:
         self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
     except Exception as e:
