@@ -6,6 +6,25 @@ xfail = pytest.mark.xfail
 from src.usdm_excel.base_sheet import BaseSheet
 from src.usdm_model.code import Code
 
+# def test_sheet_cell_value(mocker):
+#   mocked_open = mocker.mock_open(read_data="File")
+#   mocker.patch("builtins.open", mocked_open)
+#   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', 'd']}
+#   mock_read = mocker.patch("openpyxl.load_workbook")
+#   mock_read.return_value = pd.DataFrame.from_dict(data)
+#   test_data = [
+#     ({'row': 0, 'column': 0, 'value': 4}, False),
+#     ({'row': 0, 'column': 1, 'value': 'e'}, False),
+#     ({'row': 0, 'column': 0, 'value': 3}, True),
+#     ({'row': 0, 'column': 1, 'value': 'a'}, True),
+#   ]
+#   for test in test_data:
+#     base = BaseSheet("", "sheet", require=test[0])
+#     if not test[1]:
+#       assert(base) == None
+#     else:
+#       assert(base) != None
+
 def test_cell_empty(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

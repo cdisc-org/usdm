@@ -92,5 +92,5 @@ class StudyDesignTimingSheet(BaseSheet):
       "E2S": {'c_code': 'C99900x3', 'pt': 'End to Start'},
       "E2E": {'c_code': 'C99900x4', 'pt': 'End to End'},
     }    
-    key = text.strip().upper()
+    key = "S2S" if not text else text.strip().upper()
     return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])

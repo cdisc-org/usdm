@@ -3,6 +3,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
+from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
 from usdm_excel.study_design_ii_sheet.study_design_ii_sheet import StudyDesignIISheet
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
@@ -49,6 +50,7 @@ class StudySheet(BaseSheet):
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='study', header=None)
+      self.soa_version = 1
       self.phase = None
       self.version = None
       self.type = None
@@ -68,11 +70,7 @@ class StudySheet(BaseSheet):
       self.epochs = StudyDesignEpochSheet(file_path)
       self.activities = StudyDesignActivitySheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
-      for timeline in self.study_design.other_timelines:
-        tl = StudySoASheet(file_path, timeline)
-        self.timelines[timeline] = tl
-        cross_references.add(timeline, tl.timeline)
-      self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
+      self._process_soa(file_path)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
@@ -176,3 +174,22 @@ class StudySheet(BaseSheet):
         self.protocols.append(spv)
         cross_references.add(record['id'], spv)
   
+  def _process_soa(self, file_path):
+    for timeline in self.study_design.other_timelines:
+      if not self.soa_version:
+        tl = StudySoASheet(file_path, timeline)
+        if tl:
+          self.soa_version = 1 
+        else:
+          self.soa_version = 2
+          tl = StudySoAV2Sheet(file_path, timeline)
+      elif self.soa_version == 1:
+        tl = StudySoASheet(file_path, timeline)
+      else:
+        tl = StudySoAV2Sheet(file_path, timeline)
+      self.timelines[timeline] = tl
+      cross_references.add(timeline, tl.timeline)
+    if self.soa_version == 1:
+      self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
+    else:
+      self.soa = StudySoAV2Sheet(file_path, self.study_design.main_timeline, True)

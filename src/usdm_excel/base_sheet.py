@@ -17,14 +17,16 @@ class BaseSheet():
   class FormatError(Exception):
     pass
 
-  def __init__(self, file_path, sheet_name, header=0, optional=False, converters={}):
+  def __init__(self, file_path, sheet_name, header=0, optional=False, converters={}, require={}):
     self.file_path = file_path
     self.sheet_name = sheet_name
     if optional and not self._sheet_present(file_path, sheet_name):
       self.sheet = None
+    elif require and not self._check_cell_value(file_path, sheet_name, require['row'], require['column'], require['value']):
+      self.sheet = None
     else:
       self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header, converters=converters)
-    self._general_info("Processed sheet %s" % (sheet_name))
+      self._general_info("Processed sheet %s" % (sheet_name))
 
   def cell_empty(self, row_index, col_index):
     return pd.isnull(self.sheet.iloc[row_index, col_index])  
@@ -278,6 +280,11 @@ class BaseSheet():
   def _sheet_present(self, file_path, sheet_name):
     sheet_names = self._get_sheet_names(file_path)
     return sheet_name in sheet_names
+
+  def _check_cell_value(self, file_path, sheet_name, row, column, value):
+    wb = load_workbook(file_path, read_only=True, keep_links=False)
+    ws = wb[sheet_name]
+    return ws.cell(row,column) == value
 
   def _state_split(self, s):
 

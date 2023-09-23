@@ -94,7 +94,7 @@ class Timepoint():
         conditionAssignments=[]
       )
     else:
-      self.parent.general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
+      self.parent._general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
     return instance
 
   def _to_timing(self):

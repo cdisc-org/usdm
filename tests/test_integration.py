@@ -2,7 +2,7 @@ import json
 import csv
 from src.usdm_excel import USDMExcel
 
-SAVE_ALL = False
+SAVE_ALL = True
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
@@ -117,3 +117,6 @@ def test_invalid_section_levels():
 
 def test_new_field_names():
   run_test('new_labels')
+
+def test_v2_soa():
+  run_test('simple_1_v2')
