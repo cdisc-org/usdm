@@ -616,7 +616,7 @@
                 "scheduledInstanceTimings": [],
                 "scheduledInstanceTimelineId": null,
                 "scheduleTimelineExitId": null,
-                "defaultConditionId": "ScheduledActivityInstance_5",
+                "defaultConditionId": "ScheduledDecisionInstance_1",
                 "epochId": "StudyEpoch_3",
                 "activityIds": [
                   "Activity_2"
@@ -624,22 +624,26 @@
                 "scheduledActivityInstanceEncounterId": null
               },
               {
-                "id": "ScheduledActivityInstance_5",
+                "id": "ScheduledDecisionInstance_1",
                 "instanceType": "DECISION",
                 "scheduledInstanceTimings": [],
                 "scheduledInstanceTimelineId": null,
                 "scheduleTimelineExitId": null,
-                "defaultConditionId": "ScheduledActivityInstance_6",
+                "defaultConditionId": "ScheduledActivityInstance_5",
                 "epochId": null,
                 "conditionAssignments": [
                   [
-                    " if major rash",
+                    "if major rash",
                     "ScheduledActivityInstance_3"
+                  ],
+                  [
+                    "If minor rash",
+                    "ScheduledActivityInstance_4"
                   ]
                 ]
               },
               {
-                "id": "ScheduledActivityInstance_6",
+                "id": "ScheduledActivityInstance_5",
                 "instanceType": "ACTIVITY",
                 "scheduledInstanceTimings": [],
                 "scheduledInstanceTimelineId": null,
