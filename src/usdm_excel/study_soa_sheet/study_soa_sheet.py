@@ -18,48 +18,49 @@ class StudySoASheet(BaseSheet):
   CONDITION_ROW = 2
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, sheet_name, main=False):
+  def __init__(self, file_path, sheet_name, main=False, require={}):
     try:
-      super().__init__(file_path=file_path, sheet_name=sheet_name, header=None)
-      self.name = ""
-      self.description = ""
-      self.condition = ""
-      self.timeline = None
-      self.main_timeline = main
-      self.encounters = []
-      self.activities = []
-      self.timelines = []
-      self.biomedical_concept_surrogates = []
-      self.biomedical_concepts = []
-      self._process_sheet()
-      self._raw_cycles = Cycles(self)
-      self._raw_timepoints = Timepoints(self)
-      #self._raw_encounters = Encounters(self)
-      self._raw_activities = Activities(self)
+      super().__init__(file_path=file_path, sheet_name=sheet_name, header=None, require=require)
+      if not self.sheet.empty:
+        self.name = ""
+        self.description = ""
+        self.condition = ""
+        self.timeline = None
+        self.main_timeline = main
+        self.encounters = []
+        self.activities = []
+        self.timelines = []
+        self.biomedical_concept_surrogates = []
+        self.biomedical_concepts = []
+        self._process_sheet()
+        self._raw_cycles = Cycles(self)
+        self._raw_timepoints = Timepoints(self)
+        #self._raw_encounters = Encounters(self)
+        self._raw_activities = Activities(self)
 
-      self._link_instance_to_activities()
-      self._insert_cycles_into_timeline()
-      self._raw_timepoints.set_condition_refs()
+        self._link_instance_to_activities()
+        self._insert_cycles_into_timeline()
+        self._raw_timepoints.set_condition_refs()
 
-      instances = []
+        instances = []
 
-      for item in self._raw_activities.items:
-        activity = item.usdm_activity
-        self.activities.append(activity)
-        self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
-        self.biomedical_concepts += item.usdm_biomedical_concepts
-      self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
-      
-      prev_instance = None
-      for raw_timepoint in self._raw_timepoints.items:
-        instance = raw_timepoint.usdm_timepoint
-        instance.defaultConditionId = None
-        instances.append(instance)
-        if prev_instance is not None:
-          prev_instance.defaultConditionId = instance.id
-        prev_instance = instance
-      exit = self._add_exit()
-      self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
+        for item in self._raw_activities.items:
+          activity = item.usdm_activity
+          self.activities.append(activity)
+          self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
+          self.biomedical_concepts += item.usdm_biomedical_concepts
+        self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
+        
+        prev_instance = None
+        for raw_timepoint in self._raw_timepoints.items:
+          instance = raw_timepoint.usdm_timepoint
+          instance.defaultConditionId = None
+          instances.append(instance)
+          if prev_instance is not None:
+            prev_instance.defaultConditionId = instance.id
+          prev_instance = instance
+        exit = self._add_exit()
+        self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet")

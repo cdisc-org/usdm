@@ -17,9 +17,9 @@ class StudySoAV2Sheet(BaseSheet):
   CONDITION_ROW = 2
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, sheet_name, main=False):
+  def __init__(self, file_path, sheet_name, main=False, require={}):
     try:
-      super().__init__(file_path=file_path, sheet_name=sheet_name, header=None)
+      super().__init__(file_path=file_path, sheet_name=sheet_name, header=None, require=require)
       self.name = ""
       self.description = ""
       self.condition = ""

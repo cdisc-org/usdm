@@ -61,6 +61,7 @@ class StudySheet(BaseSheet):
       self.protocols = []
       self.therapeutic_areas = []
       self.timelines = {}
+      print(f"***** SOA *****")
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.procedures = StudyDesignProcedureSheet(file_path)
@@ -175,20 +176,29 @@ class StudySheet(BaseSheet):
         cross_references.add(record['id'], spv)
   
   def _process_soa(self, file_path):
+    print(f"-- SoA --")
     for timeline in self.study_design.other_timelines:
-      if not self.soa_version:
-        tl = StudySoASheet(file_path, timeline, require={'row': 0, 'column': 2, 'value': 'name'})
-        if tl:
-          self.soa_version = 1 
-        else:
-          self.soa_version = 2
-          tl = StudySoAV2Sheet(file_path, timeline)
-      elif self.soa_version == 1:
-        tl = StudySoASheet(file_path, timeline)
-      else:
-        tl = StudySoAV2Sheet(file_path, timeline)
+      tl = self._process_timeline(file_path, timeline)
       self.timelines[timeline] = tl
-    if self.soa_version == 1:
-      self.soa = StudySoASheet(file_path, self.study_design.main_timeline, True)
+    self.soa = self._process_timeline(file_path, self.study_design.main_timeline, True)
+
+  def _process_timeline(self, file_path, timeline, main_tileine=False):
+    if not self.soa_version:
+      print(f"Timeline")
+      tl = StudySoASheet(file_path, timeline, main=main_tileine, require={'row': 0, 'column': 2, 'value': 'EPOCH'})
+      if not tl.sheet.empty:
+        print(f"Set = 1")
+        self.soa_version = 1 
+      else:
+        print(f"Set = 2")
+        self.soa_version = 2
+        tl = StudySoAV2Sheet(file_path, timeline, main=main_tileine)
+    elif self.soa_version == 1:
+      print(f"Already = 1")
+      tl = StudySoASheet(file_path, timeline, main=main_tileine)
     else:
-      self.soa = StudySoAV2Sheet(file_path, self.study_design.main_timeline, True)
+      print(f"Already = 2")
+      tl = StudySoAV2Sheet(file_path, timeline, main=main_tileine)
+    return tl
+
+
