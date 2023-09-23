@@ -34,6 +34,7 @@ class StudySoAV2Sheet(BaseSheet):
       self._raw_instances = ScheduledInstances(self)
       self._raw_activities = Activities(self)
 
+      # @TODO Move block to Activities class
       for item in self._raw_activities.items:
         activity = item.usdm_activity
         self.activities.append(activity)
@@ -41,13 +42,7 @@ class StudySoAV2Sheet(BaseSheet):
         self.biomedical_concepts += item.usdm_biomedical_concepts
       self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
       
-      instances = []
-      for raw_instance in self._raw_instances.items:
-        instance = raw_instance.item
-        instances.append(instance)
-      exit = self._add_exit()
-      instances[-1].scheduleTimelineExitId = exit.id
-      self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
+      self.timeline = self._add_timeline(self.name, self.description, self.condition, self._raw_instances.instances, self._raw_instances.exits)
 
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet")
@@ -88,7 +83,7 @@ class StudySoAV2Sheet(BaseSheet):
       label=name,
       entryCondition=condition,
       scheduleTimelineEntryId=instances[0].id,
-      scheduleTimelineExits=[exit],
+      scheduleTimelineExits=exit,
       scheduleTimelineInstances=instances
     )
     cross_references.add(timeline.id, timeline)
