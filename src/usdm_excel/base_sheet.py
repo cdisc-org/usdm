@@ -20,14 +20,17 @@ class BaseSheet():
   def __init__(self, file_path, sheet_name, header=0, optional=False, converters={}, require={}):
     self.file_path = file_path
     self.sheet_name = sheet_name
+    self.sheet = None
+    self.success = False
     if optional and not self._sheet_present(file_path, sheet_name):
-      self.sheet = None
+      pass
     else:
       if require and not self._check_cell_value(file_path, sheet_name, require['row'], require['column'], require['value']):
         print(f"VALUE: Mismatch")
-        self.sheet = None
+        pass
       else:
         self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header, converters=converters)
+        self.success = True
         self._general_info("Processed sheet %s" % (sheet_name))
 
   def cell_empty(self, row_index, col_index):

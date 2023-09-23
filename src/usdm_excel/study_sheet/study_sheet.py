@@ -186,7 +186,7 @@ class StudySheet(BaseSheet):
     if not self.soa_version:
       print(f"Timeline")
       tl = StudySoASheet(file_path, timeline, main=main_tileine, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
-      if tl.sheet:
+      if tl.success:
         print(f"Set = 1")
         self.soa_version = 1 
       else:

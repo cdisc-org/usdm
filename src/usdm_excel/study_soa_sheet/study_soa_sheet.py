@@ -21,7 +21,7 @@ class StudySoASheet(BaseSheet):
   def __init__(self, file_path, sheet_name, main=False, require={}):
     try:
       super().__init__(file_path=file_path, sheet_name=sheet_name, header=None, require=require)
-      if self.sheet is not None:
+      if self.success:
         self.name = ""
         self.description = ""
         self.condition = ""
