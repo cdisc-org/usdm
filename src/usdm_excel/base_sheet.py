@@ -23,11 +23,11 @@ class BaseSheet():
     if optional and not self._sheet_present(file_path, sheet_name):
       self.sheet = None
     else:
-      self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header, converters=converters)
-      if require and not self.read_cell(require['row'], require['column']).upper() == require['value']:
+      if require and not self._check_cell_value(file_path, sheet_name, require['row'], require['column'], require['value']):
         print(f"VALUE: Mismatch")
         self.sheet = None
       else:
+        self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header, converters=converters)
         self._general_info("Processed sheet %s" % (sheet_name))
 
   def cell_empty(self, row_index, col_index):
@@ -283,11 +283,11 @@ class BaseSheet():
     sheet_names = self._get_sheet_names(file_path)
     return sheet_name in sheet_names
 
-  # def _check_cell_value(self, file_path, sheet_name, row, column, value):
-  #   wb = load_workbook(file_path, read_only=True, keep_links=False)
-  #   ws = wb[sheet_name]
-  #   print(f"CELL={ws.cell(1, 1)}")
-  #   return ws.cell(row, column) == value
+  def _check_cell_value(self, file_path, sheet_name, row, column, value):
+    wb = load_workbook(file_path, read_only=True, keep_links=False)
+    ws = wb[sheet_name]
+    print(f"CELL={ws.cell(row, column).value}")
+    return str(ws.cell(row, column).value).upper() == value
 
   def _state_split(self, s):
 

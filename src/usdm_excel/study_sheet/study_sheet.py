@@ -185,8 +185,8 @@ class StudySheet(BaseSheet):
   def _process_timeline(self, file_path, timeline, main_tileine=False):
     if not self.soa_version:
       print(f"Timeline")
-      tl = StudySoASheet(file_path, timeline, main=main_tileine, require={'row': 0, 'column': 2, 'value': 'EPOCH'})
-      if not tl.sheet.empty:
+      tl = StudySoASheet(file_path, timeline, main=main_tileine, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
+      if tl.sheet:
         print(f"Set = 1")
         self.soa_version = 1 
       else:
