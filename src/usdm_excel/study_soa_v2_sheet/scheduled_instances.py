@@ -36,8 +36,8 @@ class ScheduledInstances():
         for condition in instance.conditions.items:
           if condition['name'] in self.map.keys():
             condition.conditionAssignments.append([condition['condition'], self.map[condition['name']].item.id])
-        else:
-          self.parent._general_error(f"Conditonal reference from {instance.name} to {condition['name']} cannot be made, not found on the same timeline")
+          else:
+            self.parent._general_error(f"Conditonal reference from {instance.name} to {condition['name']} cannot be made, not found on the same timeline")
   
   # def _set_to_timing_refs(self):    
   #   for item in self.items:
