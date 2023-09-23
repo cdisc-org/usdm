@@ -11,7 +11,7 @@ class StudyDesignActivitySheet(BaseSheet):
     try:
       super().__init__(file_path=file_path, sheet_name='studyDesignActivities', optional=True)
       self.items = []
-      if self.sheet is not None:
+      if self.success:
         for index, row in self.sheet.iterrows():
           name = self.read_cell_by_name(index, ['activityName', 'name'])
           description = self.read_description_by_name(index, ['activityDescription', 'description'])

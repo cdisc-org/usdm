@@ -10,7 +10,7 @@ class StudyDesignContentSheet(BaseSheet):
     try:
       self.items = []
       super().__init__(file_path=file_path, sheet_name='studyDesignContent', optional=True, converters={"sectionName": str})
-      if self.sheet is not None:
+      if self.success:
         current_level = 0
         new_level = 0
         current_parent = []
