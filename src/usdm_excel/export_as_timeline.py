@@ -56,7 +56,7 @@ class ExportAsTimeline():
 #                print(f"NEXT: {instance}")
               exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.scheduleTimelineExitId)
               doc.asis(f'{exit.id}([Exit])\n')
-              doc.asis(f'{prev_instance.id} --> {exit.id}\n')      
+              doc.asis(f'{prev_instance.id} -->|exit| {exit.id}\n')      
               for timing in timings:
                 #print(f"TIMING: {timing}")
                 doc.asis(f'{timing.id}(({timing.label}\n{timing.type.decode}\n{timing.timingValue}\n{timing.timingWindowLower}..{timing.timingWindowUpper}))\n')            
