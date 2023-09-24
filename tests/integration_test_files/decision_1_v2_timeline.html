@@ -18,23 +18,27 @@ ScheduledDecisionInstance_1 -->|default| ScheduledActivityInstance_5
 ScheduleTimelineExit_1([Exit])
 ScheduledActivityInstance_5 --> ScheduleTimelineExit_1
 Timing_1((Screening
+Before
 P2D
-))
+None..None))
 Timing_1 -->|from| ScheduledActivityInstance_1
 Timing_1 -->|to| ScheduledActivityInstance_2
 Timing_2((Pre dose
+Before
 PT15M
--4..0 hours))
+PT4H..PT0H))
 Timing_2 -->|from| ScheduledActivityInstance_2
 Timing_2 -->|to| ScheduledActivityInstance_3
 Timing_3((Dosing
+Fixed Reference
 P1D
-))
+None..None))
 Timing_3 -->|from| ScheduledActivityInstance_3
 Timing_3 -->|to| ScheduledActivityInstance_3
 Timing_4((Day 14
+After
 P14D
--1..1 days))
+P1D..P1D))
 Timing_4 -->|from| ScheduledActivityInstance_4
 Timing_4 -->|to| ScheduledActivityInstance_3
 </pre><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';

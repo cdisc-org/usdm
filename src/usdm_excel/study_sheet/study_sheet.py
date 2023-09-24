@@ -191,7 +191,7 @@ class StudySheet(BaseSheet):
         self._general_info("SoA sheet version 2 detected")
         self.soa_version = 2
         tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-        print("---- SoA Timing ----")
+        #print("---- SoA Timing ----")
         tl.set_timing_references(self.timings.items)
     elif self.soa_version == 1:
       self._general_info("Set to SoA sheet version 1")
@@ -199,7 +199,7 @@ class StudySheet(BaseSheet):
     else:
       self._general_info("Set to SoA sheet version 2")
       tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-      print("---- SoA Timing ----")
+      #print("---- SoA Timing ----")
       tl.set_timing_references(self.timings.items)
     return tl
 

@@ -49,7 +49,7 @@ class ExportAsTimeline():
 #                print(f"LINK: {prev_instance.id} --> {instance.id}")
                 doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
                 for timing in instance.scheduledInstanceTimings:
-                  print(f"APPEND: {timing}")
+                  #print(f"APPEND: {timing}")
                   timings.append(timing)
                 prev_instance = instance
                 instance = self._get_cross_reference(prev_instance.defaultConditionId)
@@ -58,8 +58,8 @@ class ExportAsTimeline():
               doc.asis(f'{exit.id}([Exit])\n')
               doc.asis(f'{prev_instance.id} --> {exit.id}\n')      
               for timing in timings:
-                print(f"TIMING: {timing}")
-                doc.asis(f'{timing.id}(({timing.label}\n{timing.timingValue}\n{timing.timingWindow}))\n')            
+                #print(f"TIMING: {timing}")
+                doc.asis(f'{timing.id}(({timing.label}\n{timing.type.decode}\n{timing.timingValue}\n{timing.timingWindowLower}..{timing.timingWindowUpper}))\n')            
                 doc.asis(f'{timing.id} -->|from| {timing.relativeFromScheduledInstanceId}\n')      
                 doc.asis(f'{timing.id} -->|to| {timing.relativeToScheduledInstanceId}\n')      
           with doc.tag('script', type='module'):
