@@ -16,6 +16,9 @@ class ScheduledInstances():
     self._set_default_references()
     self._set_condition_references()
 
+  def match(self, name):
+    return self.map[name] if name in self.map else None
+  
   def _build_instances(self):    
     for col_index in range(self.parent.sheet.shape[1]):
       if col_index >= SoAColumnRows.FIRST_VISIT_COL:

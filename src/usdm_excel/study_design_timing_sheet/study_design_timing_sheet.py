@@ -22,40 +22,41 @@ class StudyDesignTimingSheet(BaseSheet):
   #
   def __init__(self, file_path):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignTiming')
+      super().__init__(file_path=file_path, sheet_name='studyDesignTiming', optional=True)
       self.items = []
-      for index, row in self.sheet.iterrows():
-        name = self.read_cell_by_name(index, 'name')
-        description = self.read_description_by_name(index, 'description')
-        label = self.read_cell_by_name(index, 'label')
-        type = self._set_type(self.read_cell_by_name(index, 'type'))
-        from_name = self.read_cell_by_name(index, 'from')
-        to_name = self.read_cell_by_name(index, 'to')
-        timing_value = self._set_text_and_encoded(self.read_cell_by_name(index, 'timingValue'))
-        to_from_type = self._set_to_from_type(self.read_cell_by_name(index, 'toFrom'))
-        window = WindowType(self.read_cell_by_name(index, 'window'))
-        if window.errors:
-          self._add_errors(window.errors, index, self._get_column_index('window'))
-        try:
-          item = Timing(
-            id=id_manager.build_id(Timing),
-            type=type,
-            timingValue=timing_value,
-            name=name,
-            description=description,
-            label=label,
-            timingRelativeToFrom=to_from_type,
-            timingWindow=window.label,
-            timingWindowLower=window.lower,
-            timingWindowUpper=window.upper,
-            relativeFromScheduledInstanceId=from_name,
-            relativeToScheduledInstanceId=to_name
-          )
-        except Exception as e:
-          self._general_error(f"Failed to create Timing object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
-        else:
-          self.items.append(item)
+      if self.success:
+        for index, row in self.sheet.iterrows():
+          name = self.read_cell_by_name(index, 'name')
+          description = self.read_description_by_name(index, 'description')
+          label = self.read_cell_by_name(index, 'label')
+          type = self._set_type(self.read_cell_by_name(index, 'type'))
+          from_name = self.read_cell_by_name(index, 'from')
+          to_name = self.read_cell_by_name(index, 'to')
+          timing_value = self._set_text_and_encoded(self.read_cell_by_name(index, 'timingValue'))
+          to_from_type = self._set_to_from_type(self.read_cell_by_name(index, 'toFrom'))
+          window = WindowType(self.read_cell_by_name(index, 'window'))
+          if window.errors:
+            self._add_errors(window.errors, index, self._get_column_index('window'))
+          try:
+            item = Timing(
+              id=id_manager.build_id(Timing),
+              type=type,
+              timingValue=timing_value,
+              name=name,
+              description=description,
+              label=label,
+              timingRelativeToFrom=to_from_type,
+              timingWindow=window.label,
+              timingWindowLower=window.lower,
+              timingWindowUpper=window.upper,
+              relativeFromScheduledInstanceId=from_name,
+              relativeToScheduledInstanceId=to_name
+            )
+          except Exception as e:
+            self._general_error(f"Failed to create Timing object, exception {e}")
+            self._traceback(f"{traceback.format_exc()}")
+          else:
+            self.items.append(item)
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

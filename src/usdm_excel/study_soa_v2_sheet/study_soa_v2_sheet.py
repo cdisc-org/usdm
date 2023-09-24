@@ -49,14 +49,22 @@ class StudySoAV2Sheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def set_timing_references(self, timings):
+    print(f"TR1:")
     for timing in timings:
+      print(f"TR2: {timing}")
       instance = self._raw_instances.match(timing.relativeFromScheduledInstanceId)
+      print(f"TR3: {instance}")
       if instance:
-        timing.relativeFromScheduledInstanceId = instance.id
-        instance.scheduledInstanceTimings.append(timing)
+        item = instance.item
+        print(f"TR4: {item}")
+        timing.relativeFromScheduledInstanceId = item.id
+        item.scheduledInstanceTimings.append(timing)
       instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
+      print(f"TR5: {instance}")
       if instance:
-        timing.relativeToScheduledInstanceId = instance.id
+        item = instance.item
+        print(f"TR6: {item}")
+        timing.relativeToScheduledInstanceId = item.id
       
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
@@ -69,10 +77,10 @@ class StudySoAV2Sheet(BaseSheet):
       else:
         pass
 
-  def _add_exit(self):
-    exit = ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
-    cross_references.add(exit.id, exit)
-    return exit
+  # def _add_exit(self):
+  #   exit = ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
+  #   cross_references.add(exit.id, exit)
+  #   return exit
 
   def _add_timeline(self, name, description, condition, instances, exit):
     timeline = ScheduleTimeline(

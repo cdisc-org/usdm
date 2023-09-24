@@ -289,7 +289,7 @@ class BaseSheet():
   def _check_cell_value(self, file_path, sheet_name, row, column, value):
     wb = load_workbook(file_path, read_only=True, keep_links=False)
     ws = wb[sheet_name]
-    print(f"CELL={ws.cell(row, column).value}")
+    #print(f"CELL={ws.cell(row, column).value}")
     return str(ws.cell(row, column).value).upper() == value
 
   def _state_split(self, s):

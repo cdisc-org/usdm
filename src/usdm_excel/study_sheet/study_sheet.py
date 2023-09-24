@@ -14,6 +14,7 @@ from usdm_excel.study_design_element_sheet.study_design_element_sheet import Stu
 from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
 from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDesignEpochSheet
 from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
+from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
@@ -28,9 +29,6 @@ from usdm_excel.narrative_content import NarrativeContent
 import traceback
 import pandas as pd
 import datetime
-
-# class SDRRoot(ApiBaseModel):
-#   clinicalStudy: Study
 
 class StudySheet(BaseSheet):
 
@@ -68,6 +66,7 @@ class StudySheet(BaseSheet):
       self.elements = StudyDesignElementSheet(file_path)
       self.arms = StudyDesignArmSheet(file_path)
       self.epochs = StudyDesignEpochSheet(file_path)
+      self.timings = StudyDesignTimingSheet(file_path)
       self.activities = StudyDesignActivitySheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
       self._process_soa(file_path)
@@ -181,23 +180,27 @@ class StudySheet(BaseSheet):
       cross_references.add(timeline, tl.timeline)
     self.soa = self._process_timeline(file_path, self.study_design.main_timeline, True)
 
-  def _process_timeline(self, file_path, timeline, main_tileine=False):
+  def _process_timeline(self, file_path, timeline, main_timeline=False):
     if not self.soa_version:
       self._general_info("Detecting SoA sheet version ...")
-      tl = StudySoASheet(file_path, timeline, main=main_tileine, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
+      tl = StudySoASheet(file_path, timeline, main=main_timeline, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
       if tl.success:
         self._general_info("SoA sheet version 1 detected")
         self.soa_version = 1 
       else:
         self._general_info("SoA sheet version 2 detected")
         self.soa_version = 2
-        tl = StudySoAV2Sheet(file_path, timeline, main=main_tileine)
+        tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
+        print("---- SoA Timing ----")
+        tl.set_timing_references(self.timings.items)
     elif self.soa_version == 1:
       self._general_info("Set to SoA sheet version 1")
-      tl = StudySoASheet(file_path, timeline, main=main_tileine)
+      tl = StudySoASheet(file_path, timeline, main=main_timeline)
     else:
       self._general_info("Set to SoA sheet version 2")
-      tl = StudySoAV2Sheet(file_path, timeline, main=main_tileine)
+      tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
+      print("---- SoA Timing ----")
+      tl.set_timing_references(self.timings.items)
     return tl
 
 

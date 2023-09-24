@@ -20,6 +20,7 @@ class ExportAsTimeline():
           pass
         with doc.tag('body'):
           for timeline in study_design.studyScheduleTimelines:
+            timings = []
             with doc.tag(f'h1'):
               doc.asis(f'Timeline {timeline.id}')
             with doc.tag('pre', klass='mermaid'):
@@ -31,6 +32,9 @@ class ExportAsTimeline():
               else:
                 doc.asis(f'{instance.id}{{{{{instance.id}}}}}\n')
               doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
+              for timing in instance.scheduledInstanceTimings:
+                print(f"APPEND: {timing}")
+                timings.append(timing)
               prev_instance = instance
               instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
               while instance:
@@ -44,19 +48,25 @@ class ExportAsTimeline():
 #                    print(f"COND: {instance.id} -->|{condition[0]}| {condition[1]}")
 #                print(f"LINK: {prev_instance.id} --> {instance.id}")
                 doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
+                for timing in instance.scheduledInstanceTimings:
+                  print(f"APPEND: {timing}")
+                  timings.append(timing)
                 prev_instance = instance
                 instance = self._get_cross_reference(prev_instance.defaultConditionId)
 #                print(f"NEXT: {instance}")
               exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.scheduleTimelineExitId)
               doc.asis(f'{exit.id}([Exit])\n')
               doc.asis(f'{prev_instance.id} --> {exit.id}\n')      
-              
+              for timing in timings:
+                print(f"TIMING: {timing}")
+                doc.asis(f'{timing.id}(({timing.label}\n{timing.timingValue}\n{timing.timingWindow}))\n')            
+                doc.asis(f'{timing.id} -->|from| {timing.relativeFromScheduledInstanceId}\n')      
+                doc.asis(f'{timing.id} -->|to| {timing.relativeToScheduledInstanceId}\n')      
           with doc.tag('script', type='module'):
             doc.asis("import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';\n")   
             doc.asis("mermaid.initialize({ startOnLoad: true });\n")   
     except:
-      pass
-#      print(f"{traceback.format_exc()}")
+      print(f"{traceback.format_exc()}")
     return doc.getvalue()
 
   def _get_cross_reference(self, id):
