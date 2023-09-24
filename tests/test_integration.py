@@ -143,6 +143,6 @@ def test_timeline_1():
 def test_timeline_2():
   run_test_timeline('decision_1_v2')
 
-#def test_timeline_3():
-#  run_test_timeline('complex_1')
+def test_timeline_3():
+  run_test_timeline('complex_1')
 
