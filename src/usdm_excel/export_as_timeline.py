@@ -34,19 +34,19 @@ class ExportAsTimeline():
               prev_instance = instance
               instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
               while instance:
-                print(f"INST: {instance}")
+#                print(f"INST: {instance}")
                 if instance.instanceType == 'ACTIVITY': 
                   doc.asis(f'{instance.id}({instance.id})\n')
                 else:
                   doc.asis(f'{instance.id}{{{{{instance.id}}}}}\n')
                   for condition in instance.conditionAssignments:
                     doc.asis(f'{instance.id} -->|{condition[0]}| {condition[1]}\n') 
-                    print(f"COND: {instance.id} -->|{condition[0]}| {condition[1]}")
-                print(f"LINK: {prev_instance.id} --> {instance.id}")
+#                    print(f"COND: {instance.id} -->|{condition[0]}| {condition[1]}")
+#                print(f"LINK: {prev_instance.id} --> {instance.id}")
                 doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
                 prev_instance = instance
                 instance = self._get_cross_reference(prev_instance.defaultConditionId)
-                print(f"NEXT: {instance}")
+#                print(f"NEXT: {instance}")
               exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.scheduleTimelineExitId)
               doc.asis(f'{exit.id}([Exit])\n')
               doc.asis(f'{prev_instance.id} --> {exit.id}\n')      
@@ -55,7 +55,8 @@ class ExportAsTimeline():
             doc.asis("import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';\n")   
             doc.asis("mermaid.initialize({ startOnLoad: true });\n")   
     except:
-      print(f"{traceback.format_exc()}")
+      pass
+#      print(f"{traceback.format_exc()}")
     return doc.getvalue()
 
   def _get_cross_reference(self, id):

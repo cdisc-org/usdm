@@ -23,10 +23,10 @@ class BaseSheet():
     self.sheet = None
     self.success = False
     if optional and not self._sheet_present(file_path, sheet_name):
-      pass
+      self._general_info(f"{sheet_name} not found but optional")
     else:
       if require and not self._check_cell_value(file_path, sheet_name, require['row'], require['column'], require['value']):
-        print(f"VALUE: Mismatch")
+        self._general_info(f"Required value {require['value']} at [{require['row']}, {require['column']}] mismatch in {sheet_name}")
         pass
       else:
         self.sheet = pd.read_excel(open(file_path, 'rb'), sheet_name=sheet_name, header=header, converters=converters)

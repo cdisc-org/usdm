@@ -30,9 +30,10 @@ class NarrativeContent():
       binary_formatted_response = bytearray(response)
       return binary_formatted_response
     except docraptor.rest.ApiException as error:
-      print(error.status)
-      print(error.reason)
-      print(error.body)
+      pass
+      #print(error.status)
+      #print(error.reason)
+      #print(error.body)
 
   def to_html(self):
     root = self.study_design.contents[0]

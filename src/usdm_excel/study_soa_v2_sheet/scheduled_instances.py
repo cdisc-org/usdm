@@ -46,7 +46,7 @@ class ScheduledInstances():
       item = instance.item
       if item.instanceType == 'DECISION':
         for condition in instance.conditions.items:
-          print(f"COND: {condition} ")
+          #print(f"COND: {condition} ")
           if condition['name'] in self.map.keys():
             item.conditionAssignments.append([condition['condition'], self.map[condition['name']].item.id])
           else:

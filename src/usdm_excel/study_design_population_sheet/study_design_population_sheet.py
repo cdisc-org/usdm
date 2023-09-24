@@ -36,7 +36,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
-      print(f"{traceback.format_exc()}")
+      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
   def _build_codes(self, row, index):
