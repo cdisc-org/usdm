@@ -1,6 +1,7 @@
 from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_sheet.cycles import Cycles
 from usdm_excel.study_soa_sheet.timepoints import Timepoints
 from usdm_excel.study_soa_sheet.timepoint import Timepoint
@@ -60,6 +61,7 @@ class StudySoASheet(BaseSheet):
             prev_instance.defaultConditionId = instance.id
           prev_instance = instance
         exit = self._add_exit()
+        instance.scheduleTimelineExitId = exit.id
         self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
@@ -78,7 +80,9 @@ class StudySoASheet(BaseSheet):
         pass
 
   def _add_exit(self):
-    return ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
+    exit =  ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
+    cross_references.add(exit.id, exit)
+    return exit
 
   def _add_timeline(self, name, description, condition, instances, exit):
     return ScheduleTimeline(

@@ -81,6 +81,7 @@ class Timepoint():
         epochId=None,
         activityIds=[]
       )
+      cross_references.add(instance.id, instance)
       timing.relativeFromScheduledInstanceId = instance.id
     elif self.__timepoint_type.timing_type == "condition":
       instance = ScheduledDecisionInstance(
@@ -93,6 +94,7 @@ class Timepoint():
         defaultConditionId=None,
         conditionAssignments=[]
       )
+      cross_references.add(instance.id, instance)
     else:
       self.parent._general_warning(f"Unrecognized ScheduledInstance type: '{self.__timepoint_type.timing_type}'")
     return instance

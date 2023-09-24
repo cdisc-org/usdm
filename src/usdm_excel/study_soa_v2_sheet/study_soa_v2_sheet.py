@@ -81,11 +81,6 @@ class StudySoAV2Sheet(BaseSheet):
       else:
         pass
 
-  # def _add_exit(self):
-  #   exit = ScheduleTimelineExit(id=id_manager.build_id(ScheduleTimelineExit))
-  #   cross_references.add(exit.id, exit)
-  #   return exit
-
   def _add_timeline(self, name, description, condition, instances, exit):
     timeline = ScheduleTimeline(
       id=id_manager.build_id(ScheduleTimeline),
