@@ -753,7 +753,34 @@
               {
                 "id": "ScheduledActivityInstance_5",
                 "instanceType": "ACTIVITY",
-                "scheduledInstanceTimings": [],
+                "scheduledInstanceTimings": [
+                  {
+                    "id": "Timing_5",
+                    "name": "TIM5",
+                    "label": "Follow Up",
+                    "description": "Follow up timing",
+                    "type": {
+                      "id": "Code_44",
+                      "code": "C99901x1",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2022-12-16",
+                      "decode": "After"
+                    },
+                    "timingValue": "P21D",
+                    "timingRelativeToFrom": {
+                      "id": "Code_45",
+                      "code": "C99900x1",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2022-12-16",
+                      "decode": "Start to Start"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "timingWindowLower": "P3D",
+                    "timingWindowUpper": "P3D",
+                    "timingWindow": "-3..3 days"
+                  }
+                ],
                 "scheduledInstanceTimelineId": null,
                 "scheduleTimelineExitId": "ScheduleTimelineExit_1",
                 "defaultConditionId": null,
