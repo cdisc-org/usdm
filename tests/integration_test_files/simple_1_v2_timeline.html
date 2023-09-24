@@ -1,36 +1,40 @@
 <!DOCTYPE html><html><head></head><body><h1>Timeline ScheduleTimeline_1</h1><pre class="mermaid">
 graph LR
 ScheduleTimeline_1([Potential subject identified])
-ScheduledActivityInstance_1(ScheduledActivityInstance_1)
+ScheduledActivityInstance_1(A)
 ScheduleTimeline_1 -->|first| ScheduledActivityInstance_1
-ScheduledActivityInstance_2(ScheduledActivityInstance_2)
+ScheduledActivityInstance_2(A)
 ScheduledActivityInstance_1 -->|default| ScheduledActivityInstance_2
-ScheduledActivityInstance_3(ScheduledActivityInstance_3)
+ScheduledActivityInstance_3(A)
 ScheduledActivityInstance_2 -->|default| ScheduledActivityInstance_3
-ScheduledActivityInstance_4(ScheduledActivityInstance_4)
+ScheduledActivityInstance_4(A)
 ScheduledActivityInstance_3 -->|default| ScheduledActivityInstance_4
-ScheduledActivityInstance_5(ScheduledActivityInstance_5)
+ScheduledActivityInstance_5(A)
 ScheduledActivityInstance_4 -->|default| ScheduledActivityInstance_5
 ScheduleTimelineExit_1([Exit])
-ScheduledActivityInstance_5 --> ScheduleTimelineExit_1
+ScheduledActivityInstance_5 -->|exit| ScheduleTimelineExit_1
 Timing_1((Screening
+Before
 P2D
-))
+None..None))
 Timing_1 -->|from| ScheduledActivityInstance_1
 Timing_1 -->|to| ScheduledActivityInstance_2
 Timing_2((Pre dose
+Before
 PT15M
-0..4 hours))
+PT0H..PT4H))
 Timing_2 -->|from| ScheduledActivityInstance_2
 Timing_2 -->|to| ScheduledActivityInstance_3
 Timing_3((Dosing
+Fixed Reference
 P1D
-))
+None..None))
 Timing_3 -->|from| ScheduledActivityInstance_3
 Timing_3 -->|to| ScheduledActivityInstance_3
 Timing_4((Day 14
+After
 P14D
--1..1 days))
+P1D..P1D))
 Timing_4 -->|from| ScheduledActivityInstance_4
 Timing_4 -->|to| ScheduledActivityInstance_3
 </pre><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';

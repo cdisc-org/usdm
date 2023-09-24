@@ -1,22 +1,22 @@
 <!DOCTYPE html><html><head></head><body><h1>Timeline ScheduleTimeline_1</h1><pre class="mermaid">
 graph LR
 ScheduleTimeline_1([Potential subject identified])
-ScheduledActivityInstance_1(ScheduledActivityInstance_1)
+ScheduledActivityInstance_1(A)
 ScheduleTimeline_1 -->|first| ScheduledActivityInstance_1
-ScheduledActivityInstance_2(ScheduledActivityInstance_2)
+ScheduledActivityInstance_2(A)
 ScheduledActivityInstance_1 -->|default| ScheduledActivityInstance_2
-ScheduledActivityInstance_3(ScheduledActivityInstance_3)
+ScheduledActivityInstance_3(A)
 ScheduledActivityInstance_2 -->|default| ScheduledActivityInstance_3
-ScheduledActivityInstance_4(ScheduledActivityInstance_4)
+ScheduledActivityInstance_4(A)
 ScheduledActivityInstance_3 -->|default| ScheduledActivityInstance_4
-ScheduledDecisionInstance_1{{ScheduledDecisionInstance_1}}
+ScheduledDecisionInstance_1{{D}}
 ScheduledDecisionInstance_1 -->|if major rash| ScheduledActivityInstance_3
 ScheduledDecisionInstance_1 -->|If minor rash| ScheduledActivityInstance_4
 ScheduledActivityInstance_4 -->|default| ScheduledDecisionInstance_1
-ScheduledActivityInstance_5(ScheduledActivityInstance_5)
+ScheduledActivityInstance_5(A)
 ScheduledDecisionInstance_1 -->|default| ScheduledActivityInstance_5
 ScheduleTimelineExit_1([Exit])
-ScheduledActivityInstance_5 --> ScheduleTimelineExit_1
+ScheduledActivityInstance_5 -->|exit| ScheduleTimelineExit_1
 Timing_1((Screening
 Before
 P2D
