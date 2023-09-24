@@ -61,7 +61,7 @@ class StudySheet(BaseSheet):
       self.protocols = []
       self.therapeutic_areas = []
       self.timelines = {}
-      print(f"***** SOA *****")
+      #print(f"***** SOA *****")
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.procedures = StudyDesignProcedureSheet(file_path)
@@ -176,28 +176,33 @@ class StudySheet(BaseSheet):
         cross_references.add(record['id'], spv)
   
   def _process_soa(self, file_path):
-    print(f"-- SoA --")
+    #print(f"-- SoA --")
     for timeline in self.study_design.other_timelines:
       tl = self._process_timeline(file_path, timeline)
       self.timelines[timeline] = tl
+      cross_references.add(timeline, tl.timeline)
     self.soa = self._process_timeline(file_path, self.study_design.main_timeline, True)
 
   def _process_timeline(self, file_path, timeline, main_tileine=False):
     if not self.soa_version:
-      print(f"Timeline")
+      self._general_info("Detecting SoA sheet version ...")
       tl = StudySoASheet(file_path, timeline, main=main_tileine, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
       if tl.success:
-        print(f"Set = 1")
+        self._general_info("SoA sheet version 1 detected")
+        #print(f"Set = 1")
         self.soa_version = 1 
       else:
-        print(f"Set = 2")
+        self._general_info("SoA sheet version 2 detected")
+        #print(f"Set = 2")
         self.soa_version = 2
         tl = StudySoAV2Sheet(file_path, timeline, main=main_tileine)
     elif self.soa_version == 1:
-      print(f"Already = 1")
+      #print(f"Already = 1")
+      self._general_info("Set to SoA sheet version 1")
       tl = StudySoASheet(file_path, timeline, main=main_tileine)
     else:
-      print(f"Already = 2")
+      #print(f"Already = 2")
+      self._general_info("Set to SoA sheet version 2")
       tl = StudySoAV2Sheet(file_path, timeline, main=main_tileine)
     return tl
 
