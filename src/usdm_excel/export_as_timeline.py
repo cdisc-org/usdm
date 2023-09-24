@@ -33,7 +33,7 @@ class ExportAsTimeline():
                 doc.asis(f'{instance.id}{{{{{instance.id}}}}}\n')
               doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
               for timing in instance.scheduledInstanceTimings:
-                print(f"APPEND: {timing}")
+                #print(f"APPEND: {timing}")
                 timings.append(timing)
               prev_instance = instance
               instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)

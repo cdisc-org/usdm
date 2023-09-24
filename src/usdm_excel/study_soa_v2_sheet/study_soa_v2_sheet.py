@@ -49,21 +49,21 @@ class StudySoAV2Sheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def set_timing_references(self, timings):
-    print(f"TR1:")
+    #print(f"TR1:")
     for timing in timings:
-      print(f"TR2: {timing}")
+      #print(f"TR2: {timing}")
       instance = self._raw_instances.match(timing.relativeFromScheduledInstanceId)
-      print(f"TR3: {instance}")
+      #print(f"TR3: {instance}")
       if instance:
         item = instance.item
-        print(f"TR4: {item}")
+        #print(f"TR4: {item}")
         timing.relativeFromScheduledInstanceId = item.id
         item.scheduledInstanceTimings.append(timing)
       instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
-      print(f"TR5: {instance}")
+      #print(f"TR5: {instance}")
       if instance:
         item = instance.item
-        print(f"TR6: {item}")
+        #print(f"TR6: {item}")
         timing.relativeToScheduledInstanceId = item.id
       
   def _process_sheet(self):
