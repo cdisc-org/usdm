@@ -15,6 +15,8 @@ class ScheduledInstance():
     self.parent = parent
     self.item = None
     self.col_index = col_index
+    epoch_id = None
+    encounter_id = None
     name = self.parent.read_cell(SoAColumnRows.NAME_ROW, col_index)
     self.name = name
     description = self.parent.read_cell(SoAColumnRows.DESCRIPTION_ROW, col_index)
@@ -26,8 +28,16 @@ class ScheduledInstance():
     self.conditions = Conditons(self.parent.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index))
     if encounter_name:
       encounter = cross_references.get(Encounter, encounter_name)
+      if encounter:
+        encounter_id = encounter.id
+      else:
+        self.parent._general_warning(f"Failed to find encounter with name '{encounter_name}'")
     if epoch_name:
       epoch = cross_references.get(StudyEpoch, epoch_name)
+      if epoch:
+        epoch_id = epoch.id
+      else:
+        self.parent._general_warning(f"Failed to find epoch with name '{epoch_name}'")
     try:
       if type.upper() == "ACTIVITY":
         self.item = ScheduledActivityInstance(
@@ -37,11 +47,11 @@ class ScheduledInstance():
 #          label=label,
           instanceType='ACTIVITY',
           scheduleTimelineExitId=None,
-          scheduledInstanceEncounterId=encounter.id,
+          scheduledInstanceEncounterId=encounter_id,
           scheduledInstanceTimings=[],
           scheduledInstanceTimelineId=None,
           defaultConditionId=None,
-          epochId=epoch.id,
+          epochId=epoch_id,
           activityIds=self._add_activities()
         )
         cross_references.add(self.item.id, self.item)
