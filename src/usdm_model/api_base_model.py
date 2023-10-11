@@ -25,8 +25,8 @@ def _serialize_as_json_with_type(obj):
 
 class ApiBaseModel(BaseModel):
 
-  IdField = constr(min_length=1)
-  NameField = constr(min_length=1)
+  #IdField = constr(min_length=1)
+  #NameField = constr(min_length=1)
   
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
@@ -35,13 +35,13 @@ class ApiBaseModel(BaseModel):
     return json.dumps(self, default=_serialize_as_json_with_type)
 
 class ApiBaseModelWithId(ApiBaseModel):
-  id: ApiBaseModel.IdField
+  id: constr(min_length=1)
 
 class ApiBaseModelWithIdAndDesc(ApiBaseModelWithId):
   description: Union[str, None] = None
 
 class ApiBaseModelWithIdAndName(ApiBaseModelWithId):
-  name: ApiBaseModel.NameField
+  name: constr(min_length=1)
 
 class ApiBaseModelWithIdNameAndLabel(ApiBaseModelWithIdAndName):
   label: Union[str, None] = None
