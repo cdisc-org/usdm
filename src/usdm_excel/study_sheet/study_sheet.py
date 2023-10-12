@@ -77,7 +77,7 @@ class StudySheet(BaseSheet):
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
-      self.protocols[0].contents = self.contents.items
+      self.protocols[-1].contents = self.contents.items
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
@@ -112,7 +112,7 @@ class StudySheet(BaseSheet):
           studyRationale=self.rationale,
           studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
-          documentVersions=self.protocols,
+          documentVersion=self.protocols[-1],
           studyDesigns=self.study_design.study_designs
         )
         try:
@@ -122,10 +122,10 @@ class StudySheet(BaseSheet):
             versions=[self.study_version]
           )
           cross_references.add("STUDY", self.study)
-        except:
+        except Exception as e:
           self._general_error(f"Failed to create Study object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
-      except:
+      except Exception as e:
         self._general_error(f"Failed to create Study Version object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
     except Exception as e:

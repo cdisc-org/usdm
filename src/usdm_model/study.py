@@ -7,8 +7,8 @@ from uuid import UUID
 
 class Study(ApiBaseModel):
   id: Union[UUID, None] = None
-  name: str = Field(min_length=1)
-  description: str = constr()
-  label: str = constr()
+  name: str = constr(min_length=1)
+  description: Union[str, None] = None
+  label: Union[str, None] = None
   versions: List[StudyVersion] = []
   documentedBy: Union[StudyProtocolDocument, None] = None

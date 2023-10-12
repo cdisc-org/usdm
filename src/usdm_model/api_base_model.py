@@ -4,6 +4,7 @@ import json
 import enum
 import datetime
 
+# Example, see https://stackoverflow.com/questions/10252010/serializing-class-instance-to-json
 def _serialize_as_json(obj):
   if isinstance(obj, enum.Enum):
     return obj.value
@@ -13,7 +14,6 @@ def _serialize_as_json(obj):
     return obj.__dict__
 
 def _serialize_as_json_with_type(obj):
-  # Example, see https://stackoverflow.com/questions/10252010/serializing-class-instance-to-json
   if isinstance(obj, enum.Enum):
     return obj.value
   elif isinstance(obj, datetime.date):
@@ -25,9 +25,6 @@ def _serialize_as_json_with_type(obj):
 
 class ApiBaseModel(BaseModel):
 
-  #IdField = constr(min_length=1)
-  #NameField = constr(min_length=1)
-  
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
 
