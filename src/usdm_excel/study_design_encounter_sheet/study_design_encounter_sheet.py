@@ -25,9 +25,9 @@ class StudyDesignEncounterSheet(BaseSheet):
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if not start_rule_text == "":
-          start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), description=start_rule_text)
+          start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENC_{name}_START_RULE", text=start_rule_text)
         if not end_rule_text == "":
-          end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), description=end_rule_text)
+          end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENC_{name}_START_RULE", text=end_rule_text)
         try:
           item = Encounter(
             id=id_manager.build_id(Encounter), 
