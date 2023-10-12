@@ -40,7 +40,7 @@ class IdManager():
       'Procedure': 0,
       'TransitionRule': 0,
       'StudyElement': 0,
-      'Content': 0
+      'NarrativeContent': 0
     }
 
   def build_id(self, klass):
