@@ -4,7 +4,7 @@ from .code import Code
 from .transition_rule import TransitionRule
 
 class Encounter(ApiBaseModelWithIdNameLabelAndDesc):
-  type: Union[Code, None] = None
+  type: Code
   previousEncounterId: Union[str, None] = None
   nextEncounterId: Union[str, None] = None
   encounterScheduledAtTimingId: Union[str, None] = None

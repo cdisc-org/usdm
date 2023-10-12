@@ -6,7 +6,6 @@ from .biomedical_concept import BiomedicalConcept
 from .biomedical_concept_category import BiomedicalConceptCategory
 from .biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from .code import Code
-from .content import Content
 from .encounter import Encounter
 from .study_cell import StudyCell
 from .indication import Indication
@@ -18,6 +17,7 @@ from .study_design_population import StudyDesignPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
+from .study_protocol_document_version import StudyProtocolDocumentVersion
 
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   trialIntentTypes: List[Code] = []
@@ -41,4 +41,4 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   studyArms: List[StudyArm]
   studyEpochs: List[StudyEpoch]
   studyElements: List[StudyElement] = []
-  contents: List[Content] = []
+  documentVersion: Union[StudyProtocolDocumentVersion, None] = None

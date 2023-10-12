@@ -1,6 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
-from usdm_model.content import Content
+from usdm_model.narrative_content import Content
 from usdm_excel.option_manager import Options, option_manager
 import traceback
 

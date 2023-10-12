@@ -1,4 +1,4 @@
-from .api_base_model import ApiBaseModelWithIdAndDesc
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 
-class AnalysisPopulation(ApiBaseModelWithIdAndDesc):
-  pass
+class AnalysisPopulation(ApiBaseModelWithIdNameLabelAndDesc):
+  text: str
