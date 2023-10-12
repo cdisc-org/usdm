@@ -1,7 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
-from usdm_model.narrative_content import Content
-from usdm_excel.option_manager import Options, option_manager
+from usdm_model.narrative_content import NarrativeContent
+#from usdm_excel.option_manager import Options, option_manager
 import traceback
 
 class StudyDesignContentSheet(BaseSheet):
@@ -14,8 +14,8 @@ class StudyDesignContentSheet(BaseSheet):
         current_level = 0
         new_level = 0
         current_parent = []
-        previous_item = Content(
-          id=id_manager.build_id(Content), 
+        previous_item = NarrativeContent(
+          id=id_manager.build_id(NarrativeContent), 
           name="ROOT",
           sectionNumber="0",
           sectionTitle="Root",
@@ -31,8 +31,8 @@ class StudyDesignContentSheet(BaseSheet):
           name = self.read_cell_by_name(index, 'name')
           name = f"SECTION {section_number}" if name == "" else name
           try:
-            item = Content(
-              id=id_manager.build_id(Content), 
+            item = NarrativeContent(
+              id=id_manager.build_id(NarrativeContent), 
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,

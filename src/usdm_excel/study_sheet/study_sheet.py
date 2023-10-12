@@ -21,8 +21,9 @@ from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.option_manager import *
 from usdm_model.api_base_model import ApiBaseModel
-from usdm_model.study_version import Study
-from usdm_model.study_protocol_version import StudyProtocolVersion
+from usdm_model.study_version import StudyVersion
+from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
+from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
 from usdm_excel.narrative_content import NarrativeContent
 
