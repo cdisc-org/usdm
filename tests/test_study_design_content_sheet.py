@@ -5,7 +5,7 @@ from src.usdm_excel.base_sheet import BaseSheet
 
 xfail = pytest.mark.xfail
 
-from src.usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
+from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

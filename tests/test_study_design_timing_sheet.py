@@ -2,8 +2,6 @@ import pandas as pd
 
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
-#from usdm_excel.iso_8601_duration import ISO8601Duration
-from src.usdm_excel.base_sheet import BaseSheet
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

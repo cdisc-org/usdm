@@ -3,8 +3,8 @@ import pandas as pd
 
 xfail = pytest.mark.xfail
 
-from src.usdm_excel.base_sheet import BaseSheet
-from src.usdm_model.code import Code
+from usdm_excel.base_sheet import BaseSheet
+from usdm_model.code import Code
 
 # def test_sheet_cell_value(mocker):
 #   mocked_open = mocker.mock_open(read_data="File")

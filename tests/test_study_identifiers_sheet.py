@@ -1,8 +1,8 @@
 import pytest
 import pandas as pd
 
-from src.usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
-from src.usdm_model.code import Code
+from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm_model.code import Code
 
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")

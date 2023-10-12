@@ -3,8 +3,8 @@ import pandas as pd
 
 xfail = pytest.mark.xfail
 
-from src.usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
-from src.usdm_model.code import Code
+from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
+from usdm_model.code import Code
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
