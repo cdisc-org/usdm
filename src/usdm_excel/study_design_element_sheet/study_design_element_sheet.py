@@ -10,7 +10,6 @@ class StudyDesignElementSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      #super().__init__(pd.read_excel(open(file_path, 'rb'), sheet_name='studyDesignElements'))
       super().__init__(file_path=file_path, sheet_name='studyDesignElements')
       self.items = []
       for index, row in self.sheet.iterrows():
@@ -23,9 +22,9 @@ class StudyDesignElementSheet(BaseSheet):
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if not start_rule_text == "":
-          start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), description=start_rule_text)
+          start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ELEMENT_START_RULE_{index + 1}", text=start_rule_text)
         if not end_rule_text == "":
-          end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), description=end_rule_text)
+          end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ELEMENT_END_RULE_{index + 1}", text=end_rule_text)
         try:
           item = StudyElement(
             id=id_manager.build_id(StudyElement), 

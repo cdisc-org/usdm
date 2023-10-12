@@ -20,7 +20,7 @@ from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.option_manager import *
-from usdm_model.api_base_model import ApiBaseModel
+from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
 from usdm_model.study_protocol_document import StudyProtocolDocument
@@ -57,6 +57,7 @@ class StudySheet(BaseSheet):
       self.acronym = None
       self.rationale = None
       self.study = None
+      self.study_version = None
       self.protocols = []
       self.therapeutic_areas = []
       self.timelines = {}
@@ -76,6 +77,7 @@ class StudySheet(BaseSheet):
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
+      self.protocols[0].contents = self.contents.items
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
@@ -97,11 +99,11 @@ class StudySheet(BaseSheet):
       study_design.studyPopulations = self.study_populations.populations
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
-      study_design.contents = self.contents.items
+      #study_design.contents = self.contents.items
 
       try:
-        self.study = Study(
-          id=None, # No Id, will be allocated a UUID
+        self.study_version = StudyVersion(
+          id=id_manager.build_id(StudyVersion),
           studyTitle=self.title,
           studyVersion=self.version,
           type=self.type,
@@ -110,12 +112,21 @@ class StudySheet(BaseSheet):
           studyRationale=self.rationale,
           studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
-          studyProtocolVersions=self.protocols,
+          documentVersions=self.protocols,
           studyDesigns=self.study_design.study_designs
         )
-        cross_references.add("STUDY", self.study)
+        try:
+          self.study = Study(
+            id=None, # No Id, will be allocated a UUID
+            name="STUDY ROOT",
+            versions=[self.study_version]
+          )
+          cross_references.add("STUDY", self.study)
+        except:
+          self._general_error(f"Failed to create Study object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
       except:
-        self._general_error(f"Failed to create Study object, exception {e}")
+        self._general_error(f"Failed to create Study Version object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
@@ -169,8 +180,8 @@ class StudySheet(BaseSheet):
           else:
             cell = self.read_cell(rindex, cindex)
             record[field] = cell
-        record['id'] = id_manager.build_id(StudyProtocolVersion)
-        spv = StudyProtocolVersion(**record)
+        record['id'] = id_manager.build_id(StudyProtocolDocumentVersion)
+        spv = StudyProtocolDocumentVersion(**record)
         self.protocols.append(spv)
         cross_references.add(record['id'], spv)
   

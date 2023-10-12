@@ -28,7 +28,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
         if not e_summary == "":
           try:
-            ap = AnalysisPopulation(id=id_manager.build_id(AnalysisPopulation), description=ap_description) 
+            ap = AnalysisPopulation(id=id_manager.build_id(AnalysisPopulation), name=f"AP_{index+1}", text=ap_description) 
           except Exception as e:
             self._general_error(f"Failed to create AnalysisPopulation object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
