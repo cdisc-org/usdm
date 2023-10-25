@@ -11,13 +11,13 @@ from .study_amendment import StudyAmendment
 class StudyVersion(ApiBaseModelWithId):
   studyTitle: str
   studyVersion: str
+  studyRationale: str
+  studyAcronym: str
   type: Union[genericCode, None] = None
   studyPhase: Union[AliasCode, None] = None
   documentVersion: Union[StudyProtocolDocumentVersion, None] = None
-  approvedOn: List[GovernanceDate] = []
-  protocolAmendments: List[StudyAmendment] = []
+  dateValues: List[GovernanceDate] = []
+  amendments: List[StudyAmendment] = []
   businessTherapeuticAreas: List[Code] = []
   studyIdentifiers: List[StudyIdentifier] = []
   studyDesigns: List[StudyDesign] = []
-  studyRationale: str
-  studyAcronym: str
