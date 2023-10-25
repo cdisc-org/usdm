@@ -33,16 +33,23 @@ import datetime
 
 class StudySheet(BaseSheet):
 
-  TITLE_ROW = 0
-  VERSION_ROW = 1
-  TYPE_ROW = 2
-  PHASE_ROW = 3
-  ACRONYM_ROW = 4
-  RATIONALE_ROW = 5
-  TA_ROW = 6
+  NAME_ROW = 0
+  TITLE_ROW = 1
+  VERSION_ROW = 2
+  TYPE_ROW = 3
+  PHASE_ROW = 4
+  ACRONYM_ROW = 5
+  RATIONALE_ROW = 6
+  TA_ROW = 7
+  BRIEF_TITLE_ROW = 8
+  OFFICAL_TITLE_ROW = 9
+  PUBLIC_TITLE_ROW = 10
+  SCIENTIFIC_TITLE_ROW = 11
+  PROTOCOL_VERSION_ROW = 12
+  PROTOCOL_STATUS_ROW = 13
 
-  PROTOCOL_HEADER_ROW = 8
-  PROTOCOL_DATA_ROW = 9
+  DATES_HEADER_ROW = 15
+  DATES_DATA_ROW = 16
   
   PARAMS_DATA_COL = 1
 
@@ -53,12 +60,19 @@ class StudySheet(BaseSheet):
       self.phase = None
       self.version = None
       self.type = None
+      self.name = None
+      self.brief_title = None
+      self.official_title = None
+      self.public_title = None
+      self.scientific_title = None
+      self.protocol_version = None
+      self.protocol_status = None
       self.title = None
       self.acronym = None
       self.rationale = None
       self.study = None
       self.study_version = None
-      self.protocols = []
+      self.protocol_document_version = None
       self.therapeutic_areas = []
       self.timelines = {}
       self._process_sheet()
@@ -77,7 +91,7 @@ class StudySheet(BaseSheet):
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
-      self.protocols[-1].contents = self.contents.items
+      #self.protocols[-1].contents = self.contents.items
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
@@ -102,10 +116,30 @@ class StudySheet(BaseSheet):
       #study_design.contents = self.contents.items
 
       try:
-        study_protocol_document = StudyProtocolDocument(id=id_manager.build_id(StudyProtocolDocument), name="Protocol Document", versions=[self.protocols[-1]])
+        self.protocol_document_version = StudyProtocolDocumentVersion(
+          id=id_manager.build_id(StudyProtocolDocumentVersion), 
+          briefTitle=self.brief_title,
+          officialTitle=self.official_title,
+          publicTitle=self.public_title,
+          scientificTitle=self.scientific_title,
+          protocolVersion=self.protocol_version,
+          protocolStatus=self.protocol_status                                             
+          )
+        self.protocol_document_version.contents = self.contents.items
+        cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
       except Exception as e:
-          self._general_error(f"Failed to create StudyProtocolDocument object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+        self._general_error(f"Failed to create StudyProtocolDocumentVersion object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
+      try:
+        study_protocol_document = StudyProtocolDocument(
+          id=id_manager.build_id(StudyProtocolDocument), 
+          name=f"Protocol_Document_{self.name}", 
+          versions=[self.protocol_document_version])
+      except Exception as e:
+        self._general_error(f"Failed to create StudyProtocolDocument object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
       try:
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
@@ -117,23 +151,25 @@ class StudySheet(BaseSheet):
           studyRationale=self.rationale,
           studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
-          documentVersionId=self.protocols[-1].id,
+          documentVersionId=self.protocol_document_version.id,
           studyDesigns=self.study_design.study_designs
         )
-        try:
-          self.study = Study(
-            id=None, # No Id, will be allocated a UUID
-            name="STUDY ROOT",
-            versions=[self.study_version],
-            documentedBy=study_protocol_document
-          )
-          cross_references.add("STUDY", self.study)
-        except Exception as e:
-          self._general_error(f"Failed to create Study object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
       except Exception as e:
-        self._general_error(f"Failed to create Study Version object, exception {e}")
+        self._general_error(f"Failed to create StudyVersion object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
+
+      try:
+        self.study = Study(
+          id=None, # No Id, will be allocated a UUID
+          name=f"Study_{self.name}", 
+          versions=[self.study_version],
+          documentedBy=study_protocol_document
+        )
+        cross_references.add("STUDY", self.study)
+      except Exception as e:
+        self._general_error(f"Failed to create Study object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
@@ -159,7 +195,9 @@ class StudySheet(BaseSheet):
   def _process_sheet(self):
     fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
     for rindex, row in self.sheet.iterrows():
-      if rindex == self.TITLE_ROW:
+      if rindex == self.NAME_ROW:
+        self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.TITLE_ROW:
         self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.VERSION_ROW:
         self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
@@ -174,22 +212,34 @@ class StudySheet(BaseSheet):
         self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.TA_ROW:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
-      elif rindex >= self.PROTOCOL_DATA_ROW:
-        record = {}
-        for cindex in range(0, len(self.sheet.columns)):
-          field = fields[cindex]
-          if field == 'protocolStatus':
-            record[field] = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, cindex) 
-          elif field == 'protocolEffectiveDate':
-            cell = self.read_cell(rindex, cindex)
-            record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
-          else:
-            cell = self.read_cell(rindex, cindex)
-            record[field] = cell
-        record['id'] = id_manager.build_id(StudyProtocolDocumentVersion)
-        spv = StudyProtocolDocumentVersion(**record)
-        self.protocols.append(spv)
-        cross_references.add(record['id'], spv)
+      elif rindex == self.BRIEF_TITLE_ROW:
+        self.brief_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.OFFICAL_TITLE_ROW:
+        self.official_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.PUBLIC_TITLE_ROW:
+        self.public_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.SCIENTIFIC_TITLE_ROW:
+        self.scientific_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.PROTOCOL_VERSION_ROW:
+        self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif rindex == self.PROTOCOL_STATUS_ROW:
+        self.protocol_status = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, self.PARAMS_DATA_COL) 
+      # elif rindex >= self.PROTOCOL_DATA_ROW:
+      #   record = {}
+      #   for cindex in range(0, len(self.sheet.columns)):
+      #     field = fields[cindex]
+      #     if field == 'protocolStatus':
+      #       record[field] = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, cindex) 
+      #     elif field == 'protocolEffectiveDate':
+      #       cell = self.read_cell(rindex, cindex)
+      #       record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
+      #     else:
+      #       cell = self.read_cell(rindex, cindex)
+      #       record[field] = cell
+      #   record['id'] = id_manager.build_id(StudyProtocolDocumentVersion)
+      #   spv = StudyProtocolDocumentVersion(**record)
+      #   self.protocols.append(spv)
+      #   cross_references.add(record['id'], spv)
   
   def _process_soa(self, file_path):
     for timeline in self.study_design.other_timelines:
