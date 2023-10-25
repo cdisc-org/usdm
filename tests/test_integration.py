@@ -86,6 +86,9 @@ def run_test_ne(filename, save=False):
 def test_simple_1():
   run_test('simple_1')
 
+def test_scope_1():
+  run_test('scope_1')
+
 def test_simple_1_ne():
   run_test_ne('simple_1')
 
