@@ -45,31 +45,43 @@
     }
   },
   {
-    "id": 9,
+    "id": 7,
     "properties": {
-      "id": "Code_5",
+      "id": "Code_4",
+      "code": "REG",
+      "codeSystem": "SPONSOR",
+      "codeSystemVersion": "12",
+      "decode": "Regulatory",
+      "_type": "Code",
+      "label": "Code_4"
+    }
+  },
+  {
+    "id": 10,
+    "properties": {
+      "id": "Code_6",
       "code": "C93453",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Study Registry",
       "_type": "Code",
-      "label": "Code_5"
+      "label": "Code_6"
     }
   },
   {
-    "id": 11,
+    "id": 12,
     "properties": {
-      "id": "Code_6",
+      "id": "Code_7",
       "code": "GBR",
       "codeSystem": "ISO 3166 1 alpha3",
       "codeSystemVersion": "2020-08",
       "decode": "United Kingdom of Great Britain and Northern Ireland",
       "_type": "Code",
-      "label": "Code_6"
+      "label": "Code_7"
     }
   },
   {
-    "id": 10,
+    "id": 11,
     "properties": {
       "id": "Address_1",
       "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
@@ -83,7 +95,7 @@
     }
   },
   {
-    "id": 8,
+    "id": 9,
     "properties": {
       "id": "Organization_1",
       "name": "ClinicalTrials.gov",
@@ -94,7 +106,7 @@
     }
   },
   {
-    "id": 7,
+    "id": 8,
     "properties": {
       "id": "StudyIdentifier_1",
       "studyIdentifier": "NCT12345678",
@@ -103,25 +115,13 @@
     }
   },
   {
-    "id": 13,
+    "id": 14,
     "properties": {
-      "id": "Code_26",
+      "id": "Code_27",
       "code": "C15714",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Basic Research",
-      "_type": "Code",
-      "label": "Code_26"
-    }
-  },
-  {
-    "id": 14,
-    "properties": {
-      "id": "Code_27",
-      "code": "C139174",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2022-12-16",
-      "decode": "Device Feasibility Study",
       "_type": "Code",
       "label": "Code_27"
     }
@@ -130,10 +130,10 @@
     "id": 15,
     "properties": {
       "id": "Code_28",
-      "code": "C49666",
+      "code": "C139174",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "Efficacy Study",
+      "decode": "Device Feasibility Study",
       "_type": "Code",
       "label": "Code_28"
     }
@@ -141,47 +141,47 @@
   {
     "id": 16,
     "properties": {
-      "id": "Code_24",
-      "code": "T2_DIABETES",
-      "codeSystem": "SPONSOR",
-      "codeSystemVersion": "12",
-      "decode": "Type 2 diabetes",
-      "_type": "Code",
-      "label": "Code_24"
-    }
-  },
-  {
-    "id": 17,
-    "properties": {
       "id": "Code_29",
-      "code": "C82639",
+      "code": "C49666",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "Parallel Study",
+      "decode": "Efficacy Study",
       "_type": "Code",
       "label": "Code_29"
     }
   },
   {
-    "id": 19,
+    "id": 17,
     "properties": {
-      "id": "Code_8",
-      "code": "C25716",
+      "id": "Code_25",
+      "code": "T2_DIABETES",
+      "codeSystem": "SPONSOR",
+      "codeSystemVersion": "12",
+      "decode": "Type 2 diabetes",
+      "_type": "Code",
+      "label": "Code_25"
+    }
+  },
+  {
+    "id": 18,
+    "properties": {
+      "id": "Code_30",
+      "code": "C82639",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "Visit",
+      "decode": "Parallel Study",
       "_type": "Code",
-      "label": "Code_8"
+      "label": "Code_30"
     }
   },
   {
     "id": 20,
     "properties": {
       "id": "Code_9",
-      "code": "C51282",
+      "code": "C25716",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "Clinic",
+      "decode": "Visit",
       "_type": "Code",
       "label": "Code_9"
     }
@@ -190,16 +190,28 @@
     "id": 21,
     "properties": {
       "id": "Code_10",
-      "code": "C175574",
+      "code": "C51282",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "In Person",
+      "decode": "Clinic",
       "_type": "Code",
       "label": "Code_10"
     }
   },
   {
     "id": 22,
+    "properties": {
+      "id": "Code_11",
+      "code": "C175574",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "In Person",
+      "_type": "Code",
+      "label": "Code_11"
+    }
+  },
+  {
+    "id": 23,
     "properties": {
       "id": "TransitionRule_1",
       "name": "ENCOUNTER_START_RULE_1",
@@ -210,7 +222,7 @@
     }
   },
   {
-    "id": 23,
+    "id": 24,
     "properties": {
       "id": "TransitionRule_2",
       "name": "ENCOUNTER_START_RULE_1",
@@ -221,7 +233,7 @@
     }
   },
   {
-    "id": 18,
+    "id": 19,
     "properties": {
       "id": "Encounter_1",
       "name": "Screening",
@@ -234,25 +246,13 @@
     }
   },
   {
-    "id": 25,
+    "id": 26,
     "properties": {
-      "id": "Code_11",
+      "id": "Code_12",
       "code": "C25716",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Visit",
-      "_type": "Code",
-      "label": "Code_11"
-    }
-  },
-  {
-    "id": 26,
-    "properties": {
-      "id": "Code_12",
-      "code": "C51282",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2022-12-16",
-      "decode": "Clinic",
       "_type": "Code",
       "label": "Code_12"
     }
@@ -261,16 +261,28 @@
     "id": 27,
     "properties": {
       "id": "Code_13",
-      "code": "C175574",
+      "code": "C51282",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "In Person",
+      "decode": "Clinic",
       "_type": "Code",
       "label": "Code_13"
     }
   },
   {
-    "id": 24,
+    "id": 28,
+    "properties": {
+      "id": "Code_14",
+      "code": "C175574",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "In Person",
+      "_type": "Code",
+      "label": "Code_14"
+    }
+  },
+  {
+    "id": 25,
     "properties": {
       "id": "Encounter_2",
       "name": "Baseline",
@@ -285,25 +297,13 @@
     }
   },
   {
-    "id": 29,
+    "id": 30,
     "properties": {
-      "id": "Code_14",
+      "id": "Code_15",
       "code": "C25716",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Visit",
-      "_type": "Code",
-      "label": "Code_14"
-    }
-  },
-  {
-    "id": 30,
-    "properties": {
-      "id": "Code_15",
-      "code": "C51282",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2022-12-16",
-      "decode": "Clinic",
       "_type": "Code",
       "label": "Code_15"
     }
@@ -312,16 +312,28 @@
     "id": 31,
     "properties": {
       "id": "Code_16",
-      "code": "C175574",
+      "code": "C51282",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
-      "decode": "In Person",
+      "decode": "Clinic",
       "_type": "Code",
       "label": "Code_16"
     }
   },
   {
     "id": 32,
+    "properties": {
+      "id": "Code_17",
+      "code": "C175574",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "In Person",
+      "_type": "Code",
+      "label": "Code_17"
+    }
+  },
+  {
+    "id": 33,
     "properties": {
       "id": "TransitionRule_3",
       "name": "ENCOUNTER_START_RULE_3",
@@ -332,7 +344,7 @@
     }
   },
   {
-    "id": 28,
+    "id": 29,
     "properties": {
       "id": "Encounter_3",
       "name": "Day 1",
@@ -346,7 +358,7 @@
     }
   },
   {
-    "id": 33,
+    "id": 34,
     "properties": {
       "id": "Activity_1",
       "name": "Demographics",
@@ -362,7 +374,7 @@
     }
   },
   {
-    "id": 34,
+    "id": 35,
     "properties": {
       "id": "Activity_2",
       "name": "Vital Signs",
@@ -378,19 +390,19 @@
     }
   },
   {
-    "id": 38,
+    "id": 39,
     "properties": {
-      "id": "Code_46",
+      "id": "Code_47",
       "code": "C20197",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Male",
       "_type": "Code",
-      "label": "Code_46"
+      "label": "Code_47"
     }
   },
   {
-    "id": 37,
+    "id": 38,
     "properties": {
       "id": "ResponseCode_1",
       "responseCodeEnabled": true,
@@ -399,19 +411,19 @@
     }
   },
   {
-    "id": 40,
+    "id": 41,
     "properties": {
-      "id": "Code_47",
+      "id": "Code_48",
       "code": "C16576",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Female",
       "_type": "Code",
-      "label": "Code_47"
+      "label": "Code_48"
     }
   },
   {
-    "id": 39,
+    "id": 40,
     "properties": {
       "id": "ResponseCode_2",
       "responseCodeEnabled": true,
@@ -420,19 +432,19 @@
     }
   },
   {
-    "id": 42,
+    "id": 43,
     "properties": {
-      "id": "Code_48",
+      "id": "Code_49",
       "code": "C17998",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Unknown",
       "_type": "Code",
-      "label": "Code_48"
+      "label": "Code_49"
     }
   },
   {
-    "id": 41,
+    "id": 42,
     "properties": {
       "id": "ResponseCode_3",
       "responseCodeEnabled": true,
@@ -441,19 +453,19 @@
     }
   },
   {
-    "id": 44,
+    "id": 45,
     "properties": {
-      "id": "Code_49",
+      "id": "Code_50",
       "code": "C28421",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Sex",
       "_type": "Code",
-      "label": "Code_49"
+      "label": "Code_50"
     }
   },
   {
-    "id": 43,
+    "id": 44,
     "properties": {
       "id": "AliasCode_4",
       "standardCodeAliases": [],
@@ -462,7 +474,7 @@
     }
   },
   {
-    "id": 36,
+    "id": 37,
     "properties": {
       "id": "BiomedicalConceptProperty_1",
       "name": "Sex",
@@ -474,19 +486,19 @@
     }
   },
   {
-    "id": 46,
+    "id": 47,
     "properties": {
-      "id": "Code_45",
+      "id": "Code_46",
       "code": "C28421",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Sex",
       "_type": "Code",
-      "label": "Code_45"
+      "label": "Code_46"
     }
   },
   {
-    "id": 45,
+    "id": 46,
     "properties": {
       "id": "AliasCode_3",
       "standardCodeAliases": [],
@@ -495,7 +507,7 @@
     }
   },
   {
-    "id": 35,
+    "id": 36,
     "properties": {
       "id": "BiomedicalConcept_1",
       "name": "Sex",
@@ -506,19 +518,19 @@
     }
   },
   {
-    "id": 50,
+    "id": 51,
     "properties": {
-      "id": "Code_51",
+      "id": "Code_52",
       "code": "C17998",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Unknown",
       "_type": "Code",
-      "label": "Code_51"
+      "label": "Code_52"
     }
   },
   {
-    "id": 49,
+    "id": 50,
     "properties": {
       "id": "ResponseCode_4",
       "responseCodeEnabled": true,
@@ -527,19 +539,19 @@
     }
   },
   {
-    "id": 52,
+    "id": 53,
     "properties": {
-      "id": "Code_52",
+      "id": "Code_53",
       "code": "C17049",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Race",
       "_type": "Code",
-      "label": "Code_52"
+      "label": "Code_53"
     }
   },
   {
-    "id": 51,
+    "id": 52,
     "properties": {
       "id": "AliasCode_6",
       "standardCodeAliases": [],
@@ -548,7 +560,7 @@
     }
   },
   {
-    "id": 48,
+    "id": 49,
     "properties": {
       "id": "BiomedicalConceptProperty_2",
       "name": "Race",
@@ -560,19 +572,19 @@
     }
   },
   {
-    "id": 54,
+    "id": 55,
     "properties": {
-      "id": "Code_50",
+      "id": "Code_51",
       "code": "C17049",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Race",
       "_type": "Code",
-      "label": "Code_50"
+      "label": "Code_51"
     }
   },
   {
-    "id": 53,
+    "id": 54,
     "properties": {
       "id": "AliasCode_5",
       "standardCodeAliases": [],
@@ -581,7 +593,7 @@
     }
   },
   {
-    "id": 47,
+    "id": 48,
     "properties": {
       "id": "BiomedicalConcept_2",
       "name": "Race",
@@ -594,19 +606,19 @@
     }
   },
   {
-    "id": 58,
+    "id": 59,
     "properties": {
-      "id": "Code_54",
+      "id": "Code_55",
       "code": "C173522",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Vital Signs Result",
       "_type": "Code",
-      "label": "Code_54"
+      "label": "Code_55"
     }
   },
   {
-    "id": 57,
+    "id": 58,
     "properties": {
       "id": "AliasCode_8",
       "standardCodeAliases": [],
@@ -615,7 +627,7 @@
     }
   },
   {
-    "id": 56,
+    "id": 57,
     "properties": {
       "id": "BiomedicalConceptProperty_3",
       "name": "Vital Signs Result",
@@ -628,19 +640,19 @@
     }
   },
   {
-    "id": 61,
+    "id": 62,
     "properties": {
-      "id": "Code_55",
+      "id": "Code_56",
       "code": "C28252",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Kilogram",
       "_type": "Code",
-      "label": "Code_55"
+      "label": "Code_56"
     }
   },
   {
-    "id": 60,
+    "id": 61,
     "properties": {
       "id": "ResponseCode_5",
       "responseCodeEnabled": true,
@@ -649,19 +661,19 @@
     }
   },
   {
-    "id": 63,
+    "id": 64,
     "properties": {
-      "id": "Code_56",
+      "id": "Code_57",
       "code": "C48155",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Gram",
       "_type": "Code",
-      "label": "Code_56"
+      "label": "Code_57"
     }
   },
   {
-    "id": 62,
+    "id": 63,
     "properties": {
       "id": "ResponseCode_6",
       "responseCodeEnabled": true,
@@ -670,19 +682,19 @@
     }
   },
   {
-    "id": 65,
+    "id": 66,
     "properties": {
-      "id": "Code_57",
+      "id": "Code_58",
       "code": "C48531",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Pound",
       "_type": "Code",
-      "label": "Code_57"
+      "label": "Code_58"
     }
   },
   {
-    "id": 64,
+    "id": 65,
     "properties": {
       "id": "ResponseCode_7",
       "responseCodeEnabled": true,
@@ -691,19 +703,19 @@
     }
   },
   {
-    "id": 67,
+    "id": 68,
     "properties": {
-      "id": "Code_58",
+      "id": "Code_59",
       "code": "C48208",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Unit of Weight",
       "_type": "Code",
-      "label": "Code_58"
+      "label": "Code_59"
     }
   },
   {
-    "id": 66,
+    "id": 67,
     "properties": {
       "id": "AliasCode_9",
       "standardCodeAliases": [],
@@ -712,7 +724,7 @@
     }
   },
   {
-    "id": 59,
+    "id": 60,
     "properties": {
       "id": "BiomedicalConceptProperty_4",
       "name": "Unit of Weight",
@@ -724,19 +736,19 @@
     }
   },
   {
-    "id": 69,
+    "id": 70,
     "properties": {
-      "id": "Code_53",
+      "id": "Code_54",
       "code": "C81328",
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Body Weight",
       "_type": "Code",
-      "label": "Code_53"
+      "label": "Code_54"
     }
   },
   {
-    "id": 68,
+    "id": 69,
     "properties": {
       "id": "AliasCode_7",
       "standardCodeAliases": [],
@@ -745,7 +757,7 @@
     }
   },
   {
-    "id": 55,
+    "id": 56,
     "properties": {
       "id": "BiomedicalConcept_3",
       "name": "Body Weight",
@@ -758,7 +770,7 @@
     }
   },
   {
-    "id": 70,
+    "id": 71,
     "properties": {
       "id": "BiomedicalConceptSurrogate_1",
       "name": "Age",
@@ -769,31 +781,31 @@
     }
   },
   {
-    "id": 72,
+    "id": 73,
     "properties": {
-      "id": "Code_17",
+      "id": "Code_18",
       "code": "C174267",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Active Comparator Arm",
       "_type": "Code",
-      "label": "Code_17"
+      "label": "Code_18"
     }
   },
   {
-    "id": 73,
+    "id": 74,
     "properties": {
-      "id": "Code_18",
+      "id": "Code_19",
       "code": "C188866",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Data Generated Within Study",
       "_type": "Code",
-      "label": "Code_18"
+      "label": "Code_19"
     }
   },
   {
-    "id": 71,
+    "id": 72,
     "properties": {
       "id": "StudyArm_1",
       "name": "Active",
@@ -804,31 +816,31 @@
     }
   },
   {
-    "id": 75,
+    "id": 76,
     "properties": {
-      "id": "Code_19",
+      "id": "Code_20",
       "code": "C174268",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Placebo Comparator Arm",
       "_type": "Code",
-      "label": "Code_19"
+      "label": "Code_20"
     }
   },
   {
-    "id": 76,
+    "id": 77,
     "properties": {
-      "id": "Code_20",
+      "id": "Code_21",
       "code": "C188866",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Data Generated Within Study",
       "_type": "Code",
-      "label": "Code_20"
+      "label": "Code_21"
     }
   },
   {
-    "id": 74,
+    "id": 75,
     "properties": {
       "id": "StudyArm_2",
       "name": "Placebo",
@@ -839,7 +851,7 @@
     }
   },
   {
-    "id": 77,
+    "id": 78,
     "properties": {
       "id": "StudyCell_1",
       "_type": "StudyCell",
@@ -847,7 +859,7 @@
     }
   },
   {
-    "id": 78,
+    "id": 79,
     "properties": {
       "id": "StudyCell_2",
       "_type": "StudyCell",
@@ -855,7 +867,7 @@
     }
   },
   {
-    "id": 79,
+    "id": 80,
     "properties": {
       "id": "StudyCell_3",
       "_type": "StudyCell",
@@ -863,7 +875,7 @@
     }
   },
   {
-    "id": 80,
+    "id": 81,
     "properties": {
       "id": "StudyCell_4",
       "_type": "StudyCell",
@@ -871,7 +883,7 @@
     }
   },
   {
-    "id": 81,
+    "id": 82,
     "properties": {
       "id": "StudyCell_5",
       "_type": "StudyCell",
@@ -879,7 +891,7 @@
     }
   },
   {
-    "id": 82,
+    "id": 83,
     "properties": {
       "id": "StudyCell_6",
       "_type": "StudyCell",
@@ -887,19 +899,19 @@
     }
   },
   {
-    "id": 84,
+    "id": 85,
     "properties": {
-      "id": "Code_25",
+      "id": "Code_26",
       "code": "C49659",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Open Label Study",
       "_type": "Code",
-      "label": "Code_25"
+      "label": "Code_26"
     }
   },
   {
-    "id": 83,
+    "id": 84,
     "properties": {
       "id": "AliasCode_2",
       "standardCodeAliases": [],
@@ -908,19 +920,19 @@
     }
   },
   {
-    "id": 86,
+    "id": 87,
     "properties": {
-      "id": "Code_21",
+      "id": "Code_22",
       "code": "C48262",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Trial Screening",
       "_type": "Code",
-      "label": "Code_21"
+      "label": "Code_22"
     }
   },
   {
-    "id": 85,
+    "id": 86,
     "properties": {
       "id": "StudyEpoch_1",
       "name": "Screening",
@@ -932,19 +944,19 @@
     }
   },
   {
-    "id": 88,
+    "id": 89,
     "properties": {
-      "id": "Code_22",
+      "id": "Code_23",
       "code": "C125938",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Baseline Epoch",
       "_type": "Code",
-      "label": "Code_22"
+      "label": "Code_23"
     }
   },
   {
-    "id": 87,
+    "id": 88,
     "properties": {
       "id": "StudyEpoch_2",
       "name": "Baseline",
@@ -956,19 +968,19 @@
     }
   },
   {
-    "id": 90,
+    "id": 91,
     "properties": {
-      "id": "Code_23",
+      "id": "Code_24",
       "code": "C101526",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Treatment Epoch",
       "_type": "Code",
-      "label": "Code_23"
+      "label": "Code_24"
     }
   },
   {
-    "id": 89,
+    "id": 90,
     "properties": {
       "id": "StudyEpoch_3",
       "name": "Treatment",
@@ -980,7 +992,7 @@
     }
   },
   {
-    "id": 92,
+    "id": 93,
     "properties": {
       "id": "TransitionRule_4",
       "name": "ELEMENT_START_RULE_1",
@@ -991,7 +1003,7 @@
     }
   },
   {
-    "id": 93,
+    "id": 94,
     "properties": {
       "id": "TransitionRule_5",
       "name": "ELEMENT_END_RULE_1",
@@ -1002,7 +1014,7 @@
     }
   },
   {
-    "id": 91,
+    "id": 92,
     "properties": {
       "id": "StudyElement_1",
       "name": "Screening",
@@ -1012,7 +1024,7 @@
     }
   },
   {
-    "id": 95,
+    "id": 96,
     "properties": {
       "id": "TransitionRule_6",
       "name": "ELEMENT_START_RULE_2",
@@ -1023,7 +1035,7 @@
     }
   },
   {
-    "id": 96,
+    "id": 97,
     "properties": {
       "id": "TransitionRule_7",
       "name": "ELEMENT_END_RULE_2",
@@ -1034,7 +1046,7 @@
     }
   },
   {
-    "id": 94,
+    "id": 95,
     "properties": {
       "id": "StudyElement_2",
       "name": "Baseline",
@@ -1044,7 +1056,7 @@
     }
   },
   {
-    "id": 98,
+    "id": 99,
     "properties": {
       "id": "TransitionRule_8",
       "name": "ELEMENT_START_RULE_3",
@@ -1055,7 +1067,7 @@
     }
   },
   {
-    "id": 99,
+    "id": 100,
     "properties": {
       "id": "TransitionRule_9",
       "name": "ELEMENT_END_RULE_3",
@@ -1066,7 +1078,7 @@
     }
   },
   {
-    "id": 97,
+    "id": 98,
     "properties": {
       "id": "StudyElement_3",
       "name": "Treatment 1",
@@ -1076,7 +1088,7 @@
     }
   },
   {
-    "id": 101,
+    "id": 102,
     "properties": {
       "id": "AnalysisPopulation_1",
       "name": "AP_1",
@@ -1087,7 +1099,7 @@
     }
   },
   {
-    "id": 102,
+    "id": 103,
     "properties": {
       "id": "IntercurrentEvent_1",
       "name": "termination",
@@ -1098,7 +1110,7 @@
     }
   },
   {
-    "id": 100,
+    "id": 101,
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
@@ -1109,19 +1121,19 @@
     }
   },
   {
-    "id": 104,
+    "id": 105,
     "properties": {
-      "id": "Code_59",
+      "id": "Code_60",
       "code": "12345",
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Indication1",
       "_type": "Code",
-      "label": "Code_59"
+      "label": "Code_60"
     }
   },
   {
-    "id": 103,
+    "id": 104,
     "properties": {
       "id": "Indication_1",
       "name": "IND1",
@@ -1131,31 +1143,31 @@
     }
   },
   {
-    "id": 106,
+    "id": 107,
     "properties": {
-      "id": "Code_60",
+      "id": "Code_61",
       "code": "X",
       "codeSystem": "ICD-10",
       "codeSystemVersion": "None set",
       "decode": "Y",
       "_type": "Code",
-      "label": "Code_60"
+      "label": "Code_61"
     }
   },
   {
-    "id": 107,
+    "id": 108,
     "properties": {
-      "id": "Code_61",
+      "id": "Code_62",
       "code": "A",
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "B",
       "_type": "Code",
-      "label": "Code_61"
+      "label": "Code_62"
     }
   },
   {
-    "id": 105,
+    "id": 106,
     "properties": {
       "id": "InvestigationalIntervention_1",
       "description": "An intervention",
@@ -1164,31 +1176,31 @@
     }
   },
   {
-    "id": 109,
+    "id": 110,
     "properties": {
-      "id": "Code_64",
+      "id": "Code_65",
       "code": "C85826",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Trial Primary Objective",
+      "_type": "Code",
+      "label": "Code_65"
+    }
+  },
+  {
+    "id": 112,
+    "properties": {
+      "id": "Code_64",
+      "code": "C94496",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2022-12-16",
+      "decode": "Primary Endpoint",
       "_type": "Code",
       "label": "Code_64"
     }
   },
   {
     "id": 111,
-    "properties": {
-      "id": "Code_63",
-      "code": "C94496",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2022-12-16",
-      "decode": "Primary Endpoint",
-      "_type": "Code",
-      "label": "Code_63"
-    }
-  },
-  {
-    "id": 110,
     "properties": {
       "id": "Endpoint_1",
       "name": "END1",
@@ -1202,7 +1214,7 @@
     }
   },
   {
-    "id": 108,
+    "id": 109,
     "properties": {
       "id": "Objective_1",
       "name": "OBJ1",
@@ -1215,19 +1227,19 @@
     }
   },
   {
-    "id": 113,
+    "id": 114,
     "properties": {
-      "id": "Code_62",
+      "id": "Code_63",
       "code": "C49636",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Both",
       "_type": "Code",
-      "label": "Code_62"
+      "label": "Code_63"
     }
   },
   {
-    "id": 112,
+    "id": 113,
     "properties": {
       "id": "StudyDesignPopulation_1",
       "name": "POP 1",
@@ -1240,7 +1252,7 @@
     }
   },
   {
-    "id": 115,
+    "id": 116,
     "properties": {
       "id": "ScheduleTimelineExit_1",
       "_type": "ScheduleTimelineExit",
@@ -1248,31 +1260,31 @@
     }
   },
   {
-    "id": 118,
+    "id": 119,
     "properties": {
-      "id": "Code_32",
+      "id": "Code_33",
       "code": "C99901x2",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Before",
       "_type": "Code",
-      "label": "Code_32"
+      "label": "Code_33"
     }
   },
   {
-    "id": 119,
+    "id": 120,
     "properties": {
-      "id": "Code_34",
+      "id": "Code_35",
       "code": "C99900x1",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Start to Start",
       "_type": "Code",
-      "label": "Code_34"
+      "label": "Code_35"
     }
   },
   {
-    "id": 117,
+    "id": 118,
     "properties": {
       "id": "Timing_1",
       "name": "TIMING_3",
@@ -1286,7 +1298,7 @@
     }
   },
   {
-    "id": 116,
+    "id": 117,
     "properties": {
       "id": "ScheduledActivityInstance_1",
       "instanceType": "ACTIVITY",
@@ -1297,31 +1309,31 @@
     }
   },
   {
-    "id": 122,
+    "id": 123,
     "properties": {
-      "id": "Code_35",
+      "id": "Code_36",
       "code": "C99901x3",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Fixed Reference",
       "_type": "Code",
-      "label": "Code_35"
+      "label": "Code_36"
     }
   },
   {
-    "id": 123,
+    "id": 124,
     "properties": {
-      "id": "Code_39",
+      "id": "Code_40",
       "code": "C99900x1",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Start to Start",
       "_type": "Code",
-      "label": "Code_39"
+      "label": "Code_40"
     }
   },
   {
-    "id": 121,
+    "id": 122,
     "properties": {
       "id": "Timing_2",
       "name": "TIMING_4",
@@ -1335,7 +1347,7 @@
     }
   },
   {
-    "id": 120,
+    "id": 121,
     "properties": {
       "id": "ScheduledActivityInstance_2",
       "instanceType": "ACTIVITY",
@@ -1346,31 +1358,31 @@
     }
   },
   {
-    "id": 126,
+    "id": 127,
     "properties": {
-      "id": "Code_41",
+      "id": "Code_42",
       "code": "C99901x1",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "After",
       "_type": "Code",
-      "label": "Code_41"
+      "label": "Code_42"
     }
   },
   {
-    "id": 127,
+    "id": 128,
     "properties": {
-      "id": "Code_44",
+      "id": "Code_45",
       "code": "C99900x1",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Start to Start",
       "_type": "Code",
-      "label": "Code_44"
+      "label": "Code_45"
     }
   },
   {
-    "id": 125,
+    "id": 126,
     "properties": {
       "id": "Timing_3",
       "name": "TIMING_5",
@@ -1384,7 +1396,7 @@
     }
   },
   {
-    "id": 124,
+    "id": 125,
     "properties": {
       "id": "ScheduledActivityInstance_3",
       "instanceType": "ACTIVITY",
@@ -1395,7 +1407,7 @@
     }
   },
   {
-    "id": 114,
+    "id": 115,
     "properties": {
       "id": "ScheduleTimeline_1",
       "name": "Main Timeline",
@@ -1408,7 +1420,7 @@
     }
   },
   {
-    "id": 12,
+    "id": 13,
     "properties": {
       "id": "StudyDesign_1",
       "name": "Study Design 1",
@@ -1436,25 +1448,25 @@
     }
   },
   {
-    "id": 130,
+    "id": 131,
     "properties": {
-      "id": "Code_4",
+      "id": "Code_5",
       "code": "C85255",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2022-12-16",
       "decode": "Draft",
       "_type": "Code",
-      "label": "Code_4"
+      "label": "Code_5"
     }
   },
   {
-    "id": 129,
+    "id": 130,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
       "briefTitle": "Something Brief",
       "officialTitle": "Something Very Official",
       "publicTitle": "Something Public",
-      "scientificTitle": "Somethign Clever",
+      "scientificTitle": "Somethign Clever But New",
       "protocolVersion": "1",
       "dateValues": [],
       "contents": [],
@@ -1464,10 +1476,10 @@
     }
   },
   {
-    "id": 128,
+    "id": 129,
     "properties": {
       "id": "StudyProtocolDocument_1",
-      "name": "Protocol Document",
+      "name": "Protocol_Document_ARMS-EPOCHS-1",
       "label": "StudyProtocolDocument_1",
       "description": null,
       "_type": "StudyProtocolDocument"
@@ -1477,7 +1489,7 @@
     "id": 1,
     "properties": {
       "id": null,
-      "name": "STUDY ROOT",
+      "name": "Study_ARMS-EPOCHS-1",
       "description": null,
       "label": "Study",
       "_type": "Study"

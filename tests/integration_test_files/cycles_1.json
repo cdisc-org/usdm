@@ -1,7 +1,7 @@
 {
   "study": {
     "id": null,
-    "name": "STUDY ROOT",
+    "name": "Study_CYCLES1",
     "description": null,
     "label": null,
     "versions": [
@@ -9,8 +9,8 @@
         "id": "StudyVersion_1",
         "studyTitle": "Cycles Test 1",
         "studyVersion": "1",
-        "studyRationale": "A cycles test",
-        "studyAcronym": "CYCLES 1",
+        "studyRationale": "A simple test",
+        "studyAcronym": "SIMPLE",
         "type": {
           "id": "Code_1",
           "code": "C98388",
@@ -29,7 +29,7 @@
           },
           "standardCodeAliases": []
         },
-        "documentVersionId": "StudyProtocolDocumentVersion_2",
+        "documentVersionId": "StudyProtocolDocumentVersion_1",
         "dateValues": [],
         "amendments": [],
         "businessTherapeuticAreas": [
@@ -39,6 +39,13 @@
             "codeSystem": "SPONSOR",
             "codeSystemVersion": "12",
             "decode": "Vacines Group"
+          },
+          {
+            "id": "Code_4",
+            "code": "REG",
+            "codeSystem": "SPONSOR",
+            "codeSystemVersion": "12",
+            "decode": "Regulatory"
           }
         ],
         "studyIdentifiers": [
@@ -1895,12 +1902,12 @@
     ],
     "documentedBy": {
       "id": "StudyProtocolDocument_1",
-      "name": "Protocol Document",
+      "name": "Protocol_Document_CYCLES1",
       "label": null,
       "description": null,
       "versions": [
         {
-          "id": "StudyProtocolDocumentVersion_2",
+          "id": "StudyProtocolDocumentVersion_1",
           "briefTitle": "Something Brief",
           "officialTitle": "Something Very Official",
           "publicTitle": "Something Public",
