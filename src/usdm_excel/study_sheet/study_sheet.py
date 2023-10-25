@@ -25,7 +25,10 @@ from usdm_model.study_version import StudyVersion
 from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
 from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
+from usdm_model.governance_date import GovernanceDate
+from usdm_model.geographic_scope import GeographicScope
 from usdm_excel.narrative_content import NarrativeContent
+from usdm_excel.cdisc_ct import CDISCCT
 
 import traceback
 import pandas as pd
@@ -56,6 +59,7 @@ class StudySheet(BaseSheet):
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='study', header=None)
+      self.date_categories = ['study_version', 'protocol_document']
       self.soa_version = None
       self.phase = None
       self.version = None
@@ -75,6 +79,9 @@ class StudySheet(BaseSheet):
       self.protocol_document_version = None
       self.therapeutic_areas = []
       self.timelines = {}
+      self.dates = {}
+      for category in self.date_categories:
+        self.dates[category] = []
       self._process_sheet()
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.procedures = StudyDesignProcedureSheet(file_path)
@@ -193,7 +200,7 @@ class StudySheet(BaseSheet):
     return NarrativeContent(self.title, self.study.versions[0].documentVersion).to_pdf()
 
   def _process_sheet(self):
-    fields = [ 'briefTitle', 'officialTitle', 'publicTitle', 'scientificTitle', 'protocolVersion', 'protocolAmendment', 'protocolEffectiveDate', 'protocolStatus' ]    
+    fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scope']    
     for rindex, row in self.sheet.iterrows():
       if rindex == self.NAME_ROW:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
@@ -224,22 +231,58 @@ class StudySheet(BaseSheet):
         self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif rindex == self.PROTOCOL_STATUS_ROW:
         self.protocol_status = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, self.PARAMS_DATA_COL) 
-      # elif rindex >= self.PROTOCOL_DATA_ROW:
-      #   record = {}
-      #   for cindex in range(0, len(self.sheet.columns)):
-      #     field = fields[cindex]
-      #     if field == 'protocolStatus':
-      #       record[field] = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, cindex) 
-      #     elif field == 'protocolEffectiveDate':
-      #       cell = self.read_cell(rindex, cindex)
-      #       record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
-      #     else:
-      #       cell = self.read_cell(rindex, cindex)
-      #       record[field] = cell
-      #   record['id'] = id_manager.build_id(StudyProtocolDocumentVersion)
-      #   spv = StudyProtocolDocumentVersion(**record)
-      #   self.protocols.append(spv)
-      #   cross_references.add(record['id'], spv)
+      elif rindex >= self.DATES_DATA_ROW:
+        record = {}
+        for cindex in range(0, len(self.sheet.columns)):
+          field = fields[cindex]
+          if field == 'category':
+            cell = self.read_cell(rindex, cindex)
+            if cell.lower() in self.date_categories:
+              category = cell.lower()
+            else:
+              categories = ', '.join(f'"{w}"' for w in self.date_categories)
+              self._error(rindex, cindex, f"Date category not recognized, should be one of {categories}, defaults to '{self.date_categories[0]}'")
+              category = self.date_categories[0]
+          elif field == 'type':
+            record[field] = self.read_cdisc_klass_attribute_cell('GovernanceDate', 'type', rindex, cindex)
+            print(f"TYPE: {record[field]}") 
+          elif field == 'date':
+            cell = self.read_cell(rindex, cindex)
+            record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
+          elif field == 'scope':
+            cell = self.read_cell(rindex, cindex)
+          else:
+            cell = self.read_cell(rindex, cindex)
+            record[field] = cell
+        try:
+          scope = GeographicScope(
+            id=id_manager.build_id(GeographicScope), 
+            type=CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 
+            code=None
+          )
+          self.dates[category].append(scope)
+          print(f"SCOPE: {scope}")
+        except Exception as e:
+          self._general_error(f"Failed to create GeographicScope object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
+          print(f"SCOPE: {traceback.format_exc()}")
+        try:
+          date = GovernanceDate(
+            id=id_manager.build_id(GovernanceDate),
+            name=record['name'],
+            label=record['label'],
+            description=record['description'],
+            type=record['type'],
+            dataValue=record['date'],
+            geographicScopes=[scope]
+          )
+          self.dates[category].append(date)
+          print(f"DATE: {date}")
+        except Exception as e:
+          self._general_error(f"Failed to create GovernanceDate object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
+          print(f"DATE: {traceback.format_exc()}")
+
   
   def _process_soa(self, file_path):
     for timeline in self.study_design.other_timelines:
