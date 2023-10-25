@@ -42,7 +42,9 @@ class IdManager():
       'Procedure': 0,
       'TransitionRule': 0,
       'StudyElement': 0,
-      'NarrativeContent': 0
+      'NarrativeContent': 0,
+      'GovernanceDate': 0,
+      'GeographicScope': 0
     }
 
   def build_id(self, klass):
