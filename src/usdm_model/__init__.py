@@ -11,7 +11,7 @@ from .code import *
 from .eligibility_criteria import *
 from .encounter import *
 from .endpoint import *
-from .enrollment import *
+from .subject_enrollment import *
 from .estimand import *
 from .geographic_scope import *
 from .governance_date import *
