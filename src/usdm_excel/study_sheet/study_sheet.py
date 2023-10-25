@@ -330,14 +330,14 @@ class StudySheet(BaseSheet):
       return result
     else:
       for item in self._state_split(value):
-        print(f"SCOPE ITEM: {item}")
+        #print(f"SCOPE ITEM: {item}")
         if item.upper().strip() == "GLOBAL":
           # If we ever find global just return the one code
           return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
         else: 
           code = None
           if item.strip():
-            outer_parts = item.split(":")
+            outer_parts = item.split("=")
             if len(outer_parts) == 2:
               system = outer_parts[0].strip()
               value = outer_parts[1].strip()
@@ -350,7 +350,7 @@ class StudySheet(BaseSheet):
               else:
                 self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
             else:
-              self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no ':' detected")
+              self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no '=' detected")
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
