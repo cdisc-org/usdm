@@ -11,6 +11,6 @@ class StudyProtocolDocumentVersion(ApiBaseModelWithId):
   scientificTitle: str
   protocolVersion: str
   protocolStatus: Code
-  approvedOn: List[GovernanceDate] = []
+  dateValues: List[GovernanceDate] = []
   contents: List[NarrativeContent] = []
-  childrenId: List[str] = []
+  childrenIds: List[str] = []
