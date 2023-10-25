@@ -56,10 +56,13 @@ class StudySheet(BaseSheet):
   
   PARAMS_DATA_COL = 1
 
+  STUDY_VERSION_DATE = 'study_version'
+  PROTOCOL_VERSION_DATE = 'protocol_document'
+
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='study', header=None)
-      self.date_categories = ['study_version', 'protocol_document']
+      self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE]
       self.soa_version = None
       self.phase = None
       self.version = None
@@ -123,6 +126,7 @@ class StudySheet(BaseSheet):
       #study_design.contents = self.contents.items
 
       try:
+        print(f"DATES SPDV: {self.dates[self.PROTOCOL_VERSION_DATE]}")
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 
           briefTitle=self.brief_title,
@@ -130,7 +134,8 @@ class StudySheet(BaseSheet):
           publicTitle=self.public_title,
           scientificTitle=self.scientific_title,
           protocolVersion=self.protocol_version,
-          protocolStatus=self.protocol_status                                             
+          protocolStatus=self.protocol_status,
+          dateValues=self.dates[self.PROTOCOL_VERSION_DATE]
           )
         self.protocol_document_version.contents = self.contents.items
         cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
@@ -148,6 +153,7 @@ class StudySheet(BaseSheet):
         self._traceback(f"{traceback.format_exc()}")
 
       try:
+        print(f"DATES SV: {self.dates[self.STUDY_VERSION_DATE]}")
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
           studyTitle=self.title,
@@ -159,7 +165,8 @@ class StudySheet(BaseSheet):
           studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
           documentVersionId=self.protocol_document_version.id,
-          studyDesigns=self.study_design.study_designs
+          studyDesigns=self.study_design.study_designs,
+          dateValues=self.dates[self.STUDY_VERSION_DATE]
         )
       except Exception as e:
         self._general_error(f"Failed to create StudyVersion object, exception {e}")
@@ -260,7 +267,6 @@ class StudySheet(BaseSheet):
             type=CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 
             code=None
           )
-          self.dates[category].append(scope)
           print(f"SCOPE: {scope}")
         except Exception as e:
           self._general_error(f"Failed to create GeographicScope object, exception {e}")
