@@ -14,7 +14,7 @@ class ISO3166(CodeBase):
     return self._build(code=code, system='ISO 3166 1 alpha3', version='2020-08', decode=decode)
 
   def region_code(self, decode):
-    code, decode = self._get_region_decode(code)
+    code, decode = self._get_region_decode(decode)
     return self._build(code=code, system='ISO 3166 1 alpha3', version='2020-08', decode=decode)
 
   def _get_decode(self, code):
@@ -29,13 +29,9 @@ class ISO3166(CodeBase):
       return entry['alpha-3'], entry['name']
     
   def _get_region_decode(self, decode):
-    entry = next((item for item in self.db if item['region'] == decode), None)
-    if not entry:
-      entry = next((item for item in self.db if item['sub-region'] == decode), None)
-      if not entry:
-        return '150', 'Europe'
-      else:
-        return entry['sub-region-code'], entry['sub-region']
-    else:
-      return entry['region-code'], entry['region']
+    for scope in ['region', 'sub-region', 'intermediate-region']:
+      entry = next((item for item in self.db if item[scope].upper() == decode.upper()), None)
+      if entry:
+        return entry[f'{scope}-code'], entry[scope]
+    return '150', 'Europe'
       
