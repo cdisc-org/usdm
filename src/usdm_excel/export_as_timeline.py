@@ -12,7 +12,7 @@ class ExportAsTimeline():
 
   def export(self):
     doc = Doc()
-    study_design = self.study.studyDesigns[0]
+    study_design = self.study.versions[0].studyDesigns[0]
     try:
       doc.asis('<!DOCTYPE html>')
       with doc.tag('html'):
