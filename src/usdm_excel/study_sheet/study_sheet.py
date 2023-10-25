@@ -29,7 +29,7 @@ from usdm_model.governance_date import GovernanceDate
 from usdm_model.geographic_scope import GeographicScope
 from usdm_excel.narrative_content import NarrativeContent
 from usdm_excel.cdisc_ct import CDISCCT
-
+from usdm_excel.iso_3166 import ISO3166
 import traceback
 import pandas as pd
 import datetime
@@ -257,7 +257,7 @@ class StudySheet(BaseSheet):
             cell = self.read_cell(rindex, cindex)
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
           elif field == 'scope':
-            cell = self.read_cell(rindex, cindex)
+            cell = self._read_scope_cell(rindex, cindex)
           else:
             cell = self.read_cell(rindex, cindex)
             record[field] = cell
@@ -320,4 +320,34 @@ class StudySheet(BaseSheet):
       tl.set_timing_references(self.timings.items)
     return tl
 
-
+  def _read_scope_cell(self, row_index, col_index):
+    result = []
+    value = self.read_cell(row_index, col_index)
+    if value.strip() == "":
+      self._error(row_index, col_index, "Empty cell detected where multiple geographic scope CT values expected")
+      return result
+    else:
+      for item in self._state_split(value):
+        if item.upper().strip() == "GLOBAL":
+          # If we ever find global just return the one code
+          return [CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global')]
+        else: 
+          code = None
+          if item.strip():
+            outer_parts = value.split(":")
+            if len(outer_parts) == 2:
+              system = outer_parts[0].strip()
+              value = outer_parts[1].strip()
+              if system.upper() == "REGION":
+                code = ISO3166().region_code(value)
+              elif system.upper() == "COUNTRY":
+                code = ISO3166().code(value)
+              else:
+                self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
+            else:
+              self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no ':' detected")
+          else:
+            self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
+          if code:
+            result.append(code)
+      return result
