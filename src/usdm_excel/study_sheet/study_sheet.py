@@ -125,7 +125,7 @@ class StudySheet(BaseSheet):
       #study_design.contents = self.contents.items
 
       try:
-        print(f"DATES SPDV: {self.dates[self.PROTOCOL_VERSION_DATE]}")
+        #print(f"DATES SPDV: {self.dates[self.PROTOCOL_VERSION_DATE]}")
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 
           briefTitle=self.brief_title,
@@ -152,7 +152,7 @@ class StudySheet(BaseSheet):
         self._traceback(f"{traceback.format_exc()}")
 
       try:
-        print(f"DATES SV: {self.dates[self.STUDY_VERSION_DATE]}")
+        #f"DATES SV: {self.dates[self.STUDY_VERSION_DATE]}")
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
           studyTitle=self.title,
@@ -251,7 +251,7 @@ class StudySheet(BaseSheet):
               category = self.date_categories[0]
           elif field == 'type':
             record[field] = self.read_cdisc_klass_attribute_cell('GovernanceDate', 'type', rindex, cindex)
-            print(f"TYPE: {record[field]}") 
+            #print(f"TYPE: {record[field]}") 
           elif field == 'date':
             cell = self.read_cell(rindex, cindex)
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
@@ -269,11 +269,11 @@ class StudySheet(BaseSheet):
               code=scope['code']
             )
             scopes.append(scope)
-            print(f"SCOPE: {scope}")
+            #print(f"SCOPE: {scope}")
         except Exception as e:
           self._general_error(f"Failed to create GeographicScope object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
-          print(f"SCOPE: {traceback.format_exc()}")
+          #print(f"SCOPE: {traceback.format_exc()}")
         try:
           date = GovernanceDate(
             id=id_manager.build_id(GovernanceDate),
@@ -285,13 +285,12 @@ class StudySheet(BaseSheet):
             geographicScopes=scopes
           )
           self.dates[category].append(date)
-          print(f"DATE: {date}")
+          #print(f"DATE: {date}")
         except Exception as e:
           self._general_error(f"Failed to create GovernanceDate object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
-          print(f"DATE: {traceback.format_exc()}")
+          #print(f"DATE: {traceback.format_exc()}")
 
-  
   def _process_soa(self, file_path):
     for timeline in self.study_design.other_timelines:
       tl = self._process_timeline(file_path, timeline)
