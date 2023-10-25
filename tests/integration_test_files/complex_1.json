@@ -151,6 +151,7 @@
                 "decode": "Efficacy Study"
               }
             ],
+            "therapeuticAreas": [],
             "interventionModel": {
               "id": "Code_46",
               "code": "C82639",
@@ -158,6 +159,990 @@
               "codeSystemVersion": "2022-12-16",
               "decode": "Parallel Study"
             },
+            "encounters": [
+              {
+                "id": "Encounter_1",
+                "name": "Screening",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_12",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": null,
+                "nextEncounterId": "Encounter_2",
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_13",
+                  "code": "C16281",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Ambulatory Care Facility"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_14",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              },
+              {
+                "id": "Encounter_2",
+                "name": "Period 1, Day -1",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_15",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": "Encounter_1",
+                "nextEncounterId": "Encounter_3",
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_16",
+                  "code": "C51282",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Clinic"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_17",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              },
+              {
+                "id": "Encounter_3",
+                "name": "Period 1, Day 1",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_18",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": "Encounter_2",
+                "nextEncounterId": "Encounter_4",
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_19",
+                  "code": "C51282",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Clinic"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_20",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              },
+              {
+                "id": "Encounter_4",
+                "name": "Wash Out",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_21",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": "Encounter_3",
+                "nextEncounterId": "Encounter_5",
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_22",
+                  "code": "C51282",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Clinic"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_23",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              },
+              {
+                "id": "Encounter_5",
+                "name": "Period 2, Day -1",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_24",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": "Encounter_4",
+                "nextEncounterId": "Encounter_6",
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_25",
+                  "code": "C51282",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Clinic"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_26",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              },
+              {
+                "id": "Encounter_6",
+                "name": "Period 2, Day 1",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_27",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": "Encounter_5",
+                "nextEncounterId": "Encounter_7",
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_28",
+                  "code": "C51282",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Clinic"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_29",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              },
+              {
+                "id": "Encounter_7",
+                "name": "Follow-up",
+                "label": "",
+                "description": "",
+                "type": {
+                  "id": "Code_30",
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Visit"
+                },
+                "previousEncounterId": "Encounter_6",
+                "nextEncounterId": null,
+                "encounterScheduledAtTimingId": null,
+                "encounterEnvironmentalSetting": {
+                  "id": "Code_31",
+                  "code": "C16281",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Ambulatory Care Facility"
+                },
+                "encounterContactModes": [
+                  {
+                    "id": "Code_32",
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "In Person"
+                  }
+                ],
+                "transitionStartRule": null,
+                "transitionEndRule": null
+              }
+            ],
+            "activities": [
+              {
+                "id": "Activity_1",
+                "name": "Informed Consent",
+                "label": "",
+                "description": "Informed Consent",
+                "previousActivityId": null,
+                "nextActivityId": "Activity_35",
+                "definedProcedures": [
+                  {
+                    "id": "Procedure_1",
+                    "name": "Informed Consent",
+                    "label": "",
+                    "description": "",
+                    "procedureType": "XXX",
+                    "code": {
+                      "id": "Code_8",
+                      "code": "414925007",
+                      "codeSystem": "SNOMED",
+                      "codeSystemVersion": "January 31, 2018",
+                      "decode": "Obtaining Consent"
+                    },
+                    "procedureIsConditional": false,
+                    "procedureIsConditionalReason": ""
+                  }
+                ],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_35",
+                "name": "Randomization",
+                "label": null,
+                "description": "Randomization",
+                "previousActivityId": "Activity_1",
+                "nextActivityId": "Activity_3",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_3",
+                "name": "Admission to CRU",
+                "label": "",
+                "description": "Admission to CRU",
+                "previousActivityId": "Activity_35",
+                "nextActivityId": "Activity_4",
+                "definedProcedures": [
+                  {
+                    "id": "Procedure_2",
+                    "name": "Admission",
+                    "label": "",
+                    "description": "",
+                    "procedureType": "XXX",
+                    "code": {
+                      "id": "Code_9",
+                      "code": "305056002",
+                      "codeSystem": "SNOMED",
+                      "codeSystemVersion": "January 31, 2018",
+                      "decode": "Admission procedure"
+                    },
+                    "procedureIsConditional": false,
+                    "procedureIsConditionalReason": ""
+                  }
+                ],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_4",
+                "name": "Discharge from CRU",
+                "label": "",
+                "description": "Discharge from CRU",
+                "previousActivityId": "Activity_3",
+                "nextActivityId": "Activity_5",
+                "definedProcedures": [
+                  {
+                    "id": "Procedure_3",
+                    "name": "Discharge",
+                    "label": "",
+                    "description": "",
+                    "procedureType": "XXX",
+                    "code": {
+                      "id": "Code_10",
+                      "code": "58000006",
+                      "codeSystem": "SNOMED",
+                      "codeSystemVersion": "January 31, 2018",
+                      "decode": "Patient Discharge"
+                    },
+                    "procedureIsConditional": false,
+                    "procedureIsConditionalReason": ""
+                  }
+                ],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "At the discretion of the investigator",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_5",
+                "name": "Medical History",
+                "label": "",
+                "description": "Medical History",
+                "previousActivityId": "Activity_4",
+                "nextActivityId": "Activity_6",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_6",
+                "name": "Collect Pre-existing Conditions and Adverse Events",
+                "label": "",
+                "description": "Collect Pre-existing Conditions and Adverse Events",
+                "previousActivityId": "Activity_5",
+                "nextActivityId": "Activity_7",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_7",
+                "name": "Physical Exam",
+                "label": "",
+                "description": "Physical Exam",
+                "previousActivityId": "Activity_6",
+                "nextActivityId": "Activity_8",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_10",
+                  "BiomedicalConceptSurrogate_11"
+                ],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_8",
+                "name": "Height and Weight",
+                "label": "",
+                "description": "Height and Weight",
+                "previousActivityId": "Activity_7",
+                "nextActivityId": "Activity_10",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_12",
+                  "BiomedicalConceptSurrogate_13"
+                ],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_10",
+                "name": "Collect Hypoglycemic Events",
+                "label": "",
+                "description": "Hypoglycemic Events",
+                "previousActivityId": "Activity_8",
+                "nextActivityId": "Activity_11",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_11",
+                "name": "Collect Concomitant Medications",
+                "label": "",
+                "description": "Concomitant Medication",
+                "previousActivityId": "Activity_10",
+                "nextActivityId": "Activity_13",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_13",
+                "name": "Insulin infusion",
+                "label": "",
+                "description": "Insulin infusion",
+                "previousActivityId": "Activity_11",
+                "nextActivityId": "Activity_14",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "Stopped once bedside PG is <60 mg/dL",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": "ScheduleTimeline_1"
+              },
+              {
+                "id": "Activity_14",
+                "name": "PG Monitoring",
+                "label": "",
+                "description": "PG Monitoring",
+                "previousActivityId": "Activity_13",
+                "nextActivityId": "Activity_15",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_15",
+                "name": "Study Treatment administration",
+                "label": "",
+                "description": "Study Treatment administration",
+                "previousActivityId": "Activity_14",
+                "nextActivityId": "Activity_18",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": "ScheduleTimeline_2"
+              },
+              {
+                "id": "Activity_18",
+                "name": "Vital Signs",
+                "label": "",
+                "description": "Vital Signs",
+                "previousActivityId": "Activity_15",
+                "nextActivityId": "Activity_19",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_14",
+                  "BiomedicalConceptSurrogate_15"
+                ],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_19",
+                "name": "Single 12-lead ECG",
+                "label": "",
+                "description": "Single 12-lead ECG",
+                "previousActivityId": "Activity_18",
+                "nextActivityId": "Activity_20",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_20",
+                "name": "Triplicate 12-lead ECG",
+                "label": "",
+                "description": "Triplicate 12-lead ECG",
+                "previousActivityId": "Activity_19",
+                "nextActivityId": "Activity_21",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_21",
+                "name": "Clinical Serology Tests",
+                "label": "",
+                "description": "Clinical Serology Tests",
+                "previousActivityId": "Activity_20",
+                "nextActivityId": "Activity_22",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_22",
+                "name": "Clinical Lab Tests",
+                "label": "",
+                "description": "Clinical Lab Tests",
+                "previousActivityId": "Activity_21",
+                "nextActivityId": "Activity_23",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_23",
+                "name": "HbA1c",
+                "label": "",
+                "description": "HbA1c",
+                "previousActivityId": "Activity_22",
+                "nextActivityId": "Activity_24",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_24",
+                "name": "PREGN",
+                "label": "",
+                "description": "Serum Pregnancy Tests",
+                "previousActivityId": "Activity_23",
+                "nextActivityId": "Activity_25",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "Only females of childbearing potential",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_25",
+                "name": "FSH",
+                "label": "",
+                "description": "FSH",
+                "previousActivityId": "Activity_24",
+                "nextActivityId": "Activity_26",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_26",
+                "name": "Ethanol testing",
+                "label": "",
+                "description": "Ethanol testing",
+                "previousActivityId": "Activity_25",
+                "nextActivityId": "Activity_27",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "Only Females when needed to confirm postmenopausal status",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_27",
+                "name": "Urine Drug Screen",
+                "label": "",
+                "description": "Urine Drug Screen",
+                "previousActivityId": "Activity_26",
+                "nextActivityId": "Activity_28",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_28",
+                "name": "PK (Glucagon)",
+                "label": "",
+                "description": "PK (Glucagon)",
+                "previousActivityId": "Activity_27",
+                "nextActivityId": "Activity_29",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_29",
+                "name": "Plasma Glucose for PD",
+                "label": "",
+                "description": "Plasma Glucose for PD",
+                "previousActivityId": "Activity_28",
+                "nextActivityId": "Activity_30",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_30",
+                "name": "Genetic Sample",
+                "label": "",
+                "description": "Genetic Sample",
+                "previousActivityId": "Activity_29",
+                "nextActivityId": "Activity_31",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_31",
+                "name": "Anti-glucagon antibodies",
+                "label": "",
+                "description": "Anti-glucagon antibodies",
+                "previousActivityId": "Activity_30",
+                "nextActivityId": "Activity_32",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_32",
+                "name": "Clarke Hypoglycemia Awareness Survey",
+                "label": "",
+                "description": "Clarke Hypoglycemia Awareness Survey",
+                "previousActivityId": "Activity_31",
+                "nextActivityId": null,
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_9",
+                "name": "Weight",
+                "label": "",
+                "description": "Weight",
+                "previousActivityId": "Activity_7",
+                "nextActivityId": "Activity_16",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_3"
+                ],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_16",
+                "name": "Injection Site Assessment",
+                "label": "",
+                "description": "Injection Site Assessment",
+                "previousActivityId": "Activity_9",
+                "nextActivityId": "Activity_17",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "For IMG only",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_17",
+                "name": "Nasal inspection",
+                "label": "",
+                "description": "Nasal inspection",
+                "previousActivityId": "Activity_16",
+                "nextActivityId": "Activity_18",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_33",
+                "name": "Nasal and Non-nasal Score Quaestionnaire",
+                "label": "",
+                "description": "Nasal and Non-nasal Score Quaestionnaire",
+                "previousActivityId": "Activity_29",
+                "nextActivityId": "Activity_34",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_34",
+                "name": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
+                "label": "",
+                "description": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
+                "previousActivityId": "Activity_33",
+                "nextActivityId": "Activity_12",
+                "definedProcedures": [],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              },
+              {
+                "id": "Activity_12",
+                "name": "Meal",
+                "label": "",
+                "description": "Meal",
+                "previousActivityId": "Activity_34",
+                "nextActivityId": null,
+                "definedProcedures": [
+                  {
+                    "id": "Procedure_4",
+                    "name": "Meal",
+                    "label": "",
+                    "description": "",
+                    "procedureType": "XXX",
+                    "code": {
+                      "id": "Code_11",
+                      "code": "1234",
+                      "codeSystem": "SPONSOR",
+                      "codeSystemVersion": "12",
+                      "decode": "Meal"
+                    },
+                    "procedureIsConditional": false,
+                    "procedureIsConditionalReason": ""
+                  }
+                ],
+                "activityIsConditional": false,
+                "activityIsConditionalReason": "",
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "activityTimelineId": ""
+              }
+            ],
+            "biomedicalConcepts": [],
+            "bcCategories": [],
+            "bcSurrogates": [
+              {
+                "id": "BiomedicalConceptSurrogate_10",
+                "name": "PE 1",
+                "label": "PE 1",
+                "description": "PE 1",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_11",
+                "name": "PE 2",
+                "label": "PE 2",
+                "description": "PE 2",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_12",
+                "name": "Weight",
+                "label": "Weight",
+                "description": "Weight",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_13",
+                "name": "Height",
+                "label": "Height",
+                "description": "Height",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_14",
+                "name": "SBP",
+                "label": "SBP",
+                "description": "SBP",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_15",
+                "name": "DBP",
+                "label": "DBP",
+                "description": "DBP",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_1",
+                "name": "PE 1",
+                "label": "PE 1",
+                "description": "PE 1",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_2",
+                "name": "PE 2",
+                "label": "PE 2",
+                "description": "PE 2",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_3",
+                "name": "Weight",
+                "label": "Weight",
+                "description": "Weight",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_4",
+                "name": "SBP",
+                "label": "SBP",
+                "description": "SBP",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_5",
+                "name": "DBP",
+                "label": "DBP",
+                "description": "DBP",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_6",
+                "name": "PE 1",
+                "label": "PE 1",
+                "description": "PE 1",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_7",
+                "name": "PE 2",
+                "label": "PE 2",
+                "description": "PE 2",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_8",
+                "name": "SBP",
+                "label": "SBP",
+                "description": "SBP",
+                "bcSurrogateReference": "None set"
+              },
+              {
+                "id": "BiomedicalConceptSurrogate_9",
+                "name": "DBP",
+                "label": "DBP",
+                "description": "DBP",
+                "bcSurrogateReference": "None set"
+              }
+            ],
+            "studyArms": [
+              {
+                "id": "StudyArm_1",
+                "name": "LY-G",
+                "label": "",
+                "description": "LY900018-IMG",
+                "type": {
+                  "id": "Code_33",
+                  "code": "C174266",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Experimental Arm"
+                },
+                "studyArmDataOriginDescription": "Data collected from subjects",
+                "dataOriginType": {
+                  "id": "Code_34",
+                  "code": "C188866",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Data Generated Within Study"
+                }
+              },
+              {
+                "id": "StudyArm_2",
+                "name": "G-LY",
+                "label": "",
+                "description": "IMG-LY900018",
+                "type": {
+                  "id": "Code_35",
+                  "code": "C174266",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Experimental Arm"
+                },
+                "studyArmDataOriginDescription": "Data collected from subjects",
+                "dataOriginType": {
+                  "id": "Code_36",
+                  "code": "C188866",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Data Generated Within Study"
+                }
+              }
+            ],
             "studyCells": [
               {
                 "id": "StudyCell_1",
@@ -240,6 +1225,257 @@
                 ]
               }
             ],
+            "studyDesignBlindingScheme": {
+              "id": "AliasCode_2",
+              "standardCode": {
+                "id": "Code_42",
+                "code": "C49659",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Open Label Study"
+              },
+              "standardCodeAliases": []
+            },
+            "studyDesignRationale": "Basic study",
+            "studyEpochs": [
+              {
+                "id": "StudyEpoch_1",
+                "name": "Screening",
+                "label": "",
+                "description": "Screening Epoch",
+                "type": {
+                  "id": "Code_37",
+                  "code": "C48262",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Trial Screening"
+                },
+                "previousStudyEpochId": null,
+                "nextStudyEpochId": "StudyEpoch_2"
+              },
+              {
+                "id": "StudyEpoch_2",
+                "name": "Period 1",
+                "label": "",
+                "description": "Treatment Epoch",
+                "type": {
+                  "id": "Code_38",
+                  "code": "C101526",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Treatment Epoch"
+                },
+                "previousStudyEpochId": "StudyEpoch_1",
+                "nextStudyEpochId": "StudyEpoch_3"
+              },
+              {
+                "id": "StudyEpoch_3",
+                "name": "Wash Out",
+                "label": "",
+                "description": "Treatment Epoch",
+                "type": {
+                  "id": "Code_39",
+                  "code": "C42872",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Washout Period"
+                },
+                "previousStudyEpochId": "StudyEpoch_2",
+                "nextStudyEpochId": "StudyEpoch_4"
+              },
+              {
+                "id": "StudyEpoch_4",
+                "name": "Period 2",
+                "label": "",
+                "description": "Treatment Epoch",
+                "type": {
+                  "id": "Code_40",
+                  "code": "C101526",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Treatment Epoch"
+                },
+                "previousStudyEpochId": "StudyEpoch_3",
+                "nextStudyEpochId": "StudyEpoch_5"
+              },
+              {
+                "id": "StudyEpoch_5",
+                "name": "Follow-Up",
+                "label": "",
+                "description": "Follow-up Epoch",
+                "type": {
+                  "id": "Code_41",
+                  "code": "C99158",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Clinical Study Follow-up"
+                },
+                "previousStudyEpochId": "StudyEpoch_4",
+                "nextStudyEpochId": null
+              }
+            ],
+            "studyElements": [
+              {
+                "id": "StudyElement_1",
+                "name": "Screening",
+                "label": "",
+                "description": "Screening Element",
+                "transitionStartRule": {
+                  "id": "TransitionRule_1",
+                  "name": "ELEMENT_START_RULE_1",
+                  "label": null,
+                  "description": null,
+                  "text": "Study Start"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_2",
+                  "name": "ELEMENT_END_RULE_1",
+                  "label": null,
+                  "description": null,
+                  "text": "Day -1 of treatment period 1"
+                }
+              },
+              {
+                "id": "StudyElement_2",
+                "name": "GLUC_LY900018",
+                "label": "",
+                "description": "IM Glucagon + LY900018",
+                "transitionStartRule": {
+                  "id": "TransitionRule_3",
+                  "name": "ELEMENT_START_RULE_2",
+                  "label": null,
+                  "description": null,
+                  "text": "Day -1 of treatment period"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_4",
+                  "name": "ELEMENT_END_RULE_2",
+                  "label": null,
+                  "description": null,
+                  "text": "End of Day 1 of treatment period"
+                }
+              },
+              {
+                "id": "StudyElement_4",
+                "name": "Wash Out",
+                "label": "",
+                "description": "Wash Out Element",
+                "transitionStartRule": {
+                  "id": "TransitionRule_7",
+                  "name": "ELEMENT_START_RULE_4",
+                  "label": null,
+                  "description": null,
+                  "text": "End of Day 1 of Treatment period 1"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_8",
+                  "name": "ELEMENT_END_RULE_4",
+                  "label": null,
+                  "description": null,
+                  "text": "Day -1 of treatment period 2"
+                }
+              },
+              {
+                "id": "StudyElement_3",
+                "name": "GLUC",
+                "label": "",
+                "description": "IM Glucagon",
+                "transitionStartRule": {
+                  "id": "TransitionRule_5",
+                  "name": "ELEMENT_START_RULE_3",
+                  "label": null,
+                  "description": null,
+                  "text": "Day -1 of treatment period"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_6",
+                  "name": "ELEMENT_END_RULE_3",
+                  "label": null,
+                  "description": null,
+                  "text": "End of Day 1 of treatment period"
+                }
+              },
+              {
+                "id": "StudyElement_5",
+                "name": "Follow Up",
+                "label": "",
+                "description": "Follow Up Element",
+                "transitionStartRule": {
+                  "id": "TransitionRule_9",
+                  "name": "ELEMENT_START_RULE_5",
+                  "label": null,
+                  "description": null,
+                  "text": "End of Day 1 of Treatment period 2"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_10",
+                  "name": "ELEMENT_END_RULE_5",
+                  "label": null,
+                  "description": null,
+                  "text": "Leave Study"
+                }
+              }
+            ],
+            "studyEstimands": [
+              {
+                "id": "Estimand_1",
+                "summaryMeasure": "Treatment Success",
+                "analysisPopulation": {
+                  "id": "AnalysisPopulation_1",
+                  "name": "AP_1",
+                  "label": null,
+                  "description": null,
+                  "text": "PP"
+                },
+                "treatmentId": "InvestigationalIntervention_1",
+                "variableOfInterestId": "Endpoint_1",
+                "intercurrentEvents": [
+                  {
+                    "id": "IntercurrentEvent_1",
+                    "name": "no Hypo",
+                    "label": "",
+                    "description": "No hypoglycemia induced after 3 hours",
+                    "intercurrentEventStrategy": "Exclude subject from analysis"
+                  },
+                  {
+                    "id": "IntercurrentEvent_2",
+                    "name": "no Hypo",
+                    "label": "",
+                    "description": "No hypoglycemia induced after 3 hours",
+                    "intercurrentEventStrategy": ""
+                  },
+                  {
+                    "id": "IntercurrentEvent_3",
+                    "name": "no Hypo",
+                    "label": "",
+                    "description": "No hypoglycemia induced after 3 hours",
+                    "intercurrentEventStrategy": ""
+                  }
+                ]
+              },
+              {
+                "id": "Estimand_2",
+                "summaryMeasure": "Something else",
+                "analysisPopulation": {
+                  "id": "AnalysisPopulation_2",
+                  "name": "AP_4",
+                  "label": null,
+                  "description": null,
+                  "text": "ITT"
+                },
+                "treatmentId": "InvestigationalIntervention_2",
+                "variableOfInterestId": "Endpoint_2",
+                "intercurrentEvents": [
+                  {
+                    "id": "IntercurrentEvent_4",
+                    "name": "Bad stuff",
+                    "label": "",
+                    "description": "IC Event Description Number 2",
+                    "intercurrentEventStrategy": "Really really bad shit"
+                  }
+                ]
+              }
+            ],
             "studyIndications": [
               {
                 "id": "Indication_1",
@@ -310,62 +1546,6 @@
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
                     "decode": "B"
-                  }
-                ]
-              }
-            ],
-            "studyPopulations": [
-              {
-                "id": "StudyDesignPopulation_1",
-                "name": "POP 1",
-                "label": "",
-                "description": "Pop 1",
-                "plannedNumberOfParticipants": 100,
-                "plannedMaximumAgeOfParticipants": "40 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_223",
-                    "code": "C49636",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "Both"
-                  }
-                ]
-              },
-              {
-                "id": "StudyDesignPopulation_2",
-                "name": "POP 2",
-                "label": "",
-                "description": "Pop 2",
-                "plannedNumberOfParticipants": 20,
-                "plannedMaximumAgeOfParticipants": "60 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_224",
-                    "code": "C20197",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "Male"
-                  }
-                ]
-              },
-              {
-                "id": "StudyDesignPopulation_3",
-                "name": "POP 3",
-                "label": "",
-                "description": "Pop 3",
-                "plannedNumberOfParticipants": 20,
-                "plannedMaximumAgeOfParticipants": "70 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_225",
-                    "code": "C16576",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "Female"
                   }
                 ]
               }
@@ -508,6 +1688,62 @@
                       "codeSystemVersion": "2022-12-16",
                       "decode": "Secondary Endpoint"
                     }
+                  }
+                ]
+              }
+            ],
+            "studyPopulations": [
+              {
+                "id": "StudyDesignPopulation_1",
+                "name": "POP 1",
+                "label": "",
+                "description": "Pop 1",
+                "plannedNumberOfParticipants": 100,
+                "plannedMaximumAgeOfParticipants": "40 years",
+                "plannedMinimumAgeOfParticipants": "18 years",
+                "plannedSexOfParticipants": [
+                  {
+                    "id": "Code_223",
+                    "code": "C49636",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Both"
+                  }
+                ]
+              },
+              {
+                "id": "StudyDesignPopulation_2",
+                "name": "POP 2",
+                "label": "",
+                "description": "Pop 2",
+                "plannedNumberOfParticipants": 20,
+                "plannedMaximumAgeOfParticipants": "60 years",
+                "plannedMinimumAgeOfParticipants": "18 years",
+                "plannedSexOfParticipants": [
+                  {
+                    "id": "Code_224",
+                    "code": "C20197",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Male"
+                  }
+                ]
+              },
+              {
+                "id": "StudyDesignPopulation_3",
+                "name": "POP 3",
+                "label": "",
+                "description": "Pop 3",
+                "plannedNumberOfParticipants": 20,
+                "plannedMaximumAgeOfParticipants": "70 years",
+                "plannedMinimumAgeOfParticipants": "18 years",
+                "plannedSexOfParticipants": [
+                  {
+                    "id": "Code_225",
+                    "code": "C16576",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2022-12-16",
+                    "decode": "Female"
                   }
                 ]
               }
@@ -2013,1242 +3249,6 @@
                     "scheduledActivityInstanceEncounterId": null
                   }
                 ]
-              }
-            ],
-            "therapeuticAreas": [],
-            "studyEstimands": [
-              {
-                "id": "Estimand_1",
-                "summaryMeasure": "Treatment Success",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_1",
-                  "name": "AP_1",
-                  "label": null,
-                  "description": null,
-                  "text": "PP"
-                },
-                "treatmentId": "InvestigationalIntervention_1",
-                "variableOfInterestId": "Endpoint_1",
-                "intercurrentEvents": [
-                  {
-                    "id": "IntercurrentEvent_1",
-                    "name": "no Hypo",
-                    "label": "",
-                    "description": "No hypoglycemia induced after 3 hours",
-                    "intercurrentEventStrategy": "Exclude subject from analysis"
-                  },
-                  {
-                    "id": "IntercurrentEvent_2",
-                    "name": "no Hypo",
-                    "label": "",
-                    "description": "No hypoglycemia induced after 3 hours",
-                    "intercurrentEventStrategy": ""
-                  },
-                  {
-                    "id": "IntercurrentEvent_3",
-                    "name": "no Hypo",
-                    "label": "",
-                    "description": "No hypoglycemia induced after 3 hours",
-                    "intercurrentEventStrategy": ""
-                  }
-                ]
-              },
-              {
-                "id": "Estimand_2",
-                "summaryMeasure": "Something else",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_2",
-                  "name": "AP_4",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT"
-                },
-                "treatmentId": "InvestigationalIntervention_2",
-                "variableOfInterestId": "Endpoint_2",
-                "intercurrentEvents": [
-                  {
-                    "id": "IntercurrentEvent_4",
-                    "name": "Bad stuff",
-                    "label": "",
-                    "description": "IC Event Description Number 2",
-                    "intercurrentEventStrategy": "Really really bad shit"
-                  }
-                ]
-              }
-            ],
-            "encounters": [
-              {
-                "id": "Encounter_1",
-                "name": "Screening",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_12",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": null,
-                "nextEncounterId": "Encounter_2",
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_13",
-                  "code": "C16281",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Ambulatory Care Facility"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_14",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              },
-              {
-                "id": "Encounter_2",
-                "name": "Period 1, Day -1",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_15",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": "Encounter_1",
-                "nextEncounterId": "Encounter_3",
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_16",
-                  "code": "C51282",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Clinic"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_17",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              },
-              {
-                "id": "Encounter_3",
-                "name": "Period 1, Day 1",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_18",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": "Encounter_2",
-                "nextEncounterId": "Encounter_4",
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_19",
-                  "code": "C51282",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Clinic"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_20",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              },
-              {
-                "id": "Encounter_4",
-                "name": "Wash Out",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_21",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": "Encounter_3",
-                "nextEncounterId": "Encounter_5",
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_22",
-                  "code": "C51282",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Clinic"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_23",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              },
-              {
-                "id": "Encounter_5",
-                "name": "Period 2, Day -1",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_24",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": "Encounter_4",
-                "nextEncounterId": "Encounter_6",
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_25",
-                  "code": "C51282",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Clinic"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_26",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              },
-              {
-                "id": "Encounter_6",
-                "name": "Period 2, Day 1",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_27",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": "Encounter_5",
-                "nextEncounterId": "Encounter_7",
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_28",
-                  "code": "C51282",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Clinic"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_29",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              },
-              {
-                "id": "Encounter_7",
-                "name": "Follow-up",
-                "label": "",
-                "description": "",
-                "type": {
-                  "id": "Code_30",
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Visit"
-                },
-                "previousEncounterId": "Encounter_6",
-                "nextEncounterId": null,
-                "encounterScheduledAtTimingId": null,
-                "encounterEnvironmentalSetting": {
-                  "id": "Code_31",
-                  "code": "C16281",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Ambulatory Care Facility"
-                },
-                "encounterContactModes": [
-                  {
-                    "id": "Code_32",
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2022-12-16",
-                    "decode": "In Person"
-                  }
-                ],
-                "transitionStartRule": null,
-                "transitionEndRule": null
-              }
-            ],
-            "activities": [
-              {
-                "id": "Activity_1",
-                "name": "Informed Consent",
-                "label": "",
-                "description": "Informed Consent",
-                "previousActivityId": null,
-                "nextActivityId": "Activity_35",
-                "definedProcedures": [
-                  {
-                    "id": "Procedure_1",
-                    "name": "Informed Consent",
-                    "label": "",
-                    "description": "",
-                    "procedureType": "XXX",
-                    "code": {
-                      "id": "Code_8",
-                      "code": "414925007",
-                      "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
-                      "decode": "Obtaining Consent"
-                    },
-                    "procedureIsConditional": false,
-                    "procedureIsConditionalReason": ""
-                  }
-                ],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_35",
-                "name": "Randomization",
-                "label": null,
-                "description": "Randomization",
-                "previousActivityId": "Activity_1",
-                "nextActivityId": "Activity_3",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_3",
-                "name": "Admission to CRU",
-                "label": "",
-                "description": "Admission to CRU",
-                "previousActivityId": "Activity_35",
-                "nextActivityId": "Activity_4",
-                "definedProcedures": [
-                  {
-                    "id": "Procedure_2",
-                    "name": "Admission",
-                    "label": "",
-                    "description": "",
-                    "procedureType": "XXX",
-                    "code": {
-                      "id": "Code_9",
-                      "code": "305056002",
-                      "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
-                      "decode": "Admission procedure"
-                    },
-                    "procedureIsConditional": false,
-                    "procedureIsConditionalReason": ""
-                  }
-                ],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_4",
-                "name": "Discharge from CRU",
-                "label": "",
-                "description": "Discharge from CRU",
-                "previousActivityId": "Activity_3",
-                "nextActivityId": "Activity_5",
-                "definedProcedures": [
-                  {
-                    "id": "Procedure_3",
-                    "name": "Discharge",
-                    "label": "",
-                    "description": "",
-                    "procedureType": "XXX",
-                    "code": {
-                      "id": "Code_10",
-                      "code": "58000006",
-                      "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
-                      "decode": "Patient Discharge"
-                    },
-                    "procedureIsConditional": false,
-                    "procedureIsConditionalReason": ""
-                  }
-                ],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "At the discretion of the investigator",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_5",
-                "name": "Medical History",
-                "label": "",
-                "description": "Medical History",
-                "previousActivityId": "Activity_4",
-                "nextActivityId": "Activity_6",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_6",
-                "name": "Collect Pre-existing Conditions and Adverse Events",
-                "label": "",
-                "description": "Collect Pre-existing Conditions and Adverse Events",
-                "previousActivityId": "Activity_5",
-                "nextActivityId": "Activity_7",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_7",
-                "name": "Physical Exam",
-                "label": "",
-                "description": "Physical Exam",
-                "previousActivityId": "Activity_6",
-                "nextActivityId": "Activity_8",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [
-                  "BiomedicalConceptSurrogate_10",
-                  "BiomedicalConceptSurrogate_11"
-                ],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_8",
-                "name": "Height and Weight",
-                "label": "",
-                "description": "Height and Weight",
-                "previousActivityId": "Activity_7",
-                "nextActivityId": "Activity_10",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [
-                  "BiomedicalConceptSurrogate_12",
-                  "BiomedicalConceptSurrogate_13"
-                ],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_10",
-                "name": "Collect Hypoglycemic Events",
-                "label": "",
-                "description": "Hypoglycemic Events",
-                "previousActivityId": "Activity_8",
-                "nextActivityId": "Activity_11",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_11",
-                "name": "Collect Concomitant Medications",
-                "label": "",
-                "description": "Concomitant Medication",
-                "previousActivityId": "Activity_10",
-                "nextActivityId": "Activity_13",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_13",
-                "name": "Insulin infusion",
-                "label": "",
-                "description": "Insulin infusion",
-                "previousActivityId": "Activity_11",
-                "nextActivityId": "Activity_14",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "Stopped once bedside PG is <60 mg/dL",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": "ScheduleTimeline_1"
-              },
-              {
-                "id": "Activity_14",
-                "name": "PG Monitoring",
-                "label": "",
-                "description": "PG Monitoring",
-                "previousActivityId": "Activity_13",
-                "nextActivityId": "Activity_15",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_15",
-                "name": "Study Treatment administration",
-                "label": "",
-                "description": "Study Treatment administration",
-                "previousActivityId": "Activity_14",
-                "nextActivityId": "Activity_18",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": "ScheduleTimeline_2"
-              },
-              {
-                "id": "Activity_18",
-                "name": "Vital Signs",
-                "label": "",
-                "description": "Vital Signs",
-                "previousActivityId": "Activity_15",
-                "nextActivityId": "Activity_19",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [
-                  "BiomedicalConceptSurrogate_14",
-                  "BiomedicalConceptSurrogate_15"
-                ],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_19",
-                "name": "Single 12-lead ECG",
-                "label": "",
-                "description": "Single 12-lead ECG",
-                "previousActivityId": "Activity_18",
-                "nextActivityId": "Activity_20",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_20",
-                "name": "Triplicate 12-lead ECG",
-                "label": "",
-                "description": "Triplicate 12-lead ECG",
-                "previousActivityId": "Activity_19",
-                "nextActivityId": "Activity_21",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_21",
-                "name": "Clinical Serology Tests",
-                "label": "",
-                "description": "Clinical Serology Tests",
-                "previousActivityId": "Activity_20",
-                "nextActivityId": "Activity_22",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_22",
-                "name": "Clinical Lab Tests",
-                "label": "",
-                "description": "Clinical Lab Tests",
-                "previousActivityId": "Activity_21",
-                "nextActivityId": "Activity_23",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_23",
-                "name": "HbA1c",
-                "label": "",
-                "description": "HbA1c",
-                "previousActivityId": "Activity_22",
-                "nextActivityId": "Activity_24",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_24",
-                "name": "PREGN",
-                "label": "",
-                "description": "Serum Pregnancy Tests",
-                "previousActivityId": "Activity_23",
-                "nextActivityId": "Activity_25",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "Only females of childbearing potential",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_25",
-                "name": "FSH",
-                "label": "",
-                "description": "FSH",
-                "previousActivityId": "Activity_24",
-                "nextActivityId": "Activity_26",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_26",
-                "name": "Ethanol testing",
-                "label": "",
-                "description": "Ethanol testing",
-                "previousActivityId": "Activity_25",
-                "nextActivityId": "Activity_27",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "Only Females when needed to confirm postmenopausal status",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_27",
-                "name": "Urine Drug Screen",
-                "label": "",
-                "description": "Urine Drug Screen",
-                "previousActivityId": "Activity_26",
-                "nextActivityId": "Activity_28",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_28",
-                "name": "PK (Glucagon)",
-                "label": "",
-                "description": "PK (Glucagon)",
-                "previousActivityId": "Activity_27",
-                "nextActivityId": "Activity_29",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_29",
-                "name": "Plasma Glucose for PD",
-                "label": "",
-                "description": "Plasma Glucose for PD",
-                "previousActivityId": "Activity_28",
-                "nextActivityId": "Activity_30",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_30",
-                "name": "Genetic Sample",
-                "label": "",
-                "description": "Genetic Sample",
-                "previousActivityId": "Activity_29",
-                "nextActivityId": "Activity_31",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_31",
-                "name": "Anti-glucagon antibodies",
-                "label": "",
-                "description": "Anti-glucagon antibodies",
-                "previousActivityId": "Activity_30",
-                "nextActivityId": "Activity_32",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_32",
-                "name": "Clarke Hypoglycemia Awareness Survey",
-                "label": "",
-                "description": "Clarke Hypoglycemia Awareness Survey",
-                "previousActivityId": "Activity_31",
-                "nextActivityId": null,
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_9",
-                "name": "Weight",
-                "label": "",
-                "description": "Weight",
-                "previousActivityId": "Activity_7",
-                "nextActivityId": "Activity_16",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [
-                  "BiomedicalConceptSurrogate_3"
-                ],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_16",
-                "name": "Injection Site Assessment",
-                "label": "",
-                "description": "Injection Site Assessment",
-                "previousActivityId": "Activity_9",
-                "nextActivityId": "Activity_17",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "For IMG only",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_17",
-                "name": "Nasal inspection",
-                "label": "",
-                "description": "Nasal inspection",
-                "previousActivityId": "Activity_16",
-                "nextActivityId": "Activity_18",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_33",
-                "name": "Nasal and Non-nasal Score Quaestionnaire",
-                "label": "",
-                "description": "Nasal and Non-nasal Score Quaestionnaire",
-                "previousActivityId": "Activity_29",
-                "nextActivityId": "Activity_34",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_34",
-                "name": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
-                "label": "",
-                "description": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
-                "previousActivityId": "Activity_33",
-                "nextActivityId": "Activity_12",
-                "definedProcedures": [],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              },
-              {
-                "id": "Activity_12",
-                "name": "Meal",
-                "label": "",
-                "description": "Meal",
-                "previousActivityId": "Activity_34",
-                "nextActivityId": null,
-                "definedProcedures": [
-                  {
-                    "id": "Procedure_4",
-                    "name": "Meal",
-                    "label": "",
-                    "description": "",
-                    "procedureType": "XXX",
-                    "code": {
-                      "id": "Code_11",
-                      "code": "1234",
-                      "codeSystem": "SPONSOR",
-                      "codeSystemVersion": "12",
-                      "decode": "Meal"
-                    },
-                    "procedureIsConditional": false,
-                    "procedureIsConditionalReason": ""
-                  }
-                ],
-                "activityIsConditional": false,
-                "activityIsConditionalReason": "",
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "activityTimelineId": ""
-              }
-            ],
-            "studyDesignRationale": "Basic study",
-            "studyDesignBlindingScheme": {
-              "id": "AliasCode_2",
-              "standardCode": {
-                "id": "Code_42",
-                "code": "C49659",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2022-12-16",
-                "decode": "Open Label Study"
-              },
-              "standardCodeAliases": []
-            },
-            "biomedicalConcepts": [],
-            "bcCategories": [],
-            "bcSurrogates": [
-              {
-                "id": "BiomedicalConceptSurrogate_10",
-                "name": "PE 1",
-                "label": "PE 1",
-                "description": "PE 1",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_11",
-                "name": "PE 2",
-                "label": "PE 2",
-                "description": "PE 2",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_12",
-                "name": "Weight",
-                "label": "Weight",
-                "description": "Weight",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_13",
-                "name": "Height",
-                "label": "Height",
-                "description": "Height",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_14",
-                "name": "SBP",
-                "label": "SBP",
-                "description": "SBP",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_15",
-                "name": "DBP",
-                "label": "DBP",
-                "description": "DBP",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_1",
-                "name": "PE 1",
-                "label": "PE 1",
-                "description": "PE 1",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_2",
-                "name": "PE 2",
-                "label": "PE 2",
-                "description": "PE 2",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_3",
-                "name": "Weight",
-                "label": "Weight",
-                "description": "Weight",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_4",
-                "name": "SBP",
-                "label": "SBP",
-                "description": "SBP",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_5",
-                "name": "DBP",
-                "label": "DBP",
-                "description": "DBP",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_6",
-                "name": "PE 1",
-                "label": "PE 1",
-                "description": "PE 1",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_7",
-                "name": "PE 2",
-                "label": "PE 2",
-                "description": "PE 2",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_8",
-                "name": "SBP",
-                "label": "SBP",
-                "description": "SBP",
-                "bcSurrogateReference": "None set"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_9",
-                "name": "DBP",
-                "label": "DBP",
-                "description": "DBP",
-                "bcSurrogateReference": "None set"
-              }
-            ],
-            "studyArms": [
-              {
-                "id": "StudyArm_1",
-                "name": "LY-G",
-                "label": "",
-                "description": "LY900018-IMG",
-                "type": {
-                  "id": "Code_33",
-                  "code": "C174266",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Experimental Arm"
-                },
-                "studyArmDataOriginDescription": "Data collected from subjects",
-                "dataOriginType": {
-                  "id": "Code_34",
-                  "code": "C188866",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Data Generated Within Study"
-                }
-              },
-              {
-                "id": "StudyArm_2",
-                "name": "G-LY",
-                "label": "",
-                "description": "IMG-LY900018",
-                "type": {
-                  "id": "Code_35",
-                  "code": "C174266",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Experimental Arm"
-                },
-                "studyArmDataOriginDescription": "Data collected from subjects",
-                "dataOriginType": {
-                  "id": "Code_36",
-                  "code": "C188866",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Data Generated Within Study"
-                }
-              }
-            ],
-            "studyEpochs": [
-              {
-                "id": "StudyEpoch_1",
-                "name": "Screening",
-                "label": "",
-                "description": "Screening Epoch",
-                "type": {
-                  "id": "Code_37",
-                  "code": "C48262",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Trial Screening"
-                },
-                "previousStudyEpochId": null,
-                "nextStudyEpochId": "StudyEpoch_2"
-              },
-              {
-                "id": "StudyEpoch_2",
-                "name": "Period 1",
-                "label": "",
-                "description": "Treatment Epoch",
-                "type": {
-                  "id": "Code_38",
-                  "code": "C101526",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Treatment Epoch"
-                },
-                "previousStudyEpochId": "StudyEpoch_1",
-                "nextStudyEpochId": "StudyEpoch_3"
-              },
-              {
-                "id": "StudyEpoch_3",
-                "name": "Wash Out",
-                "label": "",
-                "description": "Treatment Epoch",
-                "type": {
-                  "id": "Code_39",
-                  "code": "C42872",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Washout Period"
-                },
-                "previousStudyEpochId": "StudyEpoch_2",
-                "nextStudyEpochId": "StudyEpoch_4"
-              },
-              {
-                "id": "StudyEpoch_4",
-                "name": "Period 2",
-                "label": "",
-                "description": "Treatment Epoch",
-                "type": {
-                  "id": "Code_40",
-                  "code": "C101526",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Treatment Epoch"
-                },
-                "previousStudyEpochId": "StudyEpoch_3",
-                "nextStudyEpochId": "StudyEpoch_5"
-              },
-              {
-                "id": "StudyEpoch_5",
-                "name": "Follow-Up",
-                "label": "",
-                "description": "Follow-up Epoch",
-                "type": {
-                  "id": "Code_41",
-                  "code": "C99158",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Clinical Study Follow-up"
-                },
-                "previousStudyEpochId": "StudyEpoch_4",
-                "nextStudyEpochId": null
-              }
-            ],
-            "studyElements": [
-              {
-                "id": "StudyElement_1",
-                "name": "Screening",
-                "label": "",
-                "description": "Screening Element",
-                "transitionStartRule": {
-                  "id": "TransitionRule_1",
-                  "name": "ELEMENT_START_RULE_1",
-                  "label": null,
-                  "description": null,
-                  "text": "Study Start"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_2",
-                  "name": "ELEMENT_END_RULE_1",
-                  "label": null,
-                  "description": null,
-                  "text": "Day -1 of treatment period 1"
-                }
-              },
-              {
-                "id": "StudyElement_2",
-                "name": "GLUC_LY900018",
-                "label": "",
-                "description": "IM Glucagon + LY900018",
-                "transitionStartRule": {
-                  "id": "TransitionRule_3",
-                  "name": "ELEMENT_START_RULE_2",
-                  "label": null,
-                  "description": null,
-                  "text": "Day -1 of treatment period"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_4",
-                  "name": "ELEMENT_END_RULE_2",
-                  "label": null,
-                  "description": null,
-                  "text": "End of Day 1 of treatment period"
-                }
-              },
-              {
-                "id": "StudyElement_4",
-                "name": "Wash Out",
-                "label": "",
-                "description": "Wash Out Element",
-                "transitionStartRule": {
-                  "id": "TransitionRule_7",
-                  "name": "ELEMENT_START_RULE_4",
-                  "label": null,
-                  "description": null,
-                  "text": "End of Day 1 of Treatment period 1"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_8",
-                  "name": "ELEMENT_END_RULE_4",
-                  "label": null,
-                  "description": null,
-                  "text": "Day -1 of treatment period 2"
-                }
-              },
-              {
-                "id": "StudyElement_3",
-                "name": "GLUC",
-                "label": "",
-                "description": "IM Glucagon",
-                "transitionStartRule": {
-                  "id": "TransitionRule_5",
-                  "name": "ELEMENT_START_RULE_3",
-                  "label": null,
-                  "description": null,
-                  "text": "Day -1 of treatment period"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_6",
-                  "name": "ELEMENT_END_RULE_3",
-                  "label": null,
-                  "description": null,
-                  "text": "End of Day 1 of treatment period"
-                }
-              },
-              {
-                "id": "StudyElement_5",
-                "name": "Follow Up",
-                "label": "",
-                "description": "Follow Up Element",
-                "transitionStartRule": {
-                  "id": "TransitionRule_9",
-                  "name": "ELEMENT_START_RULE_5",
-                  "label": null,
-                  "description": null,
-                  "text": "End of Day 1 of Treatment period 2"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_10",
-                  "name": "ELEMENT_END_RULE_5",
-                  "label": null,
-                  "description": null,
-                  "text": "Leave Study"
-                }
               }
             ],
             "documentVersion": null
