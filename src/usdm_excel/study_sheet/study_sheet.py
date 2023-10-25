@@ -31,7 +31,6 @@ from usdm_excel.narrative_content import NarrativeContent
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 import traceback
-import pandas as pd
 import datetime
 
 class StudySheet(BaseSheet):
@@ -207,7 +206,7 @@ class StudySheet(BaseSheet):
     return NarrativeContent(self.title, self.study.versions[0].documentVersion).to_pdf()
 
   def _process_sheet(self):
-    fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scope']    
+    fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    
     for rindex, row in self.sheet.iterrows():
       if rindex == self.NAME_ROW:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
@@ -256,18 +255,21 @@ class StudySheet(BaseSheet):
           elif field == 'date':
             cell = self.read_cell(rindex, cindex)
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
-          elif field == 'scope':
-            cell = self._read_scope_cell(rindex, cindex)
+          elif field == 'scopes':
+            record[field] = self._read_scope_cell(rindex, cindex)
           else:
             cell = self.read_cell(rindex, cindex)
             record[field] = cell
         try:
-          scope = GeographicScope(
-            id=id_manager.build_id(GeographicScope), 
-            type=CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 
-            code=None
-          )
-          print(f"SCOPE: {scope}")
+          scopes = []
+          for scope in record['scopes']:
+            scope = GeographicScope(
+              id=id_manager.build_id(GeographicScope), 
+              type=scope['type'], 
+              code=scope['code']
+            )
+            scopes.append(scope)
+            print(f"SCOPE: {scope}")
         except Exception as e:
           self._general_error(f"Failed to create GeographicScope object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
@@ -280,7 +282,7 @@ class StudySheet(BaseSheet):
             description=record['description'],
             type=record['type'],
             dataValue=record['date'],
-            geographicScopes=[scope]
+            geographicScopes=scopes
           )
           self.dates[category].append(date)
           print(f"DATE: {date}")
@@ -328,19 +330,22 @@ class StudySheet(BaseSheet):
       return result
     else:
       for item in self._state_split(value):
+        print(f"SCOPE ITEM: {item}")
         if item.upper().strip() == "GLOBAL":
           # If we ever find global just return the one code
-          return [CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global')]
+          return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
         else: 
           code = None
           if item.strip():
-            outer_parts = value.split(":")
+            outer_parts = item.split(":")
             if len(outer_parts) == 2:
               system = outer_parts[0].strip()
               value = outer_parts[1].strip()
               if system.upper() == "REGION":
+                pt = 'Region'
                 code = ISO3166().region_code(value)
               elif system.upper() == "COUNTRY":
+                pt = 'Country'
                 code = ISO3166().code(value)
               else:
                 self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
@@ -349,5 +354,5 @@ class StudySheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
-            result.append(code)
+            result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias().code(code, [])})
       return result
