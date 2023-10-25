@@ -29,24 +29,7 @@
           },
           "standardCodeAliases": []
         },
-        "documentVersion": {
-          "id": "StudyProtocolDocumentVersion_1",
-          "briefTitle": "Cross Over",
-          "officialTitle": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of\nInsulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
-          "publicTitle": "Something Public",
-          "scientificTitle": "Somethign Clever",
-          "protocolVersion": "1",
-          "protocolStatus": {
-            "id": "Code_3",
-            "code": "C85255",
-            "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2022-12-16",
-            "decode": "Draft"
-          },
-          "dateValues": [],
-          "contents": [],
-          "childrenIds": []
-        },
+        "documentVersionId": "StudyProtocolDocumentVersion_1",
         "dateValues": [],
         "amendments": [],
         "businessTherapeuticAreas": [],
@@ -3256,6 +3239,31 @@
         ]
       }
     ],
-    "documentedBy": null
+    "documentedBy": {
+      "id": "StudyProtocolDocument_1",
+      "name": "Protocol Document",
+      "label": null,
+      "description": null,
+      "versions": [
+        {
+          "id": "StudyProtocolDocumentVersion_1",
+          "briefTitle": "Cross Over",
+          "officialTitle": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of\nInsulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
+          "publicTitle": "Something Public",
+          "scientificTitle": "Somethign Clever",
+          "protocolVersion": "1",
+          "protocolStatus": {
+            "id": "Code_3",
+            "code": "C85255",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2022-12-16",
+            "decode": "Draft"
+          },
+          "dateValues": [],
+          "contents": [],
+          "childrenIds": []
+        }
+      ]
+    }
   }
 }

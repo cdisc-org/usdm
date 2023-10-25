@@ -102,6 +102,11 @@ class StudySheet(BaseSheet):
       #study_design.contents = self.contents.items
 
       try:
+        study_protocol_document = StudyProtocolDocument(id=id_manager.build_id(StudyProtocolDocument), name="Protocol Document", versions=[self.protocols[-1]])
+      except Exception as e:
+          self._general_error(f"Failed to create StudyProtocolDocument object, exception {e}")
+          self._traceback(f"{traceback.format_exc()}")
+      try:
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
           studyTitle=self.title,
@@ -112,14 +117,15 @@ class StudySheet(BaseSheet):
           studyRationale=self.rationale,
           studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
-          documentVersion=self.protocols[-1],
+          documentVersionId=self.protocols[-1].id,
           studyDesigns=self.study_design.study_designs
         )
         try:
           self.study = Study(
             id=None, # No Id, will be allocated a UUID
             name="STUDY ROOT",
-            versions=[self.study_version]
+            versions=[self.study_version],
+            documentedBy=study_protocol_document
           )
           cross_references.add("STUDY", self.study)
         except Exception as e:
