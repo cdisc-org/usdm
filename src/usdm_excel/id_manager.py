@@ -46,7 +46,8 @@ class IdManager():
       'GovernanceDate': 0,
       'GeographicScope': 0,
       'StudyAmendment': 0,
-      'StudyAmendmentReason': 0
+      'StudyAmendmentReason': 0,
+      'SubjectEnrollment': 0
     }
 
   def build_id(self, klass):

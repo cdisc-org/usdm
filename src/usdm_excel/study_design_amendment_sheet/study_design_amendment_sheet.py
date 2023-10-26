@@ -2,6 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
+from usdm_model.subject_enrollment import SubjectEnrollment
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
@@ -21,13 +22,17 @@ class StudyDesignAmendmentSheet(BaseSheet):
           summary = self.read_description_by_name(index, 'summary')
           substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
           primary_reason = self._read_primary_reason_cell(index)
+          primary = self._amendment_reason(primary_reason)
+          print(f"PRIMARY: {primary}")
           secondary_reasons = self._read_secondary_reason_cell(index)
-          enrollment = self._read_enrollment_cell(index)
-          primary = self._amendment_reason(primary_reason)        
           for reason in secondary_reasons:
             amendment_reason = self._amendment_reason(reason)        
             if amendment_reason:
+              print(f"SECONDARY: {amendment_reason}")
               secondaries.append(amendment_reason)
+          enrollment = self._read_enrollment_cell(index)
+          enrollments = self._enrollments(enrollment)
+          print(f"ENROLLMENT: {enrollment}")
           try:
             item = StudyAmendment(
               id=id_manager.build_id(StudyAmendment), 
@@ -36,7 +41,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
               substantialImpact=substantial,
               primaryReason=primary,
               secondaryReasons=secondaries,
-              enrollments=enrollment
+              enrollments=enrollments
             )
             self.items.append(item)
           except Exception as e:
@@ -48,7 +53,26 @@ class StudyDesignAmendmentSheet(BaseSheet):
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
+  def _enrollments(self, enrollments):
+    results = []
+    for enrollment in enrollments:
+      try:
+        item = SubjectEnrollment(
+          id=id_manager.build_id(SubjectEnrollment), 
+          type=enrollment['type'],
+          code=enrollment['code'],
+          quantity=enrollment['quantity']
+        )
+      except Exception as e:
+        self._general_error(f"Failed to create SubjectEnrollment object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+        return None
+      else:
+        results.append(item)
+    return results
+
   def _amendment_reason(self, reason):
+    print(f"AR1: {reason}")
     try:
       item = StudyAmendmentReason(
         id=id_manager.build_id(StudyAmendmentReason), 
@@ -58,6 +82,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     except Exception as e:
       self._general_error(f"Failed to create StudyAmendmentReason object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
+      print(f"AR2: {traceback.format_exc()}")
       return None
     else:
       return item
@@ -66,12 +91,13 @@ class StudyDesignAmendmentSheet(BaseSheet):
     result = []
     col_index = self.sheet.columns.get_loc('enrollment')
     value = self.read_cell(row_index, col_index)
+    print(f"ENROL1: {value}")
     if value.strip() == "":
-      self._error(row_index, col_index, "Empty cell detected where multiple geographic enrollment values expected")
-      return result
+      self._error(row_index, col_index, "Empty cell detected where geographic enrollment values expected")
+      return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
     else:
       for item in self._state_split(value):
-        #print(f"SCOPE ITEM: {item}")
+        print(f"ENROL2: {item}")
         if item.strip().upper().startswith("GLOBAL"):
           # If we ever find global just return the one code
           text = item.strip()
@@ -136,7 +162,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
       text = value.strip()
       parts = text.split("=")
       if len(parts) == 2:
-        return {'code': None, 'other': parts[1].strip()}
+        return {'code': CDISCCT().code_for_attribute('StudyAmendmentReason', 'code', 'Other'), 'other': parts[1].strip()}
       else:
         self._error(row_index, col_index, f"Failed to decode reason data {text}, no '=' detected")
     else:
