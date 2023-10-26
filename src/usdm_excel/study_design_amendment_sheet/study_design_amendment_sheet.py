@@ -20,8 +20,8 @@ class StudyDesignAmendmentSheet(BaseSheet):
           number = self.read_cell_by_name(index, 'number')
           summary = self.read_description_by_name(index, 'summary')
           substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
-          primary_reason = self._read_reason_cell('StudyAmendmentReason', 'code', index, 'primaryReason')
-          secondary_reasons = self._read_reason_cell_multiple('StudyAmendmentReason', 'code', index, 'secondaryReason')
+          primary_reason = self._read_reason_cell(index)
+          secondary_reasons = self._read_reason_cell_multiple(index)
           enrollment = self._read_enrollment_cell(index)
           primary = self._amendment_reason(primary_reason)        
           for reason in secondary_reasons:
@@ -109,21 +109,23 @@ class StudyDesignAmendmentSheet(BaseSheet):
       return result
 
 
-  def _read_reason_cell_multiple(self, klass, attribute, row_index, col_index):
+  def _read_reason_cell_multiple(self, row_index):
     results = []
+    col_index = self.sheet.columns.get_loc('secondaryReason')
     value = self.read_cell(row_index, col_index)
     parts = value.strip().split(',')
     for part in parts:
-      result = self._extract_reason(part, klass, attribute, row_index, col_index)
+      result = self._extract_reason(part, row_index, col_index)
       if result:
         results.append(result)
     return results
       
-  def _read_reason_cell(self, klass, attribute, row_index, col_index):
+  def _read_reason_cell(self, row_index):
+    col_index = self.sheet.columns.get_loc('secondaryReason')
     value = self.read_cell(row_index, col_index)
-    return self._extract_reason(value, klass, attribute, row_index, col_index)
+    return self._extract_reason(value, row_index, col_index)
   
-  def _extract_reason(self, value, klass, attribute, row_index, col_index):
+  def _extract_reason(self, value, row_index, col_index):
     if value.strip() == "":
       self._error(row_index, col_index, "Empty cell detected where CDISC CT value expected.")
       return None
@@ -135,7 +137,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
       else:
         self._error(row_index, col_index, f"Failed to decode reason data {text}, no '=' detected")
     else:
-      code = CDISCCT().code_for_attribute(klass, attribute, value)
+      code = CDISCCT().code_for_attribute('StudyAmendmentReason', 'code', value)
       if code is None:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
       return {'code': code, 'other': None}
