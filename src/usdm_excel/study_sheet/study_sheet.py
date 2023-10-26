@@ -16,6 +16,7 @@ from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDe
 from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
+from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -85,6 +86,7 @@ class StudySheet(BaseSheet):
       for category in self.date_categories:
         self.dates[category] = []
       self._process_sheet()
+      self.study_amendments = StudyDesignAmendmentSheet(file_path)
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.procedures = StudyDesignProcedureSheet(file_path)
       self.encounters = StudyDesignEncounterSheet(file_path)
@@ -165,7 +167,8 @@ class StudySheet(BaseSheet):
           studyIdentifiers=self.study_identifiers.identifiers,
           documentVersionId=self.protocol_document_version.id,
           studyDesigns=self.study_design.study_designs,
-          dateValues=self.dates[self.STUDY_VERSION_DATE]
+          dateValues=self.dates[self.STUDY_VERSION_DATE],
+          amendments=self.study_amendments.items
         )
       except Exception as e:
         self._general_error(f"Failed to create StudyVersion object, exception {e}")
@@ -336,7 +339,7 @@ class StudySheet(BaseSheet):
         else: 
           code = None
           if item.strip():
-            outer_parts = item.split("=")
+            outer_parts = item.split(":")
             if len(outer_parts) == 2:
               system = outer_parts[0].strip()
               value = outer_parts[1].strip()
@@ -349,7 +352,7 @@ class StudySheet(BaseSheet):
               else:
                 self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
             else:
-              self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no '=' detected")
+              self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no ':' detected")
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
