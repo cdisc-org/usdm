@@ -23,16 +23,16 @@ class StudyDesignAmendmentSheet(BaseSheet):
           substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
           primary_reason = self._read_primary_reason_cell(index)
           primary = self._amendment_reason(primary_reason)
-          print(f"PRIMARY: {primary}")
+          #print(f"PRIMARY: {primary}")
           secondary_reasons = self._read_secondary_reason_cell(index)
           for reason in secondary_reasons:
             amendment_reason = self._amendment_reason(reason)        
             if amendment_reason:
-              print(f"SECONDARY: {amendment_reason}")
+              #print(f"SECONDARY: {amendment_reason}")
               secondaries.append(amendment_reason)
           enrollment = self._read_enrollment_cell(index)
           enrollments = self._enrollments(enrollment)
-          print(f"ENROLLMENT: {enrollment}")
+          #print(f"ENROLLMENT: {enrollment}")
           try:
             item = StudyAmendment(
               id=id_manager.build_id(StudyAmendment), 
@@ -43,7 +43,6 @@ class StudyDesignAmendmentSheet(BaseSheet):
               secondaryReasons=secondaries,
               enrollments=enrollments
             )
-            self.items.append(item)
           except Exception as e:
             self._general_error(f"Failed to create StudyAmendment object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
@@ -72,7 +71,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     return results
 
   def _amendment_reason(self, reason):
-    print(f"AR1: {reason}")
+    #print(f"AR1: {reason}")
     try:
       item = StudyAmendmentReason(
         id=id_manager.build_id(StudyAmendmentReason), 
@@ -91,13 +90,13 @@ class StudyDesignAmendmentSheet(BaseSheet):
     result = []
     col_index = self.sheet.columns.get_loc('enrollment')
     value = self.read_cell(row_index, col_index)
-    print(f"ENROL1: {value}")
+    #print(f"ENROL1: {value}")
     if value.strip() == "":
       self._error(row_index, col_index, "Empty cell detected where geographic enrollment values expected")
       return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
     else:
       for item in self._state_split(value):
-        print(f"ENROL2: {item}")
+        #print(f"ENROL2: {item}")
         if item.strip().upper().startswith("GLOBAL"):
           # If we ever find global just return the one code
           text = item.strip()
