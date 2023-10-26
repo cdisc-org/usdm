@@ -20,8 +20,8 @@ class StudyDesignAmendmentSheet(BaseSheet):
           number = self.read_cell_by_name(index, 'number')
           summary = self.read_description_by_name(index, 'summary')
           substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
-          primary_reason = self._read_reason_cell(index)
-          secondary_reasons = self._read_reason_cell_multiple(index)
+          primary_reason = self._read_primary_reason_cell(index)
+          secondary_reasons = self._read_secondary_reason_cell(index)
           enrollment = self._read_enrollment_cell(index)
           primary = self._amendment_reason(primary_reason)        
           for reason in secondary_reasons:
@@ -62,8 +62,9 @@ class StudyDesignAmendmentSheet(BaseSheet):
     else:
       return item
     
-  def _read_enrollment_cell(self, row_index, col_index):
+  def _read_enrollment_cell(self, row_index):
     result = []
+    col_index = self.sheet.columns.get_loc('enrollment')
     value = self.read_cell(row_index, col_index)
     if value.strip() == "":
       self._error(row_index, col_index, "Empty cell detected where multiple geographic enrollment values expected")
@@ -109,10 +110,12 @@ class StudyDesignAmendmentSheet(BaseSheet):
       return result
 
 
-  def _read_reason_cell_multiple(self, row_index):
+  def _read_secondary_reason_cell(self, row_index):
     results = []
-    col_index = self.sheet.columns.get_loc('secondaryReason')
+    col_index = self.sheet.columns.get_loc('secondaryReasons')
     value = self.read_cell(row_index, col_index)
+    if not value.strip():
+      return results
     parts = value.strip().split(',')
     for part in parts:
       result = self._extract_reason(part, row_index, col_index)
@@ -120,8 +123,8 @@ class StudyDesignAmendmentSheet(BaseSheet):
         results.append(result)
     return results
       
-  def _read_reason_cell(self, row_index):
-    col_index = self.sheet.columns.get_loc('secondaryReason')
+  def _read_primary_reason_cell(self, row_index):
+    col_index = self.sheet.columns.get_loc('primaryReason')
     value = self.read_cell(row_index, col_index)
     return self._extract_reason(value, row_index, col_index)
   
