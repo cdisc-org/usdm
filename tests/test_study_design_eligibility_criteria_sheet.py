@@ -14,21 +14,23 @@ def test_create(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['Inclusion', '01', 'INC01',   'The study age criterion',   'Age critierion', 'Subjects should be between 18 and 45 years old', "dictionary"], 
-    ['Inclusion', '02', 'INC01',   'The study abc criterion',   'ABC critierion', 'Subjects should have ABC', "dictionary"], 
-    ['Exclusion', '01', 'EXC01',   'Exclude those with all fingers',   'Fingers critierion', 'Subjects should not have all fingers', "dictionary"], 
+    ['Inclusion', '01', 'INC01', 'The study age criterion', 'Age critierion', 'Subjects should be between 18 and 45 years old', "dictionary"], 
+    ['Inclusion', '02', 'INC01', 'The study abc criterion',   'ABC critierion', 'Subjects should have ABC', "dictionary"], 
+    ['Exclusion', '01', 'EXC01', 'Exclude those with all fingers',   'Fingers critierion', 'Subjects should not have all fingers', "dictionary"], 
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'name', 'description', 'label', 'text', 'dictionary'])
   items = StudyDesignEligibilityCriteriaSheet("")
   assert len(items.items) == 3
   assert items.items[0].id == 'EligibilityId_1'
-  assert items.items[0].name == 'Dictionary 1'
-  assert items.items[0].description == 'Dictionary One'
-  assert items.items[0].label == 'Label One'
-  assert items.items[0].parameterMap['Key 2']['klass'] == 'Klass 2'
-  assert list(items.items[1].parameterMap.keys()) == ['Key 3']
-  assert list(items.items[2].parameterMap.keys()) == ['Key 4', 'Key 5']
+  assert items.items[0].category.decode == 'Inclusion Criteria'
+  assert items.items[0].identifier == '01'
+  assert items.items[0].name == 'INC01'
+  assert items.items[0].description == 'The study age criterion'
+  assert items.items[0].label == 'Age critierion'
+  assert items.items[0].text == 'Subjects should be between 18 and 45 years old'
+  assert items.items[1].category.decode == 'Inclusion Criteria'
+  assert items.items[2].category.decode == 'Exclusion Criteria'
   
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -55,13 +57,15 @@ def test_read_cell_by_name_error(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-        ['Inclusion', '01', 'The study age criterion',   'Age critierion', 'Subjects should be between 18 and 45 years old', "dictionary"], 
- ]
+    ['Inclusion', '01', 'The study age criterion', 'Age critierion', 'Subjects should be between 18 and 45 years old', "dictionary"]
+  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'description', 'label', 'text', 'dictionary'])
   items = StudyDesignEligibilityCriteriaSheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ("items", 1, -1, "Error reading cell 'name'", 10)
+    ('StudyDesignEligibilityCriteria', 1, -1, "Error reading cell 'name'", 10),
+    ('StudyDesignEligibilityCriteria', None, None, "Dictionary 'dictionary' not found", 30),
+    ('StudyDesignEligibilityCriteria', None, None, "Failed to create EligibilityCriteria object, exception 'EligibilityCriteria'", 10)
   ]
   
