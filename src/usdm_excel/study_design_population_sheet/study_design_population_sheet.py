@@ -1,7 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 import traceback
-import pandas as pd
 from usdm_model.study_design_population import StudyDesignPopulation
 
 class StudyDesignPopulationSheet(BaseSheet):
@@ -32,6 +32,7 @@ class StudyDesignPopulationSheet(BaseSheet):
           self._general_error(f"Failed to create StudyDesignPopulation object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
         else:
+          cross_references.add(name, pop)
           self.populations.append(pop)
         
     except Exception as e:
