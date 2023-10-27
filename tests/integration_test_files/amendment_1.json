@@ -134,37 +134,92 @@
         ],
         "amendments": [
           {
-            "id": "StudyAmendment_1",
-            "number": "4",
-            "summary": "Updated inclusion criteria",
-            "substantialImpact": true,
+            "id": "StudyAmendment_4",
+            "number": "1",
+            "summary": "Fix typos",
+            "substantialImpact": false,
             "primaryReason": {
-              "id": "StudyAmendmentReason_1",
+              "id": "StudyAmendmentReason_5",
               "code": {
-                "id": "Code_18",
-                "code": "C99904x3",
+                "id": "Code_28",
+                "code": "C17649",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
-                "decode": "IRB/IEC Feedback"
+                "decode": "Other"
               },
-              "otherReason": null
+              "otherReason": "Fix typographical errors"
             },
             "secondaryReasons": [],
             "enrollments": [
               {
-                "id": "SubjectEnrollment_1",
+                "id": "SubjectEnrollment_5",
                 "type": {
-                  "id": "Code_19",
+                  "id": "Code_30",
+                  "code": "C41129",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Region"
+                },
+                "code": {
+                  "id": "AliasCode_8",
+                  "standardCode": {
+                    "id": "Code_29",
+                    "code": "150",
+                    "codeSystem": "ISO 3166 1 alpha3",
+                    "codeSystemVersion": "2020-08",
+                    "decode": "Europe"
+                  },
+                  "standardCodeAliases": []
+                },
+                "quantity": "0"
+              }
+            ],
+            "previousId": null
+          },
+          {
+            "id": "StudyAmendment_3",
+            "number": "2",
+            "summary": "Amended Design",
+            "substantialImpact": true,
+            "primaryReason": {
+              "id": "StudyAmendmentReason_3",
+              "code": {
+                "id": "Code_25",
+                "code": "C99904x7",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2022-12-16",
+                "decode": "Change In Strategy"
+              },
+              "otherReason": null
+            },
+            "secondaryReasons": [
+              {
+                "id": "StudyAmendmentReason_4",
+                "code": {
+                  "id": "Code_26",
+                  "code": "C99904x10",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Investigator/Site Feedback"
+                },
+                "otherReason": null
+              }
+            ],
+            "enrollments": [
+              {
+                "id": "SubjectEnrollment_4",
+                "type": {
+                  "id": "Code_27",
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2022-12-16",
                   "decode": "Global"
                 },
                 "code": null,
-                "quantity": "65%"
+                "quantity": "31%"
               }
             ],
-            "previousId": null
+            "previousId": "StudyAmendment_4"
           },
           {
             "id": "StudyAmendment_2",
@@ -229,95 +284,40 @@
                 "quantity": "20%"
               }
             ],
-            "previousId": null
+            "previousId": "StudyAmendment_3"
           },
           {
-            "id": "StudyAmendment_3",
-            "number": "2",
-            "summary": "Amended Design",
+            "id": "StudyAmendment_1",
+            "number": "4",
+            "summary": "Updated inclusion criteria",
             "substantialImpact": true,
             "primaryReason": {
-              "id": "StudyAmendmentReason_3",
+              "id": "StudyAmendmentReason_1",
               "code": {
-                "id": "Code_25",
-                "code": "C99904x7",
+                "id": "Code_18",
+                "code": "C99904x3",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2022-12-16",
-                "decode": "Change In Strategy"
+                "decode": "IRB/IEC Feedback"
               },
               "otherReason": null
             },
-            "secondaryReasons": [
-              {
-                "id": "StudyAmendmentReason_4",
-                "code": {
-                  "id": "Code_26",
-                  "code": "C99904x10",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Investigator/Site Feedback"
-                },
-                "otherReason": null
-              }
-            ],
+            "secondaryReasons": [],
             "enrollments": [
               {
-                "id": "SubjectEnrollment_4",
+                "id": "SubjectEnrollment_1",
                 "type": {
-                  "id": "Code_27",
+                  "id": "Code_19",
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2022-12-16",
                   "decode": "Global"
                 },
                 "code": null,
-                "quantity": "31%"
+                "quantity": "65%"
               }
             ],
-            "previousId": null
-          },
-          {
-            "id": "StudyAmendment_4",
-            "number": "1",
-            "summary": "Fix typos",
-            "substantialImpact": false,
-            "primaryReason": {
-              "id": "StudyAmendmentReason_5",
-              "code": {
-                "id": "Code_28",
-                "code": "C17649",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2022-12-16",
-                "decode": "Other"
-              },
-              "otherReason": "Fix typographical errors"
-            },
-            "secondaryReasons": [],
-            "enrollments": [
-              {
-                "id": "SubjectEnrollment_5",
-                "type": {
-                  "id": "Code_30",
-                  "code": "C41129",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2022-12-16",
-                  "decode": "Region"
-                },
-                "code": {
-                  "id": "AliasCode_8",
-                  "standardCode": {
-                    "id": "Code_29",
-                    "code": "150",
-                    "codeSystem": "ISO 3166 1 alpha3",
-                    "codeSystemVersion": "2020-08",
-                    "decode": "Europe"
-                  },
-                  "standardCodeAliases": []
-                },
-                "quantity": "0"
-              }
-            ],
-            "previousId": null
+            "previousId": "StudyAmendment_2"
           }
         ],
         "businessTherapeuticAreas": [

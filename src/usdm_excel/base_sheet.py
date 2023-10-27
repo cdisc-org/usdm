@@ -214,8 +214,22 @@ class BaseSheet():
         else:
           the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
-    except:
-      self._general_error(f"Exception in double_link: {items}")
+    except Exception as e:
+      self._general_error(f"Exception {e} in double_link: {items}")
+
+  def previous_link(self, items, prev):
+    try: 
+      for idx, item in enumerate(items):
+        if idx == 0:
+          if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
+            setattr(item, prev, "")
+          else:
+            setattr(item, prev, None)
+        else:
+          the_id = getattr(items[idx-1], 'id')
+          setattr(item, prev, the_id)
+    except Exception as e:
+      self._general_error(f"Exception {e} in previous_link: {items}")
 
   def _decode_other_code(self, value, row_index, col_index):
     if value.strip() == "":

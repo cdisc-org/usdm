@@ -48,6 +48,9 @@ class StudyDesignAmendmentSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
+        self.items.sort(key=lambda d: int(d.number))
+        self.previous_link(self.items, 'previousId')
+        
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
