@@ -92,6 +92,9 @@ def test_scope_1():
 def test_amendment_1():
   run_test('amendment_1')
 
+def test_eligibility_criteria_1():
+  run_test('eligibility_criteria_1')
+
 def test_simple_1_ne():
   run_test_ne('simple_1')
 
