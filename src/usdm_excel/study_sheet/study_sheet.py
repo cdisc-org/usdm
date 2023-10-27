@@ -17,6 +17,8 @@ from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import S
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
 from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
+from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
+from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -102,7 +104,8 @@ class StudySheet(BaseSheet):
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
-      #self.protocols[-1].contents = self.contents.items
+      self.dictionaries = StudyDesignDictionarySheet(file_path)
+      self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path)
 
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
@@ -124,10 +127,8 @@ class StudySheet(BaseSheet):
       study_design.studyPopulations = self.study_populations.populations
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
-      #study_design.contents = self.contents.items
-
+      study_design.studyEligibilityCritieria = self.eligibility_criteria.items
       try:
-        #print(f"DATES SPDV: {self.dates[self.PROTOCOL_VERSION_DATE]}")
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 
           briefTitle=self.brief_title,

@@ -31,7 +31,11 @@ class StudyDesignDictionarySheet(BaseSheet):
           klass = self.read_cell_by_name(index, 'class')
           xref_name = self.read_cell_by_name(index, 'xref_or_name')
           attribute = self.read_cell_by_name(index, 'attribute')
-          current_map[key] = {'klass': klass, 'id': xref_name, 'attribute': attribute}
+          item = cross_references.get(klass, xref_name)
+          if item:
+            current_map[key] = {'klass': klass, 'id': item.id, 'attribute': attribute}
+          else:
+            self._general_warning(f"Unable to resolve dictionary reference klass: {klass}, name: {xref_name}")
       current_dictionary.parameterMap = current_map
         
     except Exception as e:

@@ -48,7 +48,8 @@ class IdManager():
       'StudyAmendment': 0,
       'StudyAmendmentReason': 0,
       'SubjectEnrollment': 0,
-      'SyntaxTemplateDictionary': 0
+      'SyntaxTemplateDictionary': 0,
+      'EligibilityCriteria': 0
     }
 
   def build_id(self, klass):
