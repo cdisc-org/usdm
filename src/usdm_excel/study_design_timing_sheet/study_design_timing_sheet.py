@@ -79,19 +79,19 @@ class StudyDesignTimingSheet(BaseSheet):
 
   def _set_type(self, text):
     type_code = {
-      "FIXED": {'c_code': 'C99901x3', 'pt': 'Fixed Reference'},
-      "AFTER": {'c_code': 'C99901x1', 'pt': 'After'},
-      "BEFORE": {'c_code': 'C99901x2', 'pt': 'Before'}
+      "FIXED": {'c_code': 'C201264', 'pt': 'Fixed Reference'},
+      "AFTER": {'c_code': 'C201264', 'pt': 'After'},
+      "BEFORE": {'c_code': 'C201264', 'pt': 'Before'}
     }   
     key = text.strip().upper()
     return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])
 
   def _set_to_from_type(self, text):
     type_code = {
-      "S2S": {'c_code': 'C99900x1', 'pt': 'Start to Start'},
-      "S2E": {'c_code': 'C99900x2', 'pt': 'Start to End'},
-      "E2S": {'c_code': 'C99900x3', 'pt': 'End to Start'},
-      "E2E": {'c_code': 'C99900x4', 'pt': 'End to End'},
+      "S2S": {'c_code': 'C201265', 'pt': 'Start to Start'},
+      "S2E": {'c_code': 'C201265', 'pt': 'Start to End'},
+      "E2S": {'c_code': 'C201265', 'pt': 'End to Start'},
+      "E2E": {'c_code': 'C201265', 'pt': 'End to End'},
     }    
     key = "S2S" if not text else text.strip().upper()
     return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])

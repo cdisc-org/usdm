@@ -1382,7 +1382,7 @@
                         "description": "Screening timing",
                         "type": {
                           "id": "Code_35",
-                          "code": "C99901x2",
+                          "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Before"
@@ -1390,7 +1390,7 @@
                         "timingValue": "P2D",
                         "timingRelativeToFrom": {
                           "id": "Code_36",
-                          "code": "C99900x1",
+                          "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Start to Start"
@@ -1423,7 +1423,7 @@
                         "description": "Pre dose timing",
                         "type": {
                           "id": "Code_37",
-                          "code": "C99901x2",
+                          "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Before"
@@ -1431,7 +1431,7 @@
                         "timingValue": "PT15M",
                         "timingRelativeToFrom": {
                           "id": "Code_38",
-                          "code": "C99900x1",
+                          "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Start to Start"
@@ -1463,7 +1463,7 @@
                         "description": "Dosing anchor",
                         "type": {
                           "id": "Code_39",
-                          "code": "C99901x3",
+                          "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Fixed Reference"
@@ -1471,7 +1471,7 @@
                         "timingValue": "P1D",
                         "timingRelativeToFrom": {
                           "id": "Code_40",
-                          "code": "C99900x1",
+                          "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Start to Start"
@@ -1503,7 +1503,7 @@
                         "description": "Day 14 timing",
                         "type": {
                           "id": "Code_41",
-                          "code": "C99901x1",
+                          "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "After"
@@ -1511,7 +1511,7 @@
                         "timingValue": "P14D",
                         "timingRelativeToFrom": {
                           "id": "Code_42",
-                          "code": "C99900x1",
+                          "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Start to Start"
@@ -1562,7 +1562,7 @@
                         "description": "Follow up timing",
                         "type": {
                           "id": "Code_43",
-                          "code": "C99901x1",
+                          "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "After"
@@ -1570,7 +1570,7 @@
                         "timingValue": "P21D",
                         "timingRelativeToFrom": {
                           "id": "Code_44",
-                          "code": "C99900x1",
+                          "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2022-12-16",
                           "decode": "Start to Start"
@@ -1594,7 +1594,8 @@
                 ]
               }
             ],
-            "documentVersion": null
+            "documentVersion": null,
+            "studyEligibilityCritieria": []
           }
         ]
       }

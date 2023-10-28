@@ -101,9 +101,9 @@ class Timepoint():
 
   def _to_timing(self):
     type_code = {
-      "ANCHOR": CDISCCT().code('C99901x3', 'Fixed Reference'),
-      "PREVIOUS": CDISCCT().code('C99901x1', 'After'),
-      "NEXT": CDISCCT().code('C99901x2', 'Before'),
+      "ANCHOR": CDISCCT().code('C201264', 'Fixed Reference'),
+      "PREVIOUS": CDISCCT().code('C201264', 'After'),
+      "NEXT": CDISCCT().code('C201264', 'Before'),
       "CYCLE START": CDISCCT().code('C99901x3', 'Fixed Reference'),
     }
     return Timing(
@@ -113,7 +113,7 @@ class Timepoint():
       name=f"TIMING_{self.col_index}", # TODO: Temporary fix, need something better
       description=self.__timepoint_type.description,
       label="",
-      timingRelativeToFrom=CDISCCT().code('C99900x1', 'Start to Start'),
+      timingRelativeToFrom=CDISCCT().code('C201265', 'Start to Start'),
       timingWindow=self.__window.description,
       timingWindowLower=self.__window.lower,
       timingWindowUpper=self.__window.upper,
