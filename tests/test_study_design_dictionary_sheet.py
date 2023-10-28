@@ -23,7 +23,7 @@ def test_create(mocker):
     ['',             '',                 '',            'Key 5', 'Klass 5', 'Id 5', 'Attribute 5']
  ]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref_or_name', 'attribute'])
+  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute'])
   dictionaries = StudyDesignDictionarySheet("")
   assert len(dictionaries.items) == 3
   assert dictionaries.items[0].id == 'DictionaryId_1'
@@ -41,7 +41,7 @@ def test_create_empty(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = []
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref_or_name', 'attribute'])
+  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute'])
   dictionaries = StudyDesignDictionarySheet("")
   assert len(dictionaries.items) == 0
 
@@ -66,7 +66,7 @@ def test_read_cell_by_name_error(mocker):
   dictionaries = StudyDesignDictionarySheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ("dictionaries", 1, -1, "Error reading cell 'xref_or_name'", 10),
+    ("dictionaries", 1, -1, "Error reading cell 'xref'", 10),
     ('dictionaries', None, None, "Unable to resolve dictionary reference klass: 'Klass 1', name: '', attribute 'Attribute 1'", 30)
   ]
   

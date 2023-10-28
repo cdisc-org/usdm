@@ -28,7 +28,7 @@ class StudyDesignDictionarySheet(BaseSheet):
               current_dictionary = self._dictionary(name, description, label)
           key = self.read_cell_by_name(index, 'key')
           klass = self.read_cell_by_name(index, 'class')
-          xref_name = self.read_cell_by_name(index, 'xref_or_name')
+          xref_name = self.read_cell_by_name(index, 'xref')
           attribute = self.read_cell_by_name(index, 'attribute')
           item = cross_references.get(klass, xref_name)
           if item:
