@@ -1212,7 +1212,66 @@
                 }
               }
             ],
-            "studyEstimands": [],
+            "studyEstimands": [
+              {
+                "id": "Estimand_1",
+                "summaryMeasure": "Survival of all patients",
+                "analysisPopulation": {
+                  "id": "AnalysisPopulation_1",
+                  "name": "AP_1",
+                  "label": null,
+                  "description": null,
+                  "text": "ITT"
+                },
+                "treatmentId": "InvestigationalIntervention_1",
+                "variableOfInterestId": "Endpoint_1",
+                "intercurrentEvents": [
+                  {
+                    "id": "IntercurrentEvent_1",
+                    "name": "termination",
+                    "label": "",
+                    "description": "IC Event Description",
+                    "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded"
+                  },
+                  {
+                    "id": "IntercurrentEvent_2",
+                    "name": "termination",
+                    "label": "",
+                    "description": "IC Event Description",
+                    "intercurrentEventStrategy": "A second bad event"
+                  },
+                  {
+                    "id": "IntercurrentEvent_3",
+                    "name": "termination",
+                    "label": "",
+                    "description": "IC Event Description",
+                    "intercurrentEventStrategy": "A third bad thing"
+                  }
+                ]
+              },
+              {
+                "id": "Estimand_2",
+                "summaryMeasure": "Something else",
+                "analysisPopulation": {
+                  "id": "AnalysisPopulation_2",
+                  "name": "AP_4",
+                  "label": null,
+                  "description": null,
+                  "text": "ITT"
+                },
+                "treatmentId": "InvestigationalIntervention_2",
+                "variableOfInterestId": "Endpoint_2",
+                "intercurrentEvents": [
+                  {
+                    "id": "IntercurrentEvent_4",
+                    "name": "Bad stuff",
+                    "label": "",
+                    "description": "IC Event Description Number 2",
+                    "intercurrentEventStrategy": "Really really bad shit"
+                  }
+                ]
+              }
+            ],
             "studyIndications": [
               {
                 "id": "Indication_1",
@@ -1287,7 +1346,95 @@
                 ]
               }
             ],
-            "studyObjectives": [],
+            "studyObjectives": [
+              {
+                "id": "Objective_1",
+                "name": "OBJ1",
+                "label": "",
+                "description": "Primary",
+                "instanceType": "OBJECTIVE",
+                "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+                "dictionary": null,
+                "level": {
+                  "id": "Code_118",
+                  "code": "C85826",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Trial Primary Objective"
+                },
+                "objectiveEndpoints": [
+                  {
+                    "id": "Endpoint_1",
+                    "name": "END1",
+                    "label": "",
+                    "description": "Day 28, 7 category scale",
+                    "instanceType": "ENDPOINT",
+                    "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
+                    "dictionary": null,
+                    "purpose": "",
+                    "level": {
+                      "id": "Code_117",
+                      "code": "C94496",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Primary Endpoint"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "Objective_2",
+                "name": "OBJ2",
+                "label": "",
+                "description": "Secondary",
+                "instanceType": "OBJECTIVE",
+                "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
+                "dictionary": null,
+                "level": {
+                  "id": "Code_120",
+                  "code": "C85827",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Trial Secondary Objective"
+                },
+                "objectiveEndpoints": [
+                  {
+                    "id": "Endpoint_2",
+                    "name": "END2",
+                    "label": "",
+                    "description": "TTCI",
+                    "instanceType": "ENDPOINT",
+                    "text": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
+                    "dictionary": null,
+                    "purpose": "",
+                    "level": {
+                      "id": "Code_119",
+                      "code": "C139173",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Secondary Endpoint"
+                    }
+                  },
+                  {
+                    "id": "Endpoint_3",
+                    "name": "END3",
+                    "label": "",
+                    "description": "Time to Imporvement",
+                    "instanceType": "ENDPOINT",
+                    "text": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
+                    "dictionary": null,
+                    "purpose": "",
+                    "level": {
+                      "id": "Code_121",
+                      "code": "C139173",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Secondary Endpoint"
+                    }
+                  }
+                ]
+              }
+            ],
             "studyPopulations": [
               {
                 "id": "StudyDesignPopulation_1",
@@ -1592,7 +1739,7 @@
                   }
                 },
                 "category": {
-                  "id": "Code_131",
+                  "id": "Code_122",
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1629,7 +1776,7 @@
                   }
                 },
                 "category": {
-                  "id": "Code_132",
+                  "id": "Code_123",
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",

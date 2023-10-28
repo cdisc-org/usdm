@@ -1,10 +1,10 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
-import traceback
-import pandas as pd
 from usdm_model.objective import Objective
 from usdm_model.endpoint import Endpoint
+
+import traceback
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
@@ -14,23 +14,25 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
-        o_description = self.read_cell_by_name(index, 'objectiveDescription') # Note, dont use description read method, we need to know if really empty.
-        e_xref = self.read_cell_by_name(index, ['endpointXref', 'endpointName'])
+        o_text = self.read_cell_by_name(index, 'objectiveText') 
+        ep_name = self.read_cell_by_name(index, ['endpointXref', 'endpointName'])
         ep_description = self.read_description_by_name(index, 'endpointDescription')
-        ep_purpose = self.read_description_by_name(index, 'endpointPurposeDescription')
-        if not ep_purpose:
-          ep_purpose = "None provided" # Temp fix
-        e_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
-        if not o_description == "":
-          o_xref = self.read_cell_by_name(index, ["objectiveXref", "objectiveName"]) 
+        ep_label = self.read_cell_by_name(index, ["endpointLabel"], default='') 
+        ep_text = self.read_cell_by_name(index, 'endpointText') 
+        ep_purpose = self.read_cell_by_name(index, ['endpointPurposeDescription', 'endpointPurpose'], default='None provided')
+        ep_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
+        if o_text:
+          o_name = self.read_cell_by_name(index, ["objectiveXref", "objectiveName"]) 
+          o_description = self.read_description_by_name(index, 'objectiveDescription')
           o_label = self.read_cell_by_name(index, ["objectiveLabel"], default='') 
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
           try:
             current = Objective(id=id_manager.build_id(Objective),
               instanceType="OBJECTIVE",
-              name=o_xref,
+              name=o_name,
               description=o_description, 
               label=o_label,
+              text=o_text,
               level=o_level,
               objectiveEndpoints=[]
             )
@@ -39,22 +41,24 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.objectives.append(current)
-            cross_references.add(o_xref, current)
+            cross_references.add(o_name, current)
         if current is not None:
           try:
             ep = Endpoint(id=id_manager.build_id(Endpoint),
               instanceType="ENDPOINT",
-              name=e_xref,             
-              text=ep_description, 
+              name=ep_name,
+              description=ep_description,
+              label=ep_label,
+              text=ep_text, 
               purpose=ep_purpose, 
-              level=e_level
+              level=ep_level
             )  
           except Exception as e:
             self._general_error(f"Failed to create Endpoint object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
           else:
             current.objectiveEndpoints.append(ep)
-            cross_references.add(e_xref, ep)
+            cross_references.add(ep_name, ep)
         else:
           self._general_error("Failed to add Endpoint, no Objective set")
 
