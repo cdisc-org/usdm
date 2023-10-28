@@ -62,6 +62,5 @@ class StudyDesignEstimandsSheet(BaseSheet):
 
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
-      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
