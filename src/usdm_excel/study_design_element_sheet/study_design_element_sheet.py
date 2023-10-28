@@ -15,7 +15,7 @@ class StudyDesignElementSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
-        xref = self.read_cell_by_name(index, 'xref')
+        xref = self.read_cell_by_name(index, 'xref', default="")
         name = self.read_cell_by_name(index, ['studyElementName', 'name'])
         description = self.read_description_by_name(index, ['studyElementDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
@@ -39,7 +39,8 @@ class StudyDesignElementSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
-          cross_references.add(xref, item)     
+          cross_ref = xref if xref else name
+          cross_references.add(cross_ref, item)     
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
