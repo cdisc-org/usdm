@@ -96,7 +96,8 @@ class CDISCCTLibrary():
           self._check_in_and_add(self._by_submission, item['submissionValue'], response['conceptId'])
           self._check_in_and_add(self._by_pt, item['preferredTerm'], response['conceptId'])
         return
-      package_logger.error(f"Failed to find CDSIC CT for C code '{c_code}'")
+    # If none found in all of the packages, then log error.
+    package_logger.error(f"Failed to find CDSIC CT for C code '{c_code}'")
 
   def _url(self, relative_url):
     return f"{self.__class__.API_ROOT}{relative_url}"
