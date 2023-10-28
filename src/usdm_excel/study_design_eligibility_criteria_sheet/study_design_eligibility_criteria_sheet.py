@@ -58,7 +58,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
     dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
     print(f"VALIDATE2: {dictionary}")
     if not dictionary:
-      self.__warning(row, column, f"Dictionary '{dictionary_name}' not found")
+      self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
       return
     tags = re.findall(r'\[([^]]*)\]',text)
     print(f"VALIDATE3: {tags}")

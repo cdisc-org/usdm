@@ -4,9 +4,11 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
-from usdm_model.code import Code
+from usdm_model.api_base_model import ApiBaseModelWithId
 
 def test_create(mocker):
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[ApiBaseModelWithId(id="1"), ApiBaseModelWithId(id="2"), ApiBaseModelWithId(id="3"), ApiBaseModelWithId(id="4"), ApiBaseModelWithId(id="5")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
@@ -64,6 +66,7 @@ def test_read_cell_by_name_error(mocker):
   dictionaries = StudyDesignDictionarySheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ("dictionaries", 1, -1, "Error reading cell 'xref_or_name'", 10)
+    ("dictionaries", 1, -1, "Error reading cell 'xref_or_name'", 10),
+    ('dictionaries', None, None, "Unable to resolve dictionary reference klass: 'Klass 1', name: '', attribute 'Attribute 1'", 30)
   ]
   

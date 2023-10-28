@@ -34,8 +34,10 @@ class StudyDesignDictionarySheet(BaseSheet):
           if item:
             current_map[key] = {'klass': klass, 'id': item.id, 'attribute': attribute}
           else:
-            self._general_warning(f"Unable to resolve dictionary reference klass: {klass}, name: {xref_name}")
-      current_dictionary.parameterMap = current_map
+            self._general_warning(f"Unable to resolve dictionary reference klass: '{klass}', name: '{xref_name}', attribute '{attribute}'")
+        # Clean up last dictionary if present
+        if current_dictionary:
+          current_dictionary.parameterMap = current_map
         
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")

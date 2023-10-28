@@ -60,12 +60,11 @@ def test_read_cell_by_name_error(mocker):
     ['Inclusion', '01', 'The study age criterion', 'Age critierion', 'Subjects should be between 18 and 45 years old', "dictionary"]
   ]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'description', 'label', 'text', 'dictionary'])
+  mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'name', 'label', 'text', 'dictionary'])
   items = StudyDesignEligibilityCriteriaSheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ('StudyDesignEligibilityCriteria', 1, -1, "Error reading cell 'name'", 10),
-    ('StudyDesignEligibilityCriteria', None, None, "Dictionary 'dictionary' not found", 30),
-    ('StudyDesignEligibilityCriteria', None, None, "Failed to create EligibilityCriteria object, exception 'EligibilityCriteria'", 10)
+    ('StudyDesignEligibilityCriteria', 1, -1, "Error reading cell 'description'", 10),
+    ('StudyDesignEligibilityCriteria', 1, 5, "Dictionary 'dictionary' not found", 30)
   ]
   
