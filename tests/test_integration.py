@@ -2,7 +2,7 @@ import json
 import csv
 from src.usdm_excel import USDMExcel
 
-SAVE_ALL = True
+SAVE_ALL = False
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
