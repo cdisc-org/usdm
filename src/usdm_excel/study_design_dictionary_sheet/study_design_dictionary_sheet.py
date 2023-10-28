@@ -26,7 +26,6 @@ class StudyDesignDictionarySheet(BaseSheet):
               description = self.read_cell_by_name(index, 'description')
               label = self.read_cell_by_name(index, 'label')
               current_dictionary = self._dictionary(name, description, label)
-              self.items.append(current_dictionary)
           key = self.read_cell_by_name(index, 'key')
           klass = self.read_cell_by_name(index, 'class')
           xref_name = self.read_cell_by_name(index, 'xref_or_name')
@@ -56,5 +55,6 @@ class StudyDesignDictionarySheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
+      self.items.append(item)
       cross_references.add(name, item)
       return item

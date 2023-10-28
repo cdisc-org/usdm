@@ -5,6 +5,7 @@ from usdm_model.eligibility_criteria import EligibilityCriteria
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 
 import traceback
+import re
 
 class StudyDesignEligibilityCriteriaSheet(BaseSheet):
 
@@ -21,8 +22,10 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
           label = self.read_cell_by_name(index, 'label')
           text = self.read_cell_by_name(index, 'text')
           dictionary_name = self.read_cell_by_name(index, 'dictionary')
+          self._validate_references(index, 'text', text, dictionary_name)
           criteria = self._criteria(name, description, label, text, category, identifier, dictionary_name)
-          self.items.append(criteria)
+          if criteria:
+            self.items.append(criteria)
         
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
@@ -31,8 +34,6 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
     try:
       dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
-      if not dictionary:
-        self._general_warning(f"Dictionary '{dictionary_name}' not found")
       item = EligibilityCriteria(
         id=id_manager.build_id(EligibilityCriteria),
         instanceType='ELIGIBILITY_CRITERIA', 
@@ -50,3 +51,17 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
       return None
     else:
       return item
+
+  def _validate_references(self, row, column_name, text, dictionary_name):
+    print(f"VALIDATE1:")
+    column = self.column_present(column_name)
+    dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+    print(f"VALIDATE2: {dictionary}")
+    if not dictionary:
+      self.__warning(row, column, f"Dictionary '{dictionary_name}' not found")
+      return
+    tags = re.findall(r'\[([^]]*)\]',text)
+    print(f"VALIDATE3: {tags}")
+    for tag in tags:
+      if not tag in dictionary.parameterMap:
+        self._warning(row, column, f"Failed to find '{tag}' in dictionary '{dictionary_name}'")

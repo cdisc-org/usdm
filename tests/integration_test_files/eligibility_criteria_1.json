@@ -1901,6 +1901,43 @@
                 "identifier": "1",
                 "nextCriterionId": null,
                 "previousCriterionId": null
+              },
+              {
+                "id": "EligibilityCriteria_2",
+                "name": "Age Criteria Error",
+                "label": "",
+                "description": "The study age criterion with error",
+                "instanceType": "ELIGIBILITY_CRITERIA",
+                "text": "Subjects shall be between [min_age] and [max_agexxx]",
+                "dictionary": {
+                  "id": "SyntaxTemplateDictionary_1",
+                  "name": "IE_Dict",
+                  "label": "IE Dictionary",
+                  "description": "Dictionary for IE",
+                  "text": null,
+                  "parameterMap": {
+                    "min_age": {
+                      "klass": "StudyDesignPopulation",
+                      "id": "StudyDesignPopulation_1",
+                      "attribute": "plannedMinimumAgeOfParticipants"
+                    },
+                    "max_age": {
+                      "klass": "StudyDesignPopulation",
+                      "id": "StudyDesignPopulation_1",
+                      "attribute": "plannedMaxu\u00edmumAgeOfParticipants"
+                    }
+                  }
+                },
+                "category": {
+                  "id": "Code_132",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2022-12-16",
+                  "decode": "Inclusion Criteria"
+                },
+                "identifier": "2",
+                "nextCriterionId": null,
+                "previousCriterionId": null
               }
             ]
           }
