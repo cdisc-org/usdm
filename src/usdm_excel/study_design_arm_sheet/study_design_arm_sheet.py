@@ -15,7 +15,7 @@ class StudyDesignArmSheet(BaseSheet):
         description = self.read_description_by_name(index, ['studyArmDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
         arm_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmType', index, ['studyArmType', 'type'])
-        arm_origin_description = self.read_description_by_name(index, 'studyArmDataOriginDescription')
+        arm_origin_description = self.read_description_by_name(index, ['studyArmDataOriginDescription', 'dataOriginDescription'])
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, ['studyArmDataOriginType', 'dataOriginType'])
         try:
           item = StudyArm(
