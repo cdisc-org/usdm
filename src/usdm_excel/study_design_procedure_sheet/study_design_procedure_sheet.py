@@ -12,7 +12,7 @@ class StudyDesignProcedureSheet(BaseSheet):
       super().__init__(file_path=file_path, sheet_name='studyDesignProcedures')
       self.procedures = []
       for index, row in self.sheet.iterrows():
-        xref = self.read_cell_by_name(index, "xref")
+        xref = self.read_cell_by_name(index, "xref", default="")
         name = self.read_cell_by_name(index, ["procedureName", 'name'])
         description = self.read_description_by_name(index, ['procedureDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
@@ -35,7 +35,8 @@ class StudyDesignProcedureSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.procedures.append(item)
-          cross_references.add(xref, item)        
+          cross_ref = xref if xref else name
+          cross_references.add(cross_ref, item)        
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

@@ -654,7 +654,7 @@
               {
                 "id": "Activity_1",
                 "name": "Demographics",
-                "label": "",
+                "label": "Demographics",
                 "description": "Basic Demog",
                 "previousActivityId": null,
                 "nextActivityId": "Activity_2",
@@ -675,13 +675,46 @@
               {
                 "id": "Activity_2",
                 "name": "Something Else",
-                "label": "",
+                "label": "Something Else",
                 "description": "Something weird",
                 "previousActivityId": "Activity_1",
                 "nextActivityId": null,
-                "definedProcedures": [],
+                "definedProcedures": [
+                  {
+                    "id": "Procedure_1",
+                    "name": "PR1",
+                    "label": "Stress procedure",
+                    "description": "Stress procedure",
+                    "procedureType": "Stress",
+                    "code": {
+                      "id": "Code_37",
+                      "code": "12345678",
+                      "codeSystem": "SNOMED",
+                      "codeSystemVersion": "January 31, 2018",
+                      "decode": "Test"
+                    },
+                    "procedureIsConditional": false,
+                    "procedureIsConditionalReason": ""
+                  },
+                  {
+                    "id": "Procedure_2",
+                    "name": "PR2",
+                    "label": "6MWT",
+                    "description": "6min Walk Test conducted after the stress test",
+                    "procedureType": "Stress",
+                    "code": {
+                      "id": "Code_38",
+                      "code": "12345679",
+                      "codeSystem": "SNOMED",
+                      "codeSystemVersion": "January 31, 2018",
+                      "decode": "Test"
+                    },
+                    "procedureIsConditional": true,
+                    "procedureIsConditionalReason": "Only if stress test passed"
+                  }
+                ],
                 "activityIsConditional": true,
-                "activityIsConditionalReason": "Only do this if they have two heads",
+                "activityIsConditionalReason": "Only do this if this 'condition' is true",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
