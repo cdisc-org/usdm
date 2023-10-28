@@ -178,7 +178,8 @@ class BaseSheet():
     return code
 
   def read_cdisc_klass_attribute_cell_multiple_by_name(self, klass, attribute, row_index, field_name):
-    col_index = self.sheet.columns.get_loc(field_name)
+    #col_index = self.sheet.columns.get_loc(field_name)
+    col_index = self.column_present(field_name)
     return self.read_cdisc_klass_attribute_cell_multiple(klass, attribute, row_index, col_index)
 
   def read_cdisc_klass_attribute_cell_multiple(self, klass, attribute, row_index, col_index):

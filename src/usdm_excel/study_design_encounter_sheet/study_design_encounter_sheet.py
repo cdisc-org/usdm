@@ -15,13 +15,13 @@ class StudyDesignEncounterSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
-        xref = self.read_cell_by_name(index, 'xref')
+        xref = self.read_cell_by_name(index, 'xref', default='')
         name = self.read_cell_by_name(index, ['encounterName', 'name'])
         description = self.read_description_by_name(index, ['encounterDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default='')
         type = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterType', index, ['encounterType', 'type'])
-        setting = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterEnvironmentalSetting', index, 'encounterEnvironmentalSetting')
-        modes = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterContactModes', index, 'encounterContactModes')
+        setting = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterEnvironmentalSetting', index, ['encounterEnvironmentalSetting', 'environmentalSetting'])
+        modes = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterContactModes', index, ['encounterContactModes', 'contactModes'])
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if not start_rule_text == "":
@@ -45,7 +45,8 @@ class StudyDesignEncounterSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
-          cross_references.add(xref, item)     
+          cross_ref = xref if xref else name
+          cross_references.add(cross_ref, item)     
       self.double_link(self.items, 'previousEncounterId', 'nextEncounterId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
