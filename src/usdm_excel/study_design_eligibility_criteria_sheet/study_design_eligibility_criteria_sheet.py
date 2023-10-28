@@ -11,7 +11,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      super().__init__(file_path=file_path, sheet_name='StudyDesignEligibilityCriteria', optional=True)
+      super().__init__(file_path=file_path, sheet_name='studyDesignEligibilityCriteria', optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
