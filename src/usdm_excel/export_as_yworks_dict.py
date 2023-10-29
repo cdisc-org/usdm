@@ -64,7 +64,8 @@ class ExportAsYworksDict():
         'InvestigationalIntervention', 'Objective', 'StudyDesignPopulation', 
         'Estimand', 'StudyCell', 'TransitionRule', 'StudyArm', 'StudyEpoch', 'StudyElement',
         'BiomedicalConcept', 'BiomedicalConceptCategory', 'BiomedicalConceptSurrogate', 
-        'Procedure', 'AliasCode'
+        'Procedure', 'AliasCode', 'NarrativeContent', 'StudyAmendment', 'EligibilityCriteria', 
+        'StudyProtocolDocument', 'GovernanceDate'
       ]
       self.collapse_klass = ['Code']
       #self.order_attributes = [
@@ -74,6 +75,7 @@ class ExportAsYworksDict():
       
   def export(self):
     node = json.loads(self.study.to_json_with_type())
+    #print(f"NODE: {node}")
     self._process_node(node)
     for edge in self.add_edges:
       if edge['end'] in self.id_node_index_map:
@@ -99,6 +101,8 @@ class ExportAsYworksDict():
         return []
       properties = {}
       id_field, klass = self._get_id_field_and_klass(node)
+      if not klass:
+        return None
       if klass in self.ignore_klass:
         return None
       if node[id_field] in self.id_node_index_map:
@@ -123,6 +127,8 @@ class ExportAsYworksDict():
             # Special case, array of arrays of condition and link id
             for item in value:
               self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
+          # elif key == "parameterMap":
+          #   properties[key] = value
           elif type(value) == list:
             for item in value:
               if item:
@@ -150,9 +156,13 @@ class ExportAsYworksDict():
       return []
     
   def _get_id_field_and_klass(self, node):
-    klass = node['_type']
+    try:
+      klass = node['_type']
     # id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
     # if id_name in self.fix_id_name:
     #   id_name = self.fix_id_name[id_name]
-    return 'id', klass
+      return 'id', klass
+    except Exception as e:
+      #print(f"NODE: {node}")
+      return 'id', None
 
