@@ -53,15 +53,15 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
       return item
 
   def _validate_references(self, row, column_name, text, dictionary_name):
-    print(f"VALIDATE1:")
+    #print(f"VALIDATE1:")
     column = self.column_present(column_name)
     dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
-    print(f"VALIDATE2: {dictionary}")
+    #print(f"VALIDATE2: {dictionary}")
     if not dictionary:
       self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
       return
     tags = re.findall(r'\[([^]]*)\]',text)
-    print(f"VALIDATE3: {tags}")
+    #print(f"VALIDATE3: {tags}")
     for tag in tags:
       if not tag in dictionary.parameterMap:
         self._warning(row, column, f"Failed to find '{tag}' in dictionary '{dictionary_name}'")
