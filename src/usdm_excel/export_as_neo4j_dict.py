@@ -12,8 +12,6 @@ class ExportAsNeo4jDict():
     self.nodes = {}
     self.edges = {}
     self.add_edges = []
-    #self.node_index = 1
-    #self.edge_index = 1
     self.node_id_to_uuid_map = {}
       
   def export(self):
@@ -39,7 +37,11 @@ class ExportAsNeo4jDict():
       if node == {}:
         return []
       properties = {}
-      klass = node['_type']
+      if '_type' in node:
+        klass = node['_type']
+      else:
+        print(f"NODE: {node}")
+        return []
       if node['id'] in self.node_id_to_uuid_map:
         return [self.node_id_to_uuid_map[node['id']]]
       this_node_uuid = str(uuid4())

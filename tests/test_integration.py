@@ -83,6 +83,15 @@ def run_test_ne(filename, save=False):
       expected = json.load(f)
     assert result[type] == expected
 
+def test_full_1():
+  run_test('full_1')
+
+def test_timeline_full():
+  run_test_timeline('full_1')
+
+def test_timeline_ne():
+  run_test_ne('full_1')
+
 def test_simple_1():
   run_test('simple_1')
 

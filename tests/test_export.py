@@ -19,7 +19,9 @@ def read_error_csv(file):
     item['column'] = to_int(item['column'])
   return items
 
-def run_test(filename, save=False):
+def run_test(filename, mocker, save=False):
+  fake_uuids = (UUID(f'00000000-0000-4000-8000-{i:012}', version=4) for i in range(10000))
+  mocker.patch("usdm_excel.export_as_neo4j_dict.uuid4", side_effect=fake_uuids)
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result = excel.to_neo4j_dict()
 
@@ -33,7 +35,7 @@ def run_test(filename, save=False):
   assert result == expected
 
 def test_simple_1(mocker):
-  fake_uuids = (UUID(f'00000000-0000-4000-8000-{i:012}', version=4) for i in range(10000))
-  mocker.patch("usdm_excel.export_as_neo4j_dict.uuid4", side_effect=fake_uuids)
-  run_test('simple_1')
+  run_test('simple_1', mocker)
 
+def test_full_1(mocker):
+  run_test('full_1', mocker)
