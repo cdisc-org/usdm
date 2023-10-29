@@ -82,7 +82,10 @@ class ScheduledInstance():
         activity_name = self.parent.read_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
         if str(cell).upper() == "X":
           activity = cross_references.get(Activity, activity_name)
-          activities.append(activity.id)
+          if activity:
+            activities.append(activity.id)
+          else:
+            self.parent._general_warning(f"Unable to find activity '{activity_name}' when adding to schedule instance")
       row += 1
     return activities
 

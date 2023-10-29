@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head></head><body><h1>Timeline ScheduleTimeline_1</h1><pre class="mermaid">
+graph LR
+ScheduleTimeline_1([Potential subject identified])
+ScheduledActivityInstance_1(A)
+ScheduleTimeline_1 -->|first| ScheduledActivityInstance_1
+ScheduledActivityInstance_2(A)
+ScheduledActivityInstance_1 -->|default| ScheduledActivityInstance_2
+ScheduledActivityInstance_3(A)
+ScheduledActivityInstance_2 -->|default| ScheduledActivityInstance_3
+ScheduledActivityInstance_4(A)
+ScheduledActivityInstance_3 -->|default| ScheduledActivityInstance_4
+ScheduledDecisionInstance_1{{D}}
+ScheduledDecisionInstance_1 -->|if opted out| ScheduledActivityInstance_6
+ScheduledActivityInstance_4 -->|default| ScheduledDecisionInstance_1
+ScheduledActivityInstance_5(A)
+ScheduledDecisionInstance_1 -->|default| ScheduledActivityInstance_5
+ScheduledActivityInstance_6(A)
+ScheduledActivityInstance_5 -->|default| ScheduledActivityInstance_6
+ScheduleTimelineExit_1([Exit])
+ScheduledActivityInstance_6 -->|exit| ScheduleTimelineExit_1
+Timing_1((Screening
+Before
+P2D
+None..None))
+Timing_1 -->|from| ScheduledActivityInstance_1
+Timing_1 -->|to| ScheduledActivityInstance_2
+Timing_2((Pre dose
+Before
+PT15M
+PT4H..PT0H))
+Timing_2 -->|from| ScheduledActivityInstance_2
+Timing_2 -->|to| ScheduledActivityInstance_3
+Timing_3((Dosing
+Fixed Reference
+P1D
+None..None))
+Timing_3 -->|from| ScheduledActivityInstance_3
+Timing_3 -->|to| ScheduledActivityInstance_3
+Timing_4((Day 14
+After
+P14D
+P1D..P1D))
+Timing_4 -->|from| ScheduledActivityInstance_4
+Timing_4 -->|to| ScheduledActivityInstance_3
+Timing_5((Day 28
+After
+P28D
+P1D..P1D))
+Timing_5 -->|from| ScheduledActivityInstance_5
+Timing_5 -->|to| ScheduledActivityInstance_3
+Timing_6((Follow Up
+After
+P42D
+P3D..P3D))
+Timing_6 -->|from| ScheduledActivityInstance_6
+Timing_6 -->|to| ScheduledActivityInstance_3
+</pre><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true });
+</script></body></html>
