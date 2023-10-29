@@ -5,10 +5,10 @@ from usdm_excel.cross_ref import cross_references
 
 class NarrativeContent():
 
-  def __init__(self, doc_title, study_design):
+  def __init__(self, doc_title, protocol_document_version):
     #print("NC INIT:")
     self.doc_title = doc_title
-    self.study_design = study_design
+    self.protocol_document_version = protocol_document_version
 
   def to_pdf(self):
     doc_api = docraptor.DocApi()
@@ -36,7 +36,7 @@ class NarrativeContent():
       #print(error.body)
 
   def to_html(self):
-    root = self.study_design.contents[0]
+    root = self.protocol_document_version.contents[0]
     doc = Doc()
     doc.asis('<!DOCTYPE html>')
     style = """
@@ -106,7 +106,7 @@ class NarrativeContent():
     """
     chapters = []
     for id in root.contentChildIds:
-      content = next((x for x in self.study_design.contents if x.id == id), None)
+      content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
       level = len(content.sectionNumber.split('.'))
       if level == 1:
         chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
@@ -133,7 +133,7 @@ class NarrativeContent():
       with doc.tag('body'):
         doc.asis(front_sheet)    
         for id in root.contentChildIds:
-          content = next((x for x in self.study_design.contents if x.id == id), None)
+          content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
           #print(f"NC TH3: {id}={content.sectionNumber}")
           if content:
             self._content_to_html(content, doc)
@@ -149,7 +149,7 @@ class NarrativeContent():
         doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
       doc.asis(self._translate_references(content.text))
       for id in content.contentChildIds:
-        content = next((x for x in self.study_design.contents if x.id == id), None)
+        content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
 
   def _translate_references(self, content_text):
