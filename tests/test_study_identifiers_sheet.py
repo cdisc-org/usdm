@@ -10,9 +10,9 @@ def test_create(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    [ 'USGOV', 'CT-GOV', 'ClinicalTrials.gov', 'Study Registry', 'NCT12345678', 'line|city|district|state|postal_code|GBR' ],
-    [ 'USGOV2', 'CT-GOV2', 'ClinicalTrials2.gov', 'Study Registry', 'NCT12345679', 'line2,city2,district2,state2,postal_code2,FRA' ],
-    [ 'USGOV3', 'CT-GOV3', 'ClinicalTrials3.gov', 'Study Registry', 'NCT123456710', 'line3,city3,district3,state3,postal_code3,FR' ]
+    [ 'USGOV', 'CT-GOV', 'ClinicalTrials.gov', 'Study Registry', 'NCT12345678', 'line|district|city|state|postal_code|GBR' ],
+    [ 'USGOV2', 'CT-GOV2', 'ClinicalTrials2.gov', 'Study Registry', 'NCT12345679', 'line2,district2,city2,state2,postal_code2,FRA' ],
+    [ 'USGOV3', 'CT-GOV3', 'ClinicalTrials3.gov', 'Study Registry', 'NCT123456710', 'line3,district3,city3,state3,postal_code3,FR' ]
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['organisationIdentifierScheme', 'organisationIdentifier', 'organisationName', 'organisationType', 'studyIdentifier', 'organisationAddress'])
@@ -42,9 +42,9 @@ def test_create_new_columns(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    [ 'USGOV', 'CT-GOV', 'ClinicalTrials.gov', 'CT.gov [1]', 'Study Registry', 'NCT12345678', 'line|city|district|state|postal_code|GBR' ],
-    [ 'USGOV2', 'CT-GOV2', 'ClinicalTrials2.gov', '', 'Study Registry', 'NCT12345679', 'line2,city2,district2,state2,postal_code2,FRA' ],
-    [ 'USGOV3', 'CT-GOV3', 'ClinicalTrials3.gov', 'CT.gov [3]', 'Study Registry', 'NCT123456710', 'line3,city3,district3,state3,postal_code3,FR' ]
+    [ 'USGOV', 'CT-GOV', 'ClinicalTrials.gov', 'CT.gov [1]', 'Study Registry', 'NCT12345678', 'line|district|city|state|postal_code|GBR' ],
+    [ 'USGOV2', 'CT-GOV2', 'ClinicalTrials2.gov', '', 'Study Registry', 'NCT12345679', 'line2,district2,city2,state2,postal_code2,FRA' ],
+    [ 'USGOV3', 'CT-GOV3', 'ClinicalTrials3.gov', 'CT.gov [3]', 'Study Registry', 'NCT123456710', 'line3,district3,city3,state3,postal_code3,FR' ]
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['organisationIdentifierScheme', 'organisationIdentifier', 'name', 'label', 'type', 'studyIdentifier', 'organisationAddress'])
@@ -114,4 +114,4 @@ def test_address_error(mocker):
   assert mock_error.call_args[0][0] == "studyIdentifiers"
   assert mock_error.call_args[0][1] == 1
   assert mock_error.call_args[0][2] == 6
-  assert mock_error.call_args[0][3] == "Address does not contain the required fields (line, city, district, state, postal code and country code) using '|' separator characters, only 5 found"
+  assert mock_error.call_args[0][3] == "Address does not contain the required fields (line, district, city, state, postal code and country code) using '|' separator characters, only 5 found"

@@ -70,17 +70,17 @@ class StudyIdentifiersSheet(BaseSheet):
         parts[index] = '-' if part == '' else part.strip()
       result = self._to_address(
           id_manager.build_id(Address),
-          parts[0], 
-          parts[1], 
-          parts[2], 
-          parts[3], 
-          parts[4], 
-          ISO3166().code(parts[5])
+          line=parts[0], 
+          district=parts[1], 
+          city=parts[2], 
+          state=parts[3], 
+          postal_code=parts[4], 
+          country=ISO3166().code(parts[5])
         )
       return result
     else:
       col_index = self.sheet.columns.get_loc(field_name)
-      self._error(row_index, col_index, f"Address does not contain the required fields (line, city, district, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
+      self._error(row_index, col_index, f"Address does not contain the required fields (line, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
       return None
 
   def _to_address(self, id, line, city, district, state, postal_code, country):
