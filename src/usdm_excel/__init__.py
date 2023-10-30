@@ -16,6 +16,9 @@ class USDMExcel():
   FULL_VIEW = ExportAsYworksDict.FULL
   TIMELINE_VIEW = ExportAsYworksDict.TIMELINE
 
+  FULL_HTML = ExportAsTimeline.FULL
+  BODY_HTML = ExportAsTimeline.BODY
+
   def __init__(self, file_path):
     id_manager.clear()
     cross_references.clear()
@@ -72,8 +75,8 @@ class USDMExcel():
   def to_neo4j_dict(self):
     return ExportAsNeo4jDict(self.study.the_study()).export()
 
-  def to_timeline(self):
-    return ExportAsTimeline(self.study.the_study()).export()
+  def to_timeline(self, level=FULL_HTML):
+    return ExportAsTimeline(self.study.the_study()).export(level)
 
   def errors(self):
     return error_manager.dump(Errors.WARNING)

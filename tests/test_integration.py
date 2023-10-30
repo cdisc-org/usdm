@@ -55,16 +55,16 @@ def run_test_html(filename, save=False):
     expected = f.read()
   assert result == expected
 
-def run_test_timeline(filename, save=False):
+def run_test_timeline(filename, level=USDMExcel.FULL_HTML, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result = excel.to_timeline()
+  result = excel.to_timeline(level)
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
-    with open(f"tests/integration_test_files/{filename}_timeline.html", 'w') as f:
+    with open(f"tests/integration_test_files/{filename}_timeline_{level}.html", 'w') as f:
       f.write(result)
   
-  with open(f"tests/integration_test_files/{filename}_timeline.html", 'r') as f:
+  with open(f"tests/integration_test_files/{filename}_timeline_{level}.html", 'r') as f:
     expected = f.read()
   assert result == expected
 
@@ -88,6 +88,9 @@ def test_full_1():
 
 def test_timeline_full():
   run_test_timeline('full_1')
+
+def test_timeline_full_body():
+  run_test_timeline('full_1', USDMExcel.BODY_HTML)
 
 def test_timeline_ne():
   run_test_ne('full_1')
