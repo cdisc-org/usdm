@@ -36,7 +36,11 @@ class Activity():
     timelineId = ""
     if len(self._tls) > 0:
       timeline = cross_references.get(ScheduleTimeline, self._tls[0])
-      timelineId = timeline.id
+      if timeline:
+        timelineId = timeline.id
+      else:
+        timelineId = None
+        self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
     for procedure in self._prs:
       ref = cross_references.get(Procedure, procedure)
       if ref is not None:

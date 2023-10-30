@@ -82,19 +82,24 @@ class StudySoAV2Sheet(BaseSheet):
         pass
 
   def _add_timeline(self, name, description, condition, instances, exit):
-    timeline = ScheduleTimeline(
-      id=id_manager.build_id(ScheduleTimeline),
-      mainTimeline=self.main_timeline,
-      name=name,
-      description=description,
-      label=name,
-      entryCondition=condition,
-      scheduleTimelineEntryId=instances[0].id,
-      scheduleTimelineExits=exit,
-      scheduleTimelineInstances=instances
-    )
-    cross_references.add(timeline.id, timeline)
-    return timeline
+    try:
+      timeline = ScheduleTimeline(
+        id=id_manager.build_id(ScheduleTimeline),
+        mainTimeline=self.main_timeline,
+        name=name,
+        description=description,
+        label=name,
+        entryCondition=condition,
+        scheduleTimelineEntryId=instances[0].id,
+        scheduleTimelineExits=exit,
+        scheduleTimelineInstances=instances
+      )
+      cross_references.add(timeline.name, timeline)
+      return timeline
+    except Exception as e:
+      self._general_error(f"Failed to create ScheduleTimeline object, exception {e}")
+      self._traceback(f"{traceback.format_exc()}")
+      return None
 
 
 
