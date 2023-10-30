@@ -22,7 +22,7 @@ class ExportAsTimeline():
           for timeline in study_design.studyScheduleTimelines:
             timings = []
             with doc.tag(f'h1'):
-              doc.asis(f'Timeline {timeline.id}')
+              doc.asis(f'{timeline.name}')
             with doc.tag('pre', klass='mermaid'):
               doc.asis('\ngraph LR\n')
               doc.asis(f'{timeline.id}([{timeline.entryCondition}])\n')
