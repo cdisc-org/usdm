@@ -1477,7 +1477,7 @@
                 "description": "Primary",
                 "instanceType": "OBJECTIVE",
                 "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
-                "dictionary": null,
+                "dictionaryId": null,
                 "level": {
                   "id": "Code_108",
                   "code": "C85826",
@@ -1493,7 +1493,7 @@
                     "description": "Day 28, 7 category scale",
                     "instanceType": "ENDPOINT",
                     "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
-                    "dictionary": null,
+                    "dictionaryId": null,
                     "purpose": "",
                     "level": {
                       "id": "Code_107",
@@ -1512,7 +1512,7 @@
                 "description": "Secondary",
                 "instanceType": "OBJECTIVE",
                 "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
-                "dictionary": null,
+                "dictionaryId": null,
                 "level": {
                   "id": "Code_110",
                   "code": "C85827",
@@ -1528,7 +1528,7 @@
                     "description": "TTCI",
                     "instanceType": "ENDPOINT",
                     "text": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
-                    "dictionary": null,
+                    "dictionaryId": null,
                     "purpose": "",
                     "level": {
                       "id": "Code_109",
@@ -1545,7 +1545,7 @@
                     "description": "Time to Imporvement",
                     "instanceType": "ENDPOINT",
                     "text": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
-                    "dictionary": null,
+                    "dictionaryId": null,
                     "purpose": "",
                     "level": {
                       "id": "Code_111",
@@ -1899,25 +1899,7 @@
                 "description": "The study age criterion",
                 "instanceType": "ELIGIBILITY_CRITERIA",
                 "text": "Subjects shall be between [min_age] and [max_age]",
-                "dictionary": {
-                  "id": "SyntaxTemplateDictionary_1",
-                  "name": "IE_Dict",
-                  "label": "IE Dictionary",
-                  "description": "Dictionary for IE",
-                  "text": null,
-                  "parameterMap": {
-                    "min_age": {
-                      "klass": "StudyDesignPopulation",
-                      "id": "StudyDesignPopulation_1",
-                      "attribute": "plannedMinimumAgeOfParticipants"
-                    },
-                    "max_age": {
-                      "klass": "StudyDesignPopulation",
-                      "id": "StudyDesignPopulation_1",
-                      "attribute": "plannedMaximumAgeOfParticipants"
-                    }
-                  }
-                },
+                "dictionaryId": "SyntaxTemplateDictionary_1",
                 "category": {
                   "id": "Code_112",
                   "code": "C25532",
@@ -1936,25 +1918,7 @@
                 "description": "The study age criterion with error",
                 "instanceType": "ELIGIBILITY_CRITERIA",
                 "text": "Subjects shall be between [min_age] and [max_agexxx]",
-                "dictionary": {
-                  "id": "SyntaxTemplateDictionary_1",
-                  "name": "IE_Dict",
-                  "label": "IE Dictionary",
-                  "description": "Dictionary for IE",
-                  "text": null,
-                  "parameterMap": {
-                    "min_age": {
-                      "klass": "StudyDesignPopulation",
-                      "id": "StudyDesignPopulation_1",
-                      "attribute": "plannedMinimumAgeOfParticipants"
-                    },
-                    "max_age": {
-                      "klass": "StudyDesignPopulation",
-                      "id": "StudyDesignPopulation_1",
-                      "attribute": "plannedMaximumAgeOfParticipants"
-                    }
-                  }
-                },
+                "dictionaryId": "SyntaxTemplateDictionary_1",
                 "category": {
                   "id": "Code_113",
                   "code": "C25532",
@@ -1965,6 +1929,27 @@
                 "identifier": "2",
                 "nextCriterionId": null,
                 "previousCriterionId": null
+              }
+            ],
+            "dictionaries": [
+              {
+                "id": "SyntaxTemplateDictionary_1",
+                "name": "IE_Dict",
+                "label": "IE Dictionary",
+                "description": "Dictionary for IE",
+                "text": null,
+                "parameterMap": {
+                  "min_age": {
+                    "klass": "StudyDesignPopulation",
+                    "id": "StudyDesignPopulation_1",
+                    "attribute": "plannedMinimumAgeOfParticipants"
+                  },
+                  "max_age": {
+                    "klass": "StudyDesignPopulation",
+                    "id": "StudyDesignPopulation_1",
+                    "attribute": "plannedMaximumAgeOfParticipants"
+                  }
+                }
               }
             ]
           }

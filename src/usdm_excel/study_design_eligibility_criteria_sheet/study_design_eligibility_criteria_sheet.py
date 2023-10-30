@@ -34,6 +34,11 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
     try:
       dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      if dictionary:
+        dictionary_id = dictionary.id
+      else:
+        self._general_error(f"Unable to find dictionary with name '{dictionary_name}'")
+        dictionary_id = None
       item = EligibilityCriteria(
         id=id_manager.build_id(EligibilityCriteria),
         instanceType='ELIGIBILITY_CRITERIA', 
@@ -43,7 +48,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
         text=text,
         category=category,
         identifier=identifier,
-        dictionary=dictionary
+        dictionaryId=dictionary_id
       )
     except Exception as e:
       self._general_error(f"Failed to create EligibilityCriteria object, exception {e}")
@@ -56,12 +61,10 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
     #print(f"VALIDATE1:")
     column = self.column_present(column_name)
     dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
-    #print(f"VALIDATE2: {dictionary}")
     if not dictionary:
       self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
       return
     tags = re.findall(r'\[([^]]*)\]',text)
-    #print(f"VALIDATE3: {tags}")
     for tag in tags:
       if not tag in dictionary.parameterMap:
         self._warning(row, column, f"Failed to find '{tag}' in dictionary '{dictionary_name}'")

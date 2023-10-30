@@ -128,6 +128,7 @@ class StudySheet(BaseSheet):
       study_design.studyObjectives = self.oe.objectives
       study_design.studyEstimands = self.estimands.estimands
       study_design.studyEligibilityCritieria = self.eligibility_criteria.items
+      study_design.dictionaries = self.dictionaries.items
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 

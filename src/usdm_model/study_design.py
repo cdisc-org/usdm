@@ -19,6 +19,7 @@ from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
 from .study_protocol_document_version import StudyProtocolDocumentVersion
 from .eligibility_criteria import EligibilityCriteria
+from .syntax_template_dictionary import SyntaxTemplateDictionary
 
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   trialIntentTypes: List[Code] = []
@@ -44,4 +45,4 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   studyScheduleTimelines: List[ScheduleTimeline] = []
   documentVersion: Union[StudyProtocolDocumentVersion, None] = None
   studyEligibilityCritieria: List[EligibilityCriteria] = []    
-  
+  dictionaries: List[SyntaxTemplateDictionary] = []

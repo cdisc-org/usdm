@@ -103,10 +103,10 @@ edges:
   - end: 00000000-0000-4000-8000-000000000054
     start: 00000000-0000-4000-8000-000000000001
   CATEGORY:
-  - end: 00000000-0000-4000-8000-000000000248
+  - end: 00000000-0000-4000-8000-000000000247
     start: 00000000-0000-4000-8000-000000000246
-  - end: 00000000-0000-4000-8000-000000000250
-    start: 00000000-0000-4000-8000-000000000249
+  - end: 00000000-0000-4000-8000-000000000249
+    start: 00000000-0000-4000-8000-000000000248
   CODE:
   - end: 00000000-0000-4000-8000-000000000009
     start: 00000000-0000-4000-8000-000000000007
@@ -745,11 +745,14 @@ edges:
     start: 00000000-0000-4000-8000-000000000100
   - end: 00000000-0000-4000-8000-000000000103
     start: 00000000-0000-4000-8000-000000000100
+  DICTIONARIES:
+  - end: 00000000-0000-4000-8000-000000000250
+    start: 00000000-0000-4000-8000-000000000065
   DICTIONARY:
-  - end: 00000000-0000-4000-8000-000000000247
+  - end: 00000000-0000-4000-8000-000000000250
     start: 00000000-0000-4000-8000-000000000246
-  - end: 00000000-0000-4000-8000-000000000247
-    start: 00000000-0000-4000-8000-000000000249
+  - end: 00000000-0000-4000-8000-000000000250
+    start: 00000000-0000-4000-8000-000000000248
   DOCUMENTED_BY:
   - end: 00000000-0000-4000-8000-000000000251
     start: 00000000-0000-4000-8000-000000000000
@@ -1137,7 +1140,7 @@ edges:
   STUDY_ELIGIBILITY_CRITIERIA:
   - end: 00000000-0000-4000-8000-000000000246
     start: 00000000-0000-4000-8000-000000000065
-  - end: 00000000-0000-4000-8000-000000000249
+  - end: 00000000-0000-4000-8000-000000000248
     start: 00000000-0000-4000-8000-000000000065
   STUDY_EPOCH:
   - end: 00000000-0000-4000-8000-000000000162
@@ -2176,13 +2179,13 @@ nodes:
     codeSystemVersion: '2023-09-29'
     decode: Inclusion Criteria
     id: Code_112
-    uuid: 00000000-0000-4000-8000-000000000248
+    uuid: 00000000-0000-4000-8000-000000000247
   - code: C25532
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Inclusion Criteria
     id: Code_113
-    uuid: 00000000-0000-4000-8000-000000000250
+    uuid: 00000000-0000-4000-8000-000000000249
   - code: C85255
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
@@ -2235,7 +2238,7 @@ nodes:
     label: ''
     name: Age Criteria Error
     text: Subjects shall be between [min_age] and [max_agexxx]
-    uuid: 00000000-0000-4000-8000-000000000249
+    uuid: 00000000-0000-4000-8000-000000000248
   Encounter:
   - description: Screening encounter
     id: Encounter_1
@@ -2278,7 +2281,6 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000095
   Endpoint:
   - description: Day 28, 7 category scale
-    dictionary: null
     id: Endpoint_1
     instanceType: ENDPOINT
     label: ''
@@ -2287,7 +2289,6 @@ nodes:
     text: Clinical status assessed using a 7-category ordinal scale at Day 28
     uuid: 00000000-0000-4000-8000-000000000205
   - description: TTCI
-    dictionary: null
     id: Endpoint_2
     instanceType: ENDPOINT
     label: ''
@@ -2297,7 +2298,6 @@ nodes:
       Score 2 (NEWS2) of <=2 maintained for 24 hours
     uuid: 00000000-0000-4000-8000-000000000209
   - description: Time to Imporvement
-    dictionary: null
     id: Endpoint_3
     instanceType: ENDPOINT
     label: ''
@@ -3195,7 +3195,6 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000395
   Objective:
   - description: Primary
-    dictionary: null
     id: Objective_1
     instanceType: OBJECTIVE
     label: ''
@@ -3205,7 +3204,6 @@ nodes:
       COVID-19 pneumonia
     uuid: 00000000-0000-4000-8000-000000000203
   - description: Secondary
-    dictionary: null
     id: Objective_2
     instanceType: OBJECTIVE
     label: ''
@@ -3519,7 +3517,7 @@ nodes:
         id: StudyDesignPopulation_1
         klass: StudyDesignPopulation
     text: null
-    uuid: 00000000-0000-4000-8000-000000000247
+    uuid: 00000000-0000-4000-8000-000000000250
   Timing:
   - description: Screening timing
     id: Timing_1
