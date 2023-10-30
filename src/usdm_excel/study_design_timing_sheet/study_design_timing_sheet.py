@@ -10,16 +10,6 @@ import re
 
 class StudyDesignTimingSheet(BaseSheet):
 
-  # name: TIMING_1
-  # description: 3 days before, +/- 1 day
-  # label: 3D +/- 1D
-  # type: Before
-  # from: <activity instance name ref>
-  # to: <activity instance name ref>
-  # timingValue: 3 days (encode to duration)
-  # toFrom: Start to Start, Start to End, End to Start, End to End (S2S default)
-  # window: -1..+1 Day (encode to durations)
-  #
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='studyDesignTiming', optional=True)

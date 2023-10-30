@@ -4,7 +4,7 @@ from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_v2_sheet.activities import Activities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
-#from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
@@ -49,27 +49,32 @@ class StudySoAV2Sheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def set_timing_references(self, timings):
-    #print(f"TR1:")
     for timing in timings:
-      #print(f"TR2: {timing}")
       instance = self._raw_instances.match(timing.relativeFromScheduledInstanceId)
-      #print(f"TR3: {instance}")
       if instance:
         item = instance.item
-        #print(f"TR4: {item}")
         timing.relativeFromScheduledInstanceId = item.id
         item.scheduledInstanceTimings.append(timing)
-      else:
-        self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
+      # else:
+      #   self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
       instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
-      #print(f"TR5: {instance}")
       if instance:
         item = instance.item
-        #print(f"TR6: {item}")
         timing.relativeToScheduledInstanceId = item.id
-      else:
-        self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
-      
+      # else:
+      #   self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
+    for instance in self._raw_instances.items:
+      item = instance.item
+      if isinstance(item, ScheduledActivityInstance):
+        found = False
+        for timing in timings:
+          ids = [timing.relativeFromScheduledInstanceId, timing.relativeToScheduledInstanceId]
+          if item.id in ids:
+            found = True
+            break
+        if not found:
+          self._general_warning(f"Unable to find timing reference for instance with name {instance.name}")
+
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
       if rindex == self.NAME_ROW:
