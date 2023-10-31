@@ -168,20 +168,20 @@ class NarrativeContent():
   def _translate_references(self, content_text):
     soup = BeautifulSoup(content_text, 'html.parser')
     for ref in soup(['usdm:ref']):
-      print(f"TRA: {ref}")
+      #print(f"TRA: {ref}")
       attributes = ref.attrs
-      print(f"TRB: {attributes}")
+      #print(f"TRB: {attributes}")
       try:
         if 'namexref' in attributes:
           instance = cross_references.get(attributes['klass'], attributes['namexref'])
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
         try:
-          print(f"TR1: {instance.id}")
+          #print(f"TR1: {instance.id}")
           value = getattr(instance, attributes['attribute'])
-          print(f"TR2: {value}")
+          #print(f"TR2: {value}")
           translated_text = self._translate_references(value)
-          print(f"TR3: {translated_text}")
+          #print(f"TR3: {translated_text}")
           ref.replace_with(translated_text)
         except:
           ref.replace_with("***** Failed to translate reference, attribute not found *****")
