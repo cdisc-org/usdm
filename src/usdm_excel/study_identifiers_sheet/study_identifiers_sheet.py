@@ -42,6 +42,7 @@ class StudyIdentifiersSheet(BaseSheet):
         self._general_error(f"Failed to create Organization object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
       else:
+        cross_references.add(organisation.id, organisation)   
         try:
           item = StudyIdentifier(
             id=id_manager.build_id(StudyIdentifier),
@@ -92,4 +93,6 @@ class StudyIdentifiersSheet(BaseSheet):
       self._general_error(f"Failed to create Address object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
       result = None
+    else:
+      cross_references.add(result.id, result)   
     return result

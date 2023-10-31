@@ -1,5 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.cross_ref import cross_references
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
 from usdm_model.subject_enrollment import SubjectEnrollment
@@ -48,6 +49,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
+            cross_references.add(item.id, item)
         self.items.sort(key=lambda d: int(d.number))
         self.previous_link(self.items, 'previousId')
         

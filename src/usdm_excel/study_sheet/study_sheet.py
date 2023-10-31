@@ -177,6 +177,7 @@ class StudySheet(BaseSheet):
           dateValues=self.dates[self.STUDY_VERSION_DATE],
           amendments=self.study_amendments.items
         )
+        cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
         self._general_error(f"Failed to create StudyVersion object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")

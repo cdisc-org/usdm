@@ -12,6 +12,7 @@ class NarrativeContent():
 
   def __init__(self, doc_title, study):
     self.study = study
+    self.study_version = study.versions[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.doc_title = doc_title
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
@@ -154,12 +155,12 @@ class NarrativeContent():
       with doc.tag(f'h{level}', id=id):
         doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
       if self._standard_section(content.text):
-        print(f"STD1 {content.text}")
+        #print(f"STD1 {content.text}")
         name = self._standard_section_name(content.text)
-        print(f"STD2 {name}")
-        doc.asis(self._generate_standard_section(name))
-      else:
-        doc.asis(self._translate_references(content.text))
+        #print(f"STD2 {name}")
+        content.text = self._generate_standard_section(name)
+        #print(f"STD3 {content.text}")
+      doc.asis(self._translate_references(content.text))
       for id in content.contentChildIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
@@ -167,85 +168,87 @@ class NarrativeContent():
   def _translate_references(self, content_text):
     soup = BeautifulSoup(content_text, 'html.parser')
     for ref in soup(['usdm:ref']):
+      print(f"TRA: {ref}")
       attributes = ref.attrs
+      print(f"TRB: {attributes}")
       try:
         if 'namexref' in attributes:
           instance = cross_references.get(attributes['klass'], attributes['namexref'])
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
         try:
-          translated_text = self._translate_references(getattr(instance, attributes['attribute']))
+          print(f"TR1: {instance.id}")
+          value = getattr(instance, attributes['attribute'])
+          print(f"TR2: {value}")
+          translated_text = self._translate_references(value)
+          print(f"TR3: {translated_text}")
           ref.replace_with(translated_text)
         except:
           ref.replace_with("***** Failed to translate reference, attribute not found *****")
       except:
-        ref.replace_with("***** Failed to translate reference, instance not foound *****")
+        ref.replace_with("***** Failed to translate reference, instance not found *****")
     return str(soup)
   
   def _standard_section(self, text):
     result = re.match(r'SECTION\s*=', text.upper())
-    print(f"STD10: {result} for {text}")
+    #print(f"STD10: {result} for {text}")
     return result
   
   def _standard_section_name(self, text):  
-    print(f"MATCH1: {text}")   
+    #print(f"MATCH1: {text}")   
     parts = text.split('=')
-    print(f"MATCH2: {parts[1]}")   
+    #print(f"MATCH2: {parts[1]}")   
     return parts[1].strip().upper()
 
   def _generate_standard_section(self, name):
-    print(f"GSS: {name}")   
+    #print(f"GSS: {name}")   
     if name == "M11-TITLE-PAGE":
       return self._generate_m11_title_page()
     else:
       return f"Unrecognized standard content name {name}"
 
   def _generate_m11_title_page(self):
-    print(f"M11 TP:")
-    # <table>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Protocol Full Title:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="StudyProtocolVersion" id="StudyProtocolVersion_1" attribute="officialTitle"/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Protocol Number:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="StudyIdentifier" id="StudyIdentifier_1" attribute="studyIdentifier"/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Version:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Amendment Number:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Amendment Scope:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Compound Number(s):</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
-    #   </tr> 
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Compound Name(s):</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
-    #   </tr>  
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Trial Phase:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="Code" id="Code_2" attribute="decode"/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Acronym:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="Study" namexref="STUDY" attribute="studyAcronym"/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Short Title:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="StudyProtocolVersion" id="StudyProtocolVersion_1" attribute="briefTitle"/></p></td>
-    #   </tr>
-    #   <tr>
-    #     <th style="vertical-align: top; text-align: left"><p>Sponsor Name and Address:</p></th>
-    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
-    #   </tr>
-    # </table>
-    return f"M11 Title Page"
+    #print(f"M11 TP:")
+    doc = Doc()
+    with doc.tag('table'):
+      self._generate_m11_title_page_entry(doc, 'Protocol Full Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="officialTitle"/>')
+      self._generate_m11_title_page_entry(doc, 'Protocol Number:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>')
+      self._generate_m11_title_page_entry(doc, 'Version:>', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>')
+      self._generate_m11_title_page_entry(doc, 'Amendment Number:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>')
+      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', '')
+      self._generate_m11_title_page_entry(doc, 'Compound Number(s):', '')
+      self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '')
+      self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>')
+      self._generate_m11_title_page_entry(doc, 'Acronym:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyAcronym"/>')
+      self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>')
+      self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>')
+    return doc.getvalue()
+  
+  def _generate_m11_title_page_entry(self, doc, title, entry):
+    with doc.tag('tr'):
+      with doc.tag('th', style="vertical-align: top; text-align: left"):
+        with doc.tag('p'):
+          doc.asis(title)  
+      with doc.tag('td', style="vertical-align: top; text-align: left"):
+        with doc.tag('p'):
+          doc.asis(entry)
+
+  def _study_identifier(self):
+    identifiers = self.study_version.studyIdentifiers
+    for identifier in identifiers:
+      if identifier.studyIdentifierScope.type.code == 'C70793':
+        return identifier
+    return None
+  
+  def _organization(self):
+    identifier = self._study_identifier()
+    return identifier.studyIdentifierScope
+  
+  def _organization_address(self):
+    organization = self._organization()
+    return organization.organizationLegalAddress
+  
+  def _amendment(self):
+    amendments = self.study_version.amendments
+    return amendments[-1]
+    
