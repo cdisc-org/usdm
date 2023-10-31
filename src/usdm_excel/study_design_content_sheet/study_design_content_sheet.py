@@ -36,7 +36,7 @@ class StudyDesignContentSheet(BaseSheet):
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,
-              text=text,
+              text=self._wrap_div(text):,
               contentChildIds=[]
             )
           except Exception as e:  
@@ -72,3 +72,6 @@ class StudyDesignContentSheet(BaseSheet):
   def _get_level(self, section_number):
     parts = section_number.split('.')
     return len(parts)
+  
+  def _wrap_div(self, text):
+    return text if text.startswith("<div>") else f"<div>{text}</div>"
