@@ -87,6 +87,8 @@ class StudySheet(BaseSheet):
       self.dates = {}
       for category in self.date_categories:
         self.dates[category] = []
+
+      # Process all the sheets
       self._process_sheet()
       self.study_amendments = StudyDesignAmendmentSheet(file_path)
       self.study_identifiers = StudyIdentifiersSheet(file_path)
@@ -107,6 +109,7 @@ class StudySheet(BaseSheet):
       self.dictionaries = StudyDesignDictionarySheet(file_path)
       self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path)
 
+      # Study Design assembly
       study_design = self.study_design.study_designs[0]
       study_design.studyScheduleTimelines.append(self.soa.timeline)
       study_design.encounters = self.encounters.items
@@ -129,6 +132,8 @@ class StudySheet(BaseSheet):
       study_design.studyEstimands = self.estimands.estimands
       study_design.studyEligibilityCritieria = self.eligibility_criteria.items
       study_design.dictionaries = self.dictionaries.items
+      
+      # Final assembly
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 
@@ -192,11 +197,11 @@ class StudySheet(BaseSheet):
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
-  def study_sponsor(self):
-    return self.cdisc_code(code="C93453", decode="Study Registry")
+  # def study_sponsor(self):
+  #   return self.cdisc_code(code="C93453", decode="Study Registry")
 
-  def study_regulatory(self):
-    return self.cdisc_code(code="C93453", decode="Study Registry")
+  # def study_regulatory(self):
+  #   return self.cdisc_code(code="C93453", decode="Study Registry")
 
   def the_study(self):
     return self.study
