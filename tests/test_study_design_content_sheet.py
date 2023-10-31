@@ -32,7 +32,7 @@ def test_create(mocker):
   assert content.items[1].name == 'SECTION 1'
   assert content.items[1].sectionNumber == '1'
   assert content.items[1].sectionTitle == 'Section 1'
-  assert content.items[1].text == 'Text 1'
+  assert content.items[1].text == '<div>Text 1</div>'
   assert content.items[1].contentChildIds == ['Content_3', 'Content_4']
   assert content.items[2].name == 'SET NAME'
   assert content.items[3].name == 'SECTION 1.2'
@@ -67,13 +67,13 @@ def test_create_4_levels(mocker):
   assert content.items[4].name == 'SECTION 1.2.1'
   assert content.items[4].sectionNumber == '1.2.1'
   assert content.items[4].sectionTitle == 'Section 1.2.1'
-  assert content.items[4].text == 'Text 1.2.1'
+  assert content.items[4].text == '<div>Text 1.2.1</div>'
   assert content.items[4].contentChildIds == ['Content_6']
   assert content.items[5].id == 'Content_6'
   assert content.items[5].name == 'SECTION 1.2.1.1'
   assert content.items[5].sectionNumber == '1.2.1.1'
   assert content.items[5].sectionTitle == 'Section 1.2.1.1'
-  assert content.items[5].text == 'Text 1.2.1.1'
+  assert content.items[5].text == '<div>Text 1.2.1.1</div>'
   assert content.items[5].contentChildIds == []
 
 def test_create_invalid_levels(mocker):

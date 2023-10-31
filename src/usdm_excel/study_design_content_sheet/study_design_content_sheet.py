@@ -36,7 +36,7 @@ class StudyDesignContentSheet(BaseSheet):
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,
-              text=self._wrap_div(text):,
+              text=self._wrap_div(text),
               contentChildIds=[]
             )
           except Exception as e:  
