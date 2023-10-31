@@ -210,20 +210,10 @@ class StudySheet(BaseSheet):
     return Wrapper(study=self.study)
 
   def to_html(self):
-    document = self.study.documentedBy.versions[0]
-    if document.id == self.study.versions[0].documentVersionId:
-      return NarrativeContent(self.title, document).to_html()
-    else:
-      self._general_error(f"Failed to create HTML document, ids did not match")
-      return None
+    return NarrativeContent(self.title, self.study).to_html()
 
   def to_pdf(self):
-    document = self.study.documentedBy.versions[0]
-    if document.id == self.study.versions[0].documentVersionId:
-      return NarrativeContent(self.title, document).to_pdf()
-    else:
-      self._general_error(f"Failed to create PDF document, ids did not match")
-      return None
+    return NarrativeContent(self.title, self.study).to_pdf()
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

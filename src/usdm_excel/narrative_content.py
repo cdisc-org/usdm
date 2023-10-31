@@ -1,14 +1,22 @@
 from yattag import Doc
 from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
+from usdm_excel.logger import logging
 import docraptor
 import re
 
 class NarrativeContent():
 
-  def __init__(self, doc_title, protocol_document_version):
+  class LogicError(Exception):
+    pass
+
+  def __init__(self, doc_title, study):
+    self.study = study
+    self.protocol_document_version = self.study.documentedBy.versions[0]
     self.doc_title = doc_title
-    self.protocol_document_version = protocol_document_version
+    if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
+      logging.error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
+      raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
 
   def to_pdf(self):
     doc_api = docraptor.DocApi()
@@ -179,9 +187,65 @@ class NarrativeContent():
     print(f"STD10: {result} for {text}")
     return result
   
-  def _standard_section_name(self, text):
-    match = re.match(r"SECTION\s*=(?P<name>.+)\s*", text)
-    return match.groupdict()['name'].strip().upper() if match else None
+  def _standard_section_name(self, text):  
+    print(f"MATCH1: {text}")   
+    parts = text.split('=')
+    print(f"MATCH2: {parts[1]}")   
+    return parts[1].strip().upper()
 
   def _generate_standard_section(self, name):
-    return f"<p>Adding standard section {name}</p>"
+    print(f"GSS: {name}")   
+    if name == "M11-TITLE-PAGE":
+      return self._generate_m11_title_page()
+    else:
+      return f"Unrecognized standard content name {name}"
+
+  def _generate_m11_title_page(self):
+    print(f"M11 TP:")
+    # <table>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Protocol Full Title:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="StudyProtocolVersion" id="StudyProtocolVersion_1" attribute="officialTitle"/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Protocol Number:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="StudyIdentifier" id="StudyIdentifier_1" attribute="studyIdentifier"/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Version:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Amendment Number:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Amendment Scope:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Compound Number(s):</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
+    #   </tr> 
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Compound Name(s):</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
+    #   </tr>  
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Trial Phase:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="Code" id="Code_2" attribute="decode"/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Acronym:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="Study" namexref="STUDY" attribute="studyAcronym"/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Short Title:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="StudyProtocolVersion" id="StudyProtocolVersion_1" attribute="briefTitle"/></p></td>
+    #   </tr>
+    #   <tr>
+    #     <th style="vertical-align: top; text-align: left"><p>Sponsor Name and Address:</p></th>
+    #     <td style="vertical-align: top; text-align: left"><p><usdm:ref klass="" namexref="" attribute=""/></p></td>
+    #   </tr>
+    # </table>
+    return f"M11 Title Page"
