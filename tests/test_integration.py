@@ -86,13 +86,16 @@ def run_test_ne(filename, save=False):
 def test_full_1():
   run_test('full_1')
 
-def test_timeline_full():
+def test_full_1_timeline():
   run_test_timeline('full_1')
 
-def test_timeline_full_body():
+def test_full_1_timeline_body():
   run_test_timeline('full_1', USDMExcel.BODY_HTML)
 
-def test_timeline_ne():
+def test_full_1_html():
+  run_test_html('full_1')
+
+def test_full_1_ne():
   run_test_ne('full_1')
 
 def test_simple_1():

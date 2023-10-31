@@ -1,12 +1,12 @@
-import docraptor
 from yattag import Doc
 from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
+import docraptor
+import re
 
 class NarrativeContent():
 
   def __init__(self, doc_title, protocol_document_version):
-    #print("NC INIT:")
     self.doc_title = doc_title
     self.protocol_document_version = protocol_document_version
 
@@ -134,10 +134,8 @@ class NarrativeContent():
         doc.asis(front_sheet)    
         for id in root.contentChildIds:
           content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-          #print(f"NC TH3: {id}={content.sectionNumber}")
           if content:
             self._content_to_html(content, doc)
-    #print(doc.getvalue())
     return doc.getvalue()
   
   def _content_to_html(self, content, doc):
@@ -147,7 +145,13 @@ class NarrativeContent():
     with doc.tag('div', klass=klass):
       with doc.tag(f'h{level}', id=id):
         doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
-      doc.asis(self._translate_references(content.text))
+      if self._standard_section(content.text):
+        print(f"STD1 {content.text}")
+        name = self._standard_section_name(content.text)
+        print(f"STD2 {name}")
+        doc.asis(self._generate_standard_section(name))
+      else:
+        doc.asis(self._translate_references(content.text))
       for id in content.contentChildIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
@@ -157,19 +161,27 @@ class NarrativeContent():
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
       try:
-        #print(f"TR: Attributes={attributes}")
         if 'namexref' in attributes:
           instance = cross_references.get(attributes['klass'], attributes['namexref'])
-          #print(f"TR: Name xref instance {instance}")
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
-          #print(f"TR: Id instance {instance}")
         try:
           translated_text = self._translate_references(getattr(instance, attributes['attribute']))
-          #print(f"TR: text {translated_text}")
           ref.replace_with(translated_text)
         except:
           ref.replace_with("***** Failed to translate reference, attribute not found *****")
       except:
         ref.replace_with("***** Failed to translate reference, instance not foound *****")
     return str(soup)
+  
+  def _standard_section(self, text):
+    result = re.match(r'SECTION\s*=', text.upper())
+    print(f"STD10: {result} for {text}")
+    return result
+  
+  def _standard_section_name(self, text):
+    match = re.match(r"SECTION\s*=(?P<name>.+)\s*", text)
+    return match.groupdict()['name'].strip().upper() if match else None
+
+  def _generate_standard_section(self, name):
+    return f"<p>Adding standard section {name}</p>"
