@@ -76,6 +76,35 @@ def test_create_4_levels(mocker):
   assert content.items[5].text == '<div>Text 1.2.1.1</div>'
   assert content.items[5].contentChildIds == []
 
+def test_create_standard_section(mocker):
+  mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
+  mock_present.side_effect=[True]
+  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [
+    ['1',       '',         'Section 1',       'Text 1'], 
+    ['1.1',     'SET NAME', 'Section 1.1',     'Text 1.1'], 
+    ['1.2',     '',         'Section 1.2',     'Section = M11XXX'], 
+    ['1.2.1',   '',         'Section 1.2.1',   'SECTION=M11'], 
+    ['1.2.1.1', '',         'Section 1.2.1.1', 'SectiON     = M11'], 
+    ['2',       '',         'Section 2',       'Text 2'], 
+    ['3',       '',         'Section 3',       'Text 3'], 
+  ]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
+  content = StudyDesignContentSheet("")
+  assert len(content.items) == 8
+  assert content.items[0].text == ''
+  assert content.items[1].text == '<div>Text 1</div>'
+  assert content.items[2].text == '<div>Text 1.1</div>'
+  assert content.items[3].text == 'Section = M11XXX'
+  assert content.items[4].text == 'SECTION=M11'
+  assert content.items[5].text == 'SectiON     = M11'
+  assert content.items[6].text == '<div>Text 2</div>'
+  assert content.items[7].text == '<div>Text 3</div>'
+
 def test_create_invalid_levels(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]

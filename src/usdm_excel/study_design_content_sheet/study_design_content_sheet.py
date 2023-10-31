@@ -1,8 +1,8 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_model.narrative_content import NarrativeContent
-#from usdm_excel.option_manager import Options, option_manager
 import traceback
+import re
 
 class StudyDesignContentSheet(BaseSheet):
 
@@ -30,13 +30,15 @@ class StudyDesignContentSheet(BaseSheet):
           text = self.read_cell_by_name(index, 'text')
           name = self.read_cell_by_name(index, 'name')
           name = f"SECTION {section_number}" if name == "" else name
+          updated_text = text if self._standard_section(text) else self._wrap_div(text)
+          #print(f"STD: Text='{updated_text}'")
           try:
             item = NarrativeContent(
               id=id_manager.build_id(NarrativeContent), 
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,
-              text=self._wrap_div(text),
+              text=updated_text,
               contentChildIds=[]
             )
           except Exception as e:  
@@ -72,6 +74,11 @@ class StudyDesignContentSheet(BaseSheet):
   def _get_level(self, section_number):
     parts = section_number.split('.')
     return len(parts)
-  
+
+  def _standard_section(self, text):
+    result = re.match(r'SECTION\s*=', text.upper())
+    #print(f"STD: {text} = {result}")
+    return result
+
   def _wrap_div(self, text):
     return text if text.startswith("<div>") else f"<div>{text}</div>"
