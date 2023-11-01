@@ -290,23 +290,23 @@ class NarrativeContent():
     items = [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
-      print(f"CRITERIA1: {item}")  
+      #print(f"CRITERIA1: {item}")  
       result = {'identifier': item.identifier, 'text': item.text}
       dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-      print(f"CRITERIA1A: {dictionary}")  
+      #print(f"CRITERIA1A: {dictionary}")  
       if not dictionary:
-        print(f"CRITERIA1B: No dictionary")
+        #print(f"CRITERIA1B: No dictionary")
         results.append(result)
         continue
       tags = re.findall(r'\[([^]]*)\]', result['text'])
-      print(f"CRITERIA2: {tags}")  
+      #print(f"CRITERIA2: {tags}")  
       for tag in tags:
-        print(f"CRITERIA3: {tag} {dictionary.parameterMap}")  
+        #print(f"CRITERIA3: {tag} {dictionary.parameterMap}")  
         if tag in dictionary.parameterMap:
           map = dictionary.parameterMap[tag]
-          print(f"CRITERIA4: {map} {result['text']} [{tag}]")  
+          #print(f"CRITERIA4: {map} {result['text']} [{tag}]")  
           result['text'] = result['text'].replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
-      print(f"CRITERIA5: {result}")  
+      #print(f"CRITERIA5: {result}")  
       results.append(result)
     return results
 
