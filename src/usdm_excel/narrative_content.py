@@ -242,7 +242,7 @@ class NarrativeContent():
     }
     doc = Doc()
     with doc.tag('p'):
-      doc.asis("Patients may be included in the study only if they meet <strong>all</strong> the following criteria:")  
+      doc.asis(heading[type])  
     with doc.tag('table'):
       for criterion in self._criteria(type):
         self._generate_m11_critieria_entry(doc, criterion.identifier, f'<usdm:ref klass="EligibilityCriteria" id="{criterion.id}" attribute="text"/>')
@@ -286,4 +286,7 @@ class NarrativeContent():
     return amendments[-1]
     
   def _criteria(self, type):
-    return [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
+    items = [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
+    items.sort(key=lambda d: d.identifier)
+    return items
+

@@ -1929,6 +1929,25 @@
                 "identifier": "2",
                 "nextCriterionId": null,
                 "previousCriterionId": null
+              },
+              {
+                "id": "EligibilityCriteria_3",
+                "name": "Drug A",
+                "label": "",
+                "description": "Ever taken drug A",
+                "instanceType": "ELIGIBILITY_CRITERIA",
+                "text": "Subjects has been treated with Drug A at any time in the past",
+                "dictionaryId": null,
+                "category": {
+                  "id": "Code_114",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Exclusion Criteria"
+                },
+                "identifier": "1",
+                "nextCriterionId": null,
+                "previousCriterionId": null
               }
             ],
             "dictionaries": [
