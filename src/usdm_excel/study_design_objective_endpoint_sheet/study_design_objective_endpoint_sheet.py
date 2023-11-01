@@ -3,8 +3,10 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 from usdm_model.objective import Objective
 from usdm_model.endpoint import Endpoint
+from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 
 import traceback
+import re
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
@@ -21,12 +23,18 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         ep_text = self.read_cell_by_name(index, 'endpointText') 
         ep_purpose = self.read_cell_by_name(index, ['endpointPurposeDescription', 'endpointPurpose'], default='None provided')
         ep_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
+        ep_dictionary_name = self.read_cell_by_name(index, 'endpointDictionary')
+        self._validate_references(index, 'endpointText', ep_text, ep_dictionary_name)
+
         if o_text:
           o_name = self.read_cell_by_name(index, ["objectiveXref", "objectiveName"]) 
           o_description = self.read_description_by_name(index, 'objectiveDescription')
           o_label = self.read_cell_by_name(index, ["objectiveLabel"], default='') 
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
+          o_dictionary_name = self.read_cell_by_name(index, 'objectiveDictionary')
+          self._validate_references(index, 'objectiveText', o_text, o_dictionary_name)
           try:
+            dictionary_id = self._get_dictionary_id(o_dictionary_name)
             current = Objective(id=id_manager.build_id(Objective),
               instanceType="OBJECTIVE",
               name=o_name,
@@ -34,7 +42,8 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
               label=o_label,
               text=o_text,
               level=o_level,
-              objectiveEndpoints=[]
+              objectiveEndpoints=[],
+              dictionaryId=dictionary_id
             )
           except Exception as e:
             self._general_error(f"Failed to create Objective object, exception {e}")
@@ -44,6 +53,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             cross_references.add(o_name, current)
         if current is not None:
           try:
+            dictionary_id = self._get_dictionary_id(ep_dictionary_name)
             ep = Endpoint(id=id_manager.build_id(Endpoint),
               instanceType="ENDPOINT",
               name=ep_name,
@@ -51,7 +61,8 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
               label=ep_label,
               text=ep_text, 
               purpose=ep_purpose, 
-              level=ep_level
+              level=ep_level,
+              dictionaryId=dictionary_id
             )  
           except Exception as e:
             self._general_error(f"Failed to create Endpoint object, exception {e}")
@@ -66,3 +77,23 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
+  def _validate_references(self, row, column_name, text, dictionary_name):
+    if dictionary_name:
+      column = self.column_present(column_name)
+      dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      if not dictionary:
+        self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
+        return
+      tags = re.findall(r'\[([^]]*)\]',text)
+      for tag in tags:
+        if not tag in dictionary.parameterMap:
+          self._warning(row, column, f"Failed to find '{tag}' in dictionary '{dictionary_name}'")
+
+  def _get_dictionary_id(self, dictionary_name):
+    if dictionary_name:
+      dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      if dictionary:
+        return dictionary.id
+      else:
+        self._general_error(f"Unable to find dictionary with name '{dictionary_name}'")
+    return None

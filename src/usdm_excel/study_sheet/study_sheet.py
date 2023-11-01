@@ -103,11 +103,11 @@ class StudySheet(BaseSheet):
       self._process_soa(file_path)
       self.ii = StudyDesignIISheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
-      self.oe = StudyDesignObjectiveEndpointSheet(file_path)
-      self.estimands = StudyDesignEstimandsSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
       self.dictionaries = StudyDesignDictionarySheet(file_path)
+      self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path)
+      self.estimands = StudyDesignEstimandsSheet(file_path)
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
