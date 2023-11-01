@@ -1948,6 +1948,25 @@
                 "identifier": "1",
                 "nextCriterionId": null,
                 "previousCriterionId": null
+              },
+              {
+                "id": "EligibilityCriteria_4",
+                "name": "Berber",
+                "label": "",
+                "description": "Test for Berber",
+                "instanceType": "ELIGIBILITY_CRITERIA",
+                "text": "Pick up activity [xxxx]",
+                "dictionaryId": "SyntaxTemplateDictionary_3",
+                "category": {
+                  "id": "Code_115",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Exclusion Criteria"
+                },
+                "identifier": "2",
+                "nextCriterionId": null,
+                "previousCriterionId": null
               }
             ],
             "dictionaries": [
@@ -1981,6 +2000,20 @@
                     "klass": "StudyDesignPopulation",
                     "id": "StudyDesignPopulation_1",
                     "attribute": "plannedMinimumAgeOfParticipants"
+                  }
+                }
+              },
+              {
+                "id": "SyntaxTemplateDictionary_3",
+                "name": "Berber_Dict",
+                "label": "Berber Dictionary",
+                "description": "Dictionary for Berber Example",
+                "text": null,
+                "parameterMap": {
+                  "xxxx": {
+                    "klass": "Activity",
+                    "id": "Activity_1",
+                    "attribute": "label"
                   }
                 }
               }
