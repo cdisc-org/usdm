@@ -2362,8 +2362,8 @@
       "label": "Objective_2",
       "description": "Secondary",
       "instanceType": "OBJECTIVE",
-      "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
-      "dictionaryId": null,
+      "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia over the age of [min_age]",
+      "dictionaryId": "SyntaxTemplateDictionary_2",
       "_type": "Objective"
     }
   },
@@ -2866,6 +2866,18 @@
     }
   },
   {
+    "id": 254,
+    "properties": {
+      "id": "SyntaxTemplateDictionary_2",
+      "name": "OE_Dict",
+      "label": "SyntaxTemplateDictionary_2",
+      "description": "Dictionary for OE",
+      "text": null,
+      "parameterMap": {},
+      "_type": "SyntaxTemplateDictionary"
+    }
+  },
+  {
     "id": 66,
     "properties": {
       "id": "StudyDesign_1",
@@ -2892,7 +2904,7 @@
     }
   },
   {
-    "id": 256,
+    "id": 257,
     "properties": {
       "id": "Code_5",
       "code": "C85255",
@@ -2904,7 +2916,7 @@
     }
   },
   {
-    "id": 258,
+    "id": 259,
     "properties": {
       "id": "Code_15",
       "code": "C99903x1",
@@ -2916,7 +2928,7 @@
     }
   },
   {
-    "id": 260,
+    "id": 261,
     "properties": {
       "id": "Code_16",
       "code": "C68846",
@@ -2928,7 +2940,7 @@
     }
   },
   {
-    "id": 259,
+    "id": 260,
     "properties": {
       "id": "GeographicScope_5",
       "code": null,
@@ -2937,7 +2949,7 @@
     }
   },
   {
-    "id": 257,
+    "id": 258,
     "properties": {
       "id": "GovernanceDate_2",
       "name": "Approval",
@@ -2948,7 +2960,7 @@
     }
   },
   {
-    "id": 262,
+    "id": 263,
     "properties": {
       "id": "Code_17",
       "code": "C99903x1",
@@ -2960,7 +2972,7 @@
     }
   },
   {
-    "id": 264,
+    "id": 265,
     "properties": {
       "id": "Code_19",
       "code": "C41129",
@@ -2972,7 +2984,7 @@
     }
   },
   {
-    "id": 266,
+    "id": 267,
     "properties": {
       "id": "Code_18",
       "code": "142",
@@ -2984,7 +2996,7 @@
     }
   },
   {
-    "id": 265,
+    "id": 266,
     "properties": {
       "id": "AliasCode_6",
       "standardCodeAliases": [],
@@ -2993,7 +3005,7 @@
     }
   },
   {
-    "id": 263,
+    "id": 264,
     "properties": {
       "id": "GeographicScope_6",
       "_type": "GeographicScope",
@@ -3001,7 +3013,7 @@
     }
   },
   {
-    "id": 261,
+    "id": 262,
     "properties": {
       "id": "GovernanceDate_3",
       "name": "Approval",
@@ -3012,7 +3024,7 @@
     }
   },
   {
-    "id": 267,
+    "id": 268,
     "properties": {
       "id": "NarrativeContent_1",
       "name": "ROOT",
@@ -3042,7 +3054,7 @@
     }
   },
   {
-    "id": 268,
+    "id": 269,
     "properties": {
       "id": "NarrativeContent_2",
       "name": "SECTION 0",
@@ -3055,7 +3067,7 @@
     }
   },
   {
-    "id": 269,
+    "id": 270,
     "properties": {
       "id": "NarrativeContent_3",
       "name": "SECTION 1",
@@ -3072,7 +3084,7 @@
     }
   },
   {
-    "id": 270,
+    "id": 271,
     "properties": {
       "id": "NarrativeContent_4",
       "name": "SECTION 1.1",
@@ -3085,7 +3097,7 @@
     }
   },
   {
-    "id": 271,
+    "id": 272,
     "properties": {
       "id": "NarrativeContent_5",
       "name": "SECTION 1.2",
@@ -3098,7 +3110,7 @@
     }
   },
   {
-    "id": 272,
+    "id": 273,
     "properties": {
       "id": "NarrativeContent_6",
       "name": "SECTION 1.3",
@@ -3111,7 +3123,7 @@
     }
   },
   {
-    "id": 273,
+    "id": 274,
     "properties": {
       "id": "NarrativeContent_7",
       "name": "SECTION 2",
@@ -3127,7 +3139,7 @@
     }
   },
   {
-    "id": 274,
+    "id": 275,
     "properties": {
       "id": "NarrativeContent_8",
       "name": "SECTION 2.1",
@@ -3140,7 +3152,7 @@
     }
   },
   {
-    "id": 275,
+    "id": 276,
     "properties": {
       "id": "NarrativeContent_9",
       "name": "SECTION 2.2",
@@ -3153,7 +3165,7 @@
     }
   },
   {
-    "id": 276,
+    "id": 277,
     "properties": {
       "id": "NarrativeContent_10",
       "name": "SECTION 3",
@@ -3168,7 +3180,7 @@
     }
   },
   {
-    "id": 277,
+    "id": 278,
     "properties": {
       "id": "NarrativeContent_11",
       "name": "SECTION 3.1",
@@ -3181,7 +3193,7 @@
     }
   },
   {
-    "id": 278,
+    "id": 279,
     "properties": {
       "id": "NarrativeContent_12",
       "name": "SECTION 4",
@@ -3199,7 +3211,7 @@
     }
   },
   {
-    "id": 279,
+    "id": 280,
     "properties": {
       "id": "NarrativeContent_13",
       "name": "SECTION 4.1",
@@ -3214,7 +3226,7 @@
     }
   },
   {
-    "id": 280,
+    "id": 281,
     "properties": {
       "id": "NarrativeContent_14",
       "name": "SECTION 4.1.1",
@@ -3227,7 +3239,7 @@
     }
   },
   {
-    "id": 281,
+    "id": 282,
     "properties": {
       "id": "NarrativeContent_15",
       "name": "SECTION 4.2",
@@ -3244,7 +3256,7 @@
     }
   },
   {
-    "id": 282,
+    "id": 283,
     "properties": {
       "id": "NarrativeContent_16",
       "name": "SECTION 4.2.1",
@@ -3257,7 +3269,7 @@
     }
   },
   {
-    "id": 283,
+    "id": 284,
     "properties": {
       "id": "NarrativeContent_17",
       "name": "SECTION 4.2.2",
@@ -3270,7 +3282,7 @@
     }
   },
   {
-    "id": 284,
+    "id": 285,
     "properties": {
       "id": "NarrativeContent_18",
       "name": "SECTION 4.2.3",
@@ -3283,7 +3295,7 @@
     }
   },
   {
-    "id": 285,
+    "id": 286,
     "properties": {
       "id": "NarrativeContent_19",
       "name": "SECTION 4.3",
@@ -3296,7 +3308,7 @@
     }
   },
   {
-    "id": 286,
+    "id": 287,
     "properties": {
       "id": "NarrativeContent_20",
       "name": "SECTION 4.4",
@@ -3309,7 +3321,7 @@
     }
   },
   {
-    "id": 287,
+    "id": 288,
     "properties": {
       "id": "NarrativeContent_21",
       "name": "SECTION 5",
@@ -3329,7 +3341,7 @@
     }
   },
   {
-    "id": 288,
+    "id": 289,
     "properties": {
       "id": "NarrativeContent_22",
       "name": "SECTION 5.1",
@@ -3342,7 +3354,7 @@
     }
   },
   {
-    "id": 289,
+    "id": 290,
     "properties": {
       "id": "NarrativeContent_23",
       "name": "SECTION 5.2",
@@ -3355,7 +3367,7 @@
     }
   },
   {
-    "id": 290,
+    "id": 291,
     "properties": {
       "id": "NarrativeContent_24",
       "name": "SECTION 5.3",
@@ -3368,7 +3380,7 @@
     }
   },
   {
-    "id": 291,
+    "id": 292,
     "properties": {
       "id": "NarrativeContent_25",
       "name": "SECTION 5.4",
@@ -3381,7 +3393,7 @@
     }
   },
   {
-    "id": 292,
+    "id": 293,
     "properties": {
       "id": "NarrativeContent_26",
       "name": "SECTION 5.5",
@@ -3399,7 +3411,7 @@
     }
   },
   {
-    "id": 293,
+    "id": 294,
     "properties": {
       "id": "NarrativeContent_27",
       "name": "SECTION 5.5.1",
@@ -3412,7 +3424,7 @@
     }
   },
   {
-    "id": 294,
+    "id": 295,
     "properties": {
       "id": "NarrativeContent_28",
       "name": "SECTION 5.5.2",
@@ -3425,7 +3437,7 @@
     }
   },
   {
-    "id": 295,
+    "id": 296,
     "properties": {
       "id": "NarrativeContent_29",
       "name": "SECTION 5.5.3",
@@ -3438,7 +3450,7 @@
     }
   },
   {
-    "id": 296,
+    "id": 297,
     "properties": {
       "id": "NarrativeContent_30",
       "name": "SECTION 5.5.4",
@@ -3451,7 +3463,7 @@
     }
   },
   {
-    "id": 297,
+    "id": 298,
     "properties": {
       "id": "NarrativeContent_31",
       "name": "SECTION 5.6",
@@ -3464,7 +3476,7 @@
     }
   },
   {
-    "id": 298,
+    "id": 299,
     "properties": {
       "id": "NarrativeContent_32",
       "name": "SECTION 6",
@@ -3486,7 +3498,7 @@
     }
   },
   {
-    "id": 299,
+    "id": 300,
     "properties": {
       "id": "NarrativeContent_33",
       "name": "SECTION 6.1",
@@ -3499,7 +3511,7 @@
     }
   },
   {
-    "id": 300,
+    "id": 301,
     "properties": {
       "id": "NarrativeContent_34",
       "name": "SECTION 6.2",
@@ -3512,7 +3524,7 @@
     }
   },
   {
-    "id": 301,
+    "id": 302,
     "properties": {
       "id": "NarrativeContent_35",
       "name": "SECTION 6.3",
@@ -3527,7 +3539,7 @@
     }
   },
   {
-    "id": 302,
+    "id": 303,
     "properties": {
       "id": "NarrativeContent_36",
       "name": "SECTION 6.3.1",
@@ -3540,7 +3552,7 @@
     }
   },
   {
-    "id": 303,
+    "id": 304,
     "properties": {
       "id": "NarrativeContent_37",
       "name": "SECTION 6.4",
@@ -3553,7 +3565,7 @@
     }
   },
   {
-    "id": 304,
+    "id": 305,
     "properties": {
       "id": "NarrativeContent_38",
       "name": "SECTION 6.5",
@@ -3570,7 +3582,7 @@
     }
   },
   {
-    "id": 305,
+    "id": 306,
     "properties": {
       "id": "NarrativeContent_39",
       "name": "SECTION 6.5.1",
@@ -3583,7 +3595,7 @@
     }
   },
   {
-    "id": 306,
+    "id": 307,
     "properties": {
       "id": "NarrativeContent_40",
       "name": "SECTION 6.5.2",
@@ -3596,7 +3608,7 @@
     }
   },
   {
-    "id": 307,
+    "id": 308,
     "properties": {
       "id": "NarrativeContent_41",
       "name": "SECTION 6.5.3",
@@ -3609,7 +3621,7 @@
     }
   },
   {
-    "id": 308,
+    "id": 309,
     "properties": {
       "id": "NarrativeContent_42",
       "name": "SECTION 6.6",
@@ -3626,7 +3638,7 @@
     }
   },
   {
-    "id": 309,
+    "id": 310,
     "properties": {
       "id": "NarrativeContent_43",
       "name": "SECTION 6.6.1",
@@ -3639,7 +3651,7 @@
     }
   },
   {
-    "id": 310,
+    "id": 311,
     "properties": {
       "id": "NarrativeContent_44",
       "name": "SECTION 6.6.2",
@@ -3652,7 +3664,7 @@
     }
   },
   {
-    "id": 311,
+    "id": 312,
     "properties": {
       "id": "NarrativeContent_45",
       "name": "SECTION 6.6.3",
@@ -3665,7 +3677,7 @@
     }
   },
   {
-    "id": 312,
+    "id": 313,
     "properties": {
       "id": "NarrativeContent_46",
       "name": "SECTION 6.7",
@@ -3678,7 +3690,7 @@
     }
   },
   {
-    "id": 313,
+    "id": 314,
     "properties": {
       "id": "NarrativeContent_47",
       "name": "SECTION 6.8",
@@ -3696,7 +3708,7 @@
     }
   },
   {
-    "id": 314,
+    "id": 315,
     "properties": {
       "id": "NarrativeContent_48",
       "name": "SECTION 6.8.1",
@@ -3709,7 +3721,7 @@
     }
   },
   {
-    "id": 315,
+    "id": 316,
     "properties": {
       "id": "NarrativeContent_49",
       "name": "SECTION 6.8.2",
@@ -3722,7 +3734,7 @@
     }
   },
   {
-    "id": 316,
+    "id": 317,
     "properties": {
       "id": "NarrativeContent_50",
       "name": "SECTION 6.8.3",
@@ -3735,7 +3747,7 @@
     }
   },
   {
-    "id": 317,
+    "id": 318,
     "properties": {
       "id": "NarrativeContent_51",
       "name": "SECTION 6.8.4",
@@ -3748,7 +3760,7 @@
     }
   },
   {
-    "id": 318,
+    "id": 319,
     "properties": {
       "id": "NarrativeContent_52",
       "name": "SECTION 7",
@@ -3766,7 +3778,7 @@
     }
   },
   {
-    "id": 319,
+    "id": 320,
     "properties": {
       "id": "NarrativeContent_53",
       "name": "SECTION 7.1",
@@ -3783,7 +3795,7 @@
     }
   },
   {
-    "id": 320,
+    "id": 321,
     "properties": {
       "id": "NarrativeContent_54",
       "name": "SECTION 7.1.1",
@@ -3796,7 +3808,7 @@
     }
   },
   {
-    "id": 321,
+    "id": 322,
     "properties": {
       "id": "NarrativeContent_55",
       "name": "SECTION 7.1.2",
@@ -3809,7 +3821,7 @@
     }
   },
   {
-    "id": 322,
+    "id": 323,
     "properties": {
       "id": "NarrativeContent_56",
       "name": "SECTION 7.1.3",
@@ -3822,7 +3834,7 @@
     }
   },
   {
-    "id": 323,
+    "id": 324,
     "properties": {
       "id": "NarrativeContent_57",
       "name": "SECTION 7.2",
@@ -3835,7 +3847,7 @@
     }
   },
   {
-    "id": 324,
+    "id": 325,
     "properties": {
       "id": "NarrativeContent_58",
       "name": "SECTION 7.3",
@@ -3848,7 +3860,7 @@
     }
   },
   {
-    "id": 325,
+    "id": 326,
     "properties": {
       "id": "NarrativeContent_59",
       "name": "SECTION 7.4",
@@ -3861,7 +3873,7 @@
     }
   },
   {
-    "id": 326,
+    "id": 327,
     "properties": {
       "id": "NarrativeContent_60",
       "name": "SECTION 8",
@@ -3885,7 +3897,7 @@
     }
   },
   {
-    "id": 327,
+    "id": 328,
     "properties": {
       "id": "NarrativeContent_61",
       "name": "SECTION 8.1",
@@ -3898,7 +3910,7 @@
     }
   },
   {
-    "id": 328,
+    "id": 329,
     "properties": {
       "id": "NarrativeContent_62",
       "name": "SECTION 8.2",
@@ -3911,7 +3923,7 @@
     }
   },
   {
-    "id": 329,
+    "id": 330,
     "properties": {
       "id": "NarrativeContent_63",
       "name": "SECTION 8.3",
@@ -3930,7 +3942,7 @@
     }
   },
   {
-    "id": 330,
+    "id": 331,
     "properties": {
       "id": "NarrativeContent_64",
       "name": "SECTION 8.3.1",
@@ -3943,7 +3955,7 @@
     }
   },
   {
-    "id": 331,
+    "id": 332,
     "properties": {
       "id": "NarrativeContent_65",
       "name": "SECTION 8.3.2",
@@ -3956,7 +3968,7 @@
     }
   },
   {
-    "id": 332,
+    "id": 333,
     "properties": {
       "id": "NarrativeContent_66",
       "name": "SECTION 8.3.3",
@@ -3969,7 +3981,7 @@
     }
   },
   {
-    "id": 333,
+    "id": 334,
     "properties": {
       "id": "NarrativeContent_67",
       "name": "SECTION 8.3.4",
@@ -3982,7 +3994,7 @@
     }
   },
   {
-    "id": 334,
+    "id": 335,
     "properties": {
       "id": "NarrativeContent_68",
       "name": "SECTION 8.3.5",
@@ -3995,7 +4007,7 @@
     }
   },
   {
-    "id": 335,
+    "id": 336,
     "properties": {
       "id": "NarrativeContent_69",
       "name": "SECTION 8.4",
@@ -4019,7 +4031,7 @@
     }
   },
   {
-    "id": 336,
+    "id": 337,
     "properties": {
       "id": "NarrativeContent_70",
       "name": "SECTION 8.4.1",
@@ -4032,7 +4044,7 @@
     }
   },
   {
-    "id": 337,
+    "id": 338,
     "properties": {
       "id": "NarrativeContent_71",
       "name": "SECTION 8.4.2",
@@ -4045,7 +4057,7 @@
     }
   },
   {
-    "id": 338,
+    "id": 339,
     "properties": {
       "id": "NarrativeContent_72",
       "name": "SECTION 8.4.3",
@@ -4058,7 +4070,7 @@
     }
   },
   {
-    "id": 339,
+    "id": 340,
     "properties": {
       "id": "NarrativeContent_73",
       "name": "SECTION 8.4.4",
@@ -4071,7 +4083,7 @@
     }
   },
   {
-    "id": 340,
+    "id": 341,
     "properties": {
       "id": "NarrativeContent_74",
       "name": "SECTION 8.4.5",
@@ -4084,7 +4096,7 @@
     }
   },
   {
-    "id": 341,
+    "id": 342,
     "properties": {
       "id": "NarrativeContent_75",
       "name": "SECTION 8.4.6",
@@ -4097,7 +4109,7 @@
     }
   },
   {
-    "id": 342,
+    "id": 343,
     "properties": {
       "id": "NarrativeContent_76",
       "name": "SECTION 8.4.7",
@@ -4110,7 +4122,7 @@
     }
   },
   {
-    "id": 343,
+    "id": 344,
     "properties": {
       "id": "NarrativeContent_77",
       "name": "SECTION 8.4.8",
@@ -4123,7 +4135,7 @@
     }
   },
   {
-    "id": 344,
+    "id": 345,
     "properties": {
       "id": "NarrativeContent_78",
       "name": "SECTION 8.4.9",
@@ -4136,7 +4148,7 @@
     }
   },
   {
-    "id": 345,
+    "id": 346,
     "properties": {
       "id": "NarrativeContent_79",
       "name": "SECTION 8.4.10",
@@ -4149,7 +4161,7 @@
     }
   },
   {
-    "id": 346,
+    "id": 347,
     "properties": {
       "id": "NarrativeContent_80",
       "name": "SECTION 8.5",
@@ -4165,7 +4177,7 @@
     }
   },
   {
-    "id": 347,
+    "id": 348,
     "properties": {
       "id": "NarrativeContent_81",
       "name": "SECTION 8.5.1",
@@ -4178,7 +4190,7 @@
     }
   },
   {
-    "id": 348,
+    "id": 349,
     "properties": {
       "id": "NarrativeContent_82",
       "name": "SECTION 8.5.2",
@@ -4191,7 +4203,7 @@
     }
   },
   {
-    "id": 349,
+    "id": 350,
     "properties": {
       "id": "NarrativeContent_83",
       "name": "SECTION 8.6",
@@ -4210,7 +4222,7 @@
     }
   },
   {
-    "id": 350,
+    "id": 351,
     "properties": {
       "id": "NarrativeContent_84",
       "name": "SECTION 8.6.1",
@@ -4223,7 +4235,7 @@
     }
   },
   {
-    "id": 351,
+    "id": 352,
     "properties": {
       "id": "NarrativeContent_85",
       "name": "SECTION 8.6.2",
@@ -4236,7 +4248,7 @@
     }
   },
   {
-    "id": 352,
+    "id": 353,
     "properties": {
       "id": "NarrativeContent_86",
       "name": "SECTION 8.6.3",
@@ -4249,7 +4261,7 @@
     }
   },
   {
-    "id": 353,
+    "id": 354,
     "properties": {
       "id": "NarrativeContent_87",
       "name": "SECTION 8.6.4",
@@ -4262,7 +4274,7 @@
     }
   },
   {
-    "id": 354,
+    "id": 355,
     "properties": {
       "id": "NarrativeContent_88",
       "name": "SECTION 8.6.5",
@@ -4275,7 +4287,7 @@
     }
   },
   {
-    "id": 355,
+    "id": 356,
     "properties": {
       "id": "NarrativeContent_89",
       "name": "SECTION 8.7",
@@ -4288,7 +4300,7 @@
     }
   },
   {
-    "id": 356,
+    "id": 357,
     "properties": {
       "id": "NarrativeContent_90",
       "name": "SECTION 8.8",
@@ -4301,7 +4313,7 @@
     }
   },
   {
-    "id": 357,
+    "id": 358,
     "properties": {
       "id": "NarrativeContent_91",
       "name": "SECTION 8.9",
@@ -4314,7 +4326,7 @@
     }
   },
   {
-    "id": 358,
+    "id": 359,
     "properties": {
       "id": "NarrativeContent_92",
       "name": "SECTION 8.1",
@@ -4329,7 +4341,7 @@
     }
   },
   {
-    "id": 359,
+    "id": 360,
     "properties": {
       "id": "NarrativeContent_93",
       "name": "SECTION 8.1.1",
@@ -4342,7 +4354,7 @@
     }
   },
   {
-    "id": 360,
+    "id": 361,
     "properties": {
       "id": "NarrativeContent_94",
       "name": "SECTION 9",
@@ -4365,7 +4377,7 @@
     }
   },
   {
-    "id": 361,
+    "id": 362,
     "properties": {
       "id": "NarrativeContent_95",
       "name": "SECTION 9.1",
@@ -4378,7 +4390,7 @@
     }
   },
   {
-    "id": 362,
+    "id": 363,
     "properties": {
       "id": "NarrativeContent_96",
       "name": "SECTION 9.2",
@@ -4397,7 +4409,7 @@
     }
   },
   {
-    "id": 363,
+    "id": 364,
     "properties": {
       "id": "NarrativeContent_97",
       "name": "SECTION 9.2.1",
@@ -4410,7 +4422,7 @@
     }
   },
   {
-    "id": 364,
+    "id": 365,
     "properties": {
       "id": "NarrativeContent_98",
       "name": "SECTION 9.2.2",
@@ -4423,7 +4435,7 @@
     }
   },
   {
-    "id": 365,
+    "id": 366,
     "properties": {
       "id": "NarrativeContent_99",
       "name": "SECTION 9.2.3",
@@ -4436,7 +4448,7 @@
     }
   },
   {
-    "id": 366,
+    "id": 367,
     "properties": {
       "id": "NarrativeContent_100",
       "name": "SECTION 9.2.4",
@@ -4449,7 +4461,7 @@
     }
   },
   {
-    "id": 367,
+    "id": 368,
     "properties": {
       "id": "NarrativeContent_101",
       "name": "SECTION 9.2.5",
@@ -4462,7 +4474,7 @@
     }
   },
   {
-    "id": 368,
+    "id": 369,
     "properties": {
       "id": "NarrativeContent_102",
       "name": "SECTION 9.3",
@@ -4475,7 +4487,7 @@
     }
   },
   {
-    "id": 369,
+    "id": 370,
     "properties": {
       "id": "NarrativeContent_103",
       "name": "SECTION 9.4",
@@ -4488,7 +4500,7 @@
     }
   },
   {
-    "id": 370,
+    "id": 371,
     "properties": {
       "id": "NarrativeContent_104",
       "name": "SECTION 9.5",
@@ -4501,7 +4513,7 @@
     }
   },
   {
-    "id": 371,
+    "id": 372,
     "properties": {
       "id": "NarrativeContent_105",
       "name": "SECTION 9.6",
@@ -4514,7 +4526,7 @@
     }
   },
   {
-    "id": 372,
+    "id": 373,
     "properties": {
       "id": "NarrativeContent_106",
       "name": "SECTION 9.7",
@@ -4527,7 +4539,7 @@
     }
   },
   {
-    "id": 373,
+    "id": 374,
     "properties": {
       "id": "NarrativeContent_107",
       "name": "SECTION 9.8",
@@ -4540,7 +4552,7 @@
     }
   },
   {
-    "id": 374,
+    "id": 375,
     "properties": {
       "id": "NarrativeContent_108",
       "name": "SECTION 9.9",
@@ -4553,7 +4565,7 @@
     }
   },
   {
-    "id": 375,
+    "id": 376,
     "properties": {
       "id": "NarrativeContent_109",
       "name": "SECTION 10",
@@ -4572,7 +4584,7 @@
     }
   },
   {
-    "id": 376,
+    "id": 377,
     "properties": {
       "id": "NarrativeContent_110",
       "name": "SECTION 10.1",
@@ -4585,7 +4597,7 @@
     }
   },
   {
-    "id": 377,
+    "id": 378,
     "properties": {
       "id": "NarrativeContent_111",
       "name": "SECTION 10.2",
@@ -4598,7 +4610,7 @@
     }
   },
   {
-    "id": 378,
+    "id": 379,
     "properties": {
       "id": "NarrativeContent_112",
       "name": "SECTION 10.3",
@@ -4611,7 +4623,7 @@
     }
   },
   {
-    "id": 379,
+    "id": 380,
     "properties": {
       "id": "NarrativeContent_113",
       "name": "SECTION 10.4",
@@ -4624,7 +4636,7 @@
     }
   },
   {
-    "id": 380,
+    "id": 381,
     "properties": {
       "id": "NarrativeContent_114",
       "name": "SECTION 10.5",
@@ -4637,7 +4649,7 @@
     }
   },
   {
-    "id": 381,
+    "id": 382,
     "properties": {
       "id": "NarrativeContent_115",
       "name": "SECTION 11",
@@ -4654,7 +4666,7 @@
     }
   },
   {
-    "id": 382,
+    "id": 383,
     "properties": {
       "id": "NarrativeContent_116",
       "name": "SECTION 11.1",
@@ -4667,7 +4679,7 @@
     }
   },
   {
-    "id": 383,
+    "id": 384,
     "properties": {
       "id": "NarrativeContent_117",
       "name": "SECTION 11.2",
@@ -4680,7 +4692,7 @@
     }
   },
   {
-    "id": 384,
+    "id": 385,
     "properties": {
       "id": "NarrativeContent_118",
       "name": "SECTION 11.3",
@@ -4693,7 +4705,7 @@
     }
   },
   {
-    "id": 385,
+    "id": 386,
     "properties": {
       "id": "NarrativeContent_119",
       "name": "SECTION 12",
@@ -4711,7 +4723,7 @@
     }
   },
   {
-    "id": 386,
+    "id": 387,
     "properties": {
       "id": "NarrativeContent_120",
       "name": "SECTION 12.1",
@@ -4724,7 +4736,7 @@
     }
   },
   {
-    "id": 387,
+    "id": 388,
     "properties": {
       "id": "NarrativeContent_121",
       "name": "SECTION 12.2",
@@ -4737,7 +4749,7 @@
     }
   },
   {
-    "id": 388,
+    "id": 389,
     "properties": {
       "id": "NarrativeContent_122",
       "name": "SECTION 12.3",
@@ -4750,7 +4762,7 @@
     }
   },
   {
-    "id": 389,
+    "id": 390,
     "properties": {
       "id": "NarrativeContent_123",
       "name": "SECTION 12.4",
@@ -4763,7 +4775,7 @@
     }
   },
   {
-    "id": 390,
+    "id": 391,
     "properties": {
       "id": "NarrativeContent_124",
       "name": "SECTION 13",
@@ -4781,7 +4793,7 @@
     }
   },
   {
-    "id": 391,
+    "id": 392,
     "properties": {
       "id": "NarrativeContent_125",
       "name": "SECTION 13.1",
@@ -4798,7 +4810,7 @@
     }
   },
   {
-    "id": 392,
+    "id": 393,
     "properties": {
       "id": "NarrativeContent_126",
       "name": "SECTION 13.1.1",
@@ -4811,7 +4823,7 @@
     }
   },
   {
-    "id": 393,
+    "id": 394,
     "properties": {
       "id": "NarrativeContent_127",
       "name": "SECTION 13.1.2",
@@ -4824,7 +4836,7 @@
     }
   },
   {
-    "id": 394,
+    "id": 395,
     "properties": {
       "id": "NarrativeContent_128",
       "name": "SECTION 13.1.3",
@@ -4837,7 +4849,7 @@
     }
   },
   {
-    "id": 395,
+    "id": 396,
     "properties": {
       "id": "NarrativeContent_129",
       "name": "SECTION 13.2",
@@ -4850,7 +4862,7 @@
     }
   },
   {
-    "id": 396,
+    "id": 397,
     "properties": {
       "id": "NarrativeContent_130",
       "name": "SECTION 13.3",
@@ -4863,7 +4875,7 @@
     }
   },
   {
-    "id": 397,
+    "id": 398,
     "properties": {
       "id": "NarrativeContent_131",
       "name": "SECTION 13.4",
@@ -4876,7 +4888,7 @@
     }
   },
   {
-    "id": 398,
+    "id": 399,
     "properties": {
       "id": "NarrativeContent_132",
       "name": "SECTION 14",
@@ -4889,7 +4901,7 @@
     }
   },
   {
-    "id": 399,
+    "id": 400,
     "properties": {
       "id": "NarrativeContent_133",
       "name": "SECTION 15",
@@ -4902,7 +4914,7 @@
     }
   },
   {
-    "id": 255,
+    "id": 256,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
       "briefTitle": "Something Brief",
@@ -4916,7 +4928,7 @@
     }
   },
   {
-    "id": 254,
+    "id": 255,
     "properties": {
       "id": "StudyProtocolDocument_1",
       "name": "Protocol_Document_SCOPE1",

@@ -23,7 +23,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
         ep_text = self.read_cell_by_name(index, 'endpointText') 
         ep_purpose = self.read_cell_by_name(index, ['endpointPurposeDescription', 'endpointPurpose'], default='None provided')
         ep_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
-        ep_dictionary_name = self.read_cell_by_name(index, 'endpointDictionary')
+        ep_dictionary_name = self.read_cell_by_name(index, 'endpointDictionary', default='')
         self._validate_references(index, 'endpointText', ep_text, ep_dictionary_name)
 
         if o_text:
@@ -31,7 +31,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           o_description = self.read_description_by_name(index, 'objectiveDescription')
           o_label = self.read_cell_by_name(index, ["objectiveLabel"], default='') 
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
-          o_dictionary_name = self.read_cell_by_name(index, 'objectiveDictionary')
+          o_dictionary_name = self.read_cell_by_name(index, 'objectiveDictionary', default='')
           self._validate_references(index, 'objectiveText', o_text, o_dictionary_name)
           try:
             dictionary_id = self._get_dictionary_id(o_dictionary_name)
