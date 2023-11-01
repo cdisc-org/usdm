@@ -55,6 +55,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
+      cross_references.add(item.id, item)
       return item
 
   def _validate_references(self, row, column_name, text, dictionary_name):

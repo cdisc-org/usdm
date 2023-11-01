@@ -30,7 +30,7 @@ class StudyDesignContentSheet(BaseSheet):
           text = self.read_cell_by_name(index, 'text')
           name = self.read_cell_by_name(index, 'name')
           name = f"SECTION {section_number}" if name == "" else name
-          updated_text = text if self._standard_section(text) else self._wrap_div(text)
+          #updated_text = text if self._standard_section(text) else self._wrap_div(text)
           #print(f"STD: Text='{updated_text}'")
           try:
             item = NarrativeContent(
@@ -38,7 +38,7 @@ class StudyDesignContentSheet(BaseSheet):
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,
-              text=updated_text,
+              text=self._wrap_div(text),
               contentChildIds=[]
             )
           except Exception as e:  
@@ -75,10 +75,10 @@ class StudyDesignContentSheet(BaseSheet):
     parts = section_number.split('.')
     return len(parts)
 
-  def _standard_section(self, text):
-    result = re.match(r'SECTION\s*=', text.upper())
-    #print(f"STD: {text} = {result}")
-    return result
+  # def _standard_section(self, text):
+  #   result = re.match(r'SECTION\s*=', text.upper())
+  #   #print(f"STD: {text} = {result}")
+  #   return result
 
   def _wrap_div(self, text):
     return text if text.startswith("<div>") else f"<div>{text}</div>"

@@ -13,6 +13,7 @@ class NarrativeContent():
   def __init__(self, doc_title, study):
     self.study = study
     self.study_version = study.versions[0]
+    self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.doc_title = doc_title
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
@@ -190,20 +191,29 @@ class NarrativeContent():
     return str(soup)
   
   def _standard_section(self, text):
-    result = re.match(r'SECTION\s*=', text.upper())
-    #print(f"STD10: {result} for {text}")
-    return result
+    soup = BeautifulSoup(text, 'html.parser')
+    for section in soup(['usdm:section']):
+      return True
+    return False
   
   def _standard_section_name(self, text):  
-    #print(f"MATCH1: {text}")   
-    parts = text.split('=')
-    #print(f"MATCH2: {parts[1]}")   
-    return parts[1].strip().upper()
+    soup = BeautifulSoup(text, 'html.parser')
+    for section in soup(['usdm:section']):
+      attributes = section.attrs
+      if 'name' in attributes:
+        return attributes['name'].upper()
+      else:
+        return None
+    return None
 
   def _generate_standard_section(self, name):
     #print(f"GSS: {name}")   
     if name == "M11-TITLE-PAGE":
       return self._generate_m11_title_page()
+    elif name == "M11-INCLUSION":
+      return self._generate_m11_criteria("C25532")
+    elif name == "M11-EXCLUSION":
+      return self._generate_m11_criteria("C25370")
     else:
       return f"Unrecognized standard content name {name}"
 
@@ -224,6 +234,29 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>')
     return doc.getvalue()
   
+  def _generate_m11_criteria(self, type):
+    #print(f"M11 TP:")
+    heading = { 
+      'C25532': "Patients may be included in the study only if they meet <strong>all</strong> the following criteria:",
+      'C25370': "Patients may be excluded in the study for <strong>any</strong> of the following reasons:",
+    }
+    doc = Doc()
+    with doc.tag('p'):
+      doc.asis("Patients may be included in the study only if they meet <strong>all</strong> the following criteria:")  
+    with doc.tag('table'):
+      for criterion in self._criteria(type):
+        self._generate_m11_critieria_entry(doc, criterion.identifier, f'<usdm:ref klass="EligibilityCriteria" id="{criterion.id}" attribute="text"/>')
+    return doc.getvalue()
+
+  def _generate_m11_critieria_entry(self, doc, number, entry):
+    with doc.tag('tr'):
+      with doc.tag('td', style="vertical-align: top; text-align: left"):
+        with doc.tag('p'):
+          doc.asis(number)  
+      with doc.tag('td', style="vertical-align: top; text-align: left"):
+        with doc.tag('p'):
+          doc.asis(entry)
+
   def _generate_m11_title_page_entry(self, doc, title, entry):
     with doc.tag('tr'):
       with doc.tag('th', style="vertical-align: top; text-align: left"):
@@ -252,3 +285,5 @@ class NarrativeContent():
     amendments = self.study_version.amendments
     return amendments[-1]
     
+  def _criteria(self, type):
+    return [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
