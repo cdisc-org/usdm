@@ -245,7 +245,7 @@ class NarrativeContent():
       doc.asis(heading[type])  
     with doc.tag('table'):
       for criterion in self._criteria(type):
-        self._generate_m11_critieria_entry(doc, criterion.identifier, f'<usdm:ref klass="EligibilityCriteria" id="{criterion.id}" attribute="text"/>')
+        self._generate_m11_critieria_entry(doc, criterion['identifier'], criterion['text'])
     return doc.getvalue()
 
   def _generate_m11_critieria_entry(self, doc, number, entry):
@@ -286,7 +286,27 @@ class NarrativeContent():
     return amendments[-1]
     
   def _criteria(self, type):
+    results = []
     items = [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
     items.sort(key=lambda d: d.identifier)
-    return items
+    for item in items:
+      print(f"CRITERIA1: {item}")  
+      result = {'identifier': item.identifier, 'text': item.text}
+      dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
+      print(f"CRITERIA1A: {dictionary}")  
+      if not dictionary:
+        print(f"CRITERIA1B: No dictionary")
+        results.append(result)
+        continue
+      tags = re.findall(r'\[([^]]*)\]', result['text'])
+      print(f"CRITERIA2: {tags}")  
+      for tag in tags:
+        print(f"CRITERIA3: {tag} {dictionary.parameterMap}")  
+        if tag in dictionary.parameterMap:
+          map = dictionary.parameterMap[tag]
+          print(f"CRITERIA4: {map} {result['text']} [{tag}]")  
+          result['text'] = result['text'].replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
+      print(f"CRITERIA5: {result}")  
+      results.append(result)
+    return results
 

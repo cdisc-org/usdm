@@ -40,7 +40,7 @@ class ExportAsNeo4jDict():
       if '_type' in node:
         klass = node['_type']
       else:
-        print(f"NODE: {node}")
+        #print(f"NODE: {node}")
         return []
       if node['id'] in self.node_id_to_uuid_map:
         return [self.node_id_to_uuid_map[node['id']]]
