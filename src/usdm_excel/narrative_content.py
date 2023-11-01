@@ -214,6 +214,8 @@ class NarrativeContent():
       return self._generate_m11_criteria("C25532")
     elif name == "M11-EXCLUSION":
       return self._generate_m11_criteria("C25370")
+    elif name == "M11-OBJECTIVE-ENDPOINTS":
+      return self._generate_m11_objective_endpoints()
     else:
       return f"Unrecognized standard content name {name}"
 
@@ -248,6 +250,14 @@ class NarrativeContent():
         self._generate_m11_critieria_entry(doc, criterion['identifier'], criterion['text'])
     return doc.getvalue()
 
+  def _generate_m11_objective_endpoints(self):
+    #print(f"M11 TP:")
+    doc = Doc()
+    with doc.tag('table'):
+      for item in self._objective_endpoints():
+        self._generate_m11_objective_endpoints_entry(doc, item['objective'], item['endpoints'])
+    return doc.getvalue()
+
   def _generate_m11_critieria_entry(self, doc, number, entry):
     with doc.tag('tr'):
       with doc.tag('td', style="vertical-align: top; text-align: left"):
@@ -256,6 +266,16 @@ class NarrativeContent():
       with doc.tag('td', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
           doc.asis(entry)
+
+  def _generate_m11_objective_endpoints_entry(self, doc, objective, endpoints):
+    with doc.tag('tr'):
+      with doc.tag('td', style="vertical-align: top; text-align: left"):
+        with doc.tag('p'):
+          doc.asis(objective)  
+      with doc.tag('td', style="vertical-align: top; text-align: left"):
+        for endpoint in endpoints:
+          with doc.tag('p'):
+            doc.asis(endpoint)
 
   def _generate_m11_title_page_entry(self, doc, title, entry):
     with doc.tag('tr'):
@@ -290,23 +310,33 @@ class NarrativeContent():
     items = [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
-      #print(f"CRITERIA1: {item}")  
       result = {'identifier': item.identifier, 'text': item.text}
       dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-      #print(f"CRITERIA1A: {dictionary}")  
-      if not dictionary:
-        #print(f"CRITERIA1B: No dictionary")
-        results.append(result)
-        continue
-      tags = re.findall(r'\[([^]]*)\]', result['text'])
-      #print(f"CRITERIA2: {tags}")  
-      for tag in tags:
-        #print(f"CRITERIA3: {tag} {dictionary.parameterMap}")  
-        if tag in dictionary.parameterMap:
-          map = dictionary.parameterMap[tag]
-          #print(f"CRITERIA4: {map} {result['text']} [{tag}]")  
-          result['text'] = result['text'].replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
-      #print(f"CRITERIA5: {result}")  
+      if dictionary:
+        result['text'] = self._substitute_tags(result['text'], dictionary)
       results.append(result)
     return results
 
+  def _objective_endpoints(self):
+    results = []
+    for item in self.study_design.studyObjectives:
+      result = {'objective': item.text, 'endpoints': []}
+      dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
+      if dictionary:
+        result['objective'] = self._substitute_tags(result['objective'], dictionary)
+      for endpoint in item.objectiveEndpoints:
+        dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', endpoint.dictionaryId)
+        ep_text = endpoint.text
+        if dictionary:
+          ep_text = self._substitute_tags(ep_text, dictionary)
+        result['endpoints'].append(ep_text)
+      results.append(result)
+    return results
+
+  def _substitute_tags(self, text, dictionary):
+      tags = re.findall(r'\[([^]]*)\]', text)
+      for tag in tags:
+        if tag in dictionary.parameterMap:
+          map = dictionary.parameterMap[tag]
+          text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
+      return text
