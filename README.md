@@ -129,7 +129,7 @@ The study sheet consists of two parts, the upper section for those single values
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
-| Row | Row Name | Description | Format and Values |
+| Row | Row Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | 1 | studyTitle | The study title | Text string |
 | 2 | studyVersion | String version | Text string |
@@ -138,19 +138,26 @@ For the single values, the keyword is in column A while the value is in column B
 | 5 | studyAcronym | The study acronym | Text string |
 | 6 | studyRationale | the study rationale | Text string |
 | 7 | businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
+| 8 | briefTitle | The brief title | Text string | 
+| 9 | officialTitle	 | The officiall title | Text string| 
+| 10 | publicTitle	 | The public title | Text string| 
+| 11 | scientificTitle	 | The scientific title | Text string| 
+| 12 | protocolVersion	 | The version of the protocol | Text string | 
+| 13 | protocolStatus | The status | CDISC code reference | 
 
-A header row in row 9 followed by repeating rows from row 10, containing a protocol version definition: 
+A header row in row 16 followed by repeating rows from row 17, containing a series of dates: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | briefTitle | The brief title | Text string | 
-| B | officialTitle	 | The officiall title | Text string| 
-| C | publicTitle	 | The public title | Text string| 
-| D | scientificTitle	 | The scientific title | Text string| 
-| E | protocolVersion	 | The version of the protocol | Text string | 
-| F | protocolAmendment	 |The version amendment | Text string | 
-| G | protocolEffectiveDate	 | Effective date of the protocol | Date field, dd/mm/yyyy | 
-| H | protocolStatus | The status | CDISC code reference | 
+| A | category | The date category | Either `study_version` or `protocol_document` for a date that applies to the study version or the document | 
+| B | name | A name for the date | text string | 
+| C | description	| A date description | Text string, can be blank | 
+| D | label	| A date label | Text string| 
+| E | type | the type of date | CDISC code reference | 
+| F | date| The date | Date field, dd/mm/yyyy | 
+| H | scopes | The geographic scopes for the date | Geographic scoped, see below |
+
+The geographic is of the form: `Global`, `Region: <region>` or , `Country: <country>`. Regions and Countries are taken from the ISO3166 value set. Examples are `Global` or `Region: Europe, Country: USA`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored. 
 
 ### Study Identifiers	Sheet
 	
@@ -162,17 +169,17 @@ A header row in row 9 followed by repeating rows from row 10, containing a proto
 
 A header row in row 1 followed by repeating rows from row 2, each containing a study identifier: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | organisationIdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
 | B | organisationIdentifier | Organisation identifier | Text string |
 | C | organisationName or name | Organisation name | Text string |
-| D (optional) | label | Organisation label. Defaults value is '' | Text string |
+| D (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | E | organisationType or type | Organisation type | CDISC code reference |
 | F | studyIdentifier | The identifier for the study | Text string |
 | G | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
 
-The organisation address is of the form: ```line,city,district,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
+The organisation address is of the form: ```line,district,city,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
 
 ### Study Amendments	Sheet
 	
@@ -184,14 +191,14 @@ The organisation address is of the form: ```line,city,district,state,postal_code
 
 A header row in row 1 followed by repeating rows from row 2, containing a study amendment: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | number | The amendment number | Integer |
 | B | summary | The amendment summary | Text string |
 | C | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
 | D | primaryReason | Primary reason for the amendment | CDISC code reference |
 | E | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
-| F | enrollment | The current state of subject enrollment, either global, regional or country |  |
+| F | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scoped, see below |
 
 The enrollment data is of the form: `Global: <enrollment>`, `Region: <region>=<enrollment>` or , `Country: <country>=<enrollment>`. 
 The enrollment is either a percentage or an absolute value. Regions and Countries are taken from the ISO3166 value set. Examples are `Global: 65%` or `Region: Europe=15, Country: USA=20%`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored.
@@ -226,7 +233,7 @@ The study design sheet consists of two parts, the upper section for those single
 
 For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
 
-| Row | Row Name | Description | Format and Values |
+| Row | Row Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | 1 | studyDesignName or name | Study design name | Text string |
 | 2 | studyDesignDescription or description | Study design description | Text string |
@@ -256,13 +263,13 @@ The arm rows consist of the arm name in the first column followed by a cells for
 
 A header row in row 1 followed by repeating rows from row 2, containing the details of a study arm: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | studyArmName or name | The study name | Text string. Should match an arm name in the Study Design sheet | 
-| B | studyArmDescription or description | A Text string description for the arm | Text string |
-| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| A | studyArmName or name | Identifier | Text string. Should match an arm name in the Study Design sheet | 
+| B | studyArmDescription or description | Description | Text string, can be empty |
+| C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | studyArmType or type | The arm type| CDISC code reference |
-| E | studyArmDataOriginDescription	| The description of the data origin for the arm | Text string |
+| E | studyArmDataOriginDescription or dataOriginDescription	| The description of the data origin for the arm | Text string |
 | F | studyArmDataOriginType or dataOriginType | The type of arm data origin | CDISC code reference|
 
 ### Study Design Epochs sheet
@@ -275,11 +282,11 @@ A header row in row 1 followed by repeating rows from row 2, containing the deta
 
 A header row in row 1 followed by repeating rows from row 2, containing the details of a study epoch: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | studyEpochName or name | The epoch name | Text string. Should match an epoch name in the Study Design sheet | 
-| B | studyEpochDescription or description | A Text string description for the epoch | Text string |
-| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| B | studyEpochDescription or description | Description | Text string, can be empty |
+| C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | studyEpochType or type | The epoch type| CDISC code reference |
 
 ### Timeline sheets
@@ -304,7 +311,7 @@ This is a complicated sheet. It is, in essence, an enhanced SoA. There are sever
 
 The name description and condition are located in columns A and B, rows 1 and 2. It is a vertical name value pair configuration
 
-| Row | Row Name | Description | Format and Values |
+| Row | Row Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | 1 | Name | The timeline name | Text string |
 | 2 | Description | Timeline description | Text string |
@@ -314,7 +321,7 @@ The name description and condition are located in columns A and B, rows 1 and 2.
 
 The timing seciton consists of multiple columns starting in column D. As many columns as needed can be created. A title block is held in Column C. The section consists of eight rows in rows 1 to 8 as follows:
 
-| Row | Row Name | Description | Format and Values |
+| Row | Row Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | 1 | Epoch | The name of the epoch within which the timepoint falls. Note the cells in this row can be merged to link an epoch with many timepoints | Text string  |
 | 2 | Cycle | The cycle in which the "timepoint" exists. Can be empty or set to '-' (empty) | Text string |
@@ -343,7 +350,7 @@ N = Next, P = Previous, A = Anchor and C = Cycle Start. The count when used with
 
 The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row. As many rows as needed can be added.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | Parent Activity | Parent Activity. Not used currently | Set to '-' |
 | B | Child Activity | Child activity name | Text string |
@@ -374,11 +381,11 @@ The link section consists of a set of cells into which an upper case 'X' can be 
 
 A header row in row 1 followed by repeating rows from row 2, containing encounter definitions.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | activityName or name	| Name | Text string |
-| B | activityDescription or description| Description | Text string |
-| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| B | activityDescription or description| Description | Text string, can be empty |
+| C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | activityIsConditional | Conditional flag | Boolean |
 | E | activityIsConditionalReason | Reason | Text string |
 
@@ -396,12 +403,12 @@ If the sheet is provided but there is no definition in the sheet for an activity
 
 A header row in row 1 followed by repeating rows from row 2, containing an indication or intervention: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref or name | The name / identifier for the item | Text string | 
 | B | type | The type, either `IND` for indication or `INT` for intervention | Text string |
-| C | description | A Text string description for the indication or intervvention | Text string |
-| D (optional) | label | A display label for the arm. Default value is '' | Text string |
+| C | description | Description | Text string, can be empty |
+| D (optional) | label | Display label | Text string. Default value is '' |
 | E | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
 
 ### Study Design Populations sheet
@@ -414,11 +421,11 @@ A header row in row 1 followed by repeating rows from row 2, containing an indic
 
 A header row in row 1 followed by repeating rows from row 2, containing a population definition: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | name	| Name for the population | Text string | 
-| B | populationDescription or description	| Description of the population | Text string | 
-| C (optional) | label | A display label for the arm. Default value is '' | Text string |
+| A | name	| Identifier | Text string | 
+| B | populationDescription or description| Description | Text string, can be empty | 
+| C (optional) | label | Display label | Text string. Default value is '' |
 | D | plannedNumberOfParticipants	| Number of participants | Integer | 
 | E | plannedMinimumAgeOfParticipants	| Min age | Text string | 
 | F | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
@@ -434,16 +441,21 @@ A header row in row 1 followed by repeating rows from row 2, containing a popula
 
 A header row in row 1 followed by repeating rows from row 2, containing objective and endpoint definitions. Note that columns D through G can repeat for the same content in columns A to C. For additional endpoint rows leave columns A to C blank.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | objectiveXref	or objectiveName | Identifier | Text string |
-| B | objectiveDescription	| Description | Text string |
-| C (optional) | objectiveLabel | A display label for the arm. Default value is '' | Text string |
-| D | objectiveLevel	| Objective level | CDISC code reference |
-| E | endpointXref	| Identifier | Text string. Note columns D to G can repeat for each endpoiint for an objective |
-| F | endpointDescription	| Description | Text string |
-| G | endpointPurposeDescription	| | |
-| H | endpointLevel| Level | CDISC code reference |
+| B | objectiveDescription	| Description | Text string, can be empty |
+| C (optional) | objectiveLabel | Display label | Text string, can be empty. Default value is '' |
+| D | objectiveText	| The objective | Templated text |
+| E | objectiveLevel	| Objective level | CDISC code reference |
+| F | objectiveDictionary| Dictionary cross reference | The dictionary from which the templated text tags are taken. If no tags are used can be empty |
+| G | endpointXref or endpointName	| Identifier | Text string. Note columns G to M can repeat for each endpoiint for an objective |
+| H | endpointDescription	| Description | Text string, can be empty |
+| I (optional) | endpointLabel | Display label | Text string, can be empty. Default value is '' |
+| J | endpointText	| The objective | Templated text |
+| K | endpointPurpose	| | |
+| L | endpointLevel | Level | CDISC code reference |
+| M | endpointDictionary| Dictionary cross reference | The dictionary from which the templated text tags are taken. If no tags are used can be empty |
 
 ### Study Design Eligibility Criteria sheet
 
@@ -455,13 +467,13 @@ A header row in row 1 followed by repeating rows from row 2, containing objectiv
 
 A header row in row 1 followed by repeating rows from row 2, containing eligibility definitions. 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | category | Category | Either `Inclusion` or `Exclusion` |
 | B | identifier	| Identifier | Text string, the identifier for the criteria |
 | C | name | The name identifier for the criteria | Text string |
 | D | description	| Description | Text string, can be empty |
-| E | label | A display label. Can be empty | Text string |
+| E | label | Display label | Text string, can be empty |
 | F | text	| Criteria text | Templated text |
 | G | dictionary| Dictionary cross reference | The dictionary from which the templated text tags are taken. If no tags are used can be empty |
 
@@ -475,17 +487,17 @@ A header row in row 1 followed by repeating rows from row 2, containing eligibil
 
 A header row in row 1 followed by repeating rows from row 2, containing estimand definitions. Note that column H can repeat for the same content in columns A through G.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | xref	| Identifier | Text string |
+| A | xref or name	| Identifier | Text string |
 | B | summaryMeasure	| The summary measure | Text string |
-| C | populationDescription	| Description | Text string |
-| D | intercurrentEventName or name	| Name | Text string |
-| E | intercurrentEventDescription or description| Description | Text string |
-| F (optional) | label | A display label for the arm. Default value is '' | Text string |
+| C | populationDescription	| Description | Text string, can be empty |
+| D (optional) | label | Display label | Text string, can be empty. Default value is '' |
+| E | intercurrentEventName or name	| Name | Text string |
+| F | intercurrentEventDescription or description| Description | Text string, can be empty |
 | G | treatmentXref	| Treatment cross reference | Cross reference to a treatment |
 | H | endpointXref	| Endpoint cross reference | Cross reference to an endpont |
-| I | intercurrentEventstrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event rerquired for the Estimand |
+| I | intercurrentEventstrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event required for the Estimand |
 
 ### Study Design Procedures sheet
 
@@ -497,11 +509,11 @@ A header row in row 1 followed by repeating rows from row 2, containing estimand
 
 A header row in row 1 followed by repeating rows from row 2, containing procedure definitions.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | xref | Identifier | Text string |
-| B | procedureName or name	| Type | Text string |
-| C | procedureDescription or description	| Type | Text string |
+| A | xref, procedureName or name	| Identifier | Text string |
+| B | procedureDescription or description	| Type | Text string, can be empty |
+| C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | procedureType	| Type | Text string |
 | E | procedureCode or code	| Code reference | External CT reference  |
 | F | procedureIsConditional | Conditional flag | Boolean |
@@ -517,12 +529,12 @@ A header row in row 1 followed by repeating rows from row 2, containing procedur
 
 A header row in row 1 followed by repeating rows from row 2, containing encounter definitions.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref	| Identifier | Text string |
 | B | encounterName or name	| Name | Text string |
-| C | encounterDescription or description	| Description | Text string |
-| D (optional) | label | A display label for the arm. Default value is '' | Text string |
+| C | encounterDescription or description	| Description | Text string, can be empty |
+| D (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | E | encounterType or type	| The type | CDISC code reference |
 | F | encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
 | G | encounterContactModes	| Contact modes | CDISC code reference |
@@ -539,12 +551,12 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 
 A header row in row 1 followed by repeating rows from row 2, containing element definitions.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref | Identifier | Text string |	
 | B | studyElementName or name| Name | Text string |	
-| C | studyElementDescription or description | Description | Text string |	
-| D (optional) | label | A display label for the arm. Default value is '' | Text string |
+| C | studyElementDescription or description | Description | Text string, can be empty |	
+| D (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | E | transitionStartRule | Start rule | Text string |	
 | F | transitionEndRule | End rule | Text string |
 
@@ -558,7 +570,7 @@ A header row in row 1 followed by repeating rows from row 2, containing element 
 
 A header row in row 1 followed by repeating rows from row 2, containing the narrative content: 
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | sectionNumber | The section number | Text string with section numbers separated by '.' characters. Section numbers from row to row can only increase by a single level down, e.g. '1.2' to '1.2.1' and not '1.2.1.1'. The section numbers will be used to create parent child relationships in the data created. | 
 | B | name | Name of the section. | Text string. Can be left blank in which case a default value will be used based on the section number |
@@ -575,7 +587,7 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 
 A header row in row 1 followed by repeating rows from row 2. Each row contains a dictionary and dictionary entry definitions. The sheet defines one or more dictionaries and the entries within each dictionary. Note that columns D through F can repeat for the same content in columns A to C. For additional dictionary entry rows leave columns A to C blank.
 
-| Column | Column Name | Description | Format and Values |
+| Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | name | The dictionary name | Text string | 
 | B | description | Description | Text string. Can be empty |	
