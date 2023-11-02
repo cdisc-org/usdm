@@ -289,7 +289,7 @@ A header row in row 1 followed by repeating rows from row 2, containing the deta
 | C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | studyEpochType or type | The epoch type| CDISC code reference |
 
-### Timeline sheets
+### V1 Timeline sheets
 
 #### Sheet Name
 
@@ -370,6 +370,101 @@ The BC, procedure, timeline format is defined as follows (using pseudo BNF):
 ##### Link
 
 The link section consists of a set of cells into which an upper case 'X' can be placed to link a timepoint with an activity. Otherwise the cell will be ignored. A '-' can be used to fill in cells but "empty".
+
+### V2 Timeline sheets
+
+#### Sheet Name
+
+As defined within the study design sheet, see above.
+
+#### Sheet Contents
+
+##### General
+
+This is a complicated sheet. It is, in essence, an enhanced SoA. There are several sections within the sheet:
+
+- The name, description and condition located top right
+- The remainder of the sheet is the SoA with:
+  - The timing set in the top rows, the "timepoints"
+  - The activities down the left hand side
+  - The link between activities and "timepoints", the classic 'X'
+
+##### Name, Description, Condition
+
+The name description and condition are located in columns A and B, rows 1 and 2. It is a vertical name value pair configuration
+
+| Row | Row Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| 1 | Name | The timeline name | Text string |
+| 2 | Description | Timeline description | Text string |
+| 3 | Condition | Timeline entry condition | Text string |
+
+##### Timing
+
+The timing seciton consists of multiple columns starting in column D. As many columns as needed can be created. A title block is held in Column C. The section consists of eight rows in rows 1 to 8 as follows:
+
+| Row | Row Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| 1 | name | Identifier | Text string |
+| 2 | description | Description | Text string, can be empty |
+| 3 | label | Display label | Text string, can be empty |
+| 4 | type | Timepoint type | `Activity` or `Decision` |
+| 5 | default | Timepoint Link | The name (as per row 1) of the next activity in the sequence, the default connection |
+| 6 | condition | Timepoint Links | The names (as per row 1) of the activities to link to for one or more conditions (command separated list) |
+| 7 | epoch | Name of the epoch within which the timepoint falls | Text string  |
+| 8 | encounter | Name of the encounter in which the timepoint belongs| Text string. Can be empty |
+
+##### Activity
+
+The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row. As many rows as needed can be added.
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | Parent Activity | Parent Activity. Not used currently | Set to '-' |
+| B | Child Activity | Child activity name | Text string |
+| C | BC/Procedure/Timeline | A set of BCs, procedures or timelines. Comma separated or the form detailed below | :--- |
+
+The BC, procedure, timeline format is defined as follows (using pseudo BNF):
+
+```
+<entries> ::= <entry> | <entries> <entry>
+<entry> ::= <type> : <name> | empty
+<type> ::= PR | BC | TL
+<name> ::= <name of item>
+```
+
+`BC: Age, BC: Sec, PR:Informed Consent Form, TL:Exercise` indicates the activity consists of the bcs Age and Sex, a procedure for the informed consent and a timeline specified in the Exercise sheet.
+
+##### Link
+
+The link section consists of a set of cells into which an upper case 'X' can be placed to link a timepoint with an activity. Otherwise the cell will be ignored. 
+
+### Study Design Timing sheet
+
+#### Sheet Name
+
+`studyDesignTiming`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing encounter definitions.
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name	| Name | Text string |
+| B | description | Description | Text string, can be empty |
+| C | label | Display label | Text string, can be empty |
+| D | type | The type of timing | Either `Before`, `After` or `Fixed` |
+| E | from | Timeing point ref | The name of a timing point from a timeline sheet |
+| E | to | Timeing point ref | The name of a timing point from a timeline sheet |
+| E | timingValue | Timing | The relative value for a `Before`, `After` timing value or an absolute time for `Fixed` |
+| E | toFrom | Timing precision | Either `S2S`, `S2E`, `E2S`, `E2E` to set the precise timing for a `Before`, `After` timing value |
+| E | window | Timing window | A window range of the timing. Can be empty. Of the form -n..m <unit> |
+
+Window examples:
+
+`-1..1 Days` minus 1 day to plus one day
+`-2..3 Hours` minus 2 to plus 3 hours
 
 ### Study Design Activities sheet
 
