@@ -49,17 +49,20 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 
 - Study sheet
 - Study Identifiers sheet
+- Study Amendments shhet
 - Study Design sheet
-- one or more Timeline sheets
+- One or more Timeline sheets
 - Study Design Activities sheet (optional)
 - Study Design Indications and Interventions sheet
 - Study Design Populations sheet
 - Study Design Objectives and Endpoints sheet
+- Study Design Eligibility Criteria sheet
 - Study Design Estimands sheet
 - Study Design Procedures sheet
 - Study Design Encounters sheet
 - Study Design Elements sheet
 - Study Design Content sheet
+- Dictionaries Sheet
 - Configuration sheet
 
 The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/main/Deliverables/IG/examples).
@@ -100,6 +103,12 @@ a *Timing Value* of ```<value> <unit>``` or a *Timing Range* of ```<lower>..<upp
 - Seconds: 'S', 'SECS', 'SEC', 'SECONDS', 'SECOND'
 
 So ```3 Y```, ```3 YRS```, ```3 YR```, ```3 YEARS```, ```3 YEAR``` are all equivalent. Only a single value and unit should be entered, i.e. combination values are not supported.
+
+### Templated Text
+
+Some entries can include "tags" that allow the text to reference structured content from elsewhere in the model. An example is an activity name. These sections of text are formatted as `[tag_name]` within the text. The `tag_name` refers to an entry within a dictionary (see the dictionaries sheet)
+
+An example of Templated Text is `Subjects shall be between [min_age] and [max_age]` where the min and max ages will be inserted using the dictionary entries that refer to particular attribute values from within the structured parts of the model.
 
 ### Sheet Descriptions
 
@@ -151,7 +160,7 @@ A header row in row 9 followed by repeating rows from row 10, containing a proto
 
 #### Sheet Contents
 
-A header row in row 1 followed by repeating rows from row 2, containing a study identifier: 
+A header row in row 1 followed by repeating rows from row 2, each containing a study identifier: 
 
 | Column | Column Name | Description | Format and Values |
 | :--- | :--- | :--- | :--- |
@@ -164,6 +173,46 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | G | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
 
 The organisation address is of the form: ```line,city,district,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
+
+### Study Amendments	Sheet
+	
+#### Sheet Name
+
+`studyAmendments`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing a study amendment: 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | number | The amendment number | Integer |
+| B | summary | The amendment summary | Text string |
+| C | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
+| D | primaryReason | Primary reason for the amendment | CDISC code reference |
+| E | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
+| F | enrollment | The current state of subject enrollment, either global, regional or country |  |
+
+The enrollment data is of the form: `Global: <enrollment>`, `Region: <region>=<enrollment>` or , `Country: <country>=<enrollment>`. 
+The enrollment is either a percentage or an absolute value. Regions and Countries are taken from the ISO3166 value set. Examples are `Global: 65%` or `Region: Europe=15, Country: USA=20%`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored.
+
+The primary and secondary reasons should be set to one (primary) or one or more (secondary) values from the following reasons:
+
+- Regulatory Agency Request To Amend
+- New Regulatory Guidance
+- IRB/IEC Feedback
+- New Safety Information Available
+- Manufacturing Change
+- IMP Addition
+- Change In Strategy
+- Change In Standard Of Care
+- New Data Available (Other Than Safety Data)
+- Investigator/Site Feedback
+- Recruitment Difficulty
+- Inconsistency And/Or Error In The Protocol
+- Protocol Design Error
+- Other
+- Not Applicable
 
 ### Study Design sheet
 
@@ -396,6 +445,26 @@ A header row in row 1 followed by repeating rows from row 2, containing objectiv
 | G | endpointPurposeDescription	| | |
 | H | endpointLevel| Level | CDISC code reference |
 
+### Study Design Eligibility Criteria sheet
+
+#### Sheet Name
+
+`studyDesignEligibilityCriteria`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing eligibility definitions. 
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | category | Category | Either `Inclusion` or `Exclusion` |
+| B | identifier	| Identifier | Text string, the identifier for the criteria |
+| C | name | The name identifier for the criteria | Text string |
+| D | description	| Description | Text string, can be empty |
+| E | label | A display label. Can be empty | Text string |
+| F | text	| Criteria text | Templated text |
+| G | dictionary| Dictionary cross reference | The dictionary from which the templated text tags are taken. If no tags are used can be empty |
+
 ### Study Design Estimands sheet
 
 #### Sheet Name
@@ -495,6 +564,26 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 | B | name | Name of the section. | Text string. Can be left blank in which case a default value will be used based on the section number |
 | C | sectionTitle | The section title | Text String |
 | D | sectionText | The section text | HTML formatted text String |
+
+### Dictionary Sheet
+
+#### Sheet Name
+
+`dictionaries`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2. Each row contains a dictionary and dictionary entry definitions. The sheet defines one or more dictionaries and the entries within each dictionary. Note that columns D through F can repeat for the same content in columns A to C. For additional dictionary entry rows leave columns A to C blank.
+
+| Column | Column Name | Description | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | The dictionary name | Text string | 
+| B | description | Description | Text string. Can be empty |	
+| C | label | Label | Text string. Can be empty |	
+| D | key | The entry key | Text String. Must be unique within the dictionary |
+| E | class | The class name | The name of the class within the model from which the data for the dictionary entry is to be taken |
+| F | xref | Cross reference name | The name of the instance from which the data is to be taken. Use the entries in the name columns from other sheets |
+| F | atrribute | The attribute name | The name of the attribute from which the data is to be taken. |
 
 ### Configuration Sheet
 
