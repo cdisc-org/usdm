@@ -459,12 +459,7 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | E | to | Timeing point ref | The name of a timing point from a timeline sheet |
 | E | timingValue | Timing | The relative value for a `Before`, `After` timing value or an absolute time for `Fixed` |
 | E | toFrom | Timing precision | Either `S2S`, `S2E`, `E2S`, `E2E` to set the precise timing for a `Before`, `After` timing value |
-| E | window | Timing window | A window range of the timing. Can be empty. Of the form -n..m <unit> |
-
-Window examples:
-
-`-1..1 Days` minus 1 day to plus one day
-`-2..3 Hours` minus 2 to plus 3 hours
+| E | window | Timing window | A timing range |
 
 ### Study Design Activities sheet
 
