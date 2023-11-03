@@ -234,7 +234,9 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Acronym:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyAcronym"/>')
       self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>')
       self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>')
-    return doc.getvalue()
+    result = doc.getvalue()
+    #print(f"DOC: {result}")
+    return result
   
   def _generate_m11_criteria(self, type):
     #print(f"M11 TP:")
