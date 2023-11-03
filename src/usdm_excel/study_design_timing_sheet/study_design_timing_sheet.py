@@ -63,9 +63,9 @@ class StudyDesignTimingSheet(BaseSheet):
       try:
         return ISO8601Duration().encode(duration_parts[0].strip(), duration_parts[1].strip())
       except Exception as e:
-        self._log_error(f"Could not decode the duration value '{the_duration}'")
+        self._general_error(f"Could not decode the duration value '{the_duration}'")
     else:
-      self._log_error(f"Could not decode the duration value, no value and units found in '{the_duration}'")
+      self._general_error(f"Could not decode the duration value, no value and units found in '{the_duration}'")
 
   def _set_type(self, text):
     type_code = {
