@@ -634,6 +634,7 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | G | encounterContactModes	| Contact modes | CDISC code reference |
 | H | transitionStartRule	| Start rule | Text string |
 | I | transitionEndRule| End Rule | Text string |
+| J | window | Timing reference that defines the window | Text string |
 
 ### Study Design Elements sheet
 
