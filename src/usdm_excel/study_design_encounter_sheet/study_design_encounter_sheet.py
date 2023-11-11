@@ -31,10 +31,8 @@ class StudyDesignEncounterSheet(BaseSheet):
         if not end_rule_text == "":
           end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=end_rule_text)
         if timing_xref:
-          print(f"ENC1: {timing_xref}")
           timing = cross_references.get(Timing, timing_xref)
           timing_id = timing.id if timing else None
-          print(f"ENC2: {timing_id}")
         else:
           timing_id = None
         try:
