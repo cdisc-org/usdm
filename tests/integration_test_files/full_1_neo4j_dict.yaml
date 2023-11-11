@@ -814,6 +814,17 @@ edges:
     start: 00000000-0000-4000-8000-000000000091
   - end: 00000000-0000-4000-8000-000000000097
     start: 00000000-0000-4000-8000-000000000095
+  ENCOUNTER_SCHEDULED_AT_TIMING:
+  - end: 00000000-0000-4000-8000-000000000222
+    start: 00000000-0000-4000-8000-000000000072
+  - end: 00000000-0000-4000-8000-000000000226
+    start: 00000000-0000-4000-8000-000000000078
+  - end: 00000000-0000-4000-8000-000000000230
+    start: 00000000-0000-4000-8000-000000000087
+  - end: 00000000-0000-4000-8000-000000000234
+    start: 00000000-0000-4000-8000-000000000091
+  - end: 00000000-0000-4000-8000-000000000243
+    start: 00000000-0000-4000-8000-000000000095
   ENROLLMENTS:
   - end: 00000000-0000-4000-8000-000000000026
     start: 00000000-0000-4000-8000-000000000023
@@ -1634,79 +1645,79 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Other
-    id: Code_30
+    id: Code_42
     uuid: 00000000-0000-4000-8000-000000000025
   - code: C41129
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Region
-    id: Code_32
+    id: Code_44
     uuid: 00000000-0000-4000-8000-000000000027
   - code: '150'
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: Europe
-    id: Code_31
+    id: Code_43
     uuid: 00000000-0000-4000-8000-000000000029
   - code: C99904x7
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Change In Strategy
-    id: Code_27
+    id: Code_39
     uuid: 00000000-0000-4000-8000-000000000032
   - code: C99904x10
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Investigator/Site Feedback
-    id: Code_28
+    id: Code_40
     uuid: 00000000-0000-4000-8000-000000000034
   - code: C68846
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Global
-    id: Code_29
+    id: Code_41
     uuid: 00000000-0000-4000-8000-000000000036
   - code: C99904x4
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: New Safety Information Available
-    id: Code_22
+    id: Code_34
     uuid: 00000000-0000-4000-8000-000000000039
   - code: C41129
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Region
-    id: Code_24
+    id: Code_36
     uuid: 00000000-0000-4000-8000-000000000041
   - code: '150'
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: Europe
-    id: Code_23
+    id: Code_35
     uuid: 00000000-0000-4000-8000-000000000043
   - code: C25464
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Country
-    id: Code_26
+    id: Code_38
     uuid: 00000000-0000-4000-8000-000000000045
   - code: DNK
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: Denmark
-    id: Code_25
+    id: Code_37
     uuid: 00000000-0000-4000-8000-000000000047
   - code: C99904x3
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: IRB/IEC Feedback
-    id: Code_20
+    id: Code_32
     uuid: 00000000-0000-4000-8000-000000000050
   - code: C68846
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Global
-    id: Code_21
+    id: Code_33
     uuid: 00000000-0000-4000-8000-000000000052
   - code: VAC
     codeSystem: SPONSOR
@@ -1724,25 +1735,25 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Study Registry
-    id: Code_33
+    id: Code_45
     uuid: 00000000-0000-4000-8000-000000000057
   - code: GBR
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: United Kingdom of Great Britain and Northern Ireland
-    id: Code_34
+    id: Code_46
     uuid: 00000000-0000-4000-8000-000000000059
   - code: C70793
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinical Study Sponsor
-    id: Code_35
+    id: Code_47
     uuid: 00000000-0000-4000-8000-000000000062
   - code: FRA
     codeSystem: ISO 3166 1 alpha3
     codeSystemVersion: 2020-08
     decode: France
-    id: Code_36
+    id: Code_48
     uuid: 00000000-0000-4000-8000-000000000064
   - code: C15714
     codeSystem: http://www.cdisc.org
@@ -1784,121 +1795,121 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Visit
-    id: Code_39
+    id: Code_51
     uuid: 00000000-0000-4000-8000-000000000073
   - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinic
-    id: Code_40
+    id: Code_52
     uuid: 00000000-0000-4000-8000-000000000074
   - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: In Person
-    id: Code_41
+    id: Code_53
     uuid: 00000000-0000-4000-8000-000000000075
   - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Visit
-    id: Code_42
+    id: Code_54
     uuid: 00000000-0000-4000-8000-000000000079
   - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinic
-    id: Code_43
+    id: Code_55
     uuid: 00000000-0000-4000-8000-000000000080
   - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: In Person
-    id: Code_44
+    id: Code_56
     uuid: 00000000-0000-4000-8000-000000000081
   - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Visit
-    id: Code_45
+    id: Code_57
     uuid: 00000000-0000-4000-8000-000000000083
   - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinic
-    id: Code_46
+    id: Code_58
     uuid: 00000000-0000-4000-8000-000000000084
   - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: In Person
-    id: Code_47
+    id: Code_59
     uuid: 00000000-0000-4000-8000-000000000085
   - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Visit
-    id: Code_48
+    id: Code_60
     uuid: 00000000-0000-4000-8000-000000000088
   - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinic
-    id: Code_49
+    id: Code_61
     uuid: 00000000-0000-4000-8000-000000000089
   - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: In Person
-    id: Code_50
+    id: Code_62
     uuid: 00000000-0000-4000-8000-000000000090
   - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Visit
-    id: Code_51
+    id: Code_63
     uuid: 00000000-0000-4000-8000-000000000092
   - code: C51282
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinic
-    id: Code_52
+    id: Code_64
     uuid: 00000000-0000-4000-8000-000000000093
   - code: C175574
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: In Person
-    id: Code_53
+    id: Code_65
     uuid: 00000000-0000-4000-8000-000000000094
   - code: C25716
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Visit
-    id: Code_54
+    id: Code_66
     uuid: 00000000-0000-4000-8000-000000000096
   - code: C18002
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Home
-    id: Code_55
+    id: Code_67
     uuid: 00000000-0000-4000-8000-000000000097
   - code: C171537
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Telephone Call
-    id: Code_56
+    id: Code_68
     uuid: 00000000-0000-4000-8000-000000000098
   - code: '12345678'
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: Test
-    id: Code_37
+    id: Code_49
     uuid: 00000000-0000-4000-8000-000000000102
   - code: '12345679'
     codeSystem: SNOMED
     codeSystemVersion: January 31, 2018
     decode: Test
-    id: Code_38
+    id: Code_50
     uuid: 00000000-0000-4000-8000-000000000104
   - code: C20197
     codeSystem: http://www.cdisc.org
@@ -1988,25 +1999,25 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Active Comparator Arm
-    id: Code_57
+    id: Code_69
     uuid: 00000000-0000-4000-8000-000000000147
   - code: C188866
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Data Generated Within Study
-    id: Code_58
+    id: Code_70
     uuid: 00000000-0000-4000-8000-000000000148
   - code: C174268
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Placebo Comparator Arm
-    id: Code_59
+    id: Code_71
     uuid: 00000000-0000-4000-8000-000000000150
   - code: C188866
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Data Generated Within Study
-    id: Code_60
+    id: Code_72
     uuid: 00000000-0000-4000-8000-000000000151
   - code: C49659
     codeSystem: http://www.cdisc.org
@@ -2018,25 +2029,25 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Trial Screening
-    id: Code_61
+    id: Code_73
     uuid: 00000000-0000-4000-8000-000000000163
   - code: C125938
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Baseline Epoch
-    id: Code_62
+    id: Code_74
     uuid: 00000000-0000-4000-8000-000000000165
   - code: C101526
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Treatment Epoch
-    id: Code_63
+    id: Code_75
     uuid: 00000000-0000-4000-8000-000000000167
   - code: C99158
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Clinical Study Follow-up
-    id: Code_64
+    id: Code_76
     uuid: 00000000-0000-4000-8000-000000000169
   - code: '12345'
     codeSystem: SNOMED
@@ -2126,73 +2137,73 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Before
-    id: Code_65
+    id: Code_20
     uuid: 00000000-0000-4000-8000-000000000223
   - code: C201265
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Start to Start
-    id: Code_66
+    id: Code_21
     uuid: 00000000-0000-4000-8000-000000000224
   - code: C201264
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Before
-    id: Code_67
+    id: Code_22
     uuid: 00000000-0000-4000-8000-000000000227
   - code: C201265
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Start to Start
-    id: Code_68
+    id: Code_23
     uuid: 00000000-0000-4000-8000-000000000228
   - code: C201264
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Fixed Reference
-    id: Code_69
+    id: Code_24
     uuid: 00000000-0000-4000-8000-000000000231
   - code: C201265
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Start to Start
-    id: Code_70
+    id: Code_25
     uuid: 00000000-0000-4000-8000-000000000232
   - code: C201264
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: After
-    id: Code_71
+    id: Code_26
     uuid: 00000000-0000-4000-8000-000000000235
   - code: C201265
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Start to Start
-    id: Code_72
+    id: Code_27
     uuid: 00000000-0000-4000-8000-000000000236
   - code: C201264
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: After
-    id: Code_73
+    id: Code_28
     uuid: 00000000-0000-4000-8000-000000000240
   - code: C201265
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Start to Start
-    id: Code_74
+    id: Code_29
     uuid: 00000000-0000-4000-8000-000000000241
   - code: C201264
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: After
-    id: Code_75
+    id: Code_30
     uuid: 00000000-0000-4000-8000-000000000244
   - code: C201265
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2023-09-29'
     decode: Start to Start
-    id: Code_76
+    id: Code_31
     uuid: 00000000-0000-4000-8000-000000000245
   - code: C25532
     codeSystem: http://www.cdisc.org
