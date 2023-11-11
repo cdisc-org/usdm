@@ -43,6 +43,10 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ## Format of Workbook
 
+### Example
+
+An example spreadsheet in maintained within the [document directory](https://github.com/data4knowledge/usdm/tree/main/docs).
+
 ### Sheets
 
 The workbook consists of several sheets each with a dedicated purpose. All sheets must be present except for those marked optional.
@@ -65,7 +69,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Dictionaries Sheet
 - Configuration sheet
 
-The content of each sheet is described below. Example workbooks can be found in the [CDISC Reference Architecture repo](https://github.com/cdisc-org/DDF-RA/tree/main/Deliverables/IG/examples).
+The content of each sheet is described below. 
 
 ### CDISC Terminology
 
