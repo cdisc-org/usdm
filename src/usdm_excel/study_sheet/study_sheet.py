@@ -292,7 +292,7 @@ class StudySheet(BaseSheet):
             label=record['label'],
             description=record['description'],
             type=record['type'],
-            dataValue=record['date'],
+            dateValue=record['date'],
             geographicScopes=scopes
           )
           self.dates[category].append(date)

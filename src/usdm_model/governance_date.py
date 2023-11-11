@@ -6,5 +6,5 @@ from .geographic_scope import GeographicScope
 
 class GovernanceDate(ApiBaseModelWithIdNameLabelAndDesc):
   type: Code
-  dataValue: date
+  dateValue: date
   geographicScopes: List[GeographicScope]
