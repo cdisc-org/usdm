@@ -5,6 +5,7 @@ import traceback
 import pandas as pd
 from usdm_model.encounter import Encounter
 from usdm_model.transition_rule import TransitionRule
+from usdm_model.timing import Timing
 
 class StudyDesignEncounterSheet(BaseSheet):
 
@@ -24,10 +25,18 @@ class StudyDesignEncounterSheet(BaseSheet):
         modes = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterContactModes', index, ['encounterContactModes', 'contactModes'])
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
+        timing_xref = self.read_cell_by_name(index, 'window', default='')
         if not start_rule_text == "":
           start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=start_rule_text)
         if not end_rule_text == "":
           end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=end_rule_text)
+        if timing_xref:
+          print(f"ENC1: {timing_xref}")
+          timing = cross_references.get(Timing, timing_xref)
+          timing_id = timing.id if timing else None
+          print(f"ENC2: {timing_id}")
+        else:
+          timing_id = None
         try:
           item = Encounter(
             id=id_manager.build_id(Encounter), 
@@ -38,7 +47,8 @@ class StudyDesignEncounterSheet(BaseSheet):
             encounterEnvironmentalSetting=setting,
             encounterContactModes=modes,
             transitionStartRule=start_rule,
-            transitionEndRule=end_rule
+            transitionEndRule=end_rule,
+            encounterScheduledAtTimingId=timing_id
           )
         except Exception as e:
           self._general_error(f"Failed to create Encounter object, exception {e}")

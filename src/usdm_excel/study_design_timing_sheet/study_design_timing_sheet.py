@@ -46,6 +46,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self._general_error(f"Failed to create Timing object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
           else:
+            cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")

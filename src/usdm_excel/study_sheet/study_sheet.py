@@ -90,6 +90,7 @@ class StudySheet(BaseSheet):
 
       # Process all the sheets
       self._process_sheet()
+      self.timings = StudyDesignTimingSheet(file_path)
       self.study_amendments = StudyDesignAmendmentSheet(file_path)
       self.study_identifiers = StudyIdentifiersSheet(file_path)
       self.procedures = StudyDesignProcedureSheet(file_path)
@@ -97,7 +98,6 @@ class StudySheet(BaseSheet):
       self.elements = StudyDesignElementSheet(file_path)
       self.arms = StudyDesignArmSheet(file_path)
       self.epochs = StudyDesignEpochSheet(file_path)
-      self.timings = StudyDesignTimingSheet(file_path)
       self.activities = StudyDesignActivitySheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
       self._process_soa(file_path)
