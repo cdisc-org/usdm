@@ -223,17 +223,30 @@ class NarrativeContent():
     #print(f"M11 TP:")
     doc = Doc()
     with doc.tag('table'):
-      self._generate_m11_title_page_entry(doc, 'Protocol Full Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="officialTitle"/>')
-      self._generate_m11_title_page_entry(doc, 'Protocol Number:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>')
-      self._generate_m11_title_page_entry(doc, 'Version:>', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>')
-      self._generate_m11_title_page_entry(doc, 'Amendment Number:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>')
-      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', '')
-      self._generate_m11_title_page_entry(doc, 'Compound Number(s):', '')
+      self._generate_m11_title_page_entry(doc, 'Sponsor Confidentiality Statement:', '', 'Enter Sponsor Confidentiality Statement')
+      self._generate_m11_title_page_entry(doc, 'Full Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="officialTitle"/>', 'Enter Full Title')
+      self._generate_m11_title_page_entry(doc, 'Trial Acronym:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyAcronym"/>', 'Enter trial Acronym')
+      self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>', 'Enter Protocol Identifier')
+      self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
+      self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
+      self._generate_m11_title_page_entry(doc, 'Version Date:', '', 'Enter Version Date')
+      self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>', 'Amendment Identifier')
+      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', '', 'Amendment Scope')
+      self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
       self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '')
-      self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>')
-      self._generate_m11_title_page_entry(doc, 'Acronym:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyAcronym"/>')
-      self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>')
-      self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>')
+      self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>', 'Trial Phase')
+      self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>', 'Enter Trial Short Title')
+      self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>', 'Enter Sponsor Name, Enter Sponsor Legal Address')
+      self._generate_m11_title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', '', 'EU CT Number, IDE Number, FDA IND Number, JRCT Number, NCT Number, NMPA IND Number, WHO/UTN Number, Other Regulatory Agency Identifier Number')
+      self._generate_m11_title_page_entry(doc, 'Spondor Approval Date:', '', 'Enter Approval Date or state location where information can be found')
+
+      # Enter Nonproprietary Name(s)
+      # Enter Proprietary Name(s)
+      # Globally/Locally/Cohort
+      # Primary Reason for Amendment
+      # Region Identifier
+      # Secondary Reason for Amendment
+
     result = doc.getvalue()
     #print(f"DOC: {result}")
     return result
@@ -279,11 +292,18 @@ class NarrativeContent():
           with doc.tag('p'):
             doc.asis(endpoint)
 
-  def _generate_m11_title_page_entry(self, doc, title, entry):
+  def _generate_m11_title_page_entry(self, doc, title, entry, m11_reference=''):
     with doc.tag('tr'):
       with doc.tag('th', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
           doc.asis(title)  
+        with doc.tag('p', style="vertical-align: top; text-align: left; color: #2AAA8A; font-size: 12px"):
+          with doc.tag('i'):
+            m11_reference = "Not set" if not m11_reference else m11_reference
+            doc.text(f"M11: {m11_reference}")  
+        with doc.tag('p', style="vertical-align: top; text-align: left; color: #FA8072; font-size: 12px"):
+          with doc.tag('i'):
+            doc.text(f"USDM: {', '.join(self._list_references(entry))}")  
       with doc.tag('td', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
           doc.asis(entry)
@@ -342,3 +362,11 @@ class NarrativeContent():
           map = dictionary.parameterMap[tag]
           text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
       return text
+
+  def _list_references(self, content_text):
+    references = []
+    soup = BeautifulSoup(content_text, 'html.parser')
+    for ref in soup(['usdm:ref']):
+      attributes = ref.attrs
+      references.append(f"'class': {attributes['klass']}, 'attribute': {attributes['attribute']}")
+    return references
