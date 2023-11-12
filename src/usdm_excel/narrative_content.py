@@ -2,8 +2,10 @@ from yattag import Doc
 from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.logger import logging
-import docraptor
+
 import re
+import traceback
+import docraptor
 
 class NarrativeContent():
 
@@ -167,26 +169,29 @@ class NarrativeContent():
         self._content_to_html(content, doc)
 
   def _translate_references(self, content_text):
+    print(f"TRX: {content_text}")
     soup = BeautifulSoup(content_text, 'html.parser')
     for ref in soup(['usdm:ref']):
-      #print(f"TRA: {ref}")
+      print(f"TRA: {ref}")
       attributes = ref.attrs
-      #print(f"TRB: {attributes}")
+      print(f"TRB: {attributes}")
       try:
         if 'namexref' in attributes:
           instance = cross_references.get(attributes['klass'], attributes['namexref'])
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
         try:
-          #print(f"TR1: {instance.id}")
-          value = getattr(instance, attributes['attribute'])
-          #print(f"TR2: {value}")
+          print(f"TR1: {instance.id}")
+          value = str(getattr(instance, attributes['attribute']))
+          print(f"TR2: {value}")
           translated_text = self._translate_references(value)
-          #print(f"TR3: {translated_text}")
+          print(f"TR3: {translated_text}")
           ref.replace_with(translated_text)
-        except:
-          ref.replace_with("***** Failed to translate reference, attribute not found *****")
-      except:
+        except Exception as e:
+          print(f"TRE1: {traceback.format_exc()} {e}")
+          ref.replace_with(f"***** Failed to translate reference, attributes {attributes} not found *****")
+      except Exception as e:
+        print(f"TRE2: {traceback.format_exc()} {e}")
         ref.replace_with("***** Failed to translate reference, instance not found *****")
     return str(soup)
   
@@ -229,15 +234,15 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>', 'Enter Protocol Identifier')
       self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
       self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
-      self._generate_m11_title_page_entry(doc, 'Version Date:', '', 'Enter Version Date')
+      self._generate_m11_title_page_entry(doc, 'Version Date:', f'<usdm:ref klass="GovernanceDate" id="{self._study_date().id}" attribute="dateValue"/>', 'Enter Version Date')
       self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>', 'Amendment Identifier')
-      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', '', 'Amendment Scope')
+      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references("Code", "decode", self._amendment_scopes(self._amendment()))}', 'Amendment Scope')
       self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
-      self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '')
+      self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '', 'Enter Nonproprietary Name(s), Enter Proprietary Name(s)')
       self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>', 'Trial Phase')
       self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>', 'Enter Trial Short Title')
       self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>', 'Enter Sponsor Name, Enter Sponsor Legal Address')
-      self._generate_m11_title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', '', 'EU CT Number, IDE Number, FDA IND Number, JRCT Number, NCT Number, NMPA IND Number, WHO/UTN Number, Other Regulatory Agency Identifier Number')
+      self._generate_m11_title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self._set_of_references("StudyIdentifier", "studyIdentifier", self._study_regulatory_identifiers())}', 'EU CT Number, IDE Number, FDA IND Number, JRCT Number, NCT Number, NMPA IND Number, WHO/UTN Number, Other Regulatory Agency Identifier Number')
       self._generate_m11_title_page_entry(doc, 'Spondor Approval Date:', '', 'Enter Approval Date or state location where information can be found')
 
       # Enter Nonproprietary Name(s)
@@ -297,16 +302,20 @@ class NarrativeContent():
       with doc.tag('th', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
           doc.asis(title)  
-        with doc.tag('p', style="vertical-align: top; text-align: left; color: #2AAA8A; font-size: 12px"):
-          with doc.tag('i'):
-            m11_reference = "Not set" if not m11_reference else m11_reference
-            doc.text(f"M11: {m11_reference}")  
-        with doc.tag('p', style="vertical-align: top; text-align: left; color: #FA8072; font-size: 12px"):
-          with doc.tag('i'):
-            doc.text(f"USDM: {', '.join(self._list_references(entry))}")  
       with doc.tag('td', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
           doc.asis(entry)
+    with doc.tag('tr', bgcolor="#F2F4F4"):
+      with doc.tag('td', colspan="2", style="vertical-align: top; text-align: left"):
+        with doc.tag('p', style="vertical-align: top; text-align: left; color: #2AAA8A; font-size: 12px"):
+          with doc.tag('i'):
+            with doc.tag('span', style="color: #2AAA8A"):
+              m11_reference = "Not set" if not m11_reference else m11_reference
+              doc.text(f"M11: {m11_reference}")  
+            with doc.tag('br'):
+              pass
+            with doc.tag('span', style="color: #FA8072"):
+              doc.text(f"USDM: {', '.join(self._list_references(entry))}")  
 
   def _study_identifier(self):
     identifiers = self.study_version.studyIdentifiers
@@ -314,7 +323,15 @@ class NarrativeContent():
       if identifier.studyIdentifierScope.type.code == 'C70793':
         return identifier
     return None
-  
+
+  def _study_regulatory_identifiers(self):
+    results = []
+    identifiers = self.study_version.studyIdentifiers
+    for identifier in identifiers:
+      if identifier.studyIdentifierScope.type.code == 'C188863' or identifier.studyIdentifierScope.type.code == 'C93453':
+        results.append(identifier)
+    return results
+
   def _organization(self):
     identifier = self._study_identifier()
     return identifier.studyIdentifierScope
@@ -326,7 +343,16 @@ class NarrativeContent():
   def _amendment(self):
     amendments = self.study_version.amendments
     return amendments[-1]
-    
+
+  def _amendment_scopes(self, amendment):
+    results = []
+    for item in amendment.enrollments:
+      if item.type.code == "C68846":
+        return [item.type]
+      else:
+        results.append(item.code)
+    return results
+  
   def _criteria(self, type):
     results = []
     items = [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
@@ -369,4 +395,20 @@ class NarrativeContent():
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
       references.append(f"'class': {attributes['klass']}, 'attribute': {attributes['attribute']}")
-    return references
+    return references if references else ['No mapping']
+  
+  def _study_date(self):
+    dates = self.study_version.dateValues
+    for date in dates:
+      if date.type.code == 'C132352':
+        #print(f"DATE: {date}")
+        return date
+    #print(f"DATE: None")
+    return None
+  
+  def _set_of_references(self, klass, attribute, items):
+    print(f"SOR: {items}")
+    if items:
+      return ", ".join([f'<usdm:ref klass="{klass}" id="{item.id}" attribute="{attribute}"/>' for item in items])
+    else:
+      return ""

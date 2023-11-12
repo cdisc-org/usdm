@@ -296,7 +296,7 @@ class StudySheet(BaseSheet):
             geographicScopes=scopes
           )
           self.dates[category].append(date)
-          #print(f"DATE: {date}")
+          cross_references.add(record['name'], date)
         except Exception as e:
           self._general_error(f"Failed to create GovernanceDate object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
