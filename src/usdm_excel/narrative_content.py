@@ -232,11 +232,11 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Sponsor Confidentiality Statement:', '', 'Enter Sponsor Confidentiality Statement')
       self._generate_m11_title_page_entry(doc, 'Full Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="officialTitle"/>', 'Enter Full Title')
       self._generate_m11_title_page_entry(doc, 'Trial Acronym:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyAcronym"/>', 'Enter trial Acronym')
-      self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'{self._set_of_references_new([self._study_identifier()])}', 'Enter Protocol Identifier')
+      self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'{self._set_of_references_new(self._study_identifier())}', 'Enter Protocol Identifier')
       self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
       self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
-      self._generate_m11_title_page_entry(doc, 'Version Date:', f'{self._set_of_references_new([self._study_date()])}', 'Enter Version Date')
-      self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'{self._set_of_references_new([self._amendment()])}', 'Amendment Identifier')
+      self._generate_m11_title_page_entry(doc, 'Version Date:', f'{self._set_of_references_new(self._study_date())}', 'Enter Version Date')
+      self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'{self._set_of_references_new(self._amendment())}', 'Amendment Identifier')
       self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references_new(self._amendment_scopes())}', 'Amendment Scope')
       self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
       self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '', 'Enter Nonproprietary Name(s), Enter Proprietary Name(s)')
@@ -327,7 +327,7 @@ class NarrativeContent():
   
   def _study_identifier(self):
     identifier = self._sponsor_identifier()
-    return {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/@studyIdentifier'}
+    return [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/@studyIdentifier'}]
 
   def _study_regulatory_identifiers(self):
     results = []
@@ -342,7 +342,7 @@ class NarrativeContent():
     dates = self.study_version.dateValues
     for date in dates:
       if date.type.code == 'C132352':
-        return {'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type.code=C132352]/@dateValue'}
+        return [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type.code=C132352]/@dateValue'}]
     return None
   
   def _organization_name_and_address(self):
@@ -358,7 +358,7 @@ class NarrativeContent():
   
   def _amendment(self):
     amendments = self.study_version.amendments
-    return {'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number', 'path': 'StudyVersion/StudyAmendment/@number'}
+    return [{'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number', 'path': 'StudyVersion/StudyAmendment/@number'}]
 
   def _amendment_scopes(self):
     results = []
