@@ -153,17 +153,14 @@ class NarrativeContent():
   def _content_to_html(self, content, doc):
     level = len(content.sectionNumber.split('.'))
     klass = "page" if level == 1 else ""
-    id = f"section-{content.sectionNumber}"
+    heading_id = f"section-{content.sectionNumber}"
     with doc.tag('div', klass=klass):
-      if level == 1 and int(content.sectionNumber) > 0:
-        with doc.tag(f'h{level}', id=id):
+      if (level == 1 and int(content.sectionNumber) > 0) or (level > 1):
+        with doc.tag(f'h{level}', id=heading_id):
           doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
       if self._standard_section(content.text):
-        #print(f"STD1 {content.text}")
         name = self._standard_section_name(content.text)
-        #print(f"STD2 {name}")
         content.text = self._generate_standard_section(name)
-        #print(f"STD3 {content.text}")
       doc.asis(self._translate_references(content.text))
       for id in content.contentChildIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
