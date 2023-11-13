@@ -232,7 +232,7 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Sponsor Confidentiality Statement:', '', 'Enter Sponsor Confidentiality Statement')
       self._generate_m11_title_page_entry(doc, 'Full Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="officialTitle"/>', 'Enter Full Title')
       self._generate_m11_title_page_entry(doc, 'Trial Acronym:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyAcronym"/>', 'Enter trial Acronym')
-      self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>', 'Enter Protocol Identifier')
+      self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'{self._set_of_references_new([self._study_identifier()])}', 'Enter Protocol Identifier')
       self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
       self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
       self._generate_m11_title_page_entry(doc, 'Version Date:', f'{self._set_of_references_new([self._study_date()])}', 'Enter Version Date')
@@ -242,7 +242,7 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '', 'Enter Nonproprietary Name(s), Enter Proprietary Name(s)')
       self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>', 'Trial Phase')
       self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>', 'Enter Trial Short Title')
-      self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'<usdm:ref klass="Organization" id="{self._organization().id}" attribute="name"/><br/><usdm:ref klass="Address" id="{self._organization_address().id}" attribute="text"/>', 'Enter Sponsor Name, Enter Sponsor Legal Address')
+      self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'{self._set_of_references_new(self._organization_name_and_address())}', 'Enter Sponsor Name, Enter Sponsor Legal Address')
       self._generate_m11_title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self._set_of_references_new(self._study_regulatory_identifiers())}', 'EU CT Number, IDE Number, FDA IND Number, JRCT Number, NCT Number, NMPA IND Number, WHO/UTN Number, Other Regulatory Agency Identifier Number')
       self._generate_m11_title_page_entry(doc, 'Spondor Approval Date:', '', 'Enter Approval Date or state location where information can be found')
 
@@ -318,19 +318,23 @@ class NarrativeContent():
             with doc.tag('span', style="color: #FA8072"):
               doc.text(f"USDM: {', '.join(self._list_references(entry))}")  
 
-  def _study_identifier(self):
+  def _sponsor_identifier(self):
     identifiers = self.study_version.studyIdentifiers
     for identifier in identifiers:
       if identifier.studyIdentifierScope.type.code == 'C70793':
         return identifier
     return None
+  
+  def _study_identifier(self):
+    identifier = self._sponsor_identifier()
+    return {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/@studyIdentifier'}
 
   def _study_regulatory_identifiers(self):
     results = []
     identifiers = self.study_version.studyIdentifiers
     for identifier in identifiers:
       if identifier.studyIdentifierScope.type.code == 'C188863' or identifier.studyIdentifierScope.type.code == 'C93453':
-        item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIndentifier[Organization/@type.code=C188863|C93453]/@studyIdentifier'}
+        item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type.code=C188863|C93453]/@studyIdentifier'}
         results.append(item)
     return results
 
@@ -341,13 +345,16 @@ class NarrativeContent():
         return {'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type.code=C132352]/@dateValue'}
     return None
   
-  def _organization(self):
-    identifier = self._study_identifier()
-    return identifier.studyIdentifierScope
-  
-  def _organization_address(self):
-    organization = self._organization()
-    return organization.organizationLegalAddress
+  def _organization_name_and_address(self):
+    identifier = self._sponsor_identifier()
+    return [
+      {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/@name'},
+      {'instance': identifier.studyIdentifierScope.organizationLegalAddress, 'klass': 'Address', 'attribute': 'text', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Orgnaization/Address/@text'},
+    ]
+
+  # def _organization_address(self):
+  #   organization = self._organization()
+  #   return organization.organizationLegalAddress
   
   def _amendment(self):
     amendments = self.study_version.amendments
