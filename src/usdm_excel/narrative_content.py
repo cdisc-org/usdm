@@ -167,31 +167,20 @@ class NarrativeContent():
         self._content_to_html(content, doc)
 
   def _translate_references(self, content_text):
-    #print(f"TRX: {content_text}")
     soup = BeautifulSoup(content_text, 'html.parser')
     for ref in soup(['usdm:ref']):
-      #print(f"TRA: {ref}")
       attributes = ref.attrs
-      #print(f"TRB: {attributes}")
+      if 'namexref' in attributes:
+        instance = cross_references.get(attributes['klass'], attributes['namexref'])
+      else:
+        instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
       try:
-        if 'namexref' in attributes:
-          instance = cross_references.get(attributes['klass'], attributes['namexref'])
-        else:
-          instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
-        try:
-          print(f"TR1: {instance.id}")
-          value = str(getattr(instance, attributes['attribute']))
-          #print(f"TR2: {value}")
-          translated_text = self._translate_references(value)
-          #print(f"TR3: {translated_text}")
-          ref.replace_with(translated_text)
-        except Exception as e:
-          print(f"TRE1: {traceback.format_exc()} {e}")
-          print(cross_references.references.keys())
-          ref.replace_with(f"***** Failed to translate reference, attributes {attributes} not found *****")
+        value = str(getattr(instance, attributes['attribute']))
+        translated_text = self._translate_references(value)
+        ref.replace_with(translated_text)
       except Exception as e:
-        #print(f"TRE2: {traceback.format_exc()} {e}")
-        ref.replace_with("***** Failed to translate reference, instance not found *****")
+        logging.error(f"Failed to translate reference, attributes {attributes} {{traceback.format_exc()}}")
+        ref.replace_with(f"Error translating reference, attributes {attributes}")
     return str(soup)
   
   def _standard_section(self, text):
