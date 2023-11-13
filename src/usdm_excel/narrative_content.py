@@ -240,7 +240,7 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references_new(self._amendment_scopes())}', 'Amendment Scope')
       self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
       self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '', 'Enter Nonproprietary Name(s), Enter Proprietary Name(s)')
-      self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>', 'Trial Phase')
+      self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'{self._set_of_references_new(self._study_phase())}', 'Trial Phase')
       self._generate_m11_title_page_entry(doc, 'Short Title:', f'<usdm:ref klass="StudyProtocolDocumentVersion" id="{self.protocol_document_version.id}" attribute="briefTitle"/>', 'Enter Trial Short Title')
       self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'{self._set_of_references_new(self._organization_name_and_address())}', 'Enter Sponsor Name, Enter Sponsor Legal Address')
       self._generate_m11_title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self._set_of_references_new(self._study_regulatory_identifiers())}', 'EU CT Number, IDE Number, FDA IND Number, JRCT Number, NCT Number, NMPA IND Number, WHO/UTN Number, Other Regulatory Agency Identifier Number')
@@ -325,6 +325,10 @@ class NarrativeContent():
         return identifier
     return None
   
+  def _study_phase(self):
+    phase = self.study_version.studyPhase.standardCode
+    return [{'instance': phase, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/@studyPhase/@standardCode/@decode'}]
+
   def _study_identifier(self):
     identifier = self._sponsor_identifier()
     return [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/@studyIdentifier'}]
