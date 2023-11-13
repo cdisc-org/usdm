@@ -236,7 +236,7 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
       self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
       self._generate_m11_title_page_entry(doc, 'Version Date:', f'{self._set_of_references_new([self._study_date()])}', 'Enter Version Date')
-      self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>', 'Amendment Identifier')
+      self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'{self._set_of_references_new([self._amendment()])}', 'Amendment Identifier')
       self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references_new(self._amendment_scopes())}', 'Amendment Scope')
       self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
       self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '', 'Enter Nonproprietary Name(s), Enter Proprietary Name(s)')
@@ -351,15 +351,13 @@ class NarrativeContent():
   
   def _amendment(self):
     amendments = self.study_version.amendments
-    return amendments[-1]
+    return {'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number', 'path': 'StudyVersion/StudyAmendment/@number'}
 
   def _amendment_scopes(self):
-    amendment = self._amendment()
     results = []
+    amendment = self.study_version.amendments[-1]
     for item in amendment.enrollments:
       if item.type.code == "C68846":
-        #return [item.type]
-        #("Code", "decode", self._amendment_scopes(self._amendment()))}', 'Amendment Scope')
         return [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@type/@code=C68846]/Code/@decode'}]
       else:
         entry = {'instance': item.code, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@code]/Code/@decode'}
