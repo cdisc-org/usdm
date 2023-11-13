@@ -235,10 +235,9 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>', 'Enter Protocol Identifier')
       self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
       self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
-      date_item = self._study_date()
-      self._generate_m11_title_page_entry(doc, 'Version Date:', f'<usdm:ref klass="{date_item["klass"]}" id="{date_item["instance"].id}" attribute="{date_item["attribute"]}" path="{date_item["path"]}"/>', 'Enter Version Date')
+      self._generate_m11_title_page_entry(doc, 'Version Date:', f'{self._set_of_references_new([self._study_date()])}', 'Enter Version Date')
       self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>', 'Amendment Identifier')
-      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references("Code", "decode", self._amendment_scopes(self._amendment()))}', 'Amendment Scope')
+      self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references_new(self._amendment_scopes())}', 'Amendment Scope')
       self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
       self._generate_m11_title_page_entry(doc, 'Compound Name(s):', '', 'Enter Nonproprietary Name(s), Enter Proprietary Name(s)')
       self._generate_m11_title_page_entry(doc, 'Trial Phase:', f'<usdm:ref klass="Code" id="{self.study_version.studyPhase.standardCode.id}" attribute="decode"/>', 'Trial Phase')
@@ -354,13 +353,17 @@ class NarrativeContent():
     amendments = self.study_version.amendments
     return amendments[-1]
 
-  def _amendment_scopes(self, amendment):
+  def _amendment_scopes(self):
+    amendment = self._amendment()
     results = []
     for item in amendment.enrollments:
       if item.type.code == "C68846":
-        return [item.type]
+        #return [item.type]
+        #("Code", "decode", self._amendment_scopes(self._amendment()))}', 'Amendment Scope')
+        return [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@type/@code=C68846]/Code/@decode'}]
       else:
-        results.append(item.code)
+        entry = {'instance': item.code, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@code]/Code/@decode'}
+        results.append(entry)
     return results
   
   def _criteria(self, type):
@@ -421,9 +424,6 @@ class NarrativeContent():
     
   def _set_of_references_new(self, items):
     if items:
-      print(f"ITEM1: {items}")
-      result = ", ".join([f'<usdm:ref klass="{item["klass"]}" id="{item["instance"].id}" attribute="{item["attribute"]}" path="{item["path"]}"/>' for item in items])
-      print(f"ITEM2: {result}")
-      return result
+      return ", ".join([f'<usdm:ref klass="{item["klass"]}" id="{item["instance"].id}" attribute="{item["attribute"]}" path="{item["path"]}"/>' for item in items])
     else:
       return ""
