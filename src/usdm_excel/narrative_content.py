@@ -235,7 +235,8 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Protocol Identifier:', f'<usdm:ref klass="StudyIdentifier" id="{self._study_identifier().id}" attribute="studyIdentifier"/>', 'Enter Protocol Identifier')
       self._generate_m11_title_page_entry(doc, 'Original Protocol:', '', 'Original protocol')
       self._generate_m11_title_page_entry(doc, 'Version Number:', f'<usdm:ref klass="StudyVersion" id="{self.study_version.id}" attribute="studyVersion"/>', 'Enter Version Number')
-      self._generate_m11_title_page_entry(doc, 'Version Date:', f'<usdm:ref klass="GovernanceDate" id="{self._study_date().id}" attribute="dateValue"/>', 'Enter Version Date')
+      date_item = self._study_date()
+      self._generate_m11_title_page_entry(doc, 'Version Date:', f'<usdm:ref klass="{date_item["klass"]}" id="{date_item["instance"].id}" attribute="{date_item["attribute"]}" path="{date_item["path"]}"/>', 'Enter Version Date')
       self._generate_m11_title_page_entry(doc, 'Amendment Identifier:', f'<usdm:ref klass="StudyAmendment" id="{self._amendment().id}" attribute="number"/>', 'Amendment Identifier')
       self._generate_m11_title_page_entry(doc, 'Amendment Scope:', f'{self._set_of_references("Code", "decode", self._amendment_scopes(self._amendment()))}', 'Amendment Scope')
       self._generate_m11_title_page_entry(doc, 'Compound Codes(s):', '', 'Enter Compound Code(s)')
@@ -395,15 +396,20 @@ class NarrativeContent():
     soup = BeautifulSoup(content_text, 'html.parser')
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
-      references.append(f"'class': {attributes['klass']}, 'attribute': {attributes['attribute']}")
-    return references if references else ['No mapping']
+      if 'path' in attributes:
+        path = f"{attributes['path']}"
+      else:
+        path = f"{attributes['klass']}/@{attributes['attribute']}"
+      if path not in references:
+        references.append(path)
+    return references if references else ['No mapping path']
   
   def _study_date(self):
     dates = self.study_version.dateValues
     for date in dates:
       if date.type.code == 'C132352':
         #print(f"DATE: {date}")
-        return date
+        return {'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type.code=C132352]/@dateValue'}
     #print(f"DATE: None")
     return None
   
@@ -413,3 +419,4 @@ class NarrativeContent():
       return ", ".join([f'<usdm:ref klass="{klass}" id="{item.id}" attribute="{attribute}"/>' for item in items])
     else:
       return ""
+    
