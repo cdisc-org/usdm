@@ -179,14 +179,15 @@ class NarrativeContent():
         else:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
         try:
-          #print(f"TR1: {instance.id}")
+          print(f"TR1: {instance.id}")
           value = str(getattr(instance, attributes['attribute']))
           #print(f"TR2: {value}")
           translated_text = self._translate_references(value)
           #print(f"TR3: {translated_text}")
           ref.replace_with(translated_text)
         except Exception as e:
-          #print(f"TRE1: {traceback.format_exc()} {e}")
+          print(f"TRE1: {traceback.format_exc()} {e}")
+          print(cross_references.references.keys())
           ref.replace_with(f"***** Failed to translate reference, attributes {attributes} not found *****")
       except Exception as e:
         #print(f"TRE2: {traceback.format_exc()} {e}")
@@ -241,7 +242,7 @@ class NarrativeContent():
       self._generate_m11_title_page_entry(doc, 'Short Title:', f'{self._study_short_title()}', 'Enter Trial Short Title')
       self._generate_m11_title_page_entry(doc, 'Sponsor Name and Address:', f'{self._organization_name_and_address()}', 'Enter Sponsor Name, Enter Sponsor Legal Address')
       self._generate_m11_title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self._study_regulatory_identifiers()}', 'EU CT Number, IDE Number, FDA IND Number, JRCT Number, NCT Number, NMPA IND Number, WHO/UTN Number, Other Regulatory Agency Identifier Number')
-      self._generate_m11_title_page_entry(doc, 'Spondor Approval Date:', '', 'Enter Approval Date or state location where information can be found')
+      self._generate_m11_title_page_entry(doc, 'Spondor Approval Date:', f'{self._approval_date()}', 'Enter Approval Date or state location where information can be found')
 
       # Enter Nonproprietary Name(s)
       # Enter Proprietary Name(s)
@@ -325,28 +326,28 @@ class NarrativeContent():
   def _study_phase(self):
     phase = self.study_version.studyPhase.standardCode
     results = [{'instance': phase, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/@studyPhase/@standardCode/@decode'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
   
   def _study_short_title(self):
     results = [{'instance': self.protocol_document_version, 'klass': 'StudyProtocolDocumentVersion', 'attribute': 'briefTitle', 'path': 'StudyProtocolDocumentVersion/@briefTitle'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _study_full_title(self):
     results = [{'instance': self.protocol_document_version, 'klass': 'StudyProtocolDocumentVersion', 'attribute': 'officialTitle', 'path': 'StudyProtocolDocumentVersion/@officialTitle'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _study_acronym(self):
     results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyAcronym', 'path': 'StudyVersion/@sstudyAcronym'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _study_version(self):
     results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyVersion', 'path': 'StudyVersion/@sstudyVersion'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _study_identifier(self):
     identifier = self._sponsor_identifier()
     results = [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/@studyIdentifier'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _study_regulatory_identifiers(self):
     results = []
@@ -355,28 +356,36 @@ class NarrativeContent():
       if identifier.studyIdentifierScope.type.code == 'C188863' or identifier.studyIdentifierScope.type.code == 'C93453':
         item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type.code=C188863|C93453]/@studyIdentifier'}
         results.append(item)
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _study_date(self):
+    dates = self.protocol_document_version.dateValues
+    for date in dates:
+      if date.type.code == 'C99903x1':
+        results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyProtocolDocumentVersion/GovernanceDate[@type.code=C99903x1]/@dateValue'}]
+        return self._set_of_references(results)
+    return None
+  
+  def _approval_date(self):
     dates = self.study_version.dateValues
     for date in dates:
       if date.type.code == 'C132352':
         results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type.code=C132352]/@dateValue'}]
-        return self._set_of_references_new(results)
+        return self._set_of_references(results)
     return None
-  
+
   def _organization_name_and_address(self):
     identifier = self._sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/@name'},
       {'instance': identifier.studyIdentifierScope.organizationLegalAddress, 'klass': 'Address', 'attribute': 'text', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Orgnaization/Address/@text'},
     ]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _amendment(self):
     amendments = self.study_version.amendments
     results = [{'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number', 'path': 'StudyVersion/StudyAmendment/@number'}]
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
 
   def _amendment_scopes(self):
     results = []
@@ -384,11 +393,11 @@ class NarrativeContent():
     for item in amendment.enrollments:
       if item.type.code == "C68846":
         results = [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@type/@code=C68846]/Code/@decode'}]
-        return self._set_of_references_new(results)
+        return self._set_of_references(results)
       else:
         entry = {'instance': item.code, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@code]/Code/@decode'}
         results.append(entry)
-    return self._set_of_references_new(results)
+    return self._set_of_references(results)
   
   def _criteria(self, type):
     results = []
@@ -439,13 +448,7 @@ class NarrativeContent():
         references.append(path)
     return references if references else ['No mapping path']
   
-  def _set_of_references(self, klass, attribute, items):
-    if items:
-      return ", ".join([f'<usdm:ref klass="{klass}" id="{item.id}" attribute="{attribute}"/>' for item in items])
-    else:
-      return ""
-    
-  def _set_of_references_new(self, items):
+  def _set_of_references(self, items):
     if items:
       return ", ".join([f'<usdm:ref klass="{item["klass"]}" id="{item["instance"].id}" attribute="{item["attribute"]}" path="{item["path"]}"/>' for item in items])
     else:
