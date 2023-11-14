@@ -2,8 +2,9 @@ from yattag import Doc
 from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.logger import logging
-
+from usdm_excel.errors.errors import error_manager
 import re
+import os
 import traceback
 import docraptor
 
@@ -24,7 +25,7 @@ class NarrativeContent():
 
   def to_pdf(self):
     doc_api = docraptor.DocApi()
-    doc_api.api_client.configuration.username = 'YOUR_API_KEY_HERE'
+    doc_api.api_client.configuration.username = os.getenv('DOCRAPTOR_API_KEY')
 
     document_content = self.to_html()
     try:
@@ -41,11 +42,9 @@ class NarrativeContent():
       })
       binary_formatted_response = bytearray(response)
       return binary_formatted_response
-    except docraptor.rest.ApiException as error:
-      pass
-      #print(error.status)
-      #print(error.reason)
-      #print(error.body)
+    except docraptor.rest.ApiException as e:
+      error_manager.add(None, None, None, f"Something went wrong '{e.reason}' creating the PDF document")
+      logging.error(f"Failed to create PDF document {e.status} {e.reason} {e.body}\n{{traceback.format_exc()}}")
 
   def to_html(self):
     root = self.protocol_document_version.contents[0]
@@ -179,8 +178,9 @@ class NarrativeContent():
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       except Exception as e:
-        logging.error(f"Failed to translate reference, attributes {attributes} {{traceback.format_exc()}}")
-        ref.replace_with(f"Error translating reference, attributes {attributes}")
+        logging.error(f"Failed to translate reference, attributes {attributes}\n{traceback.format_exc()}")
+        error_manager.add(None, None, None, f"Failed to translate a reference {attributes} while generating the HTML document")
+        ref.replace_with('Missing content')
     return str(soup)
   
   def _standard_section(self, text):
