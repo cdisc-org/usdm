@@ -326,11 +326,11 @@ class NarrativeContent():
     return self._set_of_references(results)
 
   def _study_acronym(self):
-    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyAcronym', 'path': 'StudyVersion/@sstudyAcronym'}]
+    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyAcronym', 'path': 'StudyVersion/@studyAcronym'}]
     return self._set_of_references(results)
 
   def _study_version(self):
-    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyVersion', 'path': 'StudyVersion/@sstudyVersion'}]
+    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyVersion', 'path': 'StudyVersion/@studyVersion'}]
     return self._set_of_references(results)
 
   def _study_identifier(self):
@@ -343,7 +343,7 @@ class NarrativeContent():
     identifiers = self.study_version.studyIdentifiers
     for identifier in identifiers:
       if identifier.studyIdentifierScope.type.code == 'C188863' or identifier.studyIdentifierScope.type.code == 'C93453':
-        item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type.code=C188863|C93453]/@studyIdentifier'}
+        item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C188863|C93453]/@studyIdentifier'}
         results.append(item)
     return self._set_of_references(results)
 
@@ -351,7 +351,7 @@ class NarrativeContent():
     dates = self.protocol_document_version.dateValues
     for date in dates:
       if date.type.code == 'C99903x1':
-        results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyProtocolDocumentVersion/GovernanceDate[@type.code=C99903x1]/@dateValue'}]
+        results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyProtocolDocumentVersion/GovernanceDate[@type/@code=C99903x1]/@dateValue'}]
         return self._set_of_references(results)
     return None
   
@@ -359,7 +359,7 @@ class NarrativeContent():
     dates = self.study_version.dateValues
     for date in dates:
       if date.type.code == 'C132352':
-        results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type.code=C132352]/@dateValue'}]
+        results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type/@code=C132352]/@dateValue'}]
         return self._set_of_references(results)
     return None
 
@@ -367,7 +367,7 @@ class NarrativeContent():
     identifier = self._sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/@name'},
-      {'instance': identifier.studyIdentifierScope.organizationLegalAddress, 'klass': 'Address', 'attribute': 'text', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Orgnaization/Address/@text'},
+      {'instance': identifier.studyIdentifierScope.organizationLegalAddress, 'klass': 'Address', 'attribute': 'text', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/Address/@text'},
     ]
     return self._set_of_references(results)
 
@@ -384,7 +384,7 @@ class NarrativeContent():
         results = [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@type/@code=C68846]/Code/@decode'}]
         return self._set_of_references(results)
       else:
-        entry = {'instance': item.code, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@code]/Code/@decode'}
+        entry = {'instance': item.code, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment/@code/@decode'}
         results.append(entry)
     return self._set_of_references(results)
   
