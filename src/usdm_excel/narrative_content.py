@@ -31,6 +31,7 @@ class NarrativeContent():
     try:
       response = doc_api.create_doc({
         'test': True,  # test documents are free but watermarked
+        #'test': False,  # Non-watermarked documents, but limited number allowed.
         'document_type': 'pdf',
         'document_content': document_content,
         # 'document_url': 'https://docraptor.com/examples/invoice.html',
