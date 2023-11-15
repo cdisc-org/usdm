@@ -7,7 +7,7 @@ class StudyIntervention(ApiBaseModelWithIdNameLabelAndDesc):
   role:	Code
   type:	Code
   minimumResponseDuration: Quantity
-  codes:	Code
+  codes: Code
   administrations: AgentAdministration
   productDesignation:	Code
   pharmacologicClass:	Code

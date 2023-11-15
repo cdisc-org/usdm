@@ -95,9 +95,9 @@ class StudySoAV2Sheet(BaseSheet):
         description=description,
         label=name,
         entryCondition=condition,
-        scheduleTimelineEntryId=instances[0].id,
-        scheduleTimelineExits=exit,
-        scheduleTimelineInstances=instances
+        entryId=instances[0].id,
+        exits=exit,
+        instances=instances
       )
       cross_references.add(timeline.name, timeline)
       return timeline
