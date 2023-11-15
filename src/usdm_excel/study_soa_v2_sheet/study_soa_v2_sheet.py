@@ -40,7 +40,7 @@ class StudySoAV2Sheet(BaseSheet):
         self.activities.append(activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
         self.biomedical_concepts += item.usdm_biomedical_concepts
-      self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
+      self.double_link(self.activities, 'previousId', 'nextId')
       
       self.timeline = self._add_timeline(self.name, self.description, self.condition, self._raw_instances.instances, self._raw_instances.exits)
 

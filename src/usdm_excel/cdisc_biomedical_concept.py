@@ -109,9 +109,9 @@ class CDISCBiomedicalConcepts():
       id=id_manager.build_id(BiomedicalConcept),
       name=api_bc['shortName'],
       label=api_bc['shortName'],
-      bcSynonyms=synonyms,
-      bcReference=api_bc['_links']['self']['href'],
-      bcProperties=[],
+      synonyms=synonyms,
+      reference=api_bc['_links']['self']['href'],
+      properties=[],
       code=Alias().code(code, [])
     )
 
@@ -120,15 +120,15 @@ class CDISCBiomedicalConcepts():
     concept_aliases = []
     responses = []
     for code in codes:
-      responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), responseCodeEnabled=True, code=code))
+      responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
     return BiomedicalConceptProperty(
       id=id_manager.build_id(BiomedicalConceptProperty),
       name=property['shortName'],
       label=property['shortName'],
-      bcPropertyRequired=True,
-      bcPropertyEnabled=True,
-      bcPropertyDatatype=property['dataType'],
-      bcPropertyResponseCodes=responses,
+      isRequired=True,
+      isEnabled=True,
+      datatype=property['dataType'],
+      responseCodes=responses,
       code=Alias().code(concept_code, concept_aliases)
     )
 

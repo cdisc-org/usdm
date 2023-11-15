@@ -113,10 +113,10 @@ class Timepoint():
       name=f"TIMING_{self.col_index}", # TODO: Temporary fix, need something better
       description=self.__timepoint_type.description,
       label="",
-      timingRelativeToFrom=CDISCCT().code('C201265', 'Start to Start'),
-      timingWindow=self.__window.description,
-      timingWindowLower=self.__window.lower,
-      timingWindowUpper=self.__window.upper,
+      relativeToFrom=CDISCCT().code('C201265', 'Start to Start'),
+      window=self.__window.description,
+      windowLower=self.__window.lower,
+      windowUpper=self.__window.upper,
       relativeFromScheduledInstanceId='',
       relativeToScheduledInstanceId=''
     )

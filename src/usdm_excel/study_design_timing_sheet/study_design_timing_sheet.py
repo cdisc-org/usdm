@@ -35,10 +35,10 @@ class StudyDesignTimingSheet(BaseSheet):
               name=name,
               description=description,
               label=label,
-              timingRelativeToFrom=to_from_type,
-              timingWindow=window.label,
-              timingWindowLower=window.lower,
-              timingWindowUpper=window.upper,
+              relativeToFrom=to_from_type,
+              window=window.label,
+              windowLower=window.lower,
+              windowUpper=window.upper,
               relativeFromScheduledInstanceId=from_name,
               relativeToScheduledInstanceId=to_name
             )

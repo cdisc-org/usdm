@@ -24,8 +24,8 @@ class StudyDesignActivitySheet(BaseSheet):
               name=name,
               description=description,
               label=label,
-              activityIsConditional=conditional,
-              activityIsConditionalReason=reason
+              isConditional=conditional,
+              isConditionalReason=reason
             )
           except Exception as e:
             self._general_error(f"Failed to create Activity object, exception {e}")
@@ -33,7 +33,7 @@ class StudyDesignActivitySheet(BaseSheet):
           else:
             self.items.append(item)
             cross_references.add(name, item)     
-        self.double_link(self.items, 'previousActivityId', 'nextActivityId')   
+        self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

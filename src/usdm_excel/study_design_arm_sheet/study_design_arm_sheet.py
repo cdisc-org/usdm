@@ -24,7 +24,7 @@ class StudyDesignArmSheet(BaseSheet):
             description=description,
             label=label,
             type=arm_type,
-            studyArmDataOriginDescription=arm_origin_description,
+            dataOriginDescription=arm_origin_description,
             dataOriginType=arm_origin_type
           )
         except Exception as e:

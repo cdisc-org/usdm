@@ -42,7 +42,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
               label=o_label,
               text=o_text,
               level=o_level,
-              objectiveEndpoints=[],
+              endpoints=[],
               dictionaryId=dictionary_id
             )
           except Exception as e:

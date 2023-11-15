@@ -50,7 +50,7 @@ class StudySoASheet(BaseSheet):
           self.activities.append(activity)
           self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
           self.biomedical_concepts += item.usdm_biomedical_concepts
-        self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
+        self.double_link(self.activities, 'previousId', 'nextId')
         
         prev_instance = None
         for raw_timepoint in self._raw_timepoints.items:
@@ -92,9 +92,9 @@ class StudySoASheet(BaseSheet):
       description=description,
       label=name,
       entryCondition=condition,
-      scheduleTimelineEntryId=instances[0].id,
-      scheduleTimelineExits=[exit],
-      scheduleTimelineInstances=instances
+      entryId=instances[0].id,
+      exits=[exit],
+      instances=instances
     )
 
   def _link_instance_to_activities(self):

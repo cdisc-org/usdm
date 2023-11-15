@@ -4,7 +4,7 @@ from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
 from usdm_model.indication import Indication
-from usdm_model.investigational_intervention import InvestigationalIntervention
+from usdm_model.study_intervention import StudyIntervention
 
 class StudyDesignIISheet(BaseSheet):
 
@@ -30,9 +30,9 @@ class StudyDesignIISheet(BaseSheet):
             cross_references.add(name, item)
         else:
           try:
-            item = InvestigationalIntervention(id=id_manager.build_id(InvestigationalIntervention), description=description, codes=codes)
+            item = StudyIntervention(id=id_manager.build_id(StudyIntervention), description=description, codes=codes)
           except Exception as e:
-            self._general_error(f"Failed to create InvestigationalIntervention object, exception {e}")
+            self._general_error(f"Failed to create StudyIntervention object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.interventions.append(item)

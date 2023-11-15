@@ -74,7 +74,7 @@ class Activity():
       name=name,
       description=name,
       label=name,
-      bcSurrogateReference='None set'
+      reference='None set'
     )
   
   def _get_observation_cell(self, row_index, col_index):

@@ -20,7 +20,7 @@ class StudyDesignContentSheet(BaseSheet):
           sectionNumber="0",
           sectionTitle="Root",
           text="",
-          contentChildIds=[]
+          childrenIds=[]
         )
         self.items.append(previous_item)
         for index, row in self.sheet.iterrows():
@@ -39,7 +39,7 @@ class StudyDesignContentSheet(BaseSheet):
               sectionNumber=section_number,
               sectionTitle=title,
               text=self._wrap_div(text),
-              contentChildIds=[]
+              childrenIds=[]
             )
           except Exception as e:  
             self._general_error(f"Failed to create Content object, exception {e}")

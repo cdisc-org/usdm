@@ -31,12 +31,12 @@ class StudyIdentifiersSheet(BaseSheet):
       try:
         organisation = Organization(
           id=id_manager.build_id(Organization),
-          organizationIdentifierScheme=org_id_scheme, 
-          organizationIdentifier=org_identifier,
+          identifierScheme=org_id_scheme, 
+          identifier=org_identifier,
           name=org_name,
           label=org_label,
           type=org_type,
-          organizationLegalAddress=org_address
+          legalAddress=org_address
         )
       except Exception as e:
         self._general_error(f"Failed to create Organization object, exception {e}")

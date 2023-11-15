@@ -130,7 +130,7 @@ class StudyDesignSheet(BaseSheet):
               else:
                 self._general_error(f"Cannot resolve arm and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
               
-    self.double_link(self.epochs, 'previousStudyEpochId', 'nextStudyEpochId')
+    self.double_link(self.epochs, 'previousId', 'nextId')
 
     study_design = self._add_design(
       name=self.name,
@@ -184,9 +184,9 @@ class StudyDesignSheet(BaseSheet):
   def _add_cell(self, arm, epoch, elements):
     return StudyCell(
       id=id_manager.build_id(StudyCell), 
-      studyArmId=arm,
-      studyEpochId=epoch,
-      studyElementIds=elements
+      armId=arm,
+      epochId=epoch,
+      elementIds=elements
     )
 
   def _add_design(self, name, description, label, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
@@ -199,11 +199,11 @@ class StudyDesignSheet(BaseSheet):
       trialTypes=trial_types,
       interventionModel=intervention_model,
       studyCells=cells,
-      studyArms=arms,
-      studyEpochs=epochs,
-      studyElements=elements,
+      arms=arms,
+      epochs=epochs,
+      elements=elements,
       therapeuticAreas=therapeutic_areas,
-      studyDesignRationale=rationale,
-      studyDesignBlindingScheme=blinding,
+      rationale=rationale,
+      blindingSchema=blinding,
       contents=[]
     )

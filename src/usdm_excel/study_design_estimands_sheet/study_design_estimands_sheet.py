@@ -5,7 +5,7 @@ import traceback
 from usdm_model.intercurrent_event import IntercurrentEvent
 from usdm_model.analysis_population import AnalysisPopulation
 from usdm_model.estimand import Estimand
-from usdm_model.investigational_intervention import InvestigationalIntervention
+from usdm_model.study_intervention import StudyIntervention
 from usdm_model.endpoint import Endpoint
 
 class StudyDesignEstimandsSheet(BaseSheet):
@@ -34,7 +34,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             try:
-              treatment = cross_references.get(InvestigationalIntervention, treatment_xref)
+              treatment = cross_references.get(StudyIntervention, treatment_xref)
               endpoint = cross_references.get(Endpoint, endpoint_xref)
               treatment_id = treatment.id
               endpoint_id = endpoint.id
@@ -48,7 +48,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           try:
             ice_name = current_ice_name if ice_name == "" else ice_name
             ice_description = current_ice_description if ice_description == "" else ice_description
-            ice = IntercurrentEvent(id=id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, label=ice_label, intercurrentEventStrategy=ice_strategy)
+            ice = IntercurrentEvent(id=id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, label=ice_label, strategy=ice_strategy)
             current_ice_name = ice_name
             current_ice_description = ice_description
           except Exception as e:
