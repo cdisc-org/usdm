@@ -29,7 +29,7 @@ class IdManager():
       'BiomedicalConcept': 0,
       'BiomedicalConceptProperty': 0,
       'ResponseCode': 0,
-      'InvestigationalIntervention': 0,
+      'StudyIntervention': 0,
       'Indication': 0,
       'StudyDesignPopulation': 0,
       'Objective': 0,

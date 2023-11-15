@@ -73,9 +73,9 @@ class Timepoint():
       instance = ScheduledActivityInstance(
         id=id_manager.build_id(ScheduledActivityInstance),
         instanceType='ACTIVITY',
-        scheduleTimelineExitId=None,
+        timelineExitId=None,
         scheduledInstanceEncounterId=None,
-        scheduledInstanceTimings=[timing],
+        timings=[timing],
         scheduledInstanceTimelineId=None,
         defaultConditionId=None,
         epochId=None,
@@ -87,9 +87,9 @@ class Timepoint():
       instance = ScheduledDecisionInstance(
         id=id_manager.build_id(ScheduledActivityInstance),
         instanceType='DECISION',
-        scheduleTimelineExitId=None,
+        timelineExitId=None,
         scheduledInstanceEncounterId=None,
-        scheduledInstanceTimings=[],
+        timings=[],
         scheduledInstanceTimelineId=None,
         defaultConditionId=None,
         conditionAssignments=[]

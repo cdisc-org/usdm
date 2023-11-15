@@ -54,7 +54,7 @@ class StudySoAV2Sheet(BaseSheet):
       if instance:
         item = instance.item
         timing.relativeFromScheduledInstanceId = item.id
-        item.scheduledInstanceTimings.append(timing)
+        item.timings.append(timing)
       # else:
       #   self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
       instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)

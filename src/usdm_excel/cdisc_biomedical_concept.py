@@ -70,7 +70,7 @@ class CDISCBiomedicalConcepts():
               term = cdisc_ct_library.preferred_term(example)
               if term != None:
                 codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-          bc.bcProperties.append(self._bc_property_as_usdm(item, codes))
+          bc.properties.append(self._bc_property_as_usdm(item, codes))
       return bc
 
   def _get_package_metadata(self) -> dict:

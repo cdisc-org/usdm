@@ -61,7 +61,7 @@ class StudySoASheet(BaseSheet):
             prev_instance.defaultConditionId = instance.id
           prev_instance = instance
         exit = self._add_exit()
-        instance.scheduleTimelineExitId = exit.id
+        instance.timelineExitId = exit.id
         self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:

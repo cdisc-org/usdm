@@ -48,7 +48,7 @@ class Timepoints():
   def _set_to_timing_refs(self):    
     for item in self.items:
       from_instance = item.usdm_timepoint
-      from_timing = from_instance.scheduledInstanceTimings[0]
+      from_timing = from_instance.timings[0]
       from_timing_type = from_timing.type.code
       if from_timing_type == "ANCHOR":
         continue

@@ -111,14 +111,14 @@ class StudySheet(BaseSheet):
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
-      study_design.studyScheduleTimelines.append(self.soa.timeline)
+      study_design.scheduleTimelines.append(self.soa.timeline)
       study_design.encounters = self.encounters.items
       study_design.activities = self.soa.activities
       activity_ids = [item.id for item in study_design.activities]
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
       for key,tl in self.timelines.items():
-        study_design.studyScheduleTimelines.append(tl.timeline)
+        study_design.scheduleTimelines.append(tl.timeline)
         for activity in tl.activities:
           if activity.id not in activity_ids:
             study_design.activities.append(activity)
@@ -276,6 +276,7 @@ class StudySheet(BaseSheet):
           for scope in record['scopes']:
             scope = GeographicScope(
               id=id_manager.build_id(GeographicScope), 
+              instanceType="GEOGRAPHIC_SCOPE",
               type=scope['type'], 
               code=scope['code']
             )
