@@ -815,9 +815,9 @@ edges:
     start: 00000000-0000-4000-8000-000000000081
   - end: 00000000-0000-4000-8000-000000000235
     start: 00000000-0000-4000-8000-000000000087
-  - end: 00000000-0000-4000-8000-000000000239
-    start: 00000000-0000-4000-8000-000000000096
   - end: 00000000-0000-4000-8000-000000000243
+    start: 00000000-0000-4000-8000-000000000096
+  - end: 00000000-0000-4000-8000-000000000248
     start: 00000000-0000-4000-8000-000000000100
   - end: 00000000-0000-4000-8000-000000000252
     start: 00000000-0000-4000-8000-000000000104
@@ -3663,7 +3663,7 @@ nodes:
   - description: Day 28 timing
     id: Timing_5
     label: Day 28
-    name: TIM4
+    name: TIM5
     timingValue: P28D
     timingWindow: -1..1 days
     timingWindowLower: P1D
@@ -3672,7 +3672,7 @@ nodes:
   - description: Follow up timing
     id: Timing_6
     label: Follow Up
-    name: TIM5
+    name: TIM6
     timingValue: P42D
     timingWindow: -3..3 days
     timingWindowLower: P3D

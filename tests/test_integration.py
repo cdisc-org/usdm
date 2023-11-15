@@ -23,6 +23,11 @@ def read_error_csv(file):
     item['column'] = to_int(item['column'])
   return items
 
+def prep_errors_for_csv_compare(errors):
+  for error in errors:
+    error['sheet'] = error['sheet'] if error['sheet'] else ''
+  return errors
+
 def run_test(filename, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result = excel.to_json()
@@ -40,7 +45,7 @@ def run_test(filename, save=False):
   assert result == expected
   with open(f"tests/integration_test_files/{filename}_errors.csv", 'r') as f:
     expected = read_error_csv(f)
-  assert errors == expected
+  assert prep_errors_for_csv_compare(errors) == expected
 
 def run_test_html(filename, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
@@ -59,7 +64,7 @@ def run_test_html(filename, save=False):
   assert result == expected
   with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'r') as f:
     expected = read_error_csv(f)
-  assert errors == expected
+  assert prep_errors_for_csv_compare(errors) == expected
 
 def run_test_timeline(filename, level=USDMExcel.FULL_HTML, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
@@ -103,6 +108,12 @@ def test_full_1_html():
 
 def test_full_1_ne():
   run_test_ne('full_1')
+
+def test_full_2():
+  run_test('full_2')
+
+def test_full_2_html():
+  run_test_html('full_2')
 
 def test_simple_1():
   run_test('simple_1')
