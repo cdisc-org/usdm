@@ -4,6 +4,7 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
+from usdm_excel.cross_ref import cross_references
 from usdm_model.api_base_model import ApiBaseModelWithId
 
 def test_create(mocker):
@@ -53,6 +54,7 @@ def test_read_cell_by_name_error(mocker):
     call_parameters.append((sheet, row, column, message, level))
     return None
 
+  cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)

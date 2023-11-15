@@ -33,7 +33,7 @@
         "dateValues": [
           {
             "id": "GovernanceDate_1",
-            "name": "Approval",
+            "name": "D_APPROVE",
             "label": "Design Approval",
             "description": "Design approval date",
             "type": {
@@ -111,28 +111,6 @@
                   "standardCodeAliases": []
                 },
                 "quantity": "15"
-              },
-              {
-                "id": "SubjectEnrollment_2",
-                "type": {
-                  "id": "Code_59",
-                  "code": "C25464",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-09-29",
-                  "decode": "Country"
-                },
-                "code": {
-                  "id": "AliasCode_4",
-                  "standardCode": {
-                    "id": "Code_58",
-                    "code": "DNK",
-                    "codeSystem": "ISO 3166 1 alpha3",
-                    "codeSystemVersion": "2020-08",
-                    "decode": "Denmark"
-                  },
-                  "standardCodeAliases": []
-                },
-                "quantity": "20%"
               }
             ],
             "previousId": null
@@ -156,7 +134,7 @@
               "name": "Eli Lilly",
               "label": "",
               "type": {
-                "id": "Code_60",
+                "id": "Code_58",
                 "code": "C70793",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
@@ -173,7 +151,7 @@
                 "state": "IN",
                 "postalCode": "4628",
                 "country": {
-                  "id": "Code_61",
+                  "id": "Code_59",
                   "code": "USA",
                   "codeSystem": "ISO 3166 1 alpha3",
                   "codeSystemVersion": "2020-08",
@@ -190,7 +168,7 @@
               "name": "ClinicalTrials.gov",
               "label": "",
               "type": {
-                "id": "Code_62",
+                "id": "Code_60",
                 "code": "C93453",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
@@ -210,7 +188,7 @@
             "description": "The main design for the study",
             "trialIntentTypes": [
               {
-                "id": "Code_120",
+                "id": "Code_118",
                 "code": "C49656",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
@@ -219,21 +197,21 @@
             ],
             "trialTypes": [
               {
-                "id": "Code_121",
+                "id": "Code_119",
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
                 "decode": "Efficacy Study"
               },
               {
-                "id": "Code_122",
+                "id": "Code_120",
                 "code": "C49667",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
                 "decode": "Safety Study"
               },
               {
-                "id": "Code_123",
+                "id": "Code_121",
                 "code": "C49663",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
@@ -242,14 +220,14 @@
             ],
             "therapeuticAreas": [
               {
-                "id": "Code_117",
+                "id": "Code_115",
                 "code": "MILD_MOD_ALZ",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
                 "decode": "Mild to Moderate Alzheimer\\'s Disease"
               },
               {
-                "id": "Code_118",
+                "id": "Code_116",
                 "code": "26929004",
                 "codeSystem": "SNOMED",
                 "codeSystemVersion": "January 31, 2018",
@@ -257,7 +235,7 @@
               }
             ],
             "interventionModel": {
-              "id": "Code_124",
+              "id": "Code_122",
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2023-09-29",
@@ -270,7 +248,7 @@
                 "label": "Screening 1",
                 "description": "Screening encounter",
                 "type": {
-                  "id": "Code_66",
+                  "id": "Code_64",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -280,7 +258,7 @@
                 "nextEncounterId": "Encounter_2",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_67",
+                  "id": "Code_65",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -288,7 +266,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_68",
+                    "id": "Code_66",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -316,7 +294,7 @@
                 "label": "Screening 2",
                 "description": "Screening encounter - Ambulatory ECG Placement",
                 "type": {
-                  "id": "Code_69",
+                  "id": "Code_67",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -326,7 +304,7 @@
                 "nextEncounterId": "Encounter_3",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_70",
+                  "id": "Code_68",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -334,7 +312,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_71",
+                    "id": "Code_69",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -356,7 +334,7 @@
                 "label": "Baseline",
                 "description": "Baseline encounter - Ambulatory ECG Removal",
                 "type": {
-                  "id": "Code_72",
+                  "id": "Code_70",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -366,7 +344,7 @@
                 "nextEncounterId": "Encounter_4",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_73",
+                  "id": "Code_71",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -374,7 +352,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_74",
+                    "id": "Code_72",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -402,7 +380,7 @@
                 "label": "Week 2",
                 "description": "Day 14",
                 "type": {
-                  "id": "Code_75",
+                  "id": "Code_73",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -412,7 +390,7 @@
                 "nextEncounterId": "Encounter_5",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_76",
+                  "id": "Code_74",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -420,7 +398,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_77",
+                    "id": "Code_75",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -436,7 +414,7 @@
                 "label": "Week 4",
                 "description": "Day 28",
                 "type": {
-                  "id": "Code_78",
+                  "id": "Code_76",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -446,7 +424,7 @@
                 "nextEncounterId": "Encounter_6",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_79",
+                  "id": "Code_77",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -454,7 +432,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_80",
+                    "id": "Code_78",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -470,7 +448,7 @@
                 "label": "Week 6",
                 "description": "Day 42",
                 "type": {
-                  "id": "Code_81",
+                  "id": "Code_79",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -480,7 +458,7 @@
                 "nextEncounterId": "Encounter_7",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_82",
+                  "id": "Code_80",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -488,7 +466,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_83",
+                    "id": "Code_81",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -504,7 +482,7 @@
                 "label": "Week 8",
                 "description": "Day 56",
                 "type": {
-                  "id": "Code_84",
+                  "id": "Code_82",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -514,7 +492,7 @@
                 "nextEncounterId": "Encounter_8",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_85",
+                  "id": "Code_83",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -522,14 +500,14 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_86",
+                    "id": "Code_84",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "In Person"
                   },
                   {
-                    "id": "Code_87",
+                    "id": "Code_85",
                     "code": "C171537",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -545,7 +523,7 @@
                 "label": "Week 12",
                 "description": "Day 84",
                 "type": {
-                  "id": "Code_88",
+                  "id": "Code_86",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -555,7 +533,7 @@
                 "nextEncounterId": "Encounter_9",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_89",
+                  "id": "Code_87",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -563,14 +541,14 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_90",
+                    "id": "Code_88",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "In Person"
                   },
                   {
-                    "id": "Code_91",
+                    "id": "Code_89",
                     "code": "C171537",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -586,7 +564,7 @@
                 "label": "Week 16",
                 "description": "Day 112",
                 "type": {
-                  "id": "Code_92",
+                  "id": "Code_90",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -596,7 +574,7 @@
                 "nextEncounterId": "Encounter_10",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_93",
+                  "id": "Code_91",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -604,14 +582,14 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_94",
+                    "id": "Code_92",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "In Person"
                   },
                   {
-                    "id": "Code_95",
+                    "id": "Code_93",
                     "code": "C171537",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -627,7 +605,7 @@
                 "label": "Week 20",
                 "description": "Day 140",
                 "type": {
-                  "id": "Code_96",
+                  "id": "Code_94",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -637,7 +615,7 @@
                 "nextEncounterId": "Encounter_11",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_97",
+                  "id": "Code_95",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -645,14 +623,14 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_98",
+                    "id": "Code_96",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "In Person"
                   },
                   {
-                    "id": "Code_99",
+                    "id": "Code_97",
                     "code": "C171537",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -668,7 +646,7 @@
                 "label": "Week 24",
                 "description": "Day 168",
                 "type": {
-                  "id": "Code_100",
+                  "id": "Code_98",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -678,7 +656,7 @@
                 "nextEncounterId": "Encounter_12",
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_101",
+                  "id": "Code_99",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -686,7 +664,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_102",
+                    "id": "Code_100",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -702,7 +680,7 @@
                 "label": "Week 26",
                 "description": "Day 182",
                 "type": {
-                  "id": "Code_103",
+                  "id": "Code_101",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -712,7 +690,7 @@
                 "nextEncounterId": null,
                 "encounterScheduledAtTimingId": null,
                 "encounterEnvironmentalSetting": {
-                  "id": "Code_104",
+                  "id": "Code_102",
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -720,7 +698,7 @@
                 },
                 "encounterContactModes": [
                   {
-                    "id": "Code_105",
+                    "id": "Code_103",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -1012,7 +990,7 @@
                     "description": "CT Scan",
                     "procedureType": "CT Scan",
                     "code": {
-                      "id": "Code_63",
+                      "id": "Code_61",
                       "code": "383371000119108",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
@@ -1266,7 +1244,7 @@
                     "description": "Supine_5min",
                     "procedureType": "",
                     "code": {
-                      "id": "Code_64",
+                      "id": "Code_62",
                       "code": "123",
                       "codeSystem": "SPONSOR",
                       "codeSystemVersion": "12",
@@ -1316,7 +1294,7 @@
                     "description": "Stand_3min",
                     "procedureType": "",
                     "code": {
-                      "id": "Code_65",
+                      "id": "Code_63",
                       "code": "124",
                       "codeSystem": "SPONSOR",
                       "codeSystemVersion": "12",
@@ -1371,9 +1349,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_109",
+                      "id": "AliasCode_108",
                       "standardCode": {
-                        "id": "Code_244",
+                        "id": "Code_242",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1394,7 +1372,7 @@
                         "id": "ResponseCode_17",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_245",
+                          "id": "Code_243",
                           "code": "C42537",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1403,9 +1381,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_110",
+                      "id": "AliasCode_109",
                       "standardCode": {
-                        "id": "Code_246",
+                        "id": "Code_244",
                         "code": "C44276",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1423,9 +1401,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_111",
+                      "id": "AliasCode_110",
                       "standardCode": {
-                        "id": "Code_247",
+                        "id": "Code_245",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1436,9 +1414,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_108",
+                  "id": "AliasCode_107",
                   "standardCode": {
-                    "id": "Code_243",
+                    "id": "Code_241",
                     "code": "C174446",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1465,9 +1443,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_113",
+                      "id": "AliasCode_112",
                       "standardCode": {
-                        "id": "Code_249",
+                        "id": "Code_247",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1488,7 +1466,7 @@
                         "id": "ResponseCode_18",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_250",
+                          "id": "Code_248",
                           "code": "C28252",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1499,7 +1477,7 @@
                         "id": "ResponseCode_19",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_251",
+                          "id": "Code_249",
                           "code": "C48155",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1510,7 +1488,7 @@
                         "id": "ResponseCode_20",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_252",
+                          "id": "Code_250",
                           "code": "C48531",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1519,9 +1497,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_114",
+                      "id": "AliasCode_113",
                       "standardCode": {
-                        "id": "Code_253",
+                        "id": "Code_251",
                         "code": "C48208",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1532,9 +1510,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_112",
+                  "id": "AliasCode_111",
                   "standardCode": {
-                    "id": "Code_248",
+                    "id": "Code_246",
                     "code": "C81328",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1561,9 +1539,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_116",
+                      "id": "AliasCode_115",
                       "standardCode": {
-                        "id": "Code_255",
+                        "id": "Code_253",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1584,7 +1562,7 @@
                         "id": "ResponseCode_21",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_256",
+                          "id": "Code_254",
                           "code": "C49668",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1595,7 +1573,7 @@
                         "id": "ResponseCode_22",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_257",
+                          "id": "Code_255",
                           "code": "C48500",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1606,7 +1584,7 @@
                         "id": "ResponseCode_23",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_258",
+                          "id": "Code_256",
                           "code": "C28251",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1617,7 +1595,7 @@
                         "id": "ResponseCode_24",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_259",
+                          "id": "Code_257",
                           "code": "C41139",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1626,9 +1604,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_117",
+                      "id": "AliasCode_116",
                       "standardCode": {
-                        "id": "Code_260",
+                        "id": "Code_258",
                         "code": "C168688",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1639,9 +1617,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_115",
+                  "id": "AliasCode_114",
                   "standardCode": {
-                    "id": "Code_254",
+                    "id": "Code_252",
                     "code": "C164634",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1669,9 +1647,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_119",
+                      "id": "AliasCode_118",
                       "standardCode": {
-                        "id": "Code_262",
+                        "id": "Code_260",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1689,9 +1667,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_120",
+                      "id": "AliasCode_119",
                       "standardCode": {
-                        "id": "Code_263",
+                        "id": "Code_261",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1709,9 +1687,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_121",
+                      "id": "AliasCode_120",
                       "standardCode": {
-                        "id": "Code_264",
+                        "id": "Code_262",
                         "code": "C67365",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1729,9 +1707,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_122",
+                      "id": "AliasCode_121",
                       "standardCode": {
-                        "id": "Code_265",
+                        "id": "Code_263",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1742,9 +1720,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_118",
+                  "id": "AliasCode_117",
                   "standardCode": {
-                    "id": "Code_261",
+                    "id": "Code_259",
                     "code": "C64433",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1771,9 +1749,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_124",
+                      "id": "AliasCode_123",
                       "standardCode": {
-                        "id": "Code_267",
+                        "id": "Code_265",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1791,9 +1769,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_125",
+                      "id": "AliasCode_124",
                       "standardCode": {
-                        "id": "Code_268",
+                        "id": "Code_266",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1811,9 +1789,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_126",
+                      "id": "AliasCode_125",
                       "standardCode": {
-                        "id": "Code_269",
+                        "id": "Code_267",
                         "code": "C48207",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1831,9 +1809,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_127",
+                      "id": "AliasCode_126",
                       "standardCode": {
-                        "id": "Code_270",
+                        "id": "Code_268",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1844,9 +1822,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_123",
+                  "id": "AliasCode_122",
                   "standardCode": {
-                    "id": "Code_266",
+                    "id": "Code_264",
                     "code": "C64431",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1873,9 +1851,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_129",
+                      "id": "AliasCode_128",
                       "standardCode": {
-                        "id": "Code_272",
+                        "id": "Code_270",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1893,9 +1871,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_130",
+                      "id": "AliasCode_129",
                       "standardCode": {
-                        "id": "Code_273",
+                        "id": "Code_271",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1913,9 +1891,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_131",
+                      "id": "AliasCode_130",
                       "standardCode": {
-                        "id": "Code_274",
+                        "id": "Code_272",
                         "code": "C67365",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1933,9 +1911,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_132",
+                      "id": "AliasCode_131",
                       "standardCode": {
-                        "id": "Code_275",
+                        "id": "Code_273",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1946,9 +1924,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_128",
+                  "id": "AliasCode_127",
                   "standardCode": {
-                    "id": "Code_271",
+                    "id": "Code_269",
                     "code": "C64432",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1976,9 +1954,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_134",
+                      "id": "AliasCode_133",
                       "standardCode": {
-                        "id": "Code_277",
+                        "id": "Code_275",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1996,9 +1974,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_135",
+                      "id": "AliasCode_134",
                       "standardCode": {
-                        "id": "Code_278",
+                        "id": "Code_276",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2016,9 +1994,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_136",
+                      "id": "AliasCode_135",
                       "standardCode": {
-                        "id": "Code_279",
+                        "id": "Code_277",
                         "code": "C67365",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2036,9 +2014,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_137",
+                      "id": "AliasCode_136",
                       "standardCode": {
-                        "id": "Code_280",
+                        "id": "Code_278",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2049,9 +2027,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_133",
+                  "id": "AliasCode_132",
                   "standardCode": {
-                    "id": "Code_276",
+                    "id": "Code_274",
                     "code": "C64467",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -2078,9 +2056,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_139",
+                      "id": "AliasCode_138",
                       "standardCode": {
-                        "id": "Code_282",
+                        "id": "Code_280",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2098,9 +2076,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_140",
+                      "id": "AliasCode_139",
                       "standardCode": {
-                        "id": "Code_283",
+                        "id": "Code_281",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2118,9 +2096,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_141",
+                      "id": "AliasCode_140",
                       "standardCode": {
-                        "id": "Code_284",
+                        "id": "Code_282",
                         "code": "C48207",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2138,9 +2116,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_142",
+                      "id": "AliasCode_141",
                       "standardCode": {
-                        "id": "Code_285",
+                        "id": "Code_283",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2151,9 +2129,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_138",
+                  "id": "AliasCode_137",
                   "standardCode": {
-                    "id": "Code_281",
+                    "id": "Code_279",
                     "code": "C64547",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -2181,9 +2159,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_144",
+                      "id": "AliasCode_143",
                       "standardCode": {
-                        "id": "Code_287",
+                        "id": "Code_285",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2201,9 +2179,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_145",
+                      "id": "AliasCode_144",
                       "standardCode": {
-                        "id": "Code_288",
+                        "id": "Code_286",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2221,9 +2199,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_146",
+                      "id": "AliasCode_145",
                       "standardCode": {
-                        "id": "Code_289",
+                        "id": "Code_287",
                         "code": "C64567",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2241,9 +2219,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_147",
+                      "id": "AliasCode_146",
                       "standardCode": {
-                        "id": "Code_290",
+                        "id": "Code_288",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2254,9 +2232,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_143",
+                  "id": "AliasCode_142",
                   "standardCode": {
-                    "id": "Code_286",
+                    "id": "Code_284",
                     "code": "C64853",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -2284,9 +2262,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_149",
+                      "id": "AliasCode_148",
                       "standardCode": {
-                        "id": "Code_292",
+                        "id": "Code_290",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2304,9 +2282,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_150",
+                      "id": "AliasCode_149",
                       "standardCode": {
-                        "id": "Code_293",
+                        "id": "Code_291",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2324,9 +2302,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_151",
+                      "id": "AliasCode_150",
                       "standardCode": {
-                        "id": "Code_294",
+                        "id": "Code_292",
                         "code": "C64567",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2344,9 +2322,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_152",
+                      "id": "AliasCode_151",
                       "standardCode": {
-                        "id": "Code_295",
+                        "id": "Code_293",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2357,9 +2335,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_148",
+                  "id": "AliasCode_147",
                   "standardCode": {
-                    "id": "Code_291",
+                    "id": "Code_289",
                     "code": "C64809",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -2387,9 +2365,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_7",
+                      "id": "AliasCode_6",
                       "standardCode": {
-                        "id": "Code_126",
+                        "id": "Code_124",
                         "code": "C78541",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2407,9 +2385,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_8",
+                      "id": "AliasCode_7",
                       "standardCode": {
-                        "id": "Code_127",
+                        "id": "Code_125",
                         "code": "C83344",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2427,9 +2405,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_9",
+                      "id": "AliasCode_8",
                       "standardCode": {
-                        "id": "Code_128",
+                        "id": "Code_126",
                         "code": "C83198",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2447,9 +2425,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_10",
+                      "id": "AliasCode_9",
                       "standardCode": {
-                        "id": "Code_129",
+                        "id": "Code_127",
                         "code": "C83212",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2467,9 +2445,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_11",
+                      "id": "AliasCode_10",
                       "standardCode": {
-                        "id": "Code_130",
+                        "id": "Code_128",
                         "code": "C87840",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2487,9 +2465,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_12",
+                      "id": "AliasCode_11",
                       "standardCode": {
-                        "id": "Code_131",
+                        "id": "Code_129",
                         "code": "C53253",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2507,9 +2485,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_13",
+                      "id": "AliasCode_12",
                       "standardCode": {
-                        "id": "Code_132",
+                        "id": "Code_130",
                         "code": "C78605",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2527,9 +2505,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_14",
+                      "id": "AliasCode_13",
                       "standardCode": {
-                        "id": "Code_133",
+                        "id": "Code_131",
                         "code": "C53252",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2550,7 +2528,7 @@
                         "id": "ResponseCode_1",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_134",
+                          "id": "Code_132",
                           "code": "C17998",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -2559,9 +2537,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_15",
+                      "id": "AliasCode_14",
                       "standardCode": {
-                        "id": "Code_135",
+                        "id": "Code_133",
                         "code": "C83013",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2579,9 +2557,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_16",
+                      "id": "AliasCode_15",
                       "standardCode": {
-                        "id": "Code_136",
+                        "id": "Code_134",
                         "code": "C41358",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2599,9 +2577,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_17",
+                      "id": "AliasCode_16",
                       "standardCode": {
-                        "id": "Code_137",
+                        "id": "Code_135",
                         "code": "C83208",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2622,7 +2600,7 @@
                         "id": "ResponseCode_2",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_138",
+                          "id": "Code_136",
                           "code": "C17998",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -2631,9 +2609,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_18",
+                      "id": "AliasCode_17",
                       "standardCode": {
-                        "id": "Code_139",
+                        "id": "Code_137",
                         "code": "C49489",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2651,9 +2629,9 @@
                     "bcPropertyDatatype": "datetime",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_19",
+                      "id": "AliasCode_18",
                       "standardCode": {
-                        "id": "Code_140",
+                        "id": "Code_138",
                         "code": "C83215",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2671,9 +2649,9 @@
                     "bcPropertyDatatype": "datetime",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_20",
+                      "id": "AliasCode_19",
                       "standardCode": {
-                        "id": "Code_141",
+                        "id": "Code_139",
                         "code": "C83201",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2684,9 +2662,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_6",
+                  "id": "AliasCode_5",
                   "standardCode": {
-                    "id": "Code_125",
+                    "id": "Code_123",
                     "code": "C41331",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -2713,9 +2691,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_22",
+                      "id": "AliasCode_21",
                       "standardCode": {
-                        "id": "Code_143",
+                        "id": "Code_141",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2736,7 +2714,7 @@
                         "id": "ResponseCode_3",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_144",
+                          "id": "Code_142",
                           "code": "C42547",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -2745,9 +2723,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_23",
+                      "id": "AliasCode_22",
                       "standardCode": {
-                        "id": "Code_145",
+                        "id": "Code_143",
                         "code": "C49669",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2765,9 +2743,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_24",
+                      "id": "AliasCode_23",
                       "standardCode": {
-                        "id": "Code_146",
+                        "id": "Code_144",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2785,9 +2763,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_25",
+                      "id": "AliasCode_24",
                       "standardCode": {
-                        "id": "Code_147",
+                        "id": "Code_145",
                         "code": "C123975",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2805,9 +2783,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_26",
+                      "id": "AliasCode_25",
                       "standardCode": {
-                        "id": "Code_148",
+                        "id": "Code_146",
                         "code": "C82535",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2825,9 +2803,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_27",
+                      "id": "AliasCode_26",
                       "standardCode": {
-                        "id": "Code_149",
+                        "id": "Code_147",
                         "code": "C83114",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2838,9 +2816,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_21",
+                  "id": "AliasCode_20",
                   "standardCode": {
-                    "id": "Code_142",
+                    "id": "Code_140",
                     "code": "C25298",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -2867,9 +2845,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_29",
+                      "id": "AliasCode_28",
                       "standardCode": {
-                        "id": "Code_151",
+                        "id": "Code_149",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2890,7 +2868,7 @@
                         "id": "ResponseCode_4",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_152",
+                          "id": "Code_150",
                           "code": "C42547",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -2899,9 +2877,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_30",
+                      "id": "AliasCode_29",
                       "standardCode": {
-                        "id": "Code_153",
+                        "id": "Code_151",
                         "code": "C49669",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2919,9 +2897,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_31",
+                      "id": "AliasCode_30",
                       "standardCode": {
-                        "id": "Code_154",
+                        "id": "Code_152",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2939,9 +2917,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_32",
+                      "id": "AliasCode_31",
                       "standardCode": {
-                        "id": "Code_155",
+                        "id": "Code_153",
                         "code": "C123975",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2959,9 +2937,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_33",
+                      "id": "AliasCode_32",
                       "standardCode": {
-                        "id": "Code_156",
+                        "id": "Code_154",
                         "code": "C82535",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2979,9 +2957,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_34",
+                      "id": "AliasCode_33",
                       "standardCode": {
-                        "id": "Code_157",
+                        "id": "Code_155",
                         "code": "C83114",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -2992,9 +2970,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_28",
+                  "id": "AliasCode_27",
                   "standardCode": {
-                    "id": "Code_150",
+                    "id": "Code_148",
                     "code": "C25299",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3021,9 +2999,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_36",
+                      "id": "AliasCode_35",
                       "standardCode": {
-                        "id": "Code_159",
+                        "id": "Code_157",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3044,7 +3022,7 @@
                         "id": "ResponseCode_5",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_160",
+                          "id": "Code_158",
                           "code": "C42537",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3053,9 +3031,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_37",
+                      "id": "AliasCode_36",
                       "standardCode": {
-                        "id": "Code_161",
+                        "id": "Code_159",
                         "code": "C44276",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3073,9 +3051,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_38",
+                      "id": "AliasCode_37",
                       "standardCode": {
-                        "id": "Code_162",
+                        "id": "Code_160",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3086,9 +3064,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_35",
+                  "id": "AliasCode_34",
                   "standardCode": {
-                    "id": "Code_158",
+                    "id": "Code_156",
                     "code": "C174446",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3115,9 +3093,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_40",
+                      "id": "AliasCode_39",
                       "standardCode": {
-                        "id": "Code_164",
+                        "id": "Code_162",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3138,7 +3116,7 @@
                         "id": "ResponseCode_6",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_165",
+                          "id": "Code_163",
                           "code": "C28252",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3149,7 +3127,7 @@
                         "id": "ResponseCode_7",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_166",
+                          "id": "Code_164",
                           "code": "C48155",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3160,7 +3138,7 @@
                         "id": "ResponseCode_8",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_167",
+                          "id": "Code_165",
                           "code": "C48531",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3169,9 +3147,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_41",
+                      "id": "AliasCode_40",
                       "standardCode": {
-                        "id": "Code_168",
+                        "id": "Code_166",
                         "code": "C48208",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3182,9 +3160,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_39",
+                  "id": "AliasCode_38",
                   "standardCode": {
-                    "id": "Code_163",
+                    "id": "Code_161",
                     "code": "C81328",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3211,9 +3189,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_43",
+                      "id": "AliasCode_42",
                       "standardCode": {
-                        "id": "Code_170",
+                        "id": "Code_168",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3234,7 +3212,7 @@
                         "id": "ResponseCode_9",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_171",
+                          "id": "Code_169",
                           "code": "C49668",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3245,7 +3223,7 @@
                         "id": "ResponseCode_10",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_172",
+                          "id": "Code_170",
                           "code": "C48500",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3256,7 +3234,7 @@
                         "id": "ResponseCode_11",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_173",
+                          "id": "Code_171",
                           "code": "C28251",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3267,7 +3245,7 @@
                         "id": "ResponseCode_12",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_174",
+                          "id": "Code_172",
                           "code": "C41139",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -3276,9 +3254,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_44",
+                      "id": "AliasCode_43",
                       "standardCode": {
-                        "id": "Code_175",
+                        "id": "Code_173",
                         "code": "C168688",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3289,9 +3267,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_42",
+                  "id": "AliasCode_41",
                   "standardCode": {
-                    "id": "Code_169",
+                    "id": "Code_167",
                     "code": "C164634",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3319,9 +3297,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_46",
+                      "id": "AliasCode_45",
                       "standardCode": {
-                        "id": "Code_177",
+                        "id": "Code_175",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3339,9 +3317,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_47",
+                      "id": "AliasCode_46",
                       "standardCode": {
-                        "id": "Code_178",
+                        "id": "Code_176",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3359,9 +3337,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_48",
+                      "id": "AliasCode_47",
                       "standardCode": {
-                        "id": "Code_179",
+                        "id": "Code_177",
                         "code": "C67365",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3379,9 +3357,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_49",
+                      "id": "AliasCode_48",
                       "standardCode": {
-                        "id": "Code_180",
+                        "id": "Code_178",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3392,9 +3370,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_45",
+                  "id": "AliasCode_44",
                   "standardCode": {
-                    "id": "Code_176",
+                    "id": "Code_174",
                     "code": "C64433",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3421,9 +3399,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_51",
+                      "id": "AliasCode_50",
                       "standardCode": {
-                        "id": "Code_182",
+                        "id": "Code_180",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3441,9 +3419,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_52",
+                      "id": "AliasCode_51",
                       "standardCode": {
-                        "id": "Code_183",
+                        "id": "Code_181",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3461,9 +3439,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_53",
+                      "id": "AliasCode_52",
                       "standardCode": {
-                        "id": "Code_184",
+                        "id": "Code_182",
                         "code": "C48207",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3481,9 +3459,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_54",
+                      "id": "AliasCode_53",
                       "standardCode": {
-                        "id": "Code_185",
+                        "id": "Code_183",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3494,9 +3472,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_50",
+                  "id": "AliasCode_49",
                   "standardCode": {
-                    "id": "Code_181",
+                    "id": "Code_179",
                     "code": "C64431",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3523,9 +3501,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_56",
+                      "id": "AliasCode_55",
                       "standardCode": {
-                        "id": "Code_187",
+                        "id": "Code_185",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3543,9 +3521,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_57",
+                      "id": "AliasCode_56",
                       "standardCode": {
-                        "id": "Code_188",
+                        "id": "Code_186",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3563,9 +3541,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_58",
+                      "id": "AliasCode_57",
                       "standardCode": {
-                        "id": "Code_189",
+                        "id": "Code_187",
                         "code": "C67365",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3583,9 +3561,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_59",
+                      "id": "AliasCode_58",
                       "standardCode": {
-                        "id": "Code_190",
+                        "id": "Code_188",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3596,9 +3574,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_55",
+                  "id": "AliasCode_54",
                   "standardCode": {
-                    "id": "Code_186",
+                    "id": "Code_184",
                     "code": "C64432",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3626,9 +3604,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_61",
+                      "id": "AliasCode_60",
                       "standardCode": {
-                        "id": "Code_192",
+                        "id": "Code_190",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3646,9 +3624,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_62",
+                      "id": "AliasCode_61",
                       "standardCode": {
-                        "id": "Code_193",
+                        "id": "Code_191",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3666,9 +3644,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_63",
+                      "id": "AliasCode_62",
                       "standardCode": {
-                        "id": "Code_194",
+                        "id": "Code_192",
                         "code": "C67365",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3686,9 +3664,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_64",
+                      "id": "AliasCode_63",
                       "standardCode": {
-                        "id": "Code_195",
+                        "id": "Code_193",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3699,9 +3677,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_60",
+                  "id": "AliasCode_59",
                   "standardCode": {
-                    "id": "Code_191",
+                    "id": "Code_189",
                     "code": "C64467",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3728,9 +3706,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_66",
+                      "id": "AliasCode_65",
                       "standardCode": {
-                        "id": "Code_197",
+                        "id": "Code_195",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3748,9 +3726,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_67",
+                      "id": "AliasCode_66",
                       "standardCode": {
-                        "id": "Code_198",
+                        "id": "Code_196",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3768,9 +3746,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_68",
+                      "id": "AliasCode_67",
                       "standardCode": {
-                        "id": "Code_199",
+                        "id": "Code_197",
                         "code": "C48207",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3788,9 +3766,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_69",
+                      "id": "AliasCode_68",
                       "standardCode": {
-                        "id": "Code_200",
+                        "id": "Code_198",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3801,9 +3779,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_65",
+                  "id": "AliasCode_64",
                   "standardCode": {
-                    "id": "Code_196",
+                    "id": "Code_194",
                     "code": "C64547",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3831,9 +3809,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_71",
+                      "id": "AliasCode_70",
                       "standardCode": {
-                        "id": "Code_202",
+                        "id": "Code_200",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3851,9 +3829,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_72",
+                      "id": "AliasCode_71",
                       "standardCode": {
-                        "id": "Code_203",
+                        "id": "Code_201",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3871,9 +3849,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_73",
+                      "id": "AliasCode_72",
                       "standardCode": {
-                        "id": "Code_204",
+                        "id": "Code_202",
                         "code": "C64567",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3891,9 +3869,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_74",
+                      "id": "AliasCode_73",
                       "standardCode": {
-                        "id": "Code_205",
+                        "id": "Code_203",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3904,9 +3882,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_70",
+                  "id": "AliasCode_69",
                   "standardCode": {
-                    "id": "Code_201",
+                    "id": "Code_199",
                     "code": "C64853",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -3934,9 +3912,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_76",
+                      "id": "AliasCode_75",
                       "standardCode": {
-                        "id": "Code_207",
+                        "id": "Code_205",
                         "code": "C36292",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3954,9 +3932,9 @@
                     "bcPropertyDatatype": "boolean",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_77",
+                      "id": "AliasCode_76",
                       "standardCode": {
-                        "id": "Code_208",
+                        "id": "Code_206",
                         "code": "C83309",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3974,9 +3952,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_78",
+                      "id": "AliasCode_77",
                       "standardCode": {
-                        "id": "Code_209",
+                        "id": "Code_207",
                         "code": "C64567",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -3994,9 +3972,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_79",
+                      "id": "AliasCode_78",
                       "standardCode": {
-                        "id": "Code_210",
+                        "id": "Code_208",
                         "code": "C70713",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4007,9 +3985,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_75",
+                  "id": "AliasCode_74",
                   "standardCode": {
-                    "id": "Code_206",
+                    "id": "Code_204",
                     "code": "C64809",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -4036,9 +4014,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_81",
+                      "id": "AliasCode_80",
                       "standardCode": {
-                        "id": "Code_212",
+                        "id": "Code_210",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4059,7 +4037,7 @@
                         "id": "ResponseCode_13",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_213",
+                          "id": "Code_211",
                           "code": "C42547",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -4068,9 +4046,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_82",
+                      "id": "AliasCode_81",
                       "standardCode": {
-                        "id": "Code_214",
+                        "id": "Code_212",
                         "code": "C49669",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4088,9 +4066,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_83",
+                      "id": "AliasCode_82",
                       "standardCode": {
-                        "id": "Code_215",
+                        "id": "Code_213",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4108,9 +4086,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_84",
+                      "id": "AliasCode_83",
                       "standardCode": {
-                        "id": "Code_216",
+                        "id": "Code_214",
                         "code": "C123975",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4128,9 +4106,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_85",
+                      "id": "AliasCode_84",
                       "standardCode": {
-                        "id": "Code_217",
+                        "id": "Code_215",
                         "code": "C82535",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4148,9 +4126,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_86",
+                      "id": "AliasCode_85",
                       "standardCode": {
-                        "id": "Code_218",
+                        "id": "Code_216",
                         "code": "C83114",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4161,9 +4139,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_80",
+                  "id": "AliasCode_79",
                   "standardCode": {
-                    "id": "Code_211",
+                    "id": "Code_209",
                     "code": "C25298",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -4190,9 +4168,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_88",
+                      "id": "AliasCode_87",
                       "standardCode": {
-                        "id": "Code_220",
+                        "id": "Code_218",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4213,7 +4191,7 @@
                         "id": "ResponseCode_14",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_221",
+                          "id": "Code_219",
                           "code": "C42547",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -4222,9 +4200,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_89",
+                      "id": "AliasCode_88",
                       "standardCode": {
-                        "id": "Code_222",
+                        "id": "Code_220",
                         "code": "C49669",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4242,9 +4220,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_90",
+                      "id": "AliasCode_89",
                       "standardCode": {
-                        "id": "Code_223",
+                        "id": "Code_221",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4262,9 +4240,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_91",
+                      "id": "AliasCode_90",
                       "standardCode": {
-                        "id": "Code_224",
+                        "id": "Code_222",
                         "code": "C123975",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4282,9 +4260,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_92",
+                      "id": "AliasCode_91",
                       "standardCode": {
-                        "id": "Code_225",
+                        "id": "Code_223",
                         "code": "C82535",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4302,9 +4280,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_93",
+                      "id": "AliasCode_92",
                       "standardCode": {
-                        "id": "Code_226",
+                        "id": "Code_224",
                         "code": "C83114",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4315,9 +4293,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_87",
+                  "id": "AliasCode_86",
                   "standardCode": {
-                    "id": "Code_219",
+                    "id": "Code_217",
                     "code": "C25299",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -4344,9 +4322,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_95",
+                      "id": "AliasCode_94",
                       "standardCode": {
-                        "id": "Code_228",
+                        "id": "Code_226",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4367,7 +4345,7 @@
                         "id": "ResponseCode_15",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_229",
+                          "id": "Code_227",
                           "code": "C42547",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -4376,9 +4354,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_96",
+                      "id": "AliasCode_95",
                       "standardCode": {
-                        "id": "Code_230",
+                        "id": "Code_228",
                         "code": "C49669",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4396,9 +4374,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_97",
+                      "id": "AliasCode_96",
                       "standardCode": {
-                        "id": "Code_231",
+                        "id": "Code_229",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4416,9 +4394,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_98",
+                      "id": "AliasCode_97",
                       "standardCode": {
-                        "id": "Code_232",
+                        "id": "Code_230",
                         "code": "C123975",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4436,9 +4414,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_99",
+                      "id": "AliasCode_98",
                       "standardCode": {
-                        "id": "Code_233",
+                        "id": "Code_231",
                         "code": "C82535",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4456,9 +4434,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_100",
+                      "id": "AliasCode_99",
                       "standardCode": {
-                        "id": "Code_234",
+                        "id": "Code_232",
                         "code": "C83114",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4469,9 +4447,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_94",
+                  "id": "AliasCode_93",
                   "standardCode": {
-                    "id": "Code_227",
+                    "id": "Code_225",
                     "code": "C25298",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -4498,9 +4476,9 @@
                     "bcPropertyDatatype": "decimal",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_102",
+                      "id": "AliasCode_101",
                       "standardCode": {
-                        "id": "Code_236",
+                        "id": "Code_234",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4521,7 +4499,7 @@
                         "id": "ResponseCode_16",
                         "responseCodeEnabled": true,
                         "code": {
-                          "id": "Code_237",
+                          "id": "Code_235",
                           "code": "C42547",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -4530,9 +4508,9 @@
                       }
                     ],
                     "code": {
-                      "id": "AliasCode_103",
+                      "id": "AliasCode_102",
                       "standardCode": {
-                        "id": "Code_238",
+                        "id": "Code_236",
                         "code": "C49669",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4550,9 +4528,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_104",
+                      "id": "AliasCode_103",
                       "standardCode": {
-                        "id": "Code_239",
+                        "id": "Code_237",
                         "code": "C83088",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4570,9 +4548,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_105",
+                      "id": "AliasCode_104",
                       "standardCode": {
-                        "id": "Code_240",
+                        "id": "Code_238",
                         "code": "C123975",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4590,9 +4568,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_106",
+                      "id": "AliasCode_105",
                       "standardCode": {
-                        "id": "Code_241",
+                        "id": "Code_239",
                         "code": "C82535",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4610,9 +4588,9 @@
                     "bcPropertyDatatype": "string",
                     "bcPropertyResponseCodes": [],
                     "code": {
-                      "id": "AliasCode_107",
+                      "id": "AliasCode_106",
                       "standardCode": {
-                        "id": "Code_242",
+                        "id": "Code_240",
                         "code": "C83114",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -4623,9 +4601,9 @@
                   }
                 ],
                 "code": {
-                  "id": "AliasCode_101",
+                  "id": "AliasCode_100",
                   "standardCode": {
-                    "id": "Code_235",
+                    "id": "Code_233",
                     "code": "C25299",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -4652,7 +4630,7 @@
                 "label": "Placebo",
                 "description": "Placebo",
                 "type": {
-                  "id": "Code_106",
+                  "id": "Code_104",
                   "code": "C174268",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4660,7 +4638,7 @@
                 },
                 "studyArmDataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_107",
+                  "id": "Code_105",
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4673,7 +4651,7 @@
                 "label": "Xanomeline Low Dose",
                 "description": "Active Substance",
                 "type": {
-                  "id": "Code_108",
+                  "id": "Code_106",
                   "code": "C174267",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4681,7 +4659,7 @@
                 },
                 "studyArmDataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_109",
+                  "id": "Code_107",
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4694,7 +4672,7 @@
                 "label": "Xanomeline High Dose",
                 "description": "Active Substance",
                 "type": {
-                  "id": "Code_110",
+                  "id": "Code_108",
                   "code": "C174267",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4702,7 +4680,7 @@
                 },
                 "studyArmDataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_111",
+                  "id": "Code_109",
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4833,9 +4811,9 @@
               }
             ],
             "studyDesignBlindingScheme": {
-              "id": "AliasCode_5",
+              "id": "AliasCode_4",
               "standardCode": {
-                "id": "Code_119",
+                "id": "Code_117",
                 "code": "C15228",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
@@ -4851,7 +4829,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_112",
+                  "id": "Code_110",
                   "code": "C48262",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4866,7 +4844,7 @@
                 "label": "Treatment One",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_113",
+                  "id": "Code_111",
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4881,7 +4859,7 @@
                 "label": "Treatment Two",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_114",
+                  "id": "Code_112",
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4896,7 +4874,7 @@
                 "label": "Treatment Three",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_115",
+                  "id": "Code_113",
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -4911,7 +4889,7 @@
                 "label": "Follow Up",
                 "description": "Follow-up Epoch",
                 "type": {
-                  "id": "Code_116",
+                  "id": "Code_114",
                   "code": "C99158",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -5042,7 +5020,7 @@
                 "description": "Alzheimer's disease",
                 "codes": [
                   {
-                    "id": "Code_296",
+                    "id": "Code_294",
                     "code": "G30.9",
                     "codeSystem": "ICD-10-CM",
                     "codeSystemVersion": "1",
@@ -5057,7 +5035,7 @@
                 "description": "Alzheimer's disease",
                 "codes": [
                   {
-                    "id": "Code_297",
+                    "id": "Code_295",
                     "code": "26929004",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -5077,7 +5055,7 @@
                 "text": "To determine if there is a statistically significant relationship (overall Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+ scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).",
                 "dictionaryId": null,
                 "level": {
-                  "id": "Code_300",
+                  "id": "Code_298",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -5094,7 +5072,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_299",
+                      "id": "Code_297",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5111,7 +5089,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_301",
+                      "id": "Code_299",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5129,7 +5107,7 @@
                 "text": "To document the safety profile of the xanomeline TTS.",
                 "dictionaryId": null,
                 "level": {
-                  "id": "Code_303",
+                  "id": "Code_301",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -5146,7 +5124,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_302",
+                      "id": "Code_300",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5163,7 +5141,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_304",
+                      "id": "Code_302",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5180,7 +5158,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_305",
+                      "id": "Code_303",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5198,7 +5176,7 @@
                 "text": "To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these\nareas.",
                 "dictionaryId": null,
                 "level": {
-                  "id": "Code_307",
+                  "id": "Code_305",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -5215,7 +5193,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_306",
+                      "id": "Code_304",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5232,7 +5210,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_308",
+                      "id": "Code_306",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5249,7 +5227,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_309",
+                      "id": "Code_307",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5270,7 +5248,7 @@
                 "plannedMinimumAgeOfParticipants": "50 years",
                 "plannedSexOfParticipants": [
                   {
-                    "id": "Code_298",
+                    "id": "Code_296",
                     "code": "C49636",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -6356,7 +6334,7 @@
                 "text": "Subjects shall be between [min_age] and [max_age]",
                 "dictionaryId": "SyntaxTemplateDictionary_1",
                 "category": {
-                  "id": "Code_310",
+                  "id": "Code_308",
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -6375,7 +6353,7 @@
                 "text": "[StudyPopulation] as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)",
                 "dictionaryId": "SyntaxTemplateDictionary_1",
                 "category": {
-                  "id": "Code_311",
+                  "id": "Code_309",
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -6394,7 +6372,7 @@
                 "text": "[Activity1] score of 10 to 23",
                 "dictionaryId": "SyntaxTemplateDictionary_2",
                 "category": {
-                  "id": "Code_312",
+                  "id": "Code_310",
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -6413,7 +6391,7 @@
                 "text": "Persons who have previously completed or withdrawn from this study or any other study investigating xanomeline TTS or the oral formulation of xanomeline.",
                 "dictionaryId": null,
                 "category": {
-                  "id": "Code_313",
+                  "id": "Code_311",
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -6491,7 +6469,7 @@
           "dateValues": [
             {
               "id": "GovernanceDate_2",
-              "name": "Approval",
+              "name": "P_APPROVE",
               "label": "Protocol Approval",
               "description": "Protocol document approval date",
               "type": {
