@@ -10,8 +10,7 @@ class StudyDesignIndicationSheet(BaseSheet):
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='studyDesignIndications')
-      self.indications = []
-      self.interventions = []
+      self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, "name")
         description = self.read_description_by_name(index, "description")
@@ -23,7 +22,7 @@ class StudyDesignIndicationSheet(BaseSheet):
           self._general_error(f"Failed to create Indication object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
         else:
-          self.indications.append(item)
+          self.items.append(item)
           cross_references.add(name, item)
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")

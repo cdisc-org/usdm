@@ -4,7 +4,8 @@ from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIden
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
-from usdm_excel.study_design_ii_sheet.study_design_ii_sheet import StudyDesignIISheet
+from usdm_excel.study_design_indcation_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
+from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
@@ -101,7 +102,8 @@ class StudySheet(BaseSheet):
       self.activities = StudyDesignActivitySheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
       self._process_soa(file_path)
-      self.ii = StudyDesignIISheet(file_path)
+      self.indications = StudyDesignIndicationSheet(file_path)
+      self.interventions = StudyDesignInterventionSheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
       self.dictionaries = StudyDesignDictionarySheet(file_path)
