@@ -49,7 +49,7 @@ class StudyDesignContentSheet(BaseSheet):
           if new_level == current_level:
             # Same level
             parent = current_parent[-1]
-            parent.contentChildIds.append(item.id)
+            parent.childrenIds.append(item.id)
           elif new_level > current_level:
             # Down
             if (new_level - current_level) > 1:
@@ -58,13 +58,13 @@ class StudyDesignContentSheet(BaseSheet):
             current_parent.append(previous_item)
             current_level = new_level
             parent = current_parent[-1]
-            parent.contentChildIds.append(item.id)
+            parent.childrenIds.append(item.id)
           else:
             # Up
             for p_count in range(new_level, current_level):
               popped = current_parent.pop()
             parent = current_parent[-1]
-            parent.contentChildIds.append(item.id)
+            parent.childrenIds.append(item.id)
             current_level = new_level
           previous_item = item
     except Exception as e:
