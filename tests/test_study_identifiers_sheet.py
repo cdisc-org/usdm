@@ -2,6 +2,7 @@ import pytest
 import pandas as pd
 
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):
@@ -94,6 +95,7 @@ def test_read_cell_by_name_error(mocker):
   assert mock_error.call_args[0][3] == "Exception [Failed to detect column(s) 'organisationType, type' in sheet] raised reading sheet."
   
 def test_address_error(mocker):
+  cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1']
