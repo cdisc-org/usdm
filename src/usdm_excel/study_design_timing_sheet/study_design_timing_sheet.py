@@ -31,7 +31,7 @@ class StudyDesignTimingSheet(BaseSheet):
             item = Timing(
               id=id_manager.build_id(Timing),
               type=type,
-              timingValue=timing_value,
+              value=timing_value,
               name=name,
               description=description,
               label=label,
