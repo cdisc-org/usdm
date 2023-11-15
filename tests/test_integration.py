@@ -45,15 +45,21 @@ def run_test(filename, save=False):
 def run_test_html(filename, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
   result = excel.to_html()
+  errors = excel.errors()
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
     with open(f"tests/integration_test_files/{filename}.html", 'w') as f:
       f.write(result)
-  
+    with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'w',newline='') as f:
+      save_error_csv(f, errors) 
+
   with open(f"tests/integration_test_files/{filename}.html", 'r') as f:
     expected = f.read()
   assert result == expected
+  with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'r') as f:
+    expected = read_error_csv(f)
+  assert errors == expected
 
 def run_test_timeline(filename, level=USDMExcel.FULL_HTML, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
