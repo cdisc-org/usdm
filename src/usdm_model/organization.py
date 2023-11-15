@@ -5,6 +5,6 @@ from .address import Address
 
 class Organization(ApiBaseModelWithIdNameAndLabel):
   type: Code
-  organizationIdentifierScheme: str
-  organizationIdentifier: str
-  organizationLegalAddress: Union[Address, None] = None
+  identifierScheme: str
+  identifier: str
+  legalAddress: Union[Address, None] = None

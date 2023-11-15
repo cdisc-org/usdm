@@ -8,4 +8,4 @@ class Estimand(ApiBaseModelWithId):
   analysisPopulation: AnalysisPopulation
   treatmentId: str
   variableOfInterestId: str
-  intercurrentEvents: List[IntercurrentEvent] = []
+  intercurrentEvents: List[IntercurrentEvent]

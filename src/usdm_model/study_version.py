@@ -10,8 +10,8 @@ from .study_amendment import StudyAmendment
 
 class StudyVersion(ApiBaseModelWithId):
   studyTitle: str
-  studyVersion: str
-  studyRationale: str
+  versionIdentifier: str
+  rationale: str
   studyAcronym: str
   type: Union[genericCode, None] = None
   studyPhase: Union[AliasCode, None] = None

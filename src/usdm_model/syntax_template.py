@@ -4,5 +4,5 @@ from .syntax_template_dictionary import SyntaxTemplateDictionary
 
 class SyntaxTemplate(ApiBaseModelWithIdNameLabelAndDesc):
   instanceType: Literal['ENDPOINT', 'OBJECTIVE', 'ELIGIBILITY_CRITERIA']
-  text: str = None
+  text: str
   dictionaryId: Union[str, None] = None

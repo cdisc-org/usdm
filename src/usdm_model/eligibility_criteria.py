@@ -5,5 +5,5 @@ from .code import Code
 class EligibilityCriteria(SyntaxTemplate):
   category: Code
   identifier: str
-  nextCriterionId: Union[str, None] = None
-  previousCriterionId: Union[str, None] = None
+  nextId: Union[str, None] = None
+  previousId: Union[str, None] = None

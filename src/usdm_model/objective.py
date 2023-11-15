@@ -5,4 +5,4 @@ from .endpoint import Endpoint
 
 class Objective(SyntaxTemplate):
   level: Union[Code, None] = None
-  objectiveEndpoints: List[Endpoint] = []
+  endpoints: List[Endpoint] = []

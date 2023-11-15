@@ -6,6 +6,6 @@ from .scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInst
 class ScheduleTimeline(ApiBaseModelWithIdNameLabelAndDesc):
   mainTimeline: bool
   entryCondition: str
-  scheduleTimelineEntryId: str
-  scheduleTimelineExits: List[ScheduleTimelineExit] = []
-  scheduleTimelineInstances: List[Union[ScheduledActivityInstance, ScheduledDecisionInstance]] = []
+  entryId: str
+  exits: List[ScheduleTimelineExit] = []
+  instances: List[Union[ScheduledActivityInstance, ScheduledDecisionInstance]] = []

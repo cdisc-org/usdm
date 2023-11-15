@@ -4,10 +4,10 @@ from .code import Code
 
 class Timing(ApiBaseModelWithIdNameLabelAndDesc):
   type: Code
-  timingValue: str
-  timingRelativeToFrom: Code
+  value: str
+  relativeToFrom: Code
   relativeFromScheduledInstanceId: Union[str, None] = None
   relativeToScheduledInstanceId: Union[str, None] = None
-  timingWindowLower: Union[str, None] = None
-  timingWindowUpper: Union[str, None] = None
-  timingWindow: Union[str, None] = None
+  windowLower: Union[str, None] = None
+  windowUpper: Union[str, None] = None
+  window: Union[str, None] = None
