@@ -1,4 +1,4 @@
-from usdm_excel.logger import logging
+from usdm_excel.errors.errors import error_manager
 
 class CrossRef():
 
@@ -18,9 +18,9 @@ class CrossRef():
         self.references[key] = object
         self.identifiers[id_key] = object
       else:
-        logging.error(f"Duplicate cross reference detected, class '{klass}' with name '{name}' ")
+        error_manager.add(None, None, None, f"Duplicate cross reference detected, class '{klass}' with name '{name}'")
     except Exception as e:
-      logging.error(f"Failed to add cross reference detected, class '{klass}' with name '{name}'. Exception {e} ")
+      error_manager.add(None, None, None, f"Failed to add cross reference detected, class '{klass}' with name '{name}'. Exception {e}")
 
   def get(self, klass, name):
     key, id_key = self._key(klass, name, "")

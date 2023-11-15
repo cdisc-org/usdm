@@ -179,6 +179,7 @@ class NarrativeContent():
         ref.replace_with(translated_text)
       except Exception as e:
         logging.error(f"Failed to translate reference, attributes {attributes}\n{traceback.format_exc()}")
+        #print(f"CrossRef: {cross_references.references.keys()}")
         error_manager.add(None, None, None, f"Failed to translate a reference {attributes} while generating the HTML document")
         ref.replace_with('Missing content')
     return str(soup)
@@ -294,16 +295,16 @@ class NarrativeContent():
         with doc.tag('p'):
           doc.asis(entry)
     with doc.tag('tr', bgcolor="#F2F4F4"):
-      with doc.tag('td', colspan="2", style="vertical-align: top; text-align: left"):
-        with doc.tag('p', style="vertical-align: top; text-align: left; color: #2AAA8A; font-size: 12px"):
-          with doc.tag('i'):
-            with doc.tag('span', style="color: #2AAA8A"):
-              m11_reference = "Not set" if not m11_reference else m11_reference
-              doc.text(f"M11: {m11_reference}")  
-            with doc.tag('br'):
-              pass
-            with doc.tag('span', style="color: #FA8072"):
-              doc.text(f"USDM: {', '.join(self._list_references(entry))}")  
+      with doc.tag('td', colspan="2", style="vertical-align: top; text-align: left; font-size: 12px"):
+        #with doc.tag('span', style="vertical-align: top; text-align: left; font-size: 12px"):
+        with doc.tag('i'):
+          with doc.tag('span', style="color: #2AAA8A"):
+            m11_reference = "Not set" if not m11_reference else m11_reference
+            doc.text(f"M11: {m11_reference}")  
+          with doc.tag('br'):
+            pass
+          with doc.tag('span', style="color: #FA8072"):
+            doc.text(f"USDM: {', '.join(self._list_references(entry))}")  
 
   def _sponsor_identifier(self):
     identifiers = self.study_version.studyIdentifiers
@@ -384,7 +385,7 @@ class NarrativeContent():
         results = [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment[@type/@code=C68846]/Code/@decode'}]
         return self._set_of_references(results)
       else:
-        entry = {'instance': item.code, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment/@code/@decode'}
+        entry = {'instance': item.code.standardCode, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment/@code/@standardCode/@decode'}
         results.append(entry)
     return self._set_of_references(results)
   
