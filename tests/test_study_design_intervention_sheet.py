@@ -6,22 +6,39 @@ xfail = pytest.mark.xfail
 from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
 from usdm_model.code import Code
 
+COLUMNS = [ 'name', 'description', 'label', "codes", "role", "type", 
+  "pharmacologicalClass", "productDesignation", "minimumResponseDuration", 'administrationName', 'administrationDescription', 
+  'administrationLabel', "administrationRoute", "administrationDose", "administrationFrequency", 
+  'administrationDurationDescription', 'administrationDurationWillVary', 'administrationDurationWillVaryReason', 'administrationDurationQuantity' ]
+
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
-  mock_id.side_effect=['Code_1', 'InterventionId_1', 'Code_2', 'InterventionId_2', 'Code_3', 'Code_4', 'InterventionId_3']
-  expected_1 = Code(id='Code_1', code='X', codeSystem='SPONSOR', codeSystemVersion='None set', decode="Y")
-  expected_2 = Code(id='Code_2', code='AAA', codeSystem='SPONSOR', codeSystemVersion='None set', decode="BBB")
-  expected_3 = Code(id='Code_3', code='WWW', codeSystem='SPONSOR', codeSystemVersion='None set', decode="1234")
-  expected_4 = Code(id='Code_4', code='EEE', codeSystem='SPONSOR', codeSystemVersion='None set', decode="3456")
+
+  mock_id.side_effect=[
+    'Code_1', 'Code_2', 'ObjId_1', 'EndId_1', 'Code_3', 'EndId_2', 
+    'Code_4', 'Code_5', 'ObjId_2', 'EndId_3', 
+    'Code_6', 'Code_7', 'ObjId_3', 'EndId_4', 'Code_8', 'EndId_5'
+  ]
+  expected_1 = Code(id='Code_1', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="Y")
+  expected_2 = Code(id='Code_2', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="BBB")
+  expected_3 = Code(id='Code_3', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="1234")
+  expected_4 = Code(id='Code_4', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="3456")
+  expected_5 = Code(id='Code_4', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="3456")
+
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
-  mock_code.side_effect=[expected_1, expected_2, expected_3, expected_4]
+  mock_code.side_effect=[expected_1, expected_2, expected_3, expected_4, expected_5]
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [['Intervention 1', 'Intervention One', 'Label One', 'Sponsor:X=Y'], 
-          ['Intervention 2', 'Intervention Two', '', 'SPONSOR: AAA=BBB'], 
-          ['Intervention 3', 'Intervention Three', '', 'SPONSOR: WWW=1234, SPONSOR: EEE=3456']]
+  data = [
+    # name    description    label          codes               role               type      pharmacologicalClass productDesignation   administrationName administrationDescription administrationLabel administrationRoute administrationDose administrationFrequency administrationDurationDescription administrationDurationWillVary administrationDurationWillVaryReason administrationDurationQuantity
+    [ 'Int 1','Int Desc 1',  'Int Label 1', 'SPONSOR A=B',      'M11 role1=role1', 'C12345', 'FDA A=B',           'M11 desig1=desig_1' 'Admin 1',         'Admin Desc 1',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
+    [ '',     '',            '',            '',                 '',                '',       '',                  ''                   'Admin 2',         'Admin Desc 2',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
+    [ 'Int 2','Int Desc 2',  'Int Label 2', 'SPONSOR C=D',      'M11 role2=role2', 'C12345', 'FDA A=B',           'M11 desig2=desig_2' 'Admin 3',         'Admin Desc 3',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
+    [ 'Int 3','Int Desc 3',  'Int Label 3', 'SPONSOR E=F, G=H', 'M11 role3=role3', 'C12345', 'FDA A=B',           'M11 desig3=desig_3' 'Admin 4',         'Admin Desc 4',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
+    [ '',     '',            '',            '',                 '',                '',       '',                  '',                  'Admin 5',         'Admin Desc 5',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
+  ]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'codes'])
+  mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)
   Interventions = StudyDesignInterventionSheet("")
   assert len(Interventions.items) == 3
   assert Interventions.items[0].id == 'InterventionId_1'
@@ -37,7 +54,7 @@ def test_create_empty(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = []
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['studyInterventionName', 'studyInterventionDescription', 'studyInterventionType'])
+  mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)
   Interventions = StudyDesignInterventionSheet("")
   assert len(Interventions.items) == 0
 
@@ -45,9 +62,11 @@ def test_read_cell_by_name_error(mocker):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [['Intervention 1', 'Intervention One']]
+  data = [['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description'])
+  columns = COLUMNS
+  columns = columns[0:-1]
+  mock_read.return_value = pd.DataFrame(data, columns=columns)
   Interventions = StudyDesignInterventionSheet("")
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignInterventions"
