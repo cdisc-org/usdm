@@ -19,7 +19,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         label = self.read_cell_by_name(index, 'label', default="")
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         try:
-          item = StudyIntervention(id=id_manager.build_id(StudyIntervention), description=description, codes=codes)
+          item = StudyIntervention(id=id_manager.build_id(StudyIntervention), name=name, description=description, label=label, codes=codes)
         except Exception as e:
           self._general_error(f"Failed to create StudyIntervention object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
