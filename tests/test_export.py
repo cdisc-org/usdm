@@ -39,3 +39,6 @@ def test_simple_1(mocker):
 
 def test_full_1(mocker):
   run_test('full_1', mocker)
+
+def test_full_2(mocker):
+  run_test('full_2', mocker)
