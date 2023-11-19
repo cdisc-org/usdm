@@ -26,46 +26,43 @@ class ExportAsNeo4jDict():
   
   def _process_node(self, node):
     if type(node) == list:
-      result = []
-      for item in node:
-        uuids = self._process_node(item)
-        if uuids is None:
-          return None
-        result = result + uuids
-      return result
-    elif type(node) == dict:
-      if node == {}:
-        return []
-      properties = {}
-      if '_type' in node:
-        klass = node['_type']
+      if node:
+        return [self._process_node(item) for item in node]
       else:
-        #print(f"NODE: {node}")
-        return []
-      if node['id'] in self.node_id_to_uuid_map:
-        return [self.node_id_to_uuid_map[node['id']]]
+        print(f"LIST EMPTY: {node}")
+        return None
+    elif type(node) == dict:
+      properties = {}
       this_node_uuid = str(uuid4())
       for key, value in node.items():
         if self._is_edge_field(key):
           self._edge_field(key, value, this_node_uuid)
         else:
-          uuids = self._process_node(value)
-          if uuids == None:
-            properties[key] = {}
-          elif uuids == []:
-            properties[key] = value
+          result = self._process_node(value)
+          if not result:
+            print(f"NONE RESULT: '{result}' '{key}'='{value}'")
+            pass
+          elif isinstance(result, list):
+            if isinstance(result[0], str):
+              properties[key] = value
+            else:
+              for item in result:
+                self._add_edge(this_node_uuid, item['uuid'], key)
+          elif isinstance(result, dict):
+            self._add_edge(this_node_uuid, result['uuid'], key)
           else:
-            for uuid in uuids:
-              self._add_edge(this_node_uuid, uuid, key)
-      if klass == "Study":
-        properties['id'] = this_node_uuid 
-      self._add_node(klass, this_node_uuid, properties)
+            properties[key] = value
+      self._add_node(node['_type'], this_node_uuid, properties)
       self.node_id_to_uuid_map[properties['id']] = this_node_uuid
-      return [this_node_uuid]
+      return properties
     else:
-      return []
+      return node
 
   def _add_node(self, klass, uuid, properties):
+    if klass == "AliasCode":
+      print(f"ALIAS CODE: {properties}")
+    if klass == "Study":
+      properties['id'] = uuid 
     if klass not in self.nodes:
       self.nodes[klass] = []
     properties.pop('_type')

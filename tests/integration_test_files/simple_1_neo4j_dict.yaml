@@ -1184,20 +1184,14 @@ edges:
     start: 00000000-0000-4000-8000-000000000202
 nodes:
   Activity:
-  - activityIsConditional: false
-    activityIsConditionalReason: ''
-    definedProcedures: []
-    description: Basic Demog
+  - description: Basic Demog
     id: Activity_1
-    label: ''
     name: Demographics
     uuid: 00000000-0000-4000-8000-000000000051
   - activityIsConditional: true
     activityIsConditionalReason: Only do this if they have two heads
-    definedProcedures: []
     description: Something weird
     id: Activity_2
-    label: ''
     name: Something Else
     uuid: 00000000-0000-4000-8000-000000000052
   Address:
@@ -1220,48 +1214,34 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000019
   AliasCode:
   - id: AliasCode_1
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000003
   - id: AliasCode_4
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000061
   - id: AliasCode_3
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000063
   - id: AliasCode_6
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000069
   - id: AliasCode_5
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000071
   - id: AliasCode_8
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000075
   - id: AliasCode_9
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000084
   - id: AliasCode_7
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000086
   - id: AliasCode_2
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000103
   AnalysisPopulation:
-  - description: null
-    id: AnalysisPopulation_1
-    label: null
+  - id: AnalysisPopulation_1
     name: AP_1
     text: ITT
     uuid: 00000000-0000-4000-8000-000000000129
-  - description: null
-    id: AnalysisPopulation_2
-    label: null
+  - id: AnalysisPopulation_2
     name: AP_4
     text: ITT
     uuid: 00000000-0000-4000-8000-000000000134
   BiomedicalConcept:
   - bcReference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421
-    bcSynonyms: []
     id: BiomedicalConcept_1
     label: Sex
     name: Sex
@@ -1298,7 +1278,6 @@ nodes:
   - bcPropertyDatatype: decimal
     bcPropertyEnabled: true
     bcPropertyRequired: true
-    bcPropertyResponseCodes: []
     id: BiomedicalConceptProperty_3
     label: Vital Signs Result
     name: Vital Signs Result
@@ -1524,13 +1503,11 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000060
   - code: C28421
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Sex
     id: Code_75
     uuid: 00000000-0000-4000-8000-000000000062
   - code: C28421
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Sex
     id: Code_71
     uuid: 00000000-0000-4000-8000-000000000064
@@ -1542,19 +1519,16 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000068
   - code: C17049
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Race
     id: Code_78
     uuid: 00000000-0000-4000-8000-000000000070
   - code: C17049
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Race
     id: Code_76
     uuid: 00000000-0000-4000-8000-000000000072
   - code: C173522
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Vital Signs Result
     id: Code_80
     uuid: 00000000-0000-4000-8000-000000000076
@@ -1578,13 +1552,11 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000083
   - code: C48208
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Unit of Weight
     id: Code_84
     uuid: 00000000-0000-4000-8000-000000000085
   - code: C81328
     codeSystem: NCI Thesaurus
-    codeSystemVersion: ''
     decode: Body Weight
     id: Code_79
     uuid: 00000000-0000-4000-8000-000000000087
@@ -1861,142 +1833,94 @@ nodes:
   Encounter:
   - description: Screening encounter
     id: Encounter_1
-    label: ''
     name: Screening
     uuid: 00000000-0000-4000-8000-000000000028
   - description: Baseline encounter
     id: Encounter_2
-    label: ''
     name: Baseline
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000034
   - description: First dose
     id: Encounter_3
-    label: ''
     name: 15 min
-    transitionEndRule: null
     uuid: 00000000-0000-4000-8000-000000000038
   - description: 2 week visit
     id: Encounter_4
-    label: ''
     name: Day 24
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000043
   - description: 5 week visit
     id: Encounter_5
-    label: ''
     name: Day 35
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000047
   Endpoint:
-  - description: ''
-    id: Endpoint_1
+  - id: Endpoint_1
     instanceType: ENDPOINT
-    label: ''
     name: END1
-    purpose: ''
     text: Clinical status assessed using a 7-category ordinal scale at Day 28
     uuid: 00000000-0000-4000-8000-000000000148
-  - description: ''
-    id: Endpoint_2
+  - id: Endpoint_2
     instanceType: ENDPOINT
-    label: ''
     name: END2
-    purpose: ''
     text: Time to clinical improvement (TTCI) defined as a National Early Warning
       Score 2 (NEWS2) of <=2 maintained for 24 hours
     uuid: 00000000-0000-4000-8000-000000000152
-  - description: ''
-    id: Endpoint_3
+  - id: Endpoint_3
     instanceType: ENDPOINT
-    label: ''
     name: END3
-    purpose: ''
     text: Time to improvement of at least 2 categories relative to baseline on a 7-category
       ordinal scale of clinical status
     uuid: 00000000-0000-4000-8000-000000000154
-  - description: ''
-    id: Endpoint_4
+  - id: Endpoint_4
     instanceType: ENDPOINT
-    label: ''
     name: END4
-    purpose: ''
     text: Incidence of mechanical ventilation
     uuid: 00000000-0000-4000-8000-000000000156
-  - description: ''
-    id: Endpoint_5
+  - id: Endpoint_5
     instanceType: ENDPOINT
-    label: ''
     name: END5
-    purpose: ''
     text: Ventilator-free days to Day 28
     uuid: 00000000-0000-4000-8000-000000000158
-  - description: ''
-    id: Endpoint_6
+  - id: Endpoint_6
     instanceType: ENDPOINT
-    label: ''
     name: END6
-    purpose: ''
     text: Incidence of intensive care unit (ICU) stay
     uuid: 00000000-0000-4000-8000-000000000160
-  - description: ''
-    id: Endpoint_7
+  - id: Endpoint_7
     instanceType: ENDPOINT
-    label: ''
     name: END7
-    purpose: ''
     text: Duration of ICU stay
     uuid: 00000000-0000-4000-8000-000000000162
-  - description: ''
-    id: Endpoint_8
+  - id: Endpoint_8
     instanceType: ENDPOINT
-    label: ''
     name: END8
-    purpose: ''
     text: Time to clinical failure, defined as the time to death, mechanical ventilation,
       ICU admission, or withdrawal (whichever occurs first). For patients entering
       the study already in ICU or on mechanical ventilation, clinical failure is defined
       as a one-category worsening on the ordinal scale, withdrawal or death.
     uuid: 00000000-0000-4000-8000-000000000164
-  - description: ''
-    id: Endpoint_9
+  - id: Endpoint_9
     instanceType: ENDPOINT
-    label: ''
     name: END9
-    purpose: ''
     text: Mortality rate at Days 7, 14, 21, 28, and 60
     uuid: 00000000-0000-4000-8000-000000000166
-  - description: ''
-    id: Endpoint_10
+  - id: Endpoint_10
     instanceType: ENDPOINT
-    label: ''
     name: END10
-    purpose: ''
     text: "Time to hospital discharge or \u201Cready for discharge\u201D (as evidenced\
       \ by normal body temperature and respiratory rate, and stable oxygen saturation\
       \ on ambient air or <= 2L supplemental oxygen)"
     uuid: 00000000-0000-4000-8000-000000000168
-  - description: ''
-    id: Endpoint_11
+  - id: Endpoint_11
     instanceType: ENDPOINT
-    label: ''
     name: END11
-    purpose: ''
     text: "Time to recovery, defined as discharged or \u201Cready for discharge\u201D\
       \ (as evidenced by normal body temperature and respiratory rate, and stable\
       \ oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU\
       \ hospital ward (or \u201Cready for hospital ward\u201D) not requiring supplemental\
       \ oxygen"
     uuid: 00000000-0000-4000-8000-000000000170
-  - description: ''
-    id: Endpoint_12
+  - id: Endpoint_12
     instanceType: ENDPOINT
-    label: ''
     name: END12
-    purpose: ''
     text: Duration of supplemental oxygen
     uuid: 00000000-0000-4000-8000-000000000172
   Estimand:
@@ -2007,11 +1931,9 @@ nodes:
     summaryMeasure: Something else
     uuid: 00000000-0000-4000-8000-000000000133
   GeographicScope:
-  - code: null
-    id: GeographicScope_1
+  - id: GeographicScope_1
     uuid: 00000000-0000-4000-8000-000000000007
-  - code: null
-    id: GeographicScope_2
+  - id: GeographicScope_2
     uuid: 00000000-0000-4000-8000-000000000207
   GovernanceDate:
   - dateValue: '2023-01-01'
@@ -2029,12 +1951,10 @@ nodes:
   Indication:
   - description: An indication
     id: Indication_1
-    label: ''
     name: IND1
     uuid: 00000000-0000-4000-8000-000000000136
   - description: An indication
     id: Indication_2
-    label: ''
     name: IND2
     uuid: 00000000-0000-4000-8000-000000000138
   IntercurrentEvent:
@@ -2042,25 +1962,21 @@ nodes:
     id: IntercurrentEvent_1
     intercurrentEventStrategy: Patients with out of range lab values before dosing
       will be excluded
-    label: ''
     name: termination
     uuid: 00000000-0000-4000-8000-000000000130
   - description: IC Event Description
     id: IntercurrentEvent_2
     intercurrentEventStrategy: A second bad event
-    label: ''
     name: termination
     uuid: 00000000-0000-4000-8000-000000000131
   - description: IC Event Description
     id: IntercurrentEvent_3
     intercurrentEventStrategy: A third bad thing
-    label: ''
     name: termination
     uuid: 00000000-0000-4000-8000-000000000132
   - description: IC Event Description Number 2
     id: IntercurrentEvent_4
     intercurrentEventStrategy: Really really bad shit
-    label: ''
     name: Bad stuff
     uuid: 00000000-0000-4000-8000-000000000135
   InvestigationalIntervention:
@@ -2075,7 +1991,6 @@ nodes:
     name: ROOT
     sectionNumber: '0'
     sectionTitle: Root
-    text: ''
     uuid: 00000000-0000-4000-8000-000000000209
   - id: NarrativeContent_2
     name: SECTION 1
@@ -2874,19 +2789,15 @@ nodes:
     text: <div></div>
     uuid: 00000000-0000-4000-8000-000000000340
   Objective:
-  - description: ''
-    id: Objective_1
+  - id: Objective_1
     instanceType: OBJECTIVE
-    label: ''
     name: OBJ1
     text: The primary efficacy objective for this study is to evaluate the efficacy
       of TCZ compared with placebo in combination with SOC for the treatment of severe
       COVID-19 pneumonia
     uuid: 00000000-0000-4000-8000-000000000146
-  - description: ''
-    id: Objective_2
+  - id: Objective_2
     instanceType: OBJECTIVE
-    label: ''
     name: OBJ2
     text: The secondary efficacy objective for this study is to evaluate the efficacy
       of TCZ compared with placebo in combination with SOC for the treatment of severe
@@ -2894,13 +2805,11 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000150
   Organization:
   - id: Organization_1
-    label: ''
     name: ClinicalTrials.gov
     organizationIdentifier: CT-GOV
     organizationIdentifierScheme: USGOV
     uuid: 00000000-0000-4000-8000-000000000012
   - id: Organization_2
-    label: ''
     name: ACME Pharma
     organizationIdentifier: '123456789'
     organizationIdentifierScheme: DUNS
@@ -2955,21 +2864,17 @@ nodes:
     instanceType: ACTIVITY
     uuid: 00000000-0000-4000-8000-000000000198
   Study:
-  - description: null
-    id: 00000000-0000-4000-8000-000000000000
-    label: null
+  - id: 00000000-0000-4000-8000-000000000000
     name: Study_SIMPLE1
     uuid: 00000000-0000-4000-8000-000000000000
   StudyArm:
   - description: Active Substance
     id: StudyArm_1
-    label: ''
     name: Active
     studyArmDataOriginDescription: Data collected from subjects
     uuid: 00000000-0000-4000-8000-000000000089
   - description: Placebo
     id: StudyArm_2
-    label: ''
     name: Placebo
     studyArmDataOriginDescription: Data collected from subjects
     uuid: 00000000-0000-4000-8000-000000000092
@@ -2991,20 +2896,14 @@ nodes:
   - id: StudyCell_8
     uuid: 00000000-0000-4000-8000-000000000102
   StudyDesign:
-  - bcCategories: []
-    description: The main design for the study
-    dictionaries: []
-    documentVersion: null
+  - description: The main design for the study
     id: StudyDesign_1
-    label: ''
     name: Study Design 1
     studyDesignRationale: Basic study
-    studyEligibilityCritieria: []
     uuid: 00000000-0000-4000-8000-000000000021
   StudyDesignPopulation:
   - description: Pop 1
     id: StudyDesignPopulation_1
-    label: ''
     name: POP 1
     plannedMaximumAgeOfParticipants: 40 years
     plannedMinimumAgeOfParticipants: 18 years
@@ -3012,7 +2911,6 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000174
   - description: Pop 2
     id: StudyDesignPopulation_2
-    label: ''
     name: POP 2
     plannedMaximumAgeOfParticipants: 60 years
     plannedMinimumAgeOfParticipants: 18 years
@@ -3020,7 +2918,6 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000176
   - description: Pop 3
     id: StudyDesignPopulation_3
-    label: ''
     name: POP 3
     plannedMaximumAgeOfParticipants: 70 years
     plannedMinimumAgeOfParticipants: 18 years
@@ -3029,48 +2926,39 @@ nodes:
   StudyElement:
   - description: Screening Element
     id: StudyElement_1
-    label: ''
     name: Screening
     uuid: 00000000-0000-4000-8000-000000000113
   - description: Baseline Element
     id: StudyElement_2
-    label: ''
     name: Baseline
     uuid: 00000000-0000-4000-8000-000000000116
   - description: Treatment Element 1
     id: StudyElement_3
-    label: ''
     name: Treatment 1
     uuid: 00000000-0000-4000-8000-000000000119
   - description: Treatment Element 2
     id: StudyElement_5
-    label: ''
     name: Treatment 2
     uuid: 00000000-0000-4000-8000-000000000122
   - description: Follow Up Element
     id: StudyElement_4
-    label: ''
     name: Follow Up
     uuid: 00000000-0000-4000-8000-000000000125
   StudyEpoch:
   - description: Screening Epoch
     id: StudyEpoch_1
-    label: ''
     name: Screening
     uuid: 00000000-0000-4000-8000-000000000105
   - description: Baseline Epoch
     id: StudyEpoch_2
-    label: ''
     name: Baseline
     uuid: 00000000-0000-4000-8000-000000000107
   - description: Treatment Epoch
     id: StudyEpoch_3
-    label: ''
     name: Treatment
     uuid: 00000000-0000-4000-8000-000000000109
   - description: Follow-up Epoch
     id: StudyEpoch_4
-    label: ''
     name: Follow-Up
     uuid: 00000000-0000-4000-8000-000000000111
   StudyIdentifier:
@@ -3081,9 +2969,7 @@ nodes:
     studyIdentifier: AP1234
     uuid: 00000000-0000-4000-8000-000000000016
   StudyProtocolDocument:
-  - description: null
-    id: StudyProtocolDocument_1
-    label: null
+  - id: StudyProtocolDocument_1
     name: Protocol_Document_SIMPLE1
     uuid: 00000000-0000-4000-8000-000000000202
   StudyProtocolDocumentVersion:
@@ -3095,35 +2981,26 @@ nodes:
     scientificTitle: Somethign Clever But New
     uuid: 00000000-0000-4000-8000-000000000203
   StudyVersion:
-  - amendments: []
-    id: StudyVersion_1
+  - id: StudyVersion_1
     studyAcronym: SIMPLE
     studyRationale: A simple test
     studyTitle: Simple Test 1
     studyVersion: '1'
     uuid: 00000000-0000-4000-8000-000000000001
   Timing:
-  - description: null
-    id: Timing_1
-    label: ''
+  - id: Timing_1
     name: TIMING_3
     timingValue: PT0M
-    timingWindow: null
-    timingWindowLower: null
-    timingWindowUpper: null
     uuid: 00000000-0000-4000-8000-000000000183
   - description: Pre Dose
     id: Timing_2
-    label: ''
     name: TIMING_4
     timingValue: PT0M
     timingWindow: 0..4 Hours
     timingWindowLower: PT0H
     timingWindowUpper: PT4H
     uuid: 00000000-0000-4000-8000-000000000187
-  - description: null
-    id: Timing_3
-    label: ''
+  - id: Timing_3
     name: TIMING_5
     timingValue: PT0M
     timingWindow: 0..1 Hours
@@ -3132,16 +3009,11 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000191
   - description: +24 Hours
     id: Timing_4
-    label: ''
     name: TIMING_6
     timingValue: PT24H
-    timingWindow: null
-    timingWindowLower: null
-    timingWindowUpper: null
     uuid: 00000000-0000-4000-8000-000000000195
   - description: +7 Days
     id: Timing_5
-    label: ''
     name: TIMING_7
     timingValue: P7D
     timingWindow: -3..3 Days
@@ -3149,81 +3021,55 @@ nodes:
     timingWindowUpper: P3D
     uuid: 00000000-0000-4000-8000-000000000199
   TransitionRule:
-  - description: null
-    id: TransitionRule_1
-    label: null
+  - id: TransitionRule_1
     name: ENCOUNTER_START_RULE_1
     text: Subject identified
     uuid: 00000000-0000-4000-8000-000000000032
-  - description: null
-    id: TransitionRule_2
-    label: null
+  - id: TransitionRule_2
     name: ENCOUNTER_START_RULE_1
     text: IEs passed
     uuid: 00000000-0000-4000-8000-000000000033
-  - description: null
-    id: TransitionRule_3
-    label: null
+  - id: TransitionRule_3
     name: ENCOUNTER_START_RULE_3
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000042
-  - description: null
-    id: TransitionRule_4
-    label: null
+  - id: TransitionRule_4
     name: ELEMENT_START_RULE_1
     text: Study Start
     uuid: 00000000-0000-4000-8000-000000000114
-  - description: null
-    id: TransitionRule_5
-    label: null
+  - id: TransitionRule_5
     name: ELEMENT_END_RULE_1
     text: Screened
     uuid: 00000000-0000-4000-8000-000000000115
-  - description: null
-    id: TransitionRule_6
-    label: null
+  - id: TransitionRule_6
     name: ELEMENT_START_RULE_2
     text: Screened
     uuid: 00000000-0000-4000-8000-000000000117
-  - description: null
-    id: TransitionRule_7
-    label: null
+  - id: TransitionRule_7
     name: ELEMENT_END_RULE_2
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000118
-  - description: null
-    id: TransitionRule_8
-    label: null
+  - id: TransitionRule_8
     name: ELEMENT_START_RULE_3
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000120
-  - description: null
-    id: TransitionRule_9
-    label: null
+  - id: TransitionRule_9
     name: ELEMENT_END_RULE_3
     text: Completed treatment 1
     uuid: 00000000-0000-4000-8000-000000000121
-  - description: null
-    id: TransitionRule_12
-    label: null
+  - id: TransitionRule_12
     name: ELEMENT_START_RULE_5
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000123
-  - description: null
-    id: TransitionRule_13
-    label: null
+  - id: TransitionRule_13
     name: ELEMENT_END_RULE_5
     text: Completed treatment 2
     uuid: 00000000-0000-4000-8000-000000000124
-  - description: null
-    id: TransitionRule_10
-    label: null
+  - id: TransitionRule_10
     name: ELEMENT_START_RULE_4
     text: Treated
     uuid: 00000000-0000-4000-8000-000000000126
-  - description: null
-    id: TransitionRule_11
-    label: null
+  - id: TransitionRule_11
     name: ELEMENT_END_RULE_4
     text: Leave Study
     uuid: 00000000-0000-4000-8000-000000000127
