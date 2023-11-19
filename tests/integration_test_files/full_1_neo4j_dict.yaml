@@ -1392,7 +1392,6 @@ nodes:
   Activity:
   - activityIsConditional: false
     activityIsConditionalReason: ''
-    definedProcedures: []
     description: Basic Demog
     id: Activity_1
     label: Demographics
@@ -1407,7 +1406,6 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000109
   - activityIsConditional: true
     activityIsConditionalReason: Only do this if this 'condition' is true
-    definedProcedures: []
     description: Perform the optional weight data collection
     id: Activity_3
     label: Weight optional
@@ -1415,7 +1413,6 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000114
   - activityIsConditional: false
     activityIsConditionalReason: ''
-    definedProcedures: []
     description: Optional safety activity
     id: Activity_4
     label: Optional activity
@@ -1441,69 +1438,48 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000063
   AliasCode:
   - id: AliasCode_1
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000003
   - id: AliasCode_2
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000009
   - id: AliasCode_3
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000013
   - id: AliasCode_4
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000017
   - id: AliasCode_5
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000021
   - id: AliasCode_8
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000028
   - id: AliasCode_6
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000042
   - id: AliasCode_7
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000046
   - id: AliasCode_11
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000124
   - id: AliasCode_10
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000126
   - id: AliasCode_13
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000132
   - id: AliasCode_12
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000134
   - id: AliasCode_15
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000138
   - id: AliasCode_16
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000147
   - id: AliasCode_14
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000149
   - id: AliasCode_9
-    standardCodeAliases: []
     uuid: 00000000-0000-4000-8000-000000000169
   AnalysisPopulation:
-  - description: null
-    id: AnalysisPopulation_1
-    label: null
+  - id: AnalysisPopulation_1
     name: AP_1
     text: ITT
     uuid: 00000000-0000-4000-8000-000000000195
-  - description: null
-    id: AnalysisPopulation_2
-    label: null
+  - id: AnalysisPopulation_2
     name: AP_4
     text: ITT
     uuid: 00000000-0000-4000-8000-000000000200
   BiomedicalConcept:
   - bcReference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421
-    bcSynonyms: []
     id: BiomedicalConcept_1
     label: Sex
     name: Sex
@@ -1540,7 +1516,6 @@ nodes:
   - bcPropertyDatatype: decimal
     bcPropertyEnabled: true
     bcPropertyRequired: true
-    bcPropertyResponseCodes: []
     id: BiomedicalConceptProperty_3
     label: Vital Signs Result
     name: Vital Signs Result
@@ -2311,35 +2286,26 @@ nodes:
     id: Encounter_2
     label: Baseline
     name: E2
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000087
   - description: First dose
     id: Encounter_3
     label: 15 min
     name: E3
-    transitionEndRule: null
     uuid: 00000000-0000-4000-8000-000000000091
   - description: 2 week visit
     id: Encounter_4
     label: Day 14
     name: E4
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000096
   - description: 4 week visit
     id: Encounter_5
     label: Day 28
     name: E5
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000100
   - description: 6 week visit
     id: Encounter_6
     label: Day 42
     name: E6
-    transitionEndRule: null
-    transitionStartRule: null
     uuid: 00000000-0000-4000-8000-000000000104
   Endpoint:
   - description: Day 28, 7 category scale
@@ -2384,8 +2350,7 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000015
   - id: GeographicScope_4
     uuid: 00000000-0000-4000-8000-000000000019
-  - code: null
-    id: GeographicScope_5
+  - id: GeographicScope_5
     uuid: 00000000-0000-4000-8000-000000000271
   GovernanceDate:
   - dateValue: '2022-12-16'
@@ -3283,21 +3248,18 @@ nodes:
     name: European Union
     organizationIdentifier: EU CT
     organizationIdentifierScheme: EU
-    organizationLegalAddress: null
     uuid: 00000000-0000-4000-8000-000000000066
   - id: Organization_4
     label: ''
     name: Food & Drug Administration
     organizationIdentifier: FDA
     organizationIdentifierScheme: US
-    organizationLegalAddress: null
     uuid: 00000000-0000-4000-8000-000000000069
   - id: Organization_5
     label: ''
     name: World Health Organisation
     organizationIdentifier: WHO
     organizationIdentifierScheme: UN
-    organizationLegalAddress: null
     uuid: 00000000-0000-4000-8000-000000000072
   Procedure:
   - description: Stress procedure
@@ -3371,18 +3333,14 @@ nodes:
   ScheduledDecisionInstance:
   - id: ScheduledDecisionInstance_1
     instanceType: DECISION
-    scheduledInstanceTimings: []
     uuid: 00000000-0000-4000-8000-000000000246
   Study:
-  - description: null
-    id: 00000000-0000-4000-8000-000000000000
-    label: null
+  - id: 00000000-0000-4000-8000-000000000000
     name: Study_SCOPE1
     uuid: 00000000-0000-4000-8000-000000000000
   StudyAmendment:
   - id: StudyAmendment_4
     number: '1'
-    secondaryReasons: []
     substantialImpact: false
     summary: Fix typos
     uuid: 00000000-0000-4000-8000-000000000023
@@ -3393,13 +3351,11 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000030
   - id: StudyAmendment_2
     number: '3'
-    secondaryReasons: []
     substantialImpact: true
     summary: Added section on unblinding
     uuid: 00000000-0000-4000-8000-000000000037
   - id: StudyAmendment_1
     number: '4'
-    secondaryReasons: []
     substantialImpact: true
     summary: Updated inclusion criteria
     uuid: 00000000-0000-4000-8000-000000000048
@@ -3408,16 +3364,12 @@ nodes:
     otherReason: Fix typographical errors
     uuid: 00000000-0000-4000-8000-000000000024
   - id: StudyAmendmentReason_3
-    otherReason: null
     uuid: 00000000-0000-4000-8000-000000000031
   - id: StudyAmendmentReason_4
-    otherReason: null
     uuid: 00000000-0000-4000-8000-000000000033
   - id: StudyAmendmentReason_2
-    otherReason: null
     uuid: 00000000-0000-4000-8000-000000000038
   - id: StudyAmendmentReason_1
-    otherReason: null
     uuid: 00000000-0000-4000-8000-000000000049
   StudyArm:
   - description: Active Substance
@@ -3450,9 +3402,7 @@ nodes:
   - id: StudyCell_8
     uuid: 00000000-0000-4000-8000-000000000168
   StudyDesign:
-  - bcCategories: []
-    description: The main design for the study
-    documentVersion: null
+  - description: The main design for the study
     id: StudyDesign_1
     label: ''
     name: Study Design 1
@@ -3547,9 +3497,7 @@ nodes:
     studyIdentifier: WHO12345
     uuid: 00000000-0000-4000-8000-000000000071
   StudyProtocolDocument:
-  - description: null
-    id: StudyProtocolDocument_1
-    label: null
+  - id: StudyProtocolDocument_1
     name: Protocol_Document_SCOPE1
     uuid: 00000000-0000-4000-8000-000000000266
   StudyProtocolDocumentVersion:
@@ -3571,8 +3519,7 @@ nodes:
   - id: SubjectEnrollment_5
     quantity: '0'
     uuid: 00000000-0000-4000-8000-000000000026
-  - code: null
-    id: SubjectEnrollment_4
+  - id: SubjectEnrollment_4
     quantity: 31%
     uuid: 00000000-0000-4000-8000-000000000035
   - id: SubjectEnrollment_2
@@ -3581,8 +3528,7 @@ nodes:
   - id: SubjectEnrollment_3
     quantity: 20%
     uuid: 00000000-0000-4000-8000-000000000044
-  - code: null
-    id: SubjectEnrollment_1
+  - id: SubjectEnrollment_1
     quantity: 65%
     uuid: 00000000-0000-4000-8000-000000000051
   SyntaxTemplateDictionary:
@@ -3599,7 +3545,6 @@ nodes:
         attribute: plannedMinimumAgeOfParticipants
         id: StudyDesignPopulation_1
         klass: StudyDesignPopulation
-    text: null
     uuid: 00000000-0000-4000-8000-000000000263
   - description: Dictionary for OE
     id: SyntaxTemplateDictionary_2
@@ -3610,7 +3555,6 @@ nodes:
         attribute: plannedMinimumAgeOfParticipants
         id: StudyDesignPopulation_1
         klass: StudyDesignPopulation
-    text: null
     uuid: 00000000-0000-4000-8000-000000000264
   - description: Dictionary for Berber Example
     id: SyntaxTemplateDictionary_3
@@ -3621,7 +3565,6 @@ nodes:
         attribute: label
         id: Activity_1
         klass: Activity
-    text: null
     uuid: 00000000-0000-4000-8000-000000000265
   Timing:
   - description: Screening timing
@@ -3630,8 +3573,6 @@ nodes:
     name: TIM1
     timingValue: P2D
     timingWindow: ''
-    timingWindowLower: null
-    timingWindowUpper: null
     uuid: 00000000-0000-4000-8000-000000000231
   - description: Pre dose timing
     id: Timing_2
@@ -3648,8 +3589,6 @@ nodes:
     name: TIM3
     timingValue: P1D
     timingWindow: ''
-    timingWindowLower: null
-    timingWindowUpper: null
     uuid: 00000000-0000-4000-8000-000000000239
   - description: Day 14 timing
     id: Timing_4
@@ -3679,81 +3618,55 @@ nodes:
     timingWindowUpper: P3D
     uuid: 00000000-0000-4000-8000-000000000252
   TransitionRule:
-  - description: null
-    id: TransitionRule_1
-    label: null
+  - id: TransitionRule_1
     name: ENCOUNTER_START_RULE_1
     text: Subject identified
     uuid: 00000000-0000-4000-8000-000000000085
-  - description: null
-    id: TransitionRule_2
-    label: null
+  - id: TransitionRule_2
     name: ENCOUNTER_START_RULE_1
     text: IEs passed
     uuid: 00000000-0000-4000-8000-000000000086
-  - description: null
-    id: TransitionRule_3
-    label: null
+  - id: TransitionRule_3
     name: ENCOUNTER_START_RULE_3
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000095
-  - description: null
-    id: TransitionRule_4
-    label: null
+  - id: TransitionRule_4
     name: ELEMENT_START_RULE_1
     text: Study Start
     uuid: 00000000-0000-4000-8000-000000000180
-  - description: null
-    id: TransitionRule_5
-    label: null
+  - id: TransitionRule_5
     name: ELEMENT_END_RULE_1
     text: Screened
     uuid: 00000000-0000-4000-8000-000000000181
-  - description: null
-    id: TransitionRule_6
-    label: null
+  - id: TransitionRule_6
     name: ELEMENT_START_RULE_2
     text: Screened
     uuid: 00000000-0000-4000-8000-000000000183
-  - description: null
-    id: TransitionRule_7
-    label: null
+  - id: TransitionRule_7
     name: ELEMENT_END_RULE_2
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000184
-  - description: null
-    id: TransitionRule_8
-    label: null
+  - id: TransitionRule_8
     name: ELEMENT_START_RULE_3
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000186
-  - description: null
-    id: TransitionRule_9
-    label: null
+  - id: TransitionRule_9
     name: ELEMENT_END_RULE_3
     text: Completed treatment 1
     uuid: 00000000-0000-4000-8000-000000000187
-  - description: null
-    id: TransitionRule_12
-    label: null
+  - id: TransitionRule_12
     name: ELEMENT_START_RULE_5
     text: Radomized
     uuid: 00000000-0000-4000-8000-000000000189
-  - description: null
-    id: TransitionRule_13
-    label: null
+  - id: TransitionRule_13
     name: ELEMENT_END_RULE_5
     text: Completed treatment 2
     uuid: 00000000-0000-4000-8000-000000000190
-  - description: null
-    id: TransitionRule_10
-    label: null
+  - id: TransitionRule_10
     name: ELEMENT_START_RULE_4
     text: Treated
     uuid: 00000000-0000-4000-8000-000000000192
-  - description: null
-    id: TransitionRule_11
-    label: null
+  - id: TransitionRule_11
     name: ELEMENT_END_RULE_4
     text: Leave Study
     uuid: 00000000-0000-4000-8000-000000000193

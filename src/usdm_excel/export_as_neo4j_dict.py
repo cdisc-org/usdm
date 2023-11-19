@@ -30,6 +30,8 @@ class ExportAsNeo4jDict():
         return [self._process_node(item) for item in node]
       else:
         return None
+    elif type(node) == dict and '_type' not in node:
+      return str(node)
     elif type(node) == dict:
       properties = {}
       this_node_uuid = str(uuid4())
