@@ -29,7 +29,6 @@ class ExportAsNeo4jDict():
       if node:
         return [self._process_node(item) for item in node]
       else:
-        print(f"LIST EMPTY: {node}")
         return None
     elif type(node) == dict:
       properties = {}
@@ -39,8 +38,7 @@ class ExportAsNeo4jDict():
           self._edge_field(key, value, this_node_uuid)
         else:
           result = self._process_node(value)
-          if not result:
-            print(f"NONE RESULT: '{result}' '{key}'='{value}'")
+          if result == None:
             pass
           elif isinstance(result, list):
             if isinstance(result[0], str):
@@ -59,8 +57,6 @@ class ExportAsNeo4jDict():
       return node
 
   def _add_node(self, klass, uuid, properties):
-    if klass == "AliasCode":
-      print(f"ALIAS CODE: {properties}")
     if klass == "Study":
       properties['id'] = uuid 
     if klass not in self.nodes:
