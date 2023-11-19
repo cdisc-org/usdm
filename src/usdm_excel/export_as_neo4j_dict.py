@@ -60,7 +60,8 @@ class ExportAsNeo4jDict():
 
   def _add_node(self, klass, uuid, properties):
     if klass == "Study":
-      properties['id'] = uuid 
+      properties['id'] = uuid
+      print(f"Properties: {properties}")
     if klass not in self.nodes:
       self.nodes[klass] = []
     properties.pop('_type')
