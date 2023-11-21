@@ -14,11 +14,7 @@ COLUMNS = [ 'name', 'description', 'label', "codes", "role", "type",
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
 
-  mock_id.side_effect=[
-    'Code_1', 'Code_2', 'ObjId_1', 'EndId_1', 'Code_3', 'EndId_2', 
-    'Code_4', 'Code_5', 'ObjId_2', 'EndId_3', 
-    'Code_6', 'Code_7', 'ObjId_3', 'EndId_4', 'Code_8', 'EndId_5'
-  ]
+  mock_id.side_effect=[f"Code_{x}" for x in range(100)]
   expected_1 = Code(id='Code_1', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="Y")
   expected_2 = Code(id='Code_2', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="BBB")
   expected_3 = Code(id='Code_3', code='C12345', codeSystem='CDISC', codeSystemVersion='1', decode="1234")
@@ -30,12 +26,12 @@ def test_create(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    # name    description    label          codes               role               type      pharmacologicalClass productDesignation   administrationName administrationDescription administrationLabel administrationRoute administrationDose administrationFrequency administrationDurationDescription administrationDurationWillVary administrationDurationWillVaryReason administrationDurationQuantity
-    [ 'Int 1','Int Desc 1',  'Int Label 1', 'SPONSOR A=B',      'M11 role1=role1', 'C12345', 'FDA A=B',           'M11 desig1=desig_1' 'Admin 1',         'Admin Desc 1',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
-    [ '',     '',            '',            '',                 '',                '',       '',                  ''                   'Admin 2',         'Admin Desc 2',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
-    [ 'Int 2','Int Desc 2',  'Int Label 2', 'SPONSOR C=D',      'M11 role2=role2', 'C12345', 'FDA A=B',           'M11 desig2=desig_2' 'Admin 3',         'Admin Desc 3',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
-    [ 'Int 3','Int Desc 3',  'Int Label 3', 'SPONSOR E=F, G=H', 'M11 role3=role3', 'C12345', 'FDA A=B',           'M11 desig3=desig_3' 'Admin 4',         'Admin Desc 4',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
-    [ '',     '',            '',            '',                 '',                '',       '',                  '',                  'Admin 5',         'Admin Desc 5',           'Admin Label 1',    'C34567',           'X Units'          'C65432'                'Dur desc 1'                      'False'                        ''                                   ''                             ], 
+    # name     description    label          codes                role                type      pharmacologicalClass  productDesignation      minimumResponseDuration,  administrationName [10] administrationDescription administrationLabel administrationRoute administrationDose administrationFrequency administrationDurationDescription administrationDurationWillVary administrationDurationWillVaryReason administrationDurationQuantity
+    [ 'Int 1', 'Int Desc 1',  'Int Label 1', 'SPONSOR: A=B',      'M11: role1=role1', 'C12345', 'FDA: A=B',           'M11: desig1=desig_1',  '1 Day',                  'Admin 1',              'Admin Desc 1',           'Admin Label 1',    'C34567',          '12 mg',            'C65432',               'Dur desc 1',                     'False',                       '',                                  '14 %'                         ], 
+    [ '',      '',            '',            '',                  '',                 '',       '',                   '',                     '',                       'Admin 2',              'Admin Desc 2',           'Admin Label 1',    'C34567',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '10 m'                         ], 
+    [ 'Int 2', 'Int Desc 2',  'Int Label 2', 'SPONSOR: C=D',      'M11: role2=role2', 'C12345', 'FDA: A=B',           'M11: desig2=desig_2',  '3 Weeks',                'Admin 3',              'Admin Desc 3',           'Admin Label 1',    'C34567',          '100 mg',           'C65432',               'Dur desc 1',                     'False',                       '',                                  '12 C'                         ], 
+    [ 'Int 3', 'Int Desc 3',  'Int Label 3', 'SPONSOR: E=F, G=H', 'M11: role3=role3', 'C12345', 'FDA: A=B',           'M11: desig3=desig_3',  '4 Years',                'Admin 4',              'Admin Desc 4',           'Admin Label 1',    'C34567',          '500 mg',           'C65432',               'Dur desc 1',                     'False',                       '',                                  '12 F'                         ], 
+    [ '',      '',            '',            '',                  '',                 '',       '',                   '',                     '',                       'Admin 5',              'Admin Desc 5',           'Admin Label 1',    'C34567',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '15 in'                        ], 
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)

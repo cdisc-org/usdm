@@ -33,11 +33,11 @@ class StudyDesignInterventionSheet(BaseSheet):
       label = self.read_cell_by_name(index, 'label', default='')
       codes = self.read_other_code_cell_multiple_by_name(index, "codes")
       role = self.read_other_code_cell_by_name(index, "role")
-      type = self.read_other_code_cell_by_name(index, "type")
+      type = self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "type", index, "type")
       pharm_class = self.read_other_code_cell_by_name(index, "pharmacologicalClass")
       product_designation = self.read_other_code_cell_by_name(index, "productDesignation")
-      min_duration =self.read_other_code_cell_by_name(index, "minimumResponseDuration")
-      self.current_intervention = self._intervention(name, description, label, codes, role, type, pharm_class, product_designation, min_duration, agent_admin)
+      min_duration =self.read_quantity_cell_by_name(index, "minimumResponseDuration")
+      self.current_intervention = self._intervention(name, description, label, role, codes, type, pharm_class, product_designation, min_duration, agent_admin)
     else:
       self.current_intervention.administrations.append(agent_admin)
 
@@ -60,16 +60,17 @@ class StudyDesignInterventionSheet(BaseSheet):
       self._general_error(f"Failed to create StudyIntervention object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
     else:
-      self.interventions.append(item)
-      cross_references.add(name, item)        
+      self.items.append(item)
+      cross_references.add(name, item)
+      return item    
 
   def _create_agent_administration(self, index, admin_duration):
     name = self.read_cell_by_name(index, 'administrationName')
     descriptiopn = self.read_cell_by_name(index, 'administrationDescription', default='')
     label = self.read_cell_by_name(index, 'administrationLabel', default='')
-    route = self.read_other_code_cell_by_name(index, "administrationRoute")
-    dose = self.read_other_code_cell_by_name(index, "administrationDose")
-    frequency = self.read_other_code_cell_by_name(index, "administrationFrequency")
+    route = self.read_cdisc_klass_attribute_cell_by_name("AgentAdministration", "route", index, "administrationRoute")
+    dose = self.read_quantity_cell_by_name(index, "administrationDose")
+    frequency = self.read_cdisc_klass_attribute_cell_by_name("AgentAdministration", "frequency", index, "administrationFrequency")
     return self._agent_administration(name, descriptiopn, label, route, dose, frequency, admin_duration)
 
   def _agent_administration(self, name, description, label, route, dose, frequency, admin_duration):
@@ -94,7 +95,8 @@ class StudyDesignInterventionSheet(BaseSheet):
     description = self.read_cell_by_name(index, 'administrationDurationDescription', default='')
     will_vary = self.read_boolean_cell_by_name(index, 'administrationDurationWillVary')
     will_vary_reason = self.read_cell_by_name(index, 'administrationDurationWillVaryReason')
-    quantity= self.read_cell_by_name(index, 'administrationDurationQuantity')
+    quantity = self.read_quantity_cell_by_name(index, 'administrationDurationQuantity')
+    print(f"QUANTITY: {quantity}")
     return self._administration_duration(description, will_vary, will_vary_reason, quantity)
 
   def _administration_duration(self, description, will_vary, will_vary_reason, quantity):

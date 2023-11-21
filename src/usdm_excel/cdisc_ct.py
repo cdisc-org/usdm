@@ -13,3 +13,9 @@ class CDISCCT(CodeBase):
     if item == None:
       return None
     return self._build(code=item['conceptId'], system=cdisc_ct_library.system, version=cdisc_ct_library.version, decode=item['preferredTerm'])
+
+  def code_for_unit(self, value):
+    item = cdisc_ct_library.unit(value)
+    if item == None:
+      return None
+    return self._build(code=item['conceptId'], system=cdisc_ct_library.system, version=cdisc_ct_library.version, decode=item['preferredTerm'])

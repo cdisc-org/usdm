@@ -1,8 +1,9 @@
-from usdm_excel.id_manager import id_manager
-from usdm_model.code import Code
-import requests
 import os
 import yaml
+import traceback
+import requests
+from usdm_excel.id_manager import id_manager
+from usdm_model.code import Code
 from usdm_excel.logger import package_logger
 
 class CDISCCTLibrary():
@@ -53,14 +54,33 @@ class CDISCCTLibrary():
     try:
       concept_id = self._by_klass_attribute[klass][attribute]
       code_list = self._by_code_list[concept_id]
+      return self._get_item(code_list, value)
+    except Exception as e: 
+      package_logger.error(f"Failed to find '{value}' for klass '{klass}' attribute '{attribute}'")
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      return None
+
+  def unit(self, value):
+    try:
+      code_list = self._by_code_list['C71620']
+      return self._get_item(code_list, value)
+    except Exception as e: 
+      package_logger.error(f"Failed to find unit '{value}'") 
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      return None
+
+  def _get_item(self, code_list, value):
+    try:
       for field in [ 'conceptId', 'preferredTerm', 'submissionValue']:
         result = next((item for item in code_list['terms'] if item[field].upper() == value.upper()), None)
-        if result != None:
+        if result:
           return result
       return None
-    except Exception as e: 
+    except Exception as e:
+      package_logger.error(f"Failed to find CDSIC CT for '{value}' in code ist '{code_list}'") 
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
       return None
-    
+
   def _get_ct(self):
     for item in self.cdisc_ct_config['required']:
       self._get_code_list(item)

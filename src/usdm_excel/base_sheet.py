@@ -1,4 +1,4 @@
-import shlex
+import traceback
 import pandas as pd
 from openpyxl import load_workbook
 from usdm_excel.id_manager import id_manager
@@ -8,6 +8,7 @@ from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
 from usdm_excel.option_manager import *
+from usdm_model.quantity import Quantity
 
 class BaseSheet():
 
@@ -66,6 +67,7 @@ class BaseSheet():
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
       self._error(row_index, col_index, "Error (%s) reading cell" % (e))
+      self._traceback(f"{e}\n{traceback.format_exc()}")
       return ""
 
   def read_cell_empty_legacy(self, row_index, col_index):
@@ -116,6 +118,25 @@ class BaseSheet():
     if value.strip().upper() in ['Y', 'YES', 'T', 'TRUE', '1']:
       return True
     return False
+
+  def read_quantity_cell_by_name(self, row_index, field_name):
+    col_index = self.column_present(field_name)
+    return self.read_quantity_cell(row_index, col_index)
+
+  def read_quantity_cell(self, row_index, col_index):
+    try:
+      text = self.read_cell(row_index, col_index)
+      parts = text.strip().split(' ')
+      if len(parts) == 2:
+        value = parts[0].strip()
+        unit = CDISCCT().code_for_unit(parts[1].strip())
+        return Quantity(id=id_manager.build_id(Quantity), value=float(value), unit=unit)
+      else:
+        self._error(row_index, col_index, f"Failed to decode quantity data '{text}', no ' ' detected")
+      return None
+    except Exception as e:
+      self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
+      self._traceback(f"{e}\n{traceback.format_exc()}")
 
   def read_description_by_name(self, row_index, field_name):
     value = self.read_cell_by_name(row_index, field_name)
@@ -268,7 +289,10 @@ class BaseSheet():
      package_logger.info(self._format(None, None, message))
      
   def _error(self, row, column, message):
-    error_manager.add(self.sheet_name, row + 1, column + 1, message)
+    try:
+      error_manager.add(self.sheet_name, row + 1, column + 1, message)
+    except Exception as e:
+      error_manager.add(self.sheet_name, None, None, f"{e}\n{traceback.format_exc()}", error_manager.WARNING)
 
   def _general_error(self, message):
     error_manager.add(self.sheet_name, None, None, message)
