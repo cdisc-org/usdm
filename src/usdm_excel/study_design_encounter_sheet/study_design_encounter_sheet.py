@@ -42,11 +42,11 @@ class StudyDesignEncounterSheet(BaseSheet):
             description=description,
             label=label,
             type=type, 
-            encounterEnvironmentalSetting=setting,
-            encounterContactModes=modes,
+            environmentalSetting=setting,
+            contactModes=modes,
             transitionStartRule=start_rule,
             transitionEndRule=end_rule,
-            encounterScheduledAtTimingId=timing_id
+            scheduledAtId=timing_id
           )
         except Exception as e:
           self._general_error(f"Failed to create Encounter object, exception {e}")
@@ -55,7 +55,7 @@ class StudyDesignEncounterSheet(BaseSheet):
           self.items.append(item)
           cross_ref = xref if xref else name
           cross_references.add(cross_ref, item)     
-      self.double_link(self.items, 'previousEncounterId', 'nextEncounterId')   
+      self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

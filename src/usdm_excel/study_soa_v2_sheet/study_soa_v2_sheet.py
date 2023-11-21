@@ -40,7 +40,7 @@ class StudySoAV2Sheet(BaseSheet):
         self.activities.append(activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
         self.biomedical_concepts += item.usdm_biomedical_concepts
-      self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
+      self.double_link(self.activities, 'previousId', 'nextId')
       
       self.timeline = self._add_timeline(self.name, self.description, self.condition, self._raw_instances.instances, self._raw_instances.exits)
 
@@ -54,7 +54,7 @@ class StudySoAV2Sheet(BaseSheet):
       if instance:
         item = instance.item
         timing.relativeFromScheduledInstanceId = item.id
-        item.scheduledInstanceTimings.append(timing)
+        item.timings.append(timing)
       # else:
       #   self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
       instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
@@ -95,9 +95,9 @@ class StudySoAV2Sheet(BaseSheet):
         description=description,
         label=name,
         entryCondition=condition,
-        scheduleTimelineEntryId=instances[0].id,
-        scheduleTimelineExits=exit,
-        scheduleTimelineInstances=instances
+        entryId=instances[0].id,
+        exits=exit,
+        instances=instances
       )
       cross_references.add(timeline.name, timeline)
       return timeline

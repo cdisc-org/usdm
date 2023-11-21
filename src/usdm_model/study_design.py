@@ -9,7 +9,7 @@ from .code import Code
 from .encounter import Encounter
 from .study_cell import StudyCell
 from .indication import Indication
-from .investigational_intervention import InvestigationalIntervention
+from .study_intervention import StudyIntervention
 from .study_arm import StudyArm
 from .study_epoch import StudyEpoch
 from .study_element import StudyElement
@@ -31,18 +31,18 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   biomedicalConcepts: List[BiomedicalConcept] = []
   bcCategories: List[BiomedicalConceptCategory] = []
   bcSurrogates: List[BiomedicalConceptSurrogate] = []
-  studyArms: List[StudyArm]
+  arms: List[StudyArm]
   studyCells: List[StudyCell]
-  studyDesignBlindingScheme: Union[AliasCode, None] = None
-  studyDesignRationale: str
-  studyEpochs: List[StudyEpoch]
-  studyElements: List[StudyElement] = []
-  studyEstimands: List[Estimand] = []
-  studyIndications: List[Indication] = []
-  studyInvestigationalInterventions: List[InvestigationalIntervention] = []
-  studyObjectives: List[Objective] = []
-  studyPopulations: List[StudyDesignPopulation] = []
-  studyScheduleTimelines: List[ScheduleTimeline] = []
+  blindingSchema: Union[AliasCode, None] = None
+  rationale: str
+  epochs: List[StudyEpoch]
+  elements: List[StudyElement] = []
+  estimands: List[Estimand] = []
+  indications: List[Indication] = []
+  studyInterventions: List[StudyIntervention] = []
+  objectives: List[Objective] = []
+  populations: List[StudyDesignPopulation] = []
+  scheduleTimelines: List[ScheduleTimeline] = []
   documentVersion: Union[StudyProtocolDocumentVersion, None] = None
-  studyEligibilityCritieria: List[EligibilityCriteria] = []    
+  eligibilityCriteria: List[EligibilityCriteria] = []
   dictionaries: List[SyntaxTemplateDictionary] = []

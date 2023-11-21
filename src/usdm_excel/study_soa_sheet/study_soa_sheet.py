@@ -50,7 +50,7 @@ class StudySoASheet(BaseSheet):
           self.activities.append(activity)
           self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
           self.biomedical_concepts += item.usdm_biomedical_concepts
-        self.double_link(self.activities, 'previousActivityId', 'nextActivityId')
+        self.double_link(self.activities, 'previousId', 'nextId')
         
         prev_instance = None
         for raw_timepoint in self._raw_timepoints.items:
@@ -61,7 +61,7 @@ class StudySoASheet(BaseSheet):
             prev_instance.defaultConditionId = instance.id
           prev_instance = instance
         exit = self._add_exit()
-        instance.scheduleTimelineExitId = exit.id
+        instance.timelineExitId = exit.id
         self.timeline = self._add_timeline(self.name, self.description, self.condition, instances, exit)
 
     except Exception as e:
@@ -92,9 +92,9 @@ class StudySoASheet(BaseSheet):
       description=description,
       label=name,
       entryCondition=condition,
-      scheduleTimelineEntryId=instances[0].id,
-      scheduleTimelineExits=[exit],
-      scheduleTimelineInstances=instances
+      entryId=instances[0].id,
+      exits=[exit],
+      instances=instances
     )
 
   def _link_instance_to_activities(self):

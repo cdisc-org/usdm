@@ -34,7 +34,7 @@ class ScheduledInstances():
         instance.item.defaultConditionId = self.map[instance.default_name].item.id
       elif instance.default_name.upper() == "(EXIT)":
         exit = self._add_exit()
-        item.scheduleTimelineExitId = exit.id
+        item.timelineExitId = exit.id
         self.exits.append(exit)
       else:
         self.parent._general_error(f"Default reference from {instance.name} to {instance.default_name} cannot be made, not found on the same timeline")

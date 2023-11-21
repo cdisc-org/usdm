@@ -42,7 +42,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
               label=o_label,
               text=o_text,
               level=o_level,
-              objectiveEndpoints=[],
+              endpoints=[],
               dictionaryId=dictionary_id
             )
           except Exception as e:
@@ -68,7 +68,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._general_error(f"Failed to create Endpoint object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
           else:
-            current.objectiveEndpoints.append(ep)
+            current.endpoints.append(ep)
             cross_references.add(ep_name, ep)
         else:
           self._general_error("Failed to add Endpoint, no Objective set")

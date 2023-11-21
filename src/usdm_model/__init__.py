@@ -17,7 +17,7 @@ from .geographic_scope import *
 from .governance_date import *
 from .indication import *
 from .intercurrent_event import *
-from .investigational_intervention import *
+from .study_intervention import *
 from .narrative_content import *
 from .objective import *
 from .organization import *

@@ -27,8 +27,8 @@ class StudyDesignProcedureSheet(BaseSheet):
             label=label,
             procedureType=type, 
             code=code, 
-            procedureIsConditional=conditional, 
-            procedureIsConditionalReason=reason
+            isConditional=conditional, 
+            isConditionalReason=reason
           )
         except Exception as e:
           self._general_error(f"Failed to create Procedure object, exception {e}")

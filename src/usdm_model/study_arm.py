@@ -3,5 +3,5 @@ from .code import Code
 
 class StudyArm(ApiBaseModelWithIdNameLabelAndDesc):
   type: Code
-  studyArmDataOriginDescription: str
+  dataOriginDescription: str
   dataOriginType: Code

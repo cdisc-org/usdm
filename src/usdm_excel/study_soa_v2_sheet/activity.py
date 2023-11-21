@@ -59,13 +59,13 @@ class Activity():
         biomedicalConceptIds=full_bc_items,
         bcCategoryIds=[],
         bcSurrogateIds=surrogate_bc_items,
-        activityTimelineId=timelineId
+        timelineId=timelineId
       )
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items
       activity.bcSurrogateIds = surrogate_bc_items
-      activity.activityTimelineId = timelineId
+      activity.timelineId = timelineId
     return activity
   
   def _to_bc_surrogates(self, name):
@@ -74,7 +74,7 @@ class Activity():
       name=name,
       description=name,
       label=name,
-      bcSurrogateReference='None set'
+      reference='None set'
     )
   
   def _get_observation_cell(self, row_index, col_index):

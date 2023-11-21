@@ -4,5 +4,5 @@ from .code import Code
 
 class StudyEpoch(ApiBaseModelWithIdNameLabelAndDesc):
   type: Code
-  previousStudyEpochId: Union[str, None] = None
-  nextStudyEpochId: Union[str, None] = None
+  previousId: Union[str, None] = None
+  nextId: Union[str, None] = None

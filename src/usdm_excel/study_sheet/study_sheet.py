@@ -4,7 +4,8 @@ from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIden
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_sheet.study_soa_sheet import StudySoASheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
-from usdm_excel.study_design_ii_sheet.study_design_ii_sheet import StudyDesignIISheet
+from usdm_excel.study_design_indication_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
+from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
@@ -101,7 +102,8 @@ class StudySheet(BaseSheet):
       self.activities = StudyDesignActivitySheet(file_path)
       self.study_design = StudyDesignSheet(file_path)
       self._process_soa(file_path)
-      self.ii = StudyDesignIISheet(file_path)
+      self.indications = StudyDesignIndicationSheet(file_path)
+      self.interventions = StudyDesignInterventionSheet(file_path)
       self.study_populations = StudyDesignPopulationSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
       self.dictionaries = StudyDesignDictionarySheet(file_path)
@@ -111,14 +113,14 @@ class StudySheet(BaseSheet):
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
-      study_design.studyScheduleTimelines.append(self.soa.timeline)
+      study_design.scheduleTimelines.append(self.soa.timeline)
       study_design.encounters = self.encounters.items
       study_design.activities = self.soa.activities
       activity_ids = [item.id for item in study_design.activities]
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
       for key,tl in self.timelines.items():
-        study_design.studyScheduleTimelines.append(tl.timeline)
+        study_design.scheduleTimelines.append(tl.timeline)
         for activity in tl.activities:
           if activity.id not in activity_ids:
             study_design.activities.append(activity)
@@ -165,11 +167,11 @@ class StudySheet(BaseSheet):
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
           studyTitle=self.title,
-          studyVersion=self.version,
+          versionIdentifier=self.version,
           type=self.type,
           studyPhase=self.phase,
           businessTherapeuticAreas=self.therapeutic_areas,
-          studyRationale=self.rationale,
+          rationale=self.rationale,
           studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
           documentVersionId=self.protocol_document_version.id,
@@ -276,6 +278,7 @@ class StudySheet(BaseSheet):
           for scope in record['scopes']:
             scope = GeographicScope(
               id=id_manager.build_id(GeographicScope), 
+              instanceType="GEOGRAPHIC_SCOPE",
               type=scope['type'], 
               code=scope['code']
             )

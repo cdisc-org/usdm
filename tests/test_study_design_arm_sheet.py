@@ -4,9 +4,11 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
+from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):
+  cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -27,15 +29,16 @@ def test_create(mocker):
   assert arms.items[0].id == 'ArmId_1'
   assert arms.items[0].name == 'Arm 1'
   assert arms.items[0].label == ''
-  assert arms.items[0].studyArmDataOriginDescription == 'Subject'
+  assert arms.items[0].dataOriginDescription == 'Subject'
   assert arms.items[0].dataOriginType == expected_2
   assert arms.items[1].id == 'ArmId_2'
   assert arms.items[1].description == 'Arm Two'
   assert arms.items[2].id == 'ArmId_3'
   assert arms.items[2].type == expected_5
-  assert arms.items[2].studyArmDataOriginDescription == 'ePRO'
+  assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_with_name_and_label(mocker):
+  cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -57,15 +60,16 @@ def test_create_with_name_and_label(mocker):
   assert arms.items[0].name == 'Arm 1'
   assert arms.items[0].description == 'Arm One'
   assert arms.items[0].label == 'Arm 1'
-  assert arms.items[0].studyArmDataOriginDescription == 'Subject'
+  assert arms.items[0].dataOriginDescription == 'Subject'
   assert arms.items[0].dataOriginType == expected_2
   assert arms.items[1].id == 'ArmId_2'
   assert arms.items[1].description == 'Arm Two'
   assert arms.items[2].id == 'ArmId_3'
   assert arms.items[2].type == expected_5
-  assert arms.items[2].studyArmDataOriginDescription == 'ePRO'
+  assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_empty(mocker):
+  cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -75,6 +79,7 @@ def test_create_empty(mocker):
   assert len(arms.items) == 0
 
 def test_read_cell_by_name_error(mocker):
+  cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

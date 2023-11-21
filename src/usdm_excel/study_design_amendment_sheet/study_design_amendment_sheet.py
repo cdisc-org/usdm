@@ -62,7 +62,8 @@ class StudyDesignAmendmentSheet(BaseSheet):
     for enrollment in enrollments:
       try:
         item = SubjectEnrollment(
-          id=id_manager.build_id(SubjectEnrollment), 
+          id=id_manager.build_id(SubjectEnrollment),
+          instanceType="SUBJECT_ENROLLMENT",
           type=enrollment['type'],
           code=enrollment['code'],
           quantity=enrollment['quantity']

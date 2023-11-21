@@ -37,7 +37,7 @@ class ExportAsTimeline():
         self._body(doc, study_design)
   
   def _body(self, doc, study_design):
-    for timeline in study_design.studyScheduleTimelines:
+    for timeline in study_design.scheduleTimelines:
       timings = []
       with doc.tag(f'h1'):
         doc.asis(f'{timeline.name}')
@@ -50,7 +50,7 @@ class ExportAsTimeline():
         else:
           doc.asis(f'{instance.id}{{{{D}}}}\n')
         doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
-        for timing in instance.scheduledInstanceTimings:
+        for timing in instance.timings:
           #print(f"APPEND: {timing}")
           timings.append(timing)
         prev_instance = instance
@@ -64,13 +64,13 @@ class ExportAsTimeline():
             for condition in instance.conditionAssignments:
               doc.asis(f'{instance.id} -->|{condition[0]}| {condition[1]}\n') 
           doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
-          for timing in instance.scheduledInstanceTimings:
+          for timing in instance.timings:
             #print(f"APPEND: {timing}")
             timings.append(timing)
           prev_instance = instance
           instance = self._get_cross_reference(prev_instance.defaultConditionId)
           #print(f"NEXT: {instance}")
-        exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.scheduleTimelineExitId)
+        exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.timelineExitId)
         doc.asis(f'{exit.id}([Exit])\n')
         doc.asis(f'{prev_instance.id} -->|exit| {exit.id}\n')      
         for timing in timings:

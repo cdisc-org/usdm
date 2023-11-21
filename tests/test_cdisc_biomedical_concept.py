@@ -55,8 +55,8 @@ def test__bc_as_usdm(mocker):
   bc = item._bc_as_usdm(data)
   assert(bc.id) == 'BC_1'
   assert(bc.name) == 'Name'
-  assert(bc.bcSynonyms) == ['shortie']
-  assert(bc.bcReference) == 'link'
+  assert(bc.synonyms) == ['shortie']
+  assert(bc.reference) == 'link'
   assert(bc.code.id) == 'A1'
   assert(bc.code.standardCode.id) == 'C1'
   assert(bc.code.standardCode.code) == 'X1'
@@ -72,7 +72,7 @@ def test__bc_as_usdm(mocker):
   bc = item._bc_as_usdm(data)
   assert(bc.id) == 'BC_2'
   assert(bc.name) == 'Name1'
-  assert(bc.bcSynonyms) == []
+  assert(bc.synonyms) == []
 
 @xfail
 def test__bc_property_as_usdm(self, property, codes):

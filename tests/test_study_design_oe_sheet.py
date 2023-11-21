@@ -37,15 +37,15 @@ def test_create(mocker):
   assert items.objectives[0].name == 'Obj 1'
   assert items.objectives[0].description == 'Obj Desc 1'
   assert items.objectives[0].label == 'Obj Label 1'
-  assert items.objectives[0].objectiveEndpoints[0].name == 'End 1'
-  assert items.objectives[0].objectiveEndpoints[1].name == 'End 2'
+  assert items.objectives[0].endpoints[0].name == 'End 1'
+  assert items.objectives[0].endpoints[1].name == 'End 2'
   assert items.objectives[1].id == 'ObjId_2'
   assert items.objectives[1].name == 'Obj 2'
-  assert items.objectives[1].objectiveEndpoints[0].name == 'End 3'
+  assert items.objectives[1].endpoints[0].name == 'End 3'
   assert items.objectives[2].id == 'ObjId_3'
   assert items.objectives[2].name == 'Obj 3'
-  assert items.objectives[2].objectiveEndpoints[0].name == 'End 4'
-  assert items.objectives[2].objectiveEndpoints[1].name == 'End 5'
+  assert items.objectives[2].endpoints[0].name == 'End 4'
+  assert items.objectives[2].endpoints[1].name == 'End 5'
   
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

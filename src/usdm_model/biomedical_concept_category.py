@@ -3,6 +3,6 @@ from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .alias_code import AliasCode
 
 class BiomedicalConceptCategory(ApiBaseModelWithIdNameLabelAndDesc):
-  bcCategoryChildIds: List[str] = []
-  bcCategoryMemberIds: List[str] = []
+  childrenIds: List[str] = []
+  memberIds: List[str] = []
   code: Union[AliasCode, None] = None
