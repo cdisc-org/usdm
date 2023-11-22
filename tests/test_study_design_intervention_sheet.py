@@ -5,6 +5,7 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
+from tests.test_utility import clear
 from usdm_model.code import Code
 
 SAVE = True
@@ -19,6 +20,7 @@ def read_json(filename):
   return data
 
 def test_create(mocker):
+  clear()
   expected = read_json(f"tests/integration_test_files/intervention/create.json")
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=[f"Id_{x}" for x in range(100)]
@@ -44,15 +46,17 @@ def test_create(mocker):
     assert result == expected["items"][index]
   
 def test_create_empty(mocker):
+  clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)
-  Interventions = StudyDesignInterventionSheet("")
-  assert len(Interventions.items) == 0
+  interventions = StudyDesignInterventionSheet("")
+  assert len(interventions.items) == 0
 
 def test_read_cell_by_name_error(mocker):
+  clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -61,7 +65,7 @@ def test_read_cell_by_name_error(mocker):
   columns = COLUMNS
   columns = columns[0:-1]
   mock_read.return_value = pd.DataFrame(data, columns=columns)
-  Interventions = StudyDesignInterventionSheet("")
+  interventions = StudyDesignInterventionSheet("")
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignInterventions"
   assert mock_error.call_args[0][1] == None

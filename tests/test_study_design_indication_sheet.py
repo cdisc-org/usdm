@@ -4,9 +4,11 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_indication_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
+from tests.test_utility import clear
 from usdm_model.code import Code
 
 def test_create(mocker):
+  clear()
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
   mock_id.side_effect=['Code_1', 'IndicationId_1', 'Code_2', 'IndicationId_2', 'Code_3', 'Code_4', 'IndicationId_3']
   expected_1 = Code(id='Code_1', code='X', codeSystem='SPONSOR', codeSystemVersion='None set', decode="Y")
@@ -33,6 +35,7 @@ def test_create(mocker):
   assert Indications.items[2].codes == [expected_3, expected_4]
   
 def test_create_empty(mocker):
+  clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -42,6 +45,7 @@ def test_create_empty(mocker):
   assert len(Indications.items) == 0
 
 def test_read_cell_by_name_error(mocker):
+  clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
