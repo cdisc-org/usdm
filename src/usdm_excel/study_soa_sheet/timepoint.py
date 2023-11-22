@@ -44,7 +44,7 @@ class Timepoint():
     self.usdm_timepoint = self._as_usdm()
     if self.has_encounter:
       encounter = cross_references.get(Encounter, self.encounter_xref)
-      self.usdm_timepoint.scheduledActivityInstanceEncounterId = encounter.id
+      self.usdm_timepoint.encounterId = encounter.id
     if epoch_ref is not None:
       self.usdm_timepoint.epochId = epoch_ref.id
 
@@ -109,7 +109,7 @@ class Timepoint():
     return Timing(
       id=id_manager.build_id(Timing),
       type=type_code[self.__timepoint_type.timing_type.upper()],
-      timingValue=self.__timepoint_type.value,
+      value=self.__timepoint_type.value,
       name=f"TIMING_{self.col_index}", # TODO: Temporary fix, need something better
       description=self.__timepoint_type.description,
       label="",

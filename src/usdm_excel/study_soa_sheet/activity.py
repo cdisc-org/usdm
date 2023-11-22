@@ -50,18 +50,18 @@ class Activity():
         name=self.name,
         description=self.name,
         definedProcedures=procedures,
-        activityIsConditional=False,
-        activityIsConditionalReason="",
+        isConditional=False,
+        isConditionalReason="",
         biomedicalConceptIds=full_bc_items,
         bcCategoryIds=[],
         bcSurrogateIds=surrogate_bc_items,
-        activityTimelineId=timelineId
+        timelineId=timelineId
       )
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items
       activity.bcSurrogateIds = surrogate_bc_items
-      activity.activityTimelineId = timelineId
+      activity.timelineId = timelineId
     return activity
   
   def _to_bc_surrogates(self, name):
