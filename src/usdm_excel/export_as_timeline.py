@@ -44,7 +44,7 @@ class ExportAsTimeline():
       with doc.tag('pre', klass='mermaid'):
         doc.asis('\ngraph LR\n')
         doc.asis(f'{timeline.id}([{timeline.entryCondition}])\n')
-        instance = cross_references.get_by_id(ScheduledActivityInstance, timeline.scheduleTimelineEntryId)
+        instance = cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
         if instance.instanceType == 'ACTIVITY': 
           doc.asis(f'{instance.id}(A)\n')
         else:
@@ -75,7 +75,7 @@ class ExportAsTimeline():
         doc.asis(f'{prev_instance.id} -->|exit| {exit.id}\n')      
         for timing in timings:
           #print(f"TIMING: {timing}")
-          doc.asis(f'{timing.id}(({timing.label}\n{timing.type.decode}\n{timing.timingValue}\n{timing.timingWindowLower}..{timing.timingWindowUpper}))\n')            
+          doc.asis(f'{timing.id}(({timing.label}\n{timing.type.decode}\n{timing.value}\n{timing.windowLower}..{timing.windowUpper}))\n')            
           doc.asis(f'{timing.id} -->|from| {timing.relativeFromScheduledInstanceId}\n')      
           doc.asis(f'{timing.id} -->|to| {timing.relativeToScheduledInstanceId}\n')      
     with doc.tag('script', type='module'):
