@@ -10,9 +10,10 @@ class CDISCCT(CodeBase):
  
   def code_for_attribute(self, klass, attribute, value):
     item = cdisc_ct_library.klass_and_attribute(klass, attribute, value)
-    if item == None:
+    if item:
+      return self._build(code=item['conceptId'], system=cdisc_ct_library.system, version=cdisc_ct_library.version, decode=item['preferredTerm'])
+    else:
       return None
-    return self._build(code=item['conceptId'], system=cdisc_ct_library.system, version=cdisc_ct_library.version, decode=item['preferredTerm'])
 
   def code_for_unit(self, value):
     item = cdisc_ct_library.unit(value)

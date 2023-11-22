@@ -183,19 +183,18 @@ class BaseSheet():
     return result
 
   def read_cdisc_klass_attribute_cell_by_name(self, klass, attribute, row_index, field_name):
-    #col_index = self.sheet.columns.get_loc(field_name)
     col_index = self.column_present(field_name)
     return self.read_cdisc_klass_attribute_cell(klass, attribute, row_index, col_index)
 
   def read_cdisc_klass_attribute_cell(self, klass, attribute, row_index, col_index):
     code = None
     value = self.read_cell(row_index, col_index)
-    if value.strip() == "":
-      self._error(row_index, col_index, "Empty cell detected where CDISC CT value expected.")
-    else:
+    if value:
       code = CDISCCT().code_for_attribute(klass, attribute, value)
-      if code is None:
+      if not code:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
+    else:
+      self._error(row_index, col_index, "Empty cell detected where CDISC CT value expected.")
     return code
 
   def read_cdisc_klass_attribute_cell_multiple_by_name(self, klass, attribute, row_index, field_name):

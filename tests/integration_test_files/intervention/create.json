@@ -1,0 +1,419 @@
+{
+  "items": [
+    {
+      "administrations": [
+        {
+          "description": "Admin Desc 1",
+          "dose": {
+            "id": "Id_4",
+            "unit": {
+              "code": "C28253",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-09-29",
+              "decode": "Milligram",
+              "id": "Id_3"
+            },
+            "value": 12.0
+          },
+          "duration": {
+            "description": "Dur desc 1",
+            "durationWillVary": false,
+            "id": "Id_2",
+            "quantity": {
+              "id": "Id_1",
+              "unit": {
+                "code": "C25613",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-09-29",
+                "decode": "Percentage",
+                "id": "Id_0"
+              },
+              "value": 14.0
+            },
+            "reasonDurationWillVary": ""
+          },
+          "frequency": {
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX1",
+            "id": "Code_1"
+          },
+          "id": "Id_5",
+          "label": "Admin Label 1",
+          "name": "Admin 1",
+          "route": {
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX0",
+            "id": "Code_0"
+          }
+        },
+        {
+          "description": "Admin Desc 2",
+          "dose": {
+            "id": "Id_17",
+            "unit": {
+              "code": "C28253",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-09-29",
+              "decode": "Milligram",
+              "id": "Id_16"
+            },
+            "value": 1.0
+          },
+          "duration": {
+            "description": "Dur desc 1",
+            "durationWillVary": false,
+            "id": "Id_15",
+            "quantity": {
+              "id": "Id_14",
+              "unit": {
+                "code": "C41139",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-09-29",
+                "decode": "Meter",
+                "id": "Id_13"
+              },
+              "value": 10.0
+            },
+            "reasonDurationWillVary": ""
+          },
+          "frequency": {
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX4",
+            "id": "Code_4"
+          },
+          "id": "Id_18",
+          "label": "Admin Label 1",
+          "name": "Admin 2",
+          "route": {
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX3",
+            "id": "Code_3"
+          }
+        }
+      ],
+      "codes": [
+        {
+          "code": "A",
+          "codeSystem": "SPONSOR",
+          "codeSystemVersion": "None set",
+          "decode": "B",
+          "id": "Id_6"
+        }
+      ],
+      "description": "Int Desc 1",
+      "id": "Id_12",
+      "label": "Int Label 1",
+      "minimumResponseDuration": {
+        "id": "Id_11",
+        "unit": {
+          "code": "C25301",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2023-09-29",
+          "decode": "Day",
+          "id": "Id_10"
+        },
+        "value": 1.0
+      },
+      "name": "Int 1",
+      "pharmacologicClass": {
+        "code": "A",
+        "codeSystem": "FDA",
+        "codeSystemVersion": "None set",
+        "decode": "B",
+        "id": "Id_8"
+      },
+      "productDesignation": {
+        "code": "desig1",
+        "codeSystem": "M11",
+        "codeSystemVersion": "None set",
+        "decode": "desig_1",
+        "id": "Id_9"
+      },
+      "role": {
+        "code": "role1",
+        "codeSystem": "M11",
+        "codeSystemVersion": "None set",
+        "decode": "role1",
+        "id": "Id_7"
+      },
+      "type": {
+        "code": "C12345",
+        "codeSystem": "CDISC",
+        "codeSystemVersion": "1",
+        "decode": "INDEX2",
+        "id": "Code_2"
+      }
+    },
+    {
+      "administrations": [
+        {
+          "description": "Admin Desc 3",
+          "dose": {
+            "id": "Id_23",
+            "unit": {
+              "code": "C28253",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-09-29",
+              "decode": "Milligram",
+              "id": "Id_22"
+            },
+            "value": 100.0
+          },
+          "duration": {
+            "description": "Dur desc 1",
+            "durationWillVary": false,
+            "id": "Id_21",
+            "quantity": {
+              "id": "Id_20",
+              "unit": {
+                "code": "C42559",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-09-29",
+                "decode": "Degree Celsius",
+                "id": "Id_19"
+              },
+              "value": 12.0
+            },
+            "reasonDurationWillVary": ""
+          },
+          "frequency": {
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX6",
+            "id": "Code_6"
+          },
+          "id": "Id_24",
+          "label": "Admin Label 1",
+          "name": "Admin 3",
+          "route": {
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX5",
+            "id": "Code_5"
+          }
+        }
+      ],
+      "codes": [
+        {
+          "code": "C",
+          "codeSystem": "SPONSOR",
+          "codeSystemVersion": "None set",
+          "decode": "D",
+          "id": "Id_25"
+        }
+      ],
+      "description": "Int Desc 2",
+      "id": "Id_31",
+      "label": "Int Label 2",
+      "minimumResponseDuration": {
+        "id": "Id_30",
+        "unit": {
+          "code": "C29844",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2023-09-29",
+          "decode": "Week",
+          "id": "Id_29"
+        },
+        "value": 3.0
+      },
+      "name": "Int 2",
+      "pharmacologicClass": {
+        "code": "A",
+        "codeSystem": "FDA",
+        "codeSystemVersion": "None set",
+        "decode": "B",
+        "id": "Id_27"
+      },
+      "productDesignation": {
+        "code": "desig2",
+        "codeSystem": "M11",
+        "codeSystemVersion": "None set",
+        "decode": "desig_2",
+        "id": "Id_28"
+      },
+      "role": {
+        "code": "role2",
+        "codeSystem": "M11",
+        "codeSystemVersion": "None set",
+        "decode": "role2",
+        "id": "Id_26"
+      },
+      "type": {
+        "code": "C12345",
+        "codeSystem": "CDISC",
+        "codeSystemVersion": "1",
+        "decode": "INDEX7",
+        "id": "Code_7"
+      }
+    },
+    {
+      "id": "Id_45",
+      "name": "Int 3",
+      "label": "Int Label 3",
+      "description": "Int Desc 3",
+      "role": {
+        "id": "Id_40",
+        "code": "role3",
+        "codeSystem": "M11",
+        "codeSystemVersion": "None set",
+        "decode": "role3"
+      },
+      "type": {
+        "id": "Code_10",
+        "code": "C12345",
+        "codeSystem": "CDISC",
+        "codeSystemVersion": "1",
+        "decode": "INDEX10"
+      },
+      "minimumResponseDuration": {
+        "id": "Id_44",
+        "unit": {
+          "id": "Id_43",
+          "code": "C29848",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2023-09-29",
+          "decode": "Year"
+        },
+        "value": 4.0
+      },
+      "codes": [
+        {
+          "id": "Id_38",
+          "code": "E",
+          "codeSystem": "SPONSOR",
+          "codeSystemVersion": "None set",
+          "decode": "F"
+        },
+        {
+          "id": "Id_39",
+          "code": "G",
+          "codeSystem": "SPONSOR",
+          "codeSystemVersion": "None set",
+          "decode": "H"
+        }
+      ],
+      "administrations": [
+        {
+          "id": "Id_37",
+          "name": "Admin 4",
+          "label": "Admin Label 1",
+          "description": "Admin Desc 4",
+          "duration": {
+            "id": "Id_34",
+            "quantity": {
+              "id": "Id_33",
+              "unit": {
+                "id": "Id_32",
+                "code": "C44277",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-09-29",
+                "decode": "Degree Fahrenheit"
+              },
+              "value": 12.0
+            },
+            "description": "Dur desc 1",
+            "durationWillVary": false,
+            "reasonDurationWillVary": ""
+          },
+          "dose": {
+            "id": "Id_36",
+            "unit": {
+              "id": "Id_35",
+              "code": "C28253",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-09-29",
+              "decode": "Milligram"
+            },
+            "value": 500.0
+          },
+          "route": {
+            "id": "Code_8",
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX8"
+          },
+          "frequency": {
+            "id": "Code_9",
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX9"
+          }
+        },
+        {
+          "id": "Id_51",
+          "name": "Admin 5",
+          "label": "Admin Label 1",
+          "description": "Admin Desc 5",
+          "duration": {
+            "id": "Id_48",
+            "quantity": {
+              "id": "Id_47",
+              "unit": {
+                "id": "Id_46",
+                "code": "C48500",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-09-29",
+                "decode": "Inch"
+              },
+              "value": 15.0
+            },
+            "description": "Dur desc 1",
+            "durationWillVary": false,
+            "reasonDurationWillVary": ""
+          },
+          "dose": {
+            "id": "Id_50",
+            "unit": {
+              "id": "Id_49",
+              "code": "C28253",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-09-29",
+              "decode": "Milligram"
+            },
+            "value": 1.0
+          },
+          "route": {
+            "id": "Code_11",
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX11"
+          },
+          "frequency": {
+            "id": "Code_12",
+            "code": "C12345",
+            "codeSystem": "CDISC",
+            "codeSystemVersion": "1",
+            "decode": "INDEX12"
+          }
+        }
+      ],
+      "productDesignation": {
+        "id": "Id_42",
+        "code": "desig3",
+        "codeSystem": "M11",
+        "codeSystemVersion": "None set",
+        "decode": "desig_3"
+      },
+      "pharmacologicClass": {
+        "id": "Id_41",
+        "code": "A",
+        "codeSystem": "FDA",
+        "codeSystemVersion": "None set",
+        "decode": "B"
+      }
+    }
+  ]
+}

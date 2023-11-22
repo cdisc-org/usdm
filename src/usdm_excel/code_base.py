@@ -5,7 +5,8 @@ from usdm_model.code import Code
 class CodeBase():
 
   def _build(self, code, system, version, decode):
-    instance = Code(id=id_manager.build_id(Code), code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
+    id = id_manager.build_id(Code)
+    instance = Code(id=id, code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
     cross_references.add(instance.id, instance)
     return instance
  
