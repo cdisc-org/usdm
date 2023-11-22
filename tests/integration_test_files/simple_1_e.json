@@ -92,7 +92,7 @@
     "start": 13,
     "end": 15,
     "properties": {
-      "label": "organizationLegalAddress"
+      "label": "legalAddress"
     }
   },
   {
@@ -124,7 +124,7 @@
     "start": 18,
     "end": 20,
     "properties": {
-      "label": "organizationLegalAddress"
+      "label": "legalAddress"
     }
   },
   {
@@ -212,7 +212,7 @@
     "start": 29,
     "end": 31,
     "properties": {
-      "label": "encounterEnvironmentalSetting"
+      "label": "environmentalSetting"
     }
   },
   {
@@ -220,7 +220,7 @@
     "start": 29,
     "end": 32,
     "properties": {
-      "label": "encounterContactModes"
+      "label": "contactModes"
     }
   },
   {
@@ -252,7 +252,7 @@
     "start": 35,
     "end": 37,
     "properties": {
-      "label": "encounterEnvironmentalSetting"
+      "label": "environmentalSetting"
     }
   },
   {
@@ -260,7 +260,7 @@
     "start": 35,
     "end": 38,
     "properties": {
-      "label": "encounterContactModes"
+      "label": "contactModes"
     }
   },
   {
@@ -276,7 +276,7 @@
     "start": 39,
     "end": 41,
     "properties": {
-      "label": "encounterEnvironmentalSetting"
+      "label": "environmentalSetting"
     }
   },
   {
@@ -284,7 +284,7 @@
     "start": 39,
     "end": 42,
     "properties": {
-      "label": "encounterContactModes"
+      "label": "contactModes"
     }
   },
   {
@@ -308,7 +308,7 @@
     "start": 44,
     "end": 46,
     "properties": {
-      "label": "encounterEnvironmentalSetting"
+      "label": "environmentalSetting"
     }
   },
   {
@@ -316,7 +316,7 @@
     "start": 44,
     "end": 47,
     "properties": {
-      "label": "encounterContactModes"
+      "label": "contactModes"
     }
   },
   {
@@ -332,7 +332,7 @@
     "start": 48,
     "end": 50,
     "properties": {
-      "label": "encounterEnvironmentalSetting"
+      "label": "environmentalSetting"
     }
   },
   {
@@ -340,7 +340,7 @@
     "start": 48,
     "end": 51,
     "properties": {
-      "label": "encounterContactModes"
+      "label": "contactModes"
     }
   },
   {
@@ -417,26 +417,26 @@
   },
   {
     "id": 53,
-    "start": 60,
-    "end": 61,
+    "start": 55,
+    "end": 56,
     "properties": {
-      "label": "code"
+      "label": "responseCodes"
     }
   },
   {
     "id": 54,
     "start": 55,
-    "end": 56,
+    "end": 58,
     "properties": {
-      "label": "bcPropertyResponseCodes"
+      "label": "responseCodes"
     }
   },
   {
     "id": 55,
-    "start": 55,
-    "end": 58,
+    "start": 60,
+    "end": 61,
     "properties": {
-      "label": "bcPropertyResponseCodes"
+      "label": "standardCode"
     }
   },
   {
@@ -444,11 +444,19 @@
     "start": 55,
     "end": 60,
     "properties": {
-      "label": "bcPropertyResponseCodes"
+      "label": "code"
     }
   },
   {
     "id": 57,
+    "start": 54,
+    "end": 55,
+    "properties": {
+      "label": "properties"
+    }
+  },
+  {
+    "id": 58,
     "start": 62,
     "end": 63,
     "properties": {
@@ -456,79 +464,55 @@
     }
   },
   {
-    "id": 58,
-    "start": 55,
+    "id": 59,
+    "start": 54,
     "end": 62,
     "properties": {
       "label": "code"
     }
   },
   {
-    "id": 59,
-    "start": 54,
-    "end": 55,
-    "properties": {
-      "label": "bcProperties"
-    }
-  },
-  {
     "id": 60,
-    "start": 64,
-    "end": 65,
+    "start": 66,
+    "end": 67,
     "properties": {
       "label": "standardCode"
     }
   },
   {
     "id": 61,
-    "start": 54,
-    "end": 64,
+    "start": 65,
+    "end": 66,
     "properties": {
       "label": "code"
     }
   },
   {
     "id": 62,
-    "start": 68,
-    "end": 69,
+    "start": 64,
+    "end": 65,
     "properties": {
-      "label": "code"
+      "label": "properties"
     }
   },
   {
     "id": 63,
-    "start": 67,
-    "end": 68,
-    "properties": {
-      "label": "bcPropertyResponseCodes"
-    }
-  },
-  {
-    "id": 64,
-    "start": 70,
-    "end": 71,
+    "start": 68,
+    "end": 69,
     "properties": {
       "label": "standardCode"
     }
   },
   {
-    "id": 65,
-    "start": 67,
-    "end": 70,
+    "id": 64,
+    "start": 64,
+    "end": 68,
     "properties": {
       "label": "code"
     }
   },
   {
-    "id": 66,
-    "start": 66,
-    "end": 67,
-    "properties": {
-      "label": "bcProperties"
-    }
-  },
-  {
-    "id": 67,
+    "id": 65,
     "start": 72,
     "end": 73,
     "properties": {
@@ -536,23 +520,15 @@
     }
   },
   {
-    "id": 68,
-    "start": 66,
+    "id": 66,
+    "start": 71,
     "end": 72,
     "properties": {
       "label": "code"
     }
   },
   {
-    "id": 69,
-    "start": 76,
-    "end": 77,
-    "properties": {
-      "label": "standardCode"
-    }
-  },
-  {
-    "id": 70,
+    "id": 67,
     "start": 75,
     "end": 76,
     "properties": {
@@ -560,7 +536,15 @@
     }
   },
   {
-    "id": 71,
+    "id": 68,
+    "start": 77,
+    "end": 78,
+    "properties": {
+      "label": "code"
+    }
+  },
+  {
+    "id": 69,
     "start": 79,
     "end": 80,
     "properties": {
@@ -568,95 +552,79 @@
     }
   },
   {
-    "id": 72,
-    "start": 81,
-    "end": 82,
+    "id": 70,
+    "start": 74,
+    "end": 75,
     "properties": {
-      "label": "code"
+      "label": "responseCodes"
+    }
+  },
+  {
+    "id": 71,
+    "start": 74,
+    "end": 77,
+    "properties": {
+      "label": "responseCodes"
+    }
+  },
+  {
+    "id": 72,
+    "start": 74,
+    "end": 79,
+    "properties": {
+      "label": "responseCodes"
     }
   },
   {
     "id": 73,
-    "start": 83,
-    "end": 84,
+    "start": 81,
+    "end": 82,
+    "properties": {
+      "label": "standardCode"
+    }
+  },
+  {
+    "id": 74,
+    "start": 74,
+    "end": 81,
     "properties": {
       "label": "code"
     }
   },
   {
-    "id": 74,
-    "start": 78,
-    "end": 79,
-    "properties": {
-      "label": "bcPropertyResponseCodes"
-    }
-  },
-  {
     "id": 75,
-    "start": 78,
-    "end": 81,
+    "start": 70,
+    "end": 71,
     "properties": {
-      "label": "bcPropertyResponseCodes"
+      "label": "properties"
     }
   },
   {
     "id": 76,
-    "start": 78,
-    "end": 83,
+    "start": 70,
+    "end": 74,
     "properties": {
-      "label": "bcPropertyResponseCodes"
+      "label": "properties"
     }
   },
   {
     "id": 77,
-    "start": 85,
-    "end": 86,
+    "start": 83,
+    "end": 84,
     "properties": {
       "label": "standardCode"
     }
   },
   {
     "id": 78,
-    "start": 78,
-    "end": 85,
+    "start": 70,
+    "end": 83,
     "properties": {
       "label": "code"
     }
   },
   {
     "id": 79,
-    "start": 74,
-    "end": 75,
-    "properties": {
-      "label": "bcProperties"
-    }
-  },
-  {
-    "id": 80,
-    "start": 74,
-    "end": 78,
-    "properties": {
-      "label": "bcProperties"
-    }
-  },
-  {
-    "id": 81,
-    "start": 87,
-    "end": 88,
-    "properties": {
-      "label": "standardCode"
-    }
-  },
-  {
-    "id": 82,
-    "start": 74,
-    "end": 87,
-    "properties": {
-      "label": "code"
-    }
-  },
-  {
-    "id": 83,
     "start": 22,
     "end": 54,
     "properties": {
@@ -664,75 +632,107 @@
     }
   },
   {
-    "id": 84,
+    "id": 80,
     "start": 22,
-    "end": 66,
+    "end": 64,
     "properties": {
       "label": "biomedicalConcepts"
     }
   },
   {
-    "id": 85,
+    "id": 81,
     "start": 22,
-    "end": 74,
+    "end": 70,
     "properties": {
       "label": "biomedicalConcepts"
     }
   },
   {
-    "id": 86,
+    "id": 82,
     "start": 22,
-    "end": 89,
+    "end": 85,
     "properties": {
       "label": "bcSurrogates"
     }
   },
   {
-    "id": 87,
-    "start": 90,
-    "end": 91,
+    "id": 83,
+    "start": 86,
+    "end": 87,
     "properties": {
       "label": "type"
+    }
+  },
+  {
+    "id": 84,
+    "start": 86,
+    "end": 88,
+    "properties": {
+      "label": "dataOriginType"
+    }
+  },
+  {
+    "id": 85,
+    "start": 89,
+    "end": 90,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 86,
+    "start": 89,
+    "end": 91,
+    "properties": {
+      "label": "dataOriginType"
+    }
+  },
+  {
+    "id": 87,
+    "start": 22,
+    "end": 86,
+    "properties": {
+      "label": "arms"
     }
   },
   {
     "id": 88,
-    "start": 90,
-    "end": 92,
+    "start": 22,
+    "end": 89,
     "properties": {
-      "label": "dataOriginType"
+      "label": "arms"
     }
   },
   {
     "id": 89,
-    "start": 93,
-    "end": 94,
+    "start": 22,
+    "end": 92,
     "properties": {
-      "label": "type"
+      "label": "studyCells"
     }
   },
   {
     "id": 90,
-    "start": 93,
-    "end": 95,
+    "start": 22,
+    "end": 93,
     "properties": {
-      "label": "dataOriginType"
+      "label": "studyCells"
     }
   },
   {
     "id": 91,
     "start": 22,
-    "end": 90,
+    "end": 94,
     "properties": {
-      "label": "studyArms"
+      "label": "studyCells"
     }
   },
   {
     "id": 92,
     "start": 22,
-    "end": 93,
+    "end": 95,
     "properties": {
-      "label": "studyArms"
+      "label": "studyCells"
     }
   },
   {
@@ -769,54 +769,38 @@
   },
   {
     "id": 97,
-    "start": 22,
-    "end": 100,
-    "properties": {
-      "label": "studyCells"
-    }
-  },
-  {
-    "id": 98,
-    "start": 22,
+    "start": 100,
     "end": 101,
-    "properties": {
-      "label": "studyCells"
-    }
-  },
-  {
-    "id": 99,
-    "start": 22,
-    "end": 102,
-    "properties": {
-      "label": "studyCells"
-    }
-  },
-  {
-    "id": 100,
-    "start": 22,
-    "end": 103,
-    "properties": {
-      "label": "studyCells"
-    }
-  },
-  {
-    "id": 101,
-    "start": 104,
-    "end": 105,
     "properties": {
       "label": "standardCode"
     }
   },
   {
-    "id": 102,
+    "id": 98,
     "start": 22,
-    "end": 104,
+    "end": 100,
     "properties": {
-      "label": "studyDesignBlindingScheme"
+      "label": "blindingSchema"
     }
   },
   {
-    "id": 103,
+    "id": 99,
+    "start": 102,
+    "end": 103,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 100,
+    "start": 104,
+    "end": 105,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 101,
     "start": 106,
     "end": 107,
     "properties": {
@@ -824,7 +808,7 @@
     }
   },
   {
-    "id": 104,
+    "id": 102,
     "start": 108,
     "end": 109,
     "properties": {
@@ -832,235 +816,251 @@
     }
   },
   {
-    "id": 105,
-    "start": 110,
-    "end": 111,
+    "id": 103,
+    "start": 22,
+    "end": 102,
     "properties": {
-      "label": "type"
+      "label": "epochs"
+    }
+  },
+  {
+    "id": 104,
+    "start": 22,
+    "end": 104,
+    "properties": {
+      "label": "epochs"
+    }
+  },
+  {
+    "id": 105,
+    "start": 22,
+    "end": 106,
+    "properties": {
+      "label": "epochs"
     }
   },
   {
     "id": 106,
-    "start": 112,
-    "end": 113,
+    "start": 22,
+    "end": 108,
     "properties": {
-      "label": "type"
+      "label": "epochs"
     }
   },
   {
     "id": 107,
-    "start": 22,
-    "end": 106,
+    "start": 110,
+    "end": 111,
     "properties": {
-      "label": "studyEpochs"
+      "label": "transitionStartRule"
     }
   },
   {
     "id": 108,
-    "start": 22,
-    "end": 108,
+    "start": 110,
+    "end": 112,
     "properties": {
-      "label": "studyEpochs"
+      "label": "transitionEndRule"
     }
   },
   {
     "id": 109,
-    "start": 22,
-    "end": 110,
+    "start": 113,
+    "end": 114,
     "properties": {
-      "label": "studyEpochs"
+      "label": "transitionStartRule"
     }
   },
   {
     "id": 110,
-    "start": 22,
-    "end": 112,
+    "start": 113,
+    "end": 115,
     "properties": {
-      "label": "studyEpochs"
+      "label": "transitionEndRule"
     }
   },
   {
     "id": 111,
-    "start": 114,
-    "end": 115,
+    "start": 116,
+    "end": 117,
     "properties": {
       "label": "transitionStartRule"
     }
   },
   {
     "id": 112,
-    "start": 114,
-    "end": 116,
+    "start": 116,
+    "end": 118,
     "properties": {
       "label": "transitionEndRule"
     }
   },
   {
     "id": 113,
-    "start": 117,
-    "end": 118,
+    "start": 119,
+    "end": 120,
     "properties": {
       "label": "transitionStartRule"
     }
   },
   {
     "id": 114,
-    "start": 117,
-    "end": 119,
+    "start": 119,
+    "end": 121,
     "properties": {
       "label": "transitionEndRule"
     }
   },
   {
     "id": 115,
-    "start": 120,
-    "end": 121,
+    "start": 122,
+    "end": 123,
     "properties": {
       "label": "transitionStartRule"
     }
   },
   {
     "id": 116,
-    "start": 120,
-    "end": 122,
+    "start": 122,
+    "end": 124,
     "properties": {
       "label": "transitionEndRule"
     }
   },
   {
     "id": 117,
-    "start": 123,
-    "end": 124,
+    "start": 22,
+    "end": 110,
     "properties": {
-      "label": "transitionStartRule"
+      "label": "elements"
     }
   },
   {
     "id": 118,
-    "start": 123,
-    "end": 125,
+    "start": 22,
+    "end": 113,
     "properties": {
-      "label": "transitionEndRule"
+      "label": "elements"
     }
   },
   {
     "id": 119,
-    "start": 126,
-    "end": 127,
+    "start": 22,
+    "end": 116,
     "properties": {
-      "label": "transitionStartRule"
+      "label": "elements"
     }
   },
   {
     "id": 120,
-    "start": 126,
-    "end": 128,
+    "start": 22,
+    "end": 119,
     "properties": {
-      "label": "transitionEndRule"
+      "label": "elements"
     }
   },
   {
     "id": 121,
     "start": 22,
-    "end": 114,
+    "end": 122,
     "properties": {
-      "label": "studyElements"
+      "label": "elements"
     }
   },
   {
     "id": 122,
-    "start": 22,
-    "end": 117,
+    "start": 125,
+    "end": 126,
     "properties": {
-      "label": "studyElements"
+      "label": "analysisPopulation"
     }
   },
   {
     "id": 123,
-    "start": 22,
-    "end": 120,
+    "start": 125,
+    "end": 127,
     "properties": {
-      "label": "studyElements"
+      "label": "intercurrentEvents"
     }
   },
   {
     "id": 124,
-    "start": 22,
-    "end": 123,
+    "start": 125,
+    "end": 128,
     "properties": {
-      "label": "studyElements"
+      "label": "intercurrentEvents"
     }
   },
   {
     "id": 125,
-    "start": 22,
-    "end": 126,
+    "start": 125,
+    "end": 129,
     "properties": {
-      "label": "studyElements"
+      "label": "intercurrentEvents"
     }
   },
   {
     "id": 126,
-    "start": 129,
-    "end": 130,
+    "start": 130,
+    "end": 131,
     "properties": {
       "label": "analysisPopulation"
     }
   },
   {
     "id": 127,
-    "start": 129,
-    "end": 131,
-    "properties": {
-      "label": "intercurrentEvents"
-    }
-  },
-  {
-    "id": 128,
-    "start": 129,
+    "start": 130,
     "end": 132,
     "properties": {
       "label": "intercurrentEvents"
     }
   },
   {
-    "id": 129,
-    "start": 129,
-    "end": 133,
+    "id": 128,
+    "start": 22,
+    "end": 125,
     "properties": {
-      "label": "intercurrentEvents"
+      "label": "estimands"
+    }
+  },
+  {
+    "id": 129,
+    "start": 22,
+    "end": 130,
+    "properties": {
+      "label": "estimands"
     }
   },
   {
     "id": 130,
-    "start": 134,
-    "end": 135,
+    "start": 133,
+    "end": 134,
     "properties": {
-      "label": "analysisPopulation"
+      "label": "codes"
     }
   },
   {
     "id": 131,
-    "start": 134,
+    "start": 135,
     "end": 136,
     "properties": {
-      "label": "intercurrentEvents"
+      "label": "codes"
     }
   },
   {
     "id": 132,
     "start": 22,
-    "end": 129,
+    "end": 133,
     "properties": {
-      "label": "studyEstimands"
+      "label": "indications"
     }
   },
   {
     "id": 133,
     "start": 22,
-    "end": 134,
+    "end": 135,
     "properties": {
-      "label": "studyEstimands"
+      "label": "indications"
     }
   },
   {
@@ -1068,36 +1068,36 @@
     "start": 137,
     "end": 138,
     "properties": {
-      "label": "codes"
+      "label": "role"
     }
   },
   {
     "id": 135,
-    "start": 139,
-    "end": 140,
+    "start": 137,
+    "end": 139,
     "properties": {
-      "label": "codes"
+      "label": "type"
     }
   },
   {
     "id": 136,
-    "start": 22,
-    "end": 137,
+    "start": 140,
+    "end": 141,
     "properties": {
-      "label": "studyIndications"
+      "label": "unit"
     }
   },
   {
     "id": 137,
-    "start": 22,
-    "end": 139,
+    "start": 137,
+    "end": 140,
     "properties": {
-      "label": "studyIndications"
+      "label": "minimumResponseDuration"
     }
   },
   {
     "id": 138,
-    "start": 141,
+    "start": 137,
     "end": 142,
     "properties": {
       "label": "codes"
@@ -1105,10 +1105,10 @@
   },
   {
     "id": 139,
-    "start": 141,
-    "end": 143,
+    "start": 145,
+    "end": 146,
     "properties": {
-      "label": "codes"
+      "label": "unit"
     }
   },
   {
@@ -1116,131 +1116,211 @@
     "start": 144,
     "end": 145,
     "properties": {
-      "label": "codes"
+      "label": "quantity"
     }
   },
   {
     "id": 141,
-    "start": 144,
-    "end": 146,
+    "start": 143,
+    "end": 144,
+    "properties": {
+      "label": "duration"
+    }
+  },
+  {
+    "id": 142,
+    "start": 147,
+    "end": 148,
+    "properties": {
+      "label": "unit"
+    }
+  },
+  {
+    "id": 143,
+    "start": 143,
+    "end": 147,
+    "properties": {
+      "label": "dose"
+    }
+  },
+  {
+    "id": 144,
+    "start": 143,
+    "end": 149,
+    "properties": {
+      "label": "route"
+    }
+  },
+  {
+    "id": 145,
+    "start": 143,
+    "end": 150,
+    "properties": {
+      "label": "frequency"
+    }
+  },
+  {
+    "id": 146,
+    "start": 137,
+    "end": 143,
+    "properties": {
+      "label": "administrations"
+    }
+  },
+  {
+    "id": 147,
+    "start": 137,
+    "end": 151,
+    "properties": {
+      "label": "productDesignation"
+    }
+  },
+  {
+    "id": 148,
+    "start": 137,
+    "end": 152,
+    "properties": {
+      "label": "pharmacologicClass"
+    }
+  },
+  {
+    "id": 149,
+    "start": 153,
+    "end": 154,
+    "properties": {
+      "label": "role"
+    }
+  },
+  {
+    "id": 150,
+    "start": 153,
+    "end": 155,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 151,
+    "start": 156,
+    "end": 157,
+    "properties": {
+      "label": "unit"
+    }
+  },
+  {
+    "id": 152,
+    "start": 153,
+    "end": 156,
+    "properties": {
+      "label": "minimumResponseDuration"
+    }
+  },
+  {
+    "id": 153,
+    "start": 153,
+    "end": 158,
     "properties": {
       "label": "codes"
     }
   },
   {
-    "id": 142,
-    "start": 22,
-    "end": 141,
-    "properties": {
-      "label": "studyInvestigationalInterventions"
-    }
-  },
-  {
-    "id": 143,
-    "start": 22,
-    "end": 144,
-    "properties": {
-      "label": "studyInvestigationalInterventions"
-    }
-  },
-  {
-    "id": 144,
-    "start": 147,
-    "end": 148,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 145,
-    "start": 149,
-    "end": 150,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 146,
-    "start": 147,
-    "end": 149,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 147,
-    "start": 151,
-    "end": 152,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 148,
-    "start": 153,
-    "end": 154,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 149,
-    "start": 155,
-    "end": 156,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 150,
-    "start": 157,
-    "end": 158,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 151,
-    "start": 159,
-    "end": 160,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 152,
+    "id": 154,
     "start": 161,
     "end": 162,
     "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 153,
-    "start": 163,
-    "end": 164,
-    "properties": {
-      "label": "level"
-    }
-  },
-  {
-    "id": 154,
-    "start": 165,
-    "end": 166,
-    "properties": {
-      "label": "level"
+      "label": "unit"
     }
   },
   {
     "id": 155,
-    "start": 167,
-    "end": 168,
+    "start": 160,
+    "end": 161,
     "properties": {
-      "label": "level"
+      "label": "quantity"
     }
   },
   {
     "id": 156,
+    "start": 159,
+    "end": 160,
+    "properties": {
+      "label": "duration"
+    }
+  },
+  {
+    "id": 157,
+    "start": 163,
+    "end": 164,
+    "properties": {
+      "label": "unit"
+    }
+  },
+  {
+    "id": 158,
+    "start": 159,
+    "end": 163,
+    "properties": {
+      "label": "dose"
+    }
+  },
+  {
+    "id": 159,
+    "start": 159,
+    "end": 165,
+    "properties": {
+      "label": "route"
+    }
+  },
+  {
+    "id": 160,
+    "start": 159,
+    "end": 166,
+    "properties": {
+      "label": "frequency"
+    }
+  },
+  {
+    "id": 161,
+    "start": 153,
+    "end": 159,
+    "properties": {
+      "label": "administrations"
+    }
+  },
+  {
+    "id": 162,
+    "start": 153,
+    "end": 167,
+    "properties": {
+      "label": "productDesignation"
+    }
+  },
+  {
+    "id": 163,
+    "start": 153,
+    "end": 168,
+    "properties": {
+      "label": "pharmacologicClass"
+    }
+  },
+  {
+    "id": 164,
+    "start": 22,
+    "end": 137,
+    "properties": {
+      "label": "studyInterventions"
+    }
+  },
+  {
+    "id": 165,
+    "start": 22,
+    "end": 153,
+    "properties": {
+      "label": "studyInterventions"
+    }
+  },
+  {
+    "id": 166,
     "start": 169,
     "end": 170,
     "properties": {
@@ -1248,7 +1328,7 @@
     }
   },
   {
-    "id": 157,
+    "id": 167,
     "start": 171,
     "end": 172,
     "properties": {
@@ -1256,7 +1336,15 @@
     }
   },
   {
-    "id": 158,
+    "id": 168,
+    "start": 169,
+    "end": 171,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 169,
     "start": 173,
     "end": 174,
     "properties": {
@@ -1264,359 +1352,255 @@
     }
   },
   {
-    "id": 159,
-    "start": 151,
-    "end": 153,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 160,
-    "start": 151,
-    "end": 155,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 161,
-    "start": 151,
-    "end": 157,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 162,
-    "start": 151,
-    "end": 159,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 163,
-    "start": 151,
-    "end": 161,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 164,
-    "start": 151,
-    "end": 163,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 165,
-    "start": 151,
-    "end": 165,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 166,
-    "start": 151,
-    "end": 167,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 167,
-    "start": 151,
-    "end": 169,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 168,
-    "start": 151,
-    "end": 171,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
-    "id": 169,
-    "start": 151,
-    "end": 173,
-    "properties": {
-      "label": "objectiveEndpoints"
-    }
-  },
-  {
     "id": 170,
-    "start": 22,
-    "end": 147,
+    "start": 175,
+    "end": 176,
     "properties": {
-      "label": "studyObjectives"
+      "label": "level"
     }
   },
   {
     "id": 171,
-    "start": 22,
-    "end": 151,
+    "start": 177,
+    "end": 178,
     "properties": {
-      "label": "studyObjectives"
+      "label": "level"
     }
   },
   {
     "id": 172,
-    "start": 175,
-    "end": 176,
+    "start": 179,
+    "end": 180,
     "properties": {
-      "label": "plannedSexOfParticipants"
+      "label": "level"
     }
   },
   {
     "id": 173,
-    "start": 177,
-    "end": 178,
+    "start": 181,
+    "end": 182,
     "properties": {
-      "label": "plannedSexOfParticipants"
+      "label": "level"
     }
   },
   {
     "id": 174,
-    "start": 179,
-    "end": 180,
+    "start": 183,
+    "end": 184,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 175,
+    "start": 185,
+    "end": 186,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 176,
+    "start": 187,
+    "end": 188,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 177,
+    "start": 189,
+    "end": 190,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 178,
+    "start": 191,
+    "end": 192,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 179,
+    "start": 193,
+    "end": 194,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 180,
+    "start": 195,
+    "end": 196,
+    "properties": {
+      "label": "level"
+    }
+  },
+  {
+    "id": 181,
+    "start": 173,
+    "end": 175,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 182,
+    "start": 173,
+    "end": 177,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 183,
+    "start": 173,
+    "end": 179,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 184,
+    "start": 173,
+    "end": 181,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 185,
+    "start": 173,
+    "end": 183,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 186,
+    "start": 173,
+    "end": 185,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 187,
+    "start": 173,
+    "end": 187,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 188,
+    "start": 173,
+    "end": 189,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 189,
+    "start": 173,
+    "end": 191,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 190,
+    "start": 173,
+    "end": 193,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 191,
+    "start": 173,
+    "end": 195,
+    "properties": {
+      "label": "endpoints"
+    }
+  },
+  {
+    "id": 192,
+    "start": 22,
+    "end": 169,
+    "properties": {
+      "label": "objectives"
+    }
+  },
+  {
+    "id": 193,
+    "start": 22,
+    "end": 173,
+    "properties": {
+      "label": "objectives"
+    }
+  },
+  {
+    "id": 194,
+    "start": 197,
+    "end": 198,
     "properties": {
       "label": "plannedSexOfParticipants"
     }
   },
   {
-    "id": 175,
-    "start": 22,
-    "end": 175,
-    "properties": {
-      "label": "studyPopulations"
-    }
-  },
-  {
-    "id": 176,
-    "start": 22,
-    "end": 177,
-    "properties": {
-      "label": "studyPopulations"
-    }
-  },
-  {
-    "id": 177,
-    "start": 22,
-    "end": 179,
-    "properties": {
-      "label": "studyPopulations"
-    }
-  },
-  {
-    "id": 178,
-    "start": 181,
-    "end": 182,
-    "properties": {
-      "label": "scheduleTimelineExits"
-    }
-  },
-  {
-    "id": 179,
-    "start": 184,
-    "end": 185,
-    "properties": {
-      "label": "type"
-    }
-  },
-  {
-    "id": 180,
-    "start": 184,
-    "end": 186,
-    "properties": {
-      "label": "timingRelativeToFrom"
-    }
-  },
-  {
-    "id": 181,
-    "start": 183,
-    "end": 184,
-    "properties": {
-      "label": "scheduledInstanceTimings"
-    }
-  },
-  {
-    "id": 182,
-    "start": 188,
-    "end": 189,
-    "properties": {
-      "label": "type"
-    }
-  },
-  {
-    "id": 183,
-    "start": 188,
-    "end": 190,
-    "properties": {
-      "label": "timingRelativeToFrom"
-    }
-  },
-  {
-    "id": 184,
-    "start": 187,
-    "end": 188,
-    "properties": {
-      "label": "scheduledInstanceTimings"
-    }
-  },
-  {
-    "id": 185,
-    "start": 192,
-    "end": 193,
-    "properties": {
-      "label": "type"
-    }
-  },
-  {
-    "id": 186,
-    "start": 192,
-    "end": 194,
-    "properties": {
-      "label": "timingRelativeToFrom"
-    }
-  },
-  {
-    "id": 187,
-    "start": 191,
-    "end": 192,
-    "properties": {
-      "label": "scheduledInstanceTimings"
-    }
-  },
-  {
-    "id": 188,
-    "start": 196,
-    "end": 197,
-    "properties": {
-      "label": "type"
-    }
-  },
-  {
-    "id": 189,
-    "start": 196,
-    "end": 198,
-    "properties": {
-      "label": "timingRelativeToFrom"
-    }
-  },
-  {
-    "id": 190,
-    "start": 195,
-    "end": 196,
-    "properties": {
-      "label": "scheduledInstanceTimings"
-    }
-  },
-  {
-    "id": 191,
-    "start": 200,
-    "end": 201,
-    "properties": {
-      "label": "type"
-    }
-  },
-  {
-    "id": 192,
-    "start": 200,
-    "end": 202,
-    "properties": {
-      "label": "timingRelativeToFrom"
-    }
-  },
-  {
-    "id": 193,
+    "id": 195,
     "start": 199,
     "end": 200,
     "properties": {
-      "label": "scheduledInstanceTimings"
-    }
-  },
-  {
-    "id": 194,
-    "start": 181,
-    "end": 183,
-    "properties": {
-      "label": "scheduleTimelineInstances"
-    }
-  },
-  {
-    "id": 195,
-    "start": 181,
-    "end": 187,
-    "properties": {
-      "label": "scheduleTimelineInstances"
+      "label": "plannedSexOfParticipants"
     }
   },
   {
     "id": 196,
-    "start": 181,
-    "end": 191,
+    "start": 201,
+    "end": 202,
     "properties": {
-      "label": "scheduleTimelineInstances"
+      "label": "plannedSexOfParticipants"
     }
   },
   {
     "id": 197,
-    "start": 181,
-    "end": 195,
+    "start": 22,
+    "end": 197,
     "properties": {
-      "label": "scheduleTimelineInstances"
+      "label": "populations"
     }
   },
   {
     "id": 198,
-    "start": 181,
+    "start": 22,
     "end": 199,
     "properties": {
-      "label": "scheduleTimelineInstances"
+      "label": "populations"
     }
   },
   {
     "id": 199,
     "start": 22,
-    "end": 181,
+    "end": 201,
     "properties": {
-      "label": "studyScheduleTimelines"
+      "label": "populations"
     }
   },
   {
     "id": 200,
-    "start": 2,
-    "end": 22,
+    "start": 203,
+    "end": 204,
     "properties": {
-      "label": "studyDesigns"
+      "label": "exits"
     }
   },
   {
     "id": 201,
-    "start": 1,
-    "end": 2,
-    "properties": {
-      "label": "versions"
-    }
-  },
-  {
-    "id": 202,
-    "start": 204,
-    "end": 205,
-    "properties": {
-      "label": "protocolStatus"
-    }
-  },
-  {
-    "id": 203,
     "start": 206,
     "end": 207,
     "properties": {
@@ -1624,208 +1608,224 @@
     }
   },
   {
+    "id": 202,
+    "start": 206,
+    "end": 208,
+    "properties": {
+      "label": "relativeToFrom"
+    }
+  },
+  {
+    "id": 203,
+    "start": 205,
+    "end": 206,
+    "properties": {
+      "label": "timings"
+    }
+  },
+  {
     "id": 204,
-    "start": 208,
-    "end": 209,
+    "start": 210,
+    "end": 211,
     "properties": {
       "label": "type"
     }
   },
   {
     "id": 205,
-    "start": 206,
-    "end": 208,
+    "start": 210,
+    "end": 212,
+    "properties": {
+      "label": "relativeToFrom"
+    }
+  },
+  {
+    "id": 206,
+    "start": 209,
+    "end": 210,
+    "properties": {
+      "label": "timings"
+    }
+  },
+  {
+    "id": 207,
+    "start": 214,
+    "end": 215,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 208,
+    "start": 214,
+    "end": 216,
+    "properties": {
+      "label": "relativeToFrom"
+    }
+  },
+  {
+    "id": 209,
+    "start": 213,
+    "end": 214,
+    "properties": {
+      "label": "timings"
+    }
+  },
+  {
+    "id": 210,
+    "start": 218,
+    "end": 219,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 211,
+    "start": 218,
+    "end": 220,
+    "properties": {
+      "label": "relativeToFrom"
+    }
+  },
+  {
+    "id": 212,
+    "start": 217,
+    "end": 218,
+    "properties": {
+      "label": "timings"
+    }
+  },
+  {
+    "id": 213,
+    "start": 222,
+    "end": 223,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 214,
+    "start": 222,
+    "end": 224,
+    "properties": {
+      "label": "relativeToFrom"
+    }
+  },
+  {
+    "id": 215,
+    "start": 221,
+    "end": 222,
+    "properties": {
+      "label": "timings"
+    }
+  },
+  {
+    "id": 216,
+    "start": 203,
+    "end": 205,
+    "properties": {
+      "label": "instances"
+    }
+  },
+  {
+    "id": 217,
+    "start": 203,
+    "end": 209,
+    "properties": {
+      "label": "instances"
+    }
+  },
+  {
+    "id": 218,
+    "start": 203,
+    "end": 213,
+    "properties": {
+      "label": "instances"
+    }
+  },
+  {
+    "id": 219,
+    "start": 203,
+    "end": 217,
+    "properties": {
+      "label": "instances"
+    }
+  },
+  {
+    "id": 220,
+    "start": 203,
+    "end": 221,
+    "properties": {
+      "label": "instances"
+    }
+  },
+  {
+    "id": 221,
+    "start": 22,
+    "end": 203,
+    "properties": {
+      "label": "scheduleTimelines"
+    }
+  },
+  {
+    "id": 222,
+    "start": 2,
+    "end": 22,
+    "properties": {
+      "label": "studyDesigns"
+    }
+  },
+  {
+    "id": 223,
+    "start": 1,
+    "end": 2,
+    "properties": {
+      "label": "versions"
+    }
+  },
+  {
+    "id": 224,
+    "start": 226,
+    "end": 227,
+    "properties": {
+      "label": "protocolStatus"
+    }
+  },
+  {
+    "id": 225,
+    "start": 228,
+    "end": 229,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 226,
+    "start": 230,
+    "end": 231,
+    "properties": {
+      "label": "type"
+    }
+  },
+  {
+    "id": 227,
+    "start": 228,
+    "end": 230,
     "properties": {
       "label": "geographicScopes"
     }
   },
   {
-    "id": 206,
-    "start": 204,
-    "end": 206,
+    "id": 228,
+    "start": 226,
+    "end": 228,
     "properties": {
       "label": "dateValues"
     }
   },
   {
-    "id": 207,
-    "start": 204,
-    "end": 210,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 208,
-    "start": 204,
-    "end": 211,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 209,
-    "start": 204,
-    "end": 212,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 210,
-    "start": 204,
-    "end": 213,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 211,
-    "start": 204,
-    "end": 214,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 212,
-    "start": 204,
-    "end": 215,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 213,
-    "start": 204,
-    "end": 216,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 214,
-    "start": 204,
-    "end": 217,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 215,
-    "start": 204,
-    "end": 218,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 216,
-    "start": 204,
-    "end": 219,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 217,
-    "start": 204,
-    "end": 220,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 218,
-    "start": 204,
-    "end": 221,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 219,
-    "start": 204,
-    "end": 222,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 220,
-    "start": 204,
-    "end": 223,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 221,
-    "start": 204,
-    "end": 224,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 222,
-    "start": 204,
-    "end": 225,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 223,
-    "start": 204,
-    "end": 226,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 224,
-    "start": 204,
-    "end": 227,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 225,
-    "start": 204,
-    "end": 228,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 226,
-    "start": 204,
-    "end": 229,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 227,
-    "start": 204,
-    "end": 230,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
-    "id": 228,
-    "start": 204,
-    "end": 231,
-    "properties": {
-      "label": "contents"
-    }
-  },
-  {
     "id": 229,
-    "start": 204,
+    "start": 226,
     "end": 232,
     "properties": {
       "label": "contents"
@@ -1833,7 +1833,7 @@
   },
   {
     "id": 230,
-    "start": 204,
+    "start": 226,
     "end": 233,
     "properties": {
       "label": "contents"
@@ -1841,7 +1841,7 @@
   },
   {
     "id": 231,
-    "start": 204,
+    "start": 226,
     "end": 234,
     "properties": {
       "label": "contents"
@@ -1849,7 +1849,7 @@
   },
   {
     "id": 232,
-    "start": 204,
+    "start": 226,
     "end": 235,
     "properties": {
       "label": "contents"
@@ -1857,7 +1857,7 @@
   },
   {
     "id": 233,
-    "start": 204,
+    "start": 226,
     "end": 236,
     "properties": {
       "label": "contents"
@@ -1865,7 +1865,7 @@
   },
   {
     "id": 234,
-    "start": 204,
+    "start": 226,
     "end": 237,
     "properties": {
       "label": "contents"
@@ -1873,7 +1873,7 @@
   },
   {
     "id": 235,
-    "start": 204,
+    "start": 226,
     "end": 238,
     "properties": {
       "label": "contents"
@@ -1881,7 +1881,7 @@
   },
   {
     "id": 236,
-    "start": 204,
+    "start": 226,
     "end": 239,
     "properties": {
       "label": "contents"
@@ -1889,7 +1889,7 @@
   },
   {
     "id": 237,
-    "start": 204,
+    "start": 226,
     "end": 240,
     "properties": {
       "label": "contents"
@@ -1897,7 +1897,7 @@
   },
   {
     "id": 238,
-    "start": 204,
+    "start": 226,
     "end": 241,
     "properties": {
       "label": "contents"
@@ -1905,7 +1905,7 @@
   },
   {
     "id": 239,
-    "start": 204,
+    "start": 226,
     "end": 242,
     "properties": {
       "label": "contents"
@@ -1913,7 +1913,7 @@
   },
   {
     "id": 240,
-    "start": 204,
+    "start": 226,
     "end": 243,
     "properties": {
       "label": "contents"
@@ -1921,7 +1921,7 @@
   },
   {
     "id": 241,
-    "start": 204,
+    "start": 226,
     "end": 244,
     "properties": {
       "label": "contents"
@@ -1929,7 +1929,7 @@
   },
   {
     "id": 242,
-    "start": 204,
+    "start": 226,
     "end": 245,
     "properties": {
       "label": "contents"
@@ -1937,7 +1937,7 @@
   },
   {
     "id": 243,
-    "start": 204,
+    "start": 226,
     "end": 246,
     "properties": {
       "label": "contents"
@@ -1945,7 +1945,7 @@
   },
   {
     "id": 244,
-    "start": 204,
+    "start": 226,
     "end": 247,
     "properties": {
       "label": "contents"
@@ -1953,7 +1953,7 @@
   },
   {
     "id": 245,
-    "start": 204,
+    "start": 226,
     "end": 248,
     "properties": {
       "label": "contents"
@@ -1961,7 +1961,7 @@
   },
   {
     "id": 246,
-    "start": 204,
+    "start": 226,
     "end": 249,
     "properties": {
       "label": "contents"
@@ -1969,7 +1969,7 @@
   },
   {
     "id": 247,
-    "start": 204,
+    "start": 226,
     "end": 250,
     "properties": {
       "label": "contents"
@@ -1977,7 +1977,7 @@
   },
   {
     "id": 248,
-    "start": 204,
+    "start": 226,
     "end": 251,
     "properties": {
       "label": "contents"
@@ -1985,7 +1985,7 @@
   },
   {
     "id": 249,
-    "start": 204,
+    "start": 226,
     "end": 252,
     "properties": {
       "label": "contents"
@@ -1993,7 +1993,7 @@
   },
   {
     "id": 250,
-    "start": 204,
+    "start": 226,
     "end": 253,
     "properties": {
       "label": "contents"
@@ -2001,7 +2001,7 @@
   },
   {
     "id": 251,
-    "start": 204,
+    "start": 226,
     "end": 254,
     "properties": {
       "label": "contents"
@@ -2009,7 +2009,7 @@
   },
   {
     "id": 252,
-    "start": 204,
+    "start": 226,
     "end": 255,
     "properties": {
       "label": "contents"
@@ -2017,7 +2017,7 @@
   },
   {
     "id": 253,
-    "start": 204,
+    "start": 226,
     "end": 256,
     "properties": {
       "label": "contents"
@@ -2025,7 +2025,7 @@
   },
   {
     "id": 254,
-    "start": 204,
+    "start": 226,
     "end": 257,
     "properties": {
       "label": "contents"
@@ -2033,7 +2033,7 @@
   },
   {
     "id": 255,
-    "start": 204,
+    "start": 226,
     "end": 258,
     "properties": {
       "label": "contents"
@@ -2041,7 +2041,7 @@
   },
   {
     "id": 256,
-    "start": 204,
+    "start": 226,
     "end": 259,
     "properties": {
       "label": "contents"
@@ -2049,7 +2049,7 @@
   },
   {
     "id": 257,
-    "start": 204,
+    "start": 226,
     "end": 260,
     "properties": {
       "label": "contents"
@@ -2057,7 +2057,7 @@
   },
   {
     "id": 258,
-    "start": 204,
+    "start": 226,
     "end": 261,
     "properties": {
       "label": "contents"
@@ -2065,7 +2065,7 @@
   },
   {
     "id": 259,
-    "start": 204,
+    "start": 226,
     "end": 262,
     "properties": {
       "label": "contents"
@@ -2073,7 +2073,7 @@
   },
   {
     "id": 260,
-    "start": 204,
+    "start": 226,
     "end": 263,
     "properties": {
       "label": "contents"
@@ -2081,7 +2081,7 @@
   },
   {
     "id": 261,
-    "start": 204,
+    "start": 226,
     "end": 264,
     "properties": {
       "label": "contents"
@@ -2089,7 +2089,7 @@
   },
   {
     "id": 262,
-    "start": 204,
+    "start": 226,
     "end": 265,
     "properties": {
       "label": "contents"
@@ -2097,7 +2097,7 @@
   },
   {
     "id": 263,
-    "start": 204,
+    "start": 226,
     "end": 266,
     "properties": {
       "label": "contents"
@@ -2105,7 +2105,7 @@
   },
   {
     "id": 264,
-    "start": 204,
+    "start": 226,
     "end": 267,
     "properties": {
       "label": "contents"
@@ -2113,7 +2113,7 @@
   },
   {
     "id": 265,
-    "start": 204,
+    "start": 226,
     "end": 268,
     "properties": {
       "label": "contents"
@@ -2121,7 +2121,7 @@
   },
   {
     "id": 266,
-    "start": 204,
+    "start": 226,
     "end": 269,
     "properties": {
       "label": "contents"
@@ -2129,7 +2129,7 @@
   },
   {
     "id": 267,
-    "start": 204,
+    "start": 226,
     "end": 270,
     "properties": {
       "label": "contents"
@@ -2137,7 +2137,7 @@
   },
   {
     "id": 268,
-    "start": 204,
+    "start": 226,
     "end": 271,
     "properties": {
       "label": "contents"
@@ -2145,7 +2145,7 @@
   },
   {
     "id": 269,
-    "start": 204,
+    "start": 226,
     "end": 272,
     "properties": {
       "label": "contents"
@@ -2153,7 +2153,7 @@
   },
   {
     "id": 270,
-    "start": 204,
+    "start": 226,
     "end": 273,
     "properties": {
       "label": "contents"
@@ -2161,7 +2161,7 @@
   },
   {
     "id": 271,
-    "start": 204,
+    "start": 226,
     "end": 274,
     "properties": {
       "label": "contents"
@@ -2169,7 +2169,7 @@
   },
   {
     "id": 272,
-    "start": 204,
+    "start": 226,
     "end": 275,
     "properties": {
       "label": "contents"
@@ -2177,7 +2177,7 @@
   },
   {
     "id": 273,
-    "start": 204,
+    "start": 226,
     "end": 276,
     "properties": {
       "label": "contents"
@@ -2185,7 +2185,7 @@
   },
   {
     "id": 274,
-    "start": 204,
+    "start": 226,
     "end": 277,
     "properties": {
       "label": "contents"
@@ -2193,7 +2193,7 @@
   },
   {
     "id": 275,
-    "start": 204,
+    "start": 226,
     "end": 278,
     "properties": {
       "label": "contents"
@@ -2201,7 +2201,7 @@
   },
   {
     "id": 276,
-    "start": 204,
+    "start": 226,
     "end": 279,
     "properties": {
       "label": "contents"
@@ -2209,7 +2209,7 @@
   },
   {
     "id": 277,
-    "start": 204,
+    "start": 226,
     "end": 280,
     "properties": {
       "label": "contents"
@@ -2217,7 +2217,7 @@
   },
   {
     "id": 278,
-    "start": 204,
+    "start": 226,
     "end": 281,
     "properties": {
       "label": "contents"
@@ -2225,7 +2225,7 @@
   },
   {
     "id": 279,
-    "start": 204,
+    "start": 226,
     "end": 282,
     "properties": {
       "label": "contents"
@@ -2233,7 +2233,7 @@
   },
   {
     "id": 280,
-    "start": 204,
+    "start": 226,
     "end": 283,
     "properties": {
       "label": "contents"
@@ -2241,7 +2241,7 @@
   },
   {
     "id": 281,
-    "start": 204,
+    "start": 226,
     "end": 284,
     "properties": {
       "label": "contents"
@@ -2249,7 +2249,7 @@
   },
   {
     "id": 282,
-    "start": 204,
+    "start": 226,
     "end": 285,
     "properties": {
       "label": "contents"
@@ -2257,7 +2257,7 @@
   },
   {
     "id": 283,
-    "start": 204,
+    "start": 226,
     "end": 286,
     "properties": {
       "label": "contents"
@@ -2265,7 +2265,7 @@
   },
   {
     "id": 284,
-    "start": 204,
+    "start": 226,
     "end": 287,
     "properties": {
       "label": "contents"
@@ -2273,7 +2273,7 @@
   },
   {
     "id": 285,
-    "start": 204,
+    "start": 226,
     "end": 288,
     "properties": {
       "label": "contents"
@@ -2281,7 +2281,7 @@
   },
   {
     "id": 286,
-    "start": 204,
+    "start": 226,
     "end": 289,
     "properties": {
       "label": "contents"
@@ -2289,7 +2289,7 @@
   },
   {
     "id": 287,
-    "start": 204,
+    "start": 226,
     "end": 290,
     "properties": {
       "label": "contents"
@@ -2297,7 +2297,7 @@
   },
   {
     "id": 288,
-    "start": 204,
+    "start": 226,
     "end": 291,
     "properties": {
       "label": "contents"
@@ -2305,7 +2305,7 @@
   },
   {
     "id": 289,
-    "start": 204,
+    "start": 226,
     "end": 292,
     "properties": {
       "label": "contents"
@@ -2313,7 +2313,7 @@
   },
   {
     "id": 290,
-    "start": 204,
+    "start": 226,
     "end": 293,
     "properties": {
       "label": "contents"
@@ -2321,7 +2321,7 @@
   },
   {
     "id": 291,
-    "start": 204,
+    "start": 226,
     "end": 294,
     "properties": {
       "label": "contents"
@@ -2329,7 +2329,7 @@
   },
   {
     "id": 292,
-    "start": 204,
+    "start": 226,
     "end": 295,
     "properties": {
       "label": "contents"
@@ -2337,7 +2337,7 @@
   },
   {
     "id": 293,
-    "start": 204,
+    "start": 226,
     "end": 296,
     "properties": {
       "label": "contents"
@@ -2345,7 +2345,7 @@
   },
   {
     "id": 294,
-    "start": 204,
+    "start": 226,
     "end": 297,
     "properties": {
       "label": "contents"
@@ -2353,7 +2353,7 @@
   },
   {
     "id": 295,
-    "start": 204,
+    "start": 226,
     "end": 298,
     "properties": {
       "label": "contents"
@@ -2361,7 +2361,7 @@
   },
   {
     "id": 296,
-    "start": 204,
+    "start": 226,
     "end": 299,
     "properties": {
       "label": "contents"
@@ -2369,7 +2369,7 @@
   },
   {
     "id": 297,
-    "start": 204,
+    "start": 226,
     "end": 300,
     "properties": {
       "label": "contents"
@@ -2377,7 +2377,7 @@
   },
   {
     "id": 298,
-    "start": 204,
+    "start": 226,
     "end": 301,
     "properties": {
       "label": "contents"
@@ -2385,7 +2385,7 @@
   },
   {
     "id": 299,
-    "start": 204,
+    "start": 226,
     "end": 302,
     "properties": {
       "label": "contents"
@@ -2393,7 +2393,7 @@
   },
   {
     "id": 300,
-    "start": 204,
+    "start": 226,
     "end": 303,
     "properties": {
       "label": "contents"
@@ -2401,7 +2401,7 @@
   },
   {
     "id": 301,
-    "start": 204,
+    "start": 226,
     "end": 304,
     "properties": {
       "label": "contents"
@@ -2409,7 +2409,7 @@
   },
   {
     "id": 302,
-    "start": 204,
+    "start": 226,
     "end": 305,
     "properties": {
       "label": "contents"
@@ -2417,7 +2417,7 @@
   },
   {
     "id": 303,
-    "start": 204,
+    "start": 226,
     "end": 306,
     "properties": {
       "label": "contents"
@@ -2425,7 +2425,7 @@
   },
   {
     "id": 304,
-    "start": 204,
+    "start": 226,
     "end": 307,
     "properties": {
       "label": "contents"
@@ -2433,7 +2433,7 @@
   },
   {
     "id": 305,
-    "start": 204,
+    "start": 226,
     "end": 308,
     "properties": {
       "label": "contents"
@@ -2441,7 +2441,7 @@
   },
   {
     "id": 306,
-    "start": 204,
+    "start": 226,
     "end": 309,
     "properties": {
       "label": "contents"
@@ -2449,7 +2449,7 @@
   },
   {
     "id": 307,
-    "start": 204,
+    "start": 226,
     "end": 310,
     "properties": {
       "label": "contents"
@@ -2457,7 +2457,7 @@
   },
   {
     "id": 308,
-    "start": 204,
+    "start": 226,
     "end": 311,
     "properties": {
       "label": "contents"
@@ -2465,7 +2465,7 @@
   },
   {
     "id": 309,
-    "start": 204,
+    "start": 226,
     "end": 312,
     "properties": {
       "label": "contents"
@@ -2473,7 +2473,7 @@
   },
   {
     "id": 310,
-    "start": 204,
+    "start": 226,
     "end": 313,
     "properties": {
       "label": "contents"
@@ -2481,7 +2481,7 @@
   },
   {
     "id": 311,
-    "start": 204,
+    "start": 226,
     "end": 314,
     "properties": {
       "label": "contents"
@@ -2489,7 +2489,7 @@
   },
   {
     "id": 312,
-    "start": 204,
+    "start": 226,
     "end": 315,
     "properties": {
       "label": "contents"
@@ -2497,7 +2497,7 @@
   },
   {
     "id": 313,
-    "start": 204,
+    "start": 226,
     "end": 316,
     "properties": {
       "label": "contents"
@@ -2505,7 +2505,7 @@
   },
   {
     "id": 314,
-    "start": 204,
+    "start": 226,
     "end": 317,
     "properties": {
       "label": "contents"
@@ -2513,7 +2513,7 @@
   },
   {
     "id": 315,
-    "start": 204,
+    "start": 226,
     "end": 318,
     "properties": {
       "label": "contents"
@@ -2521,7 +2521,7 @@
   },
   {
     "id": 316,
-    "start": 204,
+    "start": 226,
     "end": 319,
     "properties": {
       "label": "contents"
@@ -2529,7 +2529,7 @@
   },
   {
     "id": 317,
-    "start": 204,
+    "start": 226,
     "end": 320,
     "properties": {
       "label": "contents"
@@ -2537,7 +2537,7 @@
   },
   {
     "id": 318,
-    "start": 204,
+    "start": 226,
     "end": 321,
     "properties": {
       "label": "contents"
@@ -2545,7 +2545,7 @@
   },
   {
     "id": 319,
-    "start": 204,
+    "start": 226,
     "end": 322,
     "properties": {
       "label": "contents"
@@ -2553,7 +2553,7 @@
   },
   {
     "id": 320,
-    "start": 204,
+    "start": 226,
     "end": 323,
     "properties": {
       "label": "contents"
@@ -2561,7 +2561,7 @@
   },
   {
     "id": 321,
-    "start": 204,
+    "start": 226,
     "end": 324,
     "properties": {
       "label": "contents"
@@ -2569,7 +2569,7 @@
   },
   {
     "id": 322,
-    "start": 204,
+    "start": 226,
     "end": 325,
     "properties": {
       "label": "contents"
@@ -2577,7 +2577,7 @@
   },
   {
     "id": 323,
-    "start": 204,
+    "start": 226,
     "end": 326,
     "properties": {
       "label": "contents"
@@ -2585,7 +2585,7 @@
   },
   {
     "id": 324,
-    "start": 204,
+    "start": 226,
     "end": 327,
     "properties": {
       "label": "contents"
@@ -2593,7 +2593,7 @@
   },
   {
     "id": 325,
-    "start": 204,
+    "start": 226,
     "end": 328,
     "properties": {
       "label": "contents"
@@ -2601,7 +2601,7 @@
   },
   {
     "id": 326,
-    "start": 204,
+    "start": 226,
     "end": 329,
     "properties": {
       "label": "contents"
@@ -2609,7 +2609,7 @@
   },
   {
     "id": 327,
-    "start": 204,
+    "start": 226,
     "end": 330,
     "properties": {
       "label": "contents"
@@ -2617,7 +2617,7 @@
   },
   {
     "id": 328,
-    "start": 204,
+    "start": 226,
     "end": 331,
     "properties": {
       "label": "contents"
@@ -2625,7 +2625,7 @@
   },
   {
     "id": 329,
-    "start": 204,
+    "start": 226,
     "end": 332,
     "properties": {
       "label": "contents"
@@ -2633,7 +2633,7 @@
   },
   {
     "id": 330,
-    "start": 204,
+    "start": 226,
     "end": 333,
     "properties": {
       "label": "contents"
@@ -2641,7 +2641,7 @@
   },
   {
     "id": 331,
-    "start": 204,
+    "start": 226,
     "end": 334,
     "properties": {
       "label": "contents"
@@ -2649,7 +2649,7 @@
   },
   {
     "id": 332,
-    "start": 204,
+    "start": 226,
     "end": 335,
     "properties": {
       "label": "contents"
@@ -2657,7 +2657,7 @@
   },
   {
     "id": 333,
-    "start": 204,
+    "start": 226,
     "end": 336,
     "properties": {
       "label": "contents"
@@ -2665,7 +2665,7 @@
   },
   {
     "id": 334,
-    "start": 204,
+    "start": 226,
     "end": 337,
     "properties": {
       "label": "contents"
@@ -2673,7 +2673,7 @@
   },
   {
     "id": 335,
-    "start": 204,
+    "start": 226,
     "end": 338,
     "properties": {
       "label": "contents"
@@ -2681,7 +2681,7 @@
   },
   {
     "id": 336,
-    "start": 204,
+    "start": 226,
     "end": 339,
     "properties": {
       "label": "contents"
@@ -2689,7 +2689,7 @@
   },
   {
     "id": 337,
-    "start": 204,
+    "start": 226,
     "end": 340,
     "properties": {
       "label": "contents"
@@ -2697,7 +2697,7 @@
   },
   {
     "id": 338,
-    "start": 204,
+    "start": 226,
     "end": 341,
     "properties": {
       "label": "contents"
@@ -2705,16 +2705,192 @@
   },
   {
     "id": 339,
-    "start": 203,
-    "end": 204,
+    "start": 226,
+    "end": 342,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 340,
+    "start": 226,
+    "end": 343,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 341,
+    "start": 226,
+    "end": 344,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 342,
+    "start": 226,
+    "end": 345,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 343,
+    "start": 226,
+    "end": 346,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 344,
+    "start": 226,
+    "end": 347,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 345,
+    "start": 226,
+    "end": 348,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 346,
+    "start": 226,
+    "end": 349,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 347,
+    "start": 226,
+    "end": 350,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 348,
+    "start": 226,
+    "end": 351,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 349,
+    "start": 226,
+    "end": 352,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 350,
+    "start": 226,
+    "end": 353,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 351,
+    "start": 226,
+    "end": 354,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 352,
+    "start": 226,
+    "end": 355,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 353,
+    "start": 226,
+    "end": 356,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 354,
+    "start": 226,
+    "end": 357,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 355,
+    "start": 226,
+    "end": 358,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 356,
+    "start": 226,
+    "end": 359,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 357,
+    "start": 226,
+    "end": 360,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 358,
+    "start": 226,
+    "end": 361,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 359,
+    "start": 226,
+    "end": 362,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 360,
+    "start": 226,
+    "end": 363,
+    "properties": {
+      "label": "contents"
+    }
+  },
+  {
+    "id": 361,
+    "start": 225,
+    "end": 226,
     "properties": {
       "label": "versions"
     }
   },
   {
-    "id": 340,
+    "id": 362,
     "start": 1,
-    "end": 203,
+    "end": 225,
     "properties": {
       "label": "documentedBy"
     }
@@ -2726,335 +2902,137 @@
       "label": "biomedicalConceptIds",
       "type": "List"
     },
-    "id": 341
-  },
-  {
-    "start": 52,
-    "end": 66,
-    "properties": {
-      "label": "biomedicalConceptIds",
-      "type": "List"
-    },
-    "id": 342
-  },
-  {
-    "start": 52,
-    "end": 74,
-    "properties": {
-      "label": "biomedicalConceptIds",
-      "type": "List"
-    },
-    "id": 343
-  },
-  {
-    "start": 52,
-    "end": 89,
-    "properties": {
-      "label": "bcSurrogateIds",
-      "type": "List"
-    },
-    "id": 344
-  },
-  {
-    "start": 96,
-    "end": 90,
-    "properties": {
-      "label": "studyArmId",
-      "type": "Other"
-    },
-    "id": 345
-  },
-  {
-    "start": 96,
-    "end": 106,
-    "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
-    },
-    "id": 346
-  },
-  {
-    "start": 96,
-    "end": 114,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 347
-  },
-  {
-    "start": 97,
-    "end": 90,
-    "properties": {
-      "label": "studyArmId",
-      "type": "Other"
-    },
-    "id": 348
-  },
-  {
-    "start": 97,
-    "end": 108,
-    "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
-    },
-    "id": 349
-  },
-  {
-    "start": 97,
-    "end": 117,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 350
-  },
-  {
-    "start": 98,
-    "end": 90,
-    "properties": {
-      "label": "studyArmId",
-      "type": "Other"
-    },
-    "id": 351
-  },
-  {
-    "start": 98,
-    "end": 110,
-    "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
-    },
-    "id": 352
-  },
-  {
-    "start": 98,
-    "end": 120,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 353
-  },
-  {
-    "start": 98,
-    "end": 123,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 354
-  },
-  {
-    "start": 99,
-    "end": 90,
-    "properties": {
-      "label": "studyArmId",
-      "type": "Other"
-    },
-    "id": 355
-  },
-  {
-    "start": 99,
-    "end": 112,
-    "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
-    },
-    "id": 356
-  },
-  {
-    "start": 99,
-    "end": 126,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 357
-  },
-  {
-    "start": 100,
-    "end": 93,
-    "properties": {
-      "label": "studyArmId",
-      "type": "Other"
-    },
-    "id": 358
-  },
-  {
-    "start": 100,
-    "end": 106,
-    "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
-    },
-    "id": 359
-  },
-  {
-    "start": 100,
-    "end": 114,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 360
-  },
-  {
-    "start": 101,
-    "end": 93,
-    "properties": {
-      "label": "studyArmId",
-      "type": "Other"
-    },
-    "id": 361
-  },
-  {
-    "start": 101,
-    "end": 108,
-    "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
-    },
-    "id": 362
-  },
-  {
-    "start": 101,
-    "end": 117,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
     "id": 363
   },
   {
-    "start": 102,
-    "end": 93,
+    "start": 52,
+    "end": 64,
     "properties": {
-      "label": "studyArmId",
-      "type": "Other"
+      "label": "biomedicalConceptIds",
+      "type": "List"
     },
     "id": 364
   },
   {
-    "start": 102,
-    "end": 110,
+    "start": 52,
+    "end": 70,
     "properties": {
-      "label": "studyEpochId",
-      "type": "Other"
+      "label": "biomedicalConceptIds",
+      "type": "List"
     },
     "id": 365
   },
   {
-    "start": 102,
-    "end": 123,
+    "start": 52,
+    "end": 85,
     "properties": {
-      "label": "studyElementIds",
+      "label": "bcSurrogateIds",
       "type": "List"
     },
     "id": 366
   },
   {
-    "start": 102,
-    "end": 120,
+    "start": 206,
+    "end": 205,
     "properties": {
-      "label": "studyElementIds",
-      "type": "List"
+      "label": "relativeFromScheduledInstanceId",
+      "type": "Other"
     },
     "id": 367
   },
   {
-    "start": 103,
-    "end": 93,
+    "start": 206,
+    "end": 209,
     "properties": {
-      "label": "studyArmId",
+      "label": "relativeToScheduledInstanceId",
       "type": "Other"
     },
     "id": 368
   },
   {
-    "start": 103,
-    "end": 112,
+    "start": 205,
+    "end": 209,
     "properties": {
-      "label": "studyEpochId",
+      "label": "defaultConditionId",
       "type": "Other"
     },
     "id": 369
   },
   {
-    "start": 103,
-    "end": 126,
-    "properties": {
-      "label": "studyElementIds",
-      "type": "List"
-    },
-    "id": 370
-  },
-  {
-    "start": 184,
-    "end": 183,
-    "properties": {
-      "label": "relativeFromScheduledInstanceId",
-      "type": "Other"
-    },
-    "id": 371
-  },
-  {
-    "start": 184,
-    "end": 187,
-    "properties": {
-      "label": "relativeToScheduledInstanceId",
-      "type": "Other"
-    },
-    "id": 372
-  },
-  {
-    "start": 183,
-    "end": 187,
-    "properties": {
-      "label": "defaultConditionId",
-      "type": "Other"
-    },
-    "id": 373
-  },
-  {
-    "start": 183,
-    "end": 106,
+    "start": 205,
+    "end": 102,
     "properties": {
       "label": "epochId",
       "type": "Other"
     },
-    "id": 374
+    "id": 370
   },
   {
-    "start": 183,
+    "start": 205,
     "end": 52,
     "properties": {
       "label": "activityIds",
       "type": "List"
     },
-    "id": 375
+    "id": 371
   },
   {
-    "start": 183,
+    "start": 205,
     "end": 53,
     "properties": {
       "label": "activityIds",
       "type": "List"
     },
+    "id": 372
+  },
+  {
+    "start": 210,
+    "end": 209,
+    "properties": {
+      "label": "relativeFromScheduledInstanceId",
+      "type": "Other"
+    },
+    "id": 373
+  },
+  {
+    "start": 210,
+    "end": 213,
+    "properties": {
+      "label": "relativeToScheduledInstanceId",
+      "type": "Other"
+    },
+    "id": 374
+  },
+  {
+    "start": 209,
+    "end": 213,
+    "properties": {
+      "label": "defaultConditionId",
+      "type": "Other"
+    },
+    "id": 375
+  },
+  {
+    "start": 209,
+    "end": 104,
+    "properties": {
+      "label": "epochId",
+      "type": "Other"
+    },
     "id": 376
   },
   {
-    "start": 183,
-    "end": 29,
+    "start": 209,
+    "end": 53,
     "properties": {
-      "label": "scheduledActivityInstanceEncounterId",
-      "type": "Other"
+      "label": "activityIds",
+      "type": "List"
     },
     "id": 377
   },
   {
-    "start": 188,
-    "end": 187,
+    "start": 214,
+    "end": 213,
     "properties": {
       "label": "relativeFromScheduledInstanceId",
       "type": "Other"
@@ -3062,8 +3040,8 @@
     "id": 378
   },
   {
-    "start": 188,
-    "end": 191,
+    "start": 214,
+    "end": 213,
     "properties": {
       "label": "relativeToScheduledInstanceId",
       "type": "Other"
@@ -3071,8 +3049,8 @@
     "id": 379
   },
   {
-    "start": 187,
-    "end": 191,
+    "start": 213,
+    "end": 217,
     "properties": {
       "label": "defaultConditionId",
       "type": "Other"
@@ -3080,8 +3058,8 @@
     "id": 380
   },
   {
-    "start": 187,
-    "end": 108,
+    "start": 213,
+    "end": 106,
     "properties": {
       "label": "epochId",
       "type": "Other"
@@ -3089,7 +3067,7 @@
     "id": 381
   },
   {
-    "start": 187,
+    "start": 213,
     "end": 53,
     "properties": {
       "label": "activityIds",
@@ -3098,165 +3076,84 @@
     "id": 382
   },
   {
-    "start": 187,
-    "end": 35,
+    "start": 218,
+    "end": 217,
     "properties": {
-      "label": "scheduledActivityInstanceEncounterId",
+      "label": "relativeFromScheduledInstanceId",
       "type": "Other"
     },
     "id": 383
   },
   {
-    "start": 192,
-    "end": 191,
+    "start": 218,
+    "end": 213,
     "properties": {
-      "label": "relativeFromScheduledInstanceId",
+      "label": "relativeToScheduledInstanceId",
       "type": "Other"
     },
     "id": 384
   },
   {
-    "start": 192,
-    "end": 191,
+    "start": 217,
+    "end": 221,
     "properties": {
-      "label": "relativeToScheduledInstanceId",
+      "label": "defaultConditionId",
       "type": "Other"
     },
     "id": 385
   },
   {
-    "start": 191,
-    "end": 195,
+    "start": 217,
+    "end": 106,
     "properties": {
-      "label": "defaultConditionId",
+      "label": "epochId",
       "type": "Other"
     },
     "id": 386
   },
   {
-    "start": 191,
-    "end": 110,
-    "properties": {
-      "label": "epochId",
-      "type": "Other"
-    },
-    "id": 387
-  },
-  {
-    "start": 191,
+    "start": 217,
     "end": 53,
     "properties": {
       "label": "activityIds",
       "type": "List"
     },
+    "id": 387
+  },
+  {
+    "start": 222,
+    "end": 221,
+    "properties": {
+      "label": "relativeFromScheduledInstanceId",
+      "type": "Other"
+    },
     "id": 388
   },
   {
-    "start": 191,
-    "end": 39,
+    "start": 222,
+    "end": 217,
     "properties": {
-      "label": "scheduledActivityInstanceEncounterId",
+      "label": "relativeToScheduledInstanceId",
       "type": "Other"
     },
     "id": 389
   },
   {
-    "start": 196,
-    "end": 195,
+    "start": 221,
+    "end": 108,
     "properties": {
-      "label": "relativeFromScheduledInstanceId",
+      "label": "epochId",
       "type": "Other"
     },
     "id": 390
   },
   {
-    "start": 196,
-    "end": 191,
+    "start": 221,
+    "end": 53,
     "properties": {
-      "label": "relativeToScheduledInstanceId",
-      "type": "Other"
+      "label": "activityIds",
+      "type": "List"
     },
     "id": 391
-  },
-  {
-    "start": 195,
-    "end": 199,
-    "properties": {
-      "label": "defaultConditionId",
-      "type": "Other"
-    },
-    "id": 392
-  },
-  {
-    "start": 195,
-    "end": 110,
-    "properties": {
-      "label": "epochId",
-      "type": "Other"
-    },
-    "id": 393
-  },
-  {
-    "start": 195,
-    "end": 53,
-    "properties": {
-      "label": "activityIds",
-      "type": "List"
-    },
-    "id": 394
-  },
-  {
-    "start": 195,
-    "end": 44,
-    "properties": {
-      "label": "scheduledActivityInstanceEncounterId",
-      "type": "Other"
-    },
-    "id": 395
-  },
-  {
-    "start": 200,
-    "end": 199,
-    "properties": {
-      "label": "relativeFromScheduledInstanceId",
-      "type": "Other"
-    },
-    "id": 396
-  },
-  {
-    "start": 200,
-    "end": 195,
-    "properties": {
-      "label": "relativeToScheduledInstanceId",
-      "type": "Other"
-    },
-    "id": 397
-  },
-  {
-    "start": 199,
-    "end": 112,
-    "properties": {
-      "label": "epochId",
-      "type": "Other"
-    },
-    "id": 398
-  },
-  {
-    "start": 199,
-    "end": 53,
-    "properties": {
-      "label": "activityIds",
-      "type": "List"
-    },
-    "id": 399
-  },
-  {
-    "start": 199,
-    "end": 48,
-    "properties": {
-      "label": "scheduledActivityInstanceEncounterId",
-      "type": "Other"
-    },
-    "id": 400
   }
 ]

@@ -100,8 +100,8 @@
       "id": "Organization_1",
       "name": "ClinicalTrials.gov",
       "label": "Organization_1",
-      "organizationIdentifierScheme": "USGOV",
-      "organizationIdentifier": "CT-GOV",
+      "identifierScheme": "USGOV",
+      "identifier": "CT-GOV",
       "_type": "Organization"
     }
   },
@@ -251,9 +251,9 @@
       "name": "Screening",
       "label": "Encounter_1",
       "description": "Screening encounter",
-      "previousEncounterId": null,
-      "nextEncounterId": "Encounter_2",
-      "encounterScheduledAtTimingId": null,
+      "previousId": null,
+      "nextId": "Encounter_2",
+      "scheduledAtId": null,
       "_type": "Encounter"
     }
   },
@@ -311,9 +311,9 @@
       "name": "Day 1",
       "label": "Encounter_2",
       "description": "Cycle 1, Day 1",
-      "previousEncounterId": "Encounter_1",
-      "nextEncounterId": "Encounter_3",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_1",
+      "nextId": "Encounter_3",
+      "scheduledAtId": null,
       "transitionEndRule": null,
       "_type": "Encounter"
     }
@@ -361,9 +361,9 @@
       "name": "Day 15",
       "label": "Encounter_3",
       "description": "Cycle 1, Day 15",
-      "previousEncounterId": "Encounter_2",
-      "nextEncounterId": "Encounter_4",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_2",
+      "nextId": "Encounter_4",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -412,9 +412,9 @@
       "name": "Day 1",
       "label": "Encounter_4",
       "description": "Cycle 2, Day 1",
-      "previousEncounterId": "Encounter_3",
-      "nextEncounterId": "Encounter_5",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_3",
+      "nextId": "Encounter_5",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -463,9 +463,9 @@
       "name": "Day 15",
       "label": "Encounter_5",
       "description": "Cycle 2, Day 15",
-      "previousEncounterId": "Encounter_4",
-      "nextEncounterId": "Encounter_6",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_4",
+      "nextId": "Encounter_6",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -514,9 +514,9 @@
       "name": "Day 1",
       "label": "Encounter_6",
       "description": "Cycle 3, Day 1",
-      "previousEncounterId": "Encounter_5",
-      "nextEncounterId": "Encounter_7",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_5",
+      "nextId": "Encounter_7",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -565,9 +565,9 @@
       "name": "Day 15",
       "label": "Encounter_7",
       "description": "Cycle 3, Day 15",
-      "previousEncounterId": "Encounter_6",
-      "nextEncounterId": "Encounter_8",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_6",
+      "nextId": "Encounter_8",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -616,9 +616,9 @@
       "name": "Day 1",
       "label": "Encounter_8",
       "description": "Cycle 4 to 12, Day 1",
-      "previousEncounterId": "Encounter_7",
-      "nextEncounterId": "Encounter_9",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_7",
+      "nextId": "Encounter_9",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -667,9 +667,9 @@
       "name": "Day 1",
       "label": "Encounter_9",
       "description": "Cycle 13 onwards, Day 15",
-      "previousEncounterId": "Encounter_8",
-      "nextEncounterId": "Encounter_10",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_8",
+      "nextId": "Encounter_10",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -729,9 +729,9 @@
       "name": "EOT Visit",
       "label": "Encounter_10",
       "description": "End of Treatment Visit",
-      "previousEncounterId": "Encounter_9",
-      "nextEncounterId": "Encounter_11",
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_9",
+      "nextId": "Encounter_11",
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "_type": "Encounter"
     }
@@ -779,9 +779,9 @@
       "name": "FU Visit",
       "label": "Encounter_11",
       "description": "Follow Up Visit",
-      "previousEncounterId": "Encounter_10",
-      "nextEncounterId": null,
-      "encounterScheduledAtTimingId": null,
+      "previousId": "Encounter_10",
+      "nextId": null,
+      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "_type": "Encounter"
@@ -794,12 +794,12 @@
       "name": "Informed Consent",
       "label": "Activity_1",
       "description": "Informed Consent",
-      "previousActivityId": null,
-      "nextActivityId": "Activity_2",
+      "previousId": null,
+      "nextId": "Activity_2",
       "definedProcedures": [],
-      "activityIsConditional": false,
-      "activityIsConditionalReason": "",
-      "activityTimelineId": "",
+      "isConditional": false,
+      "isConditionalReason": "",
+      "timelineId": "",
       "_type": "Activity"
     }
   },
@@ -810,12 +810,12 @@
       "name": "Inclusion / Exclusion Criteria",
       "label": "Activity_2",
       "description": "Inclusion / Exclusion Criteria",
-      "previousActivityId": "Activity_1",
-      "nextActivityId": "Activity_3",
+      "previousId": "Activity_1",
+      "nextId": "Activity_3",
       "definedProcedures": [],
-      "activityIsConditional": false,
-      "activityIsConditionalReason": "",
-      "activityTimelineId": "",
+      "isConditional": false,
+      "isConditionalReason": "",
+      "timelineId": "",
       "_type": "Activity"
     }
   },
@@ -826,12 +826,12 @@
       "name": "Physical Examination",
       "label": "Activity_3",
       "description": "Physical Examination",
-      "previousActivityId": "Activity_2",
-      "nextActivityId": null,
+      "previousId": "Activity_2",
+      "nextId": null,
       "definedProcedures": [],
-      "activityIsConditional": false,
-      "activityIsConditionalReason": "",
-      "activityTimelineId": "",
+      "isConditional": false,
+      "isConditionalReason": "",
+      "timelineId": "",
       "_type": "Activity"
     }
   },
@@ -842,7 +842,7 @@
       "name": "PE 1",
       "label": "BiomedicalConceptSurrogate_1",
       "description": "PE 1",
-      "bcSurrogateReference": "None set",
+      "reference": "None set",
       "_type": "BiomedicalConceptSurrogate"
     }
   },
@@ -853,7 +853,7 @@
       "name": "PE 2",
       "label": "BiomedicalConceptSurrogate_2",
       "description": "PE 2",
-      "bcSurrogateReference": "None set",
+      "reference": "None set",
       "_type": "BiomedicalConceptSurrogate"
     }
   },
@@ -864,7 +864,7 @@
       "name": "Weight",
       "label": "BiomedicalConceptSurrogate_3",
       "description": "Weight",
-      "bcSurrogateReference": "None set",
+      "reference": "None set",
       "_type": "BiomedicalConceptSurrogate"
     }
   },
@@ -875,7 +875,7 @@
       "name": "Height",
       "label": "BiomedicalConceptSurrogate_4",
       "description": "Height",
-      "bcSurrogateReference": "None set",
+      "reference": "None set",
       "_type": "BiomedicalConceptSurrogate"
     }
   },
@@ -910,7 +910,7 @@
       "name": "Active",
       "label": "StudyArm_1",
       "description": "Active Substance",
-      "studyArmDataOriginDescription": "Data collected from subjects",
+      "dataOriginDescription": "Data collected from subjects",
       "_type": "StudyArm"
     }
   },
@@ -945,7 +945,7 @@
       "name": "Placebo",
       "label": "StudyArm_2",
       "description": "Placebo",
-      "studyArmDataOriginDescription": "Data collected from subjects",
+      "dataOriginDescription": "Data collected from subjects",
       "_type": "StudyArm"
     }
   },
@@ -953,6 +953,11 @@
     "id": 81,
     "properties": {
       "id": "StudyCell_1",
+      "armId": "StudyArm_1",
+      "epochId": "StudyEpoch_1",
+      "elementIds": [
+        "StudyElement_1"
+      ],
       "_type": "StudyCell",
       "label": "StudyCell_1"
     }
@@ -961,6 +966,11 @@
     "id": 82,
     "properties": {
       "id": "StudyCell_2",
+      "armId": "StudyArm_1",
+      "epochId": "StudyEpoch_2",
+      "elementIds": [
+        "StudyElement_2"
+      ],
       "_type": "StudyCell",
       "label": "StudyCell_2"
     }
@@ -969,6 +979,11 @@
     "id": 83,
     "properties": {
       "id": "StudyCell_3",
+      "armId": "StudyArm_1",
+      "epochId": "StudyEpoch_3",
+      "elementIds": [
+        "StudyElement_3"
+      ],
       "_type": "StudyCell",
       "label": "StudyCell_3"
     }
@@ -977,6 +992,11 @@
     "id": 84,
     "properties": {
       "id": "StudyCell_4",
+      "armId": "StudyArm_2",
+      "epochId": "StudyEpoch_1",
+      "elementIds": [
+        "StudyElement_1"
+      ],
       "_type": "StudyCell",
       "label": "StudyCell_4"
     }
@@ -985,6 +1005,11 @@
     "id": 85,
     "properties": {
       "id": "StudyCell_5",
+      "armId": "StudyArm_2",
+      "epochId": "StudyEpoch_2",
+      "elementIds": [
+        "StudyElement_2"
+      ],
       "_type": "StudyCell",
       "label": "StudyCell_5"
     }
@@ -993,6 +1018,11 @@
     "id": 86,
     "properties": {
       "id": "StudyCell_6",
+      "armId": "StudyArm_2",
+      "epochId": "StudyEpoch_3",
+      "elementIds": [
+        "StudyElement_3"
+      ],
       "_type": "StudyCell",
       "label": "StudyCell_6"
     }
@@ -1037,8 +1067,8 @@
       "name": "Screening",
       "label": "StudyEpoch_1",
       "description": "Screening Epoch",
-      "previousStudyEpochId": null,
-      "nextStudyEpochId": "StudyEpoch_2",
+      "previousId": null,
+      "nextId": "StudyEpoch_2",
       "_type": "StudyEpoch"
     }
   },
@@ -1061,8 +1091,8 @@
       "name": "Treatment",
       "label": "StudyEpoch_2",
       "description": "Treatment Epoch",
-      "previousStudyEpochId": "StudyEpoch_1",
-      "nextStudyEpochId": "StudyEpoch_3",
+      "previousId": "StudyEpoch_1",
+      "nextId": "StudyEpoch_3",
       "_type": "StudyEpoch"
     }
   },
@@ -1085,8 +1115,8 @@
       "name": "Follow-Up",
       "label": "StudyEpoch_3",
       "description": "Follow-up Epoch",
-      "previousStudyEpochId": "StudyEpoch_2",
-      "nextStudyEpochId": null,
+      "previousId": "StudyEpoch_2",
+      "nextId": null,
       "_type": "StudyEpoch"
     }
   },
@@ -1119,6 +1149,7 @@
       "name": "Screening",
       "label": "StudyElement_1",
       "description": "Screening Element",
+      "studyInterventionIds": [],
       "_type": "StudyElement"
     }
   },
@@ -1151,6 +1182,7 @@
       "name": "Treatment",
       "label": "StudyElement_2",
       "description": "Treatment Element",
+      "studyInterventionIds": [],
       "_type": "StudyElement"
     }
   },
@@ -1183,6 +1215,7 @@
       "name": "Follow Up",
       "label": "StudyElement_3",
       "description": "Follow Up Element",
+      "studyInterventionIds": [],
       "_type": "StudyElement"
     }
   },
@@ -1204,7 +1237,7 @@
       "name": "termination",
       "label": "IntercurrentEvent_1",
       "description": "IC Event Description",
-      "intercurrentEventStrategy": "Patients with out of range lab values before dosing will be excluded",
+      "strategy": "Patients with out of range lab values before dosing will be excluded",
       "_type": "IntercurrentEvent"
     }
   },
@@ -1213,7 +1246,7 @@
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
-      "treatmentId": "InvestigationalIntervention_1",
+      "treatmentId": "StudyIntervention_1",
       "variableOfInterestId": "Endpoint_1",
       "_type": "Estimand",
       "label": "Estimand_1"
@@ -1237,20 +1270,20 @@
       "id": "Indication_1",
       "name": "IND1",
       "label": "Indication_1",
-      "description": "An indication",
+      "description": "Indication One",
       "_type": "Indication"
     }
   },
   {
     "id": 110,
     "properties": {
-      "id": "Code_165",
+      "id": "Code_163",
       "code": "345678",
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Indication2",
       "_type": "Code",
-      "label": "Code_165"
+      "label": "Code_163"
     }
   },
   {
@@ -1259,102 +1292,392 @@
       "id": "Indication_2",
       "name": "IND2",
       "label": "Indication_2",
-      "description": "An indication",
+      "description": "Indication Two",
       "_type": "Indication"
     }
   },
   {
     "id": 112,
     "properties": {
-      "id": "Code_163",
-      "code": "X",
-      "codeSystem": "ICD-10",
+      "id": "Code_169",
+      "code": "role1",
+      "codeSystem": "M11",
       "codeSystemVersion": "None set",
-      "decode": "Y",
+      "decode": "role1",
       "_type": "Code",
-      "label": "Code_163"
+      "label": "Code_169"
     }
   },
   {
     "id": 113,
     "properties": {
-      "id": "Code_164",
-      "code": "A",
-      "codeSystem": "SNOMED",
-      "codeSystemVersion": "January 31, 2018",
-      "decode": "B",
+      "id": "Code_170",
+      "code": "C1909",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Pharmacologic Substance",
       "_type": "Code",
-      "label": "Code_164"
-    }
-  },
-  {
-    "id": 111,
-    "properties": {
-      "id": "InvestigationalIntervention_1",
-      "description": "An intervention",
-      "_type": "InvestigationalIntervention",
-      "label": "InvestigationalIntervention_1"
+      "label": "Code_170"
     }
   },
   {
     "id": 115,
     "properties": {
-      "id": "Code_166",
-      "code": "DD",
-      "codeSystem": "ICD-10",
-      "codeSystemVersion": "None set",
-      "decode": "CC",
+      "id": "Code_173",
+      "code": "C25301",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Day",
       "_type": "Code",
-      "label": "Code_166"
-    }
-  },
-  {
-    "id": 116,
-    "properties": {
-      "id": "Code_167",
-      "code": "A",
-      "codeSystem": "SNOMED",
-      "codeSystemVersion": "January 31, 2018",
-      "decode": "B",
-      "_type": "Code",
-      "label": "Code_167"
+      "label": "Code_173"
     }
   },
   {
     "id": 114,
     "properties": {
-      "id": "InvestigationalIntervention_2",
-      "description": "An intervention",
-      "_type": "InvestigationalIntervention",
-      "label": "InvestigationalIntervention_2"
+      "id": "Quantity_3",
+      "value": 1.0,
+      "_type": "Quantity",
+      "label": "Quantity_3"
     }
   },
   {
-    "id": 118,
+    "id": 116,
     "properties": {
-      "id": "Code_172",
-      "code": "C85826",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2023-09-29",
-      "decode": "Trial Primary Objective",
+      "id": "Code_168",
+      "code": "A",
+      "codeSystem": "SPONSOR",
+      "codeSystemVersion": "12",
+      "decode": "B",
       "_type": "Code",
-      "label": "Code_172"
+      "label": "Code_168"
     }
   },
   {
     "id": 120,
     "properties": {
-      "id": "Code_171",
-      "code": "C94496",
+      "id": "Code_164",
+      "code": "C25613",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
-      "decode": "Primary Endpoint",
+      "decode": "Percentage",
+      "_type": "Code",
+      "label": "Code_164"
+    }
+  },
+  {
+    "id": 119,
+    "properties": {
+      "id": "Quantity_1",
+      "value": 14.0,
+      "_type": "Quantity",
+      "label": "Quantity_1"
+    }
+  },
+  {
+    "id": 118,
+    "properties": {
+      "id": "AdministrationDuration_1",
+      "description": "",
+      "durationWillVary": true,
+      "reasonDurationWillVary": "Will vary becuase we say so",
+      "_type": "AdministrationDuration",
+      "label": "AdministrationDuration_1"
+    }
+  },
+  {
+    "id": 122,
+    "properties": {
+      "id": "Code_166",
+      "code": "C28253",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Milligram",
+      "_type": "Code",
+      "label": "Code_166"
+    }
+  },
+  {
+    "id": 121,
+    "properties": {
+      "id": "Quantity_2",
+      "value": 12.0,
+      "_type": "Quantity",
+      "label": "Quantity_2"
+    }
+  },
+  {
+    "id": 123,
+    "properties": {
+      "id": "Code_165",
+      "code": "C38197",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Dental Route of Administration",
+      "_type": "Code",
+      "label": "Code_165"
+    }
+  },
+  {
+    "id": 124,
+    "properties": {
+      "id": "Code_167",
+      "code": "C139179",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Ten Days Per Month",
+      "_type": "Code",
+      "label": "Code_167"
+    }
+  },
+  {
+    "id": 117,
+    "properties": {
+      "id": "AgentAdministration_1",
+      "name": "Admin 1",
+      "label": "AgentAdministration_1",
+      "description": "Admin Desc 1",
+      "_type": "AgentAdministration"
+    }
+  },
+  {
+    "id": 125,
+    "properties": {
+      "id": "Code_172",
+      "code": "desig1",
+      "codeSystem": "M11",
+      "codeSystemVersion": "None set",
+      "decode": "desig_1",
+      "_type": "Code",
+      "label": "Code_172"
+    }
+  },
+  {
+    "id": 126,
+    "properties": {
+      "id": "Code_171",
+      "code": "A",
+      "codeSystem": "FDA",
+      "codeSystemVersion": "None set",
+      "decode": "B",
       "_type": "Code",
       "label": "Code_171"
     }
   },
   {
-    "id": 119,
+    "id": 111,
+    "properties": {
+      "id": "StudyIntervention_1",
+      "name": "INT1",
+      "label": "StudyIntervention_1",
+      "description": "Int Desc 1",
+      "_type": "StudyIntervention"
+    }
+  },
+  {
+    "id": 128,
+    "properties": {
+      "id": "Code_179",
+      "code": "role2",
+      "codeSystem": "M11",
+      "codeSystemVersion": "None set",
+      "decode": "role2",
+      "_type": "Code",
+      "label": "Code_179"
+    }
+  },
+  {
+    "id": 129,
+    "properties": {
+      "id": "Code_180",
+      "code": "C1909",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Pharmacologic Substance",
+      "_type": "Code",
+      "label": "Code_180"
+    }
+  },
+  {
+    "id": 131,
+    "properties": {
+      "id": "Code_183",
+      "code": "C25301",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Day",
+      "_type": "Code",
+      "label": "Code_183"
+    }
+  },
+  {
+    "id": 130,
+    "properties": {
+      "id": "Quantity_6",
+      "value": 1.0,
+      "_type": "Quantity",
+      "label": "Quantity_6"
+    }
+  },
+  {
+    "id": 132,
+    "properties": {
+      "id": "Code_178",
+      "code": "A",
+      "codeSystem": "SPONSOR",
+      "codeSystemVersion": "12",
+      "decode": "B",
+      "_type": "Code",
+      "label": "Code_178"
+    }
+  },
+  {
+    "id": 136,
+    "properties": {
+      "id": "Code_174",
+      "code": "C25613",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Percentage",
+      "_type": "Code",
+      "label": "Code_174"
+    }
+  },
+  {
+    "id": 135,
+    "properties": {
+      "id": "Quantity_4",
+      "value": 14.0,
+      "_type": "Quantity",
+      "label": "Quantity_4"
+    }
+  },
+  {
+    "id": 134,
+    "properties": {
+      "id": "AdministrationDuration_2",
+      "description": "",
+      "durationWillVary": true,
+      "reasonDurationWillVary": "Will vary becuase we say so",
+      "_type": "AdministrationDuration",
+      "label": "AdministrationDuration_2"
+    }
+  },
+  {
+    "id": 138,
+    "properties": {
+      "id": "Code_176",
+      "code": "C28253",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Milligram",
+      "_type": "Code",
+      "label": "Code_176"
+    }
+  },
+  {
+    "id": 137,
+    "properties": {
+      "id": "Quantity_5",
+      "value": 12.0,
+      "_type": "Quantity",
+      "label": "Quantity_5"
+    }
+  },
+  {
+    "id": 139,
+    "properties": {
+      "id": "Code_175",
+      "code": "C38197",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Dental Route of Administration",
+      "_type": "Code",
+      "label": "Code_175"
+    }
+  },
+  {
+    "id": 140,
+    "properties": {
+      "id": "Code_177",
+      "code": "C139179",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Ten Days Per Month",
+      "_type": "Code",
+      "label": "Code_177"
+    }
+  },
+  {
+    "id": 133,
+    "properties": {
+      "id": "AgentAdministration_2",
+      "name": "Admin 2",
+      "label": "AgentAdministration_2",
+      "description": "Admin Desc 2",
+      "_type": "AgentAdministration"
+    }
+  },
+  {
+    "id": 141,
+    "properties": {
+      "id": "Code_182",
+      "code": "desig2",
+      "codeSystem": "M11",
+      "codeSystemVersion": "None set",
+      "decode": "desig_2",
+      "_type": "Code",
+      "label": "Code_182"
+    }
+  },
+  {
+    "id": 142,
+    "properties": {
+      "id": "Code_181",
+      "code": "A",
+      "codeSystem": "FDA",
+      "codeSystemVersion": "None set",
+      "decode": "B",
+      "_type": "Code",
+      "label": "Code_181"
+    }
+  },
+  {
+    "id": 127,
+    "properties": {
+      "id": "StudyIntervention_2",
+      "name": "INT2",
+      "label": "StudyIntervention_2",
+      "description": "Int Desc 2",
+      "_type": "StudyIntervention"
+    }
+  },
+  {
+    "id": 144,
+    "properties": {
+      "id": "Code_188",
+      "code": "C85826",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Trial Primary Objective",
+      "_type": "Code",
+      "label": "Code_188"
+    }
+  },
+  {
+    "id": 146,
+    "properties": {
+      "id": "Code_187",
+      "code": "C94496",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Primary Endpoint",
+      "_type": "Code",
+      "label": "Code_187"
+    }
+  },
+  {
+    "id": 145,
     "properties": {
       "id": "Endpoint_1",
       "name": "END1",
@@ -1368,7 +1691,7 @@
     }
   },
   {
-    "id": 117,
+    "id": 143,
     "properties": {
       "id": "Objective_1",
       "name": "OBJ1",
@@ -1381,19 +1704,19 @@
     }
   },
   {
-    "id": 122,
+    "id": 148,
     "properties": {
-      "id": "Code_168",
+      "id": "Code_184",
       "code": "C49636",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Both",
       "_type": "Code",
-      "label": "Code_168"
+      "label": "Code_184"
     }
   },
   {
-    "id": 121,
+    "id": 147,
     "properties": {
       "id": "StudyDesignPopulation_1",
       "name": "POP 1",
@@ -1406,19 +1729,19 @@
     }
   },
   {
-    "id": 124,
+    "id": 150,
     "properties": {
-      "id": "Code_169",
+      "id": "Code_185",
       "code": "C20197",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Male",
       "_type": "Code",
-      "label": "Code_169"
+      "label": "Code_185"
     }
   },
   {
-    "id": 123,
+    "id": 149,
     "properties": {
       "id": "StudyDesignPopulation_2",
       "name": "POP 2",
@@ -1431,19 +1754,19 @@
     }
   },
   {
-    "id": 126,
+    "id": 152,
     "properties": {
-      "id": "Code_170",
+      "id": "Code_186",
       "code": "C16576",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Female",
       "_type": "Code",
-      "label": "Code_170"
+      "label": "Code_186"
     }
   },
   {
-    "id": 125,
+    "id": 151,
     "properties": {
       "id": "StudyDesignPopulation_3",
       "name": "POP 3",
@@ -1456,7 +1779,7 @@
     }
   },
   {
-    "id": 128,
+    "id": 154,
     "properties": {
       "id": "ScheduleTimelineExit_1",
       "_type": "ScheduleTimelineExit",
@@ -1464,7 +1787,7 @@
     }
   },
   {
-    "id": 131,
+    "id": 157,
     "properties": {
       "id": "Code_59",
       "code": "C201264",
@@ -1476,7 +1799,7 @@
     }
   },
   {
-    "id": 132,
+    "id": 158,
     "properties": {
       "id": "Code_61",
       "code": "C201265",
@@ -1488,32 +1811,33 @@
     }
   },
   {
-    "id": 130,
+    "id": 156,
     "properties": {
       "id": "Timing_1",
       "name": "TIMING_3",
       "label": "Timing_1",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": "-",
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": "-",
       "_type": "Timing"
     }
   },
   {
-    "id": 129,
+    "id": 155,
     "properties": {
       "id": "ScheduledActivityInstance_1",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_1",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_1"
     }
   },
   {
-    "id": 135,
+    "id": 161,
     "properties": {
       "id": "Code_112",
       "code": "C201264",
@@ -1525,7 +1849,7 @@
     }
   },
   {
-    "id": 136,
+    "id": 162,
     "properties": {
       "id": "Code_116",
       "code": "C201265",
@@ -1537,32 +1861,33 @@
     }
   },
   {
-    "id": 134,
+    "id": 160,
     "properties": {
       "id": "Timing_12",
       "name": "TIMING_None",
       "label": "Timing_12",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 133,
+    "id": 159,
     "properties": {
       "id": "ScheduledActivityInstance_12",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_12"
     }
   },
   {
-    "id": 139,
+    "id": 165,
     "properties": {
       "id": "Code_65",
       "code": "C99901x3",
@@ -1574,7 +1899,7 @@
     }
   },
   {
-    "id": 140,
+    "id": 166,
     "properties": {
       "id": "Code_66",
       "code": "C201265",
@@ -1586,32 +1911,33 @@
     }
   },
   {
-    "id": 138,
+    "id": 164,
     "properties": {
       "id": "Timing_2",
       "name": "TIMING_4",
       "label": "Timing_2",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": "-",
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": "-",
       "_type": "Timing"
     }
   },
   {
-    "id": 137,
+    "id": 163,
     "properties": {
       "id": "ScheduledActivityInstance_2",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_2",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_2"
     }
   },
   {
-    "id": 143,
+    "id": 169,
     "properties": {
       "id": "Code_118",
       "code": "C201264",
@@ -1623,7 +1949,7 @@
     }
   },
   {
-    "id": 144,
+    "id": 170,
     "properties": {
       "id": "Code_121",
       "code": "C201265",
@@ -1635,32 +1961,33 @@
     }
   },
   {
-    "id": 142,
+    "id": 168,
     "properties": {
       "id": "Timing_13",
       "name": "TIMING_None",
       "label": "Timing_13",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 141,
+    "id": 167,
     "properties": {
       "id": "ScheduledActivityInstance_13",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_13"
     }
   },
   {
-    "id": 147,
+    "id": 173,
     "properties": {
       "id": "Code_68",
       "code": "C201264",
@@ -1672,7 +1999,7 @@
     }
   },
   {
-    "id": 148,
+    "id": 174,
     "properties": {
       "id": "Code_71",
       "code": "C201265",
@@ -1684,32 +2011,33 @@
     }
   },
   {
-    "id": 146,
+    "id": 172,
     "properties": {
       "id": "Timing_3",
       "name": "TIMING_5",
       "label": "Timing_3",
       "description": "+14 Days",
-      "timingValue": "P14D",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "P14D",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 145,
+    "id": 171,
     "properties": {
       "id": "ScheduledActivityInstance_3",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_3",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_3"
     }
   },
   {
-    "id": 151,
+    "id": 177,
     "properties": {
       "id": "Code_122",
       "code": "C201264",
@@ -1721,7 +2049,7 @@
     }
   },
   {
-    "id": 152,
+    "id": 178,
     "properties": {
       "id": "Code_126",
       "code": "C201265",
@@ -1733,32 +2061,33 @@
     }
   },
   {
-    "id": 150,
+    "id": 176,
     "properties": {
       "id": "Timing_14",
       "name": "TIMING_None",
       "label": "Timing_14",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 149,
+    "id": 175,
     "properties": {
       "id": "ScheduledActivityInstance_14",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_14"
     }
   },
   {
-    "id": 155,
+    "id": 181,
     "properties": {
       "id": "Code_75",
       "code": "C99901x3",
@@ -1770,7 +2099,7 @@
     }
   },
   {
-    "id": 156,
+    "id": 182,
     "properties": {
       "id": "Code_76",
       "code": "C201265",
@@ -1782,32 +2111,33 @@
     }
   },
   {
-    "id": 154,
+    "id": 180,
     "properties": {
       "id": "Timing_4",
       "name": "TIMING_6",
       "label": "Timing_4",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "PT0M",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 153,
+    "id": 179,
     "properties": {
       "id": "ScheduledActivityInstance_4",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_4",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_4"
     }
   },
   {
-    "id": 159,
+    "id": 185,
     "properties": {
       "id": "Code_128",
       "code": "C201264",
@@ -1819,7 +2149,7 @@
     }
   },
   {
-    "id": 160,
+    "id": 186,
     "properties": {
       "id": "Code_131",
       "code": "C201265",
@@ -1831,32 +2161,33 @@
     }
   },
   {
-    "id": 158,
+    "id": 184,
     "properties": {
       "id": "Timing_15",
       "name": "TIMING_None",
       "label": "Timing_15",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 157,
+    "id": 183,
     "properties": {
       "id": "ScheduledActivityInstance_15",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_15"
     }
   },
   {
-    "id": 163,
+    "id": 189,
     "properties": {
       "id": "Code_78",
       "code": "C201264",
@@ -1868,7 +2199,7 @@
     }
   },
   {
-    "id": 164,
+    "id": 190,
     "properties": {
       "id": "Code_81",
       "code": "C201265",
@@ -1880,32 +2211,33 @@
     }
   },
   {
-    "id": 162,
+    "id": 188,
     "properties": {
       "id": "Timing_5",
       "name": "TIMING_7",
       "label": "Timing_5",
       "description": "+14 Days",
-      "timingValue": "P14D",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "P14D",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 161,
+    "id": 187,
     "properties": {
       "id": "ScheduledActivityInstance_5",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_5",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_5"
     }
   },
   {
-    "id": 167,
+    "id": 193,
     "properties": {
       "id": "Code_132",
       "code": "C201264",
@@ -1917,7 +2249,7 @@
     }
   },
   {
-    "id": 168,
+    "id": 194,
     "properties": {
       "id": "Code_136",
       "code": "C201265",
@@ -1929,32 +2261,33 @@
     }
   },
   {
-    "id": 166,
+    "id": 192,
     "properties": {
       "id": "Timing_16",
       "name": "TIMING_None",
       "label": "Timing_16",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 165,
+    "id": 191,
     "properties": {
       "id": "ScheduledActivityInstance_16",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_16"
     }
   },
   {
-    "id": 171,
+    "id": 197,
     "properties": {
       "id": "Code_85",
       "code": "C99901x3",
@@ -1966,7 +2299,7 @@
     }
   },
   {
-    "id": 172,
+    "id": 198,
     "properties": {
       "id": "Code_86",
       "code": "C201265",
@@ -1978,32 +2311,33 @@
     }
   },
   {
-    "id": 170,
+    "id": 196,
     "properties": {
       "id": "Timing_6",
       "name": "TIMING_8",
       "label": "Timing_6",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "PT0M",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 169,
+    "id": 195,
     "properties": {
       "id": "ScheduledActivityInstance_6",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_6",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_6"
     }
   },
   {
-    "id": 175,
+    "id": 201,
     "properties": {
       "id": "Code_138",
       "code": "C201264",
@@ -2015,7 +2349,7 @@
     }
   },
   {
-    "id": 176,
+    "id": 202,
     "properties": {
       "id": "Code_141",
       "code": "C201265",
@@ -2027,32 +2361,33 @@
     }
   },
   {
-    "id": 174,
+    "id": 200,
     "properties": {
       "id": "Timing_17",
       "name": "TIMING_None",
       "label": "Timing_17",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 173,
+    "id": 199,
     "properties": {
       "id": "ScheduledActivityInstance_17",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_17"
     }
   },
   {
-    "id": 179,
+    "id": 205,
     "properties": {
       "id": "Code_88",
       "code": "C201264",
@@ -2064,7 +2399,7 @@
     }
   },
   {
-    "id": 180,
+    "id": 206,
     "properties": {
       "id": "Code_91",
       "code": "C201265",
@@ -2076,32 +2411,33 @@
     }
   },
   {
-    "id": 178,
+    "id": 204,
     "properties": {
       "id": "Timing_7",
       "name": "TIMING_9",
       "label": "Timing_7",
       "description": "+14 Days",
-      "timingValue": "P14D",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "P14D",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 177,
+    "id": 203,
     "properties": {
       "id": "ScheduledActivityInstance_7",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_7",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_7"
     }
   },
   {
-    "id": 183,
+    "id": 209,
     "properties": {
       "id": "Code_142",
       "code": "C201264",
@@ -2113,7 +2449,7 @@
     }
   },
   {
-    "id": 184,
+    "id": 210,
     "properties": {
       "id": "Code_146",
       "code": "C201265",
@@ -2125,32 +2461,33 @@
     }
   },
   {
-    "id": 182,
+    "id": 208,
     "properties": {
       "id": "Timing_18",
       "name": "TIMING_None",
       "label": "Timing_18",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 181,
+    "id": 207,
     "properties": {
       "id": "ScheduledActivityInstance_18",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_18"
     }
   },
   {
-    "id": 187,
+    "id": 213,
     "properties": {
       "id": "Code_95",
       "code": "C99901x3",
@@ -2162,7 +2499,7 @@
     }
   },
   {
-    "id": 188,
+    "id": 214,
     "properties": {
       "id": "Code_96",
       "code": "C201265",
@@ -2174,32 +2511,33 @@
     }
   },
   {
-    "id": 186,
+    "id": 212,
     "properties": {
       "id": "Timing_8",
       "name": "TIMING_10",
       "label": "Timing_8",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "PT0M",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 185,
+    "id": 211,
     "properties": {
       "id": "ScheduledActivityInstance_8",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_8",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_8"
     }
   },
   {
-    "id": 191,
+    "id": 217,
     "properties": {
       "id": "Code_148",
       "code": "C201264",
@@ -2211,7 +2549,7 @@
     }
   },
   {
-    "id": 192,
+    "id": 218,
     "properties": {
       "id": "Code_151",
       "code": "C201265",
@@ -2223,44 +2561,45 @@
     }
   },
   {
-    "id": 190,
+    "id": 216,
     "properties": {
       "id": "Timing_19",
       "name": "TIMING_None",
       "label": "Timing_19",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 189,
+    "id": 215,
     "properties": {
       "id": "ScheduledActivityInstance_19",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_19"
     }
   },
   {
-    "id": 193,
+    "id": 219,
     "properties": {
       "id": "ScheduledActivityInstance_20",
       "instanceType": "DECISION",
-      "scheduledInstanceTimings": [],
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timings": [],
+      "timelineId": null,
+      "timelineExitId": null,
       "_type": "ScheduledDecisionInstance",
       "label": "ScheduledActivityInstance_20"
     }
   },
   {
-    "id": 196,
+    "id": 222,
     "properties": {
       "id": "Code_152",
       "code": "C201264",
@@ -2272,7 +2611,7 @@
     }
   },
   {
-    "id": 197,
+    "id": 223,
     "properties": {
       "id": "Code_156",
       "code": "C201265",
@@ -2284,32 +2623,33 @@
     }
   },
   {
-    "id": 195,
+    "id": 221,
     "properties": {
       "id": "Timing_20",
       "name": "TIMING_None",
       "label": "Timing_20",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 194,
+    "id": 220,
     "properties": {
       "id": "ScheduledActivityInstance_21",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_21"
     }
   },
   {
-    "id": 200,
+    "id": 226,
     "properties": {
       "id": "Code_100",
       "code": "C99901x3",
@@ -2321,7 +2661,7 @@
     }
   },
   {
-    "id": 201,
+    "id": 227,
     "properties": {
       "id": "Code_101",
       "code": "C201265",
@@ -2333,32 +2673,33 @@
     }
   },
   {
-    "id": 199,
+    "id": 225,
     "properties": {
       "id": "Timing_9",
       "name": "TIMING_11",
       "label": "Timing_9",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": "P2D",
-      "timingWindowUpper": "P2D",
-      "timingWindow": "-2..2 Days",
+      "value": "PT0M",
+      "windowLower": "P2D",
+      "windowUpper": "P2D",
+      "window": "-2..2 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 198,
+    "id": 224,
     "properties": {
       "id": "ScheduledActivityInstance_9",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_9",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_9"
     }
   },
   {
-    "id": 204,
+    "id": 230,
     "properties": {
       "id": "Code_158",
       "code": "C201264",
@@ -2370,7 +2711,7 @@
     }
   },
   {
-    "id": 205,
+    "id": 231,
     "properties": {
       "id": "Code_161",
       "code": "C201265",
@@ -2382,44 +2723,45 @@
     }
   },
   {
-    "id": 203,
+    "id": 229,
     "properties": {
       "id": "Timing_21",
       "name": "TIMING_None",
       "label": "Timing_21",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": null,
-      "timingWindowUpper": null,
-      "timingWindow": null,
+      "value": "PT0M",
+      "windowLower": null,
+      "windowUpper": null,
+      "window": null,
       "_type": "Timing"
     }
   },
   {
-    "id": 202,
+    "id": 228,
     "properties": {
       "id": "ScheduledActivityInstance_22",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": null,
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_22"
     }
   },
   {
-    "id": 206,
+    "id": 232,
     "properties": {
       "id": "ScheduledActivityInstance_23",
       "instanceType": "DECISION",
-      "scheduledInstanceTimings": [],
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timings": [],
+      "timelineId": null,
+      "timelineExitId": null,
       "_type": "ScheduledDecisionInstance",
       "label": "ScheduledActivityInstance_23"
     }
   },
   {
-    "id": 209,
+    "id": 235,
     "properties": {
       "id": "Code_103",
       "code": "C201264",
@@ -2431,7 +2773,7 @@
     }
   },
   {
-    "id": 210,
+    "id": 236,
     "properties": {
       "id": "Code_106",
       "code": "C201265",
@@ -2443,32 +2785,33 @@
     }
   },
   {
-    "id": 208,
+    "id": 234,
     "properties": {
       "id": "Timing_10",
       "name": "TIMING_12",
       "label": "Timing_10",
       "description": null,
-      "timingValue": "PT0M",
-      "timingWindowLower": "P0D",
-      "timingWindowUpper": "P5D",
-      "timingWindow": "0..5 Days",
+      "value": "PT0M",
+      "windowLower": "P0D",
+      "windowUpper": "P5D",
+      "window": "0..5 Days",
       "_type": "Timing"
     }
   },
   {
-    "id": 207,
+    "id": 233,
     "properties": {
       "id": "ScheduledActivityInstance_10",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": null,
+      "timelineId": null,
+      "timelineExitId": null,
+      "encounterId": "Encounter_10",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_10"
     }
   },
   {
-    "id": 213,
+    "id": 239,
     "properties": {
       "id": "Code_108",
       "code": "C201264",
@@ -2480,7 +2823,7 @@
     }
   },
   {
-    "id": 214,
+    "id": 240,
     "properties": {
       "id": "Code_111",
       "code": "C201265",
@@ -2492,32 +2835,33 @@
     }
   },
   {
-    "id": 212,
+    "id": 238,
     "properties": {
       "id": "Timing_11",
       "name": "TIMING_13",
       "label": "Timing_11",
       "description": "+12 weeks",
-      "timingValue": "P12W",
-      "timingWindowLower": "P0W",
-      "timingWindowUpper": "P2W",
-      "timingWindow": "0..2 Weeks",
+      "value": "P12W",
+      "windowLower": "P0W",
+      "windowUpper": "P2W",
+      "window": "0..2 Weeks",
       "_type": "Timing"
     }
   },
   {
-    "id": 211,
+    "id": 237,
     "properties": {
       "id": "ScheduledActivityInstance_11",
       "instanceType": "ACTIVITY",
-      "scheduledInstanceTimelineId": null,
-      "scheduleTimelineExitId": "ScheduleTimelineExit_1",
+      "timelineId": null,
+      "timelineExitId": "ScheduleTimelineExit_1",
+      "encounterId": "Encounter_11",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_11"
     }
   },
   {
-    "id": 127,
+    "id": 153,
     "properties": {
       "id": "ScheduleTimeline_1",
       "name": "Main Timeline",
@@ -2525,7 +2869,7 @@
       "description": "This is the main timeline for the study design.",
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
-      "scheduleTimelineEntryId": "ScheduledActivityInstance_1",
+      "entryId": "ScheduledActivityInstance_1",
       "_type": "ScheduleTimeline"
     }
   },
@@ -2538,9 +2882,9 @@
       "description": "The main design for the study",
       "biomedicalConcepts": [],
       "bcCategories": [],
-      "studyDesignRationale": "Multiple cycles test",
+      "rationale": "Multiple cycles test",
       "documentVersion": null,
-      "studyEligibilityCritieria": [],
+      "eligibilityCriteria": [],
       "dictionaries": [],
       "_type": "StudyDesign"
     }
@@ -2550,8 +2894,8 @@
     "properties": {
       "id": "StudyVersion_1",
       "studyTitle": "Cycles Test 1",
-      "studyVersion": "1",
-      "studyRationale": "A simple test",
+      "versionIdentifier": "1",
+      "rationale": "A simple test",
       "studyAcronym": "SIMPLE",
       "documentVersionId": "StudyProtocolDocumentVersion_1",
       "dateValues": [],
@@ -2561,7 +2905,7 @@
     }
   },
   {
-    "id": 217,
+    "id": 243,
     "properties": {
       "id": "Code_5",
       "code": "C85255",
@@ -2573,7 +2917,7 @@
     }
   },
   {
-    "id": 216,
+    "id": 242,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
       "briefTitle": "Something Brief",
@@ -2589,7 +2933,7 @@
     }
   },
   {
-    "id": 215,
+    "id": 241,
     "properties": {
       "id": "StudyProtocolDocument_1",
       "name": "Protocol_Document_CYCLES1",
