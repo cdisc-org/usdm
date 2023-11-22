@@ -9,7 +9,7 @@ class StudyDesignPopulationSheet(BaseSheet):
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='studyDesignPopulations')
-      self.populations = []
+      self.population = None
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, 'name', default=f"POP {index + 1}") # 'name' added, preserve backward compatibility so defaulted
         description = self.read_description_by_name(index, ['description', 'populationDescription']) # Allow multiple names for column
@@ -33,11 +33,10 @@ class StudyDesignPopulationSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           cross_references.add(name, pop)
-          self.populations.append(pop)
+          self.population = pop
         
     except Exception as e:
       self._general_error(f"Exception [{e}] raised reading sheet.")
-      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
   def _build_codes(self, row, index):
