@@ -44,112 +44,119 @@ class NarrativeContent():
       binary_formatted_response = bytearray(response)
       return binary_formatted_response
     except docraptor.rest.ApiException as e:
+      logging.error(f"Failed to create PDF document {e.status} {e.reason} {e.body}\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Something went wrong '{e.reason}' creating the PDF document")
-      logging.error(f"Failed to create PDF document {e.status} {e.reason} {e.body}\n{{traceback.format_exc()}}")
+    except Exception as e:
+      logging.error(f"Exception [{e}] raised generating PDF content.\n{traceback.format_exc()}")
+      error_manager.add(None, None, None, f"Exception [{e}] raised generating PDF content")
 
   def to_html(self):
-    root = self.protocol_document_version.contents[0]
-    doc = Doc()
-    doc.asis('<!DOCTYPE html>')
-    style = """
-      /* Create a running element */
-      #header-and-footer {
-        position: running(header-and-footer);
-        text-align: right;
-      }
-
-      /* Add that running element to the top and bottom of every page */
-      @page {
-        @top {
-          content: element(header-and-footer);
+    try:
+      root = self.protocol_document_version.contents[0]
+      doc = Doc()
+      doc.asis('<!DOCTYPE html>')
+      style = """
+        /* Create a running element */
+        #header-and-footer {
+          position: running(header-and-footer);
+          text-align: right;
         }
-        @bottom {
-          content: element(header-and-footer);
+
+        /* Add that running element to the top and bottom of every page */
+        @page {
+          @top {
+            content: element(header-and-footer);
+          }
+          @bottom {
+            content: element(header-and-footer);
+          }
         }
-      }
 
-      /* Add a page number */
-      #page-number {
-        content: "Page " counter(page);
-      }
-
-      /* Create a title page with a full-bleed background and no header */
-      #title-page {
-        page: title-page;
-      }
-
-      @page title-page {
-        @top {
-          content: "";
+        /* Add a page number */
+        #page-number {
+          content: "Page " counter(page);
         }
-      }
 
-      #title-page h1 {
-        padding: 200px 0 40px 0;
-        font-size: 30px;
-      }
+        /* Create a title page with a full-bleed background and no header */
+        #title-page {
+          page: title-page;
+        }
 
-      /* Dynamically create a table of contents with leaders */
-      #table-of-contents a {
-        content: target-content(attr(href)) leader('.') target-counter(attr(href), page);
-        color: #000000;
-        text-decoration: none;
-        display: block;
-        padding-top: 5px;
-      }
+        @page title-page {
+          @top {
+            content: "";
+          }
+        }
 
-      /* Float the footnote to a footnotes area on the page */
-      .footnote {
-        float: footnote;
-        font-size: small;
-      }
+        #title-page h1 {
+          padding: 200px 0 40px 0;
+          font-size: 30px;
+        }
 
-      .page {
-        page-break-after: always;
-      }
+        /* Dynamically create a table of contents with leaders */
+        #table-of-contents a {
+          content: target-content(attr(href)) leader('.') target-counter(attr(href), page);
+          color: #000000;
+          text-decoration: none;
+          display: block;
+          padding-top: 5px;
+        }
 
-      body {
-        counter-reset: chapter;
-        font-family: 'Times New Roman';
-        color: #000000;
-      }
-    </style>
-    <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'>
-    """
-    chapters = []
-    for id in root.contentChildIds:
-      content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-      level = len(content.sectionNumber.split('.'))
-      if level == 1:
-        chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
-    front_sheet = f"""
-      <div id="title-page" class="page">
-        <h1>{self.doc_title}</h1>
-        <div id="header-and-footer">
-          <span id="page-number"></span>
+        /* Float the footnote to a footnotes area on the page */
+        .footnote {
+          float: footnote;
+          font-size: small;
+        }
+
+        .page {
+          page-break-after: always;
+        }
+
+        body {
+          counter-reset: chapter;
+          font-family: 'Times New Roman';
+          color: #000000;
+        }
+      </style>
+      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'>
+      """
+      chapters = []
+      for id in root.childrenIds:
+        content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
+        level = len(content.sectionNumber.split('.'))
+        if level == 1:
+          chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
+      front_sheet = f"""
+        <div id="title-page" class="page">
+          <h1>{self.doc_title}</h1>
+          <div id="header-and-footer">
+            <span id="page-number"></span>
+          </div>
         </div>
-      </div>
-      <div id="toc-page" class="page">
-        <div id="table-of-contents">
-          {''.join(chapters)}
+        <div id="toc-page" class="page">
+          <div id="table-of-contents">
+            {''.join(chapters)}
+          </div>
+          <div id="header-and-footer">
+            <span id="page-number"></span>
+          </div>
         </div>
-        <div id="header-and-footer">
-          <span id="page-number"></span>
-        </div>
-      </div>
-    """
-    with doc.tag('html'):
-      with doc.tag('head'):
-        with doc.tag('style'):
-          doc.asis(style)      
-      with doc.tag('body'):
-        doc.asis(front_sheet)    
-        for id in root.contentChildIds:
-          content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-          if content:
-            self._content_to_html(content, doc)
-    return doc.getvalue()
-  
+      """
+      with doc.tag('html'):
+        with doc.tag('head'):
+          with doc.tag('style'):
+            doc.asis(style)      
+        with doc.tag('body'):
+          doc.asis(front_sheet)    
+          for id in root.childrenIds:
+            content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
+            if content:
+              self._content_to_html(content, doc)
+      return doc.getvalue()
+    except Exception as e:
+      logging.error(f"Exception [{e}] raised generating HTML content.\n{traceback.format_exc()}")
+      error_manager.add(None, None, None, f"Exception [{e}] raised generating HTML content")
+
   def _content_to_html(self, content, doc):
     level = len(content.sectionNumber.split('.'))
     klass = "page" if level == 1 else ""
@@ -162,7 +169,7 @@ class NarrativeContent():
         name = self._standard_section_name(content.text)
         content.text = self._generate_standard_section(name)
       doc.asis(self._translate_references(content.text))
-      for id in content.contentChildIds:
+      for id in content.childrenIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
 
@@ -180,7 +187,6 @@ class NarrativeContent():
         ref.replace_with(translated_text)
       except Exception as e:
         logging.error(f"Failed to translate reference, attributes {attributes}\n{traceback.format_exc()}")
-        #print(f"CrossRef: {cross_references.references.keys()}")
         error_manager.add(None, None, None, f"Failed to translate a reference {attributes} while generating the HTML document")
         ref.replace_with('Missing content')
     return str(soup)
@@ -332,7 +338,7 @@ class NarrativeContent():
     return self._set_of_references(results)
 
   def _study_version(self):
-    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyVersion', 'path': 'StudyVersion/@studyVersion'}]
+    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'versionIdentifier', 'path': 'StudyVersion/@versionIdentifier'}]
     return self._set_of_references(results)
 
   def _study_identifier(self):
@@ -369,7 +375,7 @@ class NarrativeContent():
     identifier = self._sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/@name'},
-      {'instance': identifier.studyIdentifierScope.organizationLegalAddress, 'klass': 'Address', 'attribute': 'text', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/Address/@text'},
+      {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text', 'path': 'StudyIdentifier[Organization/@type/@code=C70793]/Organization/Address/@text'},
     ]
     return self._set_of_references(results)
 
@@ -392,7 +398,7 @@ class NarrativeContent():
   
   def _criteria(self, type):
     results = []
-    items = [c for c in self.study_design.studyEligibilityCritieria if c.category.code == type ]
+    items = [c for c in self.study_design.eligibilityCriteria if c.category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
       result = {'identifier': item.identifier, 'text': item.text}
@@ -404,12 +410,12 @@ class NarrativeContent():
 
   def _objective_endpoints(self):
     results = []
-    for item in self.study_design.studyObjectives:
+    for item in self.study_design.objectives:
       result = {'objective': item.text, 'endpoints': []}
       dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
       if dictionary:
         result['objective'] = self._substitute_tags(result['objective'], dictionary)
-      for endpoint in item.objectiveEndpoints:
+      for endpoint in item.endpoints:
         dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', endpoint.dictionaryId)
         ep_text = endpoint.text
         if dictionary:
