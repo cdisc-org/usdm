@@ -9,6 +9,7 @@ from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
 from usdm_excel.option_manager import *
 from usdm_model.quantity import Quantity
+from usdm_excel.cross_ref import cross_references
 
 class BaseSheet():
 
@@ -215,6 +216,14 @@ class BaseSheet():
       else:
         self._error(row_index, col_index, f"CDISC CT not found for value '{item.strip()}'.")
     return result
+
+  def _get_cross_reference(self, klass, name, error_klass_name):
+    item = cross_references.get(klass, name)
+    if item:
+      return item.id
+    else:
+      self._general_error(f"Unable to find {error_klass_name} with name '{name}'")              
+      return None
 
   def double_link(self, items, prev, next):
     try: 

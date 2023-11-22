@@ -127,12 +127,12 @@ class StudySheet(BaseSheet):
             activity_ids.append(activity.id)
         study_design.biomedicalConcepts += tl.biomedical_concepts
         study_design.bcSurrogates += tl.biomedical_concept_surrogates
-      study_design.studyIndications = self.ii.indications
-      study_design.studyInvestigationalInterventions = self.ii.interventions
-      study_design.studyPopulations = self.study_populations.populations
-      study_design.studyObjectives = self.oe.objectives
-      study_design.studyEstimands = self.estimands.estimands
-      study_design.studyEligibilityCritieria = self.eligibility_criteria.items
+      study_design.indications = self.indications.items
+      study_design.studyInterventions = self.interventions.items
+      study_design.populations = self.study_populations.populations
+      study_design.objectives = self.oe.objectives
+      study_design.estimands = self.estimands.estimands
+      study_design.eligibilityCriteria = self.eligibility_criteria.items
       study_design.dictionaries = self.dictionaries.items
       
       # Final assembly

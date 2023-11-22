@@ -34,10 +34,8 @@ class StudyDesignEstimandsSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             try:
-              treatment = cross_references.get(StudyIntervention, treatment_xref)
-              endpoint = cross_references.get(Endpoint, endpoint_xref)
-              treatment_id = treatment.id
-              endpoint_id = endpoint.id
+              treatment_id = self._get_treatment(treatment_xref)
+              endpoint_id = self._get_endpoint(endpoint_xref)
               current = Estimand(id=id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, treatmentId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
             except Exception as e:
               self._general_error(f"Failed to create Estimand object, exception {e}")
@@ -64,3 +62,8 @@ class StudyDesignEstimandsSheet(BaseSheet):
       self._general_error(f"Exception [{e}] raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
+  def _get_treatment(self, name):
+    return self._get_cross_reference(StudyIntervention, name, 'study intervention')
+
+  def _get_endpoint(self, name):
+    return self._get_cross_reference(Endpoint, name, 'endpoint')

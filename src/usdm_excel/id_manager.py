@@ -51,7 +51,9 @@ class IdManager():
       'SyntaxTemplateDictionary': 0,
       'EligibilityCriteria': 0,
       'AgentAdministration': 0,
-      'AdministrationDuration': 0
+      'AdministrationDuration': 0,
+      'Quantity': 0,
+      'Range': 0
     }
 
   def build_id(self, klass):
