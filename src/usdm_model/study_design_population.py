@@ -1,10 +1,7 @@
 from typing import List
 from pydantic import NonNegativeInt
-from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
-from .code import Code
+from .population_definition import PopulationDefinition
+from .study_cohort import StudyCohort
 
-class StudyDesignPopulation(ApiBaseModelWithIdNameLabelAndDesc):
-  plannedNumberOfParticipants: NonNegativeInt
-  plannedMaximumAgeOfParticipants: str  
-  plannedMinimumAgeOfParticipants: str
-  plannedSexOfParticipants: List[Code] = []
+class StudyDesignPopulation(PopulationDefinition):
+  cohorts: List[StudyCohort] = []
