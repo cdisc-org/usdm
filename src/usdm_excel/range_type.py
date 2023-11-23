@@ -8,6 +8,7 @@ class RangeType():
       self.upper = None
       self.lower = None
       self.units = None
+      self.units_code = None
       self.errors = []
       self.label = range_info.strip()
       if range_info:

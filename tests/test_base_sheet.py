@@ -4,6 +4,7 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.errors.errors import error_manager
 from usdm_model.code import Code
 
 # def test_sheet_cell_value(mocker):
@@ -200,6 +201,34 @@ def test_read_boolean_cell_by_name(mocker):
   ]
   for test in test_data:
     assert(base.read_boolean_cell_by_name(test[0],test[1])) == test[2]
+
+def test_read_range_cell_by_name(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [[''], ['1..2 days'], [' 1 .. 3 weeks'], [' .. 3 weeks'], ['1 ..  weeks'], ['1 . 4 weeks']]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Range'])
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (0,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [1,1]: Could not decode the range value, appears to be empty ''"),
+    (1,'Range', True, 1.0, 2.0, 'C25301', ''),
+    (2,'Range', True, 1.0, 3.0, 'C29844', ''),
+    (3,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [4,1]: Could not decode the range value, not all required parts detected in '.. 3 weeks'"),
+    (4,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [5,1]: Could not decode the range value, not all required parts detected in '1 ..  weeks'"),
+    (5,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [6,1]: Could not decode the range value, not all required parts detected in '1 . 4 weeks'"),
+  ]
+  for test in test_data:
+    error_manager.clear()
+    range = base.read_range_cell_by_name(test[0],test[1]) 
+    if test[2]:
+      assert(range.minValue) == test[3]
+      assert(range.maxValue) == test[4]
+      assert(range.unit.code) == test[5]
+      assert(range.isApproximate) == False
+      assert(len(error_manager.items)) == 0
+    else:
+      assert(range) == None
+      assert(error_manager.items[0].to_log()) == test[6]
 
 def test_read_description_by_name(mocker):
   mock_option = mocker.patch("usdm_excel.om.get")

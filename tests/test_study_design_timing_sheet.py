@@ -2,12 +2,13 @@ import pandas as pd
 
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
+from usdm_excel.errors.errors import error_manager 
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
-  mock_id.side_effect=['Code1', 'Code2', 'TimingId_1', 'Code3', 'Code4', 'TimingId_2', 'Code5', 'Code6', 'TimingId_3']
+  mock_id.side_effect=['Range1', 'Code1', 'Code2', 'TimingId_1', 'Code3', 'Code4', 'TimingId_2', 'Code5', 'Code6', 'TimingId_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
@@ -18,9 +19,10 @@ def test_create(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'type', 'from', 'to', 'timingValue', 'toFrom', 'window'])
 
-  
-
   items = StudyDesignTimingSheet("")
+  #print(f"ERRORS: {[item.to_dict() for item in error_manager.items]}")
+  #print(f"ITEMS: {items.items}")
+  assert len( error_manager.items) == 0
   assert len(items.items) == 3
   assert items.items[0].id == 'TimingId_1'
   assert items.items[0].name == 'Timing 1'
@@ -92,10 +94,10 @@ def test_window_type(mocker):
 
 def test_window_type_error(mocker):
   test_data = [
-    ('1.. Days',"Could not decode the window value, not all required parts detected in '1.. Days'"),
-    ('-1.1 days',"Could not decode the window value, not all required parts detected in '-1.1 days'"),
-    ('-1 .. 1',"Could not decode the window value, not all required parts detected in '-1 .. 1'"),
-    (' .. 1 Weeks',"Could not decode the window value, not all required parts detected in ' .. 1 Weeks'")
+    ('1.. Days',"Could not decode the range value, not all required parts detected in '1.. Days'"),
+    ('-1.1 days',"Could not decode the range value, not all required parts detected in '-1.1 days'"),
+    ('-1 .. 1',"Could not decode the range value, not all required parts detected in '-1 .. 1'"),
+    (' .. 1 Weeks',"Could not decode the range value, not all required parts detected in '.. 1 Weeks'")
   ]
   for index, test in enumerate(test_data):
     item = WindowType(test[0])

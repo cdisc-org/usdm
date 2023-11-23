@@ -8,9 +8,10 @@ from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
 from usdm_excel.option_manager import *
-from usdm_model.quantity import Quantity
 from usdm_excel.cross_ref import cross_references
-
+from usdm_excel.range_type import RangeType
+from usdm_model.quantity import Quantity
+from usdm_model.range import Range
 class BaseSheet():
 
   class StateError(Exception):
@@ -134,10 +135,29 @@ class BaseSheet():
         return Quantity(id=id_manager.build_id(Quantity), value=float(value), unit=unit)
       else:
         self._error(row_index, col_index, f"Failed to decode quantity data '{text}', no ' ' detected")
-      return None
+        return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
       self._traceback(f"{e}\n{traceback.format_exc()}")
+      return None
+
+  def read_range_cell_by_name(self, row_index, field_name):
+    col_index = self.column_present(field_name)
+    return self.read_range_cell(row_index, col_index)
+
+  def read_range_cell(self, row_index, col_index):
+    try:
+      text = self.read_cell(row_index, col_index)
+      range = RangeType(text)
+      if not range.errors:
+        return Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
+      else:
+        self._add_errors(range.errors, row_index, col_index)
+        return None
+    except Exception as e:
+      self._error(row_index, col_index, f"Failed to decode range data '{text}'")
+      self._traceback(f"{e}\n{traceback.format_exc()}")
+      return None
 
   def read_description_by_name(self, row_index, field_name):
     value = self.read_cell_by_name(row_index, field_name)
