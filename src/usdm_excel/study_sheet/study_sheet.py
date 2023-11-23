@@ -104,7 +104,7 @@ class StudySheet(BaseSheet):
       self._process_soa(file_path)
       self.indications = StudyDesignIndicationSheet(file_path)
       self.interventions = StudyDesignInterventionSheet(file_path)
-      self.study_populations = StudyDesignPopulationSheet(file_path)
+      self.study_population = StudyDesignPopulationSheet(file_path)
       self.contents = StudyDesignContentSheet(file_path)
       self.dictionaries = StudyDesignDictionarySheet(file_path)
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
@@ -129,10 +129,11 @@ class StudySheet(BaseSheet):
         study_design.bcSurrogates += tl.biomedical_concept_surrogates
       study_design.indications = self.indications.items
       study_design.studyInterventions = self.interventions.items
-      study_design.populations = self.study_populations.populations
+      study_design.population = self.study_population.population
       study_design.objectives = self.oe.objectives
       study_design.estimands = self.estimands.estimands
-      study_design.eligibilityCriteria = self.eligibility_criteria.items
+      #study_design.eligibilityCriteria = self.eligibility_criteria.items
+      study_design.population.criteria = self.eligibility_criteria.items
       study_design.dictionaries = self.dictionaries.items
       
       # Final assembly

@@ -148,12 +148,14 @@ class BaseSheet():
   def read_range_cell(self, row_index, col_index):
     try:
       text = self.read_cell(row_index, col_index)
-      range = RangeType(text)
-      if not range.errors:
-        return Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
-      else:
-        self._add_errors(range.errors, row_index, col_index)
-        return None
+      if text:
+        range = RangeType(text)
+        if not range.errors:
+          return Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
+        else:
+          self._add_errors(range.errors, row_index, col_index)
+          return None
+      return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode range data '{text}'")
       self._traceback(f"{e}\n{traceback.format_exc()}")
