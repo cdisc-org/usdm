@@ -911,6 +911,7 @@
       "label": "StudyArm_1",
       "description": "Active Substance",
       "dataOriginDescription": "Data collected from subjects",
+      "populationIds": [],
       "_type": "StudyArm"
     }
   },
@@ -946,6 +947,7 @@
       "label": "StudyArm_2",
       "description": "Placebo",
       "dataOriginDescription": "Data collected from subjects",
+      "populationIds": [],
       "_type": "StudyArm"
     }
   },
@@ -1655,25 +1657,25 @@
   {
     "id": 144,
     "properties": {
-      "id": "Code_188",
+      "id": "Code_190",
       "code": "C85826",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Trial Primary Objective",
       "_type": "Code",
-      "label": "Code_188"
+      "label": "Code_190"
     }
   },
   {
     "id": 146,
     "properties": {
-      "id": "Code_187",
+      "id": "Code_189",
       "code": "C94496",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Primary Endpoint",
       "_type": "Code",
-      "label": "Code_187"
+      "label": "Code_189"
     }
   },
   {
@@ -1706,80 +1708,77 @@
   {
     "id": 148,
     "properties": {
-      "id": "Code_184",
-      "code": "C49636",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2023-09-29",
-      "decode": "Both",
-      "_type": "Code",
-      "label": "Code_184"
+      "id": "Range_2",
+      "minValue": 120.0,
+      "maxValue": 120.0,
+      "unit": null,
+      "isApproximate": false,
+      "_type": "Range",
+      "label": "Range_2"
+    }
+  },
+  {
+    "id": 149,
+    "properties": {
+      "id": "Range_1",
+      "minValue": 100.0,
+      "maxValue": 100.0,
+      "unit": null,
+      "isApproximate": false,
+      "_type": "Range",
+      "label": "Range_1"
+    }
+  },
+  {
+    "id": 150,
+    "properties": {
+      "id": "StudyCohort_1",
+      "name": "COHORT1",
+      "label": "StudyCohort_1",
+      "description": "",
+      "plannedEnrollmentNumber": null,
+      "plannedCompletionNumber": null,
+      "plannedMaximumAge": null,
+      "plannedMinimumAge": null,
+      "plannedSex": [],
+      "criteria": [],
+      "characteristics": [],
+      "_type": "StudyCohort"
+    }
+  },
+  {
+    "id": 151,
+    "properties": {
+      "id": "StudyCohort_2",
+      "name": "COHORT2",
+      "label": "StudyCohort_2",
+      "description": "",
+      "plannedEnrollmentNumber": null,
+      "plannedCompletionNumber": null,
+      "plannedMaximumAge": null,
+      "plannedMinimumAge": null,
+      "plannedSex": [],
+      "criteria": [],
+      "characteristics": [],
+      "_type": "StudyCohort"
     }
   },
   {
     "id": 147,
     "properties": {
       "id": "StudyDesignPopulation_1",
-      "name": "POP 1",
+      "name": "POP1",
       "label": "StudyDesignPopulation_1",
-      "description": "Pop 1",
-      "plannedNumberOfParticipants": 100,
-      "plannedMaximumAgeOfParticipants": "40 years",
-      "plannedMinimumAgeOfParticipants": "18 years",
+      "description": "",
+      "plannedMaximumAge": null,
+      "plannedMinimumAge": null,
+      "plannedSex": [],
+      "criteria": [],
       "_type": "StudyDesignPopulation"
     }
   },
   {
-    "id": 150,
-    "properties": {
-      "id": "Code_185",
-      "code": "C20197",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2023-09-29",
-      "decode": "Male",
-      "_type": "Code",
-      "label": "Code_185"
-    }
-  },
-  {
-    "id": 149,
-    "properties": {
-      "id": "StudyDesignPopulation_2",
-      "name": "POP 2",
-      "label": "StudyDesignPopulation_2",
-      "description": "Pop 2",
-      "plannedNumberOfParticipants": 20,
-      "plannedMaximumAgeOfParticipants": "60 years",
-      "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation"
-    }
-  },
-  {
-    "id": 152,
-    "properties": {
-      "id": "Code_186",
-      "code": "C16576",
-      "codeSystem": "http://www.cdisc.org",
-      "codeSystemVersion": "2023-09-29",
-      "decode": "Female",
-      "_type": "Code",
-      "label": "Code_186"
-    }
-  },
-  {
-    "id": 151,
-    "properties": {
-      "id": "StudyDesignPopulation_3",
-      "name": "POP 3",
-      "label": "StudyDesignPopulation_3",
-      "description": "Pop 3",
-      "plannedNumberOfParticipants": 20,
-      "plannedMaximumAgeOfParticipants": "70 years",
-      "plannedMinimumAgeOfParticipants": "18 years",
-      "_type": "StudyDesignPopulation"
-    }
-  },
-  {
-    "id": 154,
+    "id": 153,
     "properties": {
       "id": "ScheduleTimelineExit_1",
       "_type": "ScheduleTimelineExit",
@@ -1787,7 +1786,7 @@
     }
   },
   {
-    "id": 157,
+    "id": 156,
     "properties": {
       "id": "Code_59",
       "code": "C201264",
@@ -1799,7 +1798,7 @@
     }
   },
   {
-    "id": 158,
+    "id": 157,
     "properties": {
       "id": "Code_61",
       "code": "C201265",
@@ -1811,7 +1810,7 @@
     }
   },
   {
-    "id": 156,
+    "id": 155,
     "properties": {
       "id": "Timing_1",
       "name": "TIMING_3",
@@ -1825,7 +1824,7 @@
     }
   },
   {
-    "id": 155,
+    "id": 154,
     "properties": {
       "id": "ScheduledActivityInstance_1",
       "instanceType": "ACTIVITY",
@@ -1837,7 +1836,7 @@
     }
   },
   {
-    "id": 161,
+    "id": 160,
     "properties": {
       "id": "Code_112",
       "code": "C201264",
@@ -1849,7 +1848,7 @@
     }
   },
   {
-    "id": 162,
+    "id": 161,
     "properties": {
       "id": "Code_116",
       "code": "C201265",
@@ -1861,7 +1860,7 @@
     }
   },
   {
-    "id": 160,
+    "id": 159,
     "properties": {
       "id": "Timing_12",
       "name": "TIMING_None",
@@ -1875,7 +1874,7 @@
     }
   },
   {
-    "id": 159,
+    "id": 158,
     "properties": {
       "id": "ScheduledActivityInstance_12",
       "instanceType": "ACTIVITY",
@@ -1887,7 +1886,7 @@
     }
   },
   {
-    "id": 165,
+    "id": 164,
     "properties": {
       "id": "Code_65",
       "code": "C99901x3",
@@ -1899,7 +1898,7 @@
     }
   },
   {
-    "id": 166,
+    "id": 165,
     "properties": {
       "id": "Code_66",
       "code": "C201265",
@@ -1911,7 +1910,7 @@
     }
   },
   {
-    "id": 164,
+    "id": 163,
     "properties": {
       "id": "Timing_2",
       "name": "TIMING_4",
@@ -1925,7 +1924,7 @@
     }
   },
   {
-    "id": 163,
+    "id": 162,
     "properties": {
       "id": "ScheduledActivityInstance_2",
       "instanceType": "ACTIVITY",
@@ -1937,7 +1936,7 @@
     }
   },
   {
-    "id": 169,
+    "id": 168,
     "properties": {
       "id": "Code_118",
       "code": "C201264",
@@ -1949,7 +1948,7 @@
     }
   },
   {
-    "id": 170,
+    "id": 169,
     "properties": {
       "id": "Code_121",
       "code": "C201265",
@@ -1961,7 +1960,7 @@
     }
   },
   {
-    "id": 168,
+    "id": 167,
     "properties": {
       "id": "Timing_13",
       "name": "TIMING_None",
@@ -1975,7 +1974,7 @@
     }
   },
   {
-    "id": 167,
+    "id": 166,
     "properties": {
       "id": "ScheduledActivityInstance_13",
       "instanceType": "ACTIVITY",
@@ -1987,7 +1986,7 @@
     }
   },
   {
-    "id": 173,
+    "id": 172,
     "properties": {
       "id": "Code_68",
       "code": "C201264",
@@ -1999,7 +1998,7 @@
     }
   },
   {
-    "id": 174,
+    "id": 173,
     "properties": {
       "id": "Code_71",
       "code": "C201265",
@@ -2011,7 +2010,7 @@
     }
   },
   {
-    "id": 172,
+    "id": 171,
     "properties": {
       "id": "Timing_3",
       "name": "TIMING_5",
@@ -2025,7 +2024,7 @@
     }
   },
   {
-    "id": 171,
+    "id": 170,
     "properties": {
       "id": "ScheduledActivityInstance_3",
       "instanceType": "ACTIVITY",
@@ -2037,7 +2036,7 @@
     }
   },
   {
-    "id": 177,
+    "id": 176,
     "properties": {
       "id": "Code_122",
       "code": "C201264",
@@ -2049,7 +2048,7 @@
     }
   },
   {
-    "id": 178,
+    "id": 177,
     "properties": {
       "id": "Code_126",
       "code": "C201265",
@@ -2061,7 +2060,7 @@
     }
   },
   {
-    "id": 176,
+    "id": 175,
     "properties": {
       "id": "Timing_14",
       "name": "TIMING_None",
@@ -2075,7 +2074,7 @@
     }
   },
   {
-    "id": 175,
+    "id": 174,
     "properties": {
       "id": "ScheduledActivityInstance_14",
       "instanceType": "ACTIVITY",
@@ -2087,7 +2086,7 @@
     }
   },
   {
-    "id": 181,
+    "id": 180,
     "properties": {
       "id": "Code_75",
       "code": "C99901x3",
@@ -2099,7 +2098,7 @@
     }
   },
   {
-    "id": 182,
+    "id": 181,
     "properties": {
       "id": "Code_76",
       "code": "C201265",
@@ -2111,7 +2110,7 @@
     }
   },
   {
-    "id": 180,
+    "id": 179,
     "properties": {
       "id": "Timing_4",
       "name": "TIMING_6",
@@ -2125,7 +2124,7 @@
     }
   },
   {
-    "id": 179,
+    "id": 178,
     "properties": {
       "id": "ScheduledActivityInstance_4",
       "instanceType": "ACTIVITY",
@@ -2137,7 +2136,7 @@
     }
   },
   {
-    "id": 185,
+    "id": 184,
     "properties": {
       "id": "Code_128",
       "code": "C201264",
@@ -2149,7 +2148,7 @@
     }
   },
   {
-    "id": 186,
+    "id": 185,
     "properties": {
       "id": "Code_131",
       "code": "C201265",
@@ -2161,7 +2160,7 @@
     }
   },
   {
-    "id": 184,
+    "id": 183,
     "properties": {
       "id": "Timing_15",
       "name": "TIMING_None",
@@ -2175,7 +2174,7 @@
     }
   },
   {
-    "id": 183,
+    "id": 182,
     "properties": {
       "id": "ScheduledActivityInstance_15",
       "instanceType": "ACTIVITY",
@@ -2187,7 +2186,7 @@
     }
   },
   {
-    "id": 189,
+    "id": 188,
     "properties": {
       "id": "Code_78",
       "code": "C201264",
@@ -2199,7 +2198,7 @@
     }
   },
   {
-    "id": 190,
+    "id": 189,
     "properties": {
       "id": "Code_81",
       "code": "C201265",
@@ -2211,7 +2210,7 @@
     }
   },
   {
-    "id": 188,
+    "id": 187,
     "properties": {
       "id": "Timing_5",
       "name": "TIMING_7",
@@ -2225,7 +2224,7 @@
     }
   },
   {
-    "id": 187,
+    "id": 186,
     "properties": {
       "id": "ScheduledActivityInstance_5",
       "instanceType": "ACTIVITY",
@@ -2237,7 +2236,7 @@
     }
   },
   {
-    "id": 193,
+    "id": 192,
     "properties": {
       "id": "Code_132",
       "code": "C201264",
@@ -2249,7 +2248,7 @@
     }
   },
   {
-    "id": 194,
+    "id": 193,
     "properties": {
       "id": "Code_136",
       "code": "C201265",
@@ -2261,7 +2260,7 @@
     }
   },
   {
-    "id": 192,
+    "id": 191,
     "properties": {
       "id": "Timing_16",
       "name": "TIMING_None",
@@ -2275,7 +2274,7 @@
     }
   },
   {
-    "id": 191,
+    "id": 190,
     "properties": {
       "id": "ScheduledActivityInstance_16",
       "instanceType": "ACTIVITY",
@@ -2287,7 +2286,7 @@
     }
   },
   {
-    "id": 197,
+    "id": 196,
     "properties": {
       "id": "Code_85",
       "code": "C99901x3",
@@ -2299,7 +2298,7 @@
     }
   },
   {
-    "id": 198,
+    "id": 197,
     "properties": {
       "id": "Code_86",
       "code": "C201265",
@@ -2311,7 +2310,7 @@
     }
   },
   {
-    "id": 196,
+    "id": 195,
     "properties": {
       "id": "Timing_6",
       "name": "TIMING_8",
@@ -2325,7 +2324,7 @@
     }
   },
   {
-    "id": 195,
+    "id": 194,
     "properties": {
       "id": "ScheduledActivityInstance_6",
       "instanceType": "ACTIVITY",
@@ -2337,7 +2336,7 @@
     }
   },
   {
-    "id": 201,
+    "id": 200,
     "properties": {
       "id": "Code_138",
       "code": "C201264",
@@ -2349,7 +2348,7 @@
     }
   },
   {
-    "id": 202,
+    "id": 201,
     "properties": {
       "id": "Code_141",
       "code": "C201265",
@@ -2361,7 +2360,7 @@
     }
   },
   {
-    "id": 200,
+    "id": 199,
     "properties": {
       "id": "Timing_17",
       "name": "TIMING_None",
@@ -2375,7 +2374,7 @@
     }
   },
   {
-    "id": 199,
+    "id": 198,
     "properties": {
       "id": "ScheduledActivityInstance_17",
       "instanceType": "ACTIVITY",
@@ -2387,7 +2386,7 @@
     }
   },
   {
-    "id": 205,
+    "id": 204,
     "properties": {
       "id": "Code_88",
       "code": "C201264",
@@ -2399,7 +2398,7 @@
     }
   },
   {
-    "id": 206,
+    "id": 205,
     "properties": {
       "id": "Code_91",
       "code": "C201265",
@@ -2411,7 +2410,7 @@
     }
   },
   {
-    "id": 204,
+    "id": 203,
     "properties": {
       "id": "Timing_7",
       "name": "TIMING_9",
@@ -2425,7 +2424,7 @@
     }
   },
   {
-    "id": 203,
+    "id": 202,
     "properties": {
       "id": "ScheduledActivityInstance_7",
       "instanceType": "ACTIVITY",
@@ -2437,7 +2436,7 @@
     }
   },
   {
-    "id": 209,
+    "id": 208,
     "properties": {
       "id": "Code_142",
       "code": "C201264",
@@ -2449,7 +2448,7 @@
     }
   },
   {
-    "id": 210,
+    "id": 209,
     "properties": {
       "id": "Code_146",
       "code": "C201265",
@@ -2461,7 +2460,7 @@
     }
   },
   {
-    "id": 208,
+    "id": 207,
     "properties": {
       "id": "Timing_18",
       "name": "TIMING_None",
@@ -2475,7 +2474,7 @@
     }
   },
   {
-    "id": 207,
+    "id": 206,
     "properties": {
       "id": "ScheduledActivityInstance_18",
       "instanceType": "ACTIVITY",
@@ -2487,7 +2486,7 @@
     }
   },
   {
-    "id": 213,
+    "id": 212,
     "properties": {
       "id": "Code_95",
       "code": "C99901x3",
@@ -2499,7 +2498,7 @@
     }
   },
   {
-    "id": 214,
+    "id": 213,
     "properties": {
       "id": "Code_96",
       "code": "C201265",
@@ -2511,7 +2510,7 @@
     }
   },
   {
-    "id": 212,
+    "id": 211,
     "properties": {
       "id": "Timing_8",
       "name": "TIMING_10",
@@ -2525,7 +2524,7 @@
     }
   },
   {
-    "id": 211,
+    "id": 210,
     "properties": {
       "id": "ScheduledActivityInstance_8",
       "instanceType": "ACTIVITY",
@@ -2537,7 +2536,7 @@
     }
   },
   {
-    "id": 217,
+    "id": 216,
     "properties": {
       "id": "Code_148",
       "code": "C201264",
@@ -2549,7 +2548,7 @@
     }
   },
   {
-    "id": 218,
+    "id": 217,
     "properties": {
       "id": "Code_151",
       "code": "C201265",
@@ -2561,7 +2560,7 @@
     }
   },
   {
-    "id": 216,
+    "id": 215,
     "properties": {
       "id": "Timing_19",
       "name": "TIMING_None",
@@ -2575,7 +2574,7 @@
     }
   },
   {
-    "id": 215,
+    "id": 214,
     "properties": {
       "id": "ScheduledActivityInstance_19",
       "instanceType": "ACTIVITY",
@@ -2587,7 +2586,7 @@
     }
   },
   {
-    "id": 219,
+    "id": 218,
     "properties": {
       "id": "ScheduledActivityInstance_20",
       "instanceType": "DECISION",
@@ -2599,7 +2598,7 @@
     }
   },
   {
-    "id": 222,
+    "id": 221,
     "properties": {
       "id": "Code_152",
       "code": "C201264",
@@ -2611,7 +2610,7 @@
     }
   },
   {
-    "id": 223,
+    "id": 222,
     "properties": {
       "id": "Code_156",
       "code": "C201265",
@@ -2623,7 +2622,7 @@
     }
   },
   {
-    "id": 221,
+    "id": 220,
     "properties": {
       "id": "Timing_20",
       "name": "TIMING_None",
@@ -2637,7 +2636,7 @@
     }
   },
   {
-    "id": 220,
+    "id": 219,
     "properties": {
       "id": "ScheduledActivityInstance_21",
       "instanceType": "ACTIVITY",
@@ -2649,7 +2648,7 @@
     }
   },
   {
-    "id": 226,
+    "id": 225,
     "properties": {
       "id": "Code_100",
       "code": "C99901x3",
@@ -2661,7 +2660,7 @@
     }
   },
   {
-    "id": 227,
+    "id": 226,
     "properties": {
       "id": "Code_101",
       "code": "C201265",
@@ -2673,7 +2672,7 @@
     }
   },
   {
-    "id": 225,
+    "id": 224,
     "properties": {
       "id": "Timing_9",
       "name": "TIMING_11",
@@ -2687,7 +2686,7 @@
     }
   },
   {
-    "id": 224,
+    "id": 223,
     "properties": {
       "id": "ScheduledActivityInstance_9",
       "instanceType": "ACTIVITY",
@@ -2699,7 +2698,7 @@
     }
   },
   {
-    "id": 230,
+    "id": 229,
     "properties": {
       "id": "Code_158",
       "code": "C201264",
@@ -2711,7 +2710,7 @@
     }
   },
   {
-    "id": 231,
+    "id": 230,
     "properties": {
       "id": "Code_161",
       "code": "C201265",
@@ -2723,7 +2722,7 @@
     }
   },
   {
-    "id": 229,
+    "id": 228,
     "properties": {
       "id": "Timing_21",
       "name": "TIMING_None",
@@ -2737,7 +2736,7 @@
     }
   },
   {
-    "id": 228,
+    "id": 227,
     "properties": {
       "id": "ScheduledActivityInstance_22",
       "instanceType": "ACTIVITY",
@@ -2749,7 +2748,7 @@
     }
   },
   {
-    "id": 232,
+    "id": 231,
     "properties": {
       "id": "ScheduledActivityInstance_23",
       "instanceType": "DECISION",
@@ -2761,7 +2760,7 @@
     }
   },
   {
-    "id": 235,
+    "id": 234,
     "properties": {
       "id": "Code_103",
       "code": "C201264",
@@ -2773,7 +2772,7 @@
     }
   },
   {
-    "id": 236,
+    "id": 235,
     "properties": {
       "id": "Code_106",
       "code": "C201265",
@@ -2785,7 +2784,7 @@
     }
   },
   {
-    "id": 234,
+    "id": 233,
     "properties": {
       "id": "Timing_10",
       "name": "TIMING_12",
@@ -2799,7 +2798,7 @@
     }
   },
   {
-    "id": 233,
+    "id": 232,
     "properties": {
       "id": "ScheduledActivityInstance_10",
       "instanceType": "ACTIVITY",
@@ -2811,7 +2810,7 @@
     }
   },
   {
-    "id": 239,
+    "id": 238,
     "properties": {
       "id": "Code_108",
       "code": "C201264",
@@ -2823,7 +2822,7 @@
     }
   },
   {
-    "id": 240,
+    "id": 239,
     "properties": {
       "id": "Code_111",
       "code": "C201265",
@@ -2835,7 +2834,7 @@
     }
   },
   {
-    "id": 238,
+    "id": 237,
     "properties": {
       "id": "Timing_11",
       "name": "TIMING_13",
@@ -2849,7 +2848,7 @@
     }
   },
   {
-    "id": 237,
+    "id": 236,
     "properties": {
       "id": "ScheduledActivityInstance_11",
       "instanceType": "ACTIVITY",
@@ -2861,7 +2860,7 @@
     }
   },
   {
-    "id": 153,
+    "id": 152,
     "properties": {
       "id": "ScheduleTimeline_1",
       "name": "Main Timeline",
@@ -2884,7 +2883,6 @@
       "bcCategories": [],
       "rationale": "Multiple cycles test",
       "documentVersion": null,
-      "eligibilityCriteria": [],
       "dictionaries": [],
       "_type": "StudyDesign"
     }
@@ -2905,7 +2903,7 @@
     }
   },
   {
-    "id": 243,
+    "id": 242,
     "properties": {
       "id": "Code_5",
       "code": "C85255",
@@ -2917,7 +2915,7 @@
     }
   },
   {
-    "id": 242,
+    "id": 241,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
       "briefTitle": "Something Brief",
@@ -2933,7 +2931,7 @@
     }
   },
   {
-    "id": 241,
+    "id": 240,
     "properties": {
       "id": "StudyProtocolDocument_1",
       "name": "Protocol_Document_CYCLES1",

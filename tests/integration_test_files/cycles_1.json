@@ -642,7 +642,8 @@
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
                   "decode": "Data Generated Within Study"
-                }
+                },
+                "populationIds": []
               },
               {
                 "id": "StudyArm_2",
@@ -663,7 +664,8 @@
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
                   "decode": "Data Generated Within Study"
-                }
+                },
+                "populationIds": []
               }
             ],
             "studyCells": [
@@ -918,14 +920,14 @@
                 },
                 "minimumResponseDuration": {
                   "id": "Quantity_3",
+                  "value": 1.0,
                   "unit": {
                     "id": "Code_173",
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "Day"
-                  },
-                  "value": 1.0
+                  }
                 },
                 "codes": [
                   {
@@ -946,14 +948,14 @@
                       "id": "AdministrationDuration_1",
                       "quantity": {
                         "id": "Quantity_1",
+                        "value": 14.0,
                         "unit": {
                           "id": "Code_164",
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
                           "decode": "Percentage"
-                        },
-                        "value": 14.0
+                        }
                       },
                       "description": "",
                       "durationWillVary": true,
@@ -961,14 +963,14 @@
                     },
                     "dose": {
                       "id": "Quantity_2",
+                      "value": 12.0,
                       "unit": {
                         "id": "Code_166",
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
                         "decode": "Milligram"
-                      },
-                      "value": 12.0
+                      }
                     },
                     "route": {
                       "id": "Code_165",
@@ -1022,14 +1024,14 @@
                 },
                 "minimumResponseDuration": {
                   "id": "Quantity_6",
+                  "value": 1.0,
                   "unit": {
                     "id": "Code_183",
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "Day"
-                  },
-                  "value": 1.0
+                  }
                 },
                 "codes": [
                   {
@@ -1050,14 +1052,14 @@
                       "id": "AdministrationDuration_2",
                       "quantity": {
                         "id": "Quantity_4",
+                        "value": 14.0,
                         "unit": {
                           "id": "Code_174",
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
                           "decode": "Percentage"
-                        },
-                        "value": 14.0
+                        }
                       },
                       "description": "",
                       "durationWillVary": true,
@@ -1065,14 +1067,14 @@
                     },
                     "dose": {
                       "id": "Quantity_5",
+                      "value": 12.0,
                       "unit": {
                         "id": "Code_176",
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
                         "decode": "Milligram"
-                      },
-                      "value": 12.0
+                      }
                     },
                     "route": {
                       "id": "Code_175",
@@ -1116,7 +1118,7 @@
                 "text": "Obj Desc",
                 "dictionaryId": null,
                 "level": {
-                  "id": "Code_188",
+                  "id": "Code_190",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1133,7 +1135,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_187",
+                      "id": "Code_189",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1143,62 +1145,58 @@
                 ]
               }
             ],
-            "populations": [
-              {
-                "id": "StudyDesignPopulation_1",
-                "name": "POP 1",
-                "label": "",
-                "description": "Pop 1",
-                "plannedNumberOfParticipants": 100,
-                "plannedMaximumAgeOfParticipants": "40 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_184",
-                    "code": "C49636",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-09-29",
-                    "decode": "Both"
-                  }
-                ]
+            "population": {
+              "id": "StudyDesignPopulation_1",
+              "name": "POP1",
+              "label": "",
+              "description": "",
+              "plannedEnrollmentNumber": {
+                "id": "Range_2",
+                "minValue": 120.0,
+                "maxValue": 120.0,
+                "unit": null,
+                "isApproximate": false
               },
-              {
-                "id": "StudyDesignPopulation_2",
-                "name": "POP 2",
-                "label": "",
-                "description": "Pop 2",
-                "plannedNumberOfParticipants": 20,
-                "plannedMaximumAgeOfParticipants": "60 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_185",
-                    "code": "C20197",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-09-29",
-                    "decode": "Male"
-                  }
-                ]
+              "plannedCompletionNumber": {
+                "id": "Range_1",
+                "minValue": 100.0,
+                "maxValue": 100.0,
+                "unit": null,
+                "isApproximate": false
               },
-              {
-                "id": "StudyDesignPopulation_3",
-                "name": "POP 3",
-                "label": "",
-                "description": "Pop 3",
-                "plannedNumberOfParticipants": 20,
-                "plannedMaximumAgeOfParticipants": "70 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_186",
-                    "code": "C16576",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-09-29",
-                    "decode": "Female"
-                  }
-                ]
-              }
-            ],
+              "plannedMaximumAge": null,
+              "plannedMinimumAge": null,
+              "plannedSex": [],
+              "criteria": [],
+              "cohorts": [
+                {
+                  "id": "StudyCohort_1",
+                  "name": "COHORT1",
+                  "label": "",
+                  "description": "",
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedMaximumAge": null,
+                  "plannedMinimumAge": null,
+                  "plannedSex": [],
+                  "criteria": [],
+                  "characteristics": []
+                },
+                {
+                  "id": "StudyCohort_2",
+                  "name": "COHORT2",
+                  "label": "",
+                  "description": "",
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedMaximumAge": null,
+                  "plannedMinimumAge": null,
+                  "plannedSex": [],
+                  "criteria": [],
+                  "characteristics": []
+                }
+              ]
+            },
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
@@ -2067,7 +2065,6 @@
               }
             ],
             "documentVersion": null,
-            "eligibilityCriteria": [],
             "dictionaries": []
           }
         ]

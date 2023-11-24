@@ -17,10 +17,10 @@ def test_range_type(mocker):
 
 def test_range_type_error(mocker):
   test_data = [
-    ('1.. Days',"Could not decode the range value, not all required parts detected in '1.. Days'"),
-    ('-1.1 days',"Could not decode the range value, not all required parts detected in '-1.1 days'"),
-    ('-1 .. 1',"Could not decode the range value, not all required parts detected in '-1 .. 1'"),
-    (' .. 1 Weeks',"Could not decode the range value, not all required parts detected in ' .. 1 Weeks'"),
+    ('1.. Days',"Could not decode the range value, possible typographical errors '1.. Days'"),
+    ('-1.1 days',"Could not decode the range value, possible typographical errors '-1.1 days'"),
+    ('-1 .. 1',"Could not decode the range value, possible typographical errors '-1 .. 1'"),
+    (' .. 1 Weeks',"Could not decode the range value ' .. 1 Weeks'"),
     ('1 .. 10 slugs',"Unable to set the units code for the range '1 .. 10 slugs'")
   ]
   for index, test in enumerate(test_data):

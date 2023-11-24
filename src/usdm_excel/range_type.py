@@ -28,9 +28,9 @@ class RangeType():
               if not self.units_code:        
                 self.errors.append(f"Unable to set the units code for the range '{range_info}'")
             else:
-              self.errors.append(f"Units not found for the range but required '{range_info}'")
+              self.errors.append(f"Could not decode the range value, possible typographical errors '{range_info}'")
         else:
-          self.errors.append(f"Could not decode the range value, not all required parts detected in '{range_info}'")
+          self.errors.append(f"Could not decode the range value '{range_info}'")
       elif not allow_empty:
         self.errors.append(f"Could not decode the range value, appears to be empty '{range_info}'")
       else:

@@ -206,18 +206,18 @@ class BaseSheet():
         result.append(code)
     return result
 
-  def read_cdisc_klass_attribute_cell_by_name(self, klass, attribute, row_index, field_name):
+  def read_cdisc_klass_attribute_cell_by_name(self, klass, attribute, row_index, field_name, allow_empty=False):
     col_index = self.column_present(field_name)
-    return self.read_cdisc_klass_attribute_cell(klass, attribute, row_index, col_index)
+    return self.read_cdisc_klass_attribute_cell(klass, attribute, row_index, col_index, allow_empty)
 
-  def read_cdisc_klass_attribute_cell(self, klass, attribute, row_index, col_index):
+  def read_cdisc_klass_attribute_cell(self, klass, attribute, row_index, col_index, allow_empty=False):
     code = None
     value = self.read_cell(row_index, col_index)
     if value:
       code = CDISCCT().code_for_attribute(klass, attribute, value)
       if not code:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
-    else:
+    elif not allow_empty:
       self._error(row_index, col_index, "Empty cell detected where CDISC CT value expected.")
     return code
 

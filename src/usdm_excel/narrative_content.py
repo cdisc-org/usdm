@@ -398,7 +398,7 @@ class NarrativeContent():
   
   def _criteria(self, type):
     results = []
-    items = [c for c in self.study_design.eligibilityCriteria if c.category.code == type ]
+    items = [c for c in self.study_design.population.criteria if c.category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
       result = {'identifier': item.identifier, 'text': item.text}

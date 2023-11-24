@@ -202,33 +202,72 @@ def test_read_boolean_cell_by_name(mocker):
   for test in test_data:
     assert(base.read_boolean_cell_by_name(test[0],test[1])) == test[2]
 
-def test_read_range_cell_by_name(mocker):
+def test_read_quantity_cell_by_name(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [[''], ['1..2 days'], [' 1 .. 3 weeks'], [' .. 3 weeks'], ['1 ..  weeks'], ['1 . 4 weeks']]
+  data = [[''], ['1 days'], [' 1 weeks'], ['14 Hours'], ['14'], ['']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Range'])
   base = BaseSheet("", "sheet")
   test_data = [
-    (0,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [1,1]: Could not decode the range value, appears to be empty ''"),
-    (1,'Range', True, 1.0, 2.0, 'C25301', ''),
-    (2,'Range', True, 1.0, 3.0, 'C29844', ''),
-    (3,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [4,1]: Could not decode the range value, not all required parts detected in '.. 3 weeks'"),
-    (4,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [5,1]: Could not decode the range value, not all required parts detected in '1 ..  weeks'"),
-    (5,'Range', False, 0.0, 0.0, '', "Error in sheet sheet at [6,1]: Could not decode the range value, not all required parts detected in '1 . 4 weeks'"),
+    #  Name,    Req Units, Allow Empty, Errors, Empty,  Value,  Unit,     Error 
+    (0,'Range', True,      False,       True,   False,  0.0,    '',       "Error in sheet sheet at [1,1]: Failed to decode quantity data ''"),
+    (1,'Range', True,      False,       False,  False,  1.0,    'C25301', ''),
+    (2,'Range', True,      False,       False,  False,  1.0,    'C29844', ''),
+    (3,'Range', True,      False,       False,  False,  14.0,   'C25529', ""),
+    (4,'Range', False,     False,       False,  False,  14.0,   '',       ""),
+    (5,'Range', True,      True,        False,  True,   0.0,    '',       ""),
   ]
   for test in test_data:
     error_manager.clear()
-    range = base.read_range_cell_by_name(test[0],test[1]) 
-    if test[2]:
-      assert(range.minValue) == test[3]
-      assert(range.maxValue) == test[4]
-      assert(range.unit.code) == test[5]
+    print(f"INDEX: {test[0]}")
+    item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 
+    if not test[4] and not test[5]:
+      assert(item.value) == test[6]
+      if test[2]:
+        assert(item.unit.code) == test[7]
+      assert(len(error_manager.items)) == 0
+    elif test[5]:
+      assert(item) == None
+    else:
+      assert(item) == None
+      assert(error_manager.items[0].to_log()) == test[8]
+
+def test_read_range_cell_by_name(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [[''], ['1..2 days'], [' 1 .. 3 weeks'], [' .. 3 weeks'], ['1 ..  weeks'], ['1 . 4 weeks'], ['14 Hours'], ['14'], ['']]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Range'])
+  base = BaseSheet("", "sheet")
+  test_data = [
+    #  Name,    Req Units, Allow Empty, Errors, Empty, Min,  Max,   Unit,     Error 
+    (0,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [1,1]: Could not decode the range value, appears to be empty ''"),
+    (1,'Range', True,      False,       False,  False,  1.0,  2.0,   'C25301', ''),
+    (2,'Range', True,      False,       False,  False,  1.0,  3.0,   'C29844', ''),
+    (3,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [4,1]: Could not decode the range value '.. 3 weeks'"),
+    (4,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [5,1]: Unable to set the units code for the range '1 ..  weeks'"),
+    (5,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [6,1]: Unable to set the units code for the range '1 . 4 weeks'"),
+    (6,'Range', True,      False,       False,  False, 14.0, 14.0,  'C25529', ""),
+    (7,'Range', False,     False,       False,  False, 14.0, 14.0,  '',       ""),
+    (8,'Range', True,      True,        False,  True,  0.0,  0.0,   '',       ""),
+  ]
+  for test in test_data:
+    error_manager.clear()
+    print(f"INDEX: {test[0]}")
+    range = base.read_range_cell_by_name(test[0],test[1],test[2],test[3]) 
+    if not test[4] and not test[5]:
+      assert(range.minValue) == test[6]
+      assert(range.maxValue) == test[7]
+      if test[2]:
+        assert(range.unit.code) == test[8]
       assert(range.isApproximate) == False
       assert(len(error_manager.items)) == 0
+    elif test[5]:
+      assert(range) == None
     else:
       assert(range) == None
-      assert(error_manager.items[0].to_log()) == test[6]
+      assert(error_manager.items[0].to_log()) == test[9]
 
 def test_read_description_by_name(mocker):
   mock_option = mocker.patch("usdm_excel.om.get")

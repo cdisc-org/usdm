@@ -5,6 +5,7 @@ from usdm_excel.study_design_timing_sheet.window_type import WindowType
 from usdm_excel.errors.errors import error_manager 
 
 def test_create(mocker):
+  error_manager.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
@@ -86,6 +87,7 @@ def test_window_type(mocker):
     ('-1 .. 1 weeks ', "P1W", "P1W", '-1 .. 1 weeks'),
   ]
   for index, test in enumerate(test_data):
+    error_manager.clear()
     item = WindowType(test[0])
     assert(item.lower) == test[1]
     assert(item.upper) == test[2]
@@ -94,11 +96,12 @@ def test_window_type(mocker):
 
 def test_window_type_error(mocker):
   test_data = [
-    ('1.. Days',"Could not decode the range value, not all required parts detected in '1.. Days'"),
-    ('-1.1 days',"Could not decode the range value, not all required parts detected in '-1.1 days'"),
-    ('-1 .. 1',"Could not decode the range value, not all required parts detected in '-1 .. 1'"),
-    (' .. 1 Weeks',"Could not decode the range value, not all required parts detected in '.. 1 Weeks'")
+    ('1.. Days',"Could not decode the range value, possible typographical errors '1.. Days'"),
+    ('-1.1 days',"Could not decode the range value, possible typographical errors '-1.1 days'"),
+    ('-1 .. 1',"Could not decode the range value, possible typographical errors '-1 .. 1'"),
+    (' .. 1 Weeks',"Could not decode the range value '.. 1 Weeks'")
   ]
   for index, test in enumerate(test_data):
+    error_manager.clear()
     item = WindowType(test[0])
     assert item.errors == [test[1]]

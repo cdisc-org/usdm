@@ -37,7 +37,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def _build_codes(self, row, index):
-    code = self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants")
+    code = self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants", allow_empty=True)
     return [code] if code else []
 
   def _study_population(self, name, description, label, recruit_number, required_number, min, max, codes):    

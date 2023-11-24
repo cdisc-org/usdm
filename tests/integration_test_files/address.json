@@ -652,7 +652,8 @@
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
                   "decode": "Data Generated Within Study"
-                }
+                },
+                "populationIds": []
               },
               {
                 "id": "StudyArm_2",
@@ -673,7 +674,8 @@
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
                   "decode": "Data Generated Within Study"
-                }
+                },
+                "populationIds": []
               }
             ],
             "studyCells": [
@@ -1039,14 +1041,14 @@
                 },
                 "minimumResponseDuration": {
                   "id": "Quantity_3",
+                  "value": 1.0,
                   "unit": {
                     "id": "Code_91",
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "Day"
-                  },
-                  "value": 1.0
+                  }
                 },
                 "codes": [
                   {
@@ -1067,14 +1069,14 @@
                       "id": "AdministrationDuration_1",
                       "quantity": {
                         "id": "Quantity_1",
+                        "value": 14.0,
                         "unit": {
                           "id": "Code_82",
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
                           "decode": "Percentage"
-                        },
-                        "value": 14.0
+                        }
                       },
                       "description": "",
                       "durationWillVary": true,
@@ -1082,14 +1084,14 @@
                     },
                     "dose": {
                       "id": "Quantity_2",
+                      "value": 12.0,
                       "unit": {
                         "id": "Code_84",
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
                         "decode": "Milligram"
-                      },
-                      "value": 12.0
+                      }
                     },
                     "route": {
                       "id": "Code_83",
@@ -1143,14 +1145,14 @@
                 },
                 "minimumResponseDuration": {
                   "id": "Quantity_6",
+                  "value": 1.0,
                   "unit": {
                     "id": "Code_101",
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
                     "decode": "Day"
-                  },
-                  "value": 1.0
+                  }
                 },
                 "codes": [
                   {
@@ -1171,14 +1173,14 @@
                       "id": "AdministrationDuration_2",
                       "quantity": {
                         "id": "Quantity_4",
+                        "value": 14.0,
                         "unit": {
                           "id": "Code_92",
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
                           "decode": "Percentage"
-                        },
-                        "value": 14.0
+                        }
                       },
                       "description": "",
                       "durationWillVary": true,
@@ -1186,14 +1188,14 @@
                     },
                     "dose": {
                       "id": "Quantity_5",
+                      "value": 12.0,
                       "unit": {
                         "id": "Code_94",
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
                         "decode": "Milligram"
-                      },
-                      "value": 12.0
+                      }
                     },
                     "route": {
                       "id": "Code_93",
@@ -1237,7 +1239,7 @@
                 "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
                 "dictionaryId": null,
                 "level": {
-                  "id": "Code_106",
+                  "id": "Code_108",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1254,7 +1256,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_105",
+                      "id": "Code_107",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1272,7 +1274,7 @@
                 "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
                 "dictionaryId": null,
                 "level": {
-                  "id": "Code_108",
+                  "id": "Code_110",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1289,7 +1291,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_107",
+                      "id": "Code_109",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1306,7 +1308,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_109",
+                      "id": "Code_111",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1323,7 +1325,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_110",
+                      "id": "Code_112",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1340,7 +1342,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_111",
+                      "id": "Code_113",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1357,7 +1359,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_112",
+                      "id": "Code_114",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1374,7 +1376,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_113",
+                      "id": "Code_115",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1391,7 +1393,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_114",
+                      "id": "Code_116",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1408,7 +1410,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_115",
+                      "id": "Code_117",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1425,7 +1427,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_116",
+                      "id": "Code_118",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1442,7 +1444,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_117",
+                      "id": "Code_119",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1459,7 +1461,7 @@
                     "dictionaryId": null,
                     "purpose": "",
                     "level": {
-                      "id": "Code_118",
+                      "id": "Code_120",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1469,62 +1471,58 @@
                 ]
               }
             ],
-            "populations": [
-              {
-                "id": "StudyDesignPopulation_1",
-                "name": "POP 1",
-                "label": "",
-                "description": "Pop 1",
-                "plannedNumberOfParticipants": 100,
-                "plannedMaximumAgeOfParticipants": "40 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_102",
-                    "code": "C49636",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-09-29",
-                    "decode": "Both"
-                  }
-                ]
+            "population": {
+              "id": "StudyDesignPopulation_1",
+              "name": "POP1",
+              "label": "",
+              "description": "",
+              "plannedEnrollmentNumber": {
+                "id": "Range_2",
+                "minValue": 120.0,
+                "maxValue": 120.0,
+                "unit": null,
+                "isApproximate": false
               },
-              {
-                "id": "StudyDesignPopulation_2",
-                "name": "POP 2",
-                "label": "",
-                "description": "Pop 2",
-                "plannedNumberOfParticipants": 20,
-                "plannedMaximumAgeOfParticipants": "60 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_103",
-                    "code": "C20197",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-09-29",
-                    "decode": "Male"
-                  }
-                ]
+              "plannedCompletionNumber": {
+                "id": "Range_1",
+                "minValue": 100.0,
+                "maxValue": 100.0,
+                "unit": null,
+                "isApproximate": false
               },
-              {
-                "id": "StudyDesignPopulation_3",
-                "name": "POP 3",
-                "label": "",
-                "description": "Pop 3",
-                "plannedNumberOfParticipants": 20,
-                "plannedMaximumAgeOfParticipants": "70 years",
-                "plannedMinimumAgeOfParticipants": "18 years",
-                "plannedSexOfParticipants": [
-                  {
-                    "id": "Code_104",
-                    "code": "C16576",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-09-29",
-                    "decode": "Female"
-                  }
-                ]
-              }
-            ],
+              "plannedMaximumAge": null,
+              "plannedMinimumAge": null,
+              "plannedSex": [],
+              "criteria": [],
+              "cohorts": [
+                {
+                  "id": "StudyCohort_1",
+                  "name": "COHORT1",
+                  "label": "",
+                  "description": "",
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedMaximumAge": null,
+                  "plannedMinimumAge": null,
+                  "plannedSex": [],
+                  "criteria": [],
+                  "characteristics": []
+                },
+                {
+                  "id": "StudyCohort_2",
+                  "name": "COHORT2",
+                  "label": "",
+                  "description": "",
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedMaximumAge": null,
+                  "plannedMinimumAge": null,
+                  "plannedSex": [],
+                  "criteria": [],
+                  "characteristics": []
+                }
+              ]
+            },
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
@@ -1745,7 +1743,6 @@
               }
             ],
             "documentVersion": null,
-            "eligibilityCriteria": [],
             "dictionaries": []
           }
         ]
