@@ -13,7 +13,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       self.population = None
       cohorts = []
       for index, row in self.sheet.iterrows():
-        level = self.read_cell_by_name(index, 'name')
+        level = self.read_cell_by_name(index, 'level')
         name = self.read_cell_by_name(index, 'name')
         description = self.read_description_by_name(index, 'description')
         label = self.read_cell_by_name(index, 'label')
@@ -23,13 +23,17 @@ class StudyDesignPopulationSheet(BaseSheet):
         max = self.read_quantity_cell_by_name(index, "plannedMaximumAge", allow_empty=True)
         codes = self._build_codes(row, index)
         if level.upper() == "MAIN":
-          self.population = self._study_populaton(name, description, label, recruit_number, required_number, min, max, codes)
+          self.population = self._study_population(name, description, label, recruit_number, required_number, min, max, codes)
         else:
           cohort = self._study_cohort(name, description, label, recruit_number, required_number, min, max, codes)
           cohorts.append(cohort)
-      self.population.cohorts = cohorts
+      if self.population: 
+        self.population.cohorts = cohorts
+      else:
+        self._general_error(f"Not main study population detected")
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception [{e}] raised reading sheet")
+      print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
   def _build_codes(self, row, index):
