@@ -17,10 +17,10 @@ class StudyDesignPopulationSheet(BaseSheet):
         name = self.read_cell_by_name(index, 'name')
         description = self.read_description_by_name(index, 'description')
         label = self.read_cell_by_name(index, 'label')
-        required_number = self.read_range_cell_by_name(index, "plannedCompletionNumber")
-        recruit_number = self.read_range_cell_by_name(index, "plannedEnrollmentNumber")
-        min = self.read_quantity_cell_by_name(index, "plannedMinimumAge")
-        max = self.read_quantity_cell_by_name(index, "plannedMaximumAge")
+        required_number = self.read_range_cell_by_name(index, "plannedCompletionNumber", require_units=False, allow_empty=True)
+        recruit_number = self.read_range_cell_by_name(index, "plannedEnrollmentNumber", require_units=False, allow_empty=True)
+        min = self.read_quantity_cell_by_name(index, "plannedMinimumAge", allow_empty=True)
+        max = self.read_quantity_cell_by_name(index, "plannedMaximumAge", allow_empty=True)
         codes = self._build_codes(row, index)
         if level.upper() == "MAIN":
           self.population = self._study_populaton(name, description, label, recruit_number, required_number, min, max, codes)
@@ -67,10 +67,11 @@ class StudyDesignPopulationSheet(BaseSheet):
         plannedMinimumAgeOfParticipants=min,
         plannedMaximumAgeOfParticipants=max,
         plannedSexOfParticipants=codes,
-        characteristics=None
+        characteristics=[]
       )
     except Exception as e:
       self._general_error(f"Failed to create StudyCohort object, exception {e}")
+      print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:

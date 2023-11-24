@@ -9,9 +9,10 @@ from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
 from usdm_excel.option_manager import *
 from usdm_excel.cross_ref import cross_references
-from usdm_excel.range_type import RangeType
 from usdm_model.quantity import Quantity
+from usdm_excel.quantity_type import QuantityType
 from usdm_model.range import Range
+from usdm_excel.range_type import RangeType
 class BaseSheet():
 
   class StateError(Exception):
@@ -121,43 +122,43 @@ class BaseSheet():
       return True
     return False
 
-  def read_quantity_cell_by_name(self, row_index, field_name):
+  def read_quantity_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):
     col_index = self.column_present(field_name)
-    return self.read_quantity_cell(row_index, col_index)
+    return self.read_quantity_cell(row_index, col_index, require_units, allow_empty)
 
-  def read_quantity_cell(self, row_index, col_index):
+  def read_quantity_cell(self, row_index, col_index, require_units=True, allow_empty=True):
     try:
       text = self.read_cell(row_index, col_index)
-      parts = text.strip().split(' ')
-      if len(parts) == 2:
-        value = parts[0].strip()
-        unit = CDISCCT().code_for_unit(parts[1].strip())
-        return Quantity(id=id_manager.build_id(Quantity), value=float(value), unit=unit)
+      quantity = QuantityType(text, require_units, allow_empty)
+      if not quantity.errors:
+        print(f"QUANTITY: {quantity.value} {quantity.units} {quantity.units_code}")
+        return None if quantity.empty else Quantity(id=id_manager.build_id(Quantity), value=float(quantity.value), unit=quantity.units_code)
       else:
-        self._error(row_index, col_index, f"Failed to decode quantity data '{text}', no ' ' detected")
+        self._add_errors(range.errors, row_index, col_index)
         return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
+      print(f"{e}\n{traceback.format_exc()}")
       self._traceback(f"{e}\n{traceback.format_exc()}")
       return None
 
-  def read_range_cell_by_name(self, row_index, field_name):
+  def read_range_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):
     col_index = self.column_present(field_name)
-    return self.read_range_cell(row_index, col_index)
+    return self.read_range_cell(row_index, col_index, require_units, allow_empty)
 
-  def read_range_cell(self, row_index, col_index):
+  def read_range_cell(self, row_index, col_index, require_units=True, allow_empty=True):
     try:
       text = self.read_cell(row_index, col_index)
-      if text:
-        range = RangeType(text)
-        if not range.errors:
-          return Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
-        else:
-          self._add_errors(range.errors, row_index, col_index)
-          return None
-      return None
+      range = RangeType(text, require_units, allow_empty)
+      if not range.errors:
+        print(f"RANGE: {range.lower} {range.upper} {range.units} {range.units_code} {range.empty} ")
+        return None if range.empty else Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
+      else:
+        self._add_errors(range.errors, row_index, col_index)
+        return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode range data '{text}'")
+      print(f"{e}\n{traceback.format_exc()}")
       self._traceback(f"{e}\n{traceback.format_exc()}")
       return None
 

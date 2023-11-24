@@ -96,7 +96,6 @@ class StudyDesignInterventionSheet(BaseSheet):
     will_vary = self.read_boolean_cell_by_name(index, 'administrationDurationWillVary')
     will_vary_reason = self.read_cell_by_name(index, 'administrationDurationWillVaryReason')
     quantity = self.read_quantity_cell_by_name(index, 'administrationDurationQuantity')
-    print(f"QUANTITY: {quantity}")
     return self._administration_duration(description, will_vary, will_vary_reason, quantity)
 
   def _administration_duration(self, description, will_vary, will_vary_reason, quantity):
