@@ -131,7 +131,7 @@ class BaseSheet():
       text = self.read_cell(row_index, col_index)
       quantity = QuantityType(text, require_units, allow_empty)
       if not quantity.errors:
-        print(f"QUANTITY: {quantity.value} {quantity.units} {quantity.units_code}")
+        #print(f"QUANTITY: {quantity.value} {quantity.units} {quantity.units_code}")
         return None if quantity.empty else Quantity(id=id_manager.build_id(Quantity), value=float(quantity.value), unit=quantity.units_code)
       else:
         self._add_errors(range.errors, row_index, col_index)
@@ -151,7 +151,7 @@ class BaseSheet():
       text = self.read_cell(row_index, col_index)
       range = RangeType(text, require_units, allow_empty)
       if not range.errors:
-        print(f"RANGE: {range.lower} {range.upper} {range.units} {range.units_code} {range.empty} ")
+        #print(f"RANGE: {range.lower} {range.upper} {range.units} {range.units_code} {range.empty} ")
         return None if range.empty else Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
       else:
         self._add_errors(range.errors, row_index, col_index)

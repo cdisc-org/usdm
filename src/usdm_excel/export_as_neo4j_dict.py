@@ -61,7 +61,7 @@ class ExportAsNeo4jDict():
   def _add_node(self, klass, uuid, properties):
     if klass == "Study":
       properties['id'] = uuid
-      print(f"Properties: {properties}")
+      #print(f"Properties: {properties}")
     if klass not in self.nodes:
       self.nodes[klass] = []
     properties.pop('_type')
@@ -90,7 +90,7 @@ class ExportAsNeo4jDict():
 
   def _add_edge(self, start, end, key):
     rel = self._rel_name(key)
-    name = stringcase.snakecase(rel).upper()
+    name = f"{stringcase.snakecase(rel).upper()}_REL"
     if name not in self.edges:
       self.edges[name] = []
     self.edges[name].append({'start': start, 'end': end})
