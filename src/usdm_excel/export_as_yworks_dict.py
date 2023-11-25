@@ -16,7 +16,7 @@ class ExportAsYworksDict():
     self.edge_attributes = {
       'ScheduledActivityInstance': [
         'timepointActivityIds',
-        'scheduledActivityInstanceEncounterId',
+        'encounterId',
         'activityIds',
         'epochId',
         'defaultConditionId',

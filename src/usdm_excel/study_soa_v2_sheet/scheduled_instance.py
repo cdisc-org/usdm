@@ -49,7 +49,7 @@ class ScheduledInstance():
 #          label=label,
           instanceType='ACTIVITY',
           timelineExitId=None,
-          scheduledActivityInstanceEncounterId=encounter_id,
+          encounterId=encounter_id,
           timings=[],
           scheduledInstanceTimelineId=None,
           defaultConditionId=None,
