@@ -246,7 +246,7 @@ def test_read_quantity_cell_by_name(mocker):
   ]
   for test in test_data:
     error_manager.clear()
-    print(f"INDEX: {test[0]}")
+    #print(f"INDEX: {test[0]}")
     item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
       assert(item.value) == test[6]
@@ -280,7 +280,7 @@ def test_read_range_cell_by_name(mocker):
   ]
   for test in test_data:
     error_manager.clear()
-    print(f"INDEX: {test[0]}")
+    #print(f"INDEX: {test[0]}")
     range = base.read_range_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
       assert(range.minValue) == test[6]
