@@ -139,18 +139,25 @@ def test_create_empty(mocker):
   assert len(content.items) == 1
 
 def test_read_cell_by_name_error(mocker):
+  
+  call_parameters = []
+  
+  def my_add(sheet, row, column, message, level=10):
+    call_parameters.append((sheet, row, column, message, level))
+    return None
+
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['1', 'Section 1', 'Text 1']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'sectionTitle', 'text'])
+  mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'text'])
   content = StudyDesignContentSheet("")
   mock_error.assert_called()
-  assert mock_error.call_args[0][0] == "studyDesignContent"
-  assert mock_error.call_args[0][1] == 1
-  assert mock_error.call_args[0][2] == -1
-  assert mock_error.call_args[0][3] == "Error reading cell 'name'"
+  assert call_parameters == [
+    ('studyDesignContent', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 10),
+    ('studyDesignContent', None, None, "Failed to create Content object, exception 1 validation error for NarrativeContent\nsectionTitle\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.4/v/string_type", 10)
+  ]
   

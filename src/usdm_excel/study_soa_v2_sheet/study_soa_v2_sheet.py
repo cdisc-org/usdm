@@ -45,7 +45,7 @@ class StudySoAV2Sheet(BaseSheet):
       self.timeline = self._add_timeline(self.name, self.description, self.condition, self._raw_instances.instances, self._raw_instances.exits)
 
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet")
+      self._general_error(f"Exception '{e}' raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 
   def set_timing_references(self, timings):

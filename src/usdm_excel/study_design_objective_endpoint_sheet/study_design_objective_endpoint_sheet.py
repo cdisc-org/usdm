@@ -18,20 +18,20 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         o_text = self.read_cell_by_name(index, 'objectiveText') 
         ep_name = self.read_cell_by_name(index, ['endpointXref', 'endpointName'])
-        ep_description = self.read_description_by_name(index, 'endpointDescription')
-        ep_label = self.read_cell_by_name(index, ["endpointLabel"], default='') 
+        ep_description = self.read_cell_by_name(index, 'endpointDescription')
+        ep_label = self.read_cell_by_name(index, ["endpointLabel"], must_be_present=False) 
         ep_text = self.read_cell_by_name(index, 'endpointText') 
         ep_purpose = self.read_cell_by_name(index, ['endpointPurposeDescription', 'endpointPurpose'], default='None provided')
         ep_level = self.read_cdisc_klass_attribute_cell_by_name('Endpoint', 'endpointLevel', index, "endpointLevel")
-        ep_dictionary_name = self.read_cell_by_name(index, 'endpointDictionary', default='')
+        ep_dictionary_name = self.read_cell_by_name(index, 'endpointDictionary', must_be_present=False)
         self._validate_references(index, 'endpointText', ep_text, ep_dictionary_name)
 
         if o_text:
           o_name = self.read_cell_by_name(index, ["objectiveXref", "objectiveName"]) 
-          o_description = self.read_description_by_name(index, 'objectiveDescription')
-          o_label = self.read_cell_by_name(index, ["objectiveLabel"], default='') 
+          o_description = self.read_cell_by_name(index, 'objectiveDescription')
+          o_label = self.read_cell_by_name(index, ["objectiveLabel"], must_be_present=False) 
           o_level = self.read_cdisc_klass_attribute_cell_by_name('Objective', 'objectiveLevel', index, "objectiveLevel")
-          o_dictionary_name = self.read_cell_by_name(index, 'objectiveDictionary', default='')
+          o_dictionary_name = self.read_cell_by_name(index, 'objectiveDictionary', must_be_present=False)
           self._validate_references(index, 'objectiveText', o_text, o_dictionary_name)
           try:
             dictionary_id = self._get_dictionary_id(o_dictionary_name)
@@ -74,7 +74,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           self._general_error("Failed to add Endpoint, no Objective set")
 
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def _validate_references(self, row, column_name, text, dictionary_name):

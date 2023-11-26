@@ -12,10 +12,10 @@ class StudyDesignArmSheet(BaseSheet):
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, ['studyArmName', 'name'])
-        description = self.read_description_by_name(index, ['studyArmDescription', 'description'])
+        description = self.read_cell_by_name(index, ['studyArmDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
         arm_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmType', index, ['studyArmType', 'type'])
-        arm_origin_description = self.read_description_by_name(index, ['studyArmDataOriginDescription', 'dataOriginDescription'])
+        arm_origin_description = self.read_cell_by_name(index, ['studyArmDataOriginDescription', 'dataOriginDescription'])
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, ['studyArmDataOriginType', 'dataOriginType'])
         try:
           item = StudyArm(
@@ -34,6 +34,6 @@ class StudyDesignArmSheet(BaseSheet):
           self.items.append(item)
           cross_references.add(name, item)     
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 

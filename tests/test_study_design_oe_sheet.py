@@ -84,5 +84,5 @@ def test_read_cell_by_name_error(mocker):
   )
   items = StudyDesignObjectiveEndpointSheet("")
   mock_error.assert_called()
-  assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error reading cell '['endpointXref', 'endpointName']'", 10)
+  assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error 'Failed to detect column(s) 'endpointXref, endpointName' in sheet' reading cell '['endpointXref', 'endpointName']'", 10)
   

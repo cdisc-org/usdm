@@ -20,7 +20,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
         for index, row in self.sheet.iterrows():
           secondaries = []
           number = self.read_cell_by_name(index, 'number')
-          summary = self.read_description_by_name(index, 'summary')
+          summary = self.read_cell_by_name(index, 'summary')
           substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
           primary_reason = self._read_primary_reason_cell(index)
           primary = self._amendment_reason(primary_reason)
@@ -54,7 +54,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
         self.previous_link(self.items, 'previousId')
         
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def _enrollments(self, enrollments):

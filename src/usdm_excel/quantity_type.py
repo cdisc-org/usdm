@@ -31,5 +31,5 @@ class QuantityType():
       else:
         self.empty = True
     except Exception as e:
-      self.errors.append(f"Exception [{e}] raised decoding quantity '{quantity_info}")
+      self.errors.append(f"Exception '{e}' raised decoding quantity '{quantity_info}")
 

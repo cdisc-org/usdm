@@ -36,5 +36,5 @@ class RangeType():
       else:
         self.empty = True
     except Exception as e:
-      self.errors.append(f"Exception [{e}] raised decoding range '{range_info}")
+      self.errors.append(f"Exception '{e}' raised decoding range '{range_info}")
 

@@ -40,18 +40,6 @@ class BaseSheet():
   def cell_empty(self, row_index, col_index):
     return pd.isnull(self.sheet.iloc[row_index, col_index])  
 
-  def read_cell_by_name(self, row_index, field_name, default=None):
-    try:
-      col_index = self.column_present(field_name)
-      return self.read_cell(row_index, col_index)
-    except Exception as e:
-      if default is not None:
-        return default
-      else:
-        col_index = -2
-        self._error(row_index, col_index, f"Error reading cell '{field_name}'")
-        return ""
-
   def column_present(self, names):
     fields = [names] if isinstance(names, str) else names
     for field in fields:
@@ -62,17 +50,34 @@ class BaseSheet():
         pass
     raise BaseSheet.FormatError(f"Failed to detect column(s) '{', '.join(fields)}' in sheet")
 
-  def read_cell(self, row_index, col_index):
+  def read_cell_by_name(self, row_index, field_name, default=None, must_be_present=True):
+    try:
+      col_index = self.column_present(field_name)
+      return self.read_cell(row_index, col_index)
+    except Exception as e:
+      if not must_be_present:
+        return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+      elif default is not None:
+        return default
+      else:
+        self._error(row_index, -2, f"Error '{e}' reading cell '{field_name}'")
+        return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+
+  def read_cell(self, row_index, col_index, default=None):
     try:
       if pd.isnull(self.sheet.iloc[row_index, col_index]):
-        return ""
+        if not default:
+          return default
+        else:
+          return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
-      self._error(row_index, col_index, "Error (%s) reading cell" % (e))
+      self._error(row_index, col_index, f"Error '{e}' reading cell")
       self._traceback(f"{e}\n{traceback.format_exc()}")
-      return ""
+      return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
 
+  # Deprecate this method
   def read_cell_empty_legacy(self, row_index, col_index):
     if self.cell_empty(row_index, col_index):
       return "", True
@@ -83,9 +88,10 @@ class BaseSheet():
       else:
         return value, False
 
+  # Deprecate this method
   def read_cell_empty(self, row_index, col_index, empty_character):
     value = self.read_cell(row_index, col_index)
-    value = "" if value == empty_character else value
+    value = "" if (value == empty_character) or (value == None) else value
     return value
 
   def read_cell_multiple(self, rindex, cindex):
@@ -98,7 +104,7 @@ class BaseSheet():
         results.append(part.strip())
       return results
     except BaseSheet.StateError as e:
-      self._error(rindex, cindex, f"Internal state error ({e}) reading cell")
+      self._error(rindex, cindex, f"Internal state error '{e}' reading cell")
     except BaseSheet.FormatError as e:
       self._error(rindex, cindex, "Format error reading cell, check the format of the cell")
 
@@ -118,7 +124,9 @@ class BaseSheet():
 
   def read_boolean_cell_by_name(self, row_index, field_name):
     value = self.read_cell_by_name(row_index, field_name)
-    if value.strip().upper() in ['Y', 'YES', 'T', 'TRUE', '1']:
+    if not value:
+      return False
+    elif value.strip().upper() in ['Y', 'YES', 'T', 'TRUE', '1']:
       return True
     return False
 
@@ -138,7 +146,7 @@ class BaseSheet():
         return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
-      print(f"{e}\n{traceback.format_exc()}")
+      #print(f"{e}\n{traceback.format_exc()}")
       self._traceback(f"{e}\n{traceback.format_exc()}")
       return None
 
@@ -158,16 +166,16 @@ class BaseSheet():
         return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode range data '{text}'")
-      print(f"{e}\n{traceback.format_exc()}")
+      #print(f"{e}\n{traceback.format_exc()}")
       self._traceback(f"{e}\n{traceback.format_exc()}")
       return None
 
-  def read_description_by_name(self, row_index, field_name):
-    value = self.read_cell_by_name(row_index, field_name)
-    empty_value = option_manager.get(Options.DESCRIPTION)
-    if value == "" and not empty_value == "":
-      return empty_value
-    return value
+  # def read_description_by_name(self, row_index, field_name):
+  #   value = self.read_cell_by_name(row_index, field_name)
+  #   empty_value = option_manager.get(Options.DESCRIPTION)
+  #   if value == "" and not empty_value == "":
+  #     return empty_value
+  #   return value
 
   # Want to kill this method
   def set_cdisc_code(self, value):
@@ -252,7 +260,7 @@ class BaseSheet():
     try: 
       for idx, item in enumerate(items):
         if idx == 0:
-          if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
+          if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
             setattr(item, prev, "")
           else:
             setattr(item, prev, None)
@@ -260,7 +268,7 @@ class BaseSheet():
           the_id = getattr(items[idx-1], 'id')
           setattr(item, prev, the_id)
         if idx == len(items)-1:  
-          if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
+          if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
             setattr(item, next, "")
           else:
             setattr(item, next, None)
@@ -268,13 +276,13 @@ class BaseSheet():
           the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
     except Exception as e:
-      self._general_error(f"Exception {e} in double_link: {items}")
+      self._general_error(f"Exception '{e}' in double_link: {items}")
 
   def previous_link(self, items, prev):
     try: 
       for idx, item in enumerate(items):
         if idx == 0:
-          if option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NULL_STRING.value:
+          if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
             setattr(item, prev, "")
           else:
             setattr(item, prev, None)
@@ -282,7 +290,7 @@ class BaseSheet():
           the_id = getattr(items[idx-1], 'id')
           setattr(item, prev, the_id)
     except Exception as e:
-      self._general_error(f"Exception {e} in previous_link: {items}")
+      self._general_error(f"Exception '{e}' in previous_link: {items}")
 
   def _decode_other_code(self, value, row_index, col_index):
     if value.strip() == "":

@@ -64,7 +64,7 @@ def test_read_cell_by_name_error(mocker):
   items = StudyDesignEligibilityCriteriaSheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ('studyDesignEligibilityCriteria', 1, -1, "Error reading cell 'description'", 10),
+    ('studyDesignEligibilityCriteria', 1, -1, "Error 'Failed to detect column(s) 'description' in sheet' reading cell 'description'", 10),
     ('studyDesignEligibilityCriteria', 1, 5, "Dictionary 'dictionary' not found", 30),
     ('studyDesignEligibilityCriteria', None, None, "Unable to find dictionary with name 'dictionary'", 10)
   ]

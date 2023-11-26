@@ -1,17 +1,22 @@
 from enum import Enum
 
 class Options(Enum):
-  PREVIOUS_NEXT = 'previous'
-  ROOT = 'root'
-  DESCRIPTION = 'description'
+#  PREVIOUS_NEXT = 'previous'
+#  ROOT = 'root'
+#  DESCRIPTION = 'description'
+  EMPTY_NONE = 'empty_none'
 
-class PrevNextOption(Enum):
-  NULL_STRING = 'null_string'
-  NONE = 'none'
+# class PrevNextOption(Enum):
+#   NULL_STRING = 'null_string'
+#   NONE = 'none'
 
-class RootOption(Enum):
-  SDR_COMPATABLE = 'sdr_compatable'
-  API_COMPLIANT = 'api_compliant'
+class EmptyNoneOption(Enum):
+  EMPTY = 'empty_string'
+  NONE = 'none_value'
+
+# class RootOption(Enum):
+#   SDR_COMPATABLE = 'sdr_compatable'
+#   API_COMPLIANT = 'api_compliant'
 
 class OptionManager():
 

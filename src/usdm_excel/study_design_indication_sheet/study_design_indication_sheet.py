@@ -13,7 +13,7 @@ class StudyDesignIndicationSheet(BaseSheet):
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, "name")
-        description = self.read_description_by_name(index, "description")
+        description = self.read_cell_by_name(index, "description")
         label = self.read_cell_by_name(index, 'label', default="")
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         try:
@@ -25,6 +25,6 @@ class StudyDesignIndicationSheet(BaseSheet):
           self.items.append(item)
           cross_references.add(name, item)
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 

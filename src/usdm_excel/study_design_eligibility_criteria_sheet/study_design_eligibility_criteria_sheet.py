@@ -28,7 +28,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
             self.items.append(criteria)
         
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):

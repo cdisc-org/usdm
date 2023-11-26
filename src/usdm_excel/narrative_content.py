@@ -47,8 +47,8 @@ class NarrativeContent():
       logging.error(f"Failed to create PDF document {e.status} {e.reason} {e.body}\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Something went wrong '{e.reason}' creating the PDF document")
     except Exception as e:
-      logging.error(f"Exception [{e}] raised generating PDF content.\n{traceback.format_exc()}")
-      error_manager.add(None, None, None, f"Exception [{e}] raised generating PDF content")
+      logging.error(f"Exception '{e}' raised generating PDF content.\n{traceback.format_exc()}")
+      error_manager.add(None, None, None, f"Exception '{e}' raised generating PDF content")
 
   def to_html(self):
     try:
@@ -154,8 +154,8 @@ class NarrativeContent():
               self._content_to_html(content, doc)
       return doc.getvalue()
     except Exception as e:
-      logging.error(f"Exception [{e}] raised generating HTML content.\n{traceback.format_exc()}")
-      error_manager.add(None, None, None, f"Exception [{e}] raised generating HTML content")
+      logging.error(f"Exception '{e}' raised generating HTML content.\n{traceback.format_exc()}")
+      error_manager.add(None, None, None, f"Exception '{e}' raised generating HTML content")
 
   def _content_to_html(self, content, doc):
     level = len(content.sectionNumber.split('.'))

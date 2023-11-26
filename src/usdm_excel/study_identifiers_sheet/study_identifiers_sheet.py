@@ -16,7 +16,7 @@ class StudyIdentifiersSheet(BaseSheet):
       self.identifiers = []
       self.process_sheet()
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
       
   def process_sheet(self):

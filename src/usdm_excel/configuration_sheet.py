@@ -12,12 +12,13 @@ class ConfigurationSheet(BaseSheet):
   def __init__(self, file_path):
     try:
       super().__init__(file_path=file_path, sheet_name='configuration', header=None)
-      option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NONE)
-      option_manager.set(Options.ROOT, RootOption.API_COMPLIANT)
-      option_manager.set(Options.DESCRIPTION, "")
+      option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE)
+      # option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NONE)
+      # option_manager.set(Options.ROOT, RootOption.API_COMPLIANT)
+      # option_manager.set(Options.DESCRIPTION, "")
       self._process_sheet()
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def om(self):
@@ -31,10 +32,12 @@ class ConfigurationSheet(BaseSheet):
         parts = value.split('=')
         if len(parts) == 2:
           ct_version_manager.add(parts[0].strip(), parts[1].strip())
+      elif name == 'EMPTY NONE':
+        if value.strip().upper() == 'EMPTY':
+          option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
       elif name == 'SDR PREV NEXT':
-        if value.strip().upper() == 'SDR':
-          option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NULL_STRING)
+        self._general_warning("The SDR PREV NEXT option is now deprecated and will be ignored.")
       elif name == 'SDR ROOT':
-        self._general_warning("The SDR_ROOT option is now deprecated and will be ignored.")
+        self._general_warning("The SDR ROOT option is now deprecated and will be ignored.")
       elif name == 'SDR DESCRIPTION':
-        option_manager.set(Options.DESCRIPTION, value)
+        self._general_warning("The SDR DESCRIPTION option is now deprecated and will be ignored.")

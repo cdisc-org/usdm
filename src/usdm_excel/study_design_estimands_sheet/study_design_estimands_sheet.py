@@ -19,10 +19,10 @@ class StudyDesignEstimandsSheet(BaseSheet):
       current_ice_description = None
       for index, row in self.sheet.iterrows():
         e_summary = self.read_cell_by_name(index, "summaryMeasure")
-        ap_description = self.read_description_by_name(index, 'populationDescription')
+        ap_description = self.read_cell_by_name(index, 'populationDescription')
         ice_name = self.read_cell_by_name(index, ['intercurrentEventName', 'name'])
-        ice_description = self.read_description_by_name(index, ['intercurrentEventDescription', 'description'])
-        ice_label = self.read_cell_by_name(index, 'label', default='')
+        ice_description = self.read_cell_by_name(index, ['intercurrentEventDescription', 'description'])
+        ice_label = self.read_cell_by_name(index, 'label', must_be_present=False)
         ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
         treatment_xref = self.read_cell_by_name(index, "treatmentXref")
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
@@ -59,7 +59,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
 
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def _get_treatment(self, name):

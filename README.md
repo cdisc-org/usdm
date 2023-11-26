@@ -705,9 +705,10 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | Parameter | Description | Format and Values |
 | :--- | :--- | :--- |
 | CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form CT name = Version value, For example `SNOMED = 21st June 2012`|
-| SDR Prev Next | Allows for next and previous ids to be set to '' rather than null values so as to accomodate the SDR validation checks | Set to 'SDR' to use '' or leave empty to set null values |
+| Empty None | Allows for string fields to be set to '' rather than null/none values so as to accomodate the SDR validation checks | Set to 'EMPTY' to use ''. Any other value will permit  null values to be used |
+| SDR Prev Next | Deprecated | Deprecated |
 | SDR Root | Deprecated | Deprecated |
-| SDR Description | Allows for the description fields within the JSON to be fillled with a string value rather than being set to an empty string if they are left blank in the excel sheets. Currently only applies to description fields | A non-empty string such as `'-', 'not set'` etc |
+| SDR Description | Deprecated | Deprecated |
 
 # Issues
 

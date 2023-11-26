@@ -12,7 +12,7 @@ class StudyDesignEpochSheet(BaseSheet):
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, ['studyEpochName', 'name'])
-        description = self.read_description_by_name(index, ['studyEpochDescription', 'description'])
+        description = self.read_cell_by_name(index, ['studyEpochDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, ['studyEpochType', 'type'])
         try:
@@ -30,5 +30,5 @@ class StudyDesignEpochSheet(BaseSheet):
           self.items.append(item)
           cross_references.add(name, item)     
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

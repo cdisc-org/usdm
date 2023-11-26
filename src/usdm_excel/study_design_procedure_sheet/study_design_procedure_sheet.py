@@ -14,7 +14,7 @@ class StudyDesignProcedureSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         xref = self.read_cell_by_name(index, "xref", default="")
         name = self.read_cell_by_name(index, ["procedureName", 'name'])
-        description = self.read_description_by_name(index, ['procedureDescription', 'description'])
+        description = self.read_cell_by_name(index, ['procedureDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
         type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, ['procedureCode', 'code'])
@@ -38,5 +38,5 @@ class StudyDesignProcedureSheet(BaseSheet):
           cross_ref = xref if xref else name
           cross_references.add(cross_ref, item)        
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

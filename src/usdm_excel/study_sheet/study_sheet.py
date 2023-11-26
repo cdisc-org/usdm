@@ -198,7 +198,7 @@ class StudySheet(BaseSheet):
         self._traceback(f"{traceback.format_exc()}")
 
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   # def study_sponsor(self):

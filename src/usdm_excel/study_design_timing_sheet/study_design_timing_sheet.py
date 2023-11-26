@@ -17,7 +17,7 @@ class StudyDesignTimingSheet(BaseSheet):
       if self.success:
         for index, row in self.sheet.iterrows():
           name = self.read_cell_by_name(index, 'name')
-          description = self.read_description_by_name(index, 'description')
+          description = self.read_cell_by_name(index, 'description')
           label = self.read_cell_by_name(index, 'label')
           type = self._set_type(self.read_cell_by_name(index, 'type'))
           from_name = self.read_cell_by_name(index, 'from')
@@ -49,7 +49,7 @@ class StudyDesignTimingSheet(BaseSheet):
             cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def _set_text_and_encoded(self, duration):

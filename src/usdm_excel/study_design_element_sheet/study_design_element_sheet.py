@@ -17,7 +17,7 @@ class StudyDesignElementSheet(BaseSheet):
         end_rule = None
         xref = self.read_cell_by_name(index, 'xref', default="")
         name = self.read_cell_by_name(index, ['studyElementName', 'name'])
-        description = self.read_description_by_name(index, ['studyElementDescription', 'description'])
+        description = self.read_cell_by_name(index, ['studyElementDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="")
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
@@ -42,6 +42,6 @@ class StudyDesignElementSheet(BaseSheet):
           cross_ref = xref if xref else name
           cross_references.add(cross_ref, item)     
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 

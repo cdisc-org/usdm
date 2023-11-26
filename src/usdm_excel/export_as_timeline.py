@@ -25,7 +25,7 @@ class ExportAsTimeline():
         self._full(doc, study_design)
       return doc.getvalue()
     except Exception as e:
-      package_logger.error(f"Exception [{e}] raised generating HTML page {level}.")
+      package_logger.error(f"Exception '{e}' raised generating HTML page {level}.")
       package_logger.debug(f"{traceback.format_exc()}")
 
   def _full(self, doc, study_design):

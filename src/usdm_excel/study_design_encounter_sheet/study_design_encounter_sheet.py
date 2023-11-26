@@ -16,16 +16,16 @@ class StudyDesignEncounterSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
-        xref = self.read_cell_by_name(index, 'xref', default='')
+        xref = self.read_cell_by_name(index, 'xref', must_be_present=False)
         name = self.read_cell_by_name(index, ['encounterName', 'name'])
-        description = self.read_description_by_name(index, ['encounterDescription', 'description'])
-        label = self.read_cell_by_name(index, 'label', default='')
+        description = self.read_cell_by_name(index, ['encounterDescription', 'description'])
+        label = self.read_cell_by_name(index, 'label', must_be_present=False)
         type = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterType', index, ['encounterType', 'type'])
         setting = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterEnvironmentalSetting', index, ['encounterEnvironmentalSetting', 'environmentalSetting'])
         modes = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterContactModes', index, ['encounterContactModes', 'contactModes'])
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
-        timing_xref = self.read_cell_by_name(index, 'window', default='')
+        timing_xref = self.read_cell_by_name(index, 'window', must_be_present=False)
         if not start_rule_text == "":
           start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=start_rule_text)
         if not end_rule_text == "":
@@ -57,6 +57,6 @@ class StudyDesignEncounterSheet(BaseSheet):
           cross_references.add(cross_ref, item)     
       self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 

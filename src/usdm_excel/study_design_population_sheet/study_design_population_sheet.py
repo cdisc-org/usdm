@@ -15,7 +15,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         level = self.read_cell_by_name(index, 'level')
         name = self.read_cell_by_name(index, 'name')
-        description = self.read_description_by_name(index, 'description')
+        description = self.read_cell_by_name(index, 'description')
         label = self.read_cell_by_name(index, 'label')
         required_number = self.read_range_cell_by_name(index, "plannedCompletionNumber", require_units=False, allow_empty=True)
         recruit_number = self.read_range_cell_by_name(index, "plannedEnrollmentNumber", require_units=False, allow_empty=True)
@@ -32,7 +32,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       else:
         self._general_error(f"Not main study population detected")
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet")
+      self._general_error(f"Exception '{e}' raised reading sheet")
       print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 

@@ -40,7 +40,7 @@ class StudyDesignDictionarySheet(BaseSheet):
           current_dictionary.parameterMap = current_map
         
     except Exception as e:
-      self._general_error(f"Exception [{e}] raised reading sheet.")
+      self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def _dictionary(self, name, description, label):
