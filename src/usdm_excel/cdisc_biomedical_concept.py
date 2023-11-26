@@ -28,7 +28,10 @@ class CDISCBiomedicalConcepts():
       self.package_metadata = self._get_package_metadata()
       self.package_items = self._get_package_items()
       self._save_bc_items(self.package_items)
-    self._bc_responses = {}
+    if self._bcs_exist():
+      self._bc_responses = self._read_bcs()
+    else:  
+      self._bc_responses = {}
 
   def exists(self, name):
     name_uc = name.upper() # Avoid case mismatches
@@ -151,6 +154,7 @@ class CDISCBiomedicalConcepts():
       raw = requests.get(api_url, headers=self.headers)
       result = raw.json()
       self._bc_responses[url] = result
+      self._save_bcs(self._bc_responses)
       return result
 
   def _save_bc_items(self, data):
@@ -180,31 +184,31 @@ class CDISCBiomedicalConcepts():
   def _bc_items_filename(self):
     return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bc_items.yaml")
 
-  # def _save_bcs(self, data):
-  #   try:
-  #     if not self._bcs_exist():
-  #       with open(self._ct_filename(), 'w') as f:
-  #         yaml.dump(data, f, indent=2, sort_keys=True)
-  #   except Exception as e:
-  #     package_logger.error(f"Exception '{e}', failed to save CDSIC BC file")
-  #     package_logger.debug(f"{e}\n{traceback.format_exc()}")
+  def _save_bcs(self, data):
+    try:
+      if not self._bcs_exist():
+        with open(self._bcs_filename(), 'w') as f:
+          yaml.dump(data, f, indent=2, sort_keys=True)
+    except Exception as e:
+      package_logger.error(f"Exception '{e}', failed to save CDSIC BC file")
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
 
-  # def _read_bcs(self):
-  #   try:
-  #     if self._bcs_exist():
-  #       with open(self._ct_filename()) as f:
-  #         return yaml.load(f, Loader=yaml.FullLoader)
-  #     else:
-  #       package_logger.error(f"Failed to read CDSIC BC file, does not exist")
-  #       return None
-  #   except Exception as e:
-  #     package_logger.error(f"Exception '{e}', failed to read CDSIC CT file")
-  #     package_logger.debug(f"{e}\n{traceback.format_exc()}")
+  def _read_bcs(self):
+    try:
+      if self._bcs_exist():
+        with open(self._bcs_filename()) as f:
+          return yaml.load(f, Loader=yaml.FullLoader)
+      else:
+        package_logger.error(f"Failed to read CDSIC BC file, does not exist")
+        return None
+    except Exception as e:
+      package_logger.error(f"Exception '{e}', failed to read CDSIC CT file")
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
 
-  # def _bcs_exist(self):
-  #   return os.path.isfile(self._ct_filename()) 
+  def _bcs_exist(self):
+    return os.path.isfile(self._bcs_filename()) 
 
-  # def _ct_filename(self):
-  #   return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bc_{self.cdisc_ct_config['version']}.yaml")
+  def _bcs_filename(self):
+    return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bcs.yaml")
 
 cdisc_bc_library = CDISCBiomedicalConcepts()
