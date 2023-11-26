@@ -85,6 +85,7 @@ def test_window_type(mocker):
     ('1..1 Days', "P1D", "P1D", '1..1 Days'),
     (' -1..1 days', "P1D", "P1D", '-1..1 days'),
     ('-1 .. 1 weeks ', "P1W", "P1W", '-1 .. 1 weeks'),
+    (None, None, None, ''),
   ]
   for index, test in enumerate(test_data):
     error_manager.clear()

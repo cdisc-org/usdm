@@ -95,6 +95,19 @@ def test_read_cell(mocker):
   for test in test_data:
     assert(base.read_cell(test[0],test[1])) == test[2]
 
+def test_read_cell_default(mocker):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', None]}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", "sheet")
+  test_data = [
+    (3,1,'100s','100s')
+  ]
+  for test in test_data:
+    assert(base.read_cell(test[0],test[1], default=test[2])) == test[3]
+
 def test_read_cell_error(mocker):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
@@ -103,7 +116,7 @@ def test_read_cell_error(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
   base = BaseSheet("", "sheet")
-  assert(base.read_cell(6,8)) == None
+  assert(base.read_cell(6,8)) == ""
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 7
@@ -113,7 +126,7 @@ def test_read_cell_error(mocker):
 def test_read_cell_by_name(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [['tom', 10], ['nick', 15], ['juli', 14]]
+  data = [['tom', 10], ['nick', 15], ['juli', 14], ['fred', '']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
   base = BaseSheet("", "sheet")
@@ -121,7 +134,8 @@ def test_read_cell_by_name(mocker):
     (0,'Name','tom'),
     (2,'Name','juli'),
     (0,'Age','10'),
-    (2,'Age','14')
+    (2,'Age','14'),
+    (3,'Age',''),
   ]
   for test in test_data:
     assert(base.read_cell_by_name(test[0],test[1])) == test[2]
@@ -129,7 +143,7 @@ def test_read_cell_by_name(mocker):
 def test_read_cell_by_name_default(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [['tom', 10], ['nick', 15], ['juli', 14]]
+  data = [['tom', 10], ['nick', 15], ['juli', 14], ['fred', '']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
   base = BaseSheet("", "sheet")
@@ -137,6 +151,7 @@ def test_read_cell_by_name_default(mocker):
   assert(base.read_cell_by_name(0, 'Name', 'Default')) == 'tom'
   assert(base.read_cell_by_name(0, ['NameX', 'XXX'], 'Default')) == 'Default'
   assert(base.read_cell_by_name(0, ['NameX', 'XXX', 'Age'], 'Default')) == '10'
+  assert(base.read_cell_by_name(3, 'Age', default='100')) == ''
 
 def test_read_cell_by_name_error(mocker):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -146,7 +161,7 @@ def test_read_cell_by_name_error(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
   base = BaseSheet("", "sheet")
-  assert(base.read_cell_by_name(1,'Not There')) == None
+  assert(base.read_cell_by_name(1,'Not There')) == ""
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 2
@@ -161,7 +176,7 @@ def test_read_cell_by_name_present(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
   base = BaseSheet("", "sheet")
-  assert(base.read_cell_by_name(1,'Not There',must_be_present=False)) == None
+  assert(base.read_cell_by_name(1,'Not There',must_be_present=False)) == ""
   mock_error.assert_not_called()
 
 def test_read_cell_multiple(mocker):

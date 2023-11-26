@@ -157,7 +157,6 @@ def test_read_cell_by_name_error(mocker):
   content = StudyDesignContentSheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ('studyDesignContent', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 10),
-    ('studyDesignContent', None, None, "Failed to create Content object, exception 1 validation error for NarrativeContent\nsectionTitle\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.4/v/string_type", 10)
+    ('studyDesignContent', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 10)
   ]
   
