@@ -186,9 +186,8 @@ class CDISCBiomedicalConcepts():
 
   def _save_bcs(self, data):
     try:
-      if not self._bcs_exist():
-        with open(self._bcs_filename(), 'w') as f:
-          yaml.dump(data, f, indent=2, sort_keys=True)
+      with open(self._bcs_filename(), 'w') as f:
+        yaml.dump(data, f, indent=2, sort_keys=True)
     except Exception as e:
       package_logger.error(f"Exception '{e}', failed to save CDSIC BC file")
       package_logger.debug(f"{e}\n{traceback.format_exc()}")
