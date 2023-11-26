@@ -2,8 +2,8 @@ import os
 import yaml
 import traceback
 import requests
-from usdm_excel.id_manager import id_manager
-from usdm_model.code import Code
+#from usdm_excel.id_manager import id_manager
+#from usdm_model.code import Code
 from usdm_excel.logger import package_logger
 
 class CDISCCTLibrary():
@@ -24,7 +24,11 @@ class CDISCCTLibrary():
     self._by_submission = {}
     self._by_pt = {}
     self._by_klass_attribute = {}
-    self._get_ct()
+    if self._code_lists_exist():
+      self._load_ct()
+    else:
+      self._get_ct()
+      self._save_code_lists(self._by_code_list)
     self._get_missing_ct()
     self._get_klass_attribute()
 
@@ -85,6 +89,15 @@ class CDISCCTLibrary():
     for item in self.cdisc_ct_config['required']:
       self._get_code_list(item)
 
+  def _load_ct(self):
+    self._by_code_list = self._read_code_lists()
+    for c_code, entry in self._by_code_list.items():
+      for item in entry['terms']:
+        self._check_in_and_add(self._by_term, item['conceptId'], c_code)
+        self._check_in_and_add(self._by_submission, item['submissionValue'], c_code)
+        self._check_in_and_add(self._by_pt, item['preferredTerm'], c_code)
+    return
+
   def _get_missing_ct(self):
     for response in self.missing_ct:
       self._by_code_list[response['conceptId']] = response
@@ -126,5 +139,32 @@ class CDISCCTLibrary():
     if not id in collection:
       collection[id] = []
     collection[id].append(item)
+
+  def _save_code_lists(self, data):
+    try:
+      if not self._code_lists_exist():
+        with open(self._ct_filename(), 'w') as f:
+          yaml.dump(data, f, indent=2, sort_keys=True)
+    except Exception as e:
+      package_logger.error(f"Exception '{e}', failed to save CDSIC CT file")
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+
+  def _read_code_lists(self):
+    try:
+      if self._code_lists_exist():
+        with open(self._ct_filename()) as f:
+          return yaml.load(f, Loader=yaml.FullLoader)
+      else:
+        package_logger.error(f"Failed to read CDSIC CT file, does not exist")
+        return None
+    except Exception as e:
+      package_logger.error(f"Exception '{e}', failed to read CDSIC CT file")
+      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+
+  def _code_lists_exist(self):
+    return os.path.isfile(self._ct_filename()) 
+
+  def _ct_filename(self):
+    return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_ct_{self.cdisc_ct_config['version']}.yaml")
 
 cdisc_ct_library = CDISCCTLibrary()
