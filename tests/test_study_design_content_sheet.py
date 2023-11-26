@@ -125,7 +125,7 @@ def test_create_invalid_levels(mocker):
   assert mock_error.call_args[0][0] == "studyDesignContent"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception [] raised reading sheet."
+  assert mock_error.call_args[0][3] == "Exception '' raised reading sheet."
 
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

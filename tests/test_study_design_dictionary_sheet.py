@@ -68,7 +68,7 @@ def test_read_cell_by_name_error(mocker):
   dictionaries = StudyDesignDictionarySheet("")
   mock_error.assert_called()
   assert call_parameters == [
-    ("dictionaries", 1, -1, "Error reading cell 'xref'", 10),
-    ('dictionaries', None, None, "Unable to resolve dictionary reference klass: 'Klass 1', name: '', attribute 'Attribute 1'", 30)
+    ("dictionaries", 1, -1, "Error 'Failed to detect column(s) 'xref' in sheet' reading cell 'xref'", 10),
+    ('dictionaries', None, None, "Unable to resolve dictionary reference klass: 'Klass 1', name: 'None', attribute 'Attribute 1'", 30)
   ]
   
