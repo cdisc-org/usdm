@@ -26,7 +26,7 @@ class StudyIdentifiersSheet(BaseSheet):
       org_id_scheme = self.read_cell_by_name(index, 'organisationIdentifierScheme')
       org_identifier = self.read_cell_by_name(index, 'organisationIdentifier')
       org_name = self.read_cell_by_name(index, ['organisationName', 'name'])
-      org_label = self.read_cell_by_name(index, 'label', default="")
+      org_label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
       org_address = self._build_address(index)
       try:
         organisation = Organization(
@@ -59,7 +59,10 @@ class StudyIdentifiersSheet(BaseSheet):
     field_name = 'organisationAddress'
     raw_address = self.read_cell_by_name(row_index, field_name)
     # TODO The '|' separator is preserved for legacy reasons but should be removed in the future
-    if '|' in raw_address:
+    if not raw_address:
+      sep = ','
+      parts = []
+    elif '|' in raw_address:
       sep = '|'
       parts = raw_address.split(sep)
     else:

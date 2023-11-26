@@ -13,7 +13,7 @@ class StudyDesignArmSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, ['studyArmName', 'name'])
         description = self.read_cell_by_name(index, ['studyArmDescription', 'description'])
-        label = self.read_cell_by_name(index, 'label', default="")
+        label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
         arm_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmType', index, ['studyArmType', 'type'])
         arm_origin_description = self.read_cell_by_name(index, ['studyArmDataOriginDescription', 'dataOriginDescription'])
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, ['studyArmDataOriginType', 'dataOriginType'])

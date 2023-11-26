@@ -15,15 +15,15 @@ class StudyDesignElementSheet(BaseSheet):
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
-        xref = self.read_cell_by_name(index, 'xref', default="")
+        xref = self.read_cell_by_name(index, 'xref', default="", must_be_present=False)
         name = self.read_cell_by_name(index, ['studyElementName', 'name'])
         description = self.read_cell_by_name(index, ['studyElementDescription', 'description'])
-        label = self.read_cell_by_name(index, 'label', default="")
+        label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
-        if not start_rule_text == "":
+        if start_rule_text:
           start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ELEMENT_START_RULE_{index + 1}", text=start_rule_text)
-        if not end_rule_text == "":
+        if end_rule_text:
           end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ELEMENT_END_RULE_{index + 1}", text=end_rule_text)
         try:
           item = StudyElement(

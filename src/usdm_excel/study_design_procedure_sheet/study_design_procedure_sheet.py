@@ -12,10 +12,10 @@ class StudyDesignProcedureSheet(BaseSheet):
       super().__init__(file_path=file_path, sheet_name='studyDesignProcedures')
       self.procedures = []
       for index, row in self.sheet.iterrows():
-        xref = self.read_cell_by_name(index, "xref", default="")
+        xref = self.read_cell_by_name(index, "xref", default="", must_be_present=False)
         name = self.read_cell_by_name(index, ["procedureName", 'name'])
         description = self.read_cell_by_name(index, ['procedureDescription', 'description'])
-        label = self.read_cell_by_name(index, 'label', default="")
+        label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
         type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, ['procedureCode', 'code'])
         conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')

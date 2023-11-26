@@ -56,26 +56,29 @@ class BaseSheet():
       return self.read_cell(row_index, col_index)
     except Exception as e:
       if not must_be_present:
-        return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
-      elif default is not None:
+        return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+      elif default:
         return default
       else:
         self._error(row_index, -2, f"Error '{e}' reading cell '{field_name}'")
-        return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+        return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
 
   def read_cell(self, row_index, col_index, default=None):
     try:
       if pd.isnull(self.sheet.iloc[row_index, col_index]):
-        if not default:
+        if default:
           return default
         else:
-          return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+          return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
       self._error(row_index, col_index, f"Error '{e}' reading cell")
       self._traceback(f"{e}\n{traceback.format_exc()}")
-      return "" if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+      if default:
+        return default
+      else:
+        return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
 
   # Deprecate this method
   def read_cell_empty_legacy(self, row_index, col_index):
@@ -346,6 +349,7 @@ class BaseSheet():
     error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.DEBUG)
 
   def _traceback(self, message):
+    #error_manager.add(self.sheet_name, None, None, message)
     package_logger.debug(message)
 
   def _format(self, row, column, message):

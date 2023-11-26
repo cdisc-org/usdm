@@ -26,9 +26,9 @@ class StudyDesignEncounterSheet(BaseSheet):
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         timing_xref = self.read_cell_by_name(index, 'window', must_be_present=False)
-        if not start_rule_text == "":
+        if start_rule_text:
           start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=start_rule_text)
-        if not end_rule_text == "":
+        if end_rule_text:
           end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=end_rule_text)
         if timing_xref:
           timing = cross_references.get(Timing, timing_xref)

@@ -8,10 +8,9 @@ class WindowType():
     self.upper = None
     self.lower = None
     self.errors = []
-    self.label = timing_info.strip()
+    self.label = timing_info.strip() if timing_info else ""
     if self.label:
       range = RangeType(self.label)
-      #print(f"RANGE: {range.lower} {range.upper} {range.units} {range.units_code} {range.errors}")
       if not range.errors:
         self.lower = self._set_encoded(range.lower, range.units)
         self.upper = self._set_encoded(range.upper, range.units)     

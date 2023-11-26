@@ -15,7 +15,7 @@ class StudyDesignActivitySheet(BaseSheet):
         for index, row in self.sheet.iterrows():
           name = self.read_cell_by_name(index, ['activityName', 'name'])
           description = self.read_cell_by_name(index, ['activityDescription', 'description'])
-          label = self.read_cell_by_name(index, 'label', default="")
+          label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
           conditional = self.read_boolean_cell_by_name(index, 'activityIsConditional')
           reason = self.read_cell_by_name(index, 'activityIsConditionalReason')
           try:
