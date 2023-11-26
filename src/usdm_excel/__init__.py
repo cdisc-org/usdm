@@ -9,7 +9,7 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.ct_version_manager import ct_version_manager
 from usdm_excel.errors.errors import error_manager, Errors
 from usdm_excel.option_manager import option_manager as om # Using 'om' as a name clash in pytest
-from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
+#from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
 
 class USDMExcel():
 
