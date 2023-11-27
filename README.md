@@ -57,7 +57,8 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design sheet
 - One or more Timeline sheets
 - Study Design Activities sheet (optional)
-- Study Design Indications and Interventions sheet
+- Study Design Indications sheet
+- Study Design Interventions sheet
 - Study Design Populations sheet
 - Study Design Objectives and Endpoints sheet
 - Study Design Eligibility Criteria sheet
