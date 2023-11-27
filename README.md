@@ -487,11 +487,11 @@ Note that this sheet is optional. If the sheet is not provided the activities wi
 
 If the sheet is provided but there is no definition in the sheet for an activity referenced in a timeline sheet then the name and description will be set to the name used in the timeline sheet and no condition will be set.
 
-### Study Design Indications and Interventions Sheet
+### Study Design Indications Sheet
 	
 #### Sheet Name
 
-`studyDesignII`
+`studyDesignIndications`
 
 #### Sheet Contents
 
@@ -499,11 +499,45 @@ A header row in row 1 followed by repeating rows from row 2, containing an indic
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | xref or name | The name / identifier for the item | Text string | 
-| B | type | The type, either `IND` for indication or `INT` for intervention | Text string |
-| C | description | Description | Text string, can be empty |
-| D (optional) | label | Display label | Text string. Default value is '' |
-| E | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
+| A | name | The name | Text string | 
+| B | description | Description | Text string, can be empty |
+| C | label | Display label | Text string, can be empty |
+| D | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
+
+
+### Study Design Interventions Sheet
+	
+#### Sheet Name
+
+`studyDesignInterventions`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing an intervention. Note that columns J through S can repeat for the same content in columns A to I. For additional administrations rows leave columns A to I blank.
+
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Name | Text string | 
+| B | description | Description | Text string, can be empty |
+| C | label | Display label | Text string, can be empty |
+| D | codes | The set of intervention codes | A set of external CT codes, comma separated |	
+| E | role | The role th eintervanetion plays |	A single M11 code |
+| F | type | The intervention type | |
+| G | pharmacologicalClass | The pharmalogical class | A single external CT code |
+| H | productDesignation | The product designation| A single M11 code |
+| I | minimumResponseDuration | The minimum response duration | |
+| J | administrationName | Name | Text string | 
+| K | administrationDescription | Description | Text string, can be empty |
+| L | administrationLabel | Display label | Text string, can be empty |
+| M | administrationRoute | Route of administration | CDISC code reference |
+| N | administrationDose | Dose quantity | Quantity |
+| O | administrationFrequency | Administration freqeunce | CDISC code reference |
+| P | administrationDurationDescription | Description | Text string, can be empty |
+| Q | administrationDurationWillVary | Duration will vary flag | Boolean |
+| R | administrationDurationWillVaryReason | Duration will vary reason | Text string |
+| S | administrationDurationQuantity| administration quantity | Quantity |
+
 
 ### Study Design Populations sheet
 
@@ -513,17 +547,19 @@ A header row in row 1 followed by repeating rows from row 2, containing an indic
 
 #### Sheet Contents
 
-A header row in row 1 followed by repeating rows from row 2, containing a population definition: 
+A header row in row 1 followed by repeating rows from row 2 containing population or sub-population definitions. Note that not every entry in columns E through I need to be filled in, just enough to define  either the whole population of the sub-populations. Sub-population need not be specificed.
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | name	| Identifier | Text string | 
-| B | populationDescription or description| Description | Text string, can be empty | 
-| C (optional) | label | Display label | Text string. Default value is '' |
-| D | plannedNumberOfParticipants	| Number of participants | Integer | 
-| E | plannedMinimumAgeOfParticipants	| Min age | Text string | 
-| F | plannedMaximumAgeOfParticipants	| Mas Age | Text string |
-| G | plannedSexOfParticipants | Sex of participants | CDISC code reference | 
+| A | level	| Level of entry | Set to either `MAIN` for the main population entry. All other values equate to a cohort (sub population) entry | 
+| B | name	| Identifier | Text string | 
+| C | description| Description | Text string, can be empty | 
+| D | label | Display label | Text string, can be empty |
+| E | plannedCompletionNumber	| Number of participants to complete the study | Integer | 
+| F | plannedEnrollmentNumber	| Number of participants to be enrolled | Integer | 
+| G | plannedMinimumAge	| Min age | Quantity | 
+| H | plannedMaximumAge	| Max Age | Quantity |
+| I | plannedSexOfParticipants | Sex of participants | CDISC code reference |
 
 ### Study Design Objectives and Endpoints sheet
 
