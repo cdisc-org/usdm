@@ -53,9 +53,10 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 
 - Study sheet
 - Study Identifiers sheet
-- Study Amendments shhet
+- Study Amendments sheet
 - Study Design sheet
 - One or more Timeline sheets
+- Study Design Timing sheet
 - Study Design Activities sheet (optional)
 - Study Design Indications sheet
 - Study Design Interventions sheet
