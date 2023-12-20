@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .quantity import Quantity
 from .agent_administration import AgentAdministration
@@ -12,3 +12,4 @@ class StudyIntervention(ApiBaseModelWithIdNameLabelAndDesc):
   administrations: List[AgentAdministration]
   productDesignation:	Code
   pharmacologicClass:	Code
+  instanceType: Literal['StudyIntervention'] = 'StudyIntervention'

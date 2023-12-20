@@ -1,7 +1,5 @@
-from typing import List, Union
+from typing import Literal
 from .syntax_template import SyntaxTemplate
-from .code import Code
-from .endpoint import Endpoint
 
 class Characteristic(SyntaxTemplate):
-  pass
+  instanceType: Literal['Characteristic'] = 'Characteristic'

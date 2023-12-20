@@ -1,7 +1,7 @@
-from typing import Union, List
+from typing import Union, List, Literal
 from .api_base_model import ApiBaseModelWithId
 from .study_amendment_reason import StudyAmendmentReason
-from .subject_enrollment import SubjectEnrollment
+from .geographic_scope import SubjectEnrollment
 
 class StudyAmendment(ApiBaseModelWithId):
   number: str
@@ -11,3 +11,4 @@ class StudyAmendment(ApiBaseModelWithId):
   secondaryReasons: List[StudyAmendmentReason] = []
   enrollments: List[SubjectEnrollment]
   previousId: Union[str, None] = None
+  instanceType: Literal['StudyAmendment'] = 'StudyAmendment'

@@ -4,6 +4,10 @@ from .code import Code
 from .alias_code import AliasCode
 
 class GeographicScope(ApiBaseModelWithId):
-  instanceType: Literal['GEOGRAPHIC_SCOPE', 'SUBJECT_ENROLLMENT']
   type: Code
   code: Union[AliasCode, None] = None
+  instanceType: Literal['GeographicScope'] = 'GeographicScope'
+
+class SubjectEnrollment(GeographicScope):
+  quantity: str
+  instanceType: Literal['SubjectEnrollment'] = 'SubjectEnrollment'

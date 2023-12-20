@@ -1,5 +1,5 @@
-from typing import List, Union
-from pydantic import Field, constr
+from typing import List, Literal, Union
+from pydantic import constr
 from .api_base_model import ApiBaseModel
 from .study_protocol_document import StudyProtocolDocument
 from .study_version import StudyVersion
@@ -12,3 +12,4 @@ class Study(ApiBaseModel):
   label: Union[str, None] = None
   versions: List[StudyVersion] = []
   documentedBy: Union[StudyProtocolDocument, None] = None
+  instanceType: Literal['Study'] = 'Study'

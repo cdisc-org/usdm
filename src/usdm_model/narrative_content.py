@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Literal, Union
 from .api_base_model import ApiBaseModelWithIdAndName
 
 class NarrativeContent(ApiBaseModelWithIdAndName):
@@ -6,3 +6,4 @@ class NarrativeContent(ApiBaseModelWithIdAndName):
   sectionTitle: str
   text: Union[str, None] = None
   childrenIds: List[str] = []
+  instanceType: Literal['NarrativeContent'] = 'NarrativeContent'

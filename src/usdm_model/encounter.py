@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Literal, Union
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 from .transition_rule import TransitionRule
@@ -12,3 +12,4 @@ class Encounter(ApiBaseModelWithIdNameLabelAndDesc):
   contactModes: List[Code] = []
   transitionStartRule: Union[TransitionRule, None] = None
   transitionEndRule: Union[TransitionRule, None] = None
+  instanceType: Literal['Encounter'] = 'Encounter'

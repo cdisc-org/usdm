@@ -1,4 +1,6 @@
+from typing import Literal, Union
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 
 class BiomedicalConceptSurrogate(ApiBaseModelWithIdNameLabelAndDesc):
-  reference: str = ""
+  reference: Union[str, None] = None
+  instanceType: Literal['BiomedicalConceptSurrogate'] = 'BiomedicalConceptSurrogate'

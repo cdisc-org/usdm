@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Literal, Union
 from .activity import Activity
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .alias_code import AliasCode
@@ -13,17 +13,22 @@ from .study_intervention import StudyIntervention
 from .study_arm import StudyArm
 from .study_epoch import StudyEpoch
 from .study_element import StudyElement
-from .study_design_population import StudyDesignPopulation
+from .population_definition import StudyDesignPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
 from .study_protocol_document_version import StudyProtocolDocumentVersion
 from .syntax_template_dictionary import SyntaxTemplateDictionary
+from .masking import Masking
+from .study_site import StudySite
+from .condition import Condition
+from .organization import ResearchOrganization
 
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   trialIntentTypes: List[Code] = []
   trialTypes: List[Code] = []
   therapeuticAreas: List[Code] = []
+  characteristics: List[Code] = []
   interventionModel: Code
   encounters: List[Encounter] = []
   activities: List[Activity] = []
@@ -38,9 +43,14 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   elements: List[StudyElement] = []
   estimands: List[Estimand] = []
   indications: List[Indication] = []
+  maskingRoles: List[Masking] = []
   studyInterventions: List[StudyIntervention] = []
   objectives: List[Objective] = []
   population: Union[StudyDesignPopulation, None] = None
   scheduleTimelines: List[ScheduleTimeline] = []
   documentVersion: Union[StudyProtocolDocumentVersion, None] = None
+  appliesTo: List[StudySite] = []
   dictionaries: List[SyntaxTemplateDictionary] = []
+  conditions: List[Condition] = []
+  organizations: List[ResearchOrganization] = []
+  instanceType: Literal['StudyDesign'] = 'StudyDesign'

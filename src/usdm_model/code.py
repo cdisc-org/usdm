@@ -1,3 +1,4 @@
+from typing import Literal
 from .api_base_model import ApiBaseModelWithId
 
 class Code(ApiBaseModelWithId):
@@ -5,3 +6,4 @@ class Code(ApiBaseModelWithId):
   codeSystem: str
   codeSystemVersion: str
   decode: str
+  instanceType: Literal['Code'] = 'Code'
