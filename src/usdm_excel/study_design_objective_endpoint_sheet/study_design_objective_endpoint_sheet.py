@@ -36,7 +36,6 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           try:
             dictionary_id = self._get_dictionary_id(o_dictionary_name)
             current = Objective(id=id_manager.build_id(Objective),
-              instanceType="OBJECTIVE",
               name=o_name,
               description=o_description, 
               label=o_label,
@@ -55,7 +54,6 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           try:
             dictionary_id = self._get_dictionary_id(ep_dictionary_name)
             ep = Endpoint(id=id_manager.build_id(Endpoint),
-              instanceType="ENDPOINT",
               name=ep_name,
               description=ep_description,
               label=ep_label,

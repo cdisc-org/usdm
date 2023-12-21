@@ -1,5 +1,7 @@
 from .activity import *
 from .address import *
+from .administration_duration import *
+from .agent_administration import *
 from .alias_code import *
 from .analysis_population import *
 from .api_base_model import *
@@ -8,20 +10,23 @@ from .biomedical_concept_property import *
 from .biomedical_concept_surrogate import *
 from .biomedical_concept import *
 from .code import *
+from .condition import *
 from .eligibility_criteria import *
 from .encounter import *
 from .endpoint import *
-from .subject_enrollment import *
 from .estimand import *
 from .geographic_scope import *
 from .governance_date import *
 from .indication import *
 from .intercurrent_event import *
-from .study_intervention import *
+from .masking import *
 from .narrative_content import *
 from .objective import *
 from .organization import *
+from .population_definition import *
 from .procedure import *
+from .quantity import *
+from .range import *
 from .response_code import *
 from .schedule_timeline_exit import *
 from .schedule_timeline import *
@@ -30,13 +35,15 @@ from .study_amendment import *
 from .study_amendment_reason import *
 from .study_arm import *
 from .study_cell import *
-from .study_design_population import *
 from .study_design import *
 from .study_element import *
 from .study_epoch import *
 from .study_identifier import *
+from .study_intervention import *
 from .study_protocol_document_version import *
 from .study_protocol_document import *
+from .study_site import *
+from .study_title import *
 from .study_version import *
 from .study import *
 from .syntax_template import *
@@ -47,6 +54,8 @@ from .transition_rule import *
 __all__ = [
   'Activity',
   'Address',
+  'AdministrationDuration',
+  'AgentAdministration',
   'AliasCode',
   'AnalysisPopulation',
   'BiomedicalConceptCategory',
@@ -54,6 +63,7 @@ __all__ = [
   'BiomedicalConceptSurrogate',
   'BiomedicalConcept',
   'Code',
+  'Condition',
   'EligibilityCriteria',
   'Encounter',
   'Endpoint',
@@ -64,18 +74,26 @@ __all__ = [
   'Indication',
   'IntercurrentEvent',
   'InvestigationalIntervention',
+  'Masking',
   'NarrativeContent',
   'Objective',
   'Organization',
+  'PopulationDefinition',
   'Procedure',
+  'Quality',
+  'Range',
   'ResponseCode',
+  'ResearchOrganization',
   'ScheduleTimelineExit',
   'ScheduleTimeline',
   'ScheduledInstance',
+  'ScheduledActivityInstance',
+  'ScheduledDecisionInstance',
   'StudyAmendment',
   'StudyAmendmentReason',
   'StudyArm',
   'StudyCell',
+  'StudyCohort',
   'StudyDesignPopulation',
   'StudyDesign',
   'StudyElement',
@@ -83,10 +101,14 @@ __all__ = [
   'StudyIdentifier',
   'StudyProtocolDocumentVersion',
   'StudyProtocolDocument',
-  'Study',
+  'StudySite',
+  'StudyTitle',
   'StudyVersion',
+  'Study',
+  'SubjectEnrollment',
   'SyntaxTemplate',
   'SyntaxTemplateDictionary',
   'Timing',
   'TransitionRule',
 ]
+

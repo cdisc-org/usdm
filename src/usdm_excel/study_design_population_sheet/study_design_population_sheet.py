@@ -2,8 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 import traceback
-from usdm_model.study_design_population import StudyDesignPopulation
-from usdm_model.study_cohort import StudyCohort
+from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
 
 class StudyDesignPopulationSheet(BaseSheet):
 
@@ -46,6 +45,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         name=name,
         description=description,
         label=label,
+        includesHealthySubjects=False,
         plannedEnrollmentNumber=recruit_number,
         plannedCompletionNumber=required_number,
         plannedMinimumAgeOfParticipants=min,
@@ -66,6 +66,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         name=name,
         description=description,
         label=label,
+        includesHealthySubjects=False,
         plannedEnrollmentNumber=recruit_number,
         plannedCompletionNumber=required_number,
         plannedMinimumAgeOfParticipants=min,

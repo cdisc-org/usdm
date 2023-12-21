@@ -42,7 +42,6 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
       #   dictionary_id = None
       item = EligibilityCriteria(
         id=id_manager.build_id(EligibilityCriteria),
-        instanceType='ELIGIBILITY_CRITERIA', 
         name=name,
         description=description,
         label=label,

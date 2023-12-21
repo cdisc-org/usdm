@@ -34,6 +34,7 @@ from usdm_model.geographic_scope import GeographicScope
 from usdm_excel.narrative_content import NarrativeContent
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
+from usdm_model.study_title import StudyTitle
 import traceback
 import datetime
 
@@ -164,6 +165,7 @@ class StudySheet(BaseSheet):
         self._traceback(f"{traceback.format_exc()}")
 
       try:
+        title = StudyTitle(id=id_manager.build_id(StudyTitle), type=CDISCCT().code('X', 'Y'), text=self.title)
         #f"DATES SV: {self.dates[self.STUDY_VERSION_DATE]}")
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
@@ -178,7 +180,8 @@ class StudySheet(BaseSheet):
           documentVersionId=self.protocol_document_version.id,
           studyDesigns=self.study_design.study_designs,
           dateValues=self.dates[self.STUDY_VERSION_DATE],
-          amendments=self.study_amendments.items
+          amendments=self.study_amendments.items,
+          titles=[title]
         )
         cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
@@ -279,7 +282,6 @@ class StudySheet(BaseSheet):
           for scope in record['scopes']:
             scope = GeographicScope(
               id=id_manager.build_id(GeographicScope), 
-              instanceType="GEOGRAPHIC_SCOPE",
               type=scope['type'], 
               code=scope['code']
             )

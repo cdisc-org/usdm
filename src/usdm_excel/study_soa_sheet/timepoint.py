@@ -72,7 +72,6 @@ class Timepoint():
       timing = self._to_timing()
       instance = ScheduledActivityInstance(
         id=id_manager.build_id(ScheduledActivityInstance),
-        instanceType='ACTIVITY',
         timelineExitId=None,
         scheduledInstanceEncounterId=None,
         timings=[timing],
@@ -86,7 +85,6 @@ class Timepoint():
     elif self.__timepoint_type.timing_type == "condition":
       instance = ScheduledDecisionInstance(
         id=id_manager.build_id(ScheduledActivityInstance),
-        instanceType='DECISION',
         timelineExitId=None,
         scheduledInstanceEncounterId=None,
         timings=[],

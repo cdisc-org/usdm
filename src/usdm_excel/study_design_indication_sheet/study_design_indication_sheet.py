@@ -17,7 +17,7 @@ class StudyDesignIndicationSheet(BaseSheet):
         label = self.read_cell_by_name(index, 'label', default="")
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
         try:
-          item = Indication(id=id_manager.build_id(Indication), name=name, description=description, label=label, codes=codes)
+          item = Indication(id=id_manager.build_id(Indication), name=name, description=description, label=label, isRareDisease=False, codes=codes)
         except Exception as e:
           self._general_error(f"Failed to create Indication object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")

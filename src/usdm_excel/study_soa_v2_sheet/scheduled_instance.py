@@ -47,7 +47,6 @@ class ScheduledInstance():
 #          name=name,
 #          description=description,
 #          label=label,
-          instanceType='ACTIVITY',
           timelineExitId=None,
           encounterId=encounter_id,
           timings=[],
@@ -61,7 +60,6 @@ class ScheduledInstance():
       elif type.upper() == "DECISION":
         self.item = ScheduledDecisionInstance(
           id=id_manager.build_id(ScheduledDecisionInstance),
-          instanceType='DECISION',
           timelineExitId=None,
           timings=[],
           scheduledInstanceTimelineId=None,

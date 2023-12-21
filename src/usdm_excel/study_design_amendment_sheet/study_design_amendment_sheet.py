@@ -3,7 +3,7 @@ from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
-from usdm_model.subject_enrollment import SubjectEnrollment
+from usdm_model.geographic_scope import SubjectEnrollment
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
@@ -63,7 +63,6 @@ class StudyDesignAmendmentSheet(BaseSheet):
       try:
         item = SubjectEnrollment(
           id=id_manager.build_id(SubjectEnrollment),
-          instanceType="SUBJECT_ENROLLMENT",
           type=enrollment['type'],
           code=enrollment['code'],
           quantity=enrollment['quantity']
