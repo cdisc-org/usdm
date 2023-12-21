@@ -9,10 +9,13 @@ from usdm_excel.errors.errors import error_manager
 from usdm_excel.logger import package_logger
 from usdm_excel.option_manager import *
 from usdm_excel.cross_ref import cross_references
-from usdm_model.quantity import Quantity
 from usdm_excel.quantity_type import QuantityType
-from usdm_model.range import Range
 from usdm_excel.range_type import RangeType
+from usdm_excel.iso_3166 import ISO3166
+from usdm_model.quantity import Quantity
+from usdm_model.range import Range
+from usdm_model.address import Address
+
 class BaseSheet():
 
   class StateError(Exception):
@@ -171,6 +174,56 @@ class BaseSheet():
       self._error(row_index, col_index, f"Failed to decode range data '{text}'")
       #print(f"{e}\n{traceback.format_exc()}")
       self._traceback(f"{e}\n{traceback.format_exc()}")
+      return None
+
+  def read_address_cell_by_name(self, row_index, field_name, allow_empty=False):
+    raw_address = self.read_cell_by_name(row_index, field_name)
+    # TODO The '|' separator is preserved for legacy reasons but should be removed in the future
+    if not raw_address:
+      sep = ','
+      parts = []
+    elif '|' in raw_address:
+      sep = '|'
+      parts = raw_address.split(sep)
+    else:
+      sep = ','
+      parts = self._state_split(raw_address)
+    if len(parts) == 6:
+      result = self._to_address(
+          id_manager.build_id(Address),
+          line=parts[0], 
+          district=parts[1], 
+          city=parts[2], 
+          state=parts[3], 
+          postal_code=parts[4], 
+          country=ISO3166().code(parts[5])
+        )
+      return result
+    elif allow_empty:
+      pass
+    else:
+      col_index = self.sheet.columns.get_loc(field_name)
+      self._error(row_index, col_index, f"Address does not contain the required fields (line, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
+      return None
+
+  def _to_address(self, id, line, city, district, state, postal_code, country):
+    text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
+    text = text.replace(' ,', '')
+    try:
+      result = Address(id=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
+    except Exception as e:
+      self._general_error(f"Failed to create Address object, exception {e}")
+      self._traceback(f"{traceback.format_exc()}")
+      result = None
+    return result
+
+  def create_object(self, cls, params):
+    try:
+      params['id'] = id_manager.build_id(cls)
+      return cls(params)
+    except Exception as e:
+      self._general_error(f"Failed to create {cls.__name__} object, exception {e}")
+      self._traceback(f"{traceback.format_exc()}")
       return None
 
   # def read_description_by_name(self, row_index, field_name):

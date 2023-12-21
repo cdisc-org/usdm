@@ -1,9 +1,9 @@
 from usdm_model.organization import Organization
-from usdm_model.address import Address
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
-from usdm_excel.iso_3166 import ISO3166
+# from usdm_model.address import Address
+# from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.cross_ref import cross_references
 import pandas as pd
 import traceback
@@ -27,7 +27,9 @@ class StudyIdentifiersSheet(BaseSheet):
       org_identifier = self.read_cell_by_name(index, 'organisationIdentifier')
       org_name = self.read_cell_by_name(index, ['organisationName', 'name'])
       org_label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
-      org_address = self._build_address(index)
+      org_address = self.read_address_cell_by_name(index, 'organisationAddress')
+      if org_address:
+        cross_references.add(org_address.id, org_address)   
       try:
         organisation = Organization(
           id=id_manager.build_id(Organization),
@@ -55,47 +57,3 @@ class StudyIdentifiersSheet(BaseSheet):
         else:
           self.identifiers.append(item)
           cross_references.add(item.studyIdentifier, item)         
-  def _build_address(self, row_index):
-    field_name = 'organisationAddress'
-    raw_address = self.read_cell_by_name(row_index, field_name)
-    # TODO The '|' separator is preserved for legacy reasons but should be removed in the future
-    if not raw_address:
-      sep = ','
-      parts = []
-    elif '|' in raw_address:
-      sep = '|'
-      parts = raw_address.split(sep)
-    else:
-      sep = ','
-      parts = self._state_split(raw_address)
-    if len(parts) == 6:
-      # TODO Put something in each part if empty. Temp fix
-      for index, part in enumerate(parts):
-        parts[index] = '-' if part == '' else part.strip()
-      result = self._to_address(
-          id_manager.build_id(Address),
-          line=parts[0], 
-          district=parts[1], 
-          city=parts[2], 
-          state=parts[3], 
-          postal_code=parts[4], 
-          country=ISO3166().code(parts[5])
-        )
-      return result
-    else:
-      col_index = self.sheet.columns.get_loc(field_name)
-      self._error(row_index, col_index, f"Address does not contain the required fields (line, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
-      return None
-
-  def _to_address(self, id, line, city, district, state, postal_code, country):
-    text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
-    text = text.replace(' ,', '')
-    try:
-      result = Address(id=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
-    except Exception as e:
-      self._general_error(f"Failed to create Address object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
-      result = None
-    else:
-      cross_references.add(result.id, result)   
-    return result
