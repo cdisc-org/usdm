@@ -220,7 +220,7 @@ class BaseSheet():
   def create_object(self, cls, params):
     try:
       params['id'] = id_manager.build_id(cls)
-      return cls(params)
+      return cls(**params)
     except Exception as e:
       self._general_error(f"Failed to create {cls.__name__} object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
