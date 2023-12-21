@@ -40,24 +40,25 @@ import datetime
 
 class StudySheet(BaseSheet):
 
-  NAME_ROW = 0
-  TITLE_ROW = 1
-  VERSION_ROW = 2
-  TYPE_ROW = 3
-  PHASE_ROW = 4
-  ACRONYM_ROW = 5
-  RATIONALE_ROW = 6
-  TA_ROW = 7
-  BRIEF_TITLE_ROW = 8
-  OFFICAL_TITLE_ROW = 9
-  PUBLIC_TITLE_ROW = 10
-  SCIENTIFIC_TITLE_ROW = 11
-  PROTOCOL_VERSION_ROW = 12
-  PROTOCOL_STATUS_ROW = 13
+  NAME_TITLE = 'name'
+  TITLE_TITLE = 'studyTitle'
+  VERSION_TITLE = 'studyVersion'
+  TYPE_TITLE = 'studyType'
+  PHASE_TITLE = 'studyPhase'
+  ACRONYM_TITLE = 'studyAcronym'
+  RATIONALE_TITLE = 'studyRationale'
+  TA_TITLE = 'businessTherapeuticAreas'
+  BRIEF_TITLE_TITLE = 'briefTitle'
+  OFFICAL_TITLE_TITLE = 'officialTitle'
+  PUBLIC_TITLE_TITLE = 'publicTitle'
+  SCIENTIFIC_TITLE_TITLE = 'scientificTitle'
+  PROTOCOL_VERSION_TITLE = 'protocolVersion'
+  PROTOCOL_STATUS_TITLE = 'protocolStatus'
 
   DATES_HEADER_ROW = 15
   DATES_DATA_ROW = 16
   
+  PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
 
   STUDY_VERSION_DATE = 'study_version'
@@ -79,6 +80,7 @@ class StudySheet(BaseSheet):
       self.protocol_version = None
       self.protocol_status = None
       self.title = None
+      self.titles = []
       self.acronym = None
       self.rationale = None
       self.study = None
@@ -141,10 +143,10 @@ class StudySheet(BaseSheet):
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 
-          briefTitle=self.brief_title,
-          officialTitle=self.official_title,
-          publicTitle=self.public_title,
-          scientificTitle=self.scientific_title,
+          #briefTitle=self.brief_title,
+          #officialTitle=self.official_title,
+          #publicTitle=self.public_title,
+          #scientificTitle=self.scientific_title,
           protocolVersion=self.protocol_version,
           protocolStatus=self.protocol_status,
           dateValues=self.dates[self.PROTOCOL_VERSION_DATE]
@@ -165,23 +167,21 @@ class StudySheet(BaseSheet):
         self._traceback(f"{traceback.format_exc()}")
 
       try:
-        title = StudyTitle(id=id_manager.build_id(StudyTitle), type=CDISCCT().code('X', 'Y'), text=self.title)
-        #f"DATES SV: {self.dates[self.STUDY_VERSION_DATE]}")
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
-          studyTitle=self.title,
+          #studyTitle=self.title,
           versionIdentifier=self.version,
           type=self.type,
           studyPhase=self.phase,
           businessTherapeuticAreas=self.therapeutic_areas,
           rationale=self.rationale,
-          studyAcronym=self.acronym,
+          #studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
           documentVersionId=self.protocol_document_version.id,
           studyDesigns=self.study_design.study_designs,
           dateValues=self.dates[self.STUDY_VERSION_DATE],
           amendments=self.study_amendments.items,
-          titles=[title]
+          titles=self.titles
         )
         cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
@@ -225,34 +225,41 @@ class StudySheet(BaseSheet):
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    
     for rindex, row in self.sheet.iterrows():
-      if rindex == self.NAME_ROW:
+      field_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
+      if field_name == self.NAME_TITLE:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.TITLE_ROW:
-        self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROW:
+      elif field_name == self.TITLE_TITLE:
+        if option_manager.get(Options.USDM_VERSION) == '2':
+          self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.VERSION_TITLE:
         self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.TYPE_ROW:
+      elif field_name == self.TYPE_TITLE:
         self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.PHASE_ROW:
+      elif field_name == self.PHASE_TITLE:
         phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
         self.phase = Alias().code(phase, [])
-      elif rindex == self.ACRONYM_ROW:
-        self.acronym = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.RATIONALE_ROW:
+      elif field_name == self.ACRONYM_TITLE:
+        self.acronym = self._set_title(rindex, self.PARAMS_DATA_COL, "Study Acronym")
+        #self.acronym = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.RATIONALE_TITLE:
         self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.TA_ROW:
+      elif field_name == self.TA_TITLE:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.BRIEF_TITLE_ROW:
-        self.brief_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.OFFICAL_TITLE_ROW:
-        self.official_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.PUBLIC_TITLE_ROW:
-        self.public_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.SCIENTIFIC_TITLE_ROW:
-        self.scientific_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.PROTOCOL_VERSION_ROW:
+      elif field_name == self.BRIEF_TITLE_TITLE:
+        self.brief_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Brief Study Title")
+        #self.brief_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.OFFICAL_TITLE_TITLE:
+        self.official_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Official Study Title")
+        #self.official_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.PUBLIC_TITLE_TITLE:
+        self.public_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Public Study Title")
+        #self.public_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.SCIENTIFIC_TITLE_TITLE:
+        self.scientific_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Scientific Study Title")
+        #self.scientific_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.PROTOCOL_VERSION_TITLE:
         self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.PROTOCOL_STATUS_ROW:
+      elif field_name == self.PROTOCOL_STATUS_TITLE:
         self.protocol_status = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, self.PARAMS_DATA_COL) 
       elif rindex >= self.DATES_DATA_ROW:
         record = {}
@@ -372,3 +379,18 @@ class StudySheet(BaseSheet):
           if code:
             result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias().code(code, [])})
       return result
+
+  def _set_title(self, rindex, cindex, title_type):
+    if option_manager.get(Options.USDM_VERSION) == '2':
+      return self.read_cell(rindex, cindex)
+    else:
+      try:
+        code = CDISCCT().code_for_attribute('StudyVersion', 'titles', title_type)
+        text = self.read_cell(rindex, cindex)
+        title = StudyTitle(id=id_manager.build_id(StudyTitle), text=text, type=code)
+        self.titles.append(title)
+        return title
+      except Exception as e:
+        self._error(rindex, cindex, "Failed to create StudyTitle object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+        
