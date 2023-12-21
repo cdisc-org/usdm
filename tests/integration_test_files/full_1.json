@@ -969,7 +969,7 @@
                         "id": "ResponseCode_1",
                         "isEnabled": true,
                         "code": {
-                          "id": "Code_94",
+                          "id": "Code_96",
                           "code": "C20197",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -982,7 +982,7 @@
                         "id": "ResponseCode_2",
                         "isEnabled": true,
                         "code": {
-                          "id": "Code_95",
+                          "id": "Code_97",
                           "code": "C16576",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -995,7 +995,7 @@
                     "code": {
                       "id": "AliasCode_11",
                       "standardCode": {
-                        "id": "Code_96",
+                        "id": "Code_98",
                         "code": "C28421",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1011,7 +1011,7 @@
                 "code": {
                   "id": "AliasCode_10",
                   "standardCode": {
-                    "id": "Code_93",
+                    "id": "Code_95",
                     "code": "C28421",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1043,7 +1043,7 @@
                     "code": {
                       "id": "AliasCode_13",
                       "standardCode": {
-                        "id": "Code_98",
+                        "id": "Code_100",
                         "code": "C17049",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1059,7 +1059,7 @@
                 "code": {
                   "id": "AliasCode_12",
                   "standardCode": {
-                    "id": "Code_97",
+                    "id": "Code_99",
                     "code": "C17049",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1091,7 +1091,7 @@
                     "code": {
                       "id": "AliasCode_15",
                       "standardCode": {
-                        "id": "Code_100",
+                        "id": "Code_102",
                         "code": "C173522",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1115,7 +1115,7 @@
                         "id": "ResponseCode_3",
                         "isEnabled": true,
                         "code": {
-                          "id": "Code_101",
+                          "id": "Code_103",
                           "code": "C28252",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1128,7 +1128,7 @@
                         "id": "ResponseCode_4",
                         "isEnabled": true,
                         "code": {
-                          "id": "Code_102",
+                          "id": "Code_104",
                           "code": "C48155",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1141,7 +1141,7 @@
                         "id": "ResponseCode_5",
                         "isEnabled": true,
                         "code": {
-                          "id": "Code_103",
+                          "id": "Code_105",
                           "code": "C48531",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1154,7 +1154,7 @@
                     "code": {
                       "id": "AliasCode_16",
                       "standardCode": {
-                        "id": "Code_104",
+                        "id": "Code_106",
                         "code": "C48208",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
@@ -1170,7 +1170,7 @@
                 "code": {
                   "id": "AliasCode_14",
                   "standardCode": {
-                    "id": "Code_99",
+                    "id": "Code_101",
                     "code": "C81328",
                     "codeSystem": "NCI Thesaurus",
                     "codeSystemVersion": "",
@@ -1628,7 +1628,7 @@
                 "description": "Indication One",
                 "codes": [
                   {
-                    "id": "Code_105",
+                    "id": "Code_107",
                     "code": "12345",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -1646,7 +1646,7 @@
                 "description": "Indication Two",
                 "codes": [
                   {
-                    "id": "Code_106",
+                    "id": "Code_108",
                     "code": "345678",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -1658,7 +1658,34 @@
                 "instanceType": "Indication"
               }
             ],
-            "maskingRoles": [],
+            "maskingRoles": [
+              {
+                "id": "Masking_1",
+                "description": "This is the sponsor masking description",
+                "role": {
+                  "id": "Code_93",
+                  "code": "C70793",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Sponsor",
+                  "instanceType": "Code"
+                },
+                "instanceType": "Masking"
+              },
+              {
+                "id": "Masking_2",
+                "description": "This is the investigator masking statement",
+                "role": {
+                  "id": "Code_94",
+                  "code": "C25936",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Investigator",
+                  "instanceType": "Code"
+                },
+                "instanceType": "Masking"
+              }
+            ],
             "studyInterventions": [
               {
                 "id": "StudyIntervention_1",
@@ -1666,7 +1693,7 @@
                 "label": "Int Label 1",
                 "description": "Int Desc 1",
                 "role": {
-                  "id": "Code_112",
+                  "id": "Code_114",
                   "code": "role1",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
@@ -1674,7 +1701,7 @@
                   "instanceType": "Code"
                 },
                 "type": {
-                  "id": "Code_113",
+                  "id": "Code_115",
                   "code": "C1909",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1685,7 +1712,7 @@
                   "id": "Quantity_3",
                   "value": 1.0,
                   "unit": {
-                    "id": "Code_116",
+                    "id": "Code_118",
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -1696,7 +1723,7 @@
                 },
                 "codes": [
                   {
-                    "id": "Code_111",
+                    "id": "Code_113",
                     "code": "A",
                     "codeSystem": "SPONSOR",
                     "codeSystemVersion": "12",
@@ -1716,7 +1743,7 @@
                         "id": "Quantity_1",
                         "value": 14.0,
                         "unit": {
-                          "id": "Code_107",
+                          "id": "Code_109",
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1734,7 +1761,7 @@
                       "id": "Quantity_2",
                       "value": 12.0,
                       "unit": {
-                        "id": "Code_109",
+                        "id": "Code_111",
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
@@ -1744,7 +1771,7 @@
                       "instanceType": "Quantity"
                     },
                     "route": {
-                      "id": "Code_108",
+                      "id": "Code_110",
                       "code": "C38197",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1752,7 +1779,7 @@
                       "instanceType": "Code"
                     },
                     "frequency": {
-                      "id": "Code_110",
+                      "id": "Code_112",
                       "code": "C139179",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1763,7 +1790,7 @@
                   }
                 ],
                 "productDesignation": {
-                  "id": "Code_115",
+                  "id": "Code_117",
                   "code": "desig1",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
@@ -1771,7 +1798,7 @@
                   "instanceType": "Code"
                 },
                 "pharmacologicClass": {
-                  "id": "Code_114",
+                  "id": "Code_116",
                   "code": "A",
                   "codeSystem": "FDA",
                   "codeSystemVersion": "None set",
@@ -1786,7 +1813,7 @@
                 "label": "Int Label 2",
                 "description": "Int Desc 2",
                 "role": {
-                  "id": "Code_122",
+                  "id": "Code_124",
                   "code": "role2",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
@@ -1794,7 +1821,7 @@
                   "instanceType": "Code"
                 },
                 "type": {
-                  "id": "Code_123",
+                  "id": "Code_125",
                   "code": "C1909",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1805,7 +1832,7 @@
                   "id": "Quantity_6",
                   "value": 1.0,
                   "unit": {
-                    "id": "Code_126",
+                    "id": "Code_128",
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -1816,7 +1843,7 @@
                 },
                 "codes": [
                   {
-                    "id": "Code_121",
+                    "id": "Code_123",
                     "code": "A",
                     "codeSystem": "SPONSOR",
                     "codeSystemVersion": "12",
@@ -1836,7 +1863,7 @@
                         "id": "Quantity_4",
                         "value": 14.0,
                         "unit": {
-                          "id": "Code_117",
+                          "id": "Code_119",
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
@@ -1854,7 +1881,7 @@
                       "id": "Quantity_5",
                       "value": 12.0,
                       "unit": {
-                        "id": "Code_119",
+                        "id": "Code_121",
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
@@ -1864,7 +1891,7 @@
                       "instanceType": "Quantity"
                     },
                     "route": {
-                      "id": "Code_118",
+                      "id": "Code_120",
                       "code": "C38197",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1872,7 +1899,7 @@
                       "instanceType": "Code"
                     },
                     "frequency": {
-                      "id": "Code_120",
+                      "id": "Code_122",
                       "code": "C139179",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1883,7 +1910,7 @@
                   }
                 ],
                 "productDesignation": {
-                  "id": "Code_125",
+                  "id": "Code_127",
                   "code": "desig2",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
@@ -1891,7 +1918,7 @@
                   "instanceType": "Code"
                 },
                 "pharmacologicClass": {
-                  "id": "Code_124",
+                  "id": "Code_126",
                   "code": "A",
                   "codeSystem": "FDA",
                   "codeSystemVersion": "None set",
@@ -1911,7 +1938,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_133",
+                  "id": "Code_135",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1929,7 +1956,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_132",
+                      "id": "Code_134",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1948,7 +1975,7 @@
                 "dictionaryId": "SyntaxTemplateDictionary_2",
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_135",
+                  "id": "Code_137",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1966,7 +1993,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_134",
+                      "id": "Code_136",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1984,7 +2011,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_136",
+                      "id": "Code_138",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -2028,7 +2055,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_137",
+                    "id": "Code_139",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -2049,7 +2076,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_138",
+                    "id": "Code_140",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -2070,7 +2097,7 @@
                   "dictionaryId": null,
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_139",
+                    "id": "Code_141",
                     "code": "C25370",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -2091,7 +2118,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_3",
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_140",
+                    "id": "Code_142",
                     "code": "C25370",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",

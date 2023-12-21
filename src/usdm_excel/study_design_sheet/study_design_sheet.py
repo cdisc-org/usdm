@@ -6,44 +6,28 @@ from usdm_model.study_arm import StudyArm
 from usdm_model.study_element import StudyElement
 from usdm_model.study_cell import StudyCell
 from usdm_model.study_design import StudyDesign
+from usdm_model.masking import Masking
 from usdm_excel.alias import Alias
-import pandas as pd
+from usdm_excel.option_manager import *
+from usdm_excel.cdisc_ct import CDISCCT
 import traceback
 
 class StudyDesignSheet(BaseSheet):
 
-  VERSION_ROWS = { 
-    'therapeuticAreas': {
-      'NAME_ROW': 0,
-      'DESCRIPTION_ROW': 1,
-      'LABEL_ROW': -1,
-      'TA_ROW': 2,
-      'RATIONALE_ROW': 3,
-      'BLINDING_ROW': 4,
-      'INTENT_ROW': 5,
-      'TYPES_ROW': 6,
-      'INT_ROW': 7,
-      'MAIN_TIMELINE_ROW': 8,
-      'OTHER_TIMELINES_ROW': 9,
-      'EPOCH_ARMS_START_ROW': 11
-    },
-    'label': { 
-      'NAME_ROW': 0,
-      'DESCRIPTION_ROW': 1,
-      'LABEL_ROW': 2,
-      'TA_ROW': 3,
-      'RATIONALE_ROW': 4,
-      'BLINDING_ROW': 5,
-      'INTENT_ROW': 6,
-      'TYPES_ROW': 7,
-      'INT_ROW': 8,
-      'MAIN_TIMELINE_ROW': 9,
-      'OTHER_TIMELINES_ROW': 10,
-      'EPOCH_ARMS_START_ROW': 12
-    }
-  }
+#      'EPOCH_ARMS_START_LABEL =
+  NAME_LABEL = ['studyDesignName', 'name']
+  DESCRIPTION_LABEL = ['studyDesignDescription', 'description']
+  LABEL_LABEL = ['label']
+  TA_LABEL = ['therapeuticAreas']
+  RATIONALE_LABEL = ['studyDesignRationale']
+  BLINDING_LABEL = ['studyDesignBlindingScheme']
+  INTENT_LABEL = ['trialIntentTypes']
+  TYPES_LABEL = ['trialTypes']
+  INT_LABEL = ['interventionModel']
+  MAIN_TIMELINE_LABEL = ['mainTimeline']
+  OTHER_TIMELINES_LABEL = ['otherTimelines']
+  MASKING_ROLE_LABEL = ['masking']
 
-  CHECK_ROW = 2
   PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
 
@@ -68,47 +52,55 @@ class StudyDesignSheet(BaseSheet):
       self.intervention_model = None
       self.main_timeline = None
       self.other_timelines = []
+      self.masks = []
       self.process_sheet()
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
   def process_sheet(self):
-    key = self.read_cell(self.CHECK_ROW, self.PARAMS_NAME_COL)
-    for rindex, row in self.sheet.iterrows():
-      if rindex == self.VERSION_ROWS[key]['NAME_ROW']:
-        self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      if rindex == self.VERSION_ROWS[key]['LABEL_ROW']:
-        self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['DESCRIPTION_ROW']:
-        self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['TA_ROW']:
-        self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['RATIONALE_ROW']:
-        self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['BLINDING_ROW']:
-        self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
-      elif rindex == self.VERSION_ROWS[key]['INTENT_ROW']:
-        self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['TYPES_ROW']:
-        self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['INT_ROW']:
-        self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['MAIN_TIMELINE_ROW']:
-        self.main_timeline = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif rindex == self.VERSION_ROWS[key]['OTHER_TIMELINES_ROW']:
-        self.other_timelines = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
-      else:
-        pass
-
-    start_row = self.VERSION_ROWS[key]['EPOCH_ARMS_START_ROW']
+    general_params = True
     resolved_epochs = [None] * self.sheet.shape[1] 
     resolved_arms = [None] * self.sheet.shape[0] 
     for rindex, row in self.sheet.iterrows():
-      if rindex >= start_row:
+      key = self.read_cell(rindex, self.PARAMS_NAME_COL)
+      if general_params:
+        if key in self.NAME_LABEL:
+          self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
+        elif key in self.LABEL_LABEL:
+          self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
+        elif key in self.DESCRIPTION_LABEL:
+          self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
+        elif key in self.TA_LABEL:
+          self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
+        elif key in self.RATIONALE_LABEL:
+          self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
+        elif key in self.BLINDING_LABEL:
+          self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
+        elif key in self.INTENT_LABEL:
+          self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
+        elif key in self.TYPES_LABEL:
+          self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
+        elif key in self.INT_LABEL:
+          self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
+        elif key in self.MAIN_TIMELINE_LABEL:
+          print(f"MAIN TL: {rindex}")
+          self.main_timeline = self.read_cell(rindex, self.PARAMS_DATA_COL)
+        elif key in self.OTHER_TIMELINES_LABEL:
+          print(f"OTHER TL: {rindex}")
+          self.other_timelines = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
+        elif key in self.MASKING_ROLE_LABEL:
+          print(f"MASKING: {rindex}")
+          self._set_masking(rindex, self.PARAMS_DATA_COL)
+        elif key in '':
+          general_params = False
+          start_row = rindex + 1
+          print(f"START: {start_row}")
+      else:
         for cindex in range(0, len(self.sheet.columns)):
           epoch_index = cindex - 1
           cell = self.read_cell(rindex, cindex)
+          print(f"ARMS EPOCHS: {rindex} = {cell}")
           if rindex == start_row:
             if cindex != 0:
               resolved_epochs[epoch_index] = self._add_epoch(cell)
@@ -129,24 +121,10 @@ class StudyDesignSheet(BaseSheet):
                 self.cells.append(self._add_cell(arm=cell_arm, epoch=cell_epoch, elements=cell_elements))
               else:
                 self._general_error(f"Cannot resolve arm and/or epoch for cell [{arm_index + 1},{epoch_index + 1}]")
-              
-    self.double_link(self.epochs, 'previousId', 'nextId')
+                
+      self.double_link(self.epochs, 'previousId', 'nextId')
 
-    study_design = self._add_design(
-      name=self.name,
-      description=self.description,
-      label=self.label,
-      cells=self.cells,
-      epochs=self.epochs,
-      arms=self.arms,
-      elements=list(self.elements.values()),
-      intent_types=self.trial_intents, 
-      trial_types=self.trial_types, 
-      intervention_model=self.intervention_model,
-      rationale=self.rationale, 
-      blinding=self.blinding, 
-      therapeutic_areas=self.therapeutic_areas
-    )
+    study_design = self._create_design()
     self.study_designs.append(study_design)
 
   def _add_arm(self, name):
@@ -182,28 +160,65 @@ class StudyDesignSheet(BaseSheet):
       return None
 
   def _add_cell(self, arm, epoch, elements):
-    return StudyCell(
-      id=id_manager.build_id(StudyCell), 
-      armId=arm,
-      epochId=epoch,
-      elementIds=elements
-    )
+    try:
+      return StudyCell(
+        id=id_manager.build_id(StudyCell), 
+        armId=arm,
+        epochId=epoch,
+        elementIds=elements
+      )
+    except Exception as e:
+      self._general_error("Failed to create StudyCell object, exception {e}")
+      self._traceback(f"{traceback.format_exc()}")
+      return None
 
-  def _add_design(self, name, description, label, epochs, arms, cells, elements, intent_types, trial_types, intervention_model, rationale, blinding, therapeutic_areas):
-    return StudyDesign(
-      id=id_manager.build_id(StudyDesign), 
-      name=name,
-      description=description,
-      label=label,
-      trialIntentTypes=intent_types,
-      trialTypes=trial_types,
-      interventionModel=intervention_model,
-      studyCells=cells,
-      arms=arms,
-      epochs=epochs,
-      elements=elements,
-      therapeuticAreas=therapeutic_areas,
-      rationale=rationale,
-      blindingSchema=blinding,
-      contents=[]
-    )
+  def _create_design(self):
+    try:
+      return StudyDesign(
+        id=id_manager.build_id(StudyDesign), 
+        name=self.name,
+        description=self.description,
+        label=self.label,
+        trialIntentTypes=self.trial_intents, 
+        trialTypes=self.trial_types, 
+        interventionModel=self.intervention_model,
+        studyCells=self.cells,
+        arms=self.arms,
+        epochs=self.epochs,
+        elements=list(self.elements.values()),
+        therapeuticAreas=self.therapeutic_areas,
+        rationale=self.rationale, 
+        blindingSchema=self.blinding, 
+        contents=[],
+        maskingRoles=self.masks
+      )
+    except Exception as e:
+      self._general_error("Failed to create StudyDesign object, exception {e}")
+      self._traceback(f"{traceback.format_exc()}")
+      return None
+  
+
+  def _set_masking(self, rindex, cindex):
+    if option_manager.get(Options.USDM_VERSION) == '2':
+      return None
+    else:
+      try:
+        text = self.read_cell(rindex, cindex)
+        parts = text.split('=')
+        if len(parts) == 2: 
+          code = CDISCCT().code_for_attribute('Masking', 'role', parts[0].strip())
+          if code:
+            mask = Masking(id=id_manager.build_id(Masking), description=parts[1].strip(), role=code)
+            self.masks.append(mask)
+            cross_references.add(mask.id, mask)
+            return mask
+          else:
+            self._error(rindex, cindex, f"Failed to decode masking role data '{text}', must be a valid role code '{parts[0]}'")
+            return None
+        else:
+          self._error(rindex, cindex, f"Failed to decode masking role data '{text}', no '=' detected")
+          return None
+      except Exception as e:
+        self._error(rindex, cindex, "Failed to create Masking object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+        return None
