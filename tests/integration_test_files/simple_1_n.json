@@ -7,6 +7,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Interventional Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_1"
     }
@@ -19,6 +20,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Phase III Trial",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_2"
     }
@@ -28,6 +30,7 @@
     "properties": {
       "id": "AliasCode_1",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_1"
     }
@@ -40,6 +43,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Sponsor Approval Date",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_6"
     }
@@ -52,6 +56,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Global",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_7"
     }
@@ -60,8 +65,8 @@
     "id": 8,
     "properties": {
       "id": "GeographicScope_1",
-      "instanceType": "GEOGRAPHIC_SCOPE",
       "code": null,
+      "instanceType": "GeographicScope",
       "_type": "GeographicScope",
       "label": "GeographicScope_1"
     }
@@ -74,6 +79,7 @@
       "label": "GovernanceDate_1",
       "description": "Design approval date",
       "dateValue": "2023-01-01",
+      "instanceType": "GovernanceDate",
       "_type": "GovernanceDate"
     }
   },
@@ -85,6 +91,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "Vacines Group",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_3"
     }
@@ -97,6 +104,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "Regulatory",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_4"
     }
@@ -109,6 +117,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Study Registry",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_10"
     }
@@ -121,6 +130,7 @@
       "codeSystem": "ISO 3166 1 alpha3",
       "codeSystemVersion": "2020-08",
       "decode": "United Kingdom of Great Britain and Northern Ireland",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_11"
     }
@@ -135,6 +145,7 @@
       "district": "district",
       "state": "state",
       "postalCode": "postal_code",
+      "instanceType": "Address",
       "_type": "Address",
       "label": "Address_1"
     }
@@ -147,6 +158,7 @@
       "label": "Organization_1",
       "identifierScheme": "USGOV",
       "identifier": "CT-GOV",
+      "instanceType": "Organization",
       "_type": "Organization"
     }
   },
@@ -155,6 +167,7 @@
     "properties": {
       "id": "StudyIdentifier_1",
       "studyIdentifier": "NCT12345678",
+      "instanceType": "StudyIdentifier",
       "_type": "StudyIdentifier",
       "label": "StudyIdentifier_1"
     }
@@ -167,6 +180,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinical Study Sponsor",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_12"
     }
@@ -179,6 +193,7 @@
       "codeSystem": "ISO 3166 1 alpha3",
       "codeSystemVersion": "2020-08",
       "decode": "France",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_13"
     }
@@ -193,6 +208,7 @@
       "district": "In a District",
       "state": "In a big state",
       "postalCode": "12345",
+      "instanceType": "Address",
       "_type": "Address",
       "label": "Address_2"
     }
@@ -205,6 +221,7 @@
       "label": "Organization_2",
       "identifierScheme": "DUNS",
       "identifier": "123456789",
+      "instanceType": "Organization",
       "_type": "Organization"
     }
   },
@@ -213,6 +230,7 @@
     "properties": {
       "id": "StudyIdentifier_2",
       "studyIdentifier": "AP1234",
+      "instanceType": "StudyIdentifier",
       "_type": "StudyIdentifier",
       "label": "StudyIdentifier_2"
     }
@@ -225,6 +243,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Basic Research",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_42"
     }
@@ -237,6 +256,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Device Feasibility Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_43"
     }
@@ -249,6 +269,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Efficacy Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_44"
     }
@@ -261,6 +282,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "Type 2 diabetes",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_39"
     }
@@ -273,6 +295,7 @@
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Diabetes mellitus (disorder)",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_40"
     }
@@ -285,6 +308,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Parallel Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_45"
     }
@@ -297,6 +321,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_16"
     }
@@ -309,6 +334,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_17"
     }
@@ -321,6 +347,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_18"
     }
@@ -333,6 +360,7 @@
       "label": "TransitionRule_1",
       "description": null,
       "text": "Subject identified",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -344,6 +372,7 @@
       "label": "TransitionRule_2",
       "description": null,
       "text": "IEs passed",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -357,6 +386,7 @@
       "previousId": null,
       "nextId": "Encounter_2",
       "scheduledAtId": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -368,6 +398,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_19"
     }
@@ -380,6 +411,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_20"
     }
@@ -392,6 +424,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_21"
     }
@@ -408,6 +441,7 @@
       "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -419,6 +453,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_22"
     }
@@ -431,6 +466,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_23"
     }
@@ -443,6 +479,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_24"
     }
@@ -455,6 +492,7 @@
       "label": "TransitionRule_3",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -469,6 +507,7 @@
       "nextId": "Encounter_4",
       "scheduledAtId": null,
       "transitionEndRule": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -480,6 +519,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_25"
     }
@@ -492,6 +532,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_26"
     }
@@ -504,6 +545,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_27"
     }
@@ -520,6 +562,7 @@
       "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -531,6 +574,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_28"
     }
@@ -543,6 +587,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Home",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_29"
     }
@@ -555,6 +600,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Telephone Call",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_30"
     }
@@ -571,6 +617,7 @@
       "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -584,9 +631,8 @@
       "previousId": null,
       "nextId": "Activity_2",
       "definedProcedures": [],
-      "isConditional": false,
-      "isConditionalReason": "",
       "timelineId": "",
+      "instanceType": "Activity",
       "_type": "Activity"
     }
   },
@@ -600,9 +646,8 @@
       "previousId": "Activity_1",
       "nextId": null,
       "definedProcedures": [],
-      "isConditional": true,
-      "isConditionalReason": "Only do this if they have two heads",
       "timelineId": "",
+      "instanceType": "Activity",
       "_type": "Activity"
     }
   },
@@ -614,6 +659,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Male",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_72"
     }
@@ -623,6 +669,7 @@
     "properties": {
       "id": "ResponseCode_1",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_1"
     }
@@ -635,6 +682,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Female",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_73"
     }
@@ -644,6 +692,7 @@
     "properties": {
       "id": "ResponseCode_2",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_2"
     }
@@ -656,6 +705,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Sex",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_74"
     }
@@ -665,6 +715,7 @@
     "properties": {
       "id": "AliasCode_4",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_4"
     }
@@ -678,6 +729,7 @@
       "isRequired": true,
       "isEnabled": true,
       "datatype": "string",
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -689,6 +741,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Sex",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_71"
     }
@@ -698,6 +751,7 @@
     "properties": {
       "id": "AliasCode_3",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_3"
     }
@@ -710,6 +764,7 @@
       "label": "BiomedicalConcept_1",
       "synonyms": [],
       "reference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421",
+      "instanceType": "BiomedicalConcept",
       "_type": "BiomedicalConcept"
     }
   },
@@ -721,6 +776,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Race",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_76"
     }
@@ -730,6 +786,7 @@
     "properties": {
       "id": "AliasCode_6",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_6"
     }
@@ -744,6 +801,7 @@
       "isEnabled": true,
       "datatype": "string",
       "responseCodes": [],
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -755,6 +813,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Race",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_75"
     }
@@ -764,6 +823,7 @@
     "properties": {
       "id": "AliasCode_5",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_5"
     }
@@ -778,6 +838,7 @@
         "Racial Group"
       ],
       "reference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C17049",
+      "instanceType": "BiomedicalConcept",
       "_type": "BiomedicalConcept"
     }
   },
@@ -789,6 +850,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Vital Signs Result",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_78"
     }
@@ -798,6 +860,7 @@
     "properties": {
       "id": "AliasCode_8",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_8"
     }
@@ -812,6 +875,7 @@
       "isEnabled": true,
       "datatype": "decimal",
       "responseCodes": [],
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -823,6 +887,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Kilogram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_79"
     }
@@ -832,6 +897,7 @@
     "properties": {
       "id": "ResponseCode_3",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_3"
     }
@@ -844,6 +910,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Gram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_80"
     }
@@ -853,6 +920,7 @@
     "properties": {
       "id": "ResponseCode_4",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_4"
     }
@@ -865,6 +933,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Pound",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_81"
     }
@@ -874,6 +943,7 @@
     "properties": {
       "id": "ResponseCode_5",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_5"
     }
@@ -886,6 +956,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Unit of Weight",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_82"
     }
@@ -895,6 +966,7 @@
     "properties": {
       "id": "AliasCode_9",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_9"
     }
@@ -908,6 +980,7 @@
       "isRequired": true,
       "isEnabled": true,
       "datatype": "string",
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -919,6 +992,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Body Weight",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_77"
     }
@@ -928,6 +1002,7 @@
     "properties": {
       "id": "AliasCode_7",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_7"
     }
@@ -942,6 +1017,7 @@
         "Weight"
       ],
       "reference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328",
+      "instanceType": "BiomedicalConcept",
       "_type": "BiomedicalConcept"
     }
   },
@@ -953,6 +1029,7 @@
       "label": "BiomedicalConceptSurrogate_1",
       "description": "Age",
       "reference": "None set",
+      "instanceType": "BiomedicalConceptSurrogate",
       "_type": "BiomedicalConceptSurrogate"
     }
   },
@@ -964,6 +1041,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Active Comparator Arm",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_31"
     }
@@ -976,6 +1054,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Data Generated Within Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_32"
     }
@@ -989,6 +1068,7 @@
       "description": "Active Substance",
       "dataOriginDescription": "Data collected from subjects",
       "populationIds": [],
+      "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
   },
@@ -1000,6 +1080,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Placebo Comparator Arm",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_33"
     }
@@ -1012,6 +1093,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Data Generated Within Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_34"
     }
@@ -1025,6 +1107,7 @@
       "description": "Placebo",
       "dataOriginDescription": "Data collected from subjects",
       "populationIds": [],
+      "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
   },
@@ -1037,6 +1120,7 @@
       "elementIds": [
         "StudyElement_1"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_1"
     }
@@ -1050,6 +1134,7 @@
       "elementIds": [
         "StudyElement_2"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_2"
     }
@@ -1064,6 +1149,7 @@
         "StudyElement_3",
         "StudyElement_5"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_3"
     }
@@ -1077,6 +1163,7 @@
       "elementIds": [
         "StudyElement_4"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_4"
     }
@@ -1090,6 +1177,7 @@
       "elementIds": [
         "StudyElement_1"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_5"
     }
@@ -1103,6 +1191,7 @@
       "elementIds": [
         "StudyElement_2"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_6"
     }
@@ -1117,6 +1206,7 @@
         "StudyElement_5",
         "StudyElement_3"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_7"
     }
@@ -1130,6 +1220,7 @@
       "elementIds": [
         "StudyElement_4"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_8"
     }
@@ -1142,6 +1233,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Open Label Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_41"
     }
@@ -1151,6 +1243,7 @@
     "properties": {
       "id": "AliasCode_2",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_2"
     }
@@ -1163,6 +1256,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Trial Screening",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_35"
     }
@@ -1176,6 +1270,7 @@
       "description": "Screening Epoch",
       "previousId": null,
       "nextId": "StudyEpoch_2",
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -1187,6 +1282,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Baseline Epoch",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_36"
     }
@@ -1200,6 +1296,7 @@
       "description": "Baseline Epoch",
       "previousId": "StudyEpoch_1",
       "nextId": "StudyEpoch_3",
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -1211,6 +1308,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Treatment Epoch",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_37"
     }
@@ -1224,6 +1322,7 @@
       "description": "Treatment Epoch",
       "previousId": "StudyEpoch_2",
       "nextId": "StudyEpoch_4",
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -1235,6 +1334,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinical Study Follow-up",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_38"
     }
@@ -1248,6 +1348,7 @@
       "description": "Follow-up Epoch",
       "previousId": "StudyEpoch_3",
       "nextId": null,
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -1259,6 +1360,7 @@
       "label": "TransitionRule_4",
       "description": null,
       "text": "Study Start",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1270,6 +1372,7 @@
       "label": "TransitionRule_5",
       "description": null,
       "text": "Screened",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1281,6 +1384,7 @@
       "label": "StudyElement_1",
       "description": "Screening Element",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1292,6 +1396,7 @@
       "label": "TransitionRule_6",
       "description": null,
       "text": "Screened",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1303,6 +1408,7 @@
       "label": "TransitionRule_7",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1314,6 +1420,7 @@
       "label": "StudyElement_2",
       "description": "Baseline Element",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1325,6 +1432,7 @@
       "label": "TransitionRule_8",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1336,6 +1444,7 @@
       "label": "TransitionRule_9",
       "description": null,
       "text": "Completed treatment 1",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1347,6 +1456,7 @@
       "label": "StudyElement_3",
       "description": "Treatment Element 1",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1358,6 +1468,7 @@
       "label": "TransitionRule_12",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1369,6 +1480,7 @@
       "label": "TransitionRule_13",
       "description": null,
       "text": "Completed treatment 2",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1380,6 +1492,7 @@
       "label": "StudyElement_5",
       "description": "Treatment Element 2",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1391,6 +1504,7 @@
       "label": "TransitionRule_10",
       "description": null,
       "text": "Treated",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1402,6 +1516,7 @@
       "label": "TransitionRule_11",
       "description": null,
       "text": "Leave Study",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1413,6 +1528,7 @@
       "label": "StudyElement_4",
       "description": "Follow Up Element",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1424,6 +1540,7 @@
       "label": "AnalysisPopulation_1",
       "description": null,
       "text": "ITT",
+      "instanceType": "AnalysisPopulation",
       "_type": "AnalysisPopulation"
     }
   },
@@ -1435,6 +1552,7 @@
       "label": "IntercurrentEvent_1",
       "description": "IC Event Description",
       "strategy": "Patients with out of range lab values before dosing will be excluded",
+      "instanceType": "IntercurrentEvent",
       "_type": "IntercurrentEvent"
     }
   },
@@ -1446,6 +1564,7 @@
       "label": "IntercurrentEvent_2",
       "description": "IC Event Description",
       "strategy": "A second bad event",
+      "instanceType": "IntercurrentEvent",
       "_type": "IntercurrentEvent"
     }
   },
@@ -1457,6 +1576,7 @@
       "label": "IntercurrentEvent_3",
       "description": "IC Event Description",
       "strategy": "A third bad thing",
+      "instanceType": "IntercurrentEvent",
       "_type": "IntercurrentEvent"
     }
   },
@@ -1467,6 +1587,7 @@
       "summaryMeasure": "Survival of all patients",
       "treatmentId": "StudyIntervention_1",
       "variableOfInterestId": "Endpoint_1",
+      "instanceType": "Estimand",
       "_type": "Estimand",
       "label": "Estimand_1"
     }
@@ -1479,6 +1600,7 @@
       "label": "AnalysisPopulation_2",
       "description": null,
       "text": "ITT",
+      "instanceType": "AnalysisPopulation",
       "_type": "AnalysisPopulation"
     }
   },
@@ -1490,6 +1612,7 @@
       "label": "IntercurrentEvent_4",
       "description": "IC Event Description Number 2",
       "strategy": "Really really bad shit",
+      "instanceType": "IntercurrentEvent",
       "_type": "IntercurrentEvent"
     }
   },
@@ -1500,6 +1623,7 @@
       "summaryMeasure": "Something else",
       "treatmentId": "StudyIntervention_2",
       "variableOfInterestId": "Endpoint_2",
+      "instanceType": "Estimand",
       "_type": "Estimand",
       "label": "Estimand_2"
     }
@@ -1512,6 +1636,7 @@
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Indication1",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_83"
     }
@@ -1523,6 +1648,8 @@
       "name": "IND1",
       "label": "Indication_1",
       "description": "Indication One",
+      "isRareDisease": false,
+      "instanceType": "Indication",
       "_type": "Indication"
     }
   },
@@ -1534,6 +1661,7 @@
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Indication2",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_84"
     }
@@ -1545,6 +1673,8 @@
       "name": "IND2",
       "label": "Indication_2",
       "description": "Indication Two",
+      "isRareDisease": false,
+      "instanceType": "Indication",
       "_type": "Indication"
     }
   },
@@ -1556,6 +1686,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "role1",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_90"
     }
@@ -1568,6 +1699,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Pharmacologic Substance",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_91"
     }
@@ -1580,6 +1712,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Day",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_94"
     }
@@ -1589,6 +1722,7 @@
     "properties": {
       "id": "Quantity_3",
       "value": 1.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_3"
     }
@@ -1601,6 +1735,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_89"
     }
@@ -1613,6 +1748,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Percentage",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_85"
     }
@@ -1622,6 +1758,7 @@
     "properties": {
       "id": "Quantity_1",
       "value": 14.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_1"
     }
@@ -1633,6 +1770,7 @@
       "description": "",
       "durationWillVary": true,
       "reasonDurationWillVary": "Will vary becuase we say so",
+      "instanceType": "AdministrationDuration",
       "_type": "AdministrationDuration",
       "label": "AdministrationDuration_1"
     }
@@ -1645,6 +1783,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Milligram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_87"
     }
@@ -1654,6 +1793,7 @@
     "properties": {
       "id": "Quantity_2",
       "value": 12.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_2"
     }
@@ -1666,6 +1806,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Dental Route of Administration",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_86"
     }
@@ -1678,6 +1819,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Ten Days Per Month",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_88"
     }
@@ -1689,6 +1831,7 @@
       "name": "Admin 1",
       "label": "AgentAdministration_1",
       "description": "Admin Desc 1",
+      "instanceType": "AgentAdministration",
       "_type": "AgentAdministration"
     }
   },
@@ -1700,6 +1843,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "desig_1",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_93"
     }
@@ -1712,6 +1856,7 @@
       "codeSystem": "FDA",
       "codeSystemVersion": "None set",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_92"
     }
@@ -1723,6 +1868,7 @@
       "name": "INT1",
       "label": "StudyIntervention_1",
       "description": "Int Desc 1",
+      "instanceType": "StudyIntervention",
       "_type": "StudyIntervention"
     }
   },
@@ -1734,6 +1880,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "role2",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_100"
     }
@@ -1746,6 +1893,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Pharmacologic Substance",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_101"
     }
@@ -1758,6 +1906,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Day",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_104"
     }
@@ -1767,6 +1916,7 @@
     "properties": {
       "id": "Quantity_6",
       "value": 1.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_6"
     }
@@ -1779,6 +1929,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_99"
     }
@@ -1791,6 +1942,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Percentage",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_95"
     }
@@ -1800,6 +1952,7 @@
     "properties": {
       "id": "Quantity_4",
       "value": 14.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_4"
     }
@@ -1811,6 +1964,7 @@
       "description": "",
       "durationWillVary": true,
       "reasonDurationWillVary": "Will vary becuase we say so",
+      "instanceType": "AdministrationDuration",
       "_type": "AdministrationDuration",
       "label": "AdministrationDuration_2"
     }
@@ -1823,6 +1977,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Milligram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_97"
     }
@@ -1832,6 +1987,7 @@
     "properties": {
       "id": "Quantity_5",
       "value": 12.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_5"
     }
@@ -1844,6 +2000,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Dental Route of Administration",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_96"
     }
@@ -1856,6 +2013,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Ten Days Per Month",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_98"
     }
@@ -1867,6 +2025,7 @@
       "name": "Admin 2",
       "label": "AgentAdministration_2",
       "description": "Admin Desc 2",
+      "instanceType": "AgentAdministration",
       "_type": "AgentAdministration"
     }
   },
@@ -1878,6 +2037,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "desig_2",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_103"
     }
@@ -1890,6 +2050,7 @@
       "codeSystem": "FDA",
       "codeSystemVersion": "None set",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_102"
     }
@@ -1901,6 +2062,7 @@
       "name": "INT2",
       "label": "StudyIntervention_2",
       "description": "Int Desc 2",
+      "instanceType": "StudyIntervention",
       "_type": "StudyIntervention"
     }
   },
@@ -1912,6 +2074,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Trial Primary Objective",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_111"
     }
@@ -1924,6 +2087,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Primary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_110"
     }
@@ -1935,9 +2099,9 @@
       "name": "END1",
       "label": "Endpoint_1",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -1949,9 +2113,9 @@
       "name": "OBJ1",
       "label": "Objective_1",
       "description": "",
-      "instanceType": "OBJECTIVE",
       "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
       "dictionaryId": null,
+      "instanceType": "Objective",
       "_type": "Objective"
     }
   },
@@ -1963,6 +2127,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Trial Secondary Objective",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_113"
     }
@@ -1975,6 +2140,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_112"
     }
@@ -1986,9 +2152,9 @@
       "name": "END2",
       "label": "Endpoint_2",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2001,6 +2167,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_114"
     }
@@ -2012,9 +2179,9 @@
       "name": "END3",
       "label": "Endpoint_3",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2027,6 +2194,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_115"
     }
@@ -2038,9 +2206,9 @@
       "name": "END4",
       "label": "Endpoint_4",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Incidence of mechanical ventilation",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2053,6 +2221,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_116"
     }
@@ -2064,9 +2233,9 @@
       "name": "END5",
       "label": "Endpoint_5",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Ventilator-free days to Day 28",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2079,6 +2248,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_117"
     }
@@ -2090,9 +2260,9 @@
       "name": "END6",
       "label": "Endpoint_6",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Incidence of intensive care unit (ICU) stay",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2105,6 +2275,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_118"
     }
@@ -2116,9 +2287,9 @@
       "name": "END7",
       "label": "Endpoint_7",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Duration of ICU stay",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2131,6 +2302,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_119"
     }
@@ -2142,9 +2314,9 @@
       "name": "END8",
       "label": "Endpoint_8",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Time to clinical failure, defined as the time to death, mechanical ventilation, ICU admission, or withdrawal (whichever occurs first). For patients entering the study already in ICU or on mechanical ventilation, clinical failure is defined as a one-category worsening on the ordinal scale, withdrawal or death.",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2157,6 +2329,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_120"
     }
@@ -2168,9 +2341,9 @@
       "name": "END9",
       "label": "Endpoint_9",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Mortality rate at Days 7, 14, 21, 28, and 60",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2183,6 +2356,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_121"
     }
@@ -2194,9 +2368,9 @@
       "name": "END10",
       "label": "Endpoint_10",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Time to hospital discharge or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen)",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2209,6 +2383,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_122"
     }
@@ -2220,9 +2395,9 @@
       "name": "END11",
       "label": "Endpoint_11",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Time to recovery, defined as discharged or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU hospital ward (or \u201cready for hospital ward\u201d) not requiring supplemental oxygen",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2235,6 +2410,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Secondary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_123"
     }
@@ -2246,9 +2422,9 @@
       "name": "END12",
       "label": "Endpoint_12",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Duration of supplemental oxygen",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -2260,9 +2436,9 @@
       "name": "OBJ2",
       "label": "Objective_2",
       "description": "",
-      "instanceType": "OBJECTIVE",
       "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
       "dictionaryId": null,
+      "instanceType": "Objective",
       "_type": "Objective"
     }
   },
@@ -2274,6 +2450,7 @@
       "maxValue": 120.0,
       "unit": null,
       "isApproximate": false,
+      "instanceType": "Range",
       "_type": "Range",
       "label": "Range_2"
     }
@@ -2286,6 +2463,7 @@
       "maxValue": 100.0,
       "unit": null,
       "isApproximate": false,
+      "instanceType": "Range",
       "_type": "Range",
       "label": "Range_1"
     }
@@ -2297,12 +2475,13 @@
       "name": "COHORT1",
       "label": "StudyCohort_1",
       "description": "",
+      "includesHealthySubjects": false,
       "plannedEnrollmentNumber": null,
       "plannedCompletionNumber": null,
-      "plannedMaximumAge": null,
-      "plannedMinimumAge": null,
       "plannedSex": [],
       "criteria": [],
+      "plannedAge": null,
+      "instanceType": "StudyCohort",
       "characteristics": [],
       "_type": "StudyCohort"
     }
@@ -2314,12 +2493,13 @@
       "name": "COHORT2",
       "label": "StudyCohort_2",
       "description": "",
+      "includesHealthySubjects": false,
       "plannedEnrollmentNumber": null,
       "plannedCompletionNumber": null,
-      "plannedMaximumAge": null,
-      "plannedMinimumAge": null,
       "plannedSex": [],
       "criteria": [],
+      "plannedAge": null,
+      "instanceType": "StudyCohort",
       "characteristics": [],
       "_type": "StudyCohort"
     }
@@ -2331,10 +2511,11 @@
       "name": "POP1",
       "label": "StudyDesignPopulation_1",
       "description": "",
-      "plannedMaximumAge": null,
-      "plannedMinimumAge": null,
+      "includesHealthySubjects": false,
       "plannedSex": [],
       "criteria": [],
+      "plannedAge": null,
+      "instanceType": "StudyDesignPopulation",
       "_type": "StudyDesignPopulation"
     }
   },
@@ -2342,6 +2523,7 @@
     "id": 203,
     "properties": {
       "id": "ScheduleTimelineExit_1",
+      "instanceType": "ScheduleTimelineExit",
       "_type": "ScheduleTimelineExit",
       "label": "ScheduleTimelineExit_1"
     }
@@ -2354,6 +2536,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Before",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_48"
     }
@@ -2366,6 +2549,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_50"
     }
@@ -2381,6 +2565,7 @@
       "windowLower": null,
       "windowUpper": null,
       "window": null,
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -2388,9 +2573,9 @@
     "id": 204,
     "properties": {
       "id": "ScheduledActivityInstance_1",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": null,
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_1"
     }
@@ -2403,6 +2588,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Before",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_53"
     }
@@ -2415,6 +2601,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_55"
     }
@@ -2430,6 +2617,7 @@
       "windowLower": "PT0H",
       "windowUpper": "PT4H",
       "window": "0..4 Hours",
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -2437,9 +2625,9 @@
     "id": 208,
     "properties": {
       "id": "ScheduledActivityInstance_2",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": null,
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_2"
     }
@@ -2452,6 +2640,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Fixed Reference",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_56"
     }
@@ -2464,6 +2653,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_60"
     }
@@ -2479,6 +2669,7 @@
       "windowLower": "PT0H",
       "windowUpper": "PT1H",
       "window": "0..1 Hours",
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -2486,9 +2677,9 @@
     "id": 212,
     "properties": {
       "id": "ScheduledActivityInstance_3",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": null,
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_3"
     }
@@ -2501,6 +2692,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "After",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_62"
     }
@@ -2513,6 +2705,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_65"
     }
@@ -2528,6 +2721,7 @@
       "windowLower": null,
       "windowUpper": null,
       "window": null,
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -2535,9 +2729,9 @@
     "id": 216,
     "properties": {
       "id": "ScheduledActivityInstance_4",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": null,
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_4"
     }
@@ -2550,6 +2744,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "After",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_67"
     }
@@ -2562,6 +2757,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_70"
     }
@@ -2577,6 +2773,7 @@
       "windowLower": "P3D",
       "windowUpper": "P3D",
       "window": "-3..3 Days",
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -2584,9 +2781,9 @@
     "id": 220,
     "properties": {
       "id": "ScheduledActivityInstance_5",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": "ScheduleTimelineExit_1",
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_5"
     }
@@ -2601,6 +2798,7 @@
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
       "entryId": "ScheduledActivityInstance_1",
+      "instanceType": "ScheduleTimeline",
       "_type": "ScheduleTimeline"
     }
   },
@@ -2611,86 +2809,118 @@
       "name": "Study Design 1",
       "label": "StudyDesign_1",
       "description": "The main design for the study",
+      "characteristics": [],
       "bcCategories": [],
       "rationale": "Basic study",
+      "maskingRoles": [],
       "documentVersion": null,
+      "appliesTo": [],
       "dictionaries": [],
+      "conditions": [],
+      "organizations": [],
+      "instanceType": "StudyDesign",
       "_type": "StudyDesign"
+    }
+  },
+  {
+    "id": 225,
+    "properties": {
+      "id": "Code_124",
+      "code": "X",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Y",
+      "instanceType": "Code",
+      "_type": "Code",
+      "label": "Code_124"
+    }
+  },
+  {
+    "id": 224,
+    "properties": {
+      "id": "StudyTitle_1",
+      "text": "Simple Test 1",
+      "instanceType": "StudyTitle",
+      "_type": "StudyTitle",
+      "label": "StudyTitle_1"
     }
   },
   {
     "id": 2,
     "properties": {
       "id": "StudyVersion_1",
-      "studyTitle": "Simple Test 1",
       "versionIdentifier": "1",
       "rationale": "A simple test",
-      "studyAcronym": "SIMPLE",
       "documentVersionId": "StudyProtocolDocumentVersion_1",
       "amendments": [],
+      "instanceType": "StudyVersion",
       "_type": "StudyVersion",
       "label": "StudyVersion_1"
     }
   },
   {
-    "id": 226,
+    "id": 228,
     "properties": {
       "id": "Code_5",
       "code": "C85255",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Draft",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_5"
     }
   },
   {
-    "id": 228,
+    "id": 230,
     "properties": {
       "id": "Code_8",
       "code": "C99903x1",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Protocol Effective Date",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_8"
     }
   },
   {
-    "id": 230,
+    "id": 232,
     "properties": {
       "id": "Code_9",
       "code": "C68846",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Global",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_9"
     }
   },
   {
-    "id": 229,
+    "id": 231,
     "properties": {
       "id": "GeographicScope_2",
-      "instanceType": "GEOGRAPHIC_SCOPE",
       "code": null,
+      "instanceType": "GeographicScope",
       "_type": "GeographicScope",
       "label": "GeographicScope_2"
     }
   },
   {
-    "id": 227,
+    "id": 229,
     "properties": {
       "id": "GovernanceDate_2",
       "name": "Approval",
       "label": "GovernanceDate_2",
       "description": "Protocol document approval date",
       "dateValue": "2023-01-01",
+      "instanceType": "GovernanceDate",
       "_type": "GovernanceDate"
     }
   },
   {
-    "id": 231,
+    "id": 233,
     "properties": {
       "id": "NarrativeContent_1",
       "name": "ROOT",
@@ -2714,12 +2944,13 @@
         "NarrativeContent_131",
         "NarrativeContent_132"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_1"
     }
   },
   {
-    "id": 232,
+    "id": 234,
     "properties": {
       "id": "NarrativeContent_2",
       "name": "SECTION 1",
@@ -2731,12 +2962,13 @@
         "NarrativeContent_4",
         "NarrativeContent_5"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_2"
     }
   },
   {
-    "id": 233,
+    "id": 235,
     "properties": {
       "id": "NarrativeContent_3",
       "name": "SECTION 1.1",
@@ -2744,12 +2976,13 @@
       "sectionTitle": "Protocol Synopsis",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_3"
     }
   },
   {
-    "id": 234,
+    "id": 236,
     "properties": {
       "id": "NarrativeContent_4",
       "name": "SECTION 1.2",
@@ -2757,12 +2990,13 @@
       "sectionTitle": "Trial Schema",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_4"
     }
   },
   {
-    "id": 235,
+    "id": 237,
     "properties": {
       "id": "NarrativeContent_5",
       "name": "SECTION 1.3",
@@ -2770,12 +3004,13 @@
       "sectionTitle": "Schedule of Activities",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_5"
     }
   },
   {
-    "id": 236,
+    "id": 238,
     "properties": {
       "id": "NarrativeContent_6",
       "name": "SECTION 2",
@@ -2786,12 +3021,13 @@
         "NarrativeContent_7",
         "NarrativeContent_8"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_6"
     }
   },
   {
-    "id": 237,
+    "id": 239,
     "properties": {
       "id": "NarrativeContent_7",
       "name": "SECTION 2.1",
@@ -2799,12 +3035,13 @@
       "sectionTitle": "Purpose of Trial",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_7"
     }
   },
   {
-    "id": 238,
+    "id": 240,
     "properties": {
       "id": "NarrativeContent_8",
       "name": "SECTION 2.2",
@@ -2812,12 +3049,13 @@
       "sectionTitle": "Summary of Benefits and Risks",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_8"
     }
   },
   {
-    "id": 239,
+    "id": 241,
     "properties": {
       "id": "NarrativeContent_9",
       "name": "SECTION 3",
@@ -2827,12 +3065,13 @@
       "childrenIds": [
         "NarrativeContent_10"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_9"
     }
   },
   {
-    "id": 240,
+    "id": 242,
     "properties": {
       "id": "NarrativeContent_10",
       "name": "SECTION 3.1",
@@ -2840,12 +3079,13 @@
       "sectionTitle": "Primary Objectives",
       "text": "<div><table>\n  <tr>\n    <th style=\"vertical-align: top\">Primary Objective</th>\n    <th style=\"vertical-align: top\">Primary Endpoint</th>\n  </tr>\n  <tr>\n    <td style=\"vertical-align: top\"><usdm:ref klass=\"Objective\" namexref=\"OBJ1\" attribute=\"description\"/></td>\n    <td style=\"vertical-align: top\"><usdm:ref klass=\"Endpoint\" id=\"Endpoint_1\" attribute=\"description\"/></td>\n  </tr>\n</table></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_10"
     }
   },
   {
-    "id": 241,
+    "id": 243,
     "properties": {
       "id": "NarrativeContent_11",
       "name": "SECTION 4",
@@ -2858,12 +3098,13 @@
         "NarrativeContent_18",
         "NarrativeContent_19"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_11"
     }
   },
   {
-    "id": 242,
+    "id": 244,
     "properties": {
       "id": "NarrativeContent_12",
       "name": "SECTION 4.1",
@@ -2873,12 +3114,13 @@
       "childrenIds": [
         "NarrativeContent_13"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_12"
     }
   },
   {
-    "id": 243,
+    "id": 245,
     "properties": {
       "id": "NarrativeContent_13",
       "name": "SECTION 4.1.1",
@@ -2886,12 +3128,13 @@
       "sectionTitle": "Participant Input into Design",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_13"
     }
   },
   {
-    "id": 244,
+    "id": 246,
     "properties": {
       "id": "NarrativeContent_14",
       "name": "SECTION 4.2",
@@ -2903,12 +3146,13 @@
         "NarrativeContent_16",
         "NarrativeContent_17"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_14"
     }
   },
   {
-    "id": 245,
+    "id": 247,
     "properties": {
       "id": "NarrativeContent_15",
       "name": "SECTION 4.2.1",
@@ -2916,12 +3160,13 @@
       "sectionTitle": "Rationale for Comparator",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_15"
     }
   },
   {
-    "id": 246,
+    "id": 248,
     "properties": {
       "id": "NarrativeContent_16",
       "name": "SECTION 4.2.2",
@@ -2929,12 +3174,13 @@
       "sectionTitle": "Rationale for Adaptive or Novel Trial Design",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_16"
     }
   },
   {
-    "id": 247,
+    "id": 249,
     "properties": {
       "id": "NarrativeContent_17",
       "name": "SECTION 4.2.3",
@@ -2942,12 +3188,13 @@
       "sectionTitle": "Other Trial Design Considerations",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_17"
     }
   },
   {
-    "id": 248,
+    "id": 250,
     "properties": {
       "id": "NarrativeContent_18",
       "name": "SECTION 4.3",
@@ -2955,12 +3202,13 @@
       "sectionTitle": "Access to Trial Intervention After End of Trial",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_18"
     }
   },
   {
-    "id": 249,
+    "id": 251,
     "properties": {
       "id": "NarrativeContent_19",
       "name": "SECTION 4.4",
@@ -2968,12 +3216,13 @@
       "sectionTitle": "Start of Trial and End of Trial",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_19"
     }
   },
   {
-    "id": 250,
+    "id": 252,
     "properties": {
       "id": "NarrativeContent_20",
       "name": "SECTION 5",
@@ -2988,12 +3237,13 @@
         "NarrativeContent_25",
         "NarrativeContent_30"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_20"
     }
   },
   {
-    "id": 251,
+    "id": 253,
     "properties": {
       "id": "NarrativeContent_21",
       "name": "SECTION 5.1",
@@ -3001,12 +3251,13 @@
       "sectionTitle": "Selection of Trial Population",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_21"
     }
   },
   {
-    "id": 252,
+    "id": 254,
     "properties": {
       "id": "NarrativeContent_22",
       "name": "SECTION 5.2",
@@ -3014,12 +3265,13 @@
       "sectionTitle": "Rationale for Trial Population",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_22"
     }
   },
   {
-    "id": 253,
+    "id": 255,
     "properties": {
       "id": "NarrativeContent_23",
       "name": "SECTION 5.3",
@@ -3027,12 +3279,13 @@
       "sectionTitle": "Inclusion Criteria",
       "text": "<div><p>Inclusion criteria are:</p>\n<ul>\n  <li>1. Something</li>\n  <li>2. Something else</li>\n</ul></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_23"
     }
   },
   {
-    "id": 254,
+    "id": 256,
     "properties": {
       "id": "NarrativeContent_24",
       "name": "SECTION 5.4",
@@ -3040,12 +3293,13 @@
       "sectionTitle": "Exclusion Criteria",
       "text": "<div><p>Exclusion criteria are:</p>\n<ul>\n  <li>1. Dont do this</li>\n  <li>2. And don't do that</li>\n</ul></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_24"
     }
   },
   {
-    "id": 255,
+    "id": 257,
     "properties": {
       "id": "NarrativeContent_25",
       "name": "SECTION 5.5",
@@ -3058,12 +3312,13 @@
         "NarrativeContent_28",
         "NarrativeContent_29"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_25"
     }
   },
   {
-    "id": 256,
+    "id": 258,
     "properties": {
       "id": "NarrativeContent_26",
       "name": "SECTION 5.5.1",
@@ -3071,12 +3326,13 @@
       "sectionTitle": "Meals and Dietary Restrictions",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_26"
     }
   },
   {
-    "id": 257,
+    "id": 259,
     "properties": {
       "id": "NarrativeContent_27",
       "name": "SECTION 5.5.2",
@@ -3084,12 +3340,13 @@
       "sectionTitle": "Caffeine, Alcohol, Tobacco, and Other Habits",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_27"
     }
   },
   {
-    "id": 258,
+    "id": 260,
     "properties": {
       "id": "NarrativeContent_28",
       "name": "SECTION 5.5.3",
@@ -3097,12 +3354,13 @@
       "sectionTitle": "Physical Activity",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_28"
     }
   },
   {
-    "id": 259,
+    "id": 261,
     "properties": {
       "id": "NarrativeContent_29",
       "name": "SECTION 5.5.4",
@@ -3110,12 +3368,13 @@
       "sectionTitle": "Other Activity",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_29"
     }
   },
   {
-    "id": 260,
+    "id": 262,
     "properties": {
       "id": "NarrativeContent_30",
       "name": "SECTION 5.6",
@@ -3123,12 +3382,13 @@
       "sectionTitle": "Screen Failures",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_30"
     }
   },
   {
-    "id": 261,
+    "id": 263,
     "properties": {
       "id": "NarrativeContent_31",
       "name": "SECTION 6",
@@ -3145,12 +3405,13 @@
         "NarrativeContent_45",
         "NarrativeContent_46"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_31"
     }
   },
   {
-    "id": 262,
+    "id": 264,
     "properties": {
       "id": "NarrativeContent_32",
       "name": "SECTION 6.1",
@@ -3158,12 +3419,13 @@
       "sectionTitle": "Description of Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_32"
     }
   },
   {
-    "id": 263,
+    "id": 265,
     "properties": {
       "id": "NarrativeContent_33",
       "name": "SECTION 6.2",
@@ -3171,12 +3433,13 @@
       "sectionTitle": "Rationale for Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_33"
     }
   },
   {
-    "id": 264,
+    "id": 266,
     "properties": {
       "id": "NarrativeContent_34",
       "name": "SECTION 6.3",
@@ -3186,12 +3449,13 @@
       "childrenIds": [
         "NarrativeContent_35"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_34"
     }
   },
   {
-    "id": 265,
+    "id": 267,
     "properties": {
       "id": "NarrativeContent_35",
       "name": "SECTION 6.3.1",
@@ -3199,12 +3463,13 @@
       "sectionTitle": "Trial Intervention Dose Modification",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_35"
     }
   },
   {
-    "id": 266,
+    "id": 268,
     "properties": {
       "id": "NarrativeContent_36",
       "name": "SECTION 6.4",
@@ -3212,12 +3477,13 @@
       "sectionTitle": "Treatment of Overdose",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_36"
     }
   },
   {
-    "id": 267,
+    "id": 269,
     "properties": {
       "id": "NarrativeContent_37",
       "name": "SECTION 6.5",
@@ -3229,12 +3495,13 @@
         "NarrativeContent_39",
         "NarrativeContent_40"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_37"
     }
   },
   {
-    "id": 268,
+    "id": 270,
     "properties": {
       "id": "NarrativeContent_38",
       "name": "SECTION 6.5.1",
@@ -3242,12 +3509,13 @@
       "sectionTitle": "Preparation of Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_38"
     }
   },
   {
-    "id": 269,
+    "id": 271,
     "properties": {
       "id": "NarrativeContent_39",
       "name": "SECTION 6.5.2",
@@ -3255,12 +3523,13 @@
       "sectionTitle": "Handling and Storage of Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_39"
     }
   },
   {
-    "id": 270,
+    "id": 272,
     "properties": {
       "id": "NarrativeContent_40",
       "name": "SECTION 6.5.3",
@@ -3268,12 +3537,13 @@
       "sectionTitle": "Accountability of Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_40"
     }
   },
   {
-    "id": 271,
+    "id": 273,
     "properties": {
       "id": "NarrativeContent_41",
       "name": "SECTION 6.6",
@@ -3285,12 +3555,13 @@
         "NarrativeContent_43",
         "NarrativeContent_44"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_41"
     }
   },
   {
-    "id": 272,
+    "id": 274,
     "properties": {
       "id": "NarrativeContent_42",
       "name": "SECTION 6.6.1",
@@ -3298,12 +3569,13 @@
       "sectionTitle": "Participant Assignment",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_42"
     }
   },
   {
-    "id": 273,
+    "id": 275,
     "properties": {
       "id": "NarrativeContent_43",
       "name": "SECTION 6.6.2",
@@ -3311,12 +3583,13 @@
       "sectionTitle": "Randomisation",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_43"
     }
   },
   {
-    "id": 274,
+    "id": 276,
     "properties": {
       "id": "NarrativeContent_44",
       "name": "SECTION 6.6.3",
@@ -3324,12 +3597,13 @@
       "sectionTitle": "Blinding and Unblinding",
       "text": "<div><p>Blinding and unblinding text here please</p></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_44"
     }
   },
   {
-    "id": 275,
+    "id": 277,
     "properties": {
       "id": "NarrativeContent_45",
       "name": "SECTION 6.7",
@@ -3337,12 +3611,13 @@
       "sectionTitle": "Trial Intervention Compliance",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_45"
     }
   },
   {
-    "id": 276,
+    "id": 278,
     "properties": {
       "id": "NarrativeContent_46",
       "name": "SECTION 6.8",
@@ -3355,12 +3630,13 @@
         "NarrativeContent_49",
         "NarrativeContent_50"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_46"
     }
   },
   {
-    "id": 277,
+    "id": 279,
     "properties": {
       "id": "NarrativeContent_47",
       "name": "SECTION 6.8.1",
@@ -3368,12 +3644,13 @@
       "sectionTitle": "Prohibited Concomitant Therapy",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_47"
     }
   },
   {
-    "id": 278,
+    "id": 280,
     "properties": {
       "id": "NarrativeContent_48",
       "name": "SECTION 6.8.2",
@@ -3381,12 +3658,13 @@
       "sectionTitle": "Permitted Concomitant Therapy",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_48"
     }
   },
   {
-    "id": 279,
+    "id": 281,
     "properties": {
       "id": "NarrativeContent_49",
       "name": "SECTION 6.8.3",
@@ -3394,12 +3672,13 @@
       "sectionTitle": "Rescue Therapy",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_49"
     }
   },
   {
-    "id": 280,
+    "id": 282,
     "properties": {
       "id": "NarrativeContent_50",
       "name": "SECTION 6.8.4",
@@ -3407,12 +3686,13 @@
       "sectionTitle": "Other Therapy",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_50"
     }
   },
   {
-    "id": 281,
+    "id": 283,
     "properties": {
       "id": "NarrativeContent_51",
       "name": "SECTION 7",
@@ -3425,12 +3705,13 @@
         "NarrativeContent_57",
         "NarrativeContent_58"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_51"
     }
   },
   {
-    "id": 282,
+    "id": 284,
     "properties": {
       "id": "NarrativeContent_52",
       "name": "SECTION 7.1",
@@ -3442,12 +3723,13 @@
         "NarrativeContent_54",
         "NarrativeContent_55"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_52"
     }
   },
   {
-    "id": 283,
+    "id": 285,
     "properties": {
       "id": "NarrativeContent_53",
       "name": "SECTION 7.1.1",
@@ -3455,12 +3737,13 @@
       "sectionTitle": "Criteria for Permanent Discontinuation of Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_53"
     }
   },
   {
-    "id": 284,
+    "id": 286,
     "properties": {
       "id": "NarrativeContent_54",
       "name": "SECTION 7.1.2",
@@ -3468,12 +3751,13 @@
       "sectionTitle": "Temporary Discontinuation or Interruption of Trial Intervention",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_54"
     }
   },
   {
-    "id": 285,
+    "id": 287,
     "properties": {
       "id": "NarrativeContent_55",
       "name": "SECTION 7.1.3",
@@ -3481,12 +3765,13 @@
       "sectionTitle": "Rechallenge",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_55"
     }
   },
   {
-    "id": 286,
+    "id": 288,
     "properties": {
       "id": "NarrativeContent_56",
       "name": "SECTION 7.2",
@@ -3494,12 +3779,13 @@
       "sectionTitle": "Participant Withdrawal from the Trial",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_56"
     }
   },
   {
-    "id": 287,
+    "id": 289,
     "properties": {
       "id": "NarrativeContent_57",
       "name": "SECTION 7.3",
@@ -3507,12 +3793,13 @@
       "sectionTitle": "Lost to Follow-Up",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_57"
     }
   },
   {
-    "id": 288,
+    "id": 290,
     "properties": {
       "id": "NarrativeContent_58",
       "name": "SECTION 7.4",
@@ -3520,12 +3807,13 @@
       "sectionTitle": "Trial Stopping Rules",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_58"
     }
   },
   {
-    "id": 289,
+    "id": 291,
     "properties": {
       "id": "NarrativeContent_59",
       "name": "SECTION 8",
@@ -3544,12 +3832,13 @@
         "NarrativeContent_90",
         "NarrativeContent_91"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_59"
     }
   },
   {
-    "id": 290,
+    "id": 292,
     "properties": {
       "id": "NarrativeContent_60",
       "name": "SECTION 8.1",
@@ -3557,12 +3846,13 @@
       "sectionTitle": "Screening/Baseline Assessments and Procedures",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_60"
     }
   },
   {
-    "id": 291,
+    "id": 293,
     "properties": {
       "id": "NarrativeContent_61",
       "name": "SECTION 8.2",
@@ -3570,12 +3860,13 @@
       "sectionTitle": "Efficacy Assessments and Procedures",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_61"
     }
   },
   {
-    "id": 292,
+    "id": 294,
     "properties": {
       "id": "NarrativeContent_62",
       "name": "SECTION 8.3",
@@ -3589,12 +3880,13 @@
         "NarrativeContent_66",
         "NarrativeContent_67"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_62"
     }
   },
   {
-    "id": 293,
+    "id": 295,
     "properties": {
       "id": "NarrativeContent_63",
       "name": "SECTION 8.3.1",
@@ -3602,12 +3894,13 @@
       "sectionTitle": "Physical Examination",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_63"
     }
   },
   {
-    "id": 294,
+    "id": 296,
     "properties": {
       "id": "NarrativeContent_64",
       "name": "SECTION 8.3.2",
@@ -3615,12 +3908,13 @@
       "sectionTitle": "Vital Signs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_64"
     }
   },
   {
-    "id": 295,
+    "id": 297,
     "properties": {
       "id": "NarrativeContent_65",
       "name": "SECTION 8.3.3",
@@ -3628,12 +3922,13 @@
       "sectionTitle": "Electrocardiograms",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_65"
     }
   },
   {
-    "id": 296,
+    "id": 298,
     "properties": {
       "id": "NarrativeContent_66",
       "name": "SECTION 8.3.4",
@@ -3641,12 +3936,13 @@
       "sectionTitle": "Clinical Laboratory Assessments",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_66"
     }
   },
   {
-    "id": 297,
+    "id": 299,
     "properties": {
       "id": "NarrativeContent_67",
       "name": "SECTION 8.3.5",
@@ -3654,12 +3950,13 @@
       "sectionTitle": "Suicidal Ideation and Behaviour Risk Monitoring",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_67"
     }
   },
   {
-    "id": 298,
+    "id": 300,
     "properties": {
       "id": "NarrativeContent_68",
       "name": "SECTION 8.4",
@@ -3678,12 +3975,13 @@
         "NarrativeContent_77",
         "NarrativeContent_78"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_68"
     }
   },
   {
-    "id": 299,
+    "id": 301,
     "properties": {
       "id": "NarrativeContent_69",
       "name": "SECTION 8.4.1",
@@ -3691,12 +3989,13 @@
       "sectionTitle": "Definitions of AE and SAE",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_69"
     }
   },
   {
-    "id": 300,
+    "id": 302,
     "properties": {
       "id": "NarrativeContent_70",
       "name": "SECTION 8.4.2",
@@ -3704,12 +4003,13 @@
       "sectionTitle": "Time Period and Frequency for Collecting AE and SAE Information",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_70"
     }
   },
   {
-    "id": 301,
+    "id": 303,
     "properties": {
       "id": "NarrativeContent_71",
       "name": "SECTION 8.4.3",
@@ -3717,12 +4017,13 @@
       "sectionTitle": "Identifying AEs and SAEs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_71"
     }
   },
   {
-    "id": 302,
+    "id": 304,
     "properties": {
       "id": "NarrativeContent_72",
       "name": "SECTION 8.4.4",
@@ -3730,12 +4031,13 @@
       "sectionTitle": "Recording of AEs and SAEs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_72"
     }
   },
   {
-    "id": 303,
+    "id": 305,
     "properties": {
       "id": "NarrativeContent_73",
       "name": "SECTION 8.4.5",
@@ -3743,12 +4045,13 @@
       "sectionTitle": "Follow-up of AEs and SAEs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_73"
     }
   },
   {
-    "id": 304,
+    "id": 306,
     "properties": {
       "id": "NarrativeContent_74",
       "name": "SECTION 8.4.6",
@@ -3756,12 +4059,13 @@
       "sectionTitle": "Reporting of SAEs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_74"
     }
   },
   {
-    "id": 305,
+    "id": 307,
     "properties": {
       "id": "NarrativeContent_75",
       "name": "SECTION 8.4.7",
@@ -3769,12 +4073,13 @@
       "sectionTitle": "Regulatory Reporting Requirements for SAEs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_75"
     }
   },
   {
-    "id": 306,
+    "id": 308,
     "properties": {
       "id": "NarrativeContent_76",
       "name": "SECTION 8.4.8",
@@ -3782,12 +4087,13 @@
       "sectionTitle": "Serious and Unexpected Adverse Reaction Reporting",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_76"
     }
   },
   {
-    "id": 307,
+    "id": 309,
     "properties": {
       "id": "NarrativeContent_77",
       "name": "SECTION 8.4.9",
@@ -3795,12 +4101,13 @@
       "sectionTitle": "Adverse Events of Special Interest",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_77"
     }
   },
   {
-    "id": 308,
+    "id": 310,
     "properties": {
       "id": "NarrativeContent_78",
       "name": "SECTION 8.4.10",
@@ -3808,12 +4115,13 @@
       "sectionTitle": "Disease-related Events or Outcomes Not Qualifying as AEs or SAEs",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_78"
     }
   },
   {
-    "id": 309,
+    "id": 311,
     "properties": {
       "id": "NarrativeContent_79",
       "name": "SECTION 8.5",
@@ -3824,12 +4132,13 @@
         "NarrativeContent_80",
         "NarrativeContent_81"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_79"
     }
   },
   {
-    "id": 310,
+    "id": 312,
     "properties": {
       "id": "NarrativeContent_80",
       "name": "SECTION 8.5.1",
@@ -3837,12 +4146,13 @@
       "sectionTitle": "Participants Who Become Pregnant During the Trial",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_80"
     }
   },
   {
-    "id": 311,
+    "id": 313,
     "properties": {
       "id": "NarrativeContent_81",
       "name": "SECTION 8.5.2",
@@ -3850,12 +4160,13 @@
       "sectionTitle": "Participants Whose Partners Become Pregnant",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_81"
     }
   },
   {
-    "id": 312,
+    "id": 314,
     "properties": {
       "id": "NarrativeContent_82",
       "name": "SECTION 8.6",
@@ -3869,12 +4180,13 @@
         "NarrativeContent_86",
         "NarrativeContent_87"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_82"
     }
   },
   {
-    "id": 313,
+    "id": 315,
     "properties": {
       "id": "NarrativeContent_83",
       "name": "SECTION 8.6.1",
@@ -3882,12 +4194,13 @@
       "sectionTitle": "Definition of Medical Device Product Complaints",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_83"
     }
   },
   {
-    "id": 314,
+    "id": 316,
     "properties": {
       "id": "NarrativeContent_84",
       "name": "SECTION 8.6.2",
@@ -3895,12 +4208,13 @@
       "sectionTitle": "Recording of Medical Device Product Complaints",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_84"
     }
   },
   {
-    "id": 315,
+    "id": 317,
     "properties": {
       "id": "NarrativeContent_85",
       "name": "SECTION 8.6.3",
@@ -3908,12 +4222,13 @@
       "sectionTitle": "Time Period and Frequency for Collecting Medical Device Product Complaints .",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_85"
     }
   },
   {
-    "id": 316,
+    "id": 318,
     "properties": {
       "id": "NarrativeContent_86",
       "name": "SECTION 8.6.4",
@@ -3921,12 +4236,13 @@
       "sectionTitle": "Follow-Up of Medical Device Product Complaints",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_86"
     }
   },
   {
-    "id": 317,
+    "id": 319,
     "properties": {
       "id": "NarrativeContent_87",
       "name": "SECTION 8.6.5",
@@ -3934,12 +4250,13 @@
       "sectionTitle": "Regulatory Reporting Requirements for Medical Device Product Complaints",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_87"
     }
   },
   {
-    "id": 318,
+    "id": 320,
     "properties": {
       "id": "NarrativeContent_88",
       "name": "SECTION 8.7",
@@ -3947,12 +4264,13 @@
       "sectionTitle": "Pharmacokinetics",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_88"
     }
   },
   {
-    "id": 319,
+    "id": 321,
     "properties": {
       "id": "NarrativeContent_89",
       "name": "SECTION 8.8",
@@ -3960,12 +4278,13 @@
       "sectionTitle": "Genetics",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_89"
     }
   },
   {
-    "id": 320,
+    "id": 322,
     "properties": {
       "id": "NarrativeContent_90",
       "name": "SECTION 8.9",
@@ -3973,12 +4292,13 @@
       "sectionTitle": "Biomarkers",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_90"
     }
   },
   {
-    "id": 321,
+    "id": 323,
     "properties": {
       "id": "NarrativeContent_91",
       "name": "SECTION 8.1",
@@ -3988,12 +4308,13 @@
       "childrenIds": [
         "NarrativeContent_92"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_91"
     }
   },
   {
-    "id": 322,
+    "id": 324,
     "properties": {
       "id": "NarrativeContent_92",
       "name": "SECTION 8.1.1",
@@ -4001,12 +4322,13 @@
       "sectionTitle": "Medical Resource Utilisation and Health Economics",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_92"
     }
   },
   {
-    "id": 323,
+    "id": 325,
     "properties": {
       "id": "NarrativeContent_93",
       "name": "SECTION 9",
@@ -4024,12 +4346,13 @@
         "NarrativeContent_106",
         "NarrativeContent_107"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_93"
     }
   },
   {
-    "id": 324,
+    "id": 326,
     "properties": {
       "id": "NarrativeContent_94",
       "name": "SECTION 9.1",
@@ -4037,12 +4360,13 @@
       "sectionTitle": "Analysis Sets",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_94"
     }
   },
   {
-    "id": 325,
+    "id": 327,
     "properties": {
       "id": "NarrativeContent_95",
       "name": "SECTION 9.2",
@@ -4056,12 +4380,13 @@
         "NarrativeContent_99",
         "NarrativeContent_100"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_95"
     }
   },
   {
-    "id": 326,
+    "id": 328,
     "properties": {
       "id": "NarrativeContent_96",
       "name": "SECTION 9.2.1",
@@ -4069,12 +4394,13 @@
       "sectionTitle": "Statistical Model, Hypothesis, and Method of Analysis",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_96"
     }
   },
   {
-    "id": 327,
+    "id": 329,
     "properties": {
       "id": "NarrativeContent_97",
       "name": "SECTION 9.2.2",
@@ -4082,12 +4408,13 @@
       "sectionTitle": "Handling of Intercurrent Events of Primary Estimand(s)",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_97"
     }
   },
   {
-    "id": 328,
+    "id": 330,
     "properties": {
       "id": "NarrativeContent_98",
       "name": "SECTION 9.2.3",
@@ -4095,12 +4422,13 @@
       "sectionTitle": "Handling of Missing Data",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_98"
     }
   },
   {
-    "id": 329,
+    "id": 331,
     "properties": {
       "id": "NarrativeContent_99",
       "name": "SECTION 9.2.4",
@@ -4108,12 +4436,13 @@
       "sectionTitle": "Sensitivity Analysis",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_99"
     }
   },
   {
-    "id": 330,
+    "id": 332,
     "properties": {
       "id": "NarrativeContent_100",
       "name": "SECTION 9.2.5",
@@ -4121,12 +4450,13 @@
       "sectionTitle": "Supplementary Analysis",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_100"
     }
   },
   {
-    "id": 331,
+    "id": 333,
     "properties": {
       "id": "NarrativeContent_101",
       "name": "SECTION 9.3",
@@ -4134,12 +4464,13 @@
       "sectionTitle": "Analysis Supporting Secondary Objective(s)",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_101"
     }
   },
   {
-    "id": 332,
+    "id": 334,
     "properties": {
       "id": "NarrativeContent_102",
       "name": "SECTION 9.4",
@@ -4147,12 +4478,13 @@
       "sectionTitle": "Analysis of Exploratory Objective(s)",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_102"
     }
   },
   {
-    "id": 333,
+    "id": 335,
     "properties": {
       "id": "NarrativeContent_103",
       "name": "SECTION 9.5",
@@ -4160,12 +4492,13 @@
       "sectionTitle": "Safety Analyses",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_103"
     }
   },
   {
-    "id": 334,
+    "id": 336,
     "properties": {
       "id": "NarrativeContent_104",
       "name": "SECTION 9.6",
@@ -4173,12 +4506,13 @@
       "sectionTitle": "Other Analyses",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_104"
     }
   },
   {
-    "id": 335,
+    "id": 337,
     "properties": {
       "id": "NarrativeContent_105",
       "name": "SECTION 9.7",
@@ -4186,12 +4520,13 @@
       "sectionTitle": "Interim Analyses",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_105"
     }
   },
   {
-    "id": 336,
+    "id": 338,
     "properties": {
       "id": "NarrativeContent_106",
       "name": "SECTION 9.8",
@@ -4199,12 +4534,13 @@
       "sectionTitle": "Sample Size Determination",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_106"
     }
   },
   {
-    "id": 337,
+    "id": 339,
     "properties": {
       "id": "NarrativeContent_107",
       "name": "SECTION 9.9",
@@ -4212,12 +4548,13 @@
       "sectionTitle": "Protocol Deviations",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_107"
     }
   },
   {
-    "id": 338,
+    "id": 340,
     "properties": {
       "id": "NarrativeContent_108",
       "name": "SECTION 10",
@@ -4231,12 +4568,13 @@
         "NarrativeContent_112",
         "NarrativeContent_113"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_108"
     }
   },
   {
-    "id": 339,
+    "id": 341,
     "properties": {
       "id": "NarrativeContent_109",
       "name": "SECTION 10.1",
@@ -4244,12 +4582,13 @@
       "sectionTitle": "Regulatory and Ethical Considerations",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_109"
     }
   },
   {
-    "id": 340,
+    "id": 342,
     "properties": {
       "id": "NarrativeContent_110",
       "name": "SECTION 10.2",
@@ -4257,12 +4596,13 @@
       "sectionTitle": "Committees",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_110"
     }
   },
   {
-    "id": 341,
+    "id": 343,
     "properties": {
       "id": "NarrativeContent_111",
       "name": "SECTION 10.3",
@@ -4270,12 +4610,13 @@
       "sectionTitle": "Informed Consent Process",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_111"
     }
   },
   {
-    "id": 342,
+    "id": 344,
     "properties": {
       "id": "NarrativeContent_112",
       "name": "SECTION 10.4",
@@ -4283,12 +4624,13 @@
       "sectionTitle": "Data Protection",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_112"
     }
   },
   {
-    "id": 343,
+    "id": 345,
     "properties": {
       "id": "NarrativeContent_113",
       "name": "SECTION 10.5",
@@ -4296,12 +4638,13 @@
       "sectionTitle": "Early Site Closure or Trial Termination",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_113"
     }
   },
   {
-    "id": 344,
+    "id": 346,
     "properties": {
       "id": "NarrativeContent_114",
       "name": "SECTION 11",
@@ -4313,12 +4656,13 @@
         "NarrativeContent_116",
         "NarrativeContent_117"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_114"
     }
   },
   {
-    "id": 345,
+    "id": 347,
     "properties": {
       "id": "NarrativeContent_115",
       "name": "SECTION 11.1",
@@ -4326,12 +4670,13 @@
       "sectionTitle": "Quality Tolerance Limits",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_115"
     }
   },
   {
-    "id": 346,
+    "id": 348,
     "properties": {
       "id": "NarrativeContent_116",
       "name": "SECTION 11.2",
@@ -4339,12 +4684,13 @@
       "sectionTitle": "Data Quality Assurance",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_116"
     }
   },
   {
-    "id": 347,
+    "id": 349,
     "properties": {
       "id": "NarrativeContent_117",
       "name": "SECTION 11.3",
@@ -4352,12 +4698,13 @@
       "sectionTitle": "Source Data",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_117"
     }
   },
   {
-    "id": 348,
+    "id": 350,
     "properties": {
       "id": "NarrativeContent_118",
       "name": "SECTION 12",
@@ -4370,12 +4717,13 @@
         "NarrativeContent_121",
         "NarrativeContent_122"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_118"
     }
   },
   {
-    "id": 349,
+    "id": 351,
     "properties": {
       "id": "NarrativeContent_119",
       "name": "SECTION 12.1",
@@ -4383,12 +4731,13 @@
       "sectionTitle": "Further Details and Clarifications on the AE Definition",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_119"
     }
   },
   {
-    "id": 350,
+    "id": 352,
     "properties": {
       "id": "NarrativeContent_120",
       "name": "SECTION 12.2",
@@ -4396,12 +4745,13 @@
       "sectionTitle": "Further Details and Clarifications on the SAE Definition",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_120"
     }
   },
   {
-    "id": 351,
+    "id": 353,
     "properties": {
       "id": "NarrativeContent_121",
       "name": "SECTION 12.3",
@@ -4409,12 +4759,13 @@
       "sectionTitle": "Severity",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_121"
     }
   },
   {
-    "id": 352,
+    "id": 354,
     "properties": {
       "id": "NarrativeContent_122",
       "name": "SECTION 12.4",
@@ -4422,12 +4773,13 @@
       "sectionTitle": "Causality",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_122"
     }
   },
   {
-    "id": 353,
+    "id": 355,
     "properties": {
       "id": "NarrativeContent_123",
       "name": "SECTION 13",
@@ -4440,12 +4792,13 @@
         "NarrativeContent_129",
         "NarrativeContent_130"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_123"
     }
   },
   {
-    "id": 354,
+    "id": 356,
     "properties": {
       "id": "NarrativeContent_124",
       "name": "SECTION 13.1",
@@ -4457,12 +4810,13 @@
         "NarrativeContent_126",
         "NarrativeContent_127"
       ],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_124"
     }
   },
   {
-    "id": 355,
+    "id": 357,
     "properties": {
       "id": "NarrativeContent_125",
       "name": "SECTION 13.1.1",
@@ -4470,12 +4824,13 @@
       "sectionTitle": "Definitions Related to Childbearing Potential",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_125"
     }
   },
   {
-    "id": 356,
+    "id": 358,
     "properties": {
       "id": "NarrativeContent_126",
       "name": "SECTION 13.1.2",
@@ -4483,12 +4838,13 @@
       "sectionTitle": "Contraception",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_126"
     }
   },
   {
-    "id": 357,
+    "id": 359,
     "properties": {
       "id": "NarrativeContent_127",
       "name": "SECTION 13.1.3",
@@ -4496,12 +4852,13 @@
       "sectionTitle": "Pregnancy Testing",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_127"
     }
   },
   {
-    "id": 358,
+    "id": 360,
     "properties": {
       "id": "NarrativeContent_128",
       "name": "SECTION 13.2",
@@ -4509,12 +4866,13 @@
       "sectionTitle": "Clinical Laboratory Tests",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_128"
     }
   },
   {
-    "id": 359,
+    "id": 361,
     "properties": {
       "id": "NarrativeContent_129",
       "name": "SECTION 13.3",
@@ -4522,12 +4880,13 @@
       "sectionTitle": "Country/Region-Specific Differences",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_129"
     }
   },
   {
-    "id": 360,
+    "id": 362,
     "properties": {
       "id": "NarrativeContent_130",
       "name": "SECTION 13.4",
@@ -4535,12 +4894,13 @@
       "sectionTitle": "Prior Protocol Amendments",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_130"
     }
   },
   {
-    "id": 361,
+    "id": 363,
     "properties": {
       "id": "NarrativeContent_131",
       "name": "SECTION 14",
@@ -4548,12 +4908,13 @@
       "sectionTitle": "APPENDIX: GLOSSARY OF TERMS",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_131"
     }
   },
   {
-    "id": 362,
+    "id": 364,
     "properties": {
       "id": "NarrativeContent_132",
       "name": "SECTION 15",
@@ -4561,31 +4922,30 @@
       "sectionTitle": "APPENDIX: REFERENCES",
       "text": "<div></div>",
       "childrenIds": [],
+      "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_132"
     }
   },
   {
-    "id": 225,
+    "id": 227,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
-      "briefTitle": "Something Brief",
-      "officialTitle": "Something Very Official",
-      "publicTitle": "Something Public",
-      "scientificTitle": "Somethign Clever But New",
       "protocolVersion": "1",
       "childrenIds": [],
+      "instanceType": "StudyProtocolDocumentVersion",
       "_type": "StudyProtocolDocumentVersion",
       "label": "StudyProtocolDocumentVersion_1"
     }
   },
   {
-    "id": 224,
+    "id": 226,
     "properties": {
       "id": "StudyProtocolDocument_1",
       "name": "Protocol_Document_SIMPLE1",
       "label": "StudyProtocolDocument_1",
       "description": null,
+      "instanceType": "StudyProtocolDocument",
       "_type": "StudyProtocolDocument"
     }
   },
@@ -4596,6 +4956,7 @@
       "name": "Study_SIMPLE1",
       "description": null,
       "label": "Study",
+      "instanceType": "Study",
       "_type": "Study"
     }
   }

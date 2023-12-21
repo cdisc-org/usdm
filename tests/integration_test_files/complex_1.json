@@ -7,16 +7,15 @@
     "versions": [
       {
         "id": "StudyVersion_1",
-        "studyTitle": "Cross Over 1",
         "versionIdentifier": "1",
         "rationale": "Test of a cross over study",
-        "studyAcronym": "SIMPLE",
         "type": {
           "id": "Code_1",
           "code": "C98388",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-09-29",
-          "decode": "Interventional Study"
+          "decode": "Interventional Study",
+          "instanceType": "Code"
         },
         "studyPhase": {
           "id": "AliasCode_1",
@@ -25,9 +24,11 @@
             "code": "C15602",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2023-09-29",
-            "decode": "Phase III Trial"
+            "decode": "Phase III Trial",
+            "instanceType": "Code"
           },
-          "standardCodeAliases": []
+          "standardCodeAliases": [],
+          "instanceType": "AliasCode"
         },
         "documentVersionId": "StudyProtocolDocumentVersion_1",
         "dateValues": [],
@@ -46,7 +47,8 @@
                 "code": "C70793",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
-                "decode": "Clinical Study Sponsor"
+                "decode": "Clinical Study Sponsor",
+                "instanceType": "Code"
               },
               "identifierScheme": "DUNS",
               "identifier": "006421325",
@@ -63,10 +65,14 @@
                   "code": "JPN",
                   "codeSystem": "ISO 3166 1 alpha3",
                   "codeSystemVersion": "2020-08",
-                  "decode": "Japan"
-                }
-              }
-            }
+                  "decode": "Japan",
+                  "instanceType": "Code"
+                },
+                "instanceType": "Address"
+              },
+              "instanceType": "Organization"
+            },
+            "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
@@ -80,7 +86,8 @@
                 "code": "C93453",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
-                "decode": "Study Registry"
+                "decode": "Study Registry",
+                "instanceType": "Code"
               },
               "identifierScheme": "USGOV",
               "identifier": "CT-GOV",
@@ -97,10 +104,14 @@
                   "code": "USA",
                   "codeSystem": "ISO 3166 1 alpha3",
                   "codeSystemVersion": "2020-08",
-                  "decode": "United States of America"
-                }
-              }
-            }
+                  "decode": "United States of America",
+                  "instanceType": "Code"
+                },
+                "instanceType": "Address"
+              },
+              "instanceType": "Organization"
+            },
+            "instanceType": "StudyIdentifier"
           }
         ],
         "studyDesigns": [
@@ -115,14 +126,16 @@
                 "code": "C15714",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
-                "decode": "Basic Research"
+                "decode": "Basic Research",
+                "instanceType": "Code"
               },
               {
                 "id": "Code_44",
                 "code": "C139174",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
-                "decode": "Device Feasibility Study"
+                "decode": "Device Feasibility Study",
+                "instanceType": "Code"
               }
             ],
             "trialTypes": [
@@ -131,16 +144,19 @@
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
-                "decode": "Efficacy Study"
+                "decode": "Efficacy Study",
+                "instanceType": "Code"
               }
             ],
             "therapeuticAreas": [],
+            "characteristics": [],
             "interventionModel": {
               "id": "Code_46",
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2023-09-29",
-              "decode": "Parallel Study"
+              "decode": "Parallel Study",
+              "instanceType": "Code"
             },
             "encounters": [
               {
@@ -153,7 +169,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": null,
                 "nextId": "Encounter_2",
@@ -163,7 +180,8 @@
                   "code": "C16281",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Ambulatory Care Facility"
+                  "decode": "Ambulatory Care Facility",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -171,11 +189,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               },
               {
                 "id": "Encounter_2",
@@ -187,7 +207,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": "Encounter_1",
                 "nextId": "Encounter_3",
@@ -197,7 +218,8 @@
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Clinic"
+                  "decode": "Clinic",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -205,11 +227,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               },
               {
                 "id": "Encounter_3",
@@ -221,7 +245,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": "Encounter_2",
                 "nextId": "Encounter_4",
@@ -231,7 +256,8 @@
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Clinic"
+                  "decode": "Clinic",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -239,11 +265,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               },
               {
                 "id": "Encounter_4",
@@ -255,7 +283,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": "Encounter_3",
                 "nextId": "Encounter_5",
@@ -265,7 +294,8 @@
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Clinic"
+                  "decode": "Clinic",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -273,11 +303,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               },
               {
                 "id": "Encounter_5",
@@ -289,7 +321,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": "Encounter_4",
                 "nextId": "Encounter_6",
@@ -299,7 +332,8 @@
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Clinic"
+                  "decode": "Clinic",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -307,11 +341,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               },
               {
                 "id": "Encounter_6",
@@ -323,7 +359,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": "Encounter_5",
                 "nextId": "Encounter_7",
@@ -333,7 +370,8 @@
                   "code": "C51282",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Clinic"
+                  "decode": "Clinic",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -341,11 +379,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               },
               {
                 "id": "Encounter_7",
@@ -357,7 +397,8 @@
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Visit"
+                  "decode": "Visit",
+                  "instanceType": "Code"
                 },
                 "previousId": "Encounter_6",
                 "nextId": null,
@@ -367,7 +408,8 @@
                   "code": "C16281",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Ambulatory Care Facility"
+                  "decode": "Ambulatory Care Facility",
+                  "instanceType": "Code"
                 },
                 "contactModes": [
                   {
@@ -375,11 +417,13 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "In Person"
+                    "decode": "In Person",
+                    "instanceType": "Code"
                   }
                 ],
                 "transitionStartRule": null,
-                "transitionEndRule": null
+                "transitionEndRule": null,
+                "instanceType": "Encounter"
               }
             ],
             "activities": [
@@ -402,19 +446,18 @@
                       "code": "414925007",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
-                      "decode": "Obtaining Consent"
+                      "decode": "Obtaining Consent",
+                      "instanceType": "Code"
                     },
-                    "isConditional": false,
-                    "isConditionalReason": "",
-                    "studyInterventionId": null
+                    "studyInterventionId": null,
+                    "instanceType": "Procedure"
                   }
                 ],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_35",
@@ -424,12 +467,11 @@
                 "previousId": "Activity_1",
                 "nextId": "Activity_3",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_3",
@@ -450,19 +492,18 @@
                       "code": "305056002",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
-                      "decode": "Admission procedure"
+                      "decode": "Admission procedure",
+                      "instanceType": "Code"
                     },
-                    "isConditional": false,
-                    "isConditionalReason": "",
-                    "studyInterventionId": null
+                    "studyInterventionId": null,
+                    "instanceType": "Procedure"
                   }
                 ],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_4",
@@ -483,19 +524,18 @@
                       "code": "58000006",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
-                      "decode": "Patient Discharge"
+                      "decode": "Patient Discharge",
+                      "instanceType": "Code"
                     },
-                    "isConditional": false,
-                    "isConditionalReason": "",
-                    "studyInterventionId": null
+                    "studyInterventionId": null,
+                    "instanceType": "Procedure"
                   }
                 ],
-                "isConditional": false,
-                "isConditionalReason": "At the discretion of the investigator",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_5",
@@ -505,12 +545,11 @@
                 "previousId": "Activity_4",
                 "nextId": "Activity_6",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_6",
@@ -520,12 +559,11 @@
                 "previousId": "Activity_5",
                 "nextId": "Activity_7",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_7",
@@ -535,15 +573,14 @@
                 "previousId": "Activity_6",
                 "nextId": "Activity_8",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [
                   "BiomedicalConceptSurrogate_10",
                   "BiomedicalConceptSurrogate_11"
                 ],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_8",
@@ -553,15 +590,14 @@
                 "previousId": "Activity_7",
                 "nextId": "Activity_10",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [
                   "BiomedicalConceptSurrogate_12",
                   "BiomedicalConceptSurrogate_13"
                 ],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_10",
@@ -571,12 +607,11 @@
                 "previousId": "Activity_8",
                 "nextId": "Activity_11",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_11",
@@ -586,12 +621,11 @@
                 "previousId": "Activity_10",
                 "nextId": "Activity_13",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_13",
@@ -601,12 +635,11 @@
                 "previousId": "Activity_11",
                 "nextId": "Activity_14",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "Stopped once bedside PG is <60 mg/dL",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "ScheduleTimeline_1"
+                "timelineId": "ScheduleTimeline_1",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_14",
@@ -616,12 +649,11 @@
                 "previousId": "Activity_13",
                 "nextId": "Activity_15",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_15",
@@ -631,12 +663,11 @@
                 "previousId": "Activity_14",
                 "nextId": "Activity_18",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "ScheduleTimeline_2"
+                "timelineId": "ScheduleTimeline_2",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_18",
@@ -646,15 +677,14 @@
                 "previousId": "Activity_15",
                 "nextId": "Activity_19",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [
                   "BiomedicalConceptSurrogate_14",
                   "BiomedicalConceptSurrogate_15"
                 ],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_19",
@@ -664,12 +694,11 @@
                 "previousId": "Activity_18",
                 "nextId": "Activity_20",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_20",
@@ -679,12 +708,11 @@
                 "previousId": "Activity_19",
                 "nextId": "Activity_21",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_21",
@@ -694,12 +722,11 @@
                 "previousId": "Activity_20",
                 "nextId": "Activity_22",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_22",
@@ -709,12 +736,11 @@
                 "previousId": "Activity_21",
                 "nextId": "Activity_23",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_23",
@@ -724,12 +750,11 @@
                 "previousId": "Activity_22",
                 "nextId": "Activity_24",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_24",
@@ -739,12 +764,11 @@
                 "previousId": "Activity_23",
                 "nextId": "Activity_25",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "Only females of childbearing potential",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_25",
@@ -754,12 +778,11 @@
                 "previousId": "Activity_24",
                 "nextId": "Activity_26",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_26",
@@ -769,12 +792,11 @@
                 "previousId": "Activity_25",
                 "nextId": "Activity_27",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "Only Females when needed to confirm postmenopausal status",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_27",
@@ -784,12 +806,11 @@
                 "previousId": "Activity_26",
                 "nextId": "Activity_28",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_28",
@@ -799,12 +820,11 @@
                 "previousId": "Activity_27",
                 "nextId": "Activity_29",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_29",
@@ -814,12 +834,11 @@
                 "previousId": "Activity_28",
                 "nextId": "Activity_30",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_30",
@@ -829,12 +848,11 @@
                 "previousId": "Activity_29",
                 "nextId": "Activity_31",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_31",
@@ -844,12 +862,11 @@
                 "previousId": "Activity_30",
                 "nextId": "Activity_32",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_32",
@@ -859,12 +876,11 @@
                 "previousId": "Activity_31",
                 "nextId": null,
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_9",
@@ -874,14 +890,13 @@
                 "previousId": "Activity_7",
                 "nextId": "Activity_16",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [
                   "BiomedicalConceptSurrogate_3"
                 ],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_16",
@@ -891,12 +906,11 @@
                 "previousId": "Activity_9",
                 "nextId": "Activity_17",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "For IMG only",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_17",
@@ -906,12 +920,11 @@
                 "previousId": "Activity_16",
                 "nextId": "Activity_18",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_33",
@@ -921,12 +934,11 @@
                 "previousId": "Activity_29",
                 "nextId": "Activity_34",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_34",
@@ -936,12 +948,11 @@
                 "previousId": "Activity_33",
                 "nextId": "Activity_12",
                 "definedProcedures": [],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               },
               {
                 "id": "Activity_12",
@@ -962,19 +973,18 @@
                       "code": "1234",
                       "codeSystem": "SPONSOR",
                       "codeSystemVersion": "12",
-                      "decode": "Meal"
+                      "decode": "Meal",
+                      "instanceType": "Code"
                     },
-                    "isConditional": false,
-                    "isConditionalReason": "",
-                    "studyInterventionId": null
+                    "studyInterventionId": null,
+                    "instanceType": "Procedure"
                   }
                 ],
-                "isConditional": false,
-                "isConditionalReason": "",
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": ""
+                "timelineId": "",
+                "instanceType": "Activity"
               }
             ],
             "biomedicalConcepts": [],
@@ -985,105 +995,120 @@
                 "name": "PE 1",
                 "label": "PE 1",
                 "description": "PE 1",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_11",
                 "name": "PE 2",
                 "label": "PE 2",
                 "description": "PE 2",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_12",
                 "name": "Weight",
                 "label": "Weight",
                 "description": "Weight",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_13",
                 "name": "Height",
                 "label": "Height",
                 "description": "Height",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_14",
                 "name": "SBP",
                 "label": "SBP",
                 "description": "SBP",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_15",
                 "name": "DBP",
                 "label": "DBP",
                 "description": "DBP",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_1",
                 "name": "PE 1",
                 "label": "PE 1",
                 "description": "PE 1",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_2",
                 "name": "PE 2",
                 "label": "PE 2",
                 "description": "PE 2",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_3",
                 "name": "Weight",
                 "label": "Weight",
                 "description": "Weight",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_4",
                 "name": "SBP",
                 "label": "SBP",
                 "description": "SBP",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_5",
                 "name": "DBP",
                 "label": "DBP",
                 "description": "DBP",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_6",
                 "name": "PE 1",
                 "label": "PE 1",
                 "description": "PE 1",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_7",
                 "name": "PE 2",
                 "label": "PE 2",
                 "description": "PE 2",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_8",
                 "name": "SBP",
                 "label": "SBP",
                 "description": "SBP",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               },
               {
                 "id": "BiomedicalConceptSurrogate_9",
                 "name": "DBP",
                 "label": "DBP",
                 "description": "DBP",
-                "reference": "None set"
+                "reference": "None set",
+                "instanceType": "BiomedicalConceptSurrogate"
               }
             ],
             "arms": [
@@ -1097,7 +1122,8 @@
                   "code": "C174266",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Experimental Arm"
+                  "decode": "Experimental Arm",
+                  "instanceType": "Code"
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
@@ -1105,9 +1131,11 @@
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Data Generated Within Study"
+                  "decode": "Data Generated Within Study",
+                  "instanceType": "Code"
                 },
-                "populationIds": []
+                "populationIds": [],
+                "instanceType": "StudyArm"
               },
               {
                 "id": "StudyArm_2",
@@ -1119,7 +1147,8 @@
                   "code": "C174266",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Experimental Arm"
+                  "decode": "Experimental Arm",
+                  "instanceType": "Code"
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
@@ -1127,9 +1156,11 @@
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Data Generated Within Study"
+                  "decode": "Data Generated Within Study",
+                  "instanceType": "Code"
                 },
-                "populationIds": []
+                "populationIds": [],
+                "instanceType": "StudyArm"
               }
             ],
             "studyCells": [
@@ -1139,7 +1170,8 @@
                 "epochId": "StudyEpoch_1",
                 "elementIds": [
                   "StudyElement_1"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_2",
@@ -1147,7 +1179,8 @@
                 "epochId": "StudyEpoch_2",
                 "elementIds": [
                   "StudyElement_2"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_3",
@@ -1155,7 +1188,8 @@
                 "epochId": "StudyEpoch_3",
                 "elementIds": [
                   "StudyElement_4"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_4",
@@ -1163,7 +1197,8 @@
                 "epochId": "StudyEpoch_4",
                 "elementIds": [
                   "StudyElement_3"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_5",
@@ -1171,7 +1206,8 @@
                 "epochId": "StudyEpoch_5",
                 "elementIds": [
                   "StudyElement_5"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_6",
@@ -1179,7 +1215,8 @@
                 "epochId": "StudyEpoch_1",
                 "elementIds": [
                   "StudyElement_1"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_7",
@@ -1187,7 +1224,8 @@
                 "epochId": "StudyEpoch_2",
                 "elementIds": [
                   "StudyElement_3"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_8",
@@ -1195,7 +1233,8 @@
                 "epochId": "StudyEpoch_3",
                 "elementIds": [
                   "StudyElement_4"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_9",
@@ -1203,7 +1242,8 @@
                 "epochId": "StudyEpoch_4",
                 "elementIds": [
                   "StudyElement_2"
-                ]
+                ],
+                "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_10",
@@ -1211,7 +1251,8 @@
                 "epochId": "StudyEpoch_5",
                 "elementIds": [
                   "StudyElement_5"
-                ]
+                ],
+                "instanceType": "StudyCell"
               }
             ],
             "blindingSchema": {
@@ -1221,9 +1262,11 @@
                 "code": "C49659",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-09-29",
-                "decode": "Open Label Study"
+                "decode": "Open Label Study",
+                "instanceType": "Code"
               },
-              "standardCodeAliases": []
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
             },
             "rationale": "Basic study",
             "epochs": [
@@ -1237,10 +1280,12 @@
                   "code": "C48262",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Trial Screening"
+                  "decode": "Trial Screening",
+                  "instanceType": "Code"
                 },
                 "previousId": null,
-                "nextId": "StudyEpoch_2"
+                "nextId": "StudyEpoch_2",
+                "instanceType": "StudyEpoch"
               },
               {
                 "id": "StudyEpoch_2",
@@ -1252,10 +1297,12 @@
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Treatment Epoch"
+                  "decode": "Treatment Epoch",
+                  "instanceType": "Code"
                 },
                 "previousId": "StudyEpoch_1",
-                "nextId": "StudyEpoch_3"
+                "nextId": "StudyEpoch_3",
+                "instanceType": "StudyEpoch"
               },
               {
                 "id": "StudyEpoch_3",
@@ -1267,10 +1314,12 @@
                   "code": "C42872",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Washout Period"
+                  "decode": "Washout Period",
+                  "instanceType": "Code"
                 },
                 "previousId": "StudyEpoch_2",
-                "nextId": "StudyEpoch_4"
+                "nextId": "StudyEpoch_4",
+                "instanceType": "StudyEpoch"
               },
               {
                 "id": "StudyEpoch_4",
@@ -1282,10 +1331,12 @@
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Treatment Epoch"
+                  "decode": "Treatment Epoch",
+                  "instanceType": "Code"
                 },
                 "previousId": "StudyEpoch_3",
-                "nextId": "StudyEpoch_5"
+                "nextId": "StudyEpoch_5",
+                "instanceType": "StudyEpoch"
               },
               {
                 "id": "StudyEpoch_5",
@@ -1297,10 +1348,12 @@
                   "code": "C99158",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Clinical Study Follow-up"
+                  "decode": "Clinical Study Follow-up",
+                  "instanceType": "Code"
                 },
                 "previousId": "StudyEpoch_4",
-                "nextId": null
+                "nextId": null,
+                "instanceType": "StudyEpoch"
               }
             ],
             "elements": [
@@ -1314,16 +1367,19 @@
                   "name": "ELEMENT_START_RULE_1",
                   "label": null,
                   "description": null,
-                  "text": "Study Start"
+                  "text": "Study Start",
+                  "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_2",
                   "name": "ELEMENT_END_RULE_1",
                   "label": null,
                   "description": null,
-                  "text": "Day -1 of treatment period 1"
+                  "text": "Day -1 of treatment period 1",
+                  "instanceType": "TransitionRule"
                 },
-                "studyInterventionIds": []
+                "studyInterventionIds": [],
+                "instanceType": "StudyElement"
               },
               {
                 "id": "StudyElement_2",
@@ -1335,16 +1391,19 @@
                   "name": "ELEMENT_START_RULE_2",
                   "label": null,
                   "description": null,
-                  "text": "Day -1 of treatment period"
+                  "text": "Day -1 of treatment period",
+                  "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_4",
                   "name": "ELEMENT_END_RULE_2",
                   "label": null,
                   "description": null,
-                  "text": "End of Day 1 of treatment period"
+                  "text": "End of Day 1 of treatment period",
+                  "instanceType": "TransitionRule"
                 },
-                "studyInterventionIds": []
+                "studyInterventionIds": [],
+                "instanceType": "StudyElement"
               },
               {
                 "id": "StudyElement_4",
@@ -1356,16 +1415,19 @@
                   "name": "ELEMENT_START_RULE_4",
                   "label": null,
                   "description": null,
-                  "text": "End of Day 1 of Treatment period 1"
+                  "text": "End of Day 1 of Treatment period 1",
+                  "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_8",
                   "name": "ELEMENT_END_RULE_4",
                   "label": null,
                   "description": null,
-                  "text": "Day -1 of treatment period 2"
+                  "text": "Day -1 of treatment period 2",
+                  "instanceType": "TransitionRule"
                 },
-                "studyInterventionIds": []
+                "studyInterventionIds": [],
+                "instanceType": "StudyElement"
               },
               {
                 "id": "StudyElement_3",
@@ -1377,16 +1439,19 @@
                   "name": "ELEMENT_START_RULE_3",
                   "label": null,
                   "description": null,
-                  "text": "Day -1 of treatment period"
+                  "text": "Day -1 of treatment period",
+                  "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_6",
                   "name": "ELEMENT_END_RULE_3",
                   "label": null,
                   "description": null,
-                  "text": "End of Day 1 of treatment period"
+                  "text": "End of Day 1 of treatment period",
+                  "instanceType": "TransitionRule"
                 },
-                "studyInterventionIds": []
+                "studyInterventionIds": [],
+                "instanceType": "StudyElement"
               },
               {
                 "id": "StudyElement_5",
@@ -1398,16 +1463,19 @@
                   "name": "ELEMENT_START_RULE_5",
                   "label": null,
                   "description": null,
-                  "text": "End of Day 1 of Treatment period 2"
+                  "text": "End of Day 1 of Treatment period 2",
+                  "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_10",
                   "name": "ELEMENT_END_RULE_5",
                   "label": null,
                   "description": null,
-                  "text": "Leave Study"
+                  "text": "Leave Study",
+                  "instanceType": "TransitionRule"
                 },
-                "studyInterventionIds": []
+                "studyInterventionIds": [],
+                "instanceType": "StudyElement"
               }
             ],
             "estimands": [
@@ -1419,7 +1487,8 @@
                   "name": "AP_1",
                   "label": null,
                   "description": null,
-                  "text": "PP"
+                  "text": "PP",
+                  "instanceType": "AnalysisPopulation"
                 },
                 "treatmentId": "StudyIntervention_1",
                 "variableOfInterestId": "Endpoint_1",
@@ -1429,23 +1498,27 @@
                     "name": "no Hypo",
                     "label": "",
                     "description": "No hypoglycemia induced after 3 hours",
-                    "strategy": "Exclude subject from analysis"
+                    "strategy": "Exclude subject from analysis",
+                    "instanceType": "IntercurrentEvent"
                   },
                   {
                     "id": "IntercurrentEvent_2",
                     "name": "no Hypo",
                     "label": "",
                     "description": "No hypoglycemia induced after 3 hours",
-                    "strategy": ""
+                    "strategy": "",
+                    "instanceType": "IntercurrentEvent"
                   },
                   {
                     "id": "IntercurrentEvent_3",
                     "name": "no Hypo",
                     "label": "",
                     "description": "No hypoglycemia induced after 3 hours",
-                    "strategy": ""
+                    "strategy": "",
+                    "instanceType": "IntercurrentEvent"
                   }
-                ]
+                ],
+                "instanceType": "Estimand"
               },
               {
                 "id": "Estimand_2",
@@ -1455,7 +1528,8 @@
                   "name": "AP_4",
                   "label": null,
                   "description": null,
-                  "text": "ITT"
+                  "text": "ITT",
+                  "instanceType": "AnalysisPopulation"
                 },
                 "treatmentId": "StudyIntervention_2",
                 "variableOfInterestId": "Endpoint_2",
@@ -1465,9 +1539,11 @@
                     "name": "Bad stuff",
                     "label": "",
                     "description": "IC Event Description Number 2",
-                    "strategy": "Really really bad shit"
+                    "strategy": "Really really bad shit",
+                    "instanceType": "IntercurrentEvent"
                   }
-                ]
+                ],
+                "instanceType": "Estimand"
               }
             ],
             "indications": [
@@ -1482,9 +1558,12 @@
                     "code": "12345",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
-                    "decode": "Indication1"
+                    "decode": "Indication1",
+                    "instanceType": "Code"
                   }
-                ]
+                ],
+                "isRareDisease": false,
+                "instanceType": "Indication"
               },
               {
                 "id": "Indication_2",
@@ -1497,11 +1576,15 @@
                     "code": "345678",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
-                    "decode": "Indication2"
+                    "decode": "Indication2",
+                    "instanceType": "Code"
                   }
-                ]
+                ],
+                "isRareDisease": false,
+                "instanceType": "Indication"
               }
             ],
+            "maskingRoles": [],
             "studyInterventions": [
               {
                 "id": "StudyIntervention_1",
@@ -1513,14 +1596,16 @@
                   "code": "role1",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
-                  "decode": "role1"
+                  "decode": "role1",
+                  "instanceType": "Code"
                 },
                 "type": {
                   "id": "Code_225",
                   "code": "C1909",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Pharmacologic Substance"
+                  "decode": "Pharmacologic Substance",
+                  "instanceType": "Code"
                 },
                 "minimumResponseDuration": {
                   "id": "Quantity_3",
@@ -1530,8 +1615,10 @@
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "Day"
-                  }
+                    "decode": "Day",
+                    "instanceType": "Code"
+                  },
+                  "instanceType": "Quantity"
                 },
                 "codes": [
                   {
@@ -1539,7 +1626,8 @@
                     "code": "A",
                     "codeSystem": "SPONSOR",
                     "codeSystemVersion": "12",
-                    "decode": "B"
+                    "decode": "B",
+                    "instanceType": "Code"
                   }
                 ],
                 "administrations": [
@@ -1558,12 +1646,15 @@
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Percentage"
-                        }
+                          "decode": "Percentage",
+                          "instanceType": "Code"
+                        },
+                        "instanceType": "Quantity"
                       },
                       "description": "",
                       "durationWillVary": true,
-                      "reasonDurationWillVary": "Will vary becuase we say so"
+                      "reasonDurationWillVary": "Will vary becuase we say so",
+                      "instanceType": "AdministrationDuration"
                     },
                     "dose": {
                       "id": "Quantity_2",
@@ -1573,23 +1664,28 @@
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
-                        "decode": "Milligram"
-                      }
+                        "decode": "Milligram",
+                        "instanceType": "Code"
+                      },
+                      "instanceType": "Quantity"
                     },
                     "route": {
                       "id": "Code_220",
                       "code": "C38197",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Dental Route of Administration"
+                      "decode": "Dental Route of Administration",
+                      "instanceType": "Code"
                     },
                     "frequency": {
                       "id": "Code_222",
                       "code": "C139179",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Ten Days Per Month"
-                    }
+                      "decode": "Ten Days Per Month",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "AgentAdministration"
                   }
                 ],
                 "productDesignation": {
@@ -1597,15 +1693,18 @@
                   "code": "desig1",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
-                  "decode": "desig_1"
+                  "decode": "desig_1",
+                  "instanceType": "Code"
                 },
                 "pharmacologicClass": {
                   "id": "Code_226",
                   "code": "A",
                   "codeSystem": "FDA",
                   "codeSystemVersion": "None set",
-                  "decode": "B"
-                }
+                  "decode": "B",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudyIntervention"
               },
               {
                 "id": "StudyIntervention_2",
@@ -1617,14 +1716,16 @@
                   "code": "role2",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
-                  "decode": "role2"
+                  "decode": "role2",
+                  "instanceType": "Code"
                 },
                 "type": {
                   "id": "Code_235",
                   "code": "C1909",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Pharmacologic Substance"
+                  "decode": "Pharmacologic Substance",
+                  "instanceType": "Code"
                 },
                 "minimumResponseDuration": {
                   "id": "Quantity_6",
@@ -1634,8 +1735,10 @@
                     "code": "C25301",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
-                    "decode": "Day"
-                  }
+                    "decode": "Day",
+                    "instanceType": "Code"
+                  },
+                  "instanceType": "Quantity"
                 },
                 "codes": [
                   {
@@ -1643,7 +1746,8 @@
                     "code": "A",
                     "codeSystem": "SPONSOR",
                     "codeSystemVersion": "12",
-                    "decode": "B"
+                    "decode": "B",
+                    "instanceType": "Code"
                   }
                 ],
                 "administrations": [
@@ -1662,12 +1766,15 @@
                           "code": "C25613",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Percentage"
-                        }
+                          "decode": "Percentage",
+                          "instanceType": "Code"
+                        },
+                        "instanceType": "Quantity"
                       },
                       "description": "",
                       "durationWillVary": true,
-                      "reasonDurationWillVary": "Will vary becuase we say so"
+                      "reasonDurationWillVary": "Will vary becuase we say so",
+                      "instanceType": "AdministrationDuration"
                     },
                     "dose": {
                       "id": "Quantity_5",
@@ -1677,23 +1784,28 @@
                         "code": "C28253",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2023-09-29",
-                        "decode": "Milligram"
-                      }
+                        "decode": "Milligram",
+                        "instanceType": "Code"
+                      },
+                      "instanceType": "Quantity"
                     },
                     "route": {
                       "id": "Code_230",
                       "code": "C38197",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Dental Route of Administration"
+                      "decode": "Dental Route of Administration",
+                      "instanceType": "Code"
                     },
                     "frequency": {
                       "id": "Code_232",
                       "code": "C139179",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Ten Days Per Month"
-                    }
+                      "decode": "Ten Days Per Month",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "AgentAdministration"
                   }
                 ],
                 "productDesignation": {
@@ -1701,15 +1813,18 @@
                   "code": "desig2",
                   "codeSystem": "M11",
                   "codeSystemVersion": "None set",
-                  "decode": "desig_2"
+                  "decode": "desig_2",
+                  "instanceType": "Code"
                 },
                 "pharmacologicClass": {
                   "id": "Code_236",
                   "code": "A",
                   "codeSystem": "FDA",
                   "codeSystemVersion": "None set",
-                  "decode": "B"
-                }
+                  "decode": "B",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudyIntervention"
               }
             ],
             "objectives": [
@@ -1718,15 +1833,16 @@
                 "name": "OBJ1",
                 "label": "",
                 "description": "",
-                "instanceType": "OBJECTIVE",
                 "text": "To demonstrate that 3 mg LY900018 is non-inferior to 1 mg IMG for the proportion of patients achieving treatment success from insulin-induced hypoglycemia using a non-inferiority margin of 10%",
                 "dictionaryId": null,
+                "instanceType": "Objective",
                 "level": {
                   "id": "Code_245",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Trial Primary Objective"
+                  "decode": "Trial Primary Objective",
+                  "instanceType": "Code"
                 },
                 "endpoints": [
                   {
@@ -1734,16 +1850,17 @@
                     "name": "END1",
                     "label": "",
                     "description": "",
-                    "instanceType": "ENDPOINT",
                     "text": "The proportion of patients achieving treatment success defined as either an increase in PG to >70 mg/dL or an increase of >20 mg/dL from nadir within 30 minutes after administration of glucagon. The nadir is defined as the minimum PG value at the time of or within 10 minutes following glucagon administration.",
                     "dictionaryId": null,
+                    "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
                       "id": "Code_244",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Primary Endpoint"
+                      "decode": "Primary Endpoint",
+                      "instanceType": "Code"
                     }
                   }
                 ]
@@ -1753,15 +1870,16 @@
                 "name": "OBJ2",
                 "label": "",
                 "description": "",
-                "instanceType": "OBJECTIVE",
                 "text": "To compare the safety and tolerability of 3 mg LY900018 with 1 mg IMG",
                 "dictionaryId": null,
+                "instanceType": "Objective",
                 "level": {
                   "id": "Code_247",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Trial Secondary Objective"
+                  "decode": "Trial Secondary Objective",
+                  "instanceType": "Code"
                 },
                 "endpoints": [
                   {
@@ -1769,16 +1887,17 @@
                     "name": "END2",
                     "label": "",
                     "description": "",
-                    "instanceType": "ENDPOINT",
                     "text": "SAE, TEAEs (including gastrointestinal, nasal,\nand non-nasal AEs), vital signs",
                     "dictionaryId": null,
+                    "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
                       "id": "Code_246",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Secondary Endpoint"
+                      "decode": "Secondary Endpoint",
+                      "instanceType": "Code"
                     }
                   }
                 ]
@@ -1788,15 +1907,16 @@
                 "name": "OBJ3",
                 "label": "",
                 "description": "",
-                "instanceType": "OBJECTIVE",
                 "text": "To characterize the PK profile of 3 mg LY900018\ncompared to 1 mg IMG",
                 "dictionaryId": null,
+                "instanceType": "Objective",
                 "level": {
                   "id": "Code_249",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Trial Secondary Objective"
+                  "decode": "Trial Secondary Objective",
+                  "instanceType": "Code"
                 },
                 "endpoints": [
                   {
@@ -1804,16 +1924,17 @@
                     "name": "END3",
                     "label": "",
                     "description": "",
-                    "instanceType": "ENDPOINT",
                     "text": "PK parameters include AUC, Cmax, Tmax",
                     "dictionaryId": null,
+                    "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
                       "id": "Code_248",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Secondary Endpoint"
+                      "decode": "Secondary Endpoint",
+                      "instanceType": "Code"
                     }
                   }
                 ]
@@ -1823,15 +1944,16 @@
                 "name": "OBJ4",
                 "label": "",
                 "description": "",
-                "instanceType": "OBJECTIVE",
                 "text": "To characterize the PD profile of 3 mg LY900018\ncompared to 1 mg IMG",
                 "dictionaryId": null,
+                "instanceType": "Objective",
                 "level": {
                   "id": "Code_251",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
-                  "decode": "Trial Secondary Objective"
+                  "decode": "Trial Secondary Objective",
+                  "instanceType": "Code"
                 },
                 "endpoints": [
                   {
@@ -1839,16 +1961,17 @@
                     "name": "END4",
                     "label": "",
                     "description": "",
-                    "instanceType": "ENDPOINT",
                     "text": "PD parameters include BGmax and Tmax",
                     "dictionaryId": null,
+                    "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
                       "id": "Code_250",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
-                      "decode": "Secondary Endpoint"
+                      "decode": "Secondary Endpoint",
+                      "instanceType": "Code"
                     }
                   }
                 ]
@@ -1859,36 +1982,40 @@
               "name": "POP1",
               "label": "",
               "description": "",
+              "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
                 "id": "Range_2",
                 "minValue": 120.0,
                 "maxValue": 120.0,
                 "unit": null,
-                "isApproximate": false
+                "isApproximate": false,
+                "instanceType": "Range"
               },
               "plannedCompletionNumber": {
                 "id": "Range_1",
                 "minValue": 100.0,
                 "maxValue": 100.0,
                 "unit": null,
-                "isApproximate": false
+                "isApproximate": false,
+                "instanceType": "Range"
               },
-              "plannedMaximumAge": null,
-              "plannedMinimumAge": null,
               "plannedSex": [],
               "criteria": [],
+              "plannedAge": null,
+              "instanceType": "StudyDesignPopulation",
               "cohorts": [
                 {
                   "id": "StudyCohort_1",
                   "name": "COHORT1",
                   "label": "",
                   "description": "",
+                  "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
-                  "plannedMaximumAge": null,
-                  "plannedMinimumAge": null,
                   "plannedSex": [],
                   "criteria": [],
+                  "plannedAge": null,
+                  "instanceType": "StudyCohort",
                   "characteristics": []
                 },
                 {
@@ -1896,12 +2023,13 @@
                   "name": "COHORT2",
                   "label": "",
                   "description": "",
+                  "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
-                  "plannedMaximumAge": null,
-                  "plannedMinimumAge": null,
                   "plannedSex": [],
                   "criteria": [],
+                  "plannedAge": null,
+                  "instanceType": "StudyCohort",
                   "characteristics": []
                 }
               ]
@@ -1917,13 +2045,13 @@
                 "entryId": "ScheduledActivityInstance_22",
                 "exits": [
                   {
-                    "id": "ScheduleTimelineExit_3"
+                    "id": "ScheduleTimelineExit_3",
+                    "instanceType": "ScheduleTimelineExit"
                   }
                 ],
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_22",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_22",
@@ -1935,7 +2063,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -1943,19 +2072,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_22",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_23",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_23",
                     "epochId": "StudyEpoch_1",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_1",
                       "Activity_5",
@@ -1977,7 +2109,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_23",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_23",
@@ -1989,7 +2120,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "P1D",
                         "relativeToFrom": {
@@ -1997,19 +2129,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_23",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_24",
                     "epochId": "StudyEpoch_2",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_3",
                       "Activity_6",
@@ -2022,7 +2157,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_24",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_24",
@@ -2034,7 +2168,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2042,19 +2177,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_24",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_25",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_25",
                     "epochId": "StudyEpoch_2",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_35"
                     ],
@@ -2062,7 +2200,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_25",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_25",
@@ -2074,7 +2211,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2082,19 +2220,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_25",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_26",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_26",
                     "epochId": "StudyEpoch_2",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_6",
                       "Activity_10",
@@ -2106,7 +2247,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_26",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_26",
@@ -2118,7 +2258,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2126,19 +2267,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_26",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_27",
                     "epochId": "StudyEpoch_2",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_6",
                       "Activity_10",
@@ -2150,7 +2294,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_27",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_27",
@@ -2162,7 +2305,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Fixed Reference"
+                          "decode": "Fixed Reference",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2170,19 +2314,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_27",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_28",
                     "epochId": "StudyEpoch_2",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_6",
                       "Activity_10",
@@ -2193,7 +2340,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_28",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_28",
@@ -2205,7 +2351,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2213,19 +2360,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_28",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_29",
                     "epochId": "StudyEpoch_2",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_4"
                     ],
@@ -2233,7 +2383,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_29",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_29",
@@ -2245,7 +2394,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "P0D",
                         "relativeToFrom": {
@@ -2253,19 +2403,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_29",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_28",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_30",
                     "epochId": "StudyEpoch_3",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_6",
                       "Activity_11"
@@ -2274,7 +2427,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_30",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_30",
@@ -2286,7 +2438,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "P2D",
                         "relativeToFrom": {
@@ -2294,19 +2447,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_30",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_29",
                         "windowLower": "P0D",
                         "windowUpper": "P11D",
-                        "window": "0..11 Days"
+                        "window": "0..11 Days",
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_31",
                     "epochId": "StudyEpoch_4",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_3",
                       "Activity_4",
@@ -2318,7 +2474,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_31",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_31",
@@ -2330,7 +2485,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2338,19 +2494,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_31",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_32",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_32",
                     "epochId": "StudyEpoch_4",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_6",
                       "Activity_10",
@@ -2362,7 +2521,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_32",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_32",
@@ -2374,7 +2532,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "P1D",
                         "relativeToFrom": {
@@ -2382,19 +2541,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_32",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_30",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_33",
                     "epochId": "StudyEpoch_4",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_6",
                       "Activity_10",
@@ -2405,7 +2567,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_33",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_33",
@@ -2417,7 +2578,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2425,19 +2587,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_33",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_32",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_34",
                     "epochId": "StudyEpoch_4",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_4"
                     ],
@@ -2445,7 +2610,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_34",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_34",
@@ -2457,7 +2621,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "P28D",
                         "relativeToFrom": {
@@ -2465,19 +2630,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_34",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_33",
                         "windowLower": "P2D",
                         "windowUpper": "P2D",
-                        "window": "-2..2 Days"
+                        "window": "-2..2 Days",
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_3",
                     "defaultConditionId": null,
                     "epochId": "StudyEpoch_5",
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_7",
                       "Activity_11",
@@ -2490,7 +2658,8 @@
                     ],
                     "encounterId": "Encounter_7"
                   }
-                ]
+                ],
+                "instanceType": "ScheduleTimeline"
               },
               {
                 "id": "ScheduleTimeline_1",
@@ -2502,13 +2671,13 @@
                 "entryId": "ScheduledActivityInstance_1",
                 "exits": [
                   {
-                    "id": "ScheduleTimelineExit_1"
+                    "id": "ScheduleTimelineExit_1",
+                    "instanceType": "ScheduleTimelineExit"
                   }
                 ],
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_1",
@@ -2520,7 +2689,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2528,19 +2698,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_9",
                       "Activity_16",
@@ -2556,7 +2729,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_2",
@@ -2568,7 +2740,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT30M",
                         "relativeToFrom": {
@@ -2576,19 +2749,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_20"
                     ],
@@ -2596,7 +2772,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_3",
@@ -2608,7 +2783,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT15M",
                         "relativeToFrom": {
@@ -2616,19 +2792,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_20"
                     ],
@@ -2636,7 +2815,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_4",
@@ -2648,7 +2826,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Fixed Reference"
+                          "decode": "Fixed Reference",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2656,19 +2835,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_34"
                     ],
@@ -2676,7 +2858,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_5",
@@ -2688,7 +2869,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT90M",
                         "relativeToFrom": {
@@ -2696,19 +2878,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_6",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_16",
                       "Activity_17"
@@ -2717,7 +2902,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_6",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_6",
@@ -2729,7 +2913,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2737,25 +2922,29 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_6",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_4",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_29"
                     ],
                     "encounterId": null
                   }
-                ]
+                ],
+                "instanceType": "ScheduleTimeline"
               },
               {
                 "id": "ScheduleTimeline_2",
@@ -2767,13 +2956,13 @@
                 "entryId": "ScheduledActivityInstance_7",
                 "exits": [
                   {
-                    "id": "ScheduleTimelineExit_2"
+                    "id": "ScheduleTimelineExit_2",
+                    "instanceType": "ScheduleTimelineExit"
                   }
                 ],
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_7",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_7",
@@ -2785,7 +2974,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Before"
+                          "decode": "Before",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2793,19 +2983,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_7",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_8",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_18",
                       "Activity_20",
@@ -2817,7 +3010,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_8",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_8",
@@ -2829,7 +3021,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Fixed Reference"
+                          "decode": "Fixed Reference",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -2837,19 +3030,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_8",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_9",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_13"
                     ],
@@ -2857,7 +3053,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_9",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_9",
@@ -2869,7 +3064,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT5M",
                         "relativeToFrom": {
@@ -2877,19 +3073,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_9",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_10",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -2898,7 +3097,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_10",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_10",
@@ -2910,7 +3108,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT10M",
                         "relativeToFrom": {
@@ -2918,19 +3117,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_10",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_11",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -2939,7 +3141,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_11",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_11",
@@ -2951,7 +3152,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT15M",
                         "relativeToFrom": {
@@ -2959,19 +3161,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_11",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_12",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_18",
                       "Activity_20",
@@ -2984,7 +3189,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_12",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_12",
@@ -2996,7 +3200,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT20M",
                         "relativeToFrom": {
@@ -3004,19 +3209,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_12",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_13",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -3025,7 +3233,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_13",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_13",
@@ -3037,7 +3244,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT25M",
                         "relativeToFrom": {
@@ -3045,19 +3253,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_13",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_14",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -3066,7 +3277,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_14",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_14",
@@ -3078,7 +3288,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT30M",
                         "relativeToFrom": {
@@ -3086,19 +3297,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_14",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_15",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_18",
                       "Activity_20",
@@ -3111,7 +3325,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_15",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_15",
@@ -3123,7 +3336,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT40M",
                         "relativeToFrom": {
@@ -3131,19 +3345,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_15",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_16",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -3152,7 +3369,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_16",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_16",
@@ -3164,7 +3380,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT50M",
                         "relativeToFrom": {
@@ -3172,19 +3389,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_16",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_17",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -3193,7 +3413,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_17",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_17",
@@ -3205,7 +3424,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT60M",
                         "relativeToFrom": {
@@ -3213,19 +3433,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_17",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_18",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_18",
                       "Activity_20",
@@ -3238,7 +3461,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_18",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_18",
@@ -3250,7 +3472,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT90M",
                         "relativeToFrom": {
@@ -3258,19 +3481,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_18",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_19",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_28",
                       "Activity_29"
@@ -3279,7 +3505,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_19",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_19",
@@ -3291,7 +3516,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT120M",
                         "relativeToFrom": {
@@ -3299,19 +3525,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_19",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_20",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_18",
                       "Activity_20",
@@ -3324,7 +3553,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_20",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_20",
@@ -3336,7 +3564,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT240M",
                         "relativeToFrom": {
@@ -3344,19 +3573,22 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_20",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_21",
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_7",
                       "Activity_18",
@@ -3368,7 +3600,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_21",
-                    "instanceType": "ACTIVITY",
                     "timings": [
                       {
                         "id": "Timing_21",
@@ -3380,7 +3611,8 @@
                           "code": "C201264",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "After"
+                          "decode": "After",
+                          "instanceType": "Code"
                         },
                         "value": "PT0M",
                         "relativeToFrom": {
@@ -3388,31 +3620,55 @@
                           "code": "C201265",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start"
+                          "decode": "Start to Start",
+                          "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_21",
                         "relativeToScheduledInstanceId": "ScheduledActivityInstance_8",
                         "windowLower": null,
                         "windowUpper": null,
-                        "window": null
+                        "window": null,
+                        "instanceType": "Timing"
                       }
                     ],
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_2",
                     "defaultConditionId": null,
                     "epochId": null,
+                    "instanceType": "ScheduledActivityInstance",
                     "activityIds": [
                       "Activity_12"
                     ],
                     "encounterId": null
                   }
-                ]
+                ],
+                "instanceType": "ScheduleTimeline"
               }
             ],
             "documentVersion": null,
-            "dictionaries": []
+            "appliesTo": [],
+            "dictionaries": [],
+            "conditions": [],
+            "organizations": [],
+            "instanceType": "StudyDesign"
           }
-        ]
+        ],
+        "titles": [
+          {
+            "id": "StudyTitle_1",
+            "text": "Cross Over 1",
+            "type": {
+              "id": "Code_252",
+              "code": "X",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-09-29",
+              "decode": "Y",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          }
+        ],
+        "instanceType": "StudyVersion"
       }
     ],
     "documentedBy": {
@@ -3423,23 +3679,23 @@
       "versions": [
         {
           "id": "StudyProtocolDocumentVersion_1",
-          "briefTitle": "Cross Over",
-          "officialTitle": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of\nInsulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
-          "publicTitle": "Something Public",
-          "scientificTitle": "Somethign Clever",
           "protocolVersion": "1",
           "protocolStatus": {
             "id": "Code_3",
             "code": "C85255",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2023-09-29",
-            "decode": "Draft"
+            "decode": "Draft",
+            "instanceType": "Code"
           },
           "dateValues": [],
           "contents": [],
-          "childrenIds": []
+          "childrenIds": [],
+          "instanceType": "StudyProtocolDocumentVersion"
         }
-      ]
-    }
+      ],
+      "instanceType": "StudyProtocolDocument"
+    },
+    "instanceType": "Study"
   }
 }

@@ -45,7 +45,8 @@ class ExportAsTimeline():
         doc.asis('\ngraph LR\n')
         doc.asis(f'{timeline.id}([{timeline.entryCondition}])\n')
         instance = cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
-        if instance.instanceType == 'ACTIVITY': 
+        #print(f"INST: {instance.instanceType} {ScheduledActivityInstance.__name__}")
+        if instance.instanceType == ScheduledActivityInstance.__name__: 
           doc.asis(f'{instance.id}(A)\n')
         else:
           doc.asis(f'{instance.id}{{{{D}}}}\n')
@@ -56,8 +57,8 @@ class ExportAsTimeline():
         prev_instance = instance
         instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
         while instance:
-          #print(f"INST: {instance}")
-          if instance.instanceType == 'ACTIVITY': 
+          #print(f"INST: {instance.instanceType} {ScheduledActivityInstance.__name__}")
+          if instance.instanceType == ScheduledActivityInstance.__name__: 
             doc.asis(f'{instance.id}(A)\n')
           else:
             doc.asis(f'{instance.id}{{{{D}}}}\n')

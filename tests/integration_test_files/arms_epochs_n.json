@@ -7,6 +7,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Interventional Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_1"
     }
@@ -19,6 +20,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Phase III Trial",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_2"
     }
@@ -28,6 +30,7 @@
     "properties": {
       "id": "AliasCode_1",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_1"
     }
@@ -40,6 +43,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "Vacines Group",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_3"
     }
@@ -52,6 +56,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "Regulatory",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_4"
     }
@@ -64,6 +69,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Study Registry",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_6"
     }
@@ -76,6 +82,7 @@
       "codeSystem": "ISO 3166 1 alpha3",
       "codeSystemVersion": "2020-08",
       "decode": "United Kingdom of Great Britain and Northern Ireland",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_7"
     }
@@ -90,6 +97,7 @@
       "district": "district",
       "state": "state",
       "postalCode": "postal_code",
+      "instanceType": "Address",
       "_type": "Address",
       "label": "Address_1"
     }
@@ -102,6 +110,7 @@
       "label": "Organization_1",
       "identifierScheme": "USGOV",
       "identifier": "CT-GOV",
+      "instanceType": "Organization",
       "_type": "Organization"
     }
   },
@@ -110,6 +119,7 @@
     "properties": {
       "id": "StudyIdentifier_1",
       "studyIdentifier": "NCT12345678",
+      "instanceType": "StudyIdentifier",
       "_type": "StudyIdentifier",
       "label": "StudyIdentifier_1"
     }
@@ -122,6 +132,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Basic Research",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_27"
     }
@@ -134,6 +145,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Device Feasibility Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_28"
     }
@@ -146,6 +158,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Efficacy Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_29"
     }
@@ -158,6 +171,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "Type 2 diabetes",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_25"
     }
@@ -170,6 +184,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Parallel Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_30"
     }
@@ -182,6 +197,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_9"
     }
@@ -194,6 +210,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_10"
     }
@@ -206,6 +223,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_11"
     }
@@ -218,6 +236,7 @@
       "label": "TransitionRule_1",
       "description": null,
       "text": "Subject identified",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -229,6 +248,7 @@
       "label": "TransitionRule_2",
       "description": null,
       "text": "IEs passed",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -242,6 +262,7 @@
       "previousId": null,
       "nextId": "Encounter_2",
       "scheduledAtId": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -253,6 +274,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_12"
     }
@@ -265,6 +287,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_13"
     }
@@ -277,6 +300,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_14"
     }
@@ -293,6 +317,7 @@
       "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -304,6 +329,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Visit",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_15"
     }
@@ -316,6 +342,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Clinic",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_16"
     }
@@ -328,6 +355,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "In Person",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_17"
     }
@@ -340,6 +368,7 @@
       "label": "TransitionRule_3",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -354,6 +383,7 @@
       "nextId": null,
       "scheduledAtId": null,
       "transitionEndRule": null,
+      "instanceType": "Encounter",
       "_type": "Encounter"
     }
   },
@@ -367,9 +397,8 @@
       "previousId": null,
       "nextId": "Activity_2",
       "definedProcedures": [],
-      "isConditional": false,
-      "isConditionalReason": "",
       "timelineId": "",
+      "instanceType": "Activity",
       "_type": "Activity"
     }
   },
@@ -383,9 +412,8 @@
       "previousId": "Activity_1",
       "nextId": null,
       "definedProcedures": [],
-      "isConditional": true,
-      "isConditionalReason": "Only do this if they have two heads",
       "timelineId": "",
+      "instanceType": "Activity",
       "_type": "Activity"
     }
   },
@@ -397,6 +425,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Male",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_47"
     }
@@ -406,6 +435,7 @@
     "properties": {
       "id": "ResponseCode_1",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_1"
     }
@@ -418,6 +448,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Female",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_48"
     }
@@ -427,6 +458,7 @@
     "properties": {
       "id": "ResponseCode_2",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_2"
     }
@@ -439,6 +471,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Sex",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_49"
     }
@@ -448,6 +481,7 @@
     "properties": {
       "id": "AliasCode_4",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_4"
     }
@@ -461,6 +495,7 @@
       "isRequired": true,
       "isEnabled": true,
       "datatype": "string",
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -472,6 +507,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Sex",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_46"
     }
@@ -481,6 +517,7 @@
     "properties": {
       "id": "AliasCode_3",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_3"
     }
@@ -493,6 +530,7 @@
       "label": "BiomedicalConcept_1",
       "synonyms": [],
       "reference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421",
+      "instanceType": "BiomedicalConcept",
       "_type": "BiomedicalConcept"
     }
   },
@@ -504,6 +542,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Race",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_51"
     }
@@ -513,6 +552,7 @@
     "properties": {
       "id": "AliasCode_6",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_6"
     }
@@ -527,6 +567,7 @@
       "isEnabled": true,
       "datatype": "string",
       "responseCodes": [],
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -538,6 +579,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Race",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_50"
     }
@@ -547,6 +589,7 @@
     "properties": {
       "id": "AliasCode_5",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_5"
     }
@@ -561,6 +604,7 @@
         "Racial Group"
       ],
       "reference": "/mdr/bc/packages/2023-03-31/biomedicalconcepts/C17049",
+      "instanceType": "BiomedicalConcept",
       "_type": "BiomedicalConcept"
     }
   },
@@ -572,6 +616,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Vital Signs Result",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_53"
     }
@@ -581,6 +626,7 @@
     "properties": {
       "id": "AliasCode_8",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_8"
     }
@@ -595,6 +641,7 @@
       "isEnabled": true,
       "datatype": "decimal",
       "responseCodes": [],
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -606,6 +653,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Kilogram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_54"
     }
@@ -615,6 +663,7 @@
     "properties": {
       "id": "ResponseCode_3",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_3"
     }
@@ -627,6 +676,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Gram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_55"
     }
@@ -636,6 +686,7 @@
     "properties": {
       "id": "ResponseCode_4",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_4"
     }
@@ -648,6 +699,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Pound",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_56"
     }
@@ -657,6 +709,7 @@
     "properties": {
       "id": "ResponseCode_5",
       "isEnabled": true,
+      "instanceType": "ResponseCode",
       "_type": "ResponseCode",
       "label": "ResponseCode_5"
     }
@@ -669,6 +722,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Unit of Weight",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_57"
     }
@@ -678,6 +732,7 @@
     "properties": {
       "id": "AliasCode_9",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_9"
     }
@@ -691,6 +746,7 @@
       "isRequired": true,
       "isEnabled": true,
       "datatype": "string",
+      "instanceType": "BiomedicalConceptProperty",
       "_type": "BiomedicalConceptProperty"
     }
   },
@@ -702,6 +758,7 @@
       "codeSystem": "NCI Thesaurus",
       "codeSystemVersion": "",
       "decode": "Body Weight",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_52"
     }
@@ -711,6 +768,7 @@
     "properties": {
       "id": "AliasCode_7",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_7"
     }
@@ -725,6 +783,7 @@
         "Weight"
       ],
       "reference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328",
+      "instanceType": "BiomedicalConcept",
       "_type": "BiomedicalConcept"
     }
   },
@@ -736,6 +795,7 @@
       "label": "BiomedicalConceptSurrogate_1",
       "description": "Age",
       "reference": "None set",
+      "instanceType": "BiomedicalConceptSurrogate",
       "_type": "BiomedicalConceptSurrogate"
     }
   },
@@ -747,6 +807,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Active Comparator Arm",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_18"
     }
@@ -759,6 +820,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Data Generated Within Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_19"
     }
@@ -772,6 +834,7 @@
       "description": "Active Substance",
       "dataOriginDescription": "Data collected from subjects",
       "populationIds": [],
+      "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
   },
@@ -783,6 +846,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Placebo Comparator Arm",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_20"
     }
@@ -795,6 +859,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Data Generated Within Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_21"
     }
@@ -808,6 +873,7 @@
       "description": "Placebo",
       "dataOriginDescription": "Data collected from subjects",
       "populationIds": [],
+      "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
   },
@@ -820,6 +886,7 @@
       "elementIds": [
         "StudyElement_1"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_1"
     }
@@ -833,6 +900,7 @@
       "elementIds": [
         "StudyElement_2"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_2"
     }
@@ -846,6 +914,7 @@
       "elementIds": [
         "StudyElement_3"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_3"
     }
@@ -859,6 +928,7 @@
       "elementIds": [
         "StudyElement_1"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_4"
     }
@@ -872,6 +942,7 @@
       "elementIds": [
         "StudyElement_2"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_5"
     }
@@ -885,6 +956,7 @@
       "elementIds": [
         "StudyElement_3"
       ],
+      "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_6"
     }
@@ -897,6 +969,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Open Label Study",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_26"
     }
@@ -906,6 +979,7 @@
     "properties": {
       "id": "AliasCode_2",
       "standardCodeAliases": [],
+      "instanceType": "AliasCode",
       "_type": "AliasCode",
       "label": "AliasCode_2"
     }
@@ -918,6 +992,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Trial Screening",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_22"
     }
@@ -931,6 +1006,7 @@
       "description": "Screening Epoch",
       "previousId": null,
       "nextId": "StudyEpoch_2",
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -942,6 +1018,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Baseline Epoch",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_23"
     }
@@ -955,6 +1032,7 @@
       "description": "Baseline Epoch",
       "previousId": "StudyEpoch_1",
       "nextId": "StudyEpoch_3",
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -966,6 +1044,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Treatment Epoch",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_24"
     }
@@ -979,6 +1058,7 @@
       "description": "Treatment Epoch",
       "previousId": "StudyEpoch_2",
       "nextId": null,
+      "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
   },
@@ -990,6 +1070,7 @@
       "label": "TransitionRule_4",
       "description": null,
       "text": "Study Start",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1001,6 +1082,7 @@
       "label": "TransitionRule_5",
       "description": null,
       "text": "Screened",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1012,6 +1094,7 @@
       "label": "StudyElement_1",
       "description": "Screening Element",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1023,6 +1106,7 @@
       "label": "TransitionRule_6",
       "description": null,
       "text": "Screened",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1034,6 +1118,7 @@
       "label": "TransitionRule_7",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1045,6 +1130,7 @@
       "label": "StudyElement_2",
       "description": "Baseline Element",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1056,6 +1142,7 @@
       "label": "TransitionRule_8",
       "description": null,
       "text": "Radomized",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1067,6 +1154,7 @@
       "label": "TransitionRule_9",
       "description": null,
       "text": "Completed treatment",
+      "instanceType": "TransitionRule",
       "_type": "TransitionRule"
     }
   },
@@ -1078,6 +1166,7 @@
       "label": "StudyElement_3",
       "description": "Treatment Element 1",
       "studyInterventionIds": [],
+      "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
   },
@@ -1089,6 +1178,7 @@
       "label": "AnalysisPopulation_1",
       "description": null,
       "text": "ITT",
+      "instanceType": "AnalysisPopulation",
       "_type": "AnalysisPopulation"
     }
   },
@@ -1100,6 +1190,7 @@
       "label": "IntercurrentEvent_1",
       "description": "IC Event Description",
       "strategy": "Patients with out of range lab values before dosing will be excluded",
+      "instanceType": "IntercurrentEvent",
       "_type": "IntercurrentEvent"
     }
   },
@@ -1110,6 +1201,7 @@
       "summaryMeasure": "Survival of all patients",
       "treatmentId": "StudyIntervention_1",
       "variableOfInterestId": "Endpoint_1",
+      "instanceType": "Estimand",
       "_type": "Estimand",
       "label": "Estimand_1"
     }
@@ -1122,6 +1214,7 @@
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Indication1",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_58"
     }
@@ -1133,6 +1226,8 @@
       "name": "IND1",
       "label": "Indication_1",
       "description": "Indication One",
+      "isRareDisease": false,
+      "instanceType": "Indication",
       "_type": "Indication"
     }
   },
@@ -1144,6 +1239,7 @@
       "codeSystem": "SNOMED",
       "codeSystemVersion": "January 31, 2018",
       "decode": "Indication2",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_59"
     }
@@ -1155,6 +1251,8 @@
       "name": "IND2",
       "label": "Indication_2",
       "description": "Indication Two",
+      "isRareDisease": false,
+      "instanceType": "Indication",
       "_type": "Indication"
     }
   },
@@ -1166,6 +1264,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "role1",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_65"
     }
@@ -1178,6 +1277,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Pharmacologic Substance",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_66"
     }
@@ -1190,6 +1290,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Day",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_69"
     }
@@ -1199,6 +1300,7 @@
     "properties": {
       "id": "Quantity_3",
       "value": 1.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_3"
     }
@@ -1211,6 +1313,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_64"
     }
@@ -1223,6 +1326,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Percentage",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_60"
     }
@@ -1232,6 +1336,7 @@
     "properties": {
       "id": "Quantity_1",
       "value": 14.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_1"
     }
@@ -1243,6 +1348,7 @@
       "description": "",
       "durationWillVary": true,
       "reasonDurationWillVary": "Will vary becuase we say so",
+      "instanceType": "AdministrationDuration",
       "_type": "AdministrationDuration",
       "label": "AdministrationDuration_1"
     }
@@ -1255,6 +1361,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Milligram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_62"
     }
@@ -1264,6 +1371,7 @@
     "properties": {
       "id": "Quantity_2",
       "value": 12.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_2"
     }
@@ -1276,6 +1384,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Dental Route of Administration",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_61"
     }
@@ -1288,6 +1397,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Ten Days Per Month",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_63"
     }
@@ -1299,6 +1409,7 @@
       "name": "Admin 1",
       "label": "AgentAdministration_1",
       "description": "Admin Desc 1",
+      "instanceType": "AgentAdministration",
       "_type": "AgentAdministration"
     }
   },
@@ -1310,6 +1421,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "desig_1",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_68"
     }
@@ -1322,6 +1434,7 @@
       "codeSystem": "FDA",
       "codeSystemVersion": "None set",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_67"
     }
@@ -1333,6 +1446,7 @@
       "name": "INT1",
       "label": "StudyIntervention_1",
       "description": "Int Desc 1",
+      "instanceType": "StudyIntervention",
       "_type": "StudyIntervention"
     }
   },
@@ -1344,6 +1458,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "role2",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_75"
     }
@@ -1356,6 +1471,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Pharmacologic Substance",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_76"
     }
@@ -1368,6 +1484,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Day",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_79"
     }
@@ -1377,6 +1494,7 @@
     "properties": {
       "id": "Quantity_6",
       "value": 1.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_6"
     }
@@ -1389,6 +1507,7 @@
       "codeSystem": "SPONSOR",
       "codeSystemVersion": "12",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_74"
     }
@@ -1401,6 +1520,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Percentage",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_70"
     }
@@ -1410,6 +1530,7 @@
     "properties": {
       "id": "Quantity_4",
       "value": 14.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_4"
     }
@@ -1421,6 +1542,7 @@
       "description": "",
       "durationWillVary": true,
       "reasonDurationWillVary": "Will vary becuase we say so",
+      "instanceType": "AdministrationDuration",
       "_type": "AdministrationDuration",
       "label": "AdministrationDuration_2"
     }
@@ -1433,6 +1555,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Milligram",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_72"
     }
@@ -1442,6 +1565,7 @@
     "properties": {
       "id": "Quantity_5",
       "value": 12.0,
+      "instanceType": "Quantity",
       "_type": "Quantity",
       "label": "Quantity_5"
     }
@@ -1454,6 +1578,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Dental Route of Administration",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_71"
     }
@@ -1466,6 +1591,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Ten Days Per Month",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_73"
     }
@@ -1477,6 +1603,7 @@
       "name": "Admin 2",
       "label": "AgentAdministration_2",
       "description": "Admin Desc 2",
+      "instanceType": "AgentAdministration",
       "_type": "AgentAdministration"
     }
   },
@@ -1488,6 +1615,7 @@
       "codeSystem": "M11",
       "codeSystemVersion": "None set",
       "decode": "desig_2",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_78"
     }
@@ -1500,6 +1628,7 @@
       "codeSystem": "FDA",
       "codeSystemVersion": "None set",
       "decode": "B",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_77"
     }
@@ -1511,6 +1640,7 @@
       "name": "INT2",
       "label": "StudyIntervention_2",
       "description": "Int Desc 2",
+      "instanceType": "StudyIntervention",
       "_type": "StudyIntervention"
     }
   },
@@ -1522,6 +1652,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Trial Primary Objective",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_84"
     }
@@ -1534,6 +1665,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Primary Endpoint",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_83"
     }
@@ -1545,9 +1677,9 @@
       "name": "END1",
       "label": "Endpoint_1",
       "description": "",
-      "instanceType": "ENDPOINT",
       "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
       "dictionaryId": null,
+      "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
     }
@@ -1559,9 +1691,9 @@
       "name": "OBJ1",
       "label": "Objective_1",
       "description": "",
-      "instanceType": "OBJECTIVE",
       "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
       "dictionaryId": null,
+      "instanceType": "Objective",
       "_type": "Objective"
     }
   },
@@ -1573,6 +1705,7 @@
       "maxValue": 120.0,
       "unit": null,
       "isApproximate": false,
+      "instanceType": "Range",
       "_type": "Range",
       "label": "Range_2"
     }
@@ -1585,6 +1718,7 @@
       "maxValue": 100.0,
       "unit": null,
       "isApproximate": false,
+      "instanceType": "Range",
       "_type": "Range",
       "label": "Range_1"
     }
@@ -1596,10 +1730,11 @@
       "name": "POP1",
       "label": "StudyDesignPopulation_1",
       "description": "",
-      "plannedMaximumAge": null,
-      "plannedMinimumAge": null,
+      "includesHealthySubjects": false,
       "plannedSex": [],
       "criteria": [],
+      "plannedAge": null,
+      "instanceType": "StudyDesignPopulation",
       "cohorts": [],
       "_type": "StudyDesignPopulation"
     }
@@ -1608,6 +1743,7 @@
     "id": 144,
     "properties": {
       "id": "ScheduleTimelineExit_1",
+      "instanceType": "ScheduleTimelineExit",
       "_type": "ScheduleTimelineExit",
       "label": "ScheduleTimelineExit_1"
     }
@@ -1620,6 +1756,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Before",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_33"
     }
@@ -1632,6 +1769,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_35"
     }
@@ -1647,6 +1785,7 @@
       "windowLower": null,
       "windowUpper": null,
       "window": null,
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -1654,9 +1793,9 @@
     "id": 145,
     "properties": {
       "id": "ScheduledActivityInstance_1",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": null,
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_1"
     }
@@ -1669,6 +1808,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Fixed Reference",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_36"
     }
@@ -1681,6 +1821,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_40"
     }
@@ -1696,6 +1837,7 @@
       "windowLower": null,
       "windowUpper": null,
       "window": null,
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -1703,9 +1845,9 @@
     "id": 149,
     "properties": {
       "id": "ScheduledActivityInstance_2",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": null,
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_2"
     }
@@ -1718,6 +1860,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "After",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_42"
     }
@@ -1730,6 +1873,7 @@
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Start to Start",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_45"
     }
@@ -1745,6 +1889,7 @@
       "windowLower": "PT12H",
       "windowUpper": "PT12H",
       "window": "12..12 Hours",
+      "instanceType": "Timing",
       "_type": "Timing"
     }
   },
@@ -1752,9 +1897,9 @@
     "id": 153,
     "properties": {
       "id": "ScheduledActivityInstance_3",
-      "instanceType": "ACTIVITY",
       "timelineId": null,
       "timelineExitId": "ScheduleTimelineExit_1",
+      "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance",
       "label": "ScheduledActivityInstance_3"
     }
@@ -1769,6 +1914,7 @@
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
       "entryId": "ScheduledActivityInstance_1",
+      "instanceType": "ScheduleTimeline",
       "_type": "ScheduleTimeline"
     }
   },
@@ -1779,63 +1925,90 @@
       "name": "Study Design 1",
       "label": "StudyDesign_1",
       "description": "The main design for the study",
+      "characteristics": [],
       "bcCategories": [],
       "rationale": "Basic study",
+      "maskingRoles": [],
       "documentVersion": null,
+      "appliesTo": [],
       "dictionaries": [],
+      "conditions": [],
+      "organizations": [],
+      "instanceType": "StudyDesign",
       "_type": "StudyDesign"
+    }
+  },
+  {
+    "id": 158,
+    "properties": {
+      "id": "Code_85",
+      "code": "X",
+      "codeSystem": "http://www.cdisc.org",
+      "codeSystemVersion": "2023-09-29",
+      "decode": "Y",
+      "instanceType": "Code",
+      "_type": "Code",
+      "label": "Code_85"
+    }
+  },
+  {
+    "id": 157,
+    "properties": {
+      "id": "StudyTitle_1",
+      "text": "Simple Test 1",
+      "instanceType": "StudyTitle",
+      "_type": "StudyTitle",
+      "label": "StudyTitle_1"
     }
   },
   {
     "id": 2,
     "properties": {
       "id": "StudyVersion_1",
-      "studyTitle": "Simple Test 1",
       "versionIdentifier": "1",
       "rationale": "A simple test",
-      "studyAcronym": "SIMPLE",
       "documentVersionId": "StudyProtocolDocumentVersion_1",
       "dateValues": [],
       "amendments": [],
+      "instanceType": "StudyVersion",
       "_type": "StudyVersion",
       "label": "StudyVersion_1"
     }
   },
   {
-    "id": 159,
+    "id": 161,
     "properties": {
       "id": "Code_5",
       "code": "C85255",
       "codeSystem": "http://www.cdisc.org",
       "codeSystemVersion": "2023-09-29",
       "decode": "Draft",
+      "instanceType": "Code",
       "_type": "Code",
       "label": "Code_5"
     }
   },
   {
-    "id": 158,
+    "id": 160,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
-      "briefTitle": "Something Brief",
-      "officialTitle": "Something Very Official",
-      "publicTitle": "Something Public",
-      "scientificTitle": "Somethign Clever But New",
       "protocolVersion": "1",
       "dateValues": [],
       "contents": [],
       "childrenIds": [],
+      "instanceType": "StudyProtocolDocumentVersion",
       "_type": "StudyProtocolDocumentVersion",
       "label": "StudyProtocolDocumentVersion_1"
     }
   },
   {
-    "id": 157,
+    "id": 159,
     "properties": {
       "id": "StudyProtocolDocument_1",
       "name": "Protocol_Document_ARMS-EPOCHS-1",
       "label": "StudyProtocolDocument_1",
       "description": null,
+      "instanceType": "StudyProtocolDocument",
       "_type": "StudyProtocolDocument"
     }
   },
@@ -1846,6 +2019,7 @@
       "name": "Study_ARMS-EPOCHS-1",
       "description": null,
       "label": "Study",
+      "instanceType": "Study",
       "_type": "Study"
     }
   }
