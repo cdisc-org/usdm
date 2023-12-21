@@ -5,6 +5,7 @@ class Options(Enum):
 #  ROOT = 'root'
 #  DESCRIPTION = 'description'
   EMPTY_NONE = 'empty_none'
+  USDM_VERSION = 'usdm_version'
 
 # class PrevNextOption(Enum):
 #   NULL_STRING = 'null_string'
@@ -13,10 +14,6 @@ class Options(Enum):
 class EmptyNoneOption(Enum):
   EMPTY = 'empty_string'
   NONE = 'none_value'
-
-# class RootOption(Enum):
-#   SDR_COMPATABLE = 'sdr_compatable'
-#   API_COMPLIANT = 'api_compliant'
 
 class OptionManager():
 

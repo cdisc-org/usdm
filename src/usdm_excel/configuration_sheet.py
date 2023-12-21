@@ -13,6 +13,7 @@ class ConfigurationSheet(BaseSheet):
     try:
       super().__init__(file_path=file_path, sheet_name='configuration', header=None)
       option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE)
+      option_manager.set(Options.USDM_VERSION, 3)
       # option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NONE)
       # option_manager.set(Options.ROOT, RootOption.API_COMPLIANT)
       # option_manager.set(Options.DESCRIPTION, "")
@@ -35,6 +36,10 @@ class ConfigurationSheet(BaseSheet):
       elif name == 'EMPTY NONE':
         if value.strip().upper() == 'EMPTY':
           option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
+      elif name == 'USDM VERSION':
+        text = value.strip().upper()
+        if text in ['2', '3']:
+          option_manager.set(Options.USDM_VERSION, int(text))
       elif name == 'SDR PREV NEXT':
         self._general_warning("The SDR PREV NEXT option is now deprecated and will be ignored.")
       elif name == 'SDR ROOT':

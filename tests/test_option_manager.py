@@ -28,8 +28,10 @@ def test_options():
   assert option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.NONE.value
   option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
   assert option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value
-  # option_manager.set(Options.PREVIOUS_NEXT, PrevNextOption.NONE)
-  # assert option_manager.get(Options.PREVIOUS_NEXT) == PrevNextOption.NONE.value
+  option_manager.set(Options.USDM_VERSION, 2)
+  assert option_manager.get(Options.USDM_VERSION) == '2'
+  option_manager.set(Options.USDM_VERSION, 3)
+  assert option_manager.get(Options.USDM_VERSION) == '3'
   # option_manager.set(Options.ROOT, RootOption.API_COMPLIANT)
   # assert option_manager.get(Options.ROOT) == RootOption.API_COMPLIANT.value
   # option_manager.set(Options.DESCRIPTION, 'Some text')
