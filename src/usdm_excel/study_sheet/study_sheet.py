@@ -389,6 +389,7 @@ class StudySheet(BaseSheet):
         text = self.read_cell(rindex, cindex)
         title = StudyTitle(id=id_manager.build_id(StudyTitle), text=text, type=code)
         self.titles.append(title)
+        cross_references.add(title.id, title)
         return title
       except Exception as e:
         self._error(rindex, cindex, "Failed to create StudyTitle object, exception {e}")

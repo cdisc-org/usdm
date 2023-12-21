@@ -324,17 +324,20 @@ class NarrativeContent():
     phase = self.study_version.studyPhase.standardCode
     results = [{'instance': phase, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/@studyPhase/@standardCode/@decode'}]
     return self._set_of_references(results)
-  
+
   def _study_short_title(self):
-    results = [{'instance': self.protocol_document_version, 'klass': 'StudyProtocolDocumentVersion', 'attribute': 'briefTitle', 'path': 'StudyProtocolDocumentVersion/@briefTitle'}]
+    title = self._get_title('Brief Study Title')
+    results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text', 'path': 'StudyVersion/@titles/StudyTitle/@text'}]
     return self._set_of_references(results)
 
   def _study_full_title(self):
-    results = [{'instance': self.protocol_document_version, 'klass': 'StudyProtocolDocumentVersion', 'attribute': 'officialTitle', 'path': 'StudyProtocolDocumentVersion/@officialTitle'}]
+    title = self._get_title('Official Study Title')
+    results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text', 'path': 'StudyVersion/@titles/StudyTitle/@text'}]
     return self._set_of_references(results)
 
   def _study_acronym(self):
-    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'studyAcronym', 'path': 'StudyVersion/@studyAcronym'}]
+    title = self._get_title('Study Acronym')
+    results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text', 'path': 'StudyVersion/@titles/StudyTitle/@text'}]
     return self._set_of_references(results)
 
   def _study_version(self):
@@ -450,3 +453,9 @@ class NarrativeContent():
       return ", ".join([f'<usdm:ref klass="{item["klass"]}" id="{item["instance"].id}" attribute="{item["attribute"]}" path="{item["path"]}"/>' for item in items])
     else:
       return ""
+
+  def _get_title(self, title_type):
+    for title in self.study_version.titles:
+      if title.type.decode == title_type:
+        return title
+    return None
