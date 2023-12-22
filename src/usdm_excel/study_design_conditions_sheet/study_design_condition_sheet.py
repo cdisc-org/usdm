@@ -20,12 +20,10 @@ class StudyDesignConditionSheet(BaseSheet):
           applies_to = self.read_cell_by_name(index, 'appliesTo')
           applies_refs = self._process_context_references(applies_to)
           params = {'name': name, 'description': description, 'label': label, 'text': text, 'appliesToIds': applies_refs, 'contextIds': context_refs}
-          print(f"CONDITION: {params}")
           item = self.create_object(Condition, params)
           if item:
             self.items.append(item)
             cross_references.add(name, item)     
-        self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

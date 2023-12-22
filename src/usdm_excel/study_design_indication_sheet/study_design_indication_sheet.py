@@ -15,13 +15,10 @@ class StudyDesignIndicationSheet(BaseSheet):
         name = self.read_cell_by_name(index, "name")
         description = self.read_cell_by_name(index, "description")
         label = self.read_cell_by_name(index, 'label', default="")
+        rare = self.read_boolean_cell_by_name(index, 'isRareDisease', must_be_present=False)
         codes = self.read_other_code_cell_multiple_by_name(index, "codes")
-        try:
-          item = Indication(id=id_manager.build_id(Indication), name=name, description=description, label=label, isRareDisease=False, codes=codes)
-        except Exception as e:
-          self._general_error(f"Failed to create Indication object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
-        else:
+        item = self.create_object(Indication, {'name': name, 'description': description, 'label': label, 'isRareDisease': rare, 'codes': codes})
+        if item:
           self.items.append(item)
           cross_references.add(name, item)
     except Exception as e:

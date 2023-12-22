@@ -508,8 +508,8 @@ A header row in row 1 followed by repeating rows from row 2, containing an indic
 | A | name | The name | Text string | 
 | B | description | Description | Text string, can be empty |
 | C | label | Display label | Text string, can be empty |
-| D | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
-
+| D | isRareDisease | Rare disease flag | Boolean |	
+| E | codes | The set of indication or intervention codes | A set of external CT codes, comma separated |	
 
 ### Study Design Interventions Sheet
 	
