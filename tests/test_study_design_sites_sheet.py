@@ -28,20 +28,21 @@ def test_create(mocker):
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1, expected_2, expected_3]
   sites = StudyDesignSitesSheet("")
-  assert len(sites.items) == 3
-  assert sites.items[0].id == 'Id_1'
-  assert sites.items[0].identifier == '111111111'
-  assert sites.items[0].identifierScheme == 'DUNS'
-  assert sites.items[0].legalAddress.city == 'city'
-  assert sites.items[0].legalAddress.country.decode == 'GBR'
-  assert sites.items[0].manageIds == ['Site_1']
-  assert sites.items[1].id == 'Id_2'
-  assert sites.items[1].identifier == '222222222'
-  assert sites.items[1].identifierScheme == 'DUNS'
-  assert sites.items[1].legalAddress.city == 'city2'
-  assert sites.items[2].id == 'Id_3'
-  assert sites.items[2].identifier == '333333333'
-  assert sites.items[2].manageIds == ['Site_3']
+  assert len(sites.organizations) == 3
+  assert len(sites.sites) == 3
+  assert sites.organizations[0].id == 'Id_1'
+  assert sites.organizations[0].identifier == '111111111'
+  assert sites.organizations[0].identifierScheme == 'DUNS'
+  assert sites.organizations[0].legalAddress.city == 'city'
+  assert sites.organizations[0].legalAddress.country.decode == 'GBR'
+  assert sites.organizations[0].manageIds == ['Site_1']
+  assert sites.organizations[1].id == 'Id_2'
+  assert sites.organizations[1].identifier == '222222222'
+  assert sites.organizations[1].identifierScheme == 'DUNS'
+  assert sites.organizations[1].legalAddress.city == 'city2'
+  assert sites.organizations[2].id == 'Id_3'
+  assert sites.organizations[2].identifier == '333333333'
+  assert sites.organizations[2].manageIds == ['Site_3']
   
 def test_create_empty(mocker):
   cross_references.clear()
@@ -53,7 +54,7 @@ def test_create_empty(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyIdentifierName', 'studyIdentifierDescription', 'studyIdentifierType'])
   sites = StudyDesignSitesSheet("")
-  assert len(sites.items) == 0
+  assert len(sites.organizations) == 0
 
 def test_read_cell_by_name_error(mocker):
   cross_references.clear()
@@ -69,7 +70,7 @@ def test_read_cell_by_name_error(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'label', 'identifierScheme', 'identifier', 'address', 'siteName', 'siteLabel', 'siteDescription'])
   sites = StudyDesignSitesSheet("")
   mock_error.assert_called()
-  assert mock_error.call_args[0][0] == "studyDesignSitesSheet"
+  assert mock_error.call_args[0][0] == "studyDesignSites"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
   assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'type' in sheet' raised reading sheet."

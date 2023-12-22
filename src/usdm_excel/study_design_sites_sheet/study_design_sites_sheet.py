@@ -10,8 +10,9 @@ class StudyDesignSitesSheet(BaseSheet):
 
   def __init__(self, file_path):
     try:
-      self.items = []
-      super().__init__(file_path=file_path, sheet_name='studyDesignSitesSheet', optional=True)
+      self.organizations = []
+      self.sites = []
+      super().__init__(file_path=file_path, sheet_name='studyDesignSites', optional=True)
       if self.success:
         current_org = None
         for index, row in self.sheet.iterrows():
@@ -21,6 +22,7 @@ class StudyDesignSitesSheet(BaseSheet):
           site_label = self.read_cell_by_name(index, 'siteLabel')
           site = self.create_object(StudySite, {'name': site_name, 'description': site_description, 'label': site_label})
           if site:
+            self.sites.append(site)
             cross_references.add(site.id, site)     
           if org_name:
             org_label = self.read_cell_by_name(index, 'label')
@@ -32,12 +34,11 @@ class StudyDesignSitesSheet(BaseSheet):
               cross_references.add(org_address.id, org_address)   
             item = self.create_object(ResearchOrganization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'type': org_type, 'legalAddress': org_address, 'manageIds': [site.id]})
             if item:
-              self.items.append(item)
+              self.organizations.append(item)
               cross_references.add(item.id, item)     
               current_org = item
           else:
             current_org.manageIds.append(site.id)
-            cross_references.add(site.id, site)     
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

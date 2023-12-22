@@ -68,6 +68,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Encounters sheet
 - Study Design Elements sheet
 - Study Design Content sheet
+- Study Design Sites sheet
 - Dictionaries Sheet
 - Configuration sheet
 
@@ -88,6 +89,10 @@ For those cells where external CT is referenced the user can enter code in the f
 ### Boolean Values
 
 For boolean fields the following can be used to indicate a `true` value `'Y', 'YES', 'T', 'TRUE', '1'` or the lower case equivalents.
+
+### Address Values
+
+An address is of the form: ```line,district,city,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
 
 ### Identifiers and Cross References
 
@@ -133,7 +138,7 @@ The sheet descriptions detail the fields found within each sheet and the details
 
 The study sheet consists of two parts, the upper section for those single values and then a section for the potentially repeating protocol version informaion
 
-For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
+For the single values, the keyword is in column A while the value is in column B. 
 
 | Row | Row Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
@@ -183,9 +188,8 @@ A header row in row 1 followed by repeating rows from row 2, each containing a s
 | D (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | E | organisationType or type | Organisation type | CDISC code reference |
 | F | studyIdentifier | The identifier for the study | Text string |
-| G | organisationAddress | The organisation address | Formated using a pipe delimited form, see below |
+| G | organisationAddress | The organisation address | Address |
 
-The organisation address is of the form: ```line,district,city,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
 
 ### Study Amendments	Sheet
 	
@@ -237,21 +241,23 @@ The primary and secondary reasons should be set to one (primary) or one or more 
 
 The study design sheet consists of two parts, the upper section for those single values and then a section for the arms and epochs.
 
-For the single values, the keyword is in column A while the value is in column B. The order of the fields cannot be changed.
+For the single values, the keyword is in column A while the value is in column B. Some rows can repeat
 
-| Row | Row Name | Purpose | Format and Values |
+| Row Name | Purpose | Format and Values | Repeat |
 | :--- | :--- | :--- | :--- |
-| 1 | studyDesignName or name | Study design name | Text string |
-| 2 | studyDesignDescription or description | Study design description | Text string |
-| 3 (optional) | label | Study design label. Default value is '' | Text string |
-| 4 | therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
-| 5 | studyDesignRationale | Study design rationale | Text string |
-| 6 | studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
-| 7 | trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references |
-| 8 | trialTypes | Code for the trial type | CDISC code reference|
-| 9 | interventionModel | | CDISC code reference |
-| 10 | mainTimeline | Name of main timeline sheet | This must be present |
-| 11 | otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty |
+| studyDesignName or name | Study design name | Text string | No | 
+| studyDesignDescription or description | Study design description | Text string | No |
+| label | Study design label. Default value is '' | Text string | No |
+| therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated | No |
+| studyDesignRationale | Study design rationale | Text string | No |
+| studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference | No |
+| trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references | No |
+| trialTypes | Code for the trial type | CDISC code reference| No |
+| interventionModel | | CDISC code reference | No |
+| masking | A masking role | Takes form of Role=description where the role is a CDISC Code Reference | Yes |
+| characteristics | Set of characteristics | Set of CDISC code references | No |
+| mainTimeline | Name of main timeline sheet | This must be present | No |
+| otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty | No |
 
 For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
 
@@ -709,6 +715,29 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 | B | name | Name of the section. | Text string. Can be left blank in which case a default value will be used based on the section number |
 | C | sectionTitle | The section title | Text String |
 | D | sectionText | The section text | HTML formatted text String |
+
+
+### Study Design Sites sheet
+
+#### Sheet Name
+
+`studyDesignSites`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing organizations and associated sites. Note that columns G through I can repeat for the same content in columns A to F. For additional site rows leave columns A to F blank.
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Organization name | Text string |
+| B | label | Organization display label | Text string, can be empty |
+| C | type | Organisation type | CDISC code reference |
+| D | identifierScheme | The scheme for the organisation identifier | Example would be 'DUNS' |
+| E | identifier | Organisation identifier | Text string |
+| F | address | Organisation address | Address |
+| G | siteName | Site name | Formated using a pipe delimited form, see below |
+| H | siteDescription | Site description | Text string, can be empty|
+| I | siteLabel | Site display Label | Text string, can be empty |
 
 ### Dictionary Sheet
 

@@ -2547,7 +2547,32 @@
               }
             ],
             "documentVersion": null,
-            "appliesTo": [],
+            "appliesTo": [
+              {
+                "id": "StudySite_1",
+                "name": "SITE_1",
+                "label": "Site One",
+                "description": "Main Site",
+                "currentEnrollment": null,
+                "instanceType": "StudySite"
+              },
+              {
+                "id": "StudySite_2",
+                "name": "SITE_2",
+                "label": "Site Two",
+                "description": "Secondary Site",
+                "currentEnrollment": null,
+                "instanceType": "StudySite"
+              },
+              {
+                "id": "StudySite_3",
+                "name": "SITE_3",
+                "label": "Only site",
+                "description": "Only Site",
+                "currentEnrollment": null,
+                "instanceType": "StudySite"
+              }
+            ],
             "dictionaries": [
               {
                 "id": "SyntaxTemplateDictionary_1",
@@ -2598,7 +2623,83 @@
               }
             ],
             "conditions": [],
-            "organizations": [],
+            "organizations": [
+              {
+                "id": "ResearchOrganization_1",
+                "name": "SITE_ORG_1",
+                "label": "Site Org",
+                "type": {
+                  "id": "Code_146",
+                  "code": "C70793",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Clinical Study Sponsor",
+                  "instanceType": "Code"
+                },
+                "identifierScheme": "DUNS",
+                "identifier": "123456789.0",
+                "legalAddress": {
+                  "id": "Address_3",
+                  "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
+                  "line": "line",
+                  "city": "city",
+                  "district": "district",
+                  "state": "state",
+                  "postalCode": "postal_code",
+                  "country": {
+                    "id": "Code_147",
+                    "code": "GBR",
+                    "codeSystem": "ISO 3166 1 alpha3",
+                    "codeSystemVersion": "2020-08",
+                    "decode": "United Kingdom of Great Britain and Northern Ireland",
+                    "instanceType": "Code"
+                  },
+                  "instanceType": "Address"
+                },
+                "instanceType": "ResearchOrganization",
+                "manageIds": [
+                  "StudySite_1",
+                  "StudySite_2"
+                ]
+              },
+              {
+                "id": "ResearchOrganization_2",
+                "name": "SITE_ORG_2",
+                "label": "Clinical Trials Org",
+                "type": {
+                  "id": "Code_148",
+                  "code": "C70793",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Clinical Study Sponsor",
+                  "instanceType": "Code"
+                },
+                "identifierScheme": "DUNS",
+                "identifier": "234567891.0",
+                "legalAddress": {
+                  "id": "Address_4",
+                  "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
+                  "line": "Somewhere",
+                  "city": "In a City",
+                  "district": "In a District",
+                  "state": "In a big state",
+                  "postalCode": "12345",
+                  "country": {
+                    "id": "Code_149",
+                    "code": "FRA",
+                    "codeSystem": "ISO 3166 1 alpha3",
+                    "codeSystemVersion": "2020-08",
+                    "decode": "France",
+                    "instanceType": "Code"
+                  },
+                  "instanceType": "Address"
+                },
+                "instanceType": "ResearchOrganization",
+                "manageIds": [
+                  "StudySite_3"
+                ]
+              }
+            ],
             "instanceType": "StudyDesign"
           }
         ],

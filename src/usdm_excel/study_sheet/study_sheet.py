@@ -20,6 +20,7 @@ from usdm_excel.study_design_content_sheet.study_design_content_sheet import Stu
 from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
+from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -113,6 +114,7 @@ class StudySheet(BaseSheet):
       self.oe = StudyDesignObjectiveEndpointSheet(file_path)
       self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
+      self.sites = StudyDesignSitesSheet(file_path)
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
@@ -138,6 +140,8 @@ class StudySheet(BaseSheet):
       #study_design.eligibilityCriteria = self.eligibility_criteria.items
       study_design.population.criteria = self.eligibility_criteria.items
       study_design.dictionaries = self.dictionaries.items
+      study_design.appliesTo = self.sites.sites
+      study_design.organizations = self.sites.organizations
       
       # Final assembly
       try:
