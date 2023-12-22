@@ -68,7 +68,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Encounters sheet
 - Study Design Elements sheet
 - Study Design Content sheet
-- Study Design Sites sheet
+- Study Design Sites sheet (optional)
 - Dictionaries Sheet
 - Configuration sheet
 
@@ -488,8 +488,6 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | A | activityName or name	| Name | Text string |
 | B | activityDescription or description| Description | Text string, can be empty |
 | C (optional) | label | Display label | Text string, can be empty. Default value is '' |
-| D | activityIsConditional | Conditional flag | Boolean |
-| E | activityIsConditionalReason | Reason | Text string |
 
 Note that this sheet is optional. If the sheet is not provided the activities will be created from those defined in the timeline sheets. These activities will have the name and description set to the name used in the timeline sheet and no condition will be set.
 
@@ -654,8 +652,6 @@ A header row in row 1 followed by repeating rows from row 2, containing procedur
 | C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | procedureType	| Type | Text string |
 | E | procedureCode or code	| Code reference | External CT reference  |
-| F | procedureIsConditional | Conditional flag | Boolean |
-| G | procedureIsConditionalReason | Reason | Text string |
 
 ### Study Design Encounters sheet
 
@@ -738,6 +734,25 @@ A header row in row 1 followed by repeating rows from row 2, containing organiza
 | G | siteName | Site name | Formated using a pipe delimited form, see below |
 | H | siteDescription | Site description | Text string, can be empty|
 | I | siteLabel | Site display Label | Text string, can be empty |
+
+### Study Design Conditions sheet
+
+#### Sheet Name
+
+`studyDesignConditions`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing the conditions: 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Condition name | Text string |
+| B | label | Condition display label | Text string, can be empty |
+| C | description | Condition description | CDISC code reference |
+| D | text | The condition text | Text string |
+| E | appliesTo | List of cross references for items to which the condition applies | Comms separated list |
+| F | context | List of cross references for the context in which the condition applies | Comma separated list |
 
 ### Dictionary Sheet
 

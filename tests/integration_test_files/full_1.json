@@ -2622,7 +2622,51 @@
                 "instanceType": "SyntaxTemplateDictionary"
               }
             ],
-            "conditions": [],
+            "conditions": [
+              {
+                "id": "Condition_1",
+                "name": "COND1",
+                "label": "X",
+                "description": "Condition for X",
+                "text": "If this is true",
+                "dictionaryId": null,
+                "contextIds": [
+                  "Activity_2"
+                ],
+                "appliesToIds": [
+                  "Procedure_1"
+                ],
+                "instanceType": "Condition"
+              },
+              {
+                "id": "Condition_2",
+                "name": "COND2",
+                "label": "Y",
+                "description": "Condition for Y",
+                "text": "If the sky is blue",
+                "dictionaryId": null,
+                "contextIds": [
+                  "Activity_2"
+                ],
+                "appliesToIds": [
+                  "Procedure_2"
+                ],
+                "instanceType": "Condition"
+              },
+              {
+                "id": "Condition_3",
+                "name": "COND3",
+                "label": "Z",
+                "description": "Condition for Z",
+                "text": "If the sea is red",
+                "dictionaryId": null,
+                "contextIds": [],
+                "appliesToIds": [
+                  "Activity_3"
+                ],
+                "instanceType": "Condition"
+              }
+            ],
             "organizations": [
               {
                 "id": "ResearchOrganization_1",

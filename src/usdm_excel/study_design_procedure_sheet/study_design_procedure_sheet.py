@@ -18,17 +18,17 @@ class StudyDesignProcedureSheet(BaseSheet):
         label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
         type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, ['procedureCode', 'code'])
-        conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
-        reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
+        #conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
+        #reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
         try:
           item = Procedure(id=id_manager.build_id(Procedure),
             name=name,
             description=description,
             label=label,
             procedureType=type, 
-            code=code, 
-            isConditional=conditional, 
-            isConditionalReason=reason
+            code=code 
+            #isConditional=conditional, 
+            #isConditionalReason=reason
           )
         except Exception as e:
           self._general_error(f"Failed to create Procedure object, exception {e}")

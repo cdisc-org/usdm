@@ -21,6 +21,7 @@ from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
+from usdm_excel.study_design_conditions_sheet.study_design_condition_sheet import StudyDesignConditionSheet
 from usdm_excel.alias import Alias
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -115,6 +116,7 @@ class StudySheet(BaseSheet):
       self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path)
       self.estimands = StudyDesignEstimandsSheet(file_path)
       self.sites = StudyDesignSitesSheet(file_path)
+      self.conditions = StudyDesignConditionSheet(file_path)
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
@@ -137,12 +139,12 @@ class StudySheet(BaseSheet):
       study_design.population = self.study_population.population
       study_design.objectives = self.oe.objectives
       study_design.estimands = self.estimands.estimands
-      #study_design.eligibilityCriteria = self.eligibility_criteria.items
       study_design.population.criteria = self.eligibility_criteria.items
       study_design.dictionaries = self.dictionaries.items
       study_design.appliesTo = self.sites.sites
       study_design.organizations = self.sites.organizations
-      
+      study_design.conditions = self.conditions.items
+
       # Final assembly
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(

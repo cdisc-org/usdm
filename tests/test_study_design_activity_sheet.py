@@ -42,27 +42,4 @@ def test_create_empty(mocker):
   activities = StudyDesignActivitySheet("")
   assert len(activities.items) == 0
 
-def test_read_cell_by_name_error(mocker):
-  
-  call_parameters = []
-  
-  def my_add(sheet, row, column, message, level=10):
-    call_parameters.append((sheet, row, column, message, level))
-    return None
-
-  cross_references.clear()
-  mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
-  mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
-  mocked_open = mocker.mock_open(read_data="File")
-  mocker.patch("builtins.open", mocked_open)
-  data = [['Activity 1', 'Activity One']]
-  mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription'])
-  activities = StudyDesignActivitySheet("")
-  mock_error.assert_called()
-  assert call_parameters == [
-    ("studyDesignActivities", 1, -1, "Error 'Failed to detect column(s) 'activityIsConditional' in sheet' reading cell 'activityIsConditional'", 10),
-    ("studyDesignActivities", 1, -1, "Error 'Failed to detect column(s) 'activityIsConditionalReason' in sheet' reading cell 'activityIsConditionalReason'", 10),
-  ]
   

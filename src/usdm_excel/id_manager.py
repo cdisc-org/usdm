@@ -58,7 +58,8 @@ class IdManager():
       'StudyTitle': 0,
       'Masking': 0,
       'ResearchOrganization': 0,
-      'StudySite': 0
+      'StudySite': 0,
+      'Condition': 0
     }
 
   def build_id(self, klass):
