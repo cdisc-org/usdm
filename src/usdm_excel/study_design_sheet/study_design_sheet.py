@@ -27,6 +27,7 @@ class StudyDesignSheet(BaseSheet):
   MAIN_TIMELINE_LABEL = ['mainTimeline']
   OTHER_TIMELINES_LABEL = ['otherTimelines']
   MASKING_ROLE_LABEL = ['masking']
+  CHARACTERISTICS_LABEL = ['characteristics']
 
   PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
@@ -48,6 +49,7 @@ class StudyDesignSheet(BaseSheet):
       self.rationale = ""
       self.blinding = None
       self.trial_intents = []
+      self.characteristics = []
       self.trial_types = []
       self.intervention_model = None
       self.main_timeline = None
@@ -65,6 +67,7 @@ class StudyDesignSheet(BaseSheet):
     for rindex, row in self.sheet.iterrows():
       key = self.read_cell(rindex, self.PARAMS_NAME_COL)
       if general_params:
+        print(f"KEY: {key}")
         if key in self.NAME_LABEL:
           self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.LABEL_LABEL:
@@ -79,6 +82,9 @@ class StudyDesignSheet(BaseSheet):
           self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
         elif key in self.INTENT_LABEL:
           self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
+        elif key in self.CHARACTERISTICS_LABEL:
+          self.characteristics = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'characteristics', rindex, self.PARAMS_DATA_COL)
+          print(f"CHARAC: {self.characteristics}")
         elif key in self.TYPES_LABEL:
           self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
         elif key in self.INT_LABEL:
@@ -174,7 +180,7 @@ class StudyDesignSheet(BaseSheet):
 
   def _create_design(self):
     try:
-      return StudyDesign(
+      result = StudyDesign(
         id=id_manager.build_id(StudyDesign), 
         name=self.name,
         description=self.description,
@@ -190,8 +196,11 @@ class StudyDesignSheet(BaseSheet):
         rationale=self.rationale, 
         blindingSchema=self.blinding, 
         contents=[],
-        maskingRoles=self.masks
+        maskingRoles=self.masks,
+        characteristics=self.characteristics
       )
+      print(f"SD: {result.characteristics}")
+      return result
     except Exception as e:
       self._general_error("Failed to create StudyDesign object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
