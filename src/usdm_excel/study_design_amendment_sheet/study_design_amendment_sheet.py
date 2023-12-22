@@ -4,9 +4,11 @@ from usdm_excel.cross_ref import cross_references
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
 from usdm_model.geographic_scope import SubjectEnrollment
+from usdm_model.quantity import Quantity
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
+from usdm_excel.quantity_type import QuantityType
 
 import traceback
 
@@ -61,6 +63,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     results = []
     for enrollment in enrollments:
       try:
+        print(f"ENROLL: {enrollment}")
         item = SubjectEnrollment(
           id=id_manager.build_id(SubjectEnrollment),
           type=enrollment['type'],
@@ -107,7 +110,8 @@ class StudyDesignAmendmentSheet(BaseSheet):
           text = item.strip()
           parts = text.split(":")
           if len(parts) == 2:
-            return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': parts[1].strip()}]
+            quantity = self._get_quantitiy(parts[1].strip())
+            return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': quantity}]
           else:
             self._error(row_index, col_index, f"Failed to decode enrollment data {item}, no '=' detected")
           return 
@@ -120,7 +124,8 @@ class StudyDesignAmendmentSheet(BaseSheet):
               value = outer_parts[1].strip()
               name_value = value.split('=')
               if len(name_value) == 2:
-                quantity = name_value[1].strip()
+                #quantity = name_value[1].strip()
+                quantity = self._get_quantitiy(name_value[1].strip())
                 if system.upper() == "REGION":
                   pt = 'Region'
                   code = ISO3166().region_code(value)
@@ -139,6 +144,11 @@ class StudyDesignAmendmentSheet(BaseSheet):
             result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code': Alias().code(code, []), 'quantity': quantity})
       return result
 
+  def _get_quantitiy(self, text):
+    print(f"QUANTITY1: {text}")
+    quantity_details = QuantityType(text, True, False)
+    print(f"QUANTITY2: {quantity_details}")
+    return self.create_object(Quantity, {'value': float(quantity_details.value), 'unit': quantity_details.units_code})
 
   def _read_secondary_reason_cell(self, row_index):
     results = []

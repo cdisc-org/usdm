@@ -123,7 +123,12 @@
                   "instanceType": "AliasCode"
                 },
                 "instanceType": "SubjectEnrollment",
-                "quantity": "15"
+                "quantity": {
+                  "id": "Quantity_1",
+                  "value": 15.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                }
               }
             ],
             "previousId": null,
@@ -5668,7 +5673,7 @@
                   "instanceType": "Code"
                 },
                 "minimumResponseDuration": {
-                  "id": "Quantity_3",
+                  "id": "Quantity_4",
                   "value": 1.0,
                   "unit": {
                     "id": "Code_320",
@@ -5699,7 +5704,7 @@
                     "duration": {
                       "id": "AdministrationDuration_1",
                       "quantity": {
-                        "id": "Quantity_1",
+                        "id": "Quantity_2",
                         "value": 14.0,
                         "unit": {
                           "id": "Code_311",
@@ -5717,7 +5722,7 @@
                       "instanceType": "AdministrationDuration"
                     },
                     "dose": {
-                      "id": "Quantity_2",
+                      "id": "Quantity_3",
                       "value": 12.0,
                       "unit": {
                         "id": "Code_313",
@@ -5788,7 +5793,7 @@
                   "instanceType": "Code"
                 },
                 "minimumResponseDuration": {
-                  "id": "Quantity_6",
+                  "id": "Quantity_7",
                   "value": 1.0,
                   "unit": {
                     "id": "Code_330",
@@ -5819,7 +5824,7 @@
                     "duration": {
                       "id": "AdministrationDuration_2",
                       "quantity": {
-                        "id": "Quantity_4",
+                        "id": "Quantity_5",
                         "value": 14.0,
                         "unit": {
                           "id": "Code_321",
@@ -5837,7 +5842,7 @@
                       "instanceType": "AdministrationDuration"
                     },
                     "dose": {
-                      "id": "Quantity_5",
+                      "id": "Quantity_6",
                       "value": 12.0,
                       "unit": {
                         "id": "Code_323",

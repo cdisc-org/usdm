@@ -233,16 +233,16 @@ def test_read_quantity_cell_by_name(mocker):
   mocker.patch("builtins.open", mocked_open)
   data = [[''], ['1 days'], [' 1 weeks'], ['14 Hours'], ['14'], ['']]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['Range'])
+  mock_read.return_value = pd.DataFrame(data, columns=['Quantity'])
   base = BaseSheet("", "sheet")
   test_data = [
-    #  Name,    Req Units, Allow Empty, Errors, Empty,  Value,  Unit,     Error 
-    (0,'Range', True,      False,       True,   False,  0.0,    '',       "Error in sheet sheet at [1,1]: Failed to decode quantity data ''"),
-    (1,'Range', True,      False,       False,  False,  1.0,    'C25301', ''),
-    (2,'Range', True,      False,       False,  False,  1.0,    'C29844', ''),
-    (3,'Range', True,      False,       False,  False,  14.0,   'C25529', ""),
-    (4,'Range', False,     False,       False,  False,  14.0,   '',       ""),
-    (5,'Range', True,      True,        False,  True,   0.0,    '',       ""),
+    #  Name,       Allow Missing Units, Allow Empty, Errors, Empty,  Value,  Unit,     Error 
+    (0,'Quantity', False,               False,       True,   False,  0.0,    '',       "Error in sheet sheet at [1,1]: Failed to decode quantity data ''"),
+    (1,'Quantity', False,               False,       False,  False,  1.0,    'C25301', ''),
+    (2,'Quantity', False,               False,       False,  False,  1.0,    'C29844', ''),
+    (3,'Quantity', False,               False,       False,  False,  14.0,   'C25529', ""),
+    (4,'Quantity', True,                False,       False,  False,  14.0,   '',       ""),
+    (5,'Quantity', False,               True,        False,  True,   0.0,    '',       ""),
   ]
   for test in test_data:
     error_manager.clear()
@@ -250,7 +250,7 @@ def test_read_quantity_cell_by_name(mocker):
     item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
       assert(item.value) == test[6]
-      if test[2]:
+      if not test[2]:
         assert(item.unit.code) == test[7]
       assert(len(error_manager.items)) == 0
     elif test[5]:

@@ -136,14 +136,14 @@ class BaseSheet():
       return True
     return False
 
-  def read_quantity_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):
+  def read_quantity_cell_by_name(self, row_index, field_name, allow_missing_units=True, allow_empty=True):
     col_index = self.column_present(field_name)
-    return self.read_quantity_cell(row_index, col_index, require_units, allow_empty)
+    return self.read_quantity_cell(row_index, col_index, allow_missing_units, allow_empty)
 
-  def read_quantity_cell(self, row_index, col_index, require_units=True, allow_empty=True):
+  def read_quantity_cell(self, row_index, col_index, allow_missing_units=True, allow_empty=True):
     try:
       text = self.read_cell(row_index, col_index)
-      quantity = QuantityType(text, require_units, allow_empty)
+      quantity = QuantityType(text, allow_missing_units, allow_empty)
       if not quantity.errors:
         #print(f"QUANTITY: {quantity.value} {quantity.units} {quantity.units_code}")
         return None if quantity.empty else Quantity(id=id_manager.build_id(Quantity), value=float(quantity.value), unit=quantity.units_code)
