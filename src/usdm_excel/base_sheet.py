@@ -233,16 +233,15 @@ class BaseSheet():
   #     return empty_value
   #   return value
 
-  # Want to kill this method
-  def set_cdisc_code(self, value):
-    if value.strip() == "":
-      return None
-    parts = value.split("=")
-    try:
-      return CDISCCT().code(code=parts[0].strip(), decode=parts[1].strip())
-    except Exception as e:
-      self._error(0, 0, "CDISC code error '%s'" % (e))
-      return None
+  # def set_cdisc_code(self, value):
+  #   if value.strip() == "":
+  #     return None
+  #   parts = value.split("=")
+  #   try:
+  #     return CDISCCT().code(code=parts[0].strip(), decode=parts[1].strip())
+  #   except Exception as e:
+  #     self._error(0, 0, "CDISC code error '%s'" % (e))
+  #     return None
 
   def read_other_code_cell_by_name(self, row_index, field_name):
     #col_index = self.sheet.columns.get_loc(field_name)
