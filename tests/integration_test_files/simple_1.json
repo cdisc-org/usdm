@@ -1411,7 +1411,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_116",
+                  "id": "Code_114",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1429,7 +1429,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_115",
+                      "id": "Code_113",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1448,7 +1448,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_118",
+                  "id": "Code_116",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1466,7 +1466,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_117",
+                      "id": "Code_115",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1484,7 +1484,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_119",
+                      "id": "Code_117",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1502,7 +1502,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_120",
+                      "id": "Code_118",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1520,7 +1520,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_121",
+                      "id": "Code_119",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1538,7 +1538,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_122",
+                      "id": "Code_120",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1556,7 +1556,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_123",
+                      "id": "Code_121",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1574,7 +1574,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_124",
+                      "id": "Code_122",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1592,7 +1592,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_125",
+                      "id": "Code_123",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1610,7 +1610,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_126",
+                      "id": "Code_124",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1628,7 +1628,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_127",
+                      "id": "Code_125",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1646,7 +1646,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_128",
+                      "id": "Code_126",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1694,7 +1694,21 @@
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criteria": [],
-                  "plannedAge": null,
+                  "plannedAge": {
+                    "id": "Range_3",
+                    "minValue": 18.0,
+                    "maxValue": 30.0,
+                    "unit": {
+                      "id": "Code_111",
+                      "code": "C29848",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Year",
+                      "instanceType": "Code"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 },
@@ -1708,7 +1722,21 @@
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criteria": [],
-                  "plannedAge": null,
+                  "plannedAge": {
+                    "id": "Range_4",
+                    "minValue": 31.0,
+                    "maxValue": 70.0,
+                    "unit": {
+                      "id": "Code_112",
+                      "code": "C29848",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Year",
+                      "instanceType": "Code"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 }

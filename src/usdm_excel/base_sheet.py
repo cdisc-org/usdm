@@ -128,8 +128,8 @@ class BaseSheet():
       self._error(row_index, col_index, "Error (%s) reading cell row '%s', field '%s'" % (e, row_index, col_index))
       return ""
 
-  def read_boolean_cell_by_name(self, row_index, field_name):
-    value = self.read_cell_by_name(row_index, field_name)
+  def read_boolean_cell_by_name(self, row_index, field_name, must_be_present=True):
+    value = self.read_cell_by_name(row_index, field_name, must_be_present=must_be_present)
     if not value:
       return False
     elif value.strip().upper() in ['Y', 'YES', 'T', 'TRUE', '1']:

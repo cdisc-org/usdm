@@ -559,9 +559,9 @@ A header row in row 1 followed by repeating rows from row 2 containing populatio
 | D | label | Display label | Text string, can be empty |
 | E | plannedCompletionNumber	| Number of participants to complete the study | Integer | 
 | F | plannedEnrollmentNumber	| Number of participants to be enrolled | Integer | 
-| G | plannedMinimumAge	| Min age | Quantity | 
-| H | plannedMaximumAge	| Max Age | Quantity |
-| I | plannedSexOfParticipants | Sex of participants | CDISC code reference |
+| G | plannedAge	| Age range of participants | Range |
+| H | plannedSexOfParticipants | Sex of participants | CDISC code reference |
+| I | includesHealthSubjects | Healthy subjects flag | Boolean |
 
 ### Study Design Objectives and Endpoints sheet
 

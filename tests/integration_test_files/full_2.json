@@ -5902,7 +5902,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_335",
+                  "id": "Code_334",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -5920,7 +5920,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_334",
+                      "id": "Code_333",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5938,7 +5938,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_336",
+                      "id": "Code_335",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5957,7 +5957,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_338",
+                  "id": "Code_337",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -5975,7 +5975,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_337",
+                      "id": "Code_336",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -5993,7 +5993,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_339",
+                      "id": "Code_338",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -6011,7 +6011,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_340",
+                      "id": "Code_339",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -6030,7 +6030,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_342",
+                  "id": "Code_341",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -6048,7 +6048,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_341",
+                      "id": "Code_340",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -6066,7 +6066,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_343",
+                      "id": "Code_342",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -6084,7 +6084,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_344",
+                      "id": "Code_343",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -6128,7 +6128,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_345",
+                    "id": "Code_344",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -6149,7 +6149,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_346",
+                    "id": "Code_345",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -6170,7 +6170,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_2",
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_347",
+                    "id": "Code_346",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -6191,7 +6191,7 @@
                   "dictionaryId": null,
                   "instanceType": "EligibilityCriteria",
                   "category": {
-                    "id": "Code_348",
+                    "id": "Code_347",
                     "code": "C25370",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-09-29",
@@ -6204,7 +6204,21 @@
                   "contextId": null
                 }
               ],
-              "plannedAge": null,
+              "plannedAge": {
+                "id": "Range_3",
+                "minValue": 50.0,
+                "maxValue": 100.0,
+                "unit": {
+                  "id": "Code_331",
+                  "code": "C29848",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Year",
+                  "instanceType": "Code"
+                },
+                "isApproximate": false,
+                "instanceType": "Range"
+              },
               "instanceType": "StudyDesignPopulation",
               "cohorts": []
             },

@@ -1253,7 +1253,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_195",
+                  "id": "Code_193",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1271,7 +1271,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_194",
+                      "id": "Code_192",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1319,7 +1319,21 @@
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criteria": [],
-                  "plannedAge": null,
+                  "plannedAge": {
+                    "id": "Range_3",
+                    "minValue": 18.0,
+                    "maxValue": 30.0,
+                    "unit": {
+                      "id": "Code_190",
+                      "code": "C29848",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Year",
+                      "instanceType": "Code"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 },
@@ -1333,7 +1347,21 @@
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criteria": [],
-                  "plannedAge": null,
+                  "plannedAge": {
+                    "id": "Range_4",
+                    "minValue": 31.0,
+                    "maxValue": 70.0,
+                    "unit": {
+                      "id": "Code_191",
+                      "code": "C29848",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Year",
+                      "instanceType": "Code"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 }

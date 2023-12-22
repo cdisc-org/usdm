@@ -1131,7 +1131,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_89",
+                  "id": "Code_88",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -1149,7 +1149,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_88",
+                      "id": "Code_87",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-09-29",
@@ -1184,7 +1184,21 @@
               },
               "plannedSex": [],
               "criteria": [],
-              "plannedAge": null,
+              "plannedAge": {
+                "id": "Range_3",
+                "minValue": 30.0,
+                "maxValue": 60.0,
+                "unit": {
+                  "id": "Code_85",
+                  "code": "C29848",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-09-29",
+                  "decode": "Year",
+                  "instanceType": "Code"
+                },
+                "isApproximate": false,
+                "instanceType": "Range"
+              },
               "instanceType": "StudyDesignPopulation",
               "cohorts": []
             },
