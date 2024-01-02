@@ -211,8 +211,12 @@ class NarrativeContent():
 
   def _get_soup(self, text):
     try:
-      print(f"SOUP: {text}")
-      return BeautifulSoup(text, 'html.parser')
+      #print(f"SOUP: {text}")
+      with warnings.catch_warnings(record=True) as warning_list:
+        result =  BeautifulSoup(text, 'html.parser')
+      if warning_list:
+        error_manager.add(None, None, None, f"Warning raised within Soup package, processing '{text}'", level=error_manager.WARNING)
+      return result
     except:
       logging.error(f"Exception raised parsing '{text}'\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Exception raised raised parsing '{text}'. Ignoring value")

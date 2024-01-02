@@ -69,28 +69,21 @@ class StudyDesignDictionarySheet(BaseSheet):
       parts = path.split("/")
       attribute = parts[0].replace('@', '')  
       if len(parts) == 1:
-        #print(f"PATH1: {parts}")
-        #print(f"PATH6: RETURN={instance.id} {attribute}")
         return instance, attribute
-      else:
-        #print(f"PATH1: {parts}")
-        if len(parts) % 2 == 1:
-          #print(f"PATH2:")
-          for index in range(1,len(parts),2):
-            instance = getattr(instance, attribute)
-            attribute = parts[index+1].replace('@', '')
-            #print(f"PATH4: {instance} {attribute}")
-          if instance and attribute:
-            #print(f"PATH6: RETURN={instance.id} {attribute}")
-            if not cross_references.get_by_id(instance.__class__, instance.id):
-              cross_references.add(instance.id, instance)
-            return instance, attribute
-          else:
-            self._error(row, col, f"Failed to translate reference path, not found '{path}'. Ignoring value")
-            return None, None
+      elif len(parts) % 2 == 1:
+        for index in range(1,len(parts),2):
+          instance = getattr(instance, attribute)
+          attribute = parts[index+1].replace('@', '')
+        if instance and attribute:
+          if not cross_references.get_by_id(instance.__class__, instance.id):
+            cross_references.add(instance.id, instance)
+          return instance, attribute
         else:
-          self._error(row, col, f"Failed to translate reference path, format '{path}'. Ignoring value")
+          self._error(row, col, f"Failed to translate reference path, not found '{path}'. Ignoring value")
           return None, None
+      else:
+        self._error(row, col, f"Failed to translate reference path, format '{path}'. Ignoring value")
+        return None, None
     except Exception as e:
       self._error(row, col, f"Exception raised translating reference path '{path}'\n{traceback.format_exc()}")
       return None, None
