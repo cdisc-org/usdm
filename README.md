@@ -772,7 +772,13 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | D | key | The entry key | Text String. Must be unique within the dictionary |
 | E | class | The class name | The name of the class within the model from which the data for the dictionary entry is to be taken |
 | F | xref | Cross reference name | The name of the instance from which the data is to be taken. Use the entries in the name columns from other sheets |
-| F | atrribute | The attribute name | The name of the attribute from which the data is to be taken. |
+| F | atrribute | The attribute path or name | The name or path of the attribute from which the data is to be taken |
+
+The attribute path follows a simplified 'Xpath' syntax of ```@attribute-name[/class/@attribute-name]``` form. The class attribute pairs can be repeated to arrive as the desired attribute. This has been provided since not all instances of all classes are named which prevents thenm being addressed directly, for example Range of Quantity instances.
+
+An example for accessing the Population planned age, max value is ```@plannedAge/Range/@maxValue```. In this instance the ```class``` column would be set to ```Population``` and the ```xref``` column set to the name of the Population entry in the population shseet. 
+
+Note that the '@' symbol does not need to be included with attribute names but it guides the eye making it easier to read the path.
 
 ### Configuration Sheet
 
