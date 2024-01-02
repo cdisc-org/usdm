@@ -7372,14 +7372,14 @@
                 "description": "Dictionary for IE",
                 "parameterMap": {
                   "min_age": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "@plannedAge/Range/@minValue"
+                    "klass": "Range",
+                    "id": "Range_3",
+                    "attribute": "minValue"
                   },
                   "max_age": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "@plannedAge/Range/@maxValue"
+                    "klass": "Range",
+                    "id": "Range_3",
+                    "attribute": "maxValue"
                   },
                   "StudyPopulation": {
                     "klass": "StudyDesignPopulation",

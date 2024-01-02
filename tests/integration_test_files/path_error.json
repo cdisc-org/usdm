@@ -256,7 +256,7 @@
                 "code": "MILD_MOD_ALZ",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
-                "decode": "Mild to Moderate Alzheimer\\'s Disease",
+                "decode": "Mild to Moderate Alzheimer's Disease",
                 "instanceType": "Code"
               },
               {
@@ -264,7 +264,7 @@
                 "code": "26929004",
                 "codeSystem": "SNOMED",
                 "codeSystemVersion": "January 31, 2018",
-                "decode": "Alzheimer\\'s disease",
+                "decode": "Alzheimer's disease",
                 "instanceType": "Code"
               }
             ],
@@ -6099,7 +6099,7 @@
               "id": "StudyDesignPopulation_1",
               "name": "POP1",
               "label": "",
-              "description": "Patients with Probable Mild to Moderate Alzheimer\\'s Disease",
+              "description": "Patients with Probable Mild to Moderate Alzheimer's Disease",
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
                 "id": "Range_2",
@@ -6199,6 +6199,27 @@
                     "instanceType": "Code"
                   },
                   "identifier": "9",
+                  "nextId": null,
+                  "previousId": null,
+                  "contextId": null
+                },
+                {
+                  "id": "EligibilityCriteria_5",
+                  "name": "Age Criteria",
+                  "label": "",
+                  "description": "The study age criterion",
+                  "text": "Subjects shall be between [min_age] and [max_age_2]",
+                  "dictionaryId": "SyntaxTemplateDictionary_1",
+                  "instanceType": "EligibilityCriteria",
+                  "category": {
+                    "id": "Code_348",
+                    "code": "C25532",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-09-29",
+                    "decode": "Inclusion Criteria",
+                    "instanceType": "Code"
+                  },
+                  "identifier": "4",
                   "nextId": null,
                   "previousId": null,
                   "contextId": null
@@ -7371,15 +7392,10 @@
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
                 "parameterMap": {
-                  "min_age": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "@plannedAge/Range/"
-                  },
                   "max_age": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "@plannedAge/Range/maxValue"
+                    "klass": "Range",
+                    "id": "Range_3",
+                    "attribute": "maxValue"
                   },
                   "StudyPopulation": {
                     "klass": "StudyDesignPopulation",
@@ -7398,7 +7414,7 @@
                   "Activity1": {
                     "klass": "Activity",
                     "id": "Activity_6",
-                    "attribute": "@label"
+                    "attribute": "label"
                   }
                 },
                 "instanceType": "SyntaxTemplateDictionary"
