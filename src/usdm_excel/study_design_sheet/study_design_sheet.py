@@ -67,7 +67,7 @@ class StudyDesignSheet(BaseSheet):
     for rindex, row in self.sheet.iterrows():
       key = self.read_cell(rindex, self.PARAMS_NAME_COL)
       if general_params:
-        print(f"KEY: {key}")
+        #print(f"KEY: {key}")
         if key in self.NAME_LABEL:
           self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.LABEL_LABEL:
@@ -84,29 +84,29 @@ class StudyDesignSheet(BaseSheet):
           self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
         elif key in self.CHARACTERISTICS_LABEL:
           self.characteristics = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'characteristics', rindex, self.PARAMS_DATA_COL)
-          print(f"CHARAC: {self.characteristics}")
+          #print(f"CHARAC: {self.characteristics}")
         elif key in self.TYPES_LABEL:
           self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
         elif key in self.INT_LABEL:
           self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
         elif key in self.MAIN_TIMELINE_LABEL:
-          print(f"MAIN TL: {rindex}")
+          #print(f"MAIN TL: {rindex}")
           self.main_timeline = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.OTHER_TIMELINES_LABEL:
-          print(f"OTHER TL: {rindex}")
+          #print(f"OTHER TL: {rindex}")
           self.other_timelines = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
         elif key in self.MASKING_ROLE_LABEL:
-          print(f"MASKING: {rindex}")
+          #print(f"MASKING: {rindex}")
           self._set_masking(rindex, self.PARAMS_DATA_COL)
         elif key in '':
           general_params = False
           start_row = rindex + 1
-          print(f"START: {start_row}")
+          #print(f"START: {start_row}")
       else:
         for cindex in range(0, len(self.sheet.columns)):
           epoch_index = cindex - 1
           cell = self.read_cell(rindex, cindex)
-          print(f"ARMS EPOCHS: {rindex} = {cell}")
+          #print(f"ARMS EPOCHS: {rindex} = {cell}")
           if rindex == start_row:
             if cindex != 0:
               resolved_epochs[epoch_index] = self._add_epoch(cell)

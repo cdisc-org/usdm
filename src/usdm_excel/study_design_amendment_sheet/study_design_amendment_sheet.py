@@ -63,7 +63,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     results = []
     for enrollment in enrollments:
       try:
-        print(f"ENROLL: {enrollment}")
+        #print(f"ENROLL: {enrollment}")
         item = SubjectEnrollment(
           id=id_manager.build_id(SubjectEnrollment),
           type=enrollment['type'],
@@ -145,9 +145,9 @@ class StudyDesignAmendmentSheet(BaseSheet):
       return result
 
   def _get_quantitiy(self, text):
-    print(f"QUANTITY1: {text}")
+    #print(f"QUANTITY1: {text}")
     quantity_details = QuantityType(text, True, False)
-    print(f"QUANTITY2: {quantity_details}")
+    #print(f"QUANTITY2: {quantity_details}")
     return self.create_object(Quantity, {'value': float(quantity_details.value), 'unit': quantity_details.units_code})
 
   def _read_secondary_reason_cell(self, row_index):
