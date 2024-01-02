@@ -199,7 +199,7 @@ class StudyDesignSheet(BaseSheet):
         maskingRoles=self.masks,
         characteristics=self.characteristics
       )
-      print(f"SD: {result.characteristics}")
+      #print(f"SD: {result.characteristics}")
       return result
     except Exception as e:
       self._general_error("Failed to create StudyDesign object, exception {e}")
