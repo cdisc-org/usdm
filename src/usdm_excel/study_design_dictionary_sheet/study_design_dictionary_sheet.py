@@ -31,10 +31,13 @@ class StudyDesignDictionarySheet(BaseSheet):
           xref_name = self.read_cell_by_name(index, 'xref')
           attribute_path = self.read_cell_by_name(index, ['attribute', 'path'])
           item = cross_references.get(klass, xref_name)
+          col = self.column_present(['attribute', 'path'])
           if item:
-            current_map[key] = {'klass': klass, 'id': item.id, 'attribute': attribute_path}
+            instance, attribute = self._process_path(index, col, item, attribute_path)
+            if instance:
+              current_map[key] = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
           else:
-            self._general_warning(f"Unable to resolve dictionary reference klass: '{klass}', name: '{xref_name}', attribute: '{attribute_path}'")
+            self._warning(index, col, f"Unable to resolve dictionary reference klass: '{klass}', name: '{xref_name}', attribute: '{attribute_path}'")
         # Clean up last dictionary if present
         if current_dictionary:
           current_dictionary.parameterMap = current_map
@@ -60,3 +63,34 @@ class StudyDesignDictionarySheet(BaseSheet):
       self.items.append(item)
       cross_references.add(name, item)
       return item
+
+  def _process_path(self, row, col, instance, path):
+    try:
+      parts = path.split("/")
+      attribute = parts[0].replace('@', '')  
+      if len(parts) == 1:
+        #print(f"PATH1: {parts}")
+        #print(f"PATH6: RETURN={instance.id} {attribute}")
+        return instance, attribute
+      else:
+        #print(f"PATH1: {parts}")
+        if len(parts) % 2 == 1:
+          #print(f"PATH2:")
+          for index in range(1,len(parts),2):
+            instance = getattr(instance, attribute)
+            attribute = parts[index+1].replace('@', '')
+            #print(f"PATH4: {instance} {attribute}")
+          if instance and attribute:
+            #print(f"PATH6: RETURN={instance.id} {attribute}")
+            if not cross_references.get_by_id(instance.__class__, instance.id):
+              cross_references.add(instance.id, instance)
+            return instance, attribute
+          else:
+            self._error(row, col, f"Failed to translate reference path, not found '{path}'. Ignoring value")
+            return None, None
+        else:
+          self._error(row, col, f"Failed to translate reference path, format '{path}'. Ignoring value")
+          return None, None
+    except Exception as e:
+      self._error(row, col, f"Exception raised translating reference path '{path}'\n{traceback.format_exc()}")
+      return None, None

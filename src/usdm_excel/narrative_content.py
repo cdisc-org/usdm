@@ -184,8 +184,7 @@ class NarrativeContent():
       else:
         instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
       try:
-        #value = str(getattr(instance, attributes['attribute']))
-        value = self._value_from_path(instance, attributes['attribute'])
+        value = str(getattr(instance, attributes['attribute']))
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       except Exception as e:
@@ -194,29 +193,6 @@ class NarrativeContent():
         ref.replace_with('Missing content')
     return str(soup)
 
-  def _value_from_path(self, instance, path):
-    try:
-      parts = path.split("/")
-      #print(f"PATH1: {parts}")
-      if len(parts) % 2 == 1:
-        #print(f"PATH2:")
-        for index in range(0,len(parts),2):
-          part = parts[index]
-          #print(f"PATH3: {part}")
-          attribute = part.replace('@', '')
-          #print(f"PATH4: {attribute}")
-          instance = getattr(instance, attribute)
-          #print(f"PATH5: {instance}")
-        #print(f"PATH6: RETURN={instance}")
-        return str(instance)
-      else:
-        error_manager.add(None, None, None, f"Failed to translate reference path due to format '{path}'. Ignoring value")
-        return f"*** Missing Content ***"
-    except Exception as e:
-      logging.error(f"Exception raised translating reference path '{path}'\n{traceback.format_exc()}")
-      error_manager.add(None, None, None, f"Exception raised translating reference path '{path}'. Ignoring value")
-      return f"*** Missing Content ***"
-  
   def _standard_section(self, text):
     soup = self._get_soup(text)
     for section in soup(['usdm:section']):
@@ -235,7 +211,7 @@ class NarrativeContent():
 
   def _get_soup(self, text):
     try:
-      #print(f"SOUP: {text}")
+      print(f"SOUP: {text}")
       return BeautifulSoup(text, 'html.parser')
     except:
       logging.error(f"Exception raised parsing '{text}'\n{traceback.format_exc()}")
