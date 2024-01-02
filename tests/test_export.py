@@ -3,7 +3,7 @@ import csv
 from src.usdm_excel import USDMExcel
 from uuid import UUID
 
-SAVE_ALL = True
+SAVE_ALL = False
 
 def to_int(value):
   try:

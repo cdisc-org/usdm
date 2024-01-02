@@ -2,7 +2,7 @@ import json
 import csv
 from src.usdm_excel import USDMExcel
 
-SAVE_ALL = True
+SAVE_ALL = False
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
@@ -187,3 +187,5 @@ def test_timeline_2():
 def test_timeline_3():
   run_test_timeline('complex_1')
 
+def test_path_error():
+  run_test('path_error')
