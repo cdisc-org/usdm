@@ -9181,15 +9181,15 @@ nodes:
     name: IE_Dict
     parameterMap:
       StudyPopulation:
-        attribute: populationDescription
+        attribute: description
         id: StudyDesignPopulation_1
         klass: StudyDesignPopulation
       max_age:
-        attribute: plannedMaximumAge
+        attribute: '@plannedAge/Range/@maxValue'
         id: StudyDesignPopulation_1
         klass: StudyDesignPopulation
       min_age:
-        attribute: plannedMinimumAge
+        attribute: '@plannedAge/Range/@minValue'
         id: StudyDesignPopulation_1
         klass: StudyDesignPopulation
     uuid: 00000000-0000-4000-8000-000000000843

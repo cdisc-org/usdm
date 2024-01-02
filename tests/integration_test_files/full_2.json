@@ -7374,17 +7374,17 @@
                   "min_age": {
                     "klass": "StudyDesignPopulation",
                     "id": "StudyDesignPopulation_1",
-                    "attribute": "plannedMinimumAge"
+                    "attribute": "@plannedAge/Range/@minValue"
                   },
                   "max_age": {
                     "klass": "StudyDesignPopulation",
                     "id": "StudyDesignPopulation_1",
-                    "attribute": "plannedMaximumAge"
+                    "attribute": "@plannedAge/Range/@maxValue"
                   },
                   "StudyPopulation": {
                     "klass": "StudyDesignPopulation",
                     "id": "StudyDesignPopulation_1",
-                    "attribute": "populationDescription"
+                    "attribute": "description"
                   }
                 },
                 "instanceType": "SyntaxTemplateDictionary"
