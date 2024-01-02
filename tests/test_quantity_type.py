@@ -38,7 +38,7 @@ def test_quantity_type_no_units(mocker):
     (' 15 C ', "15", 'C', 'C42559', False, '15 C')
   ]
   for index, test in enumerate(test_data):
-    print(f"TEST {test}")
+    #print(f"TEST {test}")
     item = QuantityType(test[0], allow_missing_units=True)
     assert(item.value) == test[1]
     assert(item.units) == test[2]

@@ -17,11 +17,11 @@ def test_create(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['Dictionary 1', 'Dictionary One',   'Label One',   'Key 1', 'Klass 1', 'Id 1', 'Attribute 1'], 
-    ['',             '',                 '',            'Key 2', 'Klass 2', 'Id 2', 'Attribute 2'], 
-    ['Dictionary 2', 'Dictionary Two',   'Label Two',   'Key 3', 'Klass 3', 'Id 3', 'Attribute 3'], 
-    ['Dictionary 3', 'Dictionary Three', 'Label Three', 'Key 4', 'Klass 4', 'Id 4', 'Attribute 4'], 
-    ['',             '',                 '',            'Key 5', 'Klass 5', 'Id 5', 'Attribute 5']
+    ['Dictionary 1', 'Dictionary One',   'Label One',   'Key 1', ApiBaseModelWithId, 'Id 1', 'Attribute 1'], 
+    ['',             '',                 '',            'Key 2', ApiBaseModelWithId, 'Id 2', 'Attribute 2'], 
+    ['Dictionary 2', 'Dictionary Two',   'Label Two',   'Key 3', ApiBaseModelWithId, 'Id 3', 'Attribute 3'], 
+    ['Dictionary 3', 'Dictionary Three', 'Label Three', 'Key 4', ApiBaseModelWithId, 'Id 4', 'Attribute 4'], 
+    ['',             '',                 '',            'Key 5', ApiBaseModelWithId, 'Id 5', 'Attribute 5']
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute'])
@@ -31,7 +31,7 @@ def test_create(mocker):
   assert dictionaries.items[0].name == 'Dictionary 1'
   assert dictionaries.items[0].description == 'Dictionary One'
   assert dictionaries.items[0].label == 'Label One'
-  assert dictionaries.items[0].parameterMap['Key 2']['klass'] == 'Klass 2'
+  assert dictionaries.items[0].parameterMap['Key 2']['klass'] == 'ApiBaseModelWithId'
   assert list(dictionaries.items[1].parameterMap.keys()) == ['Key 3']
   assert list(dictionaries.items[2].parameterMap.keys()) == ['Key 4', 'Key 5']
   
@@ -69,6 +69,6 @@ def test_read_cell_by_name_error(mocker):
   mock_error.assert_called()
   assert call_parameters == [
     ("dictionaries", 1, -1, "Error 'Failed to detect column(s) 'xref' in sheet' reading cell 'xref'", 10),
-    ('dictionaries', None, None, "Unable to resolve dictionary reference klass: 'Klass 1', name: '', attribute: 'Attribute 1'", 30)
+    ('dictionaries', 1, 6, "Unable to resolve dictionary reference klass: 'Klass 1', name: '', attribute: 'Attribute 1'", 30)
   ]
   
