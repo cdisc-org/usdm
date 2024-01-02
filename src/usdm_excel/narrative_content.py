@@ -7,6 +7,7 @@ import re
 import os
 import traceback
 import docraptor
+import warnings
 
 class NarrativeContent():
 
@@ -14,6 +15,7 @@ class NarrativeContent():
     pass
 
   def __init__(self, doc_title, study):
+    #warnings.filterwarnings("error")
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
@@ -174,8 +176,8 @@ class NarrativeContent():
         self._content_to_html(content, doc)
 
   def _translate_references(self, content_text):
-    print(f"TRANSLATE: {content_text}")
-    soup = BeautifulSoup(content_text, 'html.parser')
+    #print(f"TRANSLATE: {content_text}")
+    soup = self._get_soup(content_text)
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
       if 'namexref' in attributes:
@@ -188,8 +190,8 @@ class NarrativeContent():
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       except Exception as e:
-        logging.error(f"Failed to translate reference, attributes {attributes}\n{traceback.format_exc()}")
-        error_manager.add(None, None, None, f"Failed to translate a reference {attributes} while generating the HTML document")
+        logging.error(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
+        error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content')
     return str(soup)
 
@@ -209,21 +211,21 @@ class NarrativeContent():
         #print(f"PATH6: RETURN={instance}")
         return str(instance)
       else:
-        error_manager.add(None, None, None, f"Failed to translate reference path '{path}'. Ignoring value")
-        return ""
+        error_manager.add(None, None, None, f"Failed to translate reference path due to format '{path}'. Ignoring value")
+        return f"*** Missing Content {path} ***"
     except Exception as e:
       logging.error(f"Exception raised translating reference path '{path}'\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Exception raised translating reference path '{path}'. Ignoring value")
-      return ""
+      return f"*** Missing Content {path} ***"
   
   def _standard_section(self, text):
-    soup = BeautifulSoup(text, 'html.parser')
+    soup = self._get_soup(text)
     for section in soup(['usdm:section']):
       return True
     return False
   
   def _standard_section_name(self, text):  
-    soup = BeautifulSoup(text, 'html.parser')
+    soup = self._get_soup(text)
     for section in soup(['usdm:section']):
       attributes = section.attrs
       if 'name' in attributes:
@@ -232,6 +234,14 @@ class NarrativeContent():
         return None
     return None
 
+  def _get_soup(self, text):
+    try:
+      return BeautifulSoup(text, 'html.parser')
+    except:
+      logging.error(f"Exception raised parsing '{text}'\n{traceback.format_exc()}")
+      error_manager.add(None, None, None, f"Exception raised raised parsing '{text}'. Ignoring value")
+      return ""
+    
   def _generate_standard_section(self, name):
     #print(f"GSS: {name}")   
     if name == "M11-TITLE-PAGE":
