@@ -174,6 +174,7 @@ class NarrativeContent():
         self._content_to_html(content, doc)
 
   def _translate_references(self, content_text):
+    print(f"TRANSLATE: {content_text}")
     soup = BeautifulSoup(content_text, 'html.parser')
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
@@ -182,7 +183,8 @@ class NarrativeContent():
       else:
         instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
       try:
-        value = str(getattr(instance, attributes['attribute']))
+        #value = str(getattr(instance, attributes['attribute']))
+        value = self._value_from_path(instance, attributes['attribute'])
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       except Exception as e:
@@ -190,6 +192,29 @@ class NarrativeContent():
         error_manager.add(None, None, None, f"Failed to translate a reference {attributes} while generating the HTML document")
         ref.replace_with('Missing content')
     return str(soup)
+
+  def _value_from_path(self, instance, path):
+    try:
+      parts = path.split("/")
+      #print(f"PATH1: {parts}")
+      if len(parts) % 2 == 1:
+        #print(f"PATH2:")
+        for index in range(0,len(parts),2):
+          part = parts[index]
+          #print(f"PATH3: {part}")
+          attribute = part.replace('@', '')
+          #print(f"PATH4: {attribute}")
+          instance = getattr(instance, attribute)
+          #print(f"PATH5: {instance}")
+        #print(f"PATH6: RETURN={instance}")
+        return str(instance)
+      else:
+        error_manager.add(None, None, None, f"Failed to translate reference path '{path}'. Ignoring value")
+        return ""
+    except Exception as e:
+      logging.error(f"Exception raised translating reference path '{path}'\n{traceback.format_exc()}")
+      error_manager.add(None, None, None, f"Exception raised translating reference path '{path}'. Ignoring value")
+      return ""
   
   def _standard_section(self, text):
     soup = BeautifulSoup(text, 'html.parser')
