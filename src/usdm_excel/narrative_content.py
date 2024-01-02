@@ -176,7 +176,6 @@ class NarrativeContent():
         self._content_to_html(content, doc)
 
   def _translate_references(self, content_text):
-    #print(f"TRANSLATE: {content_text}")
     soup = self._get_soup(content_text)
     for ref in soup(['usdm:ref']):
       attributes = ref.attrs
@@ -212,11 +211,11 @@ class NarrativeContent():
         return str(instance)
       else:
         error_manager.add(None, None, None, f"Failed to translate reference path due to format '{path}'. Ignoring value")
-        return f"*** Missing Content {path} ***"
+        return f"*** Missing Content ***"
     except Exception as e:
       logging.error(f"Exception raised translating reference path '{path}'\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Exception raised translating reference path '{path}'. Ignoring value")
-      return f"*** Missing Content {path} ***"
+      return f"*** Missing Content ***"
   
   def _standard_section(self, text):
     soup = self._get_soup(text)
@@ -236,6 +235,7 @@ class NarrativeContent():
 
   def _get_soup(self, text):
     try:
+      #print(f"SOUP: {text}")
       return BeautifulSoup(text, 'html.parser')
     except:
       logging.error(f"Exception raised parsing '{text}'\n{traceback.format_exc()}")
