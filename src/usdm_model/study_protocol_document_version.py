@@ -9,5 +9,5 @@ class StudyProtocolDocumentVersion(ApiBaseModelWithId):
   protocolStatus: Code
   dateValues: List[GovernanceDate] = []
   contents: List[NarrativeContent] = []
-  childrenIds: List[str] = []
+  childIds: List[str] = []
   instanceType: Literal['StudyProtocolDocumentVersion']

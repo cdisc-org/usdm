@@ -148,10 +148,6 @@ class StudySheet(BaseSheet):
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=id_manager.build_id(StudyProtocolDocumentVersion), 
-          #briefTitle=self.brief_title,
-          #officialTitle=self.official_title,
-          #publicTitle=self.public_title,
-          #scientificTitle=self.scientific_title,
           protocolVersion=self.protocol_version,
           protocolStatus=self.protocol_status,
           dateValues=self.dates[self.PROTOCOL_VERSION_DATE]
