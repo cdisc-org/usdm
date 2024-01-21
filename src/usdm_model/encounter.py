@@ -8,7 +8,7 @@ class Encounter(ApiBaseModelWithIdNameLabelAndDesc):
   previousId: Union[str, None] = None
   nextId: Union[str, None] = None
   scheduledAtId: Union[str, None] = None
-  environmentalSetting: Union[Code, None] = None
+  environmentalSetting: List[Code] = []
   contactModes: List[Code] = []
   transitionStartRule: Union[TransitionRule, None] = None
   transitionEndRule: Union[TransitionRule, None] = None

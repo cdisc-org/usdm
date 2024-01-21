@@ -21,7 +21,7 @@ class StudyDesignEncounterSheet(BaseSheet):
         description = self.read_cell_by_name(index, ['encounterDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default='', must_be_present=False)
         type = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterType', index, ['encounterType', 'type'])
-        setting = self.read_cdisc_klass_attribute_cell_by_name('Encounter', 'encounterEnvironmentalSetting', index, ['encounterEnvironmentalSetting', 'environmentalSetting'])
+        settings = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterEnvironmentalSetting', index, ['encounterEnvironmentalSetting', 'environmentalSetting'])
         modes = self.read_cdisc_klass_attribute_cell_multiple_by_name('Encounter', 'encounterContactModes', index, ['encounterContactModes', 'contactModes'])
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
@@ -42,7 +42,7 @@ class StudyDesignEncounterSheet(BaseSheet):
             description=description,
             label=label,
             type=type, 
-            environmentalSetting=setting,
+            environmentalSetting=settings,
             contactModes=modes,
             transitionStartRule=start_rule,
             transitionEndRule=end_rule,
