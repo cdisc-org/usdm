@@ -12,7 +12,7 @@ from .study_title import StudyTitle
 class StudyVersion(ApiBaseModelWithId):
   versionIdentifier: str
   rationale: str
-  type: Union[genericCode, None] = None
+  studyType: Union[genericCode, None] = None
   studyPhase: Union[AliasCode, None] = None
   documentVersionId: Union[str, None] = None
   dateValues: List[GovernanceDate] = []

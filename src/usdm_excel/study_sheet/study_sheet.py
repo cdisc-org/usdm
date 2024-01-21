@@ -170,13 +170,11 @@ class StudySheet(BaseSheet):
       try:
         self.study_version = StudyVersion(
           id=id_manager.build_id(StudyVersion),
-          #studyTitle=self.title,
           versionIdentifier=self.version,
-          type=self.type,
+          studyType=self.type,
           studyPhase=self.phase,
           businessTherapeuticAreas=self.therapeutic_areas,
           rationale=self.rationale,
-          #studyAcronym=self.acronym,
           studyIdentifiers=self.study_identifiers.identifiers,
           documentVersionId=self.protocol_document_version.id,
           studyDesigns=self.study_design.study_designs,
