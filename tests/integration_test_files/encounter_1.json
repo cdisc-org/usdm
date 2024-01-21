@@ -441,7 +441,7 @@
               "id": "Organization_1",
               "name": "ClinicalTrials.gov",
               "label": "",
-              "type": {
+              "organizationType": {
                 "id": "Code_54",
                 "code": "C93453",
                 "codeSystem": "http://www.cdisc.org",
@@ -480,7 +480,7 @@
               "id": "Organization_2",
               "name": "ACME Pharma",
               "label": "",
-              "type": {
+              "organizationType": {
                 "id": "Code_56",
                 "code": "C70793",
                 "codeSystem": "http://www.cdisc.org",
@@ -519,7 +519,7 @@
               "id": "Organization_3",
               "name": "European Union",
               "label": "",
-              "type": {
+              "organizationType": {
                 "id": "Code_58",
                 "code": "C188863",
                 "codeSystem": "http://www.cdisc.org",
@@ -541,7 +541,7 @@
               "id": "Organization_4",
               "name": "Food & Drug Administration",
               "label": "",
-              "type": {
+              "organizationType": {
                 "id": "Code_59",
                 "code": "C188863",
                 "codeSystem": "http://www.cdisc.org",
@@ -563,7 +563,7 @@
               "id": "Organization_5",
               "name": "World Health Organisation",
               "label": "",
-              "type": {
+              "organizationType": {
                 "id": "Code_60",
                 "code": "C93453",
                 "codeSystem": "http://www.cdisc.org",
@@ -2692,7 +2692,7 @@
                 "id": "ResearchOrganization_1",
                 "name": "SITE_ORG_1",
                 "label": "Site Org",
-                "type": {
+                "organizationType": {
                   "id": "Code_147",
                   "code": "C70793",
                   "codeSystem": "http://www.cdisc.org",
@@ -2721,16 +2721,30 @@
                   "instanceType": "Address"
                 },
                 "instanceType": "ResearchOrganization",
-                "manageIds": [
-                  "StudySite_1",
-                  "StudySite_2"
+                "manages": [
+                  {
+                    "id": "StudySite_1",
+                    "name": "SITE_1",
+                    "label": "Site One",
+                    "description": "Main Site",
+                    "currentEnrollment": null,
+                    "instanceType": "StudySite"
+                  },
+                  {
+                    "id": "StudySite_2",
+                    "name": "SITE_2",
+                    "label": "Site Two",
+                    "description": "Secondary Site",
+                    "currentEnrollment": null,
+                    "instanceType": "StudySite"
+                  }
                 ]
               },
               {
                 "id": "ResearchOrganization_2",
                 "name": "SITE_ORG_2",
                 "label": "Clinical Trials Org",
-                "type": {
+                "organizationType": {
                   "id": "Code_149",
                   "code": "C70793",
                   "codeSystem": "http://www.cdisc.org",
@@ -2759,8 +2773,15 @@
                   "instanceType": "Address"
                 },
                 "instanceType": "ResearchOrganization",
-                "manageIds": [
-                  "StudySite_3"
+                "manages": [
+                  {
+                    "id": "StudySite_3",
+                    "name": "SITE_3",
+                    "label": "Only site",
+                    "description": "Only Site",
+                    "currentEnrollment": null,
+                    "instanceType": "StudySite"
+                  }
                 ]
               }
             ],

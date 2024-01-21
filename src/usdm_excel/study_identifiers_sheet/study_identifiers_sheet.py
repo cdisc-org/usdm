@@ -2,10 +2,7 @@ from usdm_model.organization import Organization
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
-# from usdm_model.address import Address
-# from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.cross_ref import cross_references
-import pandas as pd
 import traceback
 
 class StudyIdentifiersSheet(BaseSheet):
@@ -37,7 +34,7 @@ class StudyIdentifiersSheet(BaseSheet):
           identifier=org_identifier,
           name=org_name,
           label=org_label,
-          type=org_type,
+          organizationType=org_type,
           legalAddress=org_address
         )
       except Exception as e:

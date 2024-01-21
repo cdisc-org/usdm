@@ -35,14 +35,14 @@ def test_create(mocker):
   assert sites.organizations[0].identifierScheme == 'DUNS'
   assert sites.organizations[0].legalAddress.city == 'city'
   assert sites.organizations[0].legalAddress.country.decode == 'GBR'
-  assert sites.organizations[0].manageIds == ['Site_1']
+  assert sites.organizations[0].manages[0].id == 'Site_1'
   assert sites.organizations[1].id == 'Id_2'
   assert sites.organizations[1].identifier == '222222222'
   assert sites.organizations[1].identifierScheme == 'DUNS'
   assert sites.organizations[1].legalAddress.city == 'city2'
   assert sites.organizations[2].id == 'Id_3'
   assert sites.organizations[2].identifier == '333333333'
-  assert sites.organizations[2].manageIds == ['Site_3']
+  assert sites.organizations[2].manages[0].id == 'Site_3'
   
 def test_create_empty(mocker):
   cross_references.clear()

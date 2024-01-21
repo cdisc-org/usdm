@@ -32,13 +32,13 @@ class StudyDesignSitesSheet(BaseSheet):
             org_address = self.read_address_cell_by_name(index, 'address')
             if org_address:
               cross_references.add(org_address.id, org_address)   
-            item = self.create_object(ResearchOrganization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'type': org_type, 'legalAddress': org_address, 'manageIds': [site.id]})
+            item = self.create_object(ResearchOrganization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'organizationType': org_type, 'legalAddress': org_address, 'manages': [site]})
             if item:
               self.organizations.append(item)
               cross_references.add(item.id, item)     
               current_org = item
           else:
-            current_org.manageIds.append(site.id)
+            current_org.manages.append(site)
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

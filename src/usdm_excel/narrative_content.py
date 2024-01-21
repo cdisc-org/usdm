@@ -331,7 +331,7 @@ class NarrativeContent():
   def _sponsor_identifier(self):
     identifiers = self.study_version.studyIdentifiers
     for identifier in identifiers:
-      if identifier.studyIdentifierScope.type.code == 'C70793':
+      if identifier.studyIdentifierScope.organizationType.code == 'C70793':
         return identifier
     return None
   
@@ -368,7 +368,7 @@ class NarrativeContent():
     results = []
     identifiers = self.study_version.studyIdentifiers
     for identifier in identifiers:
-      if identifier.studyIdentifierScope.type.code == 'C188863' or identifier.studyIdentifierScope.type.code == 'C93453':
+      if identifier.studyIdentifierScope.organizationType.code == 'C188863' or identifier.studyIdentifierScope.organizationType.code == 'C93453':
         item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier', 'path': 'StudyIdentifier[Organization/@type/@code=C188863|C93453]/@studyIdentifier'}
         results.append(item)
     return self._set_of_references(results)
