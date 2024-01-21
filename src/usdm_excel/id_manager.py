@@ -49,7 +49,7 @@ class IdManager():
       'StudyAmendmentReason': 0,
       'SubjectEnrollment': 0,
       'SyntaxTemplateDictionary': 0,
-      'EligibilityCriteria': 0,
+      'EligibilityCriterion': 0,
       'AgentAdministration': 0,
       'AdministrationDuration': 0,
       'Quantity': 0,

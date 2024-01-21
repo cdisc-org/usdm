@@ -11,7 +11,7 @@ from .biomedical_concept_surrogate import *
 from .biomedical_concept import *
 from .code import *
 from .condition import *
-from .eligibility_criteria import *
+from .eligibility_criterion import *
 from .encounter import *
 from .endpoint import *
 from .estimand import *
@@ -64,7 +64,7 @@ __all__ = [
   'BiomedicalConcept',
   'Code',
   'Condition',
-  'EligibilityCriteria',
+  'EligibilityCriterion',
   'Encounter',
   'Endpoint',
   'Enrollment',

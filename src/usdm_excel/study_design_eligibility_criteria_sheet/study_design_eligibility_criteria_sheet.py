@@ -1,7 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
-from usdm_model.eligibility_criteria import EligibilityCriteria
+from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 
 import traceback
@@ -34,14 +34,8 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
     try:
       dictionary_id = self._get_dictionary_id(dictionary_name)
-      # dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
-      # if dictionary:
-      #   dictionary_id = dictionary.id
-      # else:
-      #   self._general_error(f"Unable to find dictionary with name '{dictionary_name}'")
-      #   dictionary_id = None
-      item = EligibilityCriteria(
-        id=id_manager.build_id(EligibilityCriteria),
+      item = EligibilityCriterion(
+        id=id_manager.build_id(EligibilityCriterion),
         name=name,
         description=description,
         label=label,
