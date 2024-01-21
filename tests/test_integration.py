@@ -115,6 +115,9 @@ def test_full_2():
 def test_full_2_html():
   run_test_html('full_2')
 
+def test_encounter_1():
+  run_test('encounter_1')
+
 def test_simple_1():
   run_test('simple_1')
 
