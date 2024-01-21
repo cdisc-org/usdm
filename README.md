@@ -670,8 +670,8 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | C | encounterDescription or description	| Description | Text string, can be empty |
 | D (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | E | encounterType or type	| The type | CDISC code reference |
-| F | encounterEnvironmentalSetting	| Encounter environment | CDISC code reference |
-| G | encounterContactModes	| Contact modes | CDISC code reference |
+| F | encounterEnvironmentalSetting	| Encounter environment | One or more CDISC code references |
+| G | encounterContactModes	| Contact modes | One or more CDISC code references |
 | H | transitionStartRule	| Start rule | Text string |
 | I | transitionEndRule| End Rule | Text string |
 | J | window | Timing reference that defines the window | Text string |
