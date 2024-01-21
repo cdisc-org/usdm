@@ -8,4 +8,4 @@ class GovernanceDate(ApiBaseModelWithIdNameLabelAndDesc):
   type: Code
   dateValue: date
   geographicScopes: List[GeographicScope]
-  instanceType: Literal['GovernanceDate'] = 'GovernanceDate'
+  instanceType: Literal['GovernanceDate']

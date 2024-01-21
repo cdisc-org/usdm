@@ -3,4 +3,4 @@ from typing import Literal
 
 class AnalysisPopulation(ApiBaseModelWithIdNameLabelAndDesc):
   text: str
-  instanceType: Literal['AnalysisPopulation'] = 'AnalysisPopulation'
+  instanceType: Literal['AnalysisPopulation']

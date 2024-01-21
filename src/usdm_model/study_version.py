@@ -21,4 +21,4 @@ class StudyVersion(ApiBaseModelWithId):
   studyIdentifiers: List[StudyIdentifier] = []
   studyDesigns: List[StudyDesign] = []
   titles: List[StudyTitle]
-  instanceType: Literal['StudyVersion'] = 'StudyVersion'
+  instanceType: Literal['StudyVersion']

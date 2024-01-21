@@ -10,4 +10,4 @@ class Activity(ApiBaseModelWithIdNameLabelAndDesc):
   bcCategoryIds: List[str] = []
   bcSurrogateIds: List[str] = []
   timelineId: Union[str, None] = None
-  instanceType: Literal['Activity'] = 'Activity'
+  instanceType: Literal['Activity']

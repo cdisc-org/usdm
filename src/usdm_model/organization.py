@@ -12,4 +12,4 @@ class Organization(ApiBaseModelWithIdNameAndLabel):
 
 class ResearchOrganization(Organization):
   manageIds: List[str]
-  instanceType: Literal['ResearchOrganization'] = 'ResearchOrganization'
+  instanceType: Literal['ResearchOrganization']

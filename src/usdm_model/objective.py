@@ -6,4 +6,4 @@ from .endpoint import Endpoint
 class Objective(SyntaxTemplate):
   level: Union[Code, None] = None
   endpoints: List[Endpoint] = []
-  instanceType: Literal['Objective'] = 'Objective'
+  instanceType: Literal['Objective']

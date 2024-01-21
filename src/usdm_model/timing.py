@@ -11,4 +11,4 @@ class Timing(ApiBaseModelWithIdNameLabelAndDesc):
   windowLower: Union[str, None] = None
   windowUpper: Union[str, None] = None
   window: Union[str, None] = None
-  instanceType: Literal['Timing'] = 'Timing'
+  instanceType: Literal['Timing']

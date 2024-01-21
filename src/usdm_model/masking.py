@@ -4,4 +4,4 @@ from typing import Literal
 
 class Masking(ApiBaseModelWithIdAndDesc):
   role: Code
-  instanceType: Literal['Masking'] = 'Masking'
+  instanceType: Literal['Masking']

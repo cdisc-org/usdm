@@ -6,4 +6,4 @@ class Procedure(ApiBaseModelWithIdNameLabelAndDesc):
   procedureType: str
   code: Code
   studyInterventionId: Union[str, None] = None
-  instanceType: Literal['Procedure'] = 'Procedure'
+  instanceType: Literal['Procedure']

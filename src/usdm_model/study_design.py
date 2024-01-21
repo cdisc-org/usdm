@@ -53,4 +53,4 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   dictionaries: List[SyntaxTemplateDictionary] = []
   conditions: List[Condition] = []
   organizations: List[ResearchOrganization] = []
-  instanceType: Literal['StudyDesign'] = 'StudyDesign'
+  instanceType: Literal['StudyDesign']

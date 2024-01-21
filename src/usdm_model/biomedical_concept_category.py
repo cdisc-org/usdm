@@ -6,4 +6,4 @@ class BiomedicalConceptCategory(ApiBaseModelWithIdNameLabelAndDesc):
   childrenIds: List[str] = []
   memberIds: List[str] = []
   code: Union[AliasCode, None] = None
-  instanceType: Literal['BiomedicalConceptCategory'] = 'BiomedicalConceptCategory'
+  instanceType: Literal['BiomedicalConceptCategory']

@@ -6,4 +6,4 @@ class Code(ApiBaseModelWithId):
   codeSystem: str
   codeSystemVersion: str
   decode: str
-  instanceType: Literal['Code'] = 'Code'
+  instanceType: Literal['Code']

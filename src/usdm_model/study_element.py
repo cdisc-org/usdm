@@ -6,4 +6,4 @@ class StudyElement(ApiBaseModelWithIdNameLabelAndDesc):
   transitionStartRule: Union[TransitionRule, None] = None
   transitionEndRule: Union[TransitionRule, None] = None
   studyInterventionIds: List[str] = []
-  instanceType: Literal['StudyElement'] = 'StudyElement'
+  instanceType: Literal['StudyElement']

@@ -9,4 +9,4 @@ class AgentAdministration(ApiBaseModelWithIdNameLabelAndDesc):
   dose:	Quantity
   route:	Code
   frequency:	Code
-  instanceType: Literal['AgentAdministration'] = 'AgentAdministration'
+  instanceType: Literal['AgentAdministration']

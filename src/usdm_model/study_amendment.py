@@ -11,4 +11,4 @@ class StudyAmendment(ApiBaseModelWithId):
   secondaryReasons: List[StudyAmendmentReason] = []
   enrollments: List[SubjectEnrollment]
   previousId: Union[str, None] = None
-  instanceType: Literal['StudyAmendment'] = 'StudyAmendment'
+  instanceType: Literal['StudyAmendment']

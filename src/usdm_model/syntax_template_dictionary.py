@@ -3,4 +3,4 @@ from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 
 class SyntaxTemplateDictionary(ApiBaseModelWithIdNameLabelAndDesc):
   parameterMap: Dict
-  instanceType: Literal['SyntaxTemplateDictionary'] = 'SyntaxTemplateDictionary'
+  instanceType: Literal['SyntaxTemplateDictionary']

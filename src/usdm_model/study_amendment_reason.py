@@ -5,4 +5,4 @@ from .code import Code
 class StudyAmendmentReason(ApiBaseModelWithId):
   code: Code
   otherReason: Union[str, None] = None
-  instanceType: Literal['StudyAmendmentReason'] = 'StudyAmendmentReason'
+  instanceType: Literal['StudyAmendmentReason']

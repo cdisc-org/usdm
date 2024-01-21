@@ -8,4 +8,4 @@ class EligibilityCriteria(SyntaxTemplate):
   nextId: Union[str, None] = None
   previousId: Union[str, None] = None
   contextId: Union[str, None] = None
-  instanceType: Literal['EligibilityCriteria'] = 'EligibilityCriteria'
+  instanceType: Literal['EligibilityCriteria']

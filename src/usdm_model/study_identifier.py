@@ -5,4 +5,4 @@ from .organization import Organization
 class StudyIdentifier(ApiBaseModelWithId):
   studyIdentifier: str
   studyIdentifierScope: Organization
-  instanceType: Literal['StudyIdentifier'] = 'StudyIdentifier'
+  instanceType: Literal['StudyIdentifier']

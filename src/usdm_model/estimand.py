@@ -9,4 +9,4 @@ class Estimand(ApiBaseModelWithId):
   treatmentId: str
   variableOfInterestId: str
   intercurrentEvents: List[IntercurrentEvent]
-  instanceType: Literal['Estimand'] = 'Estimand'
+  instanceType: Literal['Estimand']

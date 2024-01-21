@@ -9,4 +9,4 @@ class BiomedicalConceptProperty(ApiBaseModelWithIdNameAndLabel):
   datatype: str
   responseCodes: List[ResponseCode] = []
   code: AliasCode
-  instanceType: Literal['BiomedicalConceptProperty'] = 'BiomedicalConceptProperty'
+  instanceType: Literal['BiomedicalConceptProperty']

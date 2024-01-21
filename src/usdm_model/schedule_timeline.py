@@ -9,4 +9,4 @@ class ScheduleTimeline(ApiBaseModelWithIdNameLabelAndDesc):
   entryId: str
   exits: List[ScheduleTimelineExit] = []
   instances: List[Union[ScheduledActivityInstance, ScheduledDecisionInstance]] = []
-  instanceType: Literal['ScheduleTimeline'] = 'ScheduleTimeline'
+  instanceType: Literal['ScheduleTimeline']

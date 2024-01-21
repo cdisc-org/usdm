@@ -4,4 +4,4 @@ from .geographic_scope import SubjectEnrollment
 
 class StudySite(ApiBaseModelWithIdNameLabelAndDesc):
   currentEnrollment: Union[SubjectEnrollment, None] = None
-  instanceType: Literal['StudySite'] = 'StudySite'
+  instanceType: Literal['StudySite']

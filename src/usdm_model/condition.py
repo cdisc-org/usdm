@@ -6,4 +6,4 @@ class Condition(ApiBaseModelWithIdNameLabelAndDesc):
   dictionaryId: Union[str, None] = None
   contextIds: List[str] = []
   appliesToIds: List[str] = []
-  instanceType: Literal['Condition'] = 'Condition'
+  instanceType: Literal['Condition']

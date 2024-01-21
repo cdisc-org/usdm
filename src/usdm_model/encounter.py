@@ -12,4 +12,4 @@ class Encounter(ApiBaseModelWithIdNameLabelAndDesc):
   contactModes: List[Code] = []
   transitionStartRule: Union[TransitionRule, None] = None
   transitionEndRule: Union[TransitionRule, None] = None
-  instanceType: Literal['Encounter'] = 'Encounter'
+  instanceType: Literal['Encounter']

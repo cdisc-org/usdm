@@ -5,4 +5,4 @@ from .code import Code
 class Quantity(ApiBaseModelWithId):
   value: float
   unit: Union[Code, None] = None
-  instanceType: Literal['Quantity'] = 'Quantity'
+  instanceType: Literal['Quantity']

@@ -5,4 +5,4 @@ from .code import Code
 class Indication(ApiBaseModelWithIdNameLabelAndDesc):
   codes: List[Code] = []
   isRareDisease: bool
-  instanceType: Literal['Indication'] = 'Indication'
+  instanceType: Literal['Indication']

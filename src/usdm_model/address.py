@@ -10,4 +10,4 @@ class Address(ApiBaseModelWithId):
   state: Union[str, None] = None
   postalCode: Union[str, None] = None
   country: Union[Code, None] = None
-  instanceType: Literal['Address']= 'Address'
+  instanceType: Literal['Address']

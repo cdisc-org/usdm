@@ -25,6 +25,10 @@ def _serialize_as_json_with_type(obj):
 
 class ApiBaseModel(BaseModel):
 
+  def __init__(self, *args, **kwargs):
+    kwargs['instanceType'] = self.__class__.__name__
+    super().__init__(*args, **kwargs)
+
   def to_json(self):
     return json.dumps(self, default=_serialize_as_json)
 
