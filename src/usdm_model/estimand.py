@@ -6,7 +6,7 @@ from .intercurrent_event import IntercurrentEvent
 class Estimand(ApiBaseModelWithId):
   summaryMeasure: str
   analysisPopulation: AnalysisPopulation
-  treatmentId: str
+  interventionId: str
   variableOfInterestId: str
   intercurrentEvents: List[IntercurrentEvent]
   instanceType: Literal['Estimand']

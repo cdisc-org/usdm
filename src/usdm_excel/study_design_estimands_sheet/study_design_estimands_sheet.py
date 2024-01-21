@@ -36,7 +36,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
             try:
               treatment_id = self._get_treatment(treatment_xref)
               endpoint_id = self._get_endpoint(endpoint_xref)
-              current = Estimand(id=id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, treatmentId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
+              current = Estimand(id=id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
             except Exception as e:
               self._general_error(f"Failed to create Estimand object, exception {e}")
               self._traceback(f"{traceback.format_exc()}")
