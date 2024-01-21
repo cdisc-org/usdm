@@ -123,7 +123,7 @@ class NarrativeContent():
       <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'>
       """
       chapters = []
-      for id in root.childrenIds:
+      for id in root.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         level = len(content.sectionNumber.split('.'))
         if level == 1:
@@ -150,7 +150,7 @@ class NarrativeContent():
             doc.asis(style)      
         with doc.tag('body'):
           doc.asis(front_sheet)    
-          for id in root.childrenIds:
+          for id in root.childIds:
             content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
             if content:
               self._content_to_html(content, doc)
@@ -171,7 +171,7 @@ class NarrativeContent():
         name = self._standard_section_name(content.text)
         content.text = self._generate_standard_section(name)
       doc.asis(self._translate_references(content.text))
-      for id in content.childrenIds:
+      for id in content.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
 

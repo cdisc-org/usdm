@@ -20,7 +20,7 @@ class StudyDesignContentSheet(BaseSheet):
           sectionNumber="0",
           sectionTitle="Root",
           text="",
-          childrenIds=[]
+          childIds=[]
         )
         self.items.append(previous_item)
         for index, row in self.sheet.iterrows():
@@ -39,7 +39,7 @@ class StudyDesignContentSheet(BaseSheet):
               sectionNumber=section_number,
               sectionTitle=title,
               text=self._wrap_div(text),
-              childrenIds=[]
+              childIds=[]
             )
           except Exception as e:  
             self._general_error(f"Failed to create Content object, exception {e}")
@@ -50,7 +50,7 @@ class StudyDesignContentSheet(BaseSheet):
             if new_level == current_level:
               # Same level
               parent = current_parent[-1]
-              parent.childrenIds.append(item.id)
+              parent.childIds.append(item.id)
             elif new_level > current_level:
               # Down
               if (new_level - current_level) > 1:
@@ -59,13 +59,13 @@ class StudyDesignContentSheet(BaseSheet):
               current_parent.append(previous_item)
               current_level = new_level
               parent = current_parent[-1]
-              parent.childrenIds.append(item.id)
+              parent.childIds.append(item.id)
             else:
               # Up
               for p_count in range(new_level, current_level):
                 popped = current_parent.pop()
               parent = current_parent[-1]
-              parent.childrenIds.append(item.id)
+              parent.childIds.append(item.id)
               current_level = new_level
             previous_item = item
     except Exception as e:
@@ -75,11 +75,6 @@ class StudyDesignContentSheet(BaseSheet):
   def _get_level(self, section_number):
     parts = section_number.split('.')
     return len(parts)
-
-  # def _standard_section(self, text):
-  #   result = re.match(r'SECTION\s*=', text.upper())
-  #   #print(f"STD: {text} = {result}")
-  #   return result
 
   def _wrap_div(self, text):
     return text if text.startswith("<div>") else f"<div>{text}</div>"
