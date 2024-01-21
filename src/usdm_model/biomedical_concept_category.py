@@ -3,7 +3,7 @@ from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .alias_code import AliasCode
 
 class BiomedicalConceptCategory(ApiBaseModelWithIdNameLabelAndDesc):
-  childrenIds: List[str] = []
+  childIds: List[str] = []
   memberIds: List[str] = []
   code: Union[AliasCode, None] = None
   instanceType: Literal['BiomedicalConceptCategory']
