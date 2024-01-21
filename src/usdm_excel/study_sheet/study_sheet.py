@@ -141,7 +141,6 @@ class StudySheet(BaseSheet):
       study_design.estimands = self.estimands.estimands
       study_design.population.criteria = self.eligibility_criteria.items
       study_design.dictionaries = self.dictionaries.items
-      study_design.appliesTo = self.sites.sites
       study_design.organizations = self.sites.organizations
       study_design.conditions = self.conditions.items
 

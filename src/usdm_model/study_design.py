@@ -17,10 +17,8 @@ from .population_definition import StudyDesignPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
-from .study_protocol_document_version import StudyProtocolDocumentVersion
 from .syntax_template_dictionary import SyntaxTemplateDictionary
 from .masking import Masking
-from .study_site import StudySite
 from .condition import Condition
 from .organization import ResearchOrganization
 
@@ -48,8 +46,7 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   objectives: List[Objective] = []
   population: Union[StudyDesignPopulation, None] = None
   scheduleTimelines: List[ScheduleTimeline] = []
-  documentVersion: Union[StudyProtocolDocumentVersion, None] = None
-  appliesTo: List[StudySite] = []
+  documentVersionId: Union[str, None] = None
   dictionaries: List[SyntaxTemplateDictionary] = []
   conditions: List[Condition] = []
   organizations: List[ResearchOrganization] = []
