@@ -322,26 +322,28 @@ class StudySheet(BaseSheet):
     self.soa = self._process_timeline(file_path, self.study_design.main_timeline, True)
 
   def _process_timeline(self, file_path, timeline, main_timeline=False):
-    if not self.soa_version:
-      self._general_info("Detecting SoA sheet version ...")
-      tl = StudySoASheet(file_path, timeline, main=main_timeline, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
-      if tl.success:
-        self._general_info("SoA sheet version 1 detected")
-        self.soa_version = 1 
-      else:
-        self._general_info("SoA sheet version 2 detected")
-        self.soa_version = 2
-        tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-        #print("---- SoA Timing ----")
-        tl.set_timing_references(self.timings.items)
-    elif self.soa_version == 1:
-      self._general_info("Set to SoA sheet version 1")
-      tl = StudySoASheet(file_path, timeline, main=main_timeline)
-    else:
-      self._general_info("Set to SoA sheet version 2")
-      tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-      #print("---- SoA Timing ----")
-      tl.set_timing_references(self.timings.items)
+    # if not self.soa_version:
+    #   self._general_info("Detecting SoA sheet version ...")
+    #   tl = StudySoASheet(file_path, timeline, main=main_timeline, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
+    #   if tl.success:
+    #     self._general_info("SoA sheet version 1 detected")
+    #     self.soa_version = 1 
+    #   else:
+    #     self._general_info("SoA sheet version 2 detected")
+    #     self.soa_version = 2
+    #     tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
+    #     #print("---- SoA Timing ----")
+    #     tl.set_timing_references(self.timings.items)
+    # elif self.soa_version == 1:
+    #   self._general_info("Set to SoA sheet version 1")
+    #   tl = StudySoASheet(file_path, timeline, main=main_timeline)
+    # else:
+    #   self._general_info("Set to SoA sheet version 2")
+    #   tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
+    #   #print("---- SoA Timing ----")
+    #   tl.set_timing_references(self.timings.items)
+    tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
+    tl.set_timing_references(self.timings.items)
     return tl
 
   def _read_scope_cell(self, row_index, col_index):
