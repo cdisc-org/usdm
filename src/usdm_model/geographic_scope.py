@@ -7,7 +7,7 @@ from .quantity import Quantity
 class GeographicScope(ApiBaseModelWithId):
   type: Code
   code: Union[AliasCode, None] = None
-  instanceType: Literal['GeographicScope'] = 'GeographicScope'
+  instanceType: Literal['GeographicScope']
 
 class SubjectEnrollment(GeographicScope):
   quantity: Quantity
