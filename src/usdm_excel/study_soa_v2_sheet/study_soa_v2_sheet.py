@@ -55,14 +55,14 @@ class StudySoAV2Sheet(BaseSheet):
         item = instance.item
         timing.relativeFromScheduledInstanceId = item.id
         item.timings.append(timing)
-      # else:
-      #   self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
+      else:
+        self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
       instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
       if instance:
         item = instance.item
         timing.relativeToScheduledInstanceId = item.id
-      # else:
-      #   self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
+      else:
+        self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
     for instance in self._raw_instances.items:
       item = instance.item
       if isinstance(item, ScheduledActivityInstance):

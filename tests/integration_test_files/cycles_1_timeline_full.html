@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head></head><body><h1>Main Timeline</h1><pre class="mermaid">
+graph LR
+ScheduleTimeline_1([Potential subject identified])
+ScheduledActivityInstance_1(A)
+ScheduleTimeline_1 -->|first| ScheduledActivityInstance_1
+ScheduledActivityInstance_2(A)
+ScheduledActivityInstance_1 -->|default| ScheduledActivityInstance_2
+ScheduledActivityInstance_3(A)
+ScheduledActivityInstance_2 -->|default| ScheduledActivityInstance_3
+ScheduledActivityInstance_4(A)
+ScheduledActivityInstance_3 -->|default| ScheduledActivityInstance_4
+ScheduledActivityInstance_5(A)
+ScheduledActivityInstance_4 -->|default| ScheduledActivityInstance_5
+ScheduledActivityInstance_6(A)
+ScheduledActivityInstance_5 -->|default| ScheduledActivityInstance_6
+ScheduledActivityInstance_7(A)
+ScheduledActivityInstance_6 -->|default| ScheduledActivityInstance_7
+ScheduledActivityInstance_8(A)
+ScheduledActivityInstance_7 -->|default| ScheduledActivityInstance_8
+ScheduledActivityInstance_9(A)
+ScheduledActivityInstance_8 -->|default| ScheduledActivityInstance_9
+ScheduledActivityInstance_10(A)
+ScheduledActivityInstance_9 -->|default| ScheduledActivityInstance_10
+ScheduledActivityInstance_11(A)
+ScheduledActivityInstance_10 -->|default| ScheduledActivityInstance_11
+ScheduledDecisionInstance_1{{D}}
+ScheduledDecisionInstance_1 -->|Cycle 4 to 12| ScheduledActivityInstance_9
+ScheduledActivityInstance_11 -->|default| ScheduledDecisionInstance_1
+ScheduledActivityInstance_12(A)
+ScheduledDecisionInstance_1 -->|default| ScheduledActivityInstance_12
+ScheduledActivityInstance_13(A)
+ScheduledActivityInstance_12 -->|default| ScheduledActivityInstance_13
+ScheduledActivityInstance_14(A)
+ScheduledActivityInstance_13 -->|default| ScheduledActivityInstance_14
+ScheduledDecisionInstance_2{{D}}
+ScheduledDecisionInstance_2 -->|No Disease Progresssion| ScheduledActivityInstance_12
+ScheduledActivityInstance_14 -->|default| ScheduledDecisionInstance_2
+ScheduledActivityInstance_15(A)
+ScheduledDecisionInstance_2 -->|default| ScheduledActivityInstance_15
+ScheduledActivityInstance_16(A)
+ScheduledActivityInstance_15 -->|default| ScheduledActivityInstance_16
+ScheduleTimelineExit_1([Exit])
+ScheduledActivityInstance_16 -->|exit| ScheduleTimelineExit_1
+Timing_1((Screening
+Before
+P30D
+P0D..P30D))
+Timing_1 -->|from| ScheduledActivityInstance_1
+Timing_1 -->|to| ScheduledActivityInstance_3
+Timing_2((Day 1
+Fixed Reference
+P1D
+None..None))
+Timing_2 -->|from| ScheduledActivityInstance_2
+Timing_2 -->|to| ScheduledActivityInstance_2
+Timing_3((Cycle 1, Day 1
+After
+P1D
+None..None))
+Timing_3 -->|from| ScheduledActivityInstance_3
+Timing_3 -->|to| ScheduledActivityInstance_2
+Timing_4((Cycle 1, Day 15
+After
+P14D
+P2D..P2D))
+Timing_4 -->|from| ScheduledActivityInstance_4
+Timing_4 -->|to| ScheduledActivityInstance_3
+Timing_5((Cycle 2, Day 1
+After
+P16D
+P2D..P2D))
+Timing_5 -->|from| ScheduledActivityInstance_5
+Timing_5 -->|to| ScheduledActivityInstance_2
+Timing_6((Cycle 2, Day 15
+After
+P14D
+P2D..P2D))
+Timing_6 -->|from| ScheduledActivityInstance_6
+Timing_6 -->|to| ScheduledActivityInstance_5
+Timing_7((Cycle 3, Day 1
+After
+P31D
+P2D..P2D))
+Timing_7 -->|from| ScheduledActivityInstance_7
+Timing_7 -->|to| ScheduledActivityInstance_2
+Timing_8((Cycle 3, Day 15
+After
+P14D
+P2D..P2D))
+Timing_8 -->|from| ScheduledActivityInstance_8
+Timing_8 -->|to| ScheduledActivityInstance_7
+Timing_9((Cycle 4..12 Base
+After
+P46D
+P2D..P2D))
+Timing_9 -->|from| ScheduledActivityInstance_9
+Timing_9 -->|to| ScheduledActivityInstance_2
+Timing_10((Cycle 4..12, Day 1
+After
+P1D
+P2D..P2D))
+Timing_10 -->|from| ScheduledActivityInstance_10
+Timing_10 -->|to| ScheduledActivityInstance_13
+Timing_11((Cycle 4..12, Delay
+After
+P14D
+None..None))
+Timing_11 -->|from| ScheduledActivityInstance_11
+Timing_11 -->|to| ScheduledActivityInstance_11
+Timing_12((Cycle 13.., Base
+After
+P211D
+None..None))
+Timing_12 -->|from| ScheduledActivityInstance_12
+Timing_12 -->|to| ScheduledActivityInstance_12
+Timing_13((Cycle 13.., Day 1
+After
+P1D
+P2D..P2D))
+Timing_13 -->|from| ScheduledActivityInstance_13
+Timing_13 -->|to| ScheduledActivityInstance_12
+Timing_14((Cycle 13.., Delay
+After
+P14D
+None..None))
+Timing_14 -->|from| ScheduledActivityInstance_14
+Timing_14 -->|to| ScheduledActivityInstance_14
+Timing_15((End of Treatment
+After
+P30D
+P30D..P0D))
+Timing_15 -->|from| ScheduledActivityInstance_15
+Timing_15 -->|to| ScheduledActivityInstance_14
+Timing_16((Follow Up
+After
+P12W
+P0W..P2W))
+Timing_16 -->|from| ScheduledActivityInstance_16
+Timing_16 -->|to| ScheduledActivityInstance_15
+</pre><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true });
+</script></body></html>
