@@ -15,10 +15,10 @@ INSTANCE_7,,,ScheduledActivityInstance,INSTANCE_18,,Treatment,Day 15
 INSTANCE_18,,,ScheduledActivityInstance,INSTANCE_8,,,
 INSTANCE_8,,,ScheduledActivityInstance,INSTANCE_19,,Treatment,Day 1
 INSTANCE_19,,,ScheduledActivityInstance,INSTANCE_20,,,
-INSTANCE_20,,,ScheduledDecisionInstance,INSTANCE_21,,,
+INSTANCE_20,,,ScheduledDecisionInstance,INSTANCE_21,Cycle 12: INSTANCE_18,,
 INSTANCE_21,,,ScheduledActivityInstance,INSTANCE_9,,,
 INSTANCE_9,,,ScheduledActivityInstance,INSTANCE_22,,Treatment,Day 1
 INSTANCE_22,,,ScheduledActivityInstance,INSTANCE_23,,,
-INSTANCE_23,,,ScheduledDecisionInstance,INSTANCE_10,,,
+INSTANCE_23,,,ScheduledDecisionInstance,INSTANCE_10,Disease Progresssion: INSTANCE_21,,
 INSTANCE_10,,,ScheduledActivityInstance,INSTANCE_11,,Treatment,EOT Visit
 INSTANCE_11,,,ScheduledActivityInstance,(EXIT),,Follow-Up,FU Visit

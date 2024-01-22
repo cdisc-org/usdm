@@ -35,13 +35,19 @@ for filename in ['complex_1', 'cycles_1']:
           if 'encounterId' in instance:
             encounter = encounter_map[instance['encounterId']] if instance['encounterId'] in encounter_map else ''
           #print(f"ENCOUNTER: {encounter}")
+          conditions_str = ""  
+          if instance['instanceType'] == 'ScheduledDecisionInstance':
+            conditions = []
+            for condition in instance["conditionAssignments"]:
+              conditions.append(f"{condition[0]}: {instance_map[condition[1]]}")
+            conditions_str = ", ".join(conditions)
           record = {
             'name': instance_map[instance['id']],
             'description': '',
             'label': '',
             'type': instance['instanceType'],
             'default': instance_map[instance['defaultConditionId']] if instance['defaultConditionId'] in instance_map else '(EXIT)',
-            'condition': '',
+            'condition': conditions_str,
             'epoch': epoch_map[instance['epochId']] if instance['epochId'] in epoch_map else '',
             'encounter': encounter,
           }
