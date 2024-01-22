@@ -61,6 +61,8 @@ class Activity():
         bcSurrogateIds=surrogate_bc_items,
         timelineId=timelineId
       )
+      cross_references.add(self.name, activity)     
+      self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items

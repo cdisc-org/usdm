@@ -31,8 +31,8 @@ class StudySoAV2Sheet(BaseSheet):
       self.biomedical_concept_surrogates = []
       self.biomedical_concepts = []
       self._process_sheet()
+      self._raw_activities = Activities(self) # Order important, activities then instances
       self._raw_instances = ScheduledInstances(self)
-      self._raw_activities = Activities(self)
 
       # @TODO Move block to Activities class
       for item in self._raw_activities.items:

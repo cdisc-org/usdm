@@ -12,7 +12,7 @@ class Conditons():
           condition = self._remove_unprintable(name_value[1])
           self.items.append({'name': name, 'condition': condition})
         else:
-          self.errors.append(f"Could not decode a condition, no ':' foundin '{part}'")
+          self.errors.append(f"Could not decode a condition, no ':' found in '{part}'")
     else:
       pass # Empty, this is OK
 
