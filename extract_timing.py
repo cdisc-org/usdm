@@ -19,31 +19,36 @@ for filename in ['complex_1', 'cycles_1']:
       epoch_map = {}
       for encounter in design["encounters"]:
         encounter_map[encounter['id']] = encounter['name']
-      print(f"ENCOUNTER_MAP: {encounter_map}")
+      #print(f"ENCOUNTER_MAP: {encounter_map}")
       for epoch in design["epochs"]:
         epoch_map[epoch['id']] = epoch['name']
       for tl in design["scheduleTimelines"]:
-        timings = []
-        instances = []
+
         instance_map = {}
+        for instance in tl['instances']: 
+          instance_map[instance['id']] = instance['id'].replace("ScheduledActivityInstance", "INSTANCE")
+
+        instances = []
         for instance in tl['instances']: 
           instance_map[instance['id']] = instance['id'].replace("ScheduledActivityInstance", "INSTANCE")
           encounter = ''
           if 'encounterId' in instance:
             encounter = encounter_map[instance['encounterId']] if instance['encounterId'] in encounter_map else ''
-          print(f"ENCOUNTER: {encounter}")
+          #print(f"ENCOUNTER: {encounter}")
           record = {
             'name': instance_map[instance['id']],
             'description': '',
             'label': '',
             'type': instance['instanceType'],
-            'default': instance_map[instance['defaultConditionId']],
+            'default': instance_map[instance['defaultConditionId']] if instance['defaultConditionId'] in instance_map else '(EXIT)',
             'condition': '',
             'epoch': epoch_map[instance['epochId']] if instance['epochId'] in epoch_map else '',
             'encounter': encounter,
           }
           # "ScheduledDecisionInstance"
           instances.append(record)
+
+        timings = []
         for instance in tl['instances']:          
           for timing in instance['timings']:
             record = {
@@ -59,4 +64,4 @@ for filename in ['complex_1', 'cycles_1']:
             timings.append(record)
         tl_clean = tl['name'].replace(' ', '-').lower()
         save_csv(filename, tl_clean, 'timings', ['name','label','description','type','relative','from','to','window'], timings)
-        save_csv(filename, tl_clean, 'instances', ['name','epoch','encounter','type'], instances)
+        save_csv(filename, tl_clean, 'instances', ['name','description','label','type','default','condition','epoch','encounter'], instances)
