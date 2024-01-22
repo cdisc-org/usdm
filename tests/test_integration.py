@@ -190,5 +190,8 @@ def test_timeline_2():
 def test_timeline_3():
   run_test_timeline('complex_1')
 
+def test_timeline_4():
+  run_test_timeline('cycles_1')
+
 def test_path_error():
   run_test('path_error')
