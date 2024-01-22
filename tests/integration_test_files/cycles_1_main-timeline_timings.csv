@@ -1,22 +1,22 @@
-name,label,description,type,relative,from,to,window
-TIMING_3,,,Before,Start to Start,INSTANCE_1,INSTANCE_2,-
-TIMING_None,,,Fixed Reference,Start to Start,INSTANCE_12,,
-TIMING_4,,,Fixed Reference,Start to Start,INSTANCE_2,INSTANCE_3,-
-TIMING_None,,,After,Start to Start,INSTANCE_13,,
-TIMING_5,,+14 Days,After,Start to Start,INSTANCE_3,INSTANCE_2,-2..2 Days
-TIMING_None,,,Fixed Reference,Start to Start,INSTANCE_14,,
-TIMING_6,,,Fixed Reference,Start to Start,INSTANCE_4,INSTANCE_5,-2..2 Days
-TIMING_None,,,After,Start to Start,INSTANCE_15,,
-TIMING_7,,+14 Days,After,Start to Start,INSTANCE_5,INSTANCE_4,-2..2 Days
-TIMING_None,,,Fixed Reference,Start to Start,INSTANCE_16,,
-TIMING_8,,,Fixed Reference,Start to Start,INSTANCE_6,INSTANCE_7,-2..2 Days
-TIMING_None,,,After,Start to Start,INSTANCE_17,,
-TIMING_9,,+14 Days,After,Start to Start,INSTANCE_7,INSTANCE_6,-2..2 Days
-TIMING_None,,,Fixed Reference,Start to Start,INSTANCE_18,,
-TIMING_10,,,Fixed Reference,Start to Start,INSTANCE_8,INSTANCE_9,-2..2 Days
-TIMING_None,,,After,Start to Start,INSTANCE_19,,
-TIMING_None,,,Fixed Reference,Start to Start,INSTANCE_21,,
-TIMING_11,,,Fixed Reference,Start to Start,INSTANCE_9,INSTANCE_10,-2..2 Days
-TIMING_None,,,After,Start to Start,INSTANCE_22,,
-TIMING_12,,,After,Start to Start,INSTANCE_10,INSTANCE_9,0..5 Days
-TIMING_13,,+12 weeks,After,Start to Start,INSTANCE_11,INSTANCE_10,0..2 Weeks
+name,description,label,type,from,to,timingValue,toFrom,window
+TIMING_3,,,BEFORE,INSTANCE_1,INSTANCE_2,PT0M,S2S,-
+TIMING_None,,,FIXED,INSTANCE_12,,PT0M,,
+TIMING_4,,,FIXED,INSTANCE_2,INSTANCE_3,PT0M,,-
+TIMING_None,,,AFTER,INSTANCE_13,,PT0M,S2S,
+TIMING_5,+14 Days,,AFTER,INSTANCE_3,INSTANCE_2,P14D,S2S,-2..2 Days
+TIMING_None,,,FIXED,INSTANCE_14,,PT0M,,
+TIMING_6,,,FIXED,INSTANCE_4,INSTANCE_5,PT0M,,-2..2 Days
+TIMING_None,,,AFTER,INSTANCE_15,,PT0M,S2S,
+TIMING_7,+14 Days,,AFTER,INSTANCE_5,INSTANCE_4,P14D,S2S,-2..2 Days
+TIMING_None,,,FIXED,INSTANCE_16,,PT0M,,
+TIMING_8,,,FIXED,INSTANCE_6,INSTANCE_7,PT0M,,-2..2 Days
+TIMING_None,,,AFTER,INSTANCE_17,,PT0M,S2S,
+TIMING_9,+14 Days,,AFTER,INSTANCE_7,INSTANCE_6,P14D,S2S,-2..2 Days
+TIMING_None,,,FIXED,INSTANCE_18,,PT0M,,
+TIMING_10,,,FIXED,INSTANCE_8,INSTANCE_9,PT0M,,-2..2 Days
+TIMING_None,,,AFTER,INSTANCE_19,,PT0M,S2S,
+TIMING_None,,,FIXED,INSTANCE_21,,PT0M,,
+TIMING_11,,,FIXED,INSTANCE_9,INSTANCE_10,PT0M,,-2..2 Days
+TIMING_None,,,AFTER,INSTANCE_22,,PT0M,S2S,
+TIMING_12,,,AFTER,INSTANCE_10,INSTANCE_9,PT0M,S2S,0..5 Days
+TIMING_13,+12 weeks,,AFTER,INSTANCE_11,INSTANCE_10,P12W,S2S,0..2 Weeks

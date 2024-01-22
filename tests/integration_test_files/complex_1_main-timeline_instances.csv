@@ -1,14 +1,8 @@
-name,description,label,type,default,condition,epoch,encounter
-INSTANCE_22,,,ScheduledActivityInstance,INSTANCE_23,,Screening,Screening
-INSTANCE_23,,,ScheduledActivityInstance,INSTANCE_24,,Period 1,"Period 1, Day -1"
-INSTANCE_24,,,ScheduledActivityInstance,INSTANCE_25,,Period 1,"Period 1, Day 1"
-INSTANCE_25,,,ScheduledActivityInstance,INSTANCE_26,,Period 1,"Period 1, Day 1"
-INSTANCE_26,,,ScheduledActivityInstance,INSTANCE_27,,Period 1,"Period 1, Day 1"
-INSTANCE_27,,,ScheduledActivityInstance,INSTANCE_28,,Period 1,"Period 1, Day 1"
-INSTANCE_28,,,ScheduledActivityInstance,INSTANCE_29,,Period 1,"Period 1, Day 1"
-INSTANCE_29,,,ScheduledActivityInstance,INSTANCE_30,,Wash Out,Wash Out
-INSTANCE_30,,,ScheduledActivityInstance,INSTANCE_31,,Period 2,"Period 2, Day -1"
-INSTANCE_31,,,ScheduledActivityInstance,INSTANCE_32,,Period 2,"Period 2, Day 1"
-INSTANCE_32,,,ScheduledActivityInstance,INSTANCE_33,,Period 2,"Period 2, Day 1"
-INSTANCE_33,,,ScheduledActivityInstance,INSTANCE_34,,Period 2,"Period 2, Day 1"
-INSTANCE_34,,,ScheduledActivityInstance,(EXIT),,Follow-Up,Follow-up
+INSTANCE_22,INSTANCE_23,INSTANCE_24,INSTANCE_25,INSTANCE_26,INSTANCE_27,INSTANCE_28,INSTANCE_29,INSTANCE_30,INSTANCE_31,INSTANCE_32,INSTANCE_33,INSTANCE_34
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity
+INSTANCE_23,INSTANCE_24,INSTANCE_25,INSTANCE_26,INSTANCE_27,INSTANCE_28,INSTANCE_29,INSTANCE_30,INSTANCE_31,INSTANCE_32,INSTANCE_33,INSTANCE_34,(EXIT)
+,,,,,,,,,,,,
+Screening,Period 1,Period 1,Period 1,Period 1,Period 1,Period 1,Wash Out,Period 2,Period 2,Period 2,Period 2,Follow-Up
+Screening,"Period 1, Day -1","Period 1, Day 1","Period 1, Day 1","Period 1, Day 1","Period 1, Day 1","Period 1, Day 1",Wash Out,"Period 2, Day -1","Period 2, Day 1","Period 2, Day 1","Period 2, Day 1",Follow-up

@@ -1,24 +1,8 @@
-name,description,label,type,default,condition,epoch,encounter
-INSTANCE_1,,,ScheduledActivityInstance,INSTANCE_12,,Screening,Screening
-INSTANCE_12,,,ScheduledActivityInstance,INSTANCE_2,,,
-INSTANCE_2,,,ScheduledActivityInstance,INSTANCE_13,,Treatment,Day 1
-INSTANCE_13,,,ScheduledActivityInstance,INSTANCE_3,,,
-INSTANCE_3,,,ScheduledActivityInstance,INSTANCE_14,,Treatment,Day 15
-INSTANCE_14,,,ScheduledActivityInstance,INSTANCE_4,,,
-INSTANCE_4,,,ScheduledActivityInstance,INSTANCE_15,,Treatment,Day 1
-INSTANCE_15,,,ScheduledActivityInstance,INSTANCE_5,,,
-INSTANCE_5,,,ScheduledActivityInstance,INSTANCE_16,,Treatment,Day 15
-INSTANCE_16,,,ScheduledActivityInstance,INSTANCE_6,,,
-INSTANCE_6,,,ScheduledActivityInstance,INSTANCE_17,,Treatment,Day 1
-INSTANCE_17,,,ScheduledActivityInstance,INSTANCE_7,,,
-INSTANCE_7,,,ScheduledActivityInstance,INSTANCE_18,,Treatment,Day 15
-INSTANCE_18,,,ScheduledActivityInstance,INSTANCE_8,,,
-INSTANCE_8,,,ScheduledActivityInstance,INSTANCE_19,,Treatment,Day 1
-INSTANCE_19,,,ScheduledActivityInstance,INSTANCE_20,,,
-INSTANCE_20,,,ScheduledDecisionInstance,INSTANCE_21,Cycle 12: INSTANCE_18,,
-INSTANCE_21,,,ScheduledActivityInstance,INSTANCE_9,,,
-INSTANCE_9,,,ScheduledActivityInstance,INSTANCE_22,,Treatment,Day 1
-INSTANCE_22,,,ScheduledActivityInstance,INSTANCE_23,,,
-INSTANCE_23,,,ScheduledDecisionInstance,INSTANCE_10,Disease Progresssion: INSTANCE_21,,
-INSTANCE_10,,,ScheduledActivityInstance,INSTANCE_11,,Treatment,EOT Visit
-INSTANCE_11,,,ScheduledActivityInstance,(EXIT),,Follow-Up,FU Visit
+INSTANCE_1,INSTANCE_12,INSTANCE_2,INSTANCE_13,INSTANCE_3,INSTANCE_14,INSTANCE_4,INSTANCE_15,INSTANCE_5,INSTANCE_16,INSTANCE_6,INSTANCE_17,INSTANCE_7,INSTANCE_18,INSTANCE_8,INSTANCE_19,INSTANCE_20,INSTANCE_21,INSTANCE_9,INSTANCE_22,INSTANCE_23,INSTANCE_10,INSTANCE_11
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Decision,Activity,Activity,Activity,Decision,Activity,Activity
+INSTANCE_12,INSTANCE_2,INSTANCE_13,INSTANCE_3,INSTANCE_14,INSTANCE_4,INSTANCE_15,INSTANCE_5,INSTANCE_16,INSTANCE_6,INSTANCE_17,INSTANCE_7,INSTANCE_18,INSTANCE_8,INSTANCE_19,INSTANCE_20,INSTANCE_21,INSTANCE_9,INSTANCE_22,INSTANCE_23,INSTANCE_10,INSTANCE_11,(EXIT)
+,,,,,,,,,,,,,,,,Cycle 12: INSTANCE_18,,,,Disease Progresssion: INSTANCE_21,,
+Screening,,Treatment,,Treatment,,Treatment,,Treatment,,Treatment,,Treatment,,Treatment,,,,Treatment,,,Treatment,Follow-Up
+Screening,,Day 1,,Day 15,,Day 1,,Day 15,,Day 1,,Day 15,,Day 1,,,,Day 1,,,EOT Visit,FU Visit

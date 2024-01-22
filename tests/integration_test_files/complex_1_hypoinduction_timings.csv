@@ -1,7 +1,7 @@
-name,label,description,type,relative,from,to,window
-TIMING_3,,pre-hypoglycemia induction,Before,Start to Start,INSTANCE_1,INSTANCE_4,
-TIMING_4,,30 min,Before,Start to Start,INSTANCE_2,INSTANCE_4,
-TIMING_5,,15min,Before,Start to Start,INSTANCE_3,INSTANCE_4,
-TIMING_6,,,Fixed Reference,Start to Start,INSTANCE_4,INSTANCE_4,
-TIMING_7,,90 min,After,Start to Start,INSTANCE_5,INSTANCE_4,
-TIMING_8,,,After,Start to Start,INSTANCE_6,INSTANCE_4,
+name,description,label,type,from,to,timingValue,toFrom,window
+TIMING_3,pre-hypoglycemia induction,,BEFORE,INSTANCE_1,INSTANCE_4,PT0M,S2S,
+TIMING_4,30 min,,BEFORE,INSTANCE_2,INSTANCE_4,PT30M,S2S,
+TIMING_5,15min,,BEFORE,INSTANCE_3,INSTANCE_4,PT15M,S2S,
+TIMING_6,,,FIXED,INSTANCE_4,INSTANCE_4,PT0M,,
+TIMING_7,90 min,,AFTER,INSTANCE_5,INSTANCE_4,PT90M,S2S,
+TIMING_8,,,AFTER,INSTANCE_6,INSTANCE_4,PT0M,S2S,
