@@ -47,7 +47,7 @@ class ScheduledInstances():
   def _set_condition_references(self):
     for instance in self.items:
       item = instance.item
-      if item.instanceType == 'DECISION':
+      if item.instanceType == 'ScheduledDecisionInstance':
         for condition in instance.conditions.items:
           #print(f"COND: {condition} ")
           if condition['name'] in self.map.keys():

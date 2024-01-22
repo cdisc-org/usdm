@@ -2474,7 +2474,12 @@
                     "defaultConditionId": "ScheduledActivityInstance_5",
                     "epochId": null,
                     "instanceType": "ScheduledDecisionInstance",
-                    "conditionAssignments": []
+                    "conditionAssignments": [
+                      [
+                        "if opted out",
+                        "ScheduledActivityInstance_6"
+                      ]
+                    ]
                   },
                   {
                     "id": "ScheduledActivityInstance_5",

@@ -1917,7 +1917,16 @@
                     "defaultConditionId": "ScheduledActivityInstance_5",
                     "epochId": null,
                     "instanceType": "ScheduledDecisionInstance",
-                    "conditionAssignments": []
+                    "conditionAssignments": [
+                      [
+                        "if major rash",
+                        "ScheduledActivityInstance_3"
+                      ],
+                      [
+                        "If minor rash",
+                        "ScheduledActivityInstance_4"
+                      ]
+                    ]
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
