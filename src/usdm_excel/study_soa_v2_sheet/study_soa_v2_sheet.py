@@ -52,14 +52,14 @@ class StudySoAV2Sheet(BaseSheet):
     timing_set = []
     for instance in self._raw_instances.items:
       item = instance.item
-      print(f"TIMING1: {item.id}, {instance.name}")
+      #print(f"TIMING1: {item.id}, {instance.name}")
       if isinstance(item, ScheduledActivityInstance):
         found = False
         for timing in timings:
           ids = [timing.relativeFromScheduledInstanceId, timing.relativeToScheduledInstanceId]
-          print(f"TIMING2: {timing.name}, {ids}")
+          #print(f"TIMING2: {timing.name}, {ids}")
           if item.id in ids:
-            print(f"TIMING3: found")
+            #print(f"TIMING3: found")
             found = True
             if not timing_check[timing.name]:
               timing_check[timing.name] = self.name
