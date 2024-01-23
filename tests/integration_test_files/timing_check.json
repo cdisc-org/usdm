@@ -6425,37 +6425,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_10",
-                    "timings": [
-                      {
-                        "id": "Timing_4",
-                        "name": "TIM4",
-                        "label": "Week 2",
-                        "description": "Week 2 timing",
-                        "type": {
-                          "id": "Code_22",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P2W",
-                        "relativeToFrom": {
-                          "id": "Code_23",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_10",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_9",
-                        "windowLower": "P3D",
-                        "windowUpper": "P3D",
-                        "window": "-3..3 days",
-                        "instanceType": "Timing"
-                      }
-                    ],
+                    "timings": [],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_11",
@@ -6696,7 +6666,7 @@
                           "instanceType": "Code"
                         },
                         "relativeFromScheduledInstanceId": "ScheduledActivityInstance_15",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_9",
+                        "relativeToScheduledInstanceId": "DOSExx",
                         "windowLower": "P4D",
                         "windowUpper": "P4D",
                         "window": "-4..4 days",
