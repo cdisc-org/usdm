@@ -28,7 +28,7 @@ timing_type_map = {
   'Fixed Reference': 'FIXED'
 }
           
-for filename in ['complex_1', 'cycles_1']:
+for filename in ['complex_1']:
   data = read_json(filename)
   for version in data['study']['versions']:
     for design in version['studyDesigns']:

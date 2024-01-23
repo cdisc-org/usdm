@@ -327,9 +327,15 @@ class StudySheet(BaseSheet):
     self._check_timing_references(tls)
 
   def _check_timing_references(self, tls):
+    timing_check = {}
+    for timing in self.timings.items:
+      timing_check[timing.name] = None
     for tl in tls:
-      tl.check_timing_references(self.timings.items)
-    
+      tl_items = tl.check_timing_references(self.timings.items, timing_check)
+    for timing in self.timings.items:
+      if not timing_check[timing.name]:
+        self._general_warning(f"Timing with name '{timing.name}' not referenced")
+
   def _set_timing_references(self, tls):
     for timing in self.timings.items:
       found = {'from': False, 'to': False}

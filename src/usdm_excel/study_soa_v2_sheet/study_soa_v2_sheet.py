@@ -48,19 +48,31 @@ class StudySoAV2Sheet(BaseSheet):
       self._general_error(f"Exception '{e}' raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 
-  def check_timing_references(self, timings):
+  def check_timing_references(self, timings, timing_check):
+    timing_set = []
     for instance in self._raw_instances.items:
       item = instance.item
+      print(f"TIMING1: {item.id}, {instance.name}")
       if isinstance(item, ScheduledActivityInstance):
         found = False
         for timing in timings:
           ids = [timing.relativeFromScheduledInstanceId, timing.relativeToScheduledInstanceId]
+          print(f"TIMING2: {timing.name}, {ids}")
           if item.id in ids:
+            print(f"TIMING3: found")
             found = True
-            break
+            if not timing_check[timing.name]:
+              timing_check[timing.name] = self.name
+              timing_set.append(timing)
+            elif timing_check[timing.name] == self.name:
+              pass
+            else:
+              self._general_warning(f"Duplicate use of timing with name '{timing.name}' across timelines detected")
+            #break
         if not found:
-          self._general_warning(f"Unable to find timing reference for instance with name {instance.name}")
-
+          self._general_warning(f"Unable to find timing reference for instance with name '{instance.name}'")
+    return timing_set
+  
   def timing_match(self, ref):
     return self._raw_instances.match(ref)
 
