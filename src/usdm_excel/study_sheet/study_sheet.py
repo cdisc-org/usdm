@@ -315,36 +315,42 @@ class StudySheet(BaseSheet):
           #print(f"DATE: {traceback.format_exc()}")
 
   def _process_soa(self, file_path):
+    tls = []
     for timeline in self.study_design.other_timelines:
-      tl = self._process_timeline(file_path, timeline)
+      tl = StudySoAV2Sheet(file_path, timeline, False)
+      tls.append(tl)
       self.timelines[timeline] = tl
       cross_references.add(timeline, tl.timeline)
-    self.soa = self._process_timeline(file_path, self.study_design.main_timeline, True)
+    self.soa = StudySoAV2Sheet(file_path, self.study_design.main_timeline, True)
+    tls.append(self.soa)
+    self._set_timing_references(tls)
+    self._check_timing_references(tls)
 
-  def _process_timeline(self, file_path, timeline, main_timeline=False):
-    # if not self.soa_version:
-    #   self._general_info("Detecting SoA sheet version ...")
-    #   tl = StudySoASheet(file_path, timeline, main=main_timeline, require={'row': 1, 'column': 3, 'value': 'EPOCH'})
-    #   if tl.success:
-    #     self._general_info("SoA sheet version 1 detected")
-    #     self.soa_version = 1 
-    #   else:
-    #     self._general_info("SoA sheet version 2 detected")
-    #     self.soa_version = 2
-    #     tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-    #     #print("---- SoA Timing ----")
-    #     tl.set_timing_references(self.timings.items)
-    # elif self.soa_version == 1:
-    #   self._general_info("Set to SoA sheet version 1")
-    #   tl = StudySoASheet(file_path, timeline, main=main_timeline)
-    # else:
-    #   self._general_info("Set to SoA sheet version 2")
-    #   tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-    #   #print("---- SoA Timing ----")
-    #   tl.set_timing_references(self.timings.items)
-    tl = StudySoAV2Sheet(file_path, timeline, main=main_timeline)
-    tl.set_timing_references(self.timings.items)
-    return tl
+  def _check_timing_references(self, tls):
+    for tl in tls:
+      tl.check_timing_references(self.timings.items)
+    
+  def _set_timing_references(self, tls):
+    for timing in self.timings.items:
+      found = {'from': False, 'to': False}
+      for tl in tls:
+        if not found['from']:
+          instance = tl.timing_match(timing.relativeFromScheduledInstanceId)
+          if instance:
+            item = instance.item
+            timing.relativeFromScheduledInstanceId = item.id
+            item.timings.append(timing)
+            found['from'] = True
+        if not found['to']:
+          instance = tl.timing_match(timing.relativeToScheduledInstanceId)
+          if instance:
+            item = instance.item
+            timing.relativeToScheduledInstanceId = item.id
+            found['to'] = True
+      if not found['from']:
+        self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
+      if not found['to']:
+        self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
 
   def _read_scope_cell(self, row_index, col_index):
     result = []

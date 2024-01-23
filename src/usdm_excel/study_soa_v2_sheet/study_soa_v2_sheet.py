@@ -48,21 +48,7 @@ class StudySoAV2Sheet(BaseSheet):
       self._general_error(f"Exception '{e}' raised reading sheet")
       self._traceback(f"{traceback.format_exc()}")
 
-  def set_timing_references(self, timings):
-    for timing in timings:
-      instance = self._raw_instances.match(timing.relativeFromScheduledInstanceId)
-      if instance:
-        item = instance.item
-        timing.relativeFromScheduledInstanceId = item.id
-        item.timings.append(timing)
-      else:
-        self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
-      instance = self._raw_instances.match(timing.relativeToScheduledInstanceId)
-      if instance:
-        item = instance.item
-        timing.relativeToScheduledInstanceId = item.id
-      else:
-        self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
+  def check_timing_references(self, timings):
     for instance in self._raw_instances.items:
       item = instance.item
       if isinstance(item, ScheduledActivityInstance):
@@ -74,6 +60,9 @@ class StudySoAV2Sheet(BaseSheet):
             break
         if not found:
           self._general_warning(f"Unable to find timing reference for instance with name {instance.name}")
+
+  def timing_match(self, ref):
+    return self._raw_instances.match(ref)
 
   def _process_sheet(self):
     for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
