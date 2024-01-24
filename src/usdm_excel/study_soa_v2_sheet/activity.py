@@ -1,3 +1,4 @@
+import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
@@ -49,20 +50,25 @@ class Activity():
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
     activity = cross_references.get(Activity, self.name)
     if activity is None:
-      activity = USDMActivity(
-        id=id_manager.build_id(Activity),
-        name=self.name,
-        description=self.name,
-        definedProcedures=procedures,
-        activityIsConditional=False,
-        activityIsConditionalReason="",
-        biomedicalConceptIds=full_bc_items,
-        bcCategoryIds=[],
-        bcSurrogateIds=surrogate_bc_items,
-        timelineId=timelineId
-      )
-      cross_references.add(self.name, activity)     
-      self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
+      try:
+        activity = USDMActivity(
+          id=id_manager.build_id(Activity),
+          name=self.name,
+          description=self.name,
+          definedProcedures=procedures,
+          activityIsConditional=False,
+          activityIsConditionalReason="",
+          biomedicalConceptIds=full_bc_items,
+          bcCategoryIds=[],
+          bcSurrogateIds=surrogate_bc_items,
+          timelineId=timelineId
+        )
+        cross_references.add(self.name, activity)     
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
+      except Exception as e:
+        print(f"NAME: {self.row_index}, {self.name}")
+        self.parent._general_error("Failed to create Activity object, exception {e}")
+        self.parent._traceback(f"{traceback.format_exc()}")  
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items
