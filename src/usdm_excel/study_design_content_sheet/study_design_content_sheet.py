@@ -30,8 +30,6 @@ class StudyDesignContentSheet(BaseSheet):
           text = self.read_cell_by_name(index, 'text')
           name = self.read_cell_by_name(index, 'name')
           name = f"SECTION {section_number}" if not name else name
-          #updated_text = text if self._standard_section(text) else self._wrap_div(text)
-          #print(f"STD: Text='{updated_text}'")
           try:
             item = NarrativeContent(
               id=id_manager.build_id(NarrativeContent), 
@@ -46,7 +44,6 @@ class StudyDesignContentSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
-            #print(f"ITEM: {item.id}")
             if new_level == current_level:
               # Same level
               parent = current_parent[-1]
