@@ -238,23 +238,18 @@ class StudySheet(BaseSheet):
         self.phase = Alias().code(phase, [])
       elif field_name == self.ACRONYM_TITLE:
         self.acronym = self._set_title(rindex, self.PARAMS_DATA_COL, "Study Acronym")
-        #self.acronym = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.RATIONALE_TITLE:
         self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.TA_TITLE:
         self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.BRIEF_TITLE_TITLE:
         self.brief_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Brief Study Title")
-        #self.brief_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.OFFICAL_TITLE_TITLE:
         self.official_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Official Study Title")
-        #self.official_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.PUBLIC_TITLE_TITLE:
         self.public_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Public Study Title")
-        #self.public_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.SCIENTIFIC_TITLE_TITLE:
         self.scientific_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Scientific Study Title")
-        #self.scientific_title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.PROTOCOL_VERSION_TITLE:
         self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.PROTOCOL_STATUS_TITLE:
@@ -273,7 +268,6 @@ class StudySheet(BaseSheet):
               category = self.date_categories[0]
           elif field == 'type':
             record[field] = self.read_cdisc_klass_attribute_cell('GovernanceDate', 'type', rindex, cindex)
-            #print(f"TYPE: {record[field]}") 
           elif field == 'date':
             cell = self.read_cell(rindex, cindex)
             record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
@@ -291,11 +285,9 @@ class StudySheet(BaseSheet):
               code=scope['code']
             )
             scopes.append(scope)
-            #print(f"SCOPE: {scope}")
         except Exception as e:
           self._general_error(f"Failed to create GeographicScope object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
-          #print(f"SCOPE: {traceback.format_exc()}")
         try:
           date = GovernanceDate(
             id=id_manager.build_id(GovernanceDate),
@@ -311,7 +303,6 @@ class StudySheet(BaseSheet):
         except Exception as e:
           self._general_error(f"Failed to create GovernanceDate object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
-          #print(f"DATE: {traceback.format_exc()}")
 
   def _process_soa(self, file_path):
     tls = []
@@ -328,11 +319,9 @@ class StudySheet(BaseSheet):
   def _check_timing_references(self, tls):
     timing_check = {}
     for timing in self.timings.items:
-      print(f"TIMING: {timing}")
       timing_check[timing.name] = None
     for tl in tls:
       tl_items = tl.check_timing_references(self.timings.items, timing_check)
-      print(f"\n\n\nTIMING ITEMS: {tl_items}")
       tl.timeline.timings = tl_items
     for timing in self.timings.items:
       if not timing_check[timing.name]:
@@ -347,7 +336,6 @@ class StudySheet(BaseSheet):
           if instance:
             item = instance.item
             timing.relativeFromScheduledInstanceId = item.id
-            #item.timings.append(timing)
             found['from'] = True
         if not found['to']:
           instance = tl.timing_match(timing.relativeToScheduledInstanceId)
@@ -368,7 +356,6 @@ class StudySheet(BaseSheet):
       return result
     else:
       for item in self._state_split(value):
-        #print(f"SCOPE ITEM: {item}")
         if item.upper().strip() == "GLOBAL":
           # If we ever find global just return the one code
           return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
