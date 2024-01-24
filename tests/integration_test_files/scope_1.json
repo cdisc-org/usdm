@@ -1854,40 +1854,156 @@
                     "instanceType": "ScheduleTimelineExit"
                   }
                 ],
+                "timings": [
+                  {
+                    "id": "Timing_1",
+                    "name": "TIM1",
+                    "label": "Screening",
+                    "description": "Screening timing",
+                    "type": {
+                      "id": "Code_23",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Before",
+                      "instanceType": "Code"
+                    },
+                    "value": "P2D",
+                    "relativeToFrom": {
+                      "id": "Code_24",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_2",
+                    "name": "TIM2",
+                    "label": "Pre dose",
+                    "description": "Pre dose timing",
+                    "type": {
+                      "id": "Code_25",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Before",
+                      "instanceType": "Code"
+                    },
+                    "value": "PT15M",
+                    "relativeToFrom": {
+                      "id": "Code_26",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "windowLower": "PT0H",
+                    "windowUpper": "PT4H",
+                    "window": "0..4 hours",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_3",
+                    "name": "TIM3",
+                    "label": "Dosing",
+                    "description": "Dosing anchor",
+                    "type": {
+                      "id": "Code_28",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Fixed Reference",
+                      "instanceType": "Code"
+                    },
+                    "value": "P1D",
+                    "relativeToFrom": {
+                      "id": "Code_29",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_4",
+                    "name": "TIM4",
+                    "label": "Day 14",
+                    "description": "24 Hour timing",
+                    "type": {
+                      "id": "Code_30",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "PT24H",
+                    "relativeToFrom": {
+                      "id": "Code_31",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "windowLower": "PT0H",
+                    "windowUpper": "PT1H",
+                    "window": "0..1 Hours",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_5",
+                    "name": "TIM5",
+                    "label": "Follow Up",
+                    "description": "Follow up timing",
+                    "type": {
+                      "id": "Code_33",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P7D",
+                    "relativeToFrom": {
+                      "id": "Code_34",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "windowLower": "P3D",
+                    "windowUpper": "P3D",
+                    "window": "-3..3 days",
+                    "instanceType": "Timing"
+                  }
+                ],
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
-                    "timings": [
-                      {
-                        "id": "Timing_1",
-                        "name": "TIM1",
-                        "label": "Screening",
-                        "description": "Screening timing",
-                        "type": {
-                          "id": "Code_23",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Before",
-                          "instanceType": "Code"
-                        },
-                        "value": "P2D",
-                        "relativeToFrom": {
-                          "id": "Code_24",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
@@ -1901,37 +2017,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
-                    "timings": [
-                      {
-                        "id": "Timing_2",
-                        "name": "TIM2",
-                        "label": "Pre dose",
-                        "description": "Pre dose timing",
-                        "type": {
-                          "id": "Code_25",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Before",
-                          "instanceType": "Code"
-                        },
-                        "value": "PT15M",
-                        "relativeToFrom": {
-                          "id": "Code_26",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "windowLower": "PT0H",
-                        "windowUpper": "PT4H",
-                        "window": "0..4 hours",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
@@ -1944,37 +2029,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
-                    "timings": [
-                      {
-                        "id": "Timing_3",
-                        "name": "TIM3",
-                        "label": "Dosing",
-                        "description": "Dosing anchor",
-                        "type": {
-                          "id": "Code_28",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Fixed Reference",
-                          "instanceType": "Code"
-                        },
-                        "value": "P1D",
-                        "relativeToFrom": {
-                          "id": "Code_29",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
@@ -1987,37 +2041,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
-                    "timings": [
-                      {
-                        "id": "Timing_4",
-                        "name": "TIM4",
-                        "label": "Day 14",
-                        "description": "24 Hour timing",
-                        "type": {
-                          "id": "Code_30",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "PT24H",
-                        "relativeToFrom": {
-                          "id": "Code_31",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "windowLower": "PT0H",
-                        "windowUpper": "PT1H",
-                        "window": "0..1 Hours",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
@@ -2030,37 +2053,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
-                    "timings": [
-                      {
-                        "id": "Timing_5",
-                        "name": "TIM5",
-                        "label": "Follow Up",
-                        "description": "Follow up timing",
-                        "type": {
-                          "id": "Code_33",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P7D",
-                        "relativeToFrom": {
-                          "id": "Code_34",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "windowLower": "P3D",
-                        "windowUpper": "P3D",
-                        "window": "-3..3 days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,

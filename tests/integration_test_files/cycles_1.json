@@ -1404,40 +1404,475 @@
                     "instanceType": "ScheduleTimelineExit"
                   }
                 ],
+                "timings": [
+                  {
+                    "id": "Timing_1",
+                    "name": "TIM1",
+                    "label": "Screening",
+                    "description": "Screening",
+                    "type": {
+                      "id": "Code_11",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Before",
+                      "instanceType": "Code"
+                    },
+                    "value": "P30D",
+                    "relativeToFrom": {
+                      "id": "Code_12",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "windowLower": "P0D",
+                    "windowUpper": "P30D",
+                    "window": "0..30 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_2",
+                    "name": "TIM2",
+                    "label": "Day 1",
+                    "description": "Day 1",
+                    "type": {
+                      "id": "Code_14",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Fixed Reference",
+                      "instanceType": "Code"
+                    },
+                    "value": "P1D",
+                    "relativeToFrom": {
+                      "id": "Code_15",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_3",
+                    "name": "TIM3",
+                    "label": "Cycle 1, Day 1",
+                    "description": "Cycle 1, Day 1",
+                    "type": {
+                      "id": "Code_16",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P1D",
+                    "relativeToFrom": {
+                      "id": "Code_17",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_5",
+                    "name": "TIM5",
+                    "label": "Cycle 2, Day 1",
+                    "description": "Cycle 2, Day 1",
+                    "type": {
+                      "id": "Code_21",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P16D",
+                    "relativeToFrom": {
+                      "id": "Code_22",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_7",
+                    "name": "TIM7",
+                    "label": "Cycle 3, Day 1",
+                    "description": "Cycle 3, Day 1",
+                    "type": {
+                      "id": "Code_27",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P31D",
+                    "relativeToFrom": {
+                      "id": "Code_28",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_7",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_9",
+                    "name": "TIM9",
+                    "label": "Cycle 4..12 Base",
+                    "description": "Cycle 4..12 Base",
+                    "type": {
+                      "id": "Code_33",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P46D",
+                    "relativeToFrom": {
+                      "id": "Code_34",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_9",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_4",
+                    "name": "TIM4",
+                    "label": "Cycle 1, Day 15",
+                    "description": "Cycle 1, Day 15",
+                    "type": {
+                      "id": "Code_18",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P14D",
+                    "relativeToFrom": {
+                      "id": "Code_19",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_6",
+                    "name": "TIM6",
+                    "label": "Cycle 2, Day 15",
+                    "description": "Cycle 2, Day 15",
+                    "type": {
+                      "id": "Code_24",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P14D",
+                    "relativeToFrom": {
+                      "id": "Code_25",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_6",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_5",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_8",
+                    "name": "TIM8",
+                    "label": "Cycle 3, Day 15",
+                    "description": "Cycle 3, Day 15",
+                    "type": {
+                      "id": "Code_30",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P14D",
+                    "relativeToFrom": {
+                      "id": "Code_31",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_8",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_7",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_10",
+                    "name": "TIM10",
+                    "label": "Cycle 4..12, Day 1",
+                    "description": "Cycle 4..12, Day 1",
+                    "type": {
+                      "id": "Code_36",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P1D",
+                    "relativeToFrom": {
+                      "id": "Code_37",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_10",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_13",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_11",
+                    "name": "TIM11",
+                    "label": "Cycle 4..12, Delay",
+                    "description": "Cycle 4..12, Delay",
+                    "type": {
+                      "id": "Code_39",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P14D",
+                    "relativeToFrom": {
+                      "id": "Code_40",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_11",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_11",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_12",
+                    "name": "TIM12",
+                    "label": "Cycle 13.., Base",
+                    "description": "Cycle 13.., Base",
+                    "type": {
+                      "id": "Code_41",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P211D",
+                    "relativeToFrom": {
+                      "id": "Code_42",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_12",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_12",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_13",
+                    "name": "TIM13",
+                    "label": "Cycle 13.., Day 1",
+                    "description": "Cycle 13.., Day 1",
+                    "type": {
+                      "id": "Code_43",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P1D",
+                    "relativeToFrom": {
+                      "id": "Code_44",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_13",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_12",
+                    "windowLower": "P2D",
+                    "windowUpper": "P2D",
+                    "window": "-2..2 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_14",
+                    "name": "TIM14",
+                    "label": "Cycle 13.., Delay",
+                    "description": "Cycle 13.., Delay",
+                    "type": {
+                      "id": "Code_46",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P14D",
+                    "relativeToFrom": {
+                      "id": "Code_47",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_14",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_14",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "window": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_15",
+                    "name": "TIM15",
+                    "label": "End of Treatment",
+                    "description": "End of Treatment",
+                    "type": {
+                      "id": "Code_48",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P30D",
+                    "relativeToFrom": {
+                      "id": "Code_49",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_15",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_14",
+                    "windowLower": "P30D",
+                    "windowUpper": "P0D",
+                    "window": "30..0 Days",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_16",
+                    "name": "TIM16",
+                    "label": "Follow Up",
+                    "description": "Follow Up",
+                    "type": {
+                      "id": "Code_51",
+                      "code": "C201264",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P12W",
+                    "relativeToFrom": {
+                      "id": "Code_52",
+                      "code": "C201265",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-09-29",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_16",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_15",
+                    "windowLower": "P0W",
+                    "windowUpper": "P2W",
+                    "window": "0..2 Weeks",
+                    "instanceType": "Timing"
+                  }
+                ],
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
-                    "timings": [
-                      {
-                        "id": "Timing_1",
-                        "name": "TIM1",
-                        "label": "Screening",
-                        "description": "Screening",
-                        "type": {
-                          "id": "Code_11",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Before",
-                          "instanceType": "Code"
-                        },
-                        "value": "P30D",
-                        "relativeToFrom": {
-                          "id": "Code_12",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "windowLower": "P0D",
-                        "windowUpper": "P30D",
-                        "window": "0..30 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
@@ -1452,37 +1887,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
-                    "timings": [
-                      {
-                        "id": "Timing_2",
-                        "name": "TIM2",
-                        "label": "Day 1",
-                        "description": "Day 1",
-                        "type": {
-                          "id": "Code_14",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Fixed Reference",
-                          "instanceType": "Code"
-                        },
-                        "value": "P1D",
-                        "relativeToFrom": {
-                          "id": "Code_15",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
@@ -1493,37 +1897,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
-                    "timings": [
-                      {
-                        "id": "Timing_3",
-                        "name": "TIM3",
-                        "label": "Cycle 1, Day 1",
-                        "description": "Cycle 1, Day 1",
-                        "type": {
-                          "id": "Code_16",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P1D",
-                        "relativeToFrom": {
-                          "id": "Code_17",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
@@ -1537,37 +1910,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
-                    "timings": [
-                      {
-                        "id": "Timing_4",
-                        "name": "TIM4",
-                        "label": "Cycle 1, Day 15",
-                        "description": "Cycle 1, Day 15",
-                        "type": {
-                          "id": "Code_18",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P14D",
-                        "relativeToFrom": {
-                          "id": "Code_19",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_4",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_3",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
@@ -1580,37 +1922,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
-                    "timings": [
-                      {
-                        "id": "Timing_5",
-                        "name": "TIM5",
-                        "label": "Cycle 2, Day 1",
-                        "description": "Cycle 2, Day 1",
-                        "type": {
-                          "id": "Code_21",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P16D",
-                        "relativeToFrom": {
-                          "id": "Code_22",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_5",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_6",
@@ -1623,37 +1934,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_6",
-                    "timings": [
-                      {
-                        "id": "Timing_6",
-                        "name": "TIM6",
-                        "label": "Cycle 2, Day 15",
-                        "description": "Cycle 2, Day 15",
-                        "type": {
-                          "id": "Code_24",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P14D",
-                        "relativeToFrom": {
-                          "id": "Code_25",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_6",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_5",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_7",
@@ -1666,37 +1946,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_7",
-                    "timings": [
-                      {
-                        "id": "Timing_7",
-                        "name": "TIM7",
-                        "label": "Cycle 3, Day 1",
-                        "description": "Cycle 3, Day 1",
-                        "type": {
-                          "id": "Code_27",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P31D",
-                        "relativeToFrom": {
-                          "id": "Code_28",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_7",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_8",
@@ -1709,37 +1958,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_8",
-                    "timings": [
-                      {
-                        "id": "Timing_8",
-                        "name": "TIM8",
-                        "label": "Cycle 3, Day 15",
-                        "description": "Cycle 3, Day 15",
-                        "type": {
-                          "id": "Code_30",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P14D",
-                        "relativeToFrom": {
-                          "id": "Code_31",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_8",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_7",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_9",
@@ -1750,37 +1968,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_9",
-                    "timings": [
-                      {
-                        "id": "Timing_9",
-                        "name": "TIM9",
-                        "label": "Cycle 4..12 Base",
-                        "description": "Cycle 4..12 Base",
-                        "type": {
-                          "id": "Code_33",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P46D",
-                        "relativeToFrom": {
-                          "id": "Code_34",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_9",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_10",
@@ -1791,37 +1978,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_10",
-                    "timings": [
-                      {
-                        "id": "Timing_10",
-                        "name": "TIM10",
-                        "label": "Cycle 4..12, Day 1",
-                        "description": "Cycle 4..12, Day 1",
-                        "type": {
-                          "id": "Code_36",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P1D",
-                        "relativeToFrom": {
-                          "id": "Code_37",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_10",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_13",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_11",
@@ -1834,37 +1990,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_11",
-                    "timings": [
-                      {
-                        "id": "Timing_11",
-                        "name": "TIM11",
-                        "label": "Cycle 4..12, Delay",
-                        "description": "Cycle 4..12, Delay",
-                        "type": {
-                          "id": "Code_39",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P14D",
-                        "relativeToFrom": {
-                          "id": "Code_40",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_11",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_11",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledDecisionInstance_1",
@@ -1875,7 +2000,6 @@
                   },
                   {
                     "id": "ScheduledDecisionInstance_1",
-                    "timings": [],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_12",
@@ -1890,37 +2014,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_12",
-                    "timings": [
-                      {
-                        "id": "Timing_12",
-                        "name": "TIM12",
-                        "label": "Cycle 13.., Base",
-                        "description": "Cycle 13.., Base",
-                        "type": {
-                          "id": "Code_41",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P211D",
-                        "relativeToFrom": {
-                          "id": "Code_42",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_12",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_12",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_13",
@@ -1931,37 +2024,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_13",
-                    "timings": [
-                      {
-                        "id": "Timing_13",
-                        "name": "TIM13",
-                        "label": "Cycle 13.., Day 1",
-                        "description": "Cycle 13.., Day 1",
-                        "type": {
-                          "id": "Code_43",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P1D",
-                        "relativeToFrom": {
-                          "id": "Code_44",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_13",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_12",
-                        "windowLower": "P2D",
-                        "windowUpper": "P2D",
-                        "window": "-2..2 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_14",
@@ -1974,37 +2036,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_14",
-                    "timings": [
-                      {
-                        "id": "Timing_14",
-                        "name": "TIM14",
-                        "label": "Cycle 13.., Delay",
-                        "description": "Cycle 13.., Delay",
-                        "type": {
-                          "id": "Code_46",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P14D",
-                        "relativeToFrom": {
-                          "id": "Code_47",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_14",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_14",
-                        "windowLower": null,
-                        "windowUpper": null,
-                        "window": "",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledDecisionInstance_2",
@@ -2015,7 +2046,6 @@
                   },
                   {
                     "id": "ScheduledDecisionInstance_2",
-                    "timings": [],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_15",
@@ -2030,37 +2060,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_15",
-                    "timings": [
-                      {
-                        "id": "Timing_15",
-                        "name": "TIM15",
-                        "label": "End of Treatment",
-                        "description": "End of Treatment",
-                        "type": {
-                          "id": "Code_48",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P30D",
-                        "relativeToFrom": {
-                          "id": "Code_49",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_15",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_14",
-                        "windowLower": "P30D",
-                        "windowUpper": "P0D",
-                        "window": "30..0 Days",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_16",
@@ -2073,37 +2072,6 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_16",
-                    "timings": [
-                      {
-                        "id": "Timing_16",
-                        "name": "TIM16",
-                        "label": "Follow Up",
-                        "description": "Follow Up",
-                        "type": {
-                          "id": "Code_51",
-                          "code": "C201264",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "After",
-                          "instanceType": "Code"
-                        },
-                        "value": "P12W",
-                        "relativeToFrom": {
-                          "id": "Code_52",
-                          "code": "C201265",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-09-29",
-                          "decode": "Start to Start",
-                          "instanceType": "Code"
-                        },
-                        "relativeFromScheduledInstanceId": "ScheduledActivityInstance_16",
-                        "relativeToScheduledInstanceId": "ScheduledActivityInstance_15",
-                        "windowLower": "P0W",
-                        "windowUpper": "P2W",
-                        "window": "0..2 Weeks",
-                        "instanceType": "Timing"
-                      }
-                    ],
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,
