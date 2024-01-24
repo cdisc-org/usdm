@@ -49,7 +49,7 @@ class ScheduledInstance():
 #          label=label,
           timelineExitId=None,
           encounterId=encounter_id,
-          timings=[],
+          #timings=[],
           scheduledInstanceTimelineId=None,
           defaultConditionId=None,
           epochId=epoch_id,
@@ -61,7 +61,7 @@ class ScheduledInstance():
         self.item = ScheduledDecisionInstance(
           id=id_manager.build_id(ScheduledDecisionInstance),
           timelineExitId=None,
-          timings=[],
+          #timings=[],
           scheduledInstanceTimelineId=None,
           defaultConditionId=None,
           conditionAssignments=[]

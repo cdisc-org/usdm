@@ -329,9 +329,12 @@ class StudySheet(BaseSheet):
   def _check_timing_references(self, tls):
     timing_check = {}
     for timing in self.timings.items:
+      print(f"TIMING: {timing}")
       timing_check[timing.name] = None
     for tl in tls:
       tl_items = tl.check_timing_references(self.timings.items, timing_check)
+      print(f"\n\n\nTIMING ITEMS: {tl_items}")
+      tl.timeline.timings = tl_items
     for timing in self.timings.items:
       if not timing_check[timing.name]:
         self._general_warning(f"Timing with name '{timing.name}' not referenced")
@@ -345,7 +348,7 @@ class StudySheet(BaseSheet):
           if instance:
             item = instance.item
             timing.relativeFromScheduledInstanceId = item.id
-            item.timings.append(timing)
+            #item.timings.append(timing)
             found['from'] = True
         if not found['to']:
           instance = tl.timing_match(timing.relativeToScheduledInstanceId)

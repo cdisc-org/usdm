@@ -74,7 +74,7 @@ class Timepoint():
         id=id_manager.build_id(ScheduledActivityInstance),
         timelineExitId=None,
         scheduledInstanceEncounterId=None,
-        timings=[timing],
+        #timings=[timing],
         scheduledInstanceTimelineId=None,
         defaultConditionId=None,
         epochId=None,
@@ -87,7 +87,7 @@ class Timepoint():
         id=id_manager.build_id(ScheduledActivityInstance),
         timelineExitId=None,
         scheduledInstanceEncounterId=None,
-        timings=[],
+        #timings=[],
         scheduledInstanceTimelineId=None,
         defaultConditionId=None,
         conditionAssignments=[]
