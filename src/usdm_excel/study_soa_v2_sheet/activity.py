@@ -1,7 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
 from usdm_excel.cross_ref import cross_references
-from usdm_excel.study_soa_sheet.soa_column_rows import SoAColumnRows
+from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.activity import Activity as USDMActivity
 from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
