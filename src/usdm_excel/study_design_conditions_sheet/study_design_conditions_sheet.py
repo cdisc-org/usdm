@@ -29,14 +29,13 @@ class StudyDesignConditionSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def _process_context_references(self, references_list, index):
-    references = [x.strip() for x in references_list.split(',')]
-    return self._process_references(references, ['ScheduledActivityInstance', 'Activity'], index, 'context')
+    return self._process_references(references_list, ['ScheduledActivityInstance', 'Activity'], index, 'context', False)
   
   def _process_applies_to_references(self, references_list, index):
-    references = [x.strip() for x in references_list.split(',')]
-    return self._process_references(references, ['Procedure', 'Activity', 'BiomedicalConcept', 'BiomedicalConceotCategory', 'BiomedicalConceptSurrogate'], index, 'applies_to')
+    return self._process_references(references_list, ['Procedure', 'Activity', 'BiomedicalConcept', 'BiomedicalConceotCategory', 'BiomedicalConceptSurrogate'], index, 'appliesTo')
   
-  def _process_references(self, references, klasses, index, column_name):
+  def _process_references(self, references_list, klasses, index, column_name, references_required=True):
+    references = [x.strip() for x in references_list.split(',')]
     results = []
     for reference in references:
       if reference:
@@ -49,4 +48,6 @@ class StudyDesignConditionSheet(BaseSheet):
             break
         if not found:
           self._error(index, self._get_column_index(column_name), f"Could not resolve condition reference '{reference}'")
+    if not results and references_required:
+      self._error(index, self._get_column_index(column_name), f"No condition references found for '{references_list}', at least one required")
     return results
