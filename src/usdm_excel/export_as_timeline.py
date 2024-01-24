@@ -47,9 +47,9 @@ class ExportAsTimeline():
         instance = cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
         #print(f"INST: {instance.instanceType} {ScheduledActivityInstance.__name__}")
         if instance.instanceType == ScheduledActivityInstance.__name__: 
-          doc.asis(f'{instance.id}(A)\n')
+          doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
         else:
-          doc.asis(f'{instance.id}{{{{D}}}}\n')
+          doc.asis(f'{instance.id}{{{{ScheduledDecisionInstance}}}}\n')
         doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
         #for timing in instance.timings:
         #  #print(f"APPEND: {timing}")
