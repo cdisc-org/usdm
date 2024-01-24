@@ -3,41 +3,41 @@ graph LR
 ScheduleTimeline_1([Potential subject identified])
 ScheduledActivityInstance_1(A)
 ScheduleTimeline_1 -->|first| ScheduledActivityInstance_1
-ScheduledActivityInstance_2(A)
+ScheduledActivityInstance_2(ScheduledActivityInstance)
 ScheduledActivityInstance_1 -->|default| ScheduledActivityInstance_2
-ScheduledActivityInstance_3(A)
+ScheduledActivityInstance_3(ScheduledActivityInstance)
 ScheduledActivityInstance_2 -->|default| ScheduledActivityInstance_3
-ScheduledActivityInstance_4(A)
+ScheduledActivityInstance_4(ScheduledActivityInstance)
 ScheduledActivityInstance_3 -->|default| ScheduledActivityInstance_4
-ScheduledActivityInstance_5(A)
+ScheduledActivityInstance_5(ScheduledActivityInstance)
 ScheduledActivityInstance_4 -->|default| ScheduledActivityInstance_5
-ScheduledActivityInstance_6(A)
+ScheduledActivityInstance_6(ScheduledActivityInstance)
 ScheduledActivityInstance_5 -->|default| ScheduledActivityInstance_6
-ScheduledActivityInstance_7(A)
+ScheduledActivityInstance_7(ScheduledActivityInstance)
 ScheduledActivityInstance_6 -->|default| ScheduledActivityInstance_7
-ScheduledActivityInstance_8(A)
+ScheduledActivityInstance_8(ScheduledActivityInstance)
 ScheduledActivityInstance_7 -->|default| ScheduledActivityInstance_8
-ScheduledActivityInstance_9(A)
+ScheduledActivityInstance_9(ScheduledActivityInstance)
 ScheduledActivityInstance_8 -->|default| ScheduledActivityInstance_9
-ScheduledActivityInstance_10(A)
+ScheduledActivityInstance_10(ScheduledActivityInstance)
 ScheduledActivityInstance_9 -->|default| ScheduledActivityInstance_10
-ScheduledActivityInstance_11(A)
+ScheduledActivityInstance_11(ScheduledActivityInstance)
 ScheduledActivityInstance_10 -->|default| ScheduledActivityInstance_11
-ScheduledDecisionInstance_1{{D}}
+ScheduledDecisionInstance_1{{ScheduledDecisionInstance}}
 ScheduledDecisionInstance_1 -->|Cycle 4 to 12| ScheduledActivityInstance_9
 ScheduledActivityInstance_11 -->|default| ScheduledDecisionInstance_1
-ScheduledActivityInstance_12(A)
+ScheduledActivityInstance_12(ScheduledActivityInstance)
 ScheduledDecisionInstance_1 -->|default| ScheduledActivityInstance_12
-ScheduledActivityInstance_13(A)
+ScheduledActivityInstance_13(ScheduledActivityInstance)
 ScheduledActivityInstance_12 -->|default| ScheduledActivityInstance_13
-ScheduledActivityInstance_14(A)
+ScheduledActivityInstance_14(ScheduledActivityInstance)
 ScheduledActivityInstance_13 -->|default| ScheduledActivityInstance_14
-ScheduledDecisionInstance_2{{D}}
+ScheduledDecisionInstance_2{{ScheduledDecisionInstance}}
 ScheduledDecisionInstance_2 -->|No Disease Progresssion| ScheduledActivityInstance_12
 ScheduledActivityInstance_14 -->|default| ScheduledDecisionInstance_2
-ScheduledActivityInstance_15(A)
+ScheduledActivityInstance_15(ScheduledActivityInstance)
 ScheduledDecisionInstance_2 -->|default| ScheduledActivityInstance_15
-ScheduledActivityInstance_16(A)
+ScheduledActivityInstance_16(ScheduledActivityInstance)
 ScheduledActivityInstance_15 -->|default| ScheduledActivityInstance_16
 ScheduleTimelineExit_1([Exit])
 ScheduledActivityInstance_16 -->|exit| ScheduleTimelineExit_1

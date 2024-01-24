@@ -59,9 +59,9 @@ class ExportAsTimeline():
         while instance:
           #print(f"INST: {instance.instanceType} {ScheduledActivityInstance.__name__}")
           if instance.instanceType == ScheduledActivityInstance.__name__: 
-            doc.asis(f'{instance.id}(A)\n')
+            doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
           else:
-            doc.asis(f'{instance.id}{{{{D}}}}\n')
+            doc.asis(f'{instance.id}{{{{ScheduledDecisionInstance}}}}\n')
             for condition in instance.conditionAssignments:
               doc.asis(f'{instance.id} -->|{condition[0]}| {condition[1]}\n') 
           doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
