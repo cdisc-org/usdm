@@ -387,12 +387,15 @@ class StudySheet(BaseSheet):
       return self.read_cell(rindex, cindex)
     else:
       try:
-        code = CDISCCT().code_for_attribute('StudyVersion', 'titles', title_type)
         text = self.read_cell(rindex, cindex)
-        title = StudyTitle(id=id_manager.build_id(StudyTitle), text=text, type=code)
-        self.titles.append(title)
-        cross_references.add(title.id, title)
-        return title
+        if text:
+          code = CDISCCT().code_for_attribute('StudyVersion', 'titles', title_type)
+          title = StudyTitle(id=id_manager.build_id(StudyTitle), text=text, type=code)
+          self.titles.append(title)
+          cross_references.add(title.id, title)
+          return title
+        else:
+          return None
       except Exception as e:
         self._error(rindex, cindex, "Failed to create StudyTitle object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
