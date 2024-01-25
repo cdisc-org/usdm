@@ -1514,22 +1514,6 @@
                     "description": "No hypoglycemia induced after 3 hours",
                     "strategy": "Exclude subject from analysis",
                     "instanceType": "IntercurrentEvent"
-                  },
-                  {
-                    "id": "IntercurrentEvent_2",
-                    "name": "no Hypo",
-                    "label": "",
-                    "description": "No hypoglycemia induced after 3 hours",
-                    "strategy": "",
-                    "instanceType": "IntercurrentEvent"
-                  },
-                  {
-                    "id": "IntercurrentEvent_3",
-                    "name": "no Hypo",
-                    "label": "",
-                    "description": "No hypoglycemia induced after 3 hours",
-                    "strategy": "",
-                    "instanceType": "IntercurrentEvent"
                   }
                 ],
                 "instanceType": "Estimand"
@@ -1539,7 +1523,7 @@
                 "summaryMeasure": "Something else",
                 "analysisPopulation": {
                   "id": "AnalysisPopulation_2",
-                  "name": "AP_4",
+                  "name": "AP_2",
                   "label": null,
                   "description": null,
                   "text": "ITT",
@@ -1549,7 +1533,7 @@
                 "variableOfInterestId": "Endpoint_2",
                 "intercurrentEvents": [
                   {
-                    "id": "IntercurrentEvent_4",
+                    "id": "IntercurrentEvent_2",
                     "name": "Bad stuff",
                     "label": "",
                     "description": "IC Event Description Number 2",
