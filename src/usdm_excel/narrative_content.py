@@ -119,8 +119,6 @@ class NarrativeContent():
           font-family: 'Times New Roman';
           color: #000000;
         }
-      </style>
-      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'>
       """
       chapters = []
       for id in root.childIds:
@@ -147,7 +145,21 @@ class NarrativeContent():
       with doc.tag('html'):
         with doc.tag('head'):
           with doc.tag('style'):
-            doc.asis(style)      
+            doc.asis(style)     
+          attributes = {
+            'href': "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap",
+            'rel': "stylesheet"
+          }
+          with doc.tag('link', **attributes):
+            pass
+          attributes = {
+            'href': "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+            'rel': "stylesheet",
+            'integrity': "sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN",
+            'crossorigin': "anonymous"
+          }
+          with doc.tag('link', **attributes):
+            pass
         with doc.tag('body'):
           doc.asis(front_sheet)    
           for id in root.childIds:
