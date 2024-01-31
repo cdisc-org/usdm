@@ -144,6 +144,10 @@ class NarrativeContent():
       """
       with doc.tag('html'):
         with doc.tag('head'):
+          with doc.tag('meta', **{'charset': "utf-8"}):
+            pass
+          with doc.tag('meta', **{"name": "viewport", "content": "width=device-width", "initial-scale": "1"}):
+            pass
           with doc.tag('style'):
             doc.asis(style)     
           attributes = {
