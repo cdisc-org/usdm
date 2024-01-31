@@ -70,7 +70,8 @@ class StudyDesignContentSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
 
   def _get_level(self, section_number):
-    parts = section_number.split('.')
+    sn = section_number[:-1] if section_number.endswith('.') else section_number
+    parts = sn.split('.')
     return len(parts)
 
   def _wrap_div(self, text):
