@@ -198,3 +198,9 @@ def test_timeline_4():
 
 def test_path_error():
   run_test('path_error')
+
+def test_references():
+  run_test('references')
+
+def test_references_html():
+  run_test_html('references')
