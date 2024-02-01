@@ -194,18 +194,25 @@ class NarrativeContent():
   def _translate_references(self, content_text):
     soup = self._get_soup(content_text)
     for ref in soup(['usdm:ref']):
-      attributes = ref.attrs
-      if 'namexref' in attributes:
-        instance = cross_references.get(attributes['klass'], attributes['namexref'])
-      else:
-        instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
       try:
-        value = str(getattr(instance, attributes['attribute']))
+        attributes = ref.attrs
+        if 'namexref' in attributes:
+          instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['namexref'], attributes['attribute'])
+          value = str(getattr(instance, attribute))
+        elif 'element' in attributes:
+          method = f"_{attributes['element']}"
+          value = getattr(self, method)()
+        elif 'id' in attributes:
+          instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
+          value = str(getattr(instance, attributes['attribute']))
+        else:
+          error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid method")
+          value = ''
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       except Exception as e:
         logging.error(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
-        error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document")
+        error_manager.add(None, None, None, f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content')
     return str(soup)
 
