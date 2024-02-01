@@ -199,17 +199,25 @@ class NarrativeContent():
         if 'namexref' in attributes:
           instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['namexref'], attributes['attribute'])
           value = str(getattr(instance, attribute))
+          translated_text = self._translate_references(value)
+          ref.replace_with(translated_text)
         elif 'element' in attributes:
+          print(f"ELEMENT: {content_text}")
+          print(f"ELEMENT: {attributes}")
           method = f"_{attributes['element']}"
           value = getattr(self, method)()
+          print(f"ELEMENT: {method}={value} [{self._translate_references(value)}]")
+          translated_text = self._translate_references(value)
+          ref.replace_with(translated_text)
+          print(f"ELEMENT S: {str(soup)}")
         elif 'id' in attributes:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
           value = str(getattr(instance, attributes['attribute']))
+          translated_text = self._translate_references(value)
+          ref.replace_with(translated_text)
         else:
           error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid method")
-          value = ''
-        translated_text = self._translate_references(value)
-        ref.replace_with(translated_text)
+          ref.replace_with('')
       except Exception as e:
         logging.error(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
         error_manager.add(None, None, None, f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")

@@ -6232,7 +6232,7 @@
                   "name": "Age Criteria",
                   "label": "",
                   "description": "The study age criterion",
-                  "text": "Subjects shall be between [min_age] and [max_age_2]",
+                  "text": "Subjects shall be between [min_age] and [max_age]",
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriterion",
                   "category": {
@@ -7379,6 +7379,11 @@
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
                 "parameterMap": {
+                  "min_age": {
+                    "klass": "Range",
+                    "id": "Range_3",
+                    "attribute": "minValue"
+                  },
                   "max_age": {
                     "klass": "Range",
                     "id": "Range_3",
@@ -7563,7 +7568,7 @@
               "name": "SECTION 0",
               "sectionNumber": "0",
               "sectionTitle": "TITLE PAGE",
-              "text": "<div><usdm:section name=\"M11-title-page\"></div>",
+              "text": "<div><usdm:ref element=\"study_full_title\"><br/><usdm:ref element=\"study_acronym\"></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7653,7 +7658,7 @@
               "name": "SECTION 3.1",
               "sectionNumber": "3.1",
               "sectionTitle": "Primary Objectives",
-              "text": "<div><usdm:section name=\"M11-objective-endpoints\"></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7696,7 +7701,7 @@
               "name": "SECTION 4.2",
               "sectionNumber": "4.2",
               "sectionTitle": "Rationale for Trial Design",
-              "text": "<div><p>Previous studies of the oral formulation have shown that xanomeline tartrate may improve behavior and cognition. Effects on behavior are manifest within 2 to 4 weeks of initiation of treatment. The same studies have shown that 8 to 12 weeks are required to demonstrate effects on cognition and clinical global assessment. This study is intended to determine the acute and chronic effects of the TTS formulation in AD; for that reason, the study is of 26 weeks duration. Dosage specification has been made on the basis of tolerance to the xanomeline TTS in a clinical pharmacology study (H2Q-EW-LKAA), and target plasma levels as determined in studies of the oral formulation of xanomeline (H2Q-MC-LZZA).</p></div>",
+              "text": "<div></div>",
               "childIds": [
                 "NarrativeContent_16",
                 "NarrativeContent_17",
@@ -7709,7 +7714,7 @@
               "name": "SECTION 4.2.1",
               "sectionNumber": "4.2.1",
               "sectionTitle": "Rationale for Comparator",
-              "text": "<div><p>The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups. The use of placebo allows for a blinded, thus minimally biased, study. The placebo treatment group is a comparator group for efficacy and safety assessment.</p><p>Two interim analyses are planned for this study. The first interim analysis will occur when 50% of the patients have completed Visit 8 (8 weeks). If required, the second interim analysis will occur when 50% of the patients have completed Visit 12 (24 weeks).</p></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7770,7 +7775,7 @@
               "name": "SECTION 5.1",
               "sectionNumber": "5.1",
               "sectionTitle": "Selection of Trial Population",
-              "text": "<div><p>For Lilly studies, the following definitions are used:</p>\n<div>\n  <div><strong>Screen</strong></div>\n  <div>\n    <p>Screening is the act of determining if an individual meets minimum requirements to become part of a pool of potential candidates for participation in a clinical study.</p>\n    <p>In this study, <strong>screening</strong> will include asking the candidate preliminary questions (such as age and general health status) and conducting invasive or diagnostic procedures and/or tests (for example, diagnostic psychological tests, x-rays, blood draws). Patients will sign the consent at their screening visit, thereby consenting to undergo the screening procedures and to participate in the study if they qualify.</p>\n  </div>  \n</div>\n<div>\n  <div>To <strong>enter</strong></div>\n  <div>\n    <p>Patients <strong>entered</strong> into the study are those from whom informed consent for the study has been obtained. Adverse events will be reported for each patient who has <strong>entered</strong> the study, even if the patient is never assigned to a treatment group (<strong>enrolled</strong>).</p></div>\n  </div>  \n</div>\n<div>\n  <div>To <strong>enroll</strong></div>\n  <div>\n    <p>Patients who are enrolled in the study are those who have been assigned to a treatment group. Patients who are entered into the study but fail to meet criteria specified in the protocol for treatment assignment will not be enrolled in the study.</p></div>\n  </div>  \n</div>\n<p>At Visit 1, patients who meet the enrollment criteria of Mini-Mental State Examination (MMSE) score of 10 to 23 (Attachment LZZT.6), Hachinski Ischemia Score \u22644 (Attachment LZZT.8), a physical exam, safety labs, ECG, and urinalysis, will proceed to Visit 2 and Visit 3. At Visit 3, patients whose CNS imaging and other pending labs from Visit 1 satisfy the inclusion criteria (Section 3.4.2.1) will be enrolled in the study. Approximately 300 patients with a diagnosis of probable mild to moderate AD will be enrolled in the study.</p></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7788,7 +7793,7 @@
               "name": "SECTION 5.3",
               "sectionNumber": "5.3",
               "sectionTitle": "Inclusion Criteria",
-              "text": "<div><usdm:section name=\"M11-inclusion\"></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7797,7 +7802,7 @@
               "name": "SECTION 5.4",
               "sectionNumber": "5.4",
               "sectionTitle": "Exclusion Criteria",
-              "text": "<div><usdm:section name=\"M11-exclusion\"></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7829,7 +7834,7 @@
               "name": "SECTION 5.5.2",
               "sectionNumber": "5.5.2",
               "sectionTitle": "Caffeine, Alcohol, Tobacco, and Other Habits",
-              "text": "<div><p>Not applicable</p></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -8001,7 +8006,7 @@
               "name": "SECTION 6.6.3",
               "sectionNumber": "6.6.3",
               "sectionTitle": "Blinding and Unblinding",
-              "text": "<div><p>The study will be double-blind. To further preserve the blinding of the study, only a minimum number of Lilly and CRO personnel will see the randomization table and codes before the study is complete.</p>\n<p>Emergency codes generated by a computer drug-labeling system will be available to the investigator. These codes, which reveal the patients treatment group, may be opened during the study only if the choice of follow-up treatment depends on the patient\u2019s therapy assignment.</p>\n<p>The investigator should make every effort to contact the clinical research physician prior to unblinding a patient\u2019s therapy assignment. If a patient\u2019s therapy assignment is unblinded, Lilly must be notified immediately by telephone. After the study, the investigator must return all sealed and any opened codes.</p></div>",
+              "text": "<div></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
