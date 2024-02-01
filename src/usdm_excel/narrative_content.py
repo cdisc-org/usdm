@@ -202,14 +202,14 @@ class NarrativeContent():
           translated_text = self._translate_references(value)
           ref.replace_with(translated_text)
         elif 'element' in attributes:
-          print(f"ELEMENT: {content_text}")
-          print(f"ELEMENT: {attributes}")
+          #print(f"ELEMENT: {content_text}")
+          #print(f"ELEMENT: {attributes}")
           method = f"_{attributes['element']}"
           value = getattr(self, method)()
-          print(f"ELEMENT: {method}={value} [{self._translate_references(value)}]")
+          #print(f"ELEMENT: {method}={value} [{self._translate_references(value)}]")
           translated_text = self._translate_references(value)
           ref.replace_with(translated_text)
-          print(f"ELEMENT S: {str(soup)}")
+          #print(f"ELEMENT S: {str(soup)}")
         elif 'id' in attributes:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
           value = str(getattr(instance, attributes['attribute']))
