@@ -234,6 +234,7 @@ class NarrativeContent():
       '_study_short_title',
       '_study_full_title',
       '_study_acronym',
+      '_study_rationale',
       '_study_version',
       '_study_identifier',
       '_study_regulatory_identifiers',
@@ -405,6 +406,10 @@ class NarrativeContent():
   def _study_acronym(self):
     title = self._get_title('Study Acronym')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text', 'path': 'StudyVersion/@titles/StudyTitle/@text'}]
+    return self._set_of_references(results)
+
+  def _study_rationale(self):
+    results = [{'instance': self.study_version, 'klass': 'StudyVersion', 'attribute': 'rationale', 'path': 'StudyVersion/@rationale'}]
     return self._set_of_references(results)
 
   def _study_version(self):
