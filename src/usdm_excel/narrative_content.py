@@ -202,28 +202,44 @@ class NarrativeContent():
           translated_text = self._translate_references(value)
           ref.replace_with(translated_text)
         elif 'element' in attributes:
-          #print(f"ELEMENT: {content_text}")
-          #print(f"ELEMENT: {attributes}")
           method = f"_{attributes['element']}"
-          value = getattr(self, method)()
-          #print(f"ELEMENT: {method}={value} [{self._translate_references(value)}]")
-          translated_text = self._translate_references(value)
-          ref.replace_with(translated_text)
-          #print(f"ELEMENT S: {str(soup)}")
+          if self._valid_method(method):
+            value = getattr(self, method)()
+            translated_text = self._translate_references(value)
+            ref.replace_with(translated_text)
+          else:
+            error_manager.add(None, None, None, f"Failed to translate element method name '{method}' in '{attributes}' while generating the HTML document, invalid method")
+            ref.replace_with('Missing content: invalid method name')
         elif 'id' in attributes:
           instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
           value = str(getattr(instance, attributes['attribute']))
           translated_text = self._translate_references(value)
           ref.replace_with(translated_text)
         else:
-          error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid method")
-          ref.replace_with('')
+          error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid attribute name")
+          ref.replace_with('Missing content: invalid attribute name')
       except Exception as e:
         logging.error(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
         error_manager.add(None, None, None, f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
-        ref.replace_with('Missing content')
+        ref.replace_with('Missing content: exception')
     return str(soup)
 
+  def _valid_method(self, name):
+    return name in [
+      '_study_phase',
+      '_study_short_title',
+      '_study_full_title',
+      '_study_acronym',
+      '_study_version',
+      '_study_identifier',
+      '_study_regulatory_identifiers',
+      '_study_date',
+      '_approval_date',
+      '_organization_name_and_address',
+      '_amendment',
+      '_amendment_scopes'
+    ]
+  
   def _standard_section(self, text):
     soup = self._get_soup(text)
     for section in soup(['usdm:section']):
