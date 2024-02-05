@@ -51,7 +51,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
-            cross_references.add(item.id, item)
+            cross_references.add(item.number, item)
         self.items.sort(key=lambda d: int(d.number))
         self.previous_link(self.items, 'previousId')
         

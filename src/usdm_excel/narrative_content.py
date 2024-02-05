@@ -205,8 +205,12 @@ class NarrativeContent():
           method = f"_{attributes['element']}"
           if self._valid_method(method):
             value = getattr(self, method)()
-            translated_text = self._translate_references(value)
-            ref.replace_with(translated_text)
+            if value:
+              translated_text = self._translate_references(value)
+              ref.replace_with(translated_text)
+            else:
+              error_manager.add(None, None, None, f"Failed to translate element method name '{method}' in '{attributes}' while generating the HTML document, no value")
+              ref.replace_with('Missing content: no value')
           else:
             error_manager.add(None, None, None, f"Failed to translate element method name '{method}' in '{attributes}' while generating the HTML document, invalid method")
             ref.replace_with('Missing content: invalid method name')
@@ -237,7 +241,8 @@ class NarrativeContent():
       '_approval_date',
       '_organization_name_and_address',
       '_amendment',
-      '_amendment_scopes'
+      '_amendment_scopes',
+      '_no_value_for_test'
     ]
   
   def _standard_section(self, text):
@@ -426,7 +431,7 @@ class NarrativeContent():
       if date.type.code == 'C99903x1':
         results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyProtocolDocumentVersion/GovernanceDate[@type/@code=C99903x1]/@dateValue'}]
         return self._set_of_references(results)
-    return None
+    return []
   
   def _approval_date(self):
     dates = self.study_version.dateValues
@@ -434,7 +439,7 @@ class NarrativeContent():
       if date.type.code == 'C132352':
         results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue', 'path': 'StudyVersion/GovernanceDate[@type/@code=C132352]/@dateValue'}]
         return self._set_of_references(results)
-    return None
+    return []
 
   def _organization_name_and_address(self):
     identifier = self._sponsor_identifier()
@@ -460,7 +465,10 @@ class NarrativeContent():
         entry = {'instance': item.code.standardCode, 'klass': 'Code', 'attribute': 'decode', 'path': 'StudyVersion/StudyAmendment/SubjectEnrollment/@code/@standardCode/@decode'}
         results.append(entry)
     return self._set_of_references(results)
-  
+
+  def _no_value_for_test(self):
+    return []
+
   def _criteria(self, type):
     results = []
     items = [c for c in self.study_design.population.criteria if c.category.code == type ]
