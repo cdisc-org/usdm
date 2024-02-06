@@ -215,10 +215,10 @@ class StudySheet(BaseSheet):
     return Wrapper(study=self.study)
 
   def to_html(self):
-    return NarrativeContent(self.brief_title.text, self.study).to_html()
+    return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_html()
 
   def to_pdf(self):
-    return NarrativeContent(self.brief_title.text, self.study).to_pdf()
+    return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_pdf()
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

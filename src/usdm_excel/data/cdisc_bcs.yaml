@@ -95,6 +95,98 @@
   shortName: Body Temperature
   synonyms:
   - Temperature
+/mdr/bc/packages/2022-10-26/biomedicalconcepts/C49676:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C49672
+      title: Vital Signs Measurement
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/bc/packages/2022-10-26/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2022-10-26
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2022-10-26/biomedicalconcepts/C49676
+      title: Pulse Rate
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  conceptId: C49676
+  dataElementConcepts:
+  - conceptId: C173522
+    dataType: integer
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C173522
+    ncitCode: C173522
+    shortName: Vital Signs Result
+  - conceptId: C73688
+    dataType: string
+    exampleSet:
+    - Beats per Minute
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C73688
+    ncitCode: C73688
+    shortName: Count per Minute
+  - conceptId: C83088
+    dataType: string
+    exampleSet:
+    - Wrist
+    - Neck
+    - Temple
+    - Groin
+    - Behind the knees
+    - On top of the foot
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C83088
+    ncitCode: C83088
+    shortName: Vital Signs Location
+  - conceptId: C123975
+    dataType: string
+    exampleSet:
+    - Left
+    - Right
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C123975
+    ncitCode: C123975
+    shortName: Vital Signs Laterality
+  - conceptId: C82535
+    dataType: string
+    exampleSet:
+    - Acoustic Monitoring
+    - Auscaltation Manual
+    - Palpation
+    - Oscillometry
+    - Pulse Oximetry
+    - EKG/ECG
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82535
+    ncitCode: C82535
+    shortName: Test Method
+  - conceptId: C83114
+    dataType: string
+    exampleSet:
+    - Decupitus
+    - Fowlers
+    - Lateral Decupitus
+    - Prone
+    - Reverse Trendelenburg
+    - Semi-Fowlers
+    - Semi-Recumbent
+    - Sitting
+    - Sitting Legs Dependent
+    - Sling
+    - Standing
+    - Supine
+    - Trendelenburg
+    - Unconstrained
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C83114
+    ncitCode: C83114
+    shortName: Vital Signs Position
+  definition: The rate of the pulse as observed in an artery, expressed as beats per
+    minute. It can be measured at several anatomic sites, including the wrist, neck,
+    temple, groin, behind the knees, or on top of the foot.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49676
+  ncitCode: C49676
+  resultScales:
+  - Quantitative
+  shortName: Pulse Rate
+  synonyms:
+  - Pulse
 /mdr/bc/packages/2022-10-26/biomedicalconcepts/C49677:
   _links:
     parentBiomedicalConcept:

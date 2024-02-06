@@ -66,8 +66,8 @@ class Activity():
         cross_references.add(self.name, activity)     
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
       except Exception as e:
-        #print(f"NAME: {self.row_index}, {self.name}")
-        self.parent._general_error("Failed to create Activity object, exception {e}")
+        print(f"NAME: {self.row_index}, {self.name}")
+        self.parent._general_error(f"Failed to create Activity object, exception {e}")
         self.parent._traceback(f"{traceback.format_exc()}")  
     else:
       activity.definedProcedures = procedures

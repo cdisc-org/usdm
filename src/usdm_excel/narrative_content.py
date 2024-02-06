@@ -1,21 +1,23 @@
+import re
+import os
+import base64
+import traceback
+import docraptor
+import warnings
 from yattag import Doc
 from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.logger import logging
 from usdm_excel.errors.errors import error_manager
-import re
-import os
-import traceback
-import docraptor
-import warnings
 
 class NarrativeContent():
 
   class LogicError(Exception):
     pass
 
-  def __init__(self, doc_title, study):
+  def __init__(self, doc_title, study, filepath):
     #warnings.filterwarnings("error")
+    self.filepath = filepath
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
@@ -201,6 +203,12 @@ class NarrativeContent():
           value = str(getattr(instance, attribute))
           translated_text = self._translate_references(value)
           ref.replace_with(translated_text)
+        elif 'image' in attributes:
+          type = {attributes['type']}
+          data = self._encode_image(attributes['image'])
+          img_tag = soup.new_tag("img")
+          img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
+          ref.replace_with(img_tag)
         elif 'element' in attributes:
           method = f"_{attributes['element']}"
           if self._valid_method(method):
@@ -228,6 +236,11 @@ class NarrativeContent():
         ref.replace_with('Missing content: exception')
     return str(soup)
 
+  def _encode_image(self, filename):
+    with open(os.path.join(self.filepath, filename), "rb") as image_file:
+      data = base64.b64encode(image_file.read())
+    return data
+  
   def _valid_method(self, name):
     return name in [
       '_study_phase',

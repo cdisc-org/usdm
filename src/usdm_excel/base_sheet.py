@@ -1,3 +1,4 @@
+import os
 import traceback
 import pandas as pd
 from openpyxl import load_workbook
@@ -26,6 +27,7 @@ class BaseSheet():
 
   def __init__(self, file_path, sheet_name, header=0, optional=False, converters={}, require={}):
     self.file_path = file_path
+    self.dir_path, self.filename = os.path.split(file_path)
     self.sheet_name = sheet_name
     self.sheet = None
     self.success = False
