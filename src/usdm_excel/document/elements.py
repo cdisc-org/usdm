@@ -1,6 +1,9 @@
-class Elements():
+from .base import DocumentBase
+
+class Elements(DocumentBase):
 
   def __init__(self, study):
+    super().__init__()
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]

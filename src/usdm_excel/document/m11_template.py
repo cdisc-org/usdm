@@ -1,17 +1,18 @@
 import re
 from yattag import Doc
 from .elements import Elements
+from .base import DocumentBase
 from usdm_excel.cross_ref import cross_references
 
-class M11Template():
+class M11Template(DocumentBase):
 
   def __init__(self, study):
+    super().__init__()
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.elements = Elements(study)
-
 
   def title_page(self):
     doc = Doc()
@@ -43,8 +44,22 @@ class M11Template():
     result = doc.getvalue()
     #print(f"DOC: {result}")
     return result
+
+  def inclusion(self):  
+    return self._criteria("C25532")
   
-  def criteria(self, type):
+  def exclusion(self):  
+    return self._criteria("C25370")
+
+  def objective_endpoints(self):
+    #print(f"M11 TP:")
+    doc = Doc()
+    with doc.tag('table'):
+      for item in self._objective_endpoints_list():
+        self._objective_endpoints_entry(doc, item['objective'], item['endpoints'])
+    return doc.getvalue()
+
+  def _criteria(self, type):
     #print(f"M11 TP:")
     heading = { 
       'C25532': "Patients may be included in the study only if they meet <strong>all</strong> the following criteria:",
@@ -56,14 +71,6 @@ class M11Template():
     with doc.tag('table'):
       for criterion in self._criteria_list(type):
         self._critieria_entry(doc, criterion['identifier'], criterion['text'])
-    return doc.getvalue()
-
-  def objective_endpoints(self):
-    #print(f"M11 TP:")
-    doc = Doc()
-    with doc.tag('table'):
-      for item in self._objective_endpoints_list():
-        self._objective_endpoints_entry(doc, item['objective'], item['endpoints'])
     return doc.getvalue()
 
   def _critieria_entry(self, doc, number, entry):

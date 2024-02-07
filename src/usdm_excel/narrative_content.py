@@ -1,4 +1,3 @@
-import re
 import os
 import base64
 import traceback
@@ -18,7 +17,6 @@ class NarrativeContent():
     pass
 
   def __init__(self, doc_title, study, filepath):
-    #warnings.filterwarnings("error")
     self.filepath = filepath
     self.study = study
     self.study_version = study.versions[0]
@@ -189,9 +187,6 @@ class NarrativeContent():
       if (level == 1 and int(content.sectionNumber) > 0) or (level > 1):
         with doc.tag(f'h{level}', id=heading_id):
           doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
-      # if self._standard_section(content.text):
-      #   name = self._standard_section_name(content.text)
-      #   content.text = self._generate_standard_section(name)
       doc.asis(str(self._translate_references(content.text)))
       for id in content.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
@@ -210,18 +205,15 @@ class NarrativeContent():
     try:
       attributes = ref.attrs
       if 'name' in attributes:
-        name = attributes['name'].upper()
-        if name == "M11-TITLE-PAGE":
-          text = self.m11.title_page()
-        elif name == "M11-INCLUSION":
-          text = self.m11.criteria("C25532")
-        elif name == "M11-EXCLUSION":
-          text = self.m11.criteria("C25370")
-        elif name == "M11-OBJECTIVE-ENDPOINTS":
-          text = self.m11.objective_endpoints()
+        method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
+        if self.m11.valid_method(method):
+          text = getattr(self.m11, method)()
         else:
-          text = f"Unrecognized standard content name {name}"        
+          text = f"Unrecognized standard content name {method}"        
         ref.replace_with(self._get_soup(text))
+      else:
+        error_manager.add(None, None, None, f"Failed to translate section '{attributes}' while generating the HTML document, invalid attribute name")
+        ref.replace_with('Missing content: invalid section name')
     except Exception as e:
       logging.error(f"Failed to translate section '{attributes}'\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Exception '{e} while attempting to translate section '{attributes}' while generating the HTML document")
@@ -243,7 +235,7 @@ class NarrativeContent():
         ref.replace_with(img_tag)
       elif 'element' in attributes:
         method = attributes['element']
-        if self._valid_method(method):
+        if self.elements.valid_method(method):
           value = getattr(self.elements, method)()
           if value:
             translated_text = self._translate_references(value)
@@ -271,24 +263,6 @@ class NarrativeContent():
     with open(os.path.join(self.filepath, filename), "rb") as image_file:
       data = base64.b64encode(image_file.read())
     return data
-  
-  def _valid_method(self, name):
-    return name in [
-      'study_phase',
-      'study_short_title',
-      'study_full_title',
-      'study_acronym',
-      'study_rationale',
-      'study_version',
-      'study_identifier',
-      'study_regulatory_identifiers',
-      'study_date',
-      'approval_date',
-      'organization_name_and_address',
-      'amendment',
-      'amendment_scopes',
-      'no_value_for_test'
-    ]
   
   def _get_soup(self, text):
     try:
