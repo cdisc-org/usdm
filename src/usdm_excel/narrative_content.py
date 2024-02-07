@@ -27,6 +27,8 @@ class NarrativeContent():
     self.doc_title = doc_title
     self.elements = Elements(self.study)
     self.m11 = M11Template(self.study)
+    self.plain = PlainTemplate(self.study)
+    self.template_map = {'m11': self.m11, 'plain': self.plain}  
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
       logging.error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
@@ -259,9 +261,7 @@ class NarrativeContent():
       elif 'section' in attributes:
         method = attributes['section'].upper().replace("M11-", "").replace("-", "_").lower()
         template = attributes['template'] if 'template' in attributes else 'plain' 
-        klass = getattr(sys.modules[__name__], template)
-        print(f"KLASS: {klass}")
-        instance = klass(self.study)
+        instance = self._resolve_template(template)
         if instance.valid_method(method):
           text = getattr(instance, method)()
         else:
@@ -277,10 +277,10 @@ class NarrativeContent():
   
   def _resolve_template(self, template):
     try:
-      return getattr(sys.modules[__name__], template)
+      return self.template_map[template.lower()]
     except:
       error_manager.add(None, None, None, f"Failed to map template '{template}', using plain template")
-      return PlainTemplate
+      return self.plain
 
   def _encode_image(self, filename):
     with open(os.path.join(self.filepath, filename), "rb") as image_file:
