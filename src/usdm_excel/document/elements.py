@@ -1,15 +1,3 @@
-# import re
-# import os
-# import base64
-# import traceback
-# import docraptor
-# import warnings
-# from yattag import Doc
-# from bs4 import BeautifulSoup   
-# from usdm_excel.cross_ref import cross_references
-# from usdm_excel.logger import logging
-# from usdm_excel.errors.errors import error_manager
-
 class Elements():
 
   def __init__(self, study):
@@ -110,55 +98,6 @@ class Elements():
       if identifier.studyIdentifierScope.organizationType.code == 'C70793':
         return identifier
     return None
-
-  # def _criteria(self, type):
-  #   results = []
-  #   items = [c for c in self.study_design.population.criteria if c.category.code == type ]
-  #   items.sort(key=lambda d: d.identifier)
-  #   for item in items:
-  #     result = {'identifier': item.identifier, 'text': item.text}
-  #     dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-  #     if dictionary:
-  #       result['text'] = self._substitute_tags(result['text'], dictionary)
-  #     results.append(result)
-  #   return results
-
-  # def _objective_endpoints(self):
-  #   results = []
-  #   for item in self.study_design.objectives:
-  #     result = {'objective': item.text, 'endpoints': []}
-  #     dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-  #     if dictionary:
-  #       result['objective'] = self._substitute_tags(result['objective'], dictionary)
-  #     for endpoint in item.endpoints:
-  #       dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', endpoint.dictionaryId)
-  #       ep_text = endpoint.text
-  #       if dictionary:
-  #         ep_text = self._substitute_tags(ep_text, dictionary)
-  #       result['endpoints'].append(ep_text)
-  #     results.append(result)
-  #   return results
-
-  # def _substitute_tags(self, text, dictionary):
-  #     tags = re.findall(r'\[([^]]*)\]', text)
-  #     for tag in tags:
-  #       if tag in dictionary.parameterMap:
-  #         map = dictionary.parameterMap[tag]
-  #         text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
-  #     return text
-
-  # def _list_references(self, content_text):
-  #   references = []
-  #   soup = BeautifulSoup(content_text, 'html.parser')
-  #   for ref in soup(['usdm:ref']):
-  #     attributes = ref.attrs
-  #     if 'path' in attributes:
-  #       path = f"{attributes['path']}"
-  #     else:
-  #       path = f"{attributes['klass']}/@{attributes['attribute']}"
-  #     if path not in references:
-  #       references.append(path)
-  #   return references if references else ['No mapping path']
   
   def _set_of_references(self, items):
     if items:
