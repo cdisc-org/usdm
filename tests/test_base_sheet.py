@@ -237,7 +237,7 @@ def test_read_quantity_cell_by_name(mocker):
   base = BaseSheet("", "sheet")
   test_data = [
     #  Name,       Allow Missing Units, Allow Empty, Errors, Empty,  Value,  Unit,     Error 
-    (0,'Quantity', False,               False,       True,   False,  0.0,    '',       "Error in sheet sheet at [1,1]: Failed to decode quantity data ''"),
+    (0,'Quantity', False,               False,       True,   False,  0.0,    '',       "Error in sheet sheet at [1,1]: Could not decode the quantity value, appears to be empty ''"),
     (1,'Quantity', False,               False,       False,  False,  1.0,    'C25301', ''),
     (2,'Quantity', False,               False,       False,  False,  1.0,    'C29844', ''),
     (3,'Quantity', False,               False,       False,  False,  14.0,   'C25529', ""),
