@@ -199,8 +199,8 @@ class NarrativeContent():
 
   def _translate_references(self, content_text):
     soup = self._get_soup(content_text)
-    for ref in soup(['usdm:section']):
-      self._usdm_section(soup, ref)
+    for section in soup(['usdm:section']):
+      self._usdm_section(soup, section)
     for ref in soup(['usdm:ref']):
       self._usdm_reference(soup, ref)
     # Reparse so as to clean up
@@ -220,8 +220,8 @@ class NarrativeContent():
         elif name == "M11-OBJECTIVE-ENDPOINTS":
           text = self.m11.objective_endpoints()
         else:
-          text = f"Unrecognized standard content name {name}"
-        ref.replace_with(text)
+          text = f"Unrecognized standard content name {name}"        
+        ref.replace_with(self._get_soup(text))
     except Exception as e:
       logging.error(f"Failed to translate section '{attributes}'\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Exception '{e} while attempting to translate section '{attributes}' while generating the HTML document")
