@@ -1,4 +1,5 @@
 import os
+import sys
 import base64
 import traceback
 import docraptor
@@ -9,6 +10,7 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.logger import logging
 from usdm_excel.errors.errors import error_manager
 from usdm_excel.document.m11_template import M11Template
+from usdm_excel.document.plain_template import PlainTemplate
 from usdm_excel.document.elements import Elements
 
 class NarrativeContent():
@@ -207,6 +209,9 @@ class NarrativeContent():
       if 'name' in attributes:
         method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
         if self.m11.valid_method(method):
+          klass_str = "M11Template"
+          klass = getattr(sys.modules[__name__], klass_str)
+          print(f"KLASS: {klass}")
           text = getattr(self.m11, method)()
         else:
           text = f"Unrecognized standard content name {method}"        
@@ -251,6 +256,16 @@ class NarrativeContent():
         value = str(getattr(instance, attributes['attribute']))
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
+      elif 'section' in attributes:
+        method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
+        template = attributes['template'] if 'template' in attributes else 'plain' 
+        if self.m11.valid_method(method):
+          klass = getattr(sys.modules[__name__], template)
+          print(f"KLASS: {klass}")
+          text = getattr(self.m11, method)()
+        else:
+          text = f"Unrecognized standard content name {method}"        
+        ref.replace_with(self._get_soup(text))
       else:
         error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid attribute name")
         ref.replace_with('Missing content: invalid attribute name')
@@ -259,6 +274,13 @@ class NarrativeContent():
       error_manager.add(None, None, None, f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
       ref.replace_with('Missing content: exception')
   
+  def _resolve_template(self, template):
+    try:
+      return getattr(sys.modules[__name__], template)
+    except:
+      error_manager.add(None, None, None, f"Failed to map template '{template}', using plain template")
+      return PlainTemplate
+
   def _encode_image(self, filename):
     with open(os.path.join(self.filepath, filename), "rb") as image_file:
       data = base64.b64encode(image_file.read())
