@@ -150,7 +150,7 @@ class BaseSheet():
         #print(f"QUANTITY: {quantity.value} {quantity.units} {quantity.units_code}")
         return None if quantity.empty else Quantity(id=id_manager.build_id(Quantity), value=float(quantity.value), unit=quantity.units_code)
       else:
-        self._add_errors(range.errors, row_index, col_index)
+        self._add_errors(quantity.errors, row_index, col_index)
         return None
     except Exception as e:
       self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
