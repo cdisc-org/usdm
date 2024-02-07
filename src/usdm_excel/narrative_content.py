@@ -25,8 +25,8 @@ class NarrativeContent():
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.doc_title = doc_title
-    self.m11 = M11Template(self.study)
     self.elements = Elements(self.study)
+    self.m11 = M11Template(self.study)
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
       logging.error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
@@ -257,12 +257,13 @@ class NarrativeContent():
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       elif 'section' in attributes:
-        method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
+        method = attributes['section'].upper().replace("M11-", "").replace("-", "_").lower()
         template = attributes['template'] if 'template' in attributes else 'plain' 
-        if self.m11.valid_method(method):
-          klass = getattr(sys.modules[__name__], template)
-          print(f"KLASS: {klass}")
-          text = getattr(self.m11, method)()
+        klass = getattr(sys.modules[__name__], template)
+        print(f"KLASS: {klass}")
+        instance = klass(self.study)
+        if instance.valid_method(method):
+          text = getattr(instance, method)()
         else:
           text = f"Unrecognized standard content name {method}"        
         ref.replace_with(self._get_soup(text))
