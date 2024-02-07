@@ -188,7 +188,7 @@ class NarrativeContent():
       if self._standard_section(content.text):
         name = self._standard_section_name(content.text)
         content.text = self._generate_standard_section(name)
-      doc.asis(self._translate_references(content.text))
+      doc.asis(str(self._translate_references(content.text)))
       for id in content.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
@@ -234,7 +234,8 @@ class NarrativeContent():
         logging.error(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
         error_manager.add(None, None, None, f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content: exception')
-    return str(soup)
+    # Reparse so as to clean up
+    return self._get_soup(str(soup))
 
   def _encode_image(self, filename):
     with open(os.path.join(self.filepath, filename), "rb") as image_file:
@@ -283,8 +284,8 @@ class NarrativeContent():
       if warning_list:
         error_manager.add(None, None, None, f"Warning raised within Soup package, processing '{text}'", level=error_manager.WARNING)
       return result
-    except:
-      logging.error(f"Exception raised parsing '{text}'\n{traceback.format_exc()}")
+    except Exception as e:
+      logging.error(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
       error_manager.add(None, None, None, f"Exception raised raised parsing '{text}'. Ignoring value")
       return ""
     
