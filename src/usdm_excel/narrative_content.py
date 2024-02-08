@@ -198,33 +198,32 @@ class NarrativeContent():
 
   def _translate_references(self, content_text):
     soup = self._get_soup(content_text)
-    for section in soup(['usdm:section']):
-      self._usdm_section(soup, section)
+    # for section in soup(['usdm:section']):
+    #   self._usdm_section(soup, section)
     for ref in soup(['usdm:ref']):
       self._usdm_reference(soup, ref)
     # Reparse so as to clean up
     return self._get_soup(str(soup))
 
-  def _usdm_section(self, soup, ref):
-    try:
-      attributes = ref.attrs
-      if 'name' in attributes:
-        method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
-        if self.m11.valid_method(method):
-          klass_str = "M11Template"
-          klass = getattr(sys.modules[__name__], klass_str)
-          print(f"KLASS: {klass}")
-          text = getattr(self.m11, method)()
-        else:
-          text = f"Unrecognized standard content name {method}"        
-        ref.replace_with(self._get_soup(text))
-      else:
-        error_manager.add(None, None, None, f"Failed to translate section '{attributes}' while generating the HTML document, invalid attribute name")
-        ref.replace_with('Missing content: invalid section name')
-    except Exception as e:
-      logging.error(f"Failed to translate section '{attributes}'\n{traceback.format_exc()}")
-      error_manager.add(None, None, None, f"Exception '{e} while attempting to translate section '{attributes}' while generating the HTML document")
-      ref.replace_with('Missing content: exception')
+  # def _usdm_section(self, soup, ref):
+  #   try:
+  #     attributes = ref.attrs
+  #     if 'name' in attributes:
+  #       method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
+  #       if self.m11.valid_method(method):
+  #         klass_str = "M11Template"
+  #         klass = getattr(sys.modules[__name__], klass_str)
+  #         text = getattr(self.m11, method)()
+  #       else:
+  #         text = f"Unrecognized standard content name {method}"        
+  #       ref.replace_with(self._get_soup(text))
+  #     else:
+  #       error_manager.add(None, None, None, f"Failed to translate section '{attributes}' while generating the HTML document, invalid attribute name")
+  #       ref.replace_with('Missing content: invalid section name')
+  #   except Exception as e:
+  #     logging.error(f"Failed to translate section '{attributes}'\n{traceback.format_exc()}")
+  #     error_manager.add(None, None, None, f"Exception '{e} while attempting to translate section '{attributes}' while generating the HTML document")
+  #     ref.replace_with('Missing content: exception')
 
   def _usdm_reference(self, soup, ref):
     try:
@@ -241,7 +240,7 @@ class NarrativeContent():
         img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
         ref.replace_with(img_tag)
       elif 'element' in attributes:
-        method = attributes['element']
+        method = attributes['element'].lower()
         if self.elements.valid_method(method):
           value = getattr(self.elements, method)()
           if value:
@@ -259,14 +258,18 @@ class NarrativeContent():
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       elif 'section' in attributes:
-        method = attributes['section'].upper().replace("M11-", "").replace("-", "_").lower()
+        method = attributes['section'].lower()
         template = attributes['template'] if 'template' in attributes else 'plain' 
         instance = self._resolve_template(template)
         if instance.valid_method(method):
           text = getattr(instance, method)()
+          #print(f"\n\n\nTEXT1: {text}")
+          translated_text = self._translate_references(text)
+          #print(f"TEXT2: {translated_text}")
+          ref.replace_with(translated_text)
         else:
-          text = f"Unrecognized standard content name {method}"        
-        ref.replace_with(self._get_soup(text))
+          error_manager.add(None, None, None, f"Failed to translate section method name '{method}' in '{attributes}' while generating the HTML document, invalid method")
+          ref.replace_with('Missing content: invalid method name')       
       else:
         error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid attribute name")
         ref.replace_with('Missing content: invalid attribute name')
@@ -297,6 +300,6 @@ class NarrativeContent():
       return result
     except Exception as e:
       logging.error(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-      error_manager.add(None, None, None, f"Exception raised raised parsing '{text}'. Ignoring value")
+      error_manager.add(None, None, None, f"Exception raised parsing '{text}'. Ignoring value")
       return ""
     

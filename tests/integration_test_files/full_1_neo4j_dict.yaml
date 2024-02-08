@@ -3012,7 +3012,7 @@ nodes:
     name: SECTION 0
     sectionNumber: '0'
     sectionTitle: TITLE PAGE
-    text: <div><usdm:section name="M11-title-page"></div>
+    text: <div><usdm:ref  template="m11" section="title_page"></div>
     uuid: 00000000-0000-4000-8000-000000000337
   - id: NarrativeContent_3
     instanceType: NarrativeContent
@@ -3075,7 +3075,7 @@ nodes:
     name: SECTION 3.1
     sectionNumber: '3.1'
     sectionTitle: Primary Objectives
-    text: <div><usdm:section name="M11-objective-endpoints"></div>
+    text: <div><usdm:ref  template="m11" section="objective_endpoints"></div>
     uuid: 00000000-0000-4000-8000-000000000346
   - id: NarrativeContent_12
     instanceType: NarrativeContent
@@ -3166,14 +3166,14 @@ nodes:
     name: SECTION 5.3
     sectionNumber: '5.3'
     sectionTitle: Inclusion Criteria
-    text: <div><usdm:section name="M11-inclusion"></div>
+    text: <div><usdm:ref  template="m11" section="inclusion"></div>
     uuid: 00000000-0000-4000-8000-000000000359
   - id: NarrativeContent_25
     instanceType: NarrativeContent
     name: SECTION 5.4
     sectionNumber: '5.4'
     sectionTitle: Exclusion Criteria
-    text: <div><usdm:section name="M11-exclusion"></div>
+    text: <div><usdm:ref  template="m11" section="exclusion"></div>
     uuid: 00000000-0000-4000-8000-000000000360
   - id: NarrativeContent_26
     instanceType: NarrativeContent
