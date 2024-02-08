@@ -40,49 +40,43 @@ class PlainTemplate(DocumentBase):
 
   def objective_endpoints(self):
     doc = Doc()
-    with doc.tag('table'):
+    with doc.tag('table', klass='table'):
       for item in self._objective_endpoints_list():
         self._objective_endpoints_entry(doc, item['objective'], item['endpoints'])
     return doc.getvalue()
 
   def _criteria(self, type):
-    heading = { 
-      'C25532': "Patients may be included in the study only if they meet <strong>all</strong> the following criteria:",
-      'C25370': "Patients may be excluded in the study for <strong>any</strong> of the following reasons:",
-    }
     doc = Doc()
-    with doc.tag('p'):
-      doc.asis(heading[type])  
-    with doc.tag('table'):
+    with doc.tag('table', klass='table'):
       for criterion in self._criteria_list(type):
         self._critieria_entry(doc, criterion['identifier'], criterion['text'])
     return doc.getvalue()
 
   def _critieria_entry(self, doc, identifier, entry):
     with doc.tag('tr'):
-      with doc.tag('td', style="vertical-align: top; text-align: left"):
+      with doc.tag('td'):
         with doc.tag('p'):
           doc.asis(identifier)  
-      with doc.tag('td', style="vertical-align: top; text-align: left"):
+      with doc.tag('td'):
         with doc.tag('p'):
           doc.asis(entry)
 
   def _objective_endpoints_entry(self, doc, objective, endpoints):
     with doc.tag('tr'):
-      with doc.tag('td', style="vertical-align: top; text-align: left"):
+      with doc.tag('td'):
         with doc.tag('p'):
           doc.asis(objective)  
-      with doc.tag('td', style="vertical-align: top; text-align: left"):
+      with doc.tag('td'):
         for endpoint in endpoints:
           with doc.tag('p'):
             doc.asis(endpoint)
 
   def _title_page_entry(self, doc, title, entry):
     with doc.tag('tr'):
-      with doc.tag('th', style="vertical-align: top; text-align: left"):
+      with doc.tag('th'):
         with doc.tag('p'):
           doc.asis(title)  
-      with doc.tag('td', style="vertical-align: top; text-align: left"):
+      with doc.tag('td'):
         with doc.tag('p'):
           doc.asis(entry)
 
