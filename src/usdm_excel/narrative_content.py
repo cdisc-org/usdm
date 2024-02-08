@@ -135,22 +135,6 @@ class NarrativeContent():
         level = len(content.sectionNumber.split('.'))
         if level == 1:
           self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
-      # front_sheet = f"""
-      #   <div id="title-page" class="page">
-      #     <h1>{self.doc_title}</h1>
-      #     <div id="header-and-footer">
-      #       <span id="page-number"></span>
-      #     </div>
-      #   </div>
-      #   <div id="toc-page" class="page">
-      #     <div id="table-of-contents">
-      #       {''.join(chapters)}
-      #     </div>
-      #     <div id="header-and-footer">
-      #       <span id="page-number"></span>
-      #     </div>
-      #   </div>
-      # """
       with doc.tag('html'):
         with doc.tag('head'):
           with doc.tag('meta', **{'charset': "utf-8"}):
@@ -199,32 +183,9 @@ class NarrativeContent():
 
   def _translate_references(self, content_text):
     soup = self._get_soup(content_text)
-    # for section in soup(['usdm:section']):
-    #   self._usdm_section(soup, section)
     for ref in soup(['usdm:ref']):
       self._usdm_reference(soup, ref)
-    # Reparse so as to clean up
     return self._get_soup(str(soup))
-
-  # def _usdm_section(self, soup, ref):
-  #   try:
-  #     attributes = ref.attrs
-  #     if 'name' in attributes:
-  #       method = attributes['name'].upper().replace("M11-", "").replace("-", "_").lower()
-  #       if self.m11.valid_method(method):
-  #         klass_str = "M11Template"
-  #         klass = getattr(sys.modules[__name__], klass_str)
-  #         text = getattr(self.m11, method)()
-  #       else:
-  #         text = f"Unrecognized standard content name {method}"        
-  #       ref.replace_with(self._get_soup(text))
-  #     else:
-  #       error_manager.add(None, None, None, f"Failed to translate section '{attributes}' while generating the HTML document, invalid attribute name")
-  #       ref.replace_with('Missing content: invalid section name')
-  #   except Exception as e:
-  #     logging.error(f"Failed to translate section '{attributes}'\n{traceback.format_exc()}")
-  #     error_manager.add(None, None, None, f"Exception '{e} while attempting to translate section '{attributes}' while generating the HTML document")
-  #     ref.replace_with('Missing content: exception')
 
   def _usdm_reference(self, soup, ref):
     try:
@@ -290,6 +251,11 @@ class NarrativeContent():
               <div class="row">
                 <div class="col-md-8 offset-md-2 text-center">
                   <h1>{self.doc_title}</h1>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-md-8 offset-md-2 text-center">
+                  <p><b>This document is generated from content held within the Unified Studies Definitions Model. It is for test purposes only.</b></p>
                 </div>
               </div>
             </div>
