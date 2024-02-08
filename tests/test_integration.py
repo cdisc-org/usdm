@@ -1,6 +1,7 @@
 import json
 import csv
 from src.usdm_excel import USDMExcel
+from bs4 import BeautifulSoup
 
 SAVE_ALL = False
 
@@ -27,6 +28,10 @@ def prep_errors_for_csv_compare(errors):
   for error in errors:
     error['sheet'] = error['sheet'] if error['sheet'] else ''
   return errors
+
+def format_html(result):
+  soup = BeautifulSoup(result, 'html.parser')
+  return soup.prettify()
 
 def run_test(filename, save=False):
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
@@ -55,13 +60,13 @@ def run_test_html(filename, save=False):
   # Useful if you want to see the results.
   if save or SAVE_ALL:
     with open(f"tests/integration_test_files/{filename}.html", 'w') as f:
-      f.write(result)
+      f.write(format_html(result))
     with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'w',newline='') as f:
       save_error_csv(f, errors) 
 
   with open(f"tests/integration_test_files/{filename}.html", 'r') as f:
     expected = f.read()
-  assert result == expected
+  assert format_html(result) == expected
   with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'r') as f:
     expected = read_error_csv(f)
   assert prep_errors_for_csv_compare(errors) == expected
