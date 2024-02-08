@@ -28,7 +28,8 @@ class NarrativeContent():
     self.elements = Elements(self.study)
     self.m11 = M11Template(self.study)
     self.plain = PlainTemplate(self.study)
-    self.template_map = {'m11': self.m11, 'plain': self.plain}  
+    self.template_map = {'m11': self.m11, 'plain': self.plain}
+    self.chapters = []
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
       logging.error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
@@ -62,6 +63,7 @@ class NarrativeContent():
 
   def to_html(self):
     try:
+      self.chapters = []
       root = self.protocol_document_version.contents[0]
       doc = Doc()
       doc.asis('<!DOCTYPE html>')
@@ -128,28 +130,27 @@ class NarrativeContent():
           color: #000000;
         }
       """
-      chapters = []
       for id in root.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         level = len(content.sectionNumber.split('.'))
         if level == 1:
-          chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
-      front_sheet = f"""
-        <div id="title-page" class="page">
-          <h1>{self.doc_title}</h1>
-          <div id="header-and-footer">
-            <span id="page-number"></span>
-          </div>
-        </div>
-        <div id="toc-page" class="page">
-          <div id="table-of-contents">
-            {''.join(chapters)}
-          </div>
-          <div id="header-and-footer">
-            <span id="page-number"></span>
-          </div>
-        </div>
-      """
+          self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
+      # front_sheet = f"""
+      #   <div id="title-page" class="page">
+      #     <h1>{self.doc_title}</h1>
+      #     <div id="header-and-footer">
+      #       <span id="page-number"></span>
+      #     </div>
+      #   </div>
+      #   <div id="toc-page" class="page">
+      #     <div id="table-of-contents">
+      #       {''.join(chapters)}
+      #     </div>
+      #     <div id="header-and-footer">
+      #       <span id="page-number"></span>
+      #     </div>
+      #   </div>
+      # """
       with doc.tag('html'):
         with doc.tag('head'):
           with doc.tag('meta', **{'charset': "utf-8"}):
@@ -173,7 +174,7 @@ class NarrativeContent():
           with doc.tag('link', **attributes):
             pass
         with doc.tag('body'):
-          doc.asis(front_sheet)    
+          # doc.asis(front_sheet)    
           for id in root.childIds:
             content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
             if content:
@@ -190,7 +191,7 @@ class NarrativeContent():
     with doc.tag('div', klass=klass):
       if (level == 1 and int(content.sectionNumber) > 0) or (level > 1):
         with doc.tag(f'h{level}', id=heading_id):
-          doc.asis(f"{content.sectionNumber}&nbsp{content.sectionTitle}")
+          doc.asis(f"{content.sectionNumber} {content.sectionTitle}")
       doc.asis(str(self._translate_references(content.text)))
       for id in content.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
@@ -270,6 +271,34 @@ class NarrativeContent():
         else:
           error_manager.add(None, None, None, f"Failed to translate section method name '{method}' in '{attributes}' while generating the HTML document, invalid method")
           ref.replace_with('Missing content: invalid method name')       
+      elif 'table_of_contents' in attributes:
+        toc = f"""
+          <div id="toc-page" class="page">
+            <div id="table-of-contents">
+              {''.join(self.chapters)}
+            </div>
+            <div id="header-and-footer">
+              <span id="page-number"></span>
+            </div>
+          </div>
+        """
+        ref.replace_with(self._get_soup(toc))
+      elif 'title_page' in attributes:
+        tp = f"""
+          <div id="title-page" class="page">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                  <h1>{self.doc_title}</h1>
+                </div>
+              </div>
+            </div>
+            <div id="header-and-footer">
+              <span id="page-number"></span>
+            </div>
+          </div>
+        """
+        ref.replace_with(self._get_soup(tp))
       else:
         error_manager.add(None, None, None, f"Failed to translate reference '{attributes}' while generating the HTML document, invalid attribute name")
         ref.replace_with('Missing content: invalid attribute name')

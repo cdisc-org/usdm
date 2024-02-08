@@ -3012,7 +3012,8 @@ nodes:
     name: SECTION 0
     sectionNumber: '0'
     sectionTitle: TITLE PAGE
-    text: <div><usdm:ref  template="m11" section="title_page"></div>
+    text: <div><usdm:ref title_page="true"/><usdm:ref table_of_contents="true"/><usdm:ref  template="m11"
+      section="title_page"></div>
     uuid: 00000000-0000-4000-8000-000000000337
   - id: NarrativeContent_3
     instanceType: NarrativeContent

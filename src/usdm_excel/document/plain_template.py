@@ -39,7 +39,6 @@ class PlainTemplate(DocumentBase):
     return self._criteria("C25370")
 
   def objective_endpoints(self):
-    #print(f"M11 TP:")
     doc = Doc()
     with doc.tag('table'):
       for item in self._objective_endpoints_list():
@@ -47,7 +46,6 @@ class PlainTemplate(DocumentBase):
     return doc.getvalue()
 
   def _criteria(self, type):
-    #print(f"M11 TP:")
     heading = { 
       'C25532': "Patients may be included in the study only if they meet <strong>all</strong> the following criteria:",
       'C25370': "Patients may be excluded in the study for <strong>any</strong> of the following reasons:",
@@ -60,11 +58,11 @@ class PlainTemplate(DocumentBase):
         self._critieria_entry(doc, criterion['identifier'], criterion['text'])
     return doc.getvalue()
 
-  def _critieria_entry(self, doc, number, entry):
+  def _critieria_entry(self, doc, identifier, entry):
     with doc.tag('tr'):
       with doc.tag('td', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
-          doc.asis(number)  
+          doc.asis(identifier)  
       with doc.tag('td', style="vertical-align: top; text-align: left"):
         with doc.tag('p'):
           doc.asis(entry)
