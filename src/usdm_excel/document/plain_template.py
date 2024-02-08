@@ -62,21 +62,17 @@ class PlainTemplate(DocumentBase):
   def _objective_endpoints_entry(self, doc, objective, endpoints):
     with doc.tag('tr'):
       with doc.tag('td'):
-        with doc.tag('p'):
-          doc.asis(objective)  
+        self._add_checking_for_tag(doc, 'p', objective)
       with doc.tag('td'):
         for endpoint in endpoints:
-          with doc.tag('p'):
-            doc.asis(endpoint)
+          self._add_checking_for_tag(doc, 'p', endpoint)
 
   def _title_page_entry(self, doc, title, entry):
     with doc.tag('tr'):
       with doc.tag('th'):
-        with doc.tag('p'):
-          doc.asis(title)  
+        self._add_checking_for_tag(doc, 'p', title)
       with doc.tag('td'):
-        with doc.tag('p'):
-          doc.asis(entry)
+        self._add_checking_for_tag(doc, 'p', entry)
 
   def _criteria_list(self, type):
     results = []
