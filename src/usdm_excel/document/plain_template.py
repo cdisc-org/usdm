@@ -55,11 +55,9 @@ class PlainTemplate(DocumentBase):
   def _critieria_entry(self, doc, identifier, entry):
     with doc.tag('tr'):
       with doc.tag('td'):
-        with doc.tag('p'):
-          doc.asis(identifier)  
+        self._add_checking_for_tag(doc, 'p', identifier)
       with doc.tag('td'):
-        with doc.tag('p'):
-          doc.asis(entry)
+        self._add_checking_for_tag(doc, 'p', entry)
 
   def _objective_endpoints_entry(self, doc, objective, endpoints):
     with doc.tag('tr'):
@@ -115,3 +113,10 @@ class PlainTemplate(DocumentBase):
         map = dictionary.parameterMap[tag]
         text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
     return text
+
+  def _add_checking_for_tag(self, doc, tag, text):
+    if text.startswith(f"<{tag}>"):
+      doc.asis(text)
+    else:
+      with doc.tag('p'):
+        doc.asis(text)
