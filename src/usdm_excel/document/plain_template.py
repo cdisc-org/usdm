@@ -80,9 +80,9 @@ class PlainTemplate(DocumentBase):
     items.sort(key=lambda d: d.identifier)
     for item in items:
       result = {'identifier': item.identifier, 'text': item.text}
-      dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-      if dictionary:
-        result['text'] = self._substitute_tags(result['text'], dictionary)
+      # dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
+      # if dictionary:
+      #   result['text'] = self._substitute_tags(result['text'], dictionary)
       results.append(result)
     return results
 
@@ -90,25 +90,25 @@ class PlainTemplate(DocumentBase):
     results = []
     for item in self.study_design.objectives:
       result = {'objective': item.text, 'endpoints': []}
-      dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-      if dictionary:
-        result['objective'] = self._substitute_tags(result['objective'], dictionary)
+      # dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
+      # if dictionary:
+      #   result['objective'] = self._substitute_tags(result['objective'], dictionary)
       for endpoint in item.endpoints:
-        dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', endpoint.dictionaryId)
+        # dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', endpoint.dictionaryId)
         ep_text = endpoint.text
-        if dictionary:
-          ep_text = self._substitute_tags(ep_text, dictionary)
+        # if dictionary:
+        #   ep_text = self._substitute_tags(ep_text, dictionary)
         result['endpoints'].append(ep_text)
       results.append(result)
     return results
 
-  def _substitute_tags(self, text, dictionary):
-    tags = re.findall(r'\[([^]]*)\]', text)
-    for tag in tags:
-      if tag in dictionary.parameterMap:
-        map = dictionary.parameterMap[tag]
-        text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
-    return text
+  # def _substitute_tags(self, text, dictionary):
+  #   tags = re.findall(r'\[([^]]*)\]', text)
+  #   for tag in tags:
+  #     if tag in dictionary.parameterMap:
+  #       map = dictionary.parameterMap[tag]
+  #       text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
+  #   return text
 
   def _add_checking_for_tag(self, doc, tag, text):
     if text.startswith(f"<{tag}>"):
