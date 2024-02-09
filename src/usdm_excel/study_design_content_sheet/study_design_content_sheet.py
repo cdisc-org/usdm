@@ -1,8 +1,8 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.id_manager import id_manager
+from usdm_excel.document.macros import Macros
 from usdm_model.narrative_content import NarrativeContent
 import traceback
-import re
 
 class StudyDesignContentSheet(BaseSheet):
 
@@ -69,6 +69,11 @@ class StudyDesignContentSheet(BaseSheet):
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
+  def resolve(self, study):
+    macros = Macros(self, study)
+    for item in self.items:
+      item.text = macros.resolve(item.text)
+
   def _get_level(self, section_number):
     sn = section_number[:-1] if section_number.endswith('.') else section_number
     parts = sn.split('.')
@@ -76,3 +81,4 @@ class StudyDesignContentSheet(BaseSheet):
 
   def _wrap_div(self, text):
     return text if text.startswith("<div>") else f"<div>{text}</div>"
+  

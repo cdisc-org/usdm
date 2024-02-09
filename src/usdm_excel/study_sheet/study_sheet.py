@@ -194,6 +194,7 @@ class StudySheet(BaseSheet):
           documentedBy=study_protocol_document
         )
         cross_references.add("STUDY", self.study)
+        self.contents.resolve(self.study) # Now we have full study, resolve references in the content
       except Exception as e:
         self._general_error(f"Failed to create Study object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
@@ -215,10 +216,10 @@ class StudySheet(BaseSheet):
     return Wrapper(study=self.study)
 
   def to_html(self):
-    return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_html()
+    return NarrativeContent(self, self.brief_title.text, self.study, self.dir_path).to_html()
 
   def to_pdf(self, test=True):
-    return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_pdf(test)
+    return NarrativeContent(self, self.brief_title.text, self.study, self.dir_path).to_pdf(test)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    
