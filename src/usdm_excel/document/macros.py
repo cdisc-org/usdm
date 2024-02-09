@@ -31,10 +31,10 @@ class Macros():
         if self._valid_method(method):
           result = getattr(self, method)(attributes, soup, ref)
         else:
-          self.parent._general_error(f"Failed to translate document macro '{attributes}', invalid method name")
+          self.parent._general_error(f"Failed to resolve document macro '{attributes}', invalid method name {method}")
           ref.replace_with('Missing content: invalid method name')
       except Exception as e:
-        self.parent._traceback(f"Failed to translate document macro '{attributes}'\n{traceback.format_exc()}")
+        self.parent._traceback(f"Failed to resolve document macro '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to translate document macro '{attributes}'")
         ref.replace_with('Missing content: exception')
     return str(soup)
@@ -83,7 +83,7 @@ class Macros():
       return self.plain
 
   def _encode_image(self, filename) -> bytes:
-    with open(os.path.join(self.filepath, filename), "rb") as image_file:
+    with open(os.path.join(self.parent.dir_path, filename), "rb") as image_file:
       data = base64.b64encode(image_file.read())
     return data
   
@@ -97,6 +97,6 @@ class Macros():
       return result
     except Exception as e:
       self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-      self.parent._general_error(None, None, None, f"Exception raised parsing '{text}'. Ignoring value")
+      self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
       return ""
     

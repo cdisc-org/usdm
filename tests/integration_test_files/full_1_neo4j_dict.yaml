@@ -3016,52 +3016,47 @@ nodes:
       Confidentiality Statement:</p></th><td style="vertical-align: top; text-align:
       left"><p></p></td></tr><tr><th style="vertical-align: top; text-align: left"><p>Full
       Title:</p></th><td style="vertical-align: top; text-align: left"><p><usdm:ref
-      attribute="text" id="StudyTitle_3" klass="StudyTitle" path="StudyVersion/@titles/StudyTitle/@text"></usdm:ref></p></td></tr><tr><th
+      attribute="text" id="StudyTitle_3" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Trial Acronym:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
-      id="StudyTitle_1" klass="StudyTitle" path="StudyVersion/@titles/StudyTitle/@text"></usdm:ref></p></td></tr><tr><th
-      style="vertical-align: top; text-align: left"><p>Protocol Identifier:</p></th><td
-      style="vertical-align: top; text-align: left"><p><usdm:ref attribute="studyIdentifier"
-      id="StudyIdentifier_2" klass="StudyIdentifier" path="StudyIdentifier[Organization/@type/@code=C70793]/@studyIdentifier"></usdm:ref></p></td></tr><tr><th
-      style="vertical-align: top; text-align: left"><p>Original Protocol:</p></th><td
-      style="vertical-align: top; text-align: left"><p></p></td></tr><tr><th style="vertical-align:
-      top; text-align: left"><p>Version Number:</p></th><td style="vertical-align:
-      top; text-align: left"><p><usdm:ref attribute="versionIdentifier" id="StudyVersion_1"
-      klass="StudyVersion" path="StudyVersion/@versionIdentifier"></usdm:ref></p></td></tr><tr><th
-      style="vertical-align: top; text-align: left"><p>Version Date:</p></th><td style="vertical-align:
-      top; text-align: left"><p><usdm:ref attribute="dateValue" id="GovernanceDate_2"
-      klass="GovernanceDate" path="StudyProtocolDocumentVersion/GovernanceDate[@type/@code=C99903x1]/@dateValue"></usdm:ref></p></td></tr><tr><th
+      id="StudyTitle_1" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+      top; text-align: left"><p>Protocol Identifier:</p></th><td style="vertical-align:
+      top; text-align: left"><p><usdm:ref attribute="studyIdentifier" id="StudyIdentifier_2"
+      klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+      top; text-align: left"><p>Original Protocol:</p></th><td style="vertical-align:
+      top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
+      text-align: left"><p>Version Number:</p></th><td style="vertical-align: top;
+      text-align: left"><p><usdm:ref attribute="versionIdentifier" id="StudyVersion_1"
+      klass="StudyVersion"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+      top; text-align: left"><p>Version Date:</p></th><td style="vertical-align: top;
+      text-align: left"><p><usdm:ref attribute="dateValue" id="GovernanceDate_2" klass="GovernanceDate"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Amendment Identifier:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="number"
-      id="StudyAmendment_1" klass="StudyAmendment" path="StudyVersion/StudyAmendment/@number"></usdm:ref></p></td></tr><tr><th
+      id="StudyAmendment_1" klass="StudyAmendment"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Amendment Scope:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="decode"
-      id="Code_40" klass="Code" path="StudyVersion/StudyAmendment/SubjectEnrollment[@type/@code=C68846]/Code/@decode"></usdm:ref></p></td></tr><tr><th
-      style="vertical-align: top; text-align: left"><p>Compound Codes(s):</p></th><td
-      style="vertical-align: top; text-align: left"><p></p></td></tr><tr><th style="vertical-align:
-      top; text-align: left"><p>Compound Name(s):</p></th><td style="vertical-align:
+      id="Code_40" klass="Code"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+      top; text-align: left"><p>Compound Codes(s):</p></th><td style="vertical-align:
       top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
-      text-align: left"><p>Trial Phase:</p></th><td style="vertical-align: top; text-align:
-      left"><p><usdm:ref attribute="decode" id="Code_2" klass="Code" path="StudyVersion/@studyPhase/@standardCode/@decode"></usdm:ref></p></td></tr><tr><th
+      text-align: left"><p>Compound Name(s):</p></th><td style="vertical-align: top;
+      text-align: left"><p></p></td></tr><tr><th style="vertical-align: top; text-align:
+      left"><p>Trial Phase:</p></th><td style="vertical-align: top; text-align: left"><p><usdm:ref
+      attribute="decode" id="Code_2" klass="Code"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Short Title:</p></th><td style="vertical-align:
-      top; text-align: left"><p><usdm:ref attribute="text" id="StudyTitle_2" klass="StudyTitle"
-      path="StudyVersion/@titles/StudyTitle/@text"></usdm:ref></p></td></tr><tr><th
+      top; text-align: left"><p><usdm:ref attribute="text" id="StudyTitle_2" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Sponsor Name and Address:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="name"
-      id="Organization_2" klass="Organization" path="StudyIdentifier[Organization/@type/@code=C70793]/Organization/@name"></usdm:ref>,
-      <usdm:ref attribute="text" id="Address_2" klass="Address" path="StudyIdentifier[Organization/@type/@code=C70793]/Organization/Address/@text"></usdm:ref></p></td></tr><tr><th
-      style="vertical-align: top; text-align: left"><p>Regulatory Agency Identifier
-      Number(s):</p></th><td style="vertical-align: top; text-align: left"><p><usdm:ref
-      attribute="studyIdentifier" id="StudyIdentifier_1" klass="StudyIdentifier" path="StudyIdentifier[Organization/@type/@code=C188863|C93453]/@studyIdentifier"></usdm:ref>,
-      <usdm:ref attribute="studyIdentifier" id="StudyIdentifier_3" klass="StudyIdentifier"
-      path="StudyIdentifier[Organization/@type/@code=C188863|C93453]/@studyIdentifier"></usdm:ref>,
-      <usdm:ref attribute="studyIdentifier" id="StudyIdentifier_4" klass="StudyIdentifier"
-      path="StudyIdentifier[Organization/@type/@code=C188863|C93453]/@studyIdentifier"></usdm:ref>,
-      <usdm:ref attribute="studyIdentifier" id="StudyIdentifier_5" klass="StudyIdentifier"
-      path="StudyIdentifier[Organization/@type/@code=C188863|C93453]/@studyIdentifier"></usdm:ref></p></td></tr><tr><th
+      id="Organization_2" klass="Organization"></usdm:ref>, <usdm:ref attribute="text"
+      id="Address_2" klass="Address"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+      top; text-align: left"><p>Regulatory Agency Identifier Number(s):</p></th><td
+      style="vertical-align: top; text-align: left"><p><usdm:ref attribute="studyIdentifier"
+      id="StudyIdentifier_1" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="studyIdentifier"
+      id="StudyIdentifier_3" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="studyIdentifier"
+      id="StudyIdentifier_4" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="studyIdentifier"
+      id="StudyIdentifier_5" klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Spondor Approval Date:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="dateValue"
-      id="GovernanceDate_1" klass="GovernanceDate" path="StudyVersion/GovernanceDate[@type/@code=C132352]/@dateValue"></usdm:ref></p></td></tr></table></div>'
+      id="GovernanceDate_1" klass="GovernanceDate"></usdm:ref></p></td></tr></table></div>'
     uuid: 00000000-0000-4000-8000-000000000337
   - id: NarrativeContent_3
     instanceType: NarrativeContent
