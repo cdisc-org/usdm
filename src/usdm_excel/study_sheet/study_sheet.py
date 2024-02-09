@@ -217,8 +217,8 @@ class StudySheet(BaseSheet):
   def to_html(self):
     return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_html()
 
-  def to_pdf(self):
-    return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_pdf()
+  def to_pdf(self, test=True):
+    return NarrativeContent(self.brief_title.text, self.study, self.dir_path).to_pdf(test)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

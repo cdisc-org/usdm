@@ -56,9 +56,9 @@ class USDMExcel():
       html = f"<p>{message}</p>"
     return html
 
-  def to_pdf(self):
+  def to_pdf(self, test=True):
     try:
-      bytes = self.study.to_pdf()
+      bytes = self.study.to_pdf(test)
     except Exception as e:
       message = f"Failed to generate PDF output, exception {e}"
       error_manager.add(None, None, None, message)

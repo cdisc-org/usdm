@@ -34,14 +34,14 @@ class NarrativeContent():
       logging.error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
 
-  def to_pdf(self):
+  def to_pdf(self, test=True):
+    print(f"PDF: Test set {test}")
     doc_api = docraptor.DocApi()
     doc_api.api_client.configuration.username = os.getenv('DOCRAPTOR_API_KEY')
-
     document_content = self.to_html()
     try:
       response = doc_api.create_doc({
-        'test': True,  # test documents are free but watermarked
+        'test': test,  # test documents are free but watermarked
         #'test': False,  # Non-watermarked documents, but limited number allowed.
         'document_type': 'pdf',
         'document_content': document_content,
