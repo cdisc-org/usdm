@@ -1,5 +1,4 @@
 import os
-#import sys
 import base64
 import traceback
 import docraptor
@@ -9,11 +8,6 @@ from bs4 import BeautifulSoup
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_sheet.study_sheet import Study
-# from usdm_excel.logger import logging
-# from usdm_excel.errors.errors import error_manager
-# from usdm_excel.document.m11_template import M11Template
-# from usdm_excel.document.plain_template import PlainTemplate
-# from usdm_excel.document.elements import Elements
 
 class NarrativeContent():
 
@@ -28,10 +22,6 @@ class NarrativeContent():
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.doc_title = doc_title
-    # self.elements = Elements(self.study)
-    # self.m11 = M11Template(self.study)
-    # self.plain = PlainTemplate(self.study)
-    # self.template_map = {'m11': self.m11, 'plain': self.plain}
     self.chapters = []
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
       self.parent._general_error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
@@ -126,13 +116,11 @@ class NarrativeContent():
         self._content_to_html(content, doc)
 
   def _get_level(self, section_number):
-    #print(f"LEVEL1: {section_number}")
     if section_number.lower().startswith("appendix"):
       result = 1
     else:
       text = section_number[:-1] if section_number.endswith('.') else section_number
       result = len(text.split('.'))
-    #print(f"LEVEL2: {result}")
     return result
       
   def _is_doc_section(self, section_number):
@@ -167,71 +155,6 @@ class NarrativeContent():
         self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content: exception')
     return self._get_soup(str(soup))
-
-  # def _usdm_reference(self, soup, ref):
-  #   try:
-  #     attributes = ref.attrs
-  #     if 'id' in attributes:
-  #       instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
-  #       value = str(getattr(instance, attributes['attribute']))
-  #       translated_text = self._translate_references(value)
-  #       ref.replace_with(translated_text)
-  #     # elif 'namexref' in attributes:
-  #     #   instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['namexref'], attributes['attribute'])
-  #     #   value = str(getattr(instance, attribute))
-  #     #   translated_text = self._translate_references(value)
-  #     #   ref.replace_with(translated_text)
-  #     # elif 'image' in attributes:
-  #     #   type = {attributes['type']}
-  #     #   data = self._encode_image(attributes['image'])
-  #     #   img_tag = soup.new_tag("img")
-  #     #   img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
-  #     #   ref.replace_with(img_tag)
-  #     # elif 'element' in attributes:
-  #     #   method = attributes['element'].lower()
-  #     #   if self.elements.valid_method(method):
-  #     #     value = getattr(self.elements, method)()
-  #     #     if value:
-  #     #       translated_text = self._translate_references(value)
-  #     #       ref.replace_with(translated_text)
-  #     #     else:
-  #     #       self.parent._general_error(f"Failed to translate element method name '{method}' in '{attributes}' while generating the HTML document, no value")
-  #     #       ref.replace_with('Missing content: no value')
-  #     #   else:
-  #     #     self.parent._general_error(f"Failed to translate element method name '{method}' in '{attributes}' while generating the HTML document, invalid method")
-  #     #     ref.replace_with('Missing content: invalid method name')
-  #     # elif 'section' in attributes:
-  #     #   method = attributes['section'].lower()
-  #     #   template = attributes['template'] if 'template' in attributes else 'plain' 
-  #     #   instance = self._resolve_template(template)
-  #     #   if instance.valid_method(method):
-  #     #     text = getattr(instance, method)()
-  #     #     #print(f"\n\n\nTEXT1: {text}")
-  #     #     translated_text = self._translate_references(text)
-  #     #     #print(f"TEXT2: {translated_text}")
-  #     #     ref.replace_with(translated_text)
-  #     #   else:
-  #     #     self.parent._general_error(f"Failed to translate section method name '{method}' in '{attributes}' while generating the HTML document, invalid method")
-  #     #     ref.replace_with('Missing content: invalid method name')       
-  #     # elif 'table_of_contents' in attributes:
-  #     #   toc = f"""
-  #     #     <div id="toc-page" class="page">
-  #     #       <div id="table-of-contents">
-  #     #         {''.join(self.chapters)}
-  #     #       </div>
-  #     #       <div id="header-and-footer">
-  #     #         <span id="page-number"></span>
-  #     #       </div>
-  #     #     </div>
-  #     #   """
-  #     #   ref.replace_with(self._get_soup(toc))
-  #     else:
-  #       self.parent._general_error(f"Failed to translate reference '{attributes}' while generating the HTML document, invalid attribute name")
-  #       ref.replace_with('Missing content: invalid attribute name')
-  #   except Exception as e:
-  #     self.parent._general_error(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
-  #     self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
-  #     ref.replace_with('Missing content: exception')
 
   def _table_of_contents(self):
     return f"""
