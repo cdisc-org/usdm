@@ -32,7 +32,7 @@ def test_create(mocker):
   assert dictionaries.items[0].name == 'Dictionary 1'
   assert dictionaries.items[0].description == 'Dictionary One'
   assert dictionaries.items[0].label == 'Label One'
-  assert dictionaries.items[0].parameterMap['Key 2'] == "<usdm:ref 'klass': ApiBaseModelWithId, 'id': 2, 'attribute': Attribute 2></usdm:ref>"
+  assert dictionaries.items[0].parameterMap['Key 2'] == '<usdm:ref klass="ApiBaseModelWithId" id="2" attribute="Attribute 2"></usdm:ref>'
   assert list(dictionaries.items[1].parameterMap.keys()) == ['Key 3']
   assert list(dictionaries.items[2].parameterMap.keys()) == ['Key 4', 'Key 5', 'Key 6']
   assert dictionaries.items[2].parameterMap['Key 6'] == "<div>Hello!</div>"

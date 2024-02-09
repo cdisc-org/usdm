@@ -106,33 +106,19 @@ class M11Template(DocumentBase):
     items = [c for c in self.study_design.population.criteria if c.category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
-      result = {'identifier': item.identifier, 'text': item.text}
-      # dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-      # if dictionary:
-      #   result['text'] = self._substitute_tags(result['text'], dictionary)
+      result = {'identifier': item.identifier, 'text': self._reference(item, 'text')}
       results.append(result)
     return results
 
   def _objective_endpoints_list(self):
     results = []
     for item in self.study_design.objectives:
-      result = {'objective': item.text, 'endpoints': []}
-      # dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', item.dictionaryId)
-      # if dictionary:
-      #   result['objective'] = self._substitute_tags(result['objective'], dictionary)
+      result = {'objective': self._reference(item, 'text'), 'endpoints': []}
       for endpoint in item.endpoints:
-        # dictionary = cross_references.get_by_id('SyntaxTemplateDictionary', endpoint.dictionaryId)
-        ep_text = endpoint.text
-        # if dictionary:
-        #   ep_text = self._substitute_tags(ep_text, dictionary)
-        result['endpoints'].append(ep_text)
+        result['endpoints'].append(self._reference(endpoint, 'text'))
       results.append(result)
     return results
 
-  # def _substitute_tags(self, text, dictionary):
-  #   tags = re.findall(r'\[([^]]*)\]', text)
-  #   for tag in tags:
-  #     if tag in dictionary.parameterMap:
-  #       map = dictionary.parameterMap[tag]
-  #       text = text.replace(f"[{tag}]", f'<usdm:ref klass="{map["klass"]}" id="{map["id"]}" attribute="{map["attribute"]}"/>')
-  #   return text
+  def _reference(self, item, attribute):
+    return f'<usdm:ref klass="{item.__class__.__name__}" id="{item.id}" attribute="{attribute}"></usdm:ref>'
+  

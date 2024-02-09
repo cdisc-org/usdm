@@ -2816,7 +2816,7 @@ nodes:
     instanceType: EligibilityCriterion
     label: ''
     name: Age Criteria
-    text: Subjects shall be between [min_age] and [max_age]
+    text: Subjects shall be between <usdm:tag name="min_age"/> and <usdm:tag name="max_age"/>
     uuid: 00000000-0000-4000-8000-000000000261
   - description: The study age criterion with error
     id: EligibilityCriterion_2
@@ -2824,7 +2824,7 @@ nodes:
     instanceType: EligibilityCriterion
     label: ''
     name: Age Criteria Error
-    text: Subjects shall be between [min_age] and [max_agexxx]
+    text: Subjects shall be between <usdm:tag name="min_age"/> and <usdm:tag name="max_agexxx"/>
     uuid: 00000000-0000-4000-8000-000000000263
   - description: Ever taken drug A
     id: EligibilityCriterion_3
@@ -2840,7 +2840,7 @@ nodes:
     instanceType: EligibilityCriterion
     label: ''
     name: Berber
-    text: Pick up activity [xxxx]
+    text: Pick up activity <usdm:tag name="xxxx"/>
     uuid: 00000000-0000-4000-8000-000000000267
   Encounter:
   - description: Screening encounter
@@ -3122,16 +3122,14 @@ nodes:
     text: '<div><table><tr><td style="vertical-align: top; text-align: left"><p>The
       primary efficacy objective for this study is to evaluate the efficacy of TCZ
       compared with placebo in combination with SOC for the treatment of severe COVID-19
-      pneumonia</p></td><td style="vertical-align: top; text-align: left"><p>Clinical
-      status assessed using a 7-category ordinal scale at Day 28</p></td></tr><tr><td
+      pneumonia</p></td><td style="vertical-align: top; text-align: left"><p><usdm:ref
+      attribute="text" id="Endpoint_1" klass="Endpoint"></usdm:ref></p></td></tr><tr><td
       style="vertical-align: top; text-align: left"><p>The secondary efficacy objective
       for this study is to evaluate the efficacy of TCZ compared with placebo in combination
-      with SOC for the treatment of severe COVID-19 pneumonia over the age of <usdm:ref
-      attribute="plannedAge" id="StudyDesignPopulation_1" klass="StudyDesignPopulation"></usdm:ref></p></td><td
-      style="vertical-align: top; text-align: left"><p>Time to clinical improvement
-      (TTCI) defined as a National Early Warning Score 2 (NEWS2) of &lt;=2 maintained
-      for 24 hours</p><p>Time to improvement of at least 2 categories relative to
-      baseline on a 7-category ordinal scale of clinical status</p></td></tr></table></div>'
+      with SOC for the treatment of severe COVID-19 pneumonia over the age of <usdm:tag
+      name="min_age"></usdm:tag></p></td><td style="vertical-align: top; text-align:
+      left"><p><usdm:ref attribute="text" id="Endpoint_2" klass="Endpoint"></usdm:ref></p><p><usdm:ref
+      attribute="text" id="Endpoint_3" klass="Endpoint"></usdm:ref></p></td></tr></table></div>'
     uuid: 00000000-0000-4000-8000-000000000346
   - id: NarrativeContent_12
     instanceType: NarrativeContent
@@ -3224,13 +3222,11 @@ nodes:
     sectionTitle: Inclusion Criteria
     text: '<div><p>Patients may be included in the study only if they meet <strong>all</strong>
       the following criteria:</p><table><tr><td style="vertical-align: top; text-align:
-      left"><p>1</p></td><td style="vertical-align: top; text-align: left"><p>Subjects
-      shall be between <usdm:ref attribute="plannedAge" id="StudyDesignPopulation_1"
-      klass="StudyDesignPopulation"></usdm:ref> and <usdm:ref attribute="plannedAge"
-      id="StudyDesignPopulation_1" klass="StudyDesignPopulation"></usdm:ref></p></td></tr><tr><td
+      left"><p>1</p></td><td style="vertical-align: top; text-align: left"><p><usdm:ref
+      attribute="text" id="EligibilityCriterion_1" klass="EligibilityCriterion"></usdm:ref></p></td></tr><tr><td
       style="vertical-align: top; text-align: left"><p>2</p></td><td style="vertical-align:
-      top; text-align: left"><p>Subjects shall be between <usdm:ref attribute="plannedAge"
-      id="StudyDesignPopulation_1" klass="StudyDesignPopulation"></usdm:ref> and [max_agexxx]</p></td></tr></table></div>'
+      top; text-align: left"><p><usdm:ref attribute="text" id="EligibilityCriterion_2"
+      klass="EligibilityCriterion"></usdm:ref></p></td></tr></table></div>'
     uuid: 00000000-0000-4000-8000-000000000359
   - id: NarrativeContent_25
     instanceType: NarrativeContent
@@ -3239,10 +3235,11 @@ nodes:
     sectionTitle: Exclusion Criteria
     text: '<div><p>Patients may be excluded in the study for <strong>any</strong>
       of the following reasons:</p><table><tr><td style="vertical-align: top; text-align:
-      left"><p>1</p></td><td style="vertical-align: top; text-align: left"><p>Subjects
-      has been treated with Drug A at any time in the past</p></td></tr><tr><td style="vertical-align:
-      top; text-align: left"><p>2</p></td><td style="vertical-align: top; text-align:
-      left"><p>Pick up activity <usdm:ref attribute="label" id="Activity_1" klass="Activity"></usdm:ref></p></td></tr></table></div>'
+      left"><p>1</p></td><td style="vertical-align: top; text-align: left"><p><usdm:ref
+      attribute="text" id="EligibilityCriterion_3" klass="EligibilityCriterion"></usdm:ref></p></td></tr><tr><td
+      style="vertical-align: top; text-align: left"><p>2</p></td><td style="vertical-align:
+      top; text-align: left"><p><usdm:ref attribute="text" id="EligibilityCriterion_4"
+      klass="EligibilityCriterion"></usdm:ref></p></td></tr></table></div>'
     uuid: 00000000-0000-4000-8000-000000000360
   - id: NarrativeContent_26
     instanceType: NarrativeContent
@@ -4020,7 +4017,7 @@ nodes:
     name: OBJ2
     text: The secondary efficacy objective for this study is to evaluate the efficacy
       of TCZ compared with placebo in combination with SOC for the treatment of severe
-      COVID-19 pneumonia over the age of [min_age]
+      COVID-19 pneumonia over the age of <usdm:tag name="min_age"/>
     uuid: 00000000-0000-4000-8000-000000000252
   Organization:
   - id: Organization_1
@@ -4502,14 +4499,10 @@ nodes:
     label: IE Dictionary
     name: IE_Dict
     parameterMap:
-      max_age:
-        attribute: plannedAge
-        id: StudyDesignPopulation_1
-        klass: StudyDesignPopulation
-      min_age:
-        attribute: plannedAge
-        id: StudyDesignPopulation_1
-        klass: StudyDesignPopulation
+      max_age: <usdm:ref klass="StudyDesignPopulation" id="StudyDesignPopulation_1"
+        attribute="plannedAge"></usdm:ref>
+      min_age: <usdm:ref klass="StudyDesignPopulation" id="StudyDesignPopulation_1"
+        attribute="plannedAge"></usdm:ref>
     uuid: 00000000-0000-4000-8000-000000000302
   - description: Dictionary for OE
     id: SyntaxTemplateDictionary_2
@@ -4517,10 +4510,8 @@ nodes:
     label: OE Dictionary
     name: OE_Dict
     parameterMap:
-      min_age:
-        attribute: plannedAge
-        id: StudyDesignPopulation_1
-        klass: StudyDesignPopulation
+      min_age: <usdm:ref klass="StudyDesignPopulation" id="StudyDesignPopulation_1"
+        attribute="plannedAge"></usdm:ref>
     uuid: 00000000-0000-4000-8000-000000000303
   - description: Dictionary for Berber Example
     id: SyntaxTemplateDictionary_3
@@ -4528,10 +4519,7 @@ nodes:
     label: Berber Dictionary
     name: Berber_Dict
     parameterMap:
-      xxxx:
-        attribute: label
-        id: Activity_1
-        klass: Activity
+      xxxx: <usdm:ref klass="Activity" id="Activity_1" attribute="label"></usdm:ref>
     uuid: 00000000-0000-4000-8000-000000000304
   Timing:
   - description: Screening timing

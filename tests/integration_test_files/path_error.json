@@ -7379,16 +7379,8 @@
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
                 "parameterMap": {
-                  "max_age": {
-                    "klass": "Range",
-                    "id": "Range_3",
-                    "attribute": "maxValue"
-                  },
-                  "StudyPopulation": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "description"
-                  }
+                  "max_age": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"maxValue\"></usdm:ref>",
+                  "StudyPopulation": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>"
                 },
                 "instanceType": "SyntaxTemplateDictionary"
               },
@@ -7398,11 +7390,7 @@
                 "label": "Assessment Dictionary",
                 "description": "Dictionary for Study Assessments",
                 "parameterMap": {
-                  "Activity1": {
-                    "klass": "Activity",
-                    "id": "Activity_6",
-                    "attribute": "label"
-                  }
+                  "Activity1": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>"
                 },
                 "instanceType": "SyntaxTemplateDictionary"
               }
@@ -7653,7 +7641,7 @@
               "name": "SECTION 3.1",
               "sectionNumber": "3.1",
               "sectionTitle": "Primary Objectives",
-              "text": "<div><table><tr><td style=\"vertical-align: top; text-align: left\"><p>To determine if there is a statistically significant relationship (overall Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+ scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).</p></td><td style=\"vertical-align: top; text-align: left\"><p>Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Week 24</p><p>Video-referenced Clinician\u2019s Interview-based Impression of Change (CIBIC+) at Week 24</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>To document the safety profile of the xanomeline TTS.</p></td><td style=\"vertical-align: top; text-align: left\"><p>Adverse events</p><p>Vital signs (weight, standing and supine blood pressure, heart rate)</p><p>Laboratory evaluations (Change from Baseline)</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these\nareas.</p></td><td style=\"vertical-align: top; text-align: left\"><p>Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Weeks 8 and 16</p><p>Video-referenced Clinician\u2019s Interview-based Impression of Change (CIBIC+) at Weeks 8 and 16</p><p>Mean Revised Neuropsychiatric Inventory (NPI-X) from Week 4 to Week 24</p></td></tr></table></div>",
+              "text": "<div><table><tr><td style=\"vertical-align: top; text-align: left\"><p>To determine if there is a statistically significant relationship (overall Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+ scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Endpoint_1\" klass=\"Endpoint\"></usdm:ref></p><p><usdm:ref attribute=\"text\" id=\"Endpoint_2\" klass=\"Endpoint\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>To document the safety profile of the xanomeline TTS.</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Endpoint_3\" klass=\"Endpoint\"></usdm:ref></p><p><usdm:ref attribute=\"text\" id=\"Endpoint_4\" klass=\"Endpoint\"></usdm:ref></p><p><usdm:ref attribute=\"text\" id=\"Endpoint_5\" klass=\"Endpoint\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these\nareas.</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Endpoint_6\" klass=\"Endpoint\"></usdm:ref></p><p><usdm:ref attribute=\"text\" id=\"Endpoint_7\" klass=\"Endpoint\"></usdm:ref></p><p><usdm:ref attribute=\"text\" id=\"Endpoint_8\" klass=\"Endpoint\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7788,7 +7776,7 @@
               "name": "SECTION 5.3",
               "sectionNumber": "5.3",
               "sectionTitle": "Inclusion Criteria",
-              "text": "<div><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects shall be between [min_age] and <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"description\" id=\"StudyDesignPopulation_1\" klass=\"StudyDesignPopulation\"></usdm:ref> as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"label\" id=\"Activity_6\" klass=\"Activity\"></usdm:ref> score of 10 to 23</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>4</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects shall be between [min_age] and [max_age_2]</p></td></tr></table></div>",
+              "text": "<div><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>4</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7797,7 +7785,7 @@
               "name": "SECTION 5.4",
               "sectionNumber": "5.4",
               "sectionTitle": "Exclusion Criteria",
-              "text": "<div><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>9</p></td><td style=\"vertical-align: top; text-align: left\"><p>Persons who have previously completed or withdrawn from this study or any other study investigating xanomeline TTS or the oral formulation of xanomeline.</p></td></tr></table></div>",
+              "text": "<div><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>9</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },

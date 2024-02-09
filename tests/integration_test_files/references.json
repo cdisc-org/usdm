@@ -6148,7 +6148,7 @@
                   "name": "Age Criteria",
                   "label": "",
                   "description": "The study age criterion",
-                  "text": "Subjects shall be between [min_age] and [max_age]",
+                  "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_age\"/>",
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriterion",
                   "category": {
@@ -6169,7 +6169,7 @@
                   "name": "Pop Criteria",
                   "label": "",
                   "description": "The study population criterion",
-                  "text": "[StudyPopulation] as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)",
+                  "text": "<usdm:tag name=\"StudyPopulation\"/> as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)",
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriterion",
                   "category": {
@@ -6190,7 +6190,7 @@
                   "name": "Diag Criteria",
                   "label": "",
                   "description": "The study diagnosis criterion",
-                  "text": "[Activity1] score of 10 to 23",
+                  "text": "<usdm:tag name=\"Activity1\"/> score of 10 to 23",
                   "dictionaryId": "SyntaxTemplateDictionary_2",
                   "instanceType": "EligibilityCriterion",
                   "category": {
@@ -6232,7 +6232,7 @@
                   "name": "Age Criteria",
                   "label": "",
                   "description": "The study age criterion",
-                  "text": "Subjects shall be between [min_age] and [max_age]",
+                  "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_age\"/>",
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriterion",
                   "category": {
@@ -7379,21 +7379,9 @@
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
                 "parameterMap": {
-                  "min_age": {
-                    "klass": "Range",
-                    "id": "Range_3",
-                    "attribute": "minValue"
-                  },
-                  "max_age": {
-                    "klass": "Range",
-                    "id": "Range_3",
-                    "attribute": "maxValue"
-                  },
-                  "StudyPopulation": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "description"
-                  }
+                  "min_age": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"minValue\"></usdm:ref>",
+                  "max_age": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"maxValue\"></usdm:ref>",
+                  "StudyPopulation": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>"
                 },
                 "instanceType": "SyntaxTemplateDictionary"
               },
@@ -7403,11 +7391,8 @@
                 "label": "Assessment Dictionary",
                 "description": "Dictionary for Study Assessments",
                 "parameterMap": {
-                  "Activity1": {
-                    "klass": "Activity",
-                    "id": "Activity_6",
-                    "attribute": "label"
-                  }
+                  "Activity1": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>",
+                  "code_name": "<div>Cyclops</div>"
                 },
                 "instanceType": "SyntaxTemplateDictionary"
               }
@@ -7794,7 +7779,7 @@
               "name": "SECTION 5.3",
               "sectionNumber": "5.3",
               "sectionTitle": "Inclusion Criteria",
-              "text": "<div>SECTION: <p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects shall be between <usdm:ref attribute=\"minValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref> and <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"description\" id=\"StudyDesignPopulation_1\" klass=\"StudyDesignPopulation\"></usdm:ref> as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"label\" id=\"Activity_6\" klass=\"Activity\"></usdm:ref> score of 10 to 23</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>4</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects shall be between <usdm:ref attribute=\"minValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref> and <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref></p></td></tr></table></div>",
+              "text": "<div>SECTION: <p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>4</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7803,7 +7788,7 @@
               "name": "SECTION 5.4",
               "sectionNumber": "5.4",
               "sectionTitle": "Exclusion Criteria",
-              "text": "<div>SECTION: <p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>9</p></td><td style=\"vertical-align: top; text-align: left\"><p>Persons who have previously completed or withdrawn from this study or any other study investigating xanomeline TTS or the oral formulation of xanomeline.</p></td></tr></table></div>",
+              "text": "<div>SECTION: <p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>9</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7826,7 +7811,7 @@
               "name": "SECTION 5.5.1",
               "sectionNumber": "5.5.1",
               "sectionTitle": "Meals and Dietary Restrictions",
-              "text": "<div>SECTION: <table class=\"table\"><tr><td><p>1</p></td><td><p>Subjects shall be between <usdm:ref attribute=\"minValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref> and <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref></p></td></tr><tr><td><p>2</p></td><td><p><usdm:ref attribute=\"description\" id=\"StudyDesignPopulation_1\" klass=\"StudyDesignPopulation\"></usdm:ref> as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)</p></td></tr><tr><td><p>3</p></td><td><p><usdm:ref attribute=\"label\" id=\"Activity_6\" klass=\"Activity\"></usdm:ref> score of 10 to 23</p></td></tr><tr><td><p>4</p></td><td><p>Subjects shall be between <usdm:ref attribute=\"minValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref> and <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref></p></td></tr></table></div>",
+              "text": "<div>SECTION: <table class=\"table\"><tr><td><p>1</p></td><td><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td><p>2</p></td><td><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td><p>3</p></td><td><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td><p>4</p></td><td><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },

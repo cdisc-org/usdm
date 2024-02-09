@@ -2381,16 +2381,8 @@
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
                 "parameterMap": {
-                  "min_age": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "plannedMinimumAgeOfParticipants"
-                  },
-                  "max_age": {
-                    "klass": "StudyDesignPopulation",
-                    "id": "StudyDesignPopulation_1",
-                    "attribute": "plannedMaximumAgeOfParticipants"
-                  }
+                  "min_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMinimumAgeOfParticipants\"></usdm:ref>",
+                  "max_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMaximumAgeOfParticipants\"></usdm:ref>"
                 },
                 "instanceType": "SyntaxTemplateDictionary"
               }

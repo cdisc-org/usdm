@@ -31,7 +31,6 @@ class StudyDesignDictionarySheet(BaseSheet):
           xref_name = self.read_cell_by_name(index, 'xref', default="")
           attribute_path = self.read_cell_by_name(index, ['attribute', 'path'], default="")
           value = self.read_cell_by_name(index, 'value', default="", must_be_present=False)
-          print(f"{index}, {value}")
           if klass:
             try:
               instance, attribute = cross_references.get_by_path(klass, xref_name, attribute_path)
@@ -40,7 +39,7 @@ class StudyDesignDictionarySheet(BaseSheet):
               col = self.column_present(['attribute', 'path'])
               self._error(index, col, str(e))
             if instance:
-              current_map[key] = f"<usdm:ref 'klass': {instance.__class__.__name__}, 'id': {instance.id}, 'attribute': {attribute}></usdm:ref>"
+              current_map[key] = f'<usdm:ref klass="{instance.__class__.__name__}" id="{instance.id}" attribute="{attribute}"></usdm:ref>'
           else:
             current_map[key] = f"<div>{value}</div>"
         # Clean up last dictionary if present
