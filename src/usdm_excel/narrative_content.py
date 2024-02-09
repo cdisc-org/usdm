@@ -143,9 +143,7 @@ class NarrativeContent():
       try:
         attributes = ref.attrs
         instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
-        #value = str(getattr(instance, attributes['attribute']))
         value = self._resolve_instance(instance, attributes['attribute'])
-        print(f"VALUE: {value}")
         translated_text = self._translate_references(value)
         ref.replace_with(translated_text)
       except Exception as e:
@@ -157,19 +155,13 @@ class NarrativeContent():
   def _resolve_instance(self, instance, attribute):
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
-    #print(f"RESOLVE1: {value}")
     soup = self._get_soup(value)
     for ref in soup(['usdm:tag']):
       try:
         attributes = ref.attrs
-        #print(f"RESOLVE2: {attributes}")
         if dictionary:
           value = dictionary.parameterMap[attributes['name']]
-          #print(f"RESOLVE3: {value}")
-          xxx = self._get_soup(value)
-          #print(f"RESOLVE3a: {str(xxx)}")
-          ref.replace_with(xxx)
-          #print(f"RESOLVE3b: {str(soup)}")
+          ref.replace_with(self._get_soup(value))
         else:
           self.parent._general_error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document")
           ref.replace_with('Missing content: missing dictionary')
@@ -177,7 +169,6 @@ class NarrativeContent():
         self.parent._traceback(f"Failed to resolve reference '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to resolve reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content: exception')
-    #print(f"RESOLVE4: {str(soup)}")
     return str(soup)
 
   def _get_dictionary(self, instance):
