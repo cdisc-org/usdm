@@ -254,17 +254,17 @@ class NarrativeContent():
       }
     """
   
-  def _resolve_template(self, template):
-    try:
-      return self.template_map[template.lower()]
-    except:
-      self.parent._general_error(f"Failed to map template '{template}', using plain template")
-      return self.plain
+  # def _resolve_template(self, template):
+  #   try:
+  #     return self.template_map[template.lower()]
+  #   except:
+  #     self.parent._general_error(f"Failed to map template '{template}', using plain template")
+  #     return self.plain
 
-  def _encode_image(self, filename):
-    with open(os.path.join(self.filepath, filename), "rb") as image_file:
-      data = base64.b64encode(image_file.read())
-    return data
+  # def _encode_image(self, filename):
+  #   with open(os.path.join(self.filepath, filename), "rb") as image_file:
+  #     data = base64.b64encode(image_file.read())
+  #   return data
   
   def _get_soup(self, text):
     try:

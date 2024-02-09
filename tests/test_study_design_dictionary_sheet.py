@@ -17,23 +17,25 @@ def test_create(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['Dictionary 1', 'Dictionary One',   'Label One',   'Key 1', ApiBaseModelWithId, 'Id 1', 'Attribute 1'], 
-    ['',             '',                 '',            'Key 2', ApiBaseModelWithId, 'Id 2', 'Attribute 2'], 
-    ['Dictionary 2', 'Dictionary Two',   'Label Two',   'Key 3', ApiBaseModelWithId, 'Id 3', 'Attribute 3'], 
-    ['Dictionary 3', 'Dictionary Three', 'Label Three', 'Key 4', ApiBaseModelWithId, 'Id 4', 'Attribute 4'], 
-    ['',             '',                 '',            'Key 5', ApiBaseModelWithId, 'Id 5', 'Attribute 5']
+    ['Dictionary 1', 'Dictionary One',   'Label One',   'Key 1', ApiBaseModelWithId, 'Id 1', 'Attribute 1', ''], 
+    ['',             '',                 '',            'Key 2', ApiBaseModelWithId, 'Id 2', 'Attribute 2', ''], 
+    ['Dictionary 2', 'Dictionary Two',   'Label Two',   'Key 3', ApiBaseModelWithId, 'Id 3', 'Attribute 3', ''], 
+    ['Dictionary 3', 'Dictionary Three', 'Label Three', 'Key 4', ApiBaseModelWithId, 'Id 4', 'Attribute 4', ''], 
+    ['',             '',                 '',            'Key 5', ApiBaseModelWithId, 'Id 5', 'Attribute 5', ''],
+    ['',             '',                 '',            'Key 6', ''                , '',     '',            'Hello!']
  ]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute'])
+  mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute', 'value'])
   dictionaries = StudyDesignDictionarySheet("")
   assert len(dictionaries.items) == 3
   assert dictionaries.items[0].id == 'DictionaryId_1'
   assert dictionaries.items[0].name == 'Dictionary 1'
   assert dictionaries.items[0].description == 'Dictionary One'
   assert dictionaries.items[0].label == 'Label One'
-  assert dictionaries.items[0].parameterMap['Key 2']['klass'] == 'ApiBaseModelWithId'
+  assert dictionaries.items[0].parameterMap['Key 2'] == "<usdm:ref 'klass': ApiBaseModelWithId, 'id': 2, 'attribute': Attribute 2></usdm:ref>"
   assert list(dictionaries.items[1].parameterMap.keys()) == ['Key 3']
-  assert list(dictionaries.items[2].parameterMap.keys()) == ['Key 4', 'Key 5']
+  assert list(dictionaries.items[2].parameterMap.keys()) == ['Key 4', 'Key 5', 'Key 6']
+  assert dictionaries.items[2].parameterMap['Key 6'] == "<div>Hello!</div>"
   
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
