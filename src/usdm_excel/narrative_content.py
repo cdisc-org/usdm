@@ -274,29 +274,16 @@ class NarrativeContent():
         color: #000000;
       }
     """
-  
-  # def _resolve_template(self, template):
-  #   try:
-  #     return self.template_map[template.lower()]
-  #   except:
-  #     self.parent._general_error(f"Failed to map template '{template}', using plain template")
-  #     return self.plain
-
-  # def _encode_image(self, filename):
-  #   with open(os.path.join(self.filepath, filename), "rb") as image_file:
-  #     data = base64.b64encode(image_file.read())
-  #   return data
-  
+    
   def _get_soup(self, text):
-    #try:
-      #print(f"SOUP: {text}")
+    try:
       with warnings.catch_warnings(record=True) as warning_list:
         result =  BeautifulSoup(text, 'html.parser')
       if warning_list:
         self.parent._general_warning(f"Warning raised within Soup package, processing '{text}'")
       return result
-    #except Exception as e:
-    #  self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-    #  self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
-    #  return ""
+    except Exception as e:
+      self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
+      self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
+      return ""
     
