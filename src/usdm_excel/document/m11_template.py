@@ -118,7 +118,4 @@ class M11Template(DocumentBase):
         result['endpoints'].append(self._reference(endpoint, 'text'))
       results.append(result)
     return results
-
-  def _reference(self, item, attribute):
-    return f'<usdm:ref klass="{item.__class__.__name__}" id="{item.id}" attribute="{attribute}"></usdm:ref>'
   
