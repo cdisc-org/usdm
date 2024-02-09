@@ -169,11 +169,12 @@ class NarrativeContent():
       error_manager.add(None, None, None, f"Exception '{e}' raised generating HTML content")
 
   def _content_to_html(self, content, doc):
-    level = len(content.sectionNumber.split('.'))
+    #level = len(content.sectionNumber.split('.'))
+    level = self._get_level(content.sectionNumber)
     klass = "page" if level == 1 else ""
     heading_id = f"section-{content.sectionNumber}"
     with doc.tag('div', klass=klass):
-      if (level == 1 and int(content.sectionNumber) > 0) or (level > 1):
+      if (level == 1 and self._is_doc_section(content.sectionNumber)) or (level > 1):
         with doc.tag(f'h{level}', id=heading_id):
           doc.asis(f"{content.sectionNumber} {content.sectionTitle}")
       doc.asis(str(self._translate_references(content.text)))
@@ -181,6 +182,23 @@ class NarrativeContent():
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         self._content_to_html(content, doc)
 
+  def _get_level(self, section_number):
+    #print(f"LEVEL1: {section_number}")
+    if section_number.lower().startswith("appendix"):
+      result = 1
+    else:
+      text = section_number[:-1] if section_number.endswith('.') else section_number
+      result = len(text.split('.'))
+    #print(f"LEVEL2: {result}")
+    return result
+      
+  def _is_doc_section(self, section_number):
+    try:
+      sn = int(section_number)
+      return True if sn > 0 else False
+    except:
+      return True
+    
   def _translate_references(self, content_text):
     soup = self._get_soup(content_text)
     for ref in soup(['usdm:ref']):
