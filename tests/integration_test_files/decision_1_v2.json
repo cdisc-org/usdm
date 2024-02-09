@@ -2092,7 +2092,7 @@
               "name": "SECTION 1",
               "sectionNumber": "1",
               "sectionTitle": "PROTOCOL SUMMARY",
-              "text": "<div><usdm:ref klass=\"StudyIdentifier\" id=\"StudyIdentifier_1\" attribute=\"studyIdentifier\"/></div>",
+              "text": "<div><usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></div>",
               "childIds": [
                 "NarrativeContent_3",
                 "NarrativeContent_4",
@@ -2173,7 +2173,7 @@
               "name": "SECTION 3.1",
               "sectionNumber": "3.1",
               "sectionTitle": "Primary Objectives",
-              "text": "<div><table>\n  <tr>\n    <th style=\"vertical-align: top\">Primary Objective</th>\n    <th style=\"vertical-align: top\">Primary Endpoint</th>\n  </tr>\n  <tr>\n    <td style=\"vertical-align: top\"><usdm:ref klass=\"Objective\" namexref=\"OBJ1\" attribute=\"description\"/></td>\n    <td style=\"vertical-align: top\"><usdm:ref klass=\"Endpoint\" id=\"Endpoint_1\" attribute=\"description\"/></td>\n  </tr>\n</table></div>",
+              "text": "<div><table>\n<tr>\n<th style=\"vertical-align: top\">Primary Objective</th>\n<th style=\"vertical-align: top\">Primary Endpoint</th>\n</tr>\n<tr>\n<td style=\"vertical-align: top\"><usdm:ref attribute=\"description\" klass=\"Objective\" namexref=\"OBJ1\"></usdm:ref></td>\n<td style=\"vertical-align: top\"><usdm:ref attribute=\"description\" id=\"Endpoint_1\" klass=\"Endpoint\"></usdm:ref></td>\n</tr>\n</table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -2308,7 +2308,7 @@
               "name": "SECTION 5.3",
               "sectionNumber": "5.3",
               "sectionTitle": "Inclusion Criteria",
-              "text": "<div><p>Inclusion criteria are:</p>\n<ul>\n  <li>1. Something</li>\n  <li>2. Something else</li>\n</ul></div>",
+              "text": "<div><p>Inclusion criteria are:</p>\n<ul>\n<li>1. Something</li>\n<li>2. Something else</li>\n</ul></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -2317,7 +2317,7 @@
               "name": "SECTION 5.4",
               "sectionNumber": "5.4",
               "sectionTitle": "Exclusion Criteria",
-              "text": "<div><p>Exclusion criteria are:</p>\n<ul>\n  <li>1. Dont do this</li>\n  <li>2. And don't do that</li>\n</ul></div>",
+              "text": "<div><p>Exclusion criteria are:</p>\n<ul>\n<li>1. Dont do this</li>\n<li>2. And don't do that</li>\n</ul></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },

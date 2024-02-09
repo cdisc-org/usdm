@@ -1,4 +1,5 @@
 import json
+import traceback
 from usdm_excel.id_manager import id_manager
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
@@ -42,7 +43,7 @@ class USDMExcel():
     try:
       raw_json = self.study.api_root().to_json()
     except Exception as e:
-      message = f"Failed to generate JSON output, exception {e}"
+      message = f"Failed to generate JSON output, exception {e}\n{traceback.format_exc()}"
       error_manager.add(None, None, None, message)
       raw_json = json.dumps({'error': message}, indent = 2)
     return raw_json

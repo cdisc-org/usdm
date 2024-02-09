@@ -233,7 +233,7 @@ class NarrativeContent():
   #     self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
   #     ref.replace_with('Missing content: exception')
 
-  def _title_page(self):
+  def _table_of_contents(self):
     return f"""
       <div id="toc-page" class="page">
         <div id="table-of-contents">

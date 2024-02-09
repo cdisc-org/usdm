@@ -27,38 +27,33 @@ class Macros():
     for ref in soup(['usdm:macro']):
       try:
         attributes = ref.attrs
-        if 'namexref' in attributes:
-          self._name(attributes, soup, ref)
-        elif 'image' in attributes:
-          self._image(attributes, soup, ref)
-        elif 'element' in attributes:
-          self._element(attributes, soup, ref)
-        elif 'section' in attributes:
-          self._section(attributes, soup, ref)
+        method = f"_{attributes['id'].lower()}"
+        if self._valid_method(method):
+          result = getattr(self, method)(attributes, soup, ref)
         else:
-          self.parent._general_error(f"Failed to translate document macro '{attributes}', invalid attribute name")
-          ref.replace_with('Missing content: invalid attribute name')
+          self.parent._general_error(f"Failed to translate document macro '{attributes}', invalid method name")
+          ref.replace_with('Missing content: invalid method name')
       except Exception as e:
         self.parent._traceback(f"Failed to translate document macro '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to translate document macro '{attributes}'")
         ref.replace_with('Missing content: exception')
-    return self._get_soup(str(soup))
+    return str(soup)
 
-  def _name(self, attributes, soup, ref) -> None:
-    instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['namexref'], attributes['attribute'])
+  def _xref(self, attributes, soup, ref) -> None:
+    instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
     ref_tag = soup.new_tag("usdm:ref")
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)
 
   def _image(self, attributes, soup, ref) -> None:
     type = {attributes['type']}
-    data = self._encode_image(attributes['image'])
+    data = self._encode_image(attributes['file'])
     img_tag = soup.new_tag("img")
     img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
     ref.replace_with(img_tag)
 
   def _element(self, attributes, soup, ref) -> None:
-    method = attributes['element'].lower()
+    method = attributes['name'].lower()
     if self.elements.valid_method(method):
       text = getattr(self.elements, method)()
       ref.replace_with(self._get_soup(text))
@@ -67,7 +62,7 @@ class Macros():
       ref.replace_with('Missing content: invalid method name')
 
   def _section(self, attributes, soup, ref) -> None:
-    method = attributes['section'].lower()
+    method = attributes['name'].lower()
     template = attributes['template'] if 'template' in attributes else 'plain' 
     instance = self._resolve_template(template)
     if instance.valid_method(method):
@@ -77,6 +72,9 @@ class Macros():
       self.parent._general_error(f"Failed to translate section method name '{method}' in '{attributes}', invalid method")
       ref.replace_with('Missing content: invalid method name')       
 
+  def _valid_method(self, name):
+    return name in ['_xref', '_image', '_element', '_section']
+  
   def _resolve_template(self, template) -> object:
     try:
       return self.template_map[template.lower()]

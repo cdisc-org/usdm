@@ -7569,7 +7569,7 @@
               "name": "SECTION 0",
               "sectionNumber": "0",
               "sectionTitle": "TITLE PAGE",
-              "text": "<div><usdm:ref title_page=\"true\"/><usdm:ref table_of_contents=\"true\"/>TITLE: <usdm:ref element=\"study_full_title\"/><br/>ACRONYM: <usdm:ref element=\"study_acronym\"/></div>",
+              "text": "<div>TITLE: <usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\" path=\"StudyVersion/@titles/StudyTitle/@text\"></usdm:ref><br/>ACRONYM: <usdm:ref id=\"element\" name=\"study_acronym\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7578,7 +7578,7 @@
               "name": "SECTION 1",
               "sectionNumber": "1",
               "sectionTitle": "PROTOCOL SUMMARY",
-              "text": "<div>SPONSOR ID: <usdm:ref element=\"study_identifier\"/></div>",
+              "text": "<div>SPONSOR ID: <usdm:ref id=\"element\" name=\"study_identifier\"></usdm:ref></div>",
               "childIds": [
                 "NarrativeContent_4",
                 "NarrativeContent_5",
@@ -7591,7 +7591,7 @@
               "name": "SECTION 1.1",
               "sectionNumber": "1.1",
               "sectionTitle": "Protocol Synopsis",
-              "text": "<div>INVALID: <usdm:ref element=\"xxx\"/></div>",
+              "text": "<div>INVALID: <usdm:ref id=\"element\" name=\"xxx\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7600,7 +7600,7 @@
               "name": "SECTION 1.2",
               "sectionNumber": "1.2",
               "sectionTitle": "Trial Schema",
-              "text": "<div>NONE:<usdm:ref element=\"no_value_for_test\"/></div>",
+              "text": "<div>NONE:<usdm:ref id=\"element\" name=\"no_value_for_test\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7609,7 +7609,7 @@
               "name": "SECTION 1.3",
               "sectionNumber": "1.3",
               "sectionTitle": "Schedule of Activities",
-              "text": "<div>RATIONALE:<usdm:ref element=\"study_rationale\"/></div>",
+              "text": "<div>RATIONALE:<usdm:ref id=\"element\" name=\"study_rationale\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7630,7 +7630,7 @@
               "name": "SECTION 2.1",
               "sectionNumber": "2.1",
               "sectionTitle": "Purpose of Trial",
-              "text": "<div>POP: <usdm:ref klass=\"StudyDesignPopulation\" namexref=\"POP1\" attribute=\"@plannedEnrollmentNumber/Range/maxValue\"></usdm:ref></div>",
+              "text": "<div>POP: <usdm:ref attribute=\"maxValue\" id=\"Range_2\" klass=\"Range\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7682,7 +7682,7 @@
               "name": "SECTION 4.1",
               "sectionNumber": "4.1",
               "sectionTitle": "Description of Trial Design",
-              "text": "<div>IMAGE: <usdm:ref image=\"references_test.png\" type=\"png\"/></div>",
+              "text": "<div>IMAGE: <usdm:rmacro file=\"references_test.png\" id=\"image\" type=\"png\"></usdm:rmacro></div>",
               "childIds": [
                 "NarrativeContent_14"
               ],
@@ -7794,7 +7794,7 @@
               "name": "SECTION 5.3",
               "sectionNumber": "5.3",
               "sectionTitle": "Inclusion Criteria",
-              "text": "<div>SECTION: <usdm:ref section=\"inclusion\" template=\"M11\"/></div>",
+              "text": "<div>SECTION: <usdm:ref section=\"inclusion\" template=\"M11\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7803,7 +7803,7 @@
               "name": "SECTION 5.4",
               "sectionNumber": "5.4",
               "sectionTitle": "Exclusion Criteria",
-              "text": "<div>SECTION: <usdm:ref section=\"exclusion\" template=\"m11\"/></div>",
+              "text": "<div>SECTION: <usdm:ref section=\"exclusion\" template=\"m11\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
@@ -7812,7 +7812,7 @@
               "name": "SECTION 5.5",
               "sectionNumber": "5.5",
               "sectionTitle": "Lifestyle Considerations",
-              "text": "<div>SECTION: <usdm:ref section=\"inclusionXXX\" template=\"m11\"/></div>",
+              "text": "<div>SECTION: <usdm:ref section=\"inclusionXXX\" template=\"m11\"></usdm:ref></div>",
               "childIds": [
                 "NarrativeContent_27",
                 "NarrativeContent_28",
@@ -7826,7 +7826,7 @@
               "name": "SECTION 5.5.1",
               "sectionNumber": "5.5.1",
               "sectionTitle": "Meals and Dietary Restrictions",
-              "text": "<div>SECTION: <usdm:ref section=\"inclusion\" template=\"xxx\"/></div>",
+              "text": "<div>SECTION: <usdm:ref section=\"inclusion\" template=\"xxx\"></usdm:ref></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },

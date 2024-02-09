@@ -1,6 +1,11 @@
 sheet,row,column,message,level
 studyIdentifiers,2,6,"Address does not contain the required fields (line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
-,,,"Failed to translate element method name 'xxx' in '{'element': 'xxx'}' while generating the HTML document, invalid method",Error
-,,,"Failed to translate element method name 'no_value_for_test' in '{'element': 'no_value_for_test'}' while generating the HTML document, no value",Error
-,,,"Failed to translate section method name 'inclusionxxx' in '{'section': 'inclusionXXX', 'template': 'm11'}' while generating the HTML document, invalid method",Error
-,,,"Failed to map template 'xxx', using plain template",Error
+study,,,"Exception ''klass' while attempting to translate reference '{'id': 'element', 'name': 'study_acronym'}' while generating the HTML document",Error
+study,,,"Exception ''klass' while attempting to translate reference '{'id': 'element', 'name': 'study_identifier'}' while generating the HTML document",Error
+study,,,"Exception ''klass' while attempting to translate reference '{'id': 'element', 'name': 'xxx'}' while generating the HTML document",Error
+study,,,"Exception ''klass' while attempting to translate reference '{'id': 'element', 'name': 'no_value_for_test'}' while generating the HTML document",Error
+study,,,"Exception ''klass' while attempting to translate reference '{'id': 'element', 'name': 'study_rationale'}' while generating the HTML document",Error
+study,,,"Failed to translate reference '{'section': 'inclusion', 'template': 'M11'}' while generating the HTML document, invalid attribute name",Error
+study,,,"Failed to translate reference '{'section': 'exclusion', 'template': 'm11'}' while generating the HTML document, invalid attribute name",Error
+study,,,"Failed to translate reference '{'section': 'inclusionXXX', 'template': 'm11'}' while generating the HTML document, invalid attribute name",Error
+study,,,"Failed to translate reference '{'section': 'inclusion', 'template': 'xxx'}' while generating the HTML document, invalid attribute name",Error
