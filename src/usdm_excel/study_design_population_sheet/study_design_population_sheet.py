@@ -33,7 +33,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         self._general_error(f"Not main study population detected")
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet")
-      print(f"{traceback.format_exc()}")
+      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
 
   def _build_codes(self, row, index):
@@ -75,7 +75,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       )
     except Exception as e:
       self._general_error(f"Failed to create StudyCohort object, exception {e}")
-      print(f"{traceback.format_exc()}")
+      #print(f"{traceback.format_exc()}")
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
