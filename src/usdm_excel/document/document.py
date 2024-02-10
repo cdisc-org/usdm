@@ -186,7 +186,11 @@ class Document():
         <div id="table-of-contents">
           {''.join(self.chapters)}
         </div>
-        <p><i>The table of contents is auto generated upon PDF production and only includes first level sections.</i></p>
+        <div align="center">
+          <br/>
+          <p><i>Note:</i></p>
+          <p><i>The table of contents is auto generated upon PDF production and only includes first level sections.</i></p>
+        </div>
         <div id="header-and-footer">
           <span id="page-number"></span>
         </div>
