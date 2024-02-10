@@ -62,8 +62,8 @@ class Document():
       doc.asis('<!DOCTYPE html>')
       for id in root.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-        level = len(content.sectionNumber.split('.'))
-        if level == 1:
+        level = self._get_level(content.sectionNumber)
+        if level == 1 and self._is_doc_section(content.sectionNumber):
           self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
       with doc.tag('html'):
         with doc.tag('head'):
