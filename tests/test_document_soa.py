@@ -36,8 +36,11 @@ def double_link(items, prev, next):
 
 def create_activities():
   item_list = [
-    {'name': 'A1', 'label': '', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
-    {'name': 'A2', 'label': '', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None}
+    {'name': 'A1', 'label': 'Activity 1', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
+    {'name': 'A2', 'label': 'Activity 2', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
+    {'name': 'A3', 'label': 'Activity 3', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
+    {'name': 'A4', 'label': 'Activity 4', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
+    {'name': 'A5', 'label': 'Activity 5', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None}
   ]
   results = factory.set(Activity, item_list)
   double_link(results, 'previousId', 'nextId')
@@ -54,6 +57,8 @@ def create_epochs():
 def create_encounters():
   item_list = [
     {'name': 'E1', 'label': '', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
+    {'name': 'E2', 'label': '', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
+    {'name': 'E3', 'label': '', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None}
   ]
   results = factory.set(Encounter, item_list)
   double_link(results, 'previousId', 'nextId')
@@ -77,6 +82,14 @@ def scenario_1():
   epochs = create_epochs()
   encounters = create_encounters()
   activity_instances = create_activity_instances()
+
+  activity_instances[0].activityIds = [activities[0].id, activities[1].id]
+  activity_instances[0].encounterId = encounters[0].id
+  activity_instances[1].activityIds = [activities[1].id, activities[2].id]
+  activity_instances[1].encounterId = encounters[1].id
+  activity_instances[2].activityIds = [activities[2].id, activities[3].id, activities[4].id]
+  activity_instances[2].encounterId = encounters[2].id
+
   print(f"AI: {activity_instances}")
   exit = factory.item(ScheduleTimelineExit, {})
   activity_instances[-1].timelineExitId = exit.id

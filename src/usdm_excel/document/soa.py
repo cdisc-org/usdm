@@ -47,15 +47,34 @@ class SoA():
     sai_start_index = len(lh_columns)
     for item in lh_columns:
       row_template.append('')
-    for item in sai_order:
-      row_template.append('')
+    for sai in enumerate(sai_order):
+      row_template.append(f'')
 
     results = []
-    results.append(row_template)
+
+    row = row_template.copy()
+    for index, sai in enumerate(sai_order):
+      row[index + sai_start_index] = index
+    results.append(row)
+
+    # row = row_template.copy()
+    # for index, sai in enumerate(sai_order):
+    #   if sai.epochId:
+    #     row[index + sai_start_index] = sai.epochId
+    # results.append(row)
+
+    row = row_template.copy()
+    for index, sai in enumerate(sai_order):
+      if sai.encounterId:
+        row[index + sai_start_index] = sai.encounterId
+    results.append(row)
 
     for activity in activity_order:
       row = row_template.copy()
       row[0] = activity.label
+      for index, sai in enumerate(sai_order):
+        if activity.id in sai.activityIds:
+          row[index + sai_start_index] = "X"
       results.append(row)
 
     return results
