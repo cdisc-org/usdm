@@ -62,7 +62,6 @@ class Document():
       doc.asis('<!DOCTYPE html>')
       for id in root.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-        level = self._get_level(content.sectionNumber)
         if self._is_level_1_doc_section(content.sectionNumber):
           self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
       with doc.tag('html'):
@@ -187,6 +186,7 @@ class Document():
         <div id="table-of-contents">
           {''.join(self.chapters)}
         </div>
+        <p><i>The table of contents is auto generated upon PDF production and only includes first level sections.</i></p>
         <div id="header-and-footer">
           <span id="page-number"></span>
         </div>
