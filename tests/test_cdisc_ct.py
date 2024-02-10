@@ -1,4 +1,4 @@
-from src.usdm_excel.cdisc_ct_library import CDISCCTLibrary
+from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 
 def test_load(mocker):
     item = CDISCCTLibrary()

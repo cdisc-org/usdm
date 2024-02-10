@@ -3,8 +3,8 @@ import pandas as pd
 
 xfail = pytest.mark.xfail
 
-from src.usdm_excel.study_sheet.study_sheet import StudySheet
-from src.usdm_excel.base_sheet import BaseSheet
+from usdm_excel.study_sheet.study_sheet import StudySheet
+from usdm_excel.base_sheet import BaseSheet
 
 @xfail
 def test_create(mocker):

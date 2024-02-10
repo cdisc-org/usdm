@@ -1,5 +1,5 @@
 import pytest
-from src.usdm_excel.iso_8601_duration import ISO8601Duration
+from usdm_excel.iso_8601_duration import ISO8601Duration
 
 def test_encode(mocker):
   item = ISO8601Duration()

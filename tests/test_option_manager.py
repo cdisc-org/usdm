@@ -1,4 +1,4 @@
-from src.usdm_excel.option_manager import *
+from usdm_excel.option_manager import *
 
 def test_create():
   object = OptionManager()

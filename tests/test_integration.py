@@ -1,6 +1,6 @@
 import json
 import csv
-from src.usdm_excel import USDMExcel
+from usdm_excel import USDMExcel
 from bs4 import BeautifulSoup
 
 SAVE_ALL = False

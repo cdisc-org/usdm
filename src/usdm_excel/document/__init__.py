@@ -4,5 +4,6 @@ __all__ = [
   'Macros',
   'TemplateBase',
   'TemplateM11',
-  'TemplatePlain'
+  'TemplatePlain',
+  'SoA'
 ]

@@ -1,4 +1,4 @@
-from src.usdm_excel.iso_3166 import ISO3166
+from usdm_excel.iso_3166 import ISO3166
 
 def test_code(mocker):
     mock_id = mocker.patch("usdm_excel.id_manager.build_id")

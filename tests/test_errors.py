@@ -1,4 +1,4 @@
-from src.usdm_excel.errors.errors import Errors
+from usdm_excel.errors.errors import Errors
 
 def test_create():
   errors = Errors()

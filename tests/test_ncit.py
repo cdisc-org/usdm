@@ -1,4 +1,4 @@
-from src.usdm_excel.ncit import NCIt
+from usdm_excel.ncit import NCIt
 
 def test_code(mocker):
     mock_id = mocker.patch("usdm_excel.id_manager.build_id")

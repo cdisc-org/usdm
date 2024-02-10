@@ -1,5 +1,5 @@
 import pytest
-from src.usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
+from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
 
 xfail = pytest.mark.xfail
 

@@ -1,6 +1,6 @@
 import yaml
 import csv
-from src.usdm_excel import USDMExcel
+from usdm_excel import USDMExcel
 from uuid import UUID
 
 SAVE_ALL = False
