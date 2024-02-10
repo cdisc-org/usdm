@@ -63,7 +63,7 @@ class Document():
       for id in root.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         level = self._get_level(content.sectionNumber)
-        if level == 1 and self._is_doc_section(content.sectionNumber):
+        if self._is_level_1_doc_section(content.sectionNumber):
           self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
       with doc.tag('html'):
         with doc.tag('head'):
@@ -107,7 +107,7 @@ class Document():
       with doc.tag('div', klass=klass):
         doc.asis(self._table_of_contents())    
     with doc.tag('div', klass=klass):
-      if (level == 1 and self._is_doc_section(content.sectionNumber)) or (level > 1):
+      if (self._is_level_1_doc_section(content.sectionNumber)) or (level > 1):
         with doc.tag(f'h{level}', id=heading_id):
           doc.asis(f"{content.sectionNumber} {content.sectionTitle}")
       doc.asis(str(self._translate_references(content.text)))
@@ -130,6 +130,10 @@ class Document():
     except:
       return True
 
+  def _is_level_1_doc_section(self, section_number):
+    level = self._get_level(section_number)
+    return level == 1 and self._is_doc_section(section_number)
+  
   def _is_first_section(self, section_number):
     try:
       sn = int(section_number)
