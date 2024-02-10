@@ -113,4 +113,12 @@ def test_create(mocker):
   study_design, timeline = scenario_1()
   soa = SoA(bs, study_design, timeline)
   result = soa.simple()
-  print(f"SOA: {result}")
+  assert result == [
+    ['',           0,             1,             2], 
+    ['',           'Encounter_1', 'Encounter_2', 'Encounter_3'], 
+    ['Activity 1', 'X',           '',            ''], 
+    ['Activity 2', 'X',           'X',           ''], 
+    ['Activity 3', '',            'X',           'X'], 
+    ['Activity 4', '',            '',            'X'], 
+    ['Activity 5', '',            '',            'X']
+  ]
