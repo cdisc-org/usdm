@@ -32,7 +32,7 @@ from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
 from usdm_model.governance_date import GovernanceDate
 from usdm_model.geographic_scope import GeographicScope
-from usdm_excel.narrative_content import NarrativeContent
+from usdm_excel.document.document import Document
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_model.study_title import StudyTitle
@@ -216,10 +216,10 @@ class StudySheet(BaseSheet):
     return Wrapper(study=self.study)
 
   def to_html(self):
-    return NarrativeContent(self, self.brief_title.text, self.study, self.dir_path).to_html()
+    return Document(self, self.brief_title.text, self.study, self.dir_path).to_html()
 
   def to_pdf(self, test=True):
-    return NarrativeContent(self, self.brief_title.text, self.study, self.dir_path).to_pdf(test)
+    return Document(self, self.brief_title.text, self.study, self.dir_path).to_pdf(test)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

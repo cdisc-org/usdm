@@ -1,10 +1,10 @@
 import re
 from yattag import Doc
 from .elements import Elements
-from .base import DocumentBase
+from .template_base import TemplateBase
 from usdm_excel.cross_ref import cross_references
 
-class M11Template(DocumentBase):
+class M11Template(TemplateBase):
 
   def __init__(self, study):
     super().__init__()

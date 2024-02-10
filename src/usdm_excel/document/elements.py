@@ -1,6 +1,6 @@
-from .base import DocumentBase
+from .template_base import TemplateBase
 
-class Elements(DocumentBase):
+class Elements(TemplateBase):
 
   def __init__(self, study):
     super().__init__()
