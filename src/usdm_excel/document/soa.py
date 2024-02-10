@@ -29,7 +29,7 @@ class SoA():
       activity_order.append(item)
       more = False if not item.nextId else True
       item = self._find(self.study_design.activities, item.nextId)
-    print(f"ACTIVITY ORDER: {activity_order}\n\n")
+    #print(f"ACTIVITY ORDER: {activity_order}\n\n")
 
     # ScheduleActivityInstance order
     sai_order = []
@@ -40,7 +40,7 @@ class SoA():
       sai_order.append(item)
       more = False if not item.defaultConditionId else True
       item = self._find(timeline.instances, item.defaultConditionId)
-    print(f"SAI ORDER: {sai_order}\n\n")
+    #print(f"SAI ORDER: {sai_order}\n\n")
 
     row_template = []
     lh_columns = ['activity']

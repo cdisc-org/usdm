@@ -90,7 +90,6 @@ def scenario_1():
   activity_instances[2].activityIds = [activities[2].id, activities[3].id, activities[4].id]
   activity_instances[2].encounterId = encounters[2].id
 
-  print(f"AI: {activity_instances}")
   exit = factory.item(ScheduleTimelineExit, {})
   activity_instances[-1].timelineExitId = exit.id
   timeline = factory.item(ScheduleTimeline, {'name': 'Study Design', 'label': '', 'description': '', 'mainTimeline': True, 'entryCondition': "Condition", 'entryId': activity_instances[0].id, 'exits': [exit], 'instances': activity_instances})
