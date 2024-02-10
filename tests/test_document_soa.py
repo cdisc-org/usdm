@@ -66,6 +66,8 @@ def create_activity_instances():
     {'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []}
   ]
   results = factory.set(ScheduledActivityInstance, item_list)
+  results[0].defaultConditionId = results[1].id
+  results[1].defaultConditionId = results[2].id
   return results
 
 def scenario_1():
