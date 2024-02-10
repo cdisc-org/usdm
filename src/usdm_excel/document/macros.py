@@ -3,8 +3,8 @@ import base64
 import traceback
 import warnings
 from bs4 import BeautifulSoup   
-from .m11_template import M11Template
-from .plain_template import PlainTemplate
+from .template_m11 import TemplateM11
+from .template_plain import TemplatePlain
 from .elements import Elements
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
@@ -18,8 +18,8 @@ class Macros():
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.elements = Elements(self.study)
-    self.m11 = M11Template(self.study)
-    self.plain = PlainTemplate(self.study)
+    self.m11 = TemplateM11(self.study)
+    self.plain = TemplatePlain(self.study)
     self.template_map = {'m11': self.m11, 'plain': self.plain}
   
   def resolve(self, content_text: str) -> str:
