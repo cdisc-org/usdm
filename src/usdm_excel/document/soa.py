@@ -32,7 +32,7 @@ class SoA():
         if id not in required_activities:
           required_activities.append(id)
       more = False if not item.defaultConditionId else True
-      item = self._find(timeline.instances, item.defaultConditionId)
+      item = self._find(self.timeline.instances, item.defaultConditionId)
     print(f"SAI ORDER: {sai_order}\n\n")
     print(f"ACTIVITIES: {required_activities}\n\n")
 

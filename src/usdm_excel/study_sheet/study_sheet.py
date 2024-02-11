@@ -69,7 +69,7 @@ class StudySheet(BaseSheet):
     try:
       super().__init__(file_path=file_path, sheet_name='study', header=None)
       self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE]
-      self.soa_version = None
+      #self.soa_version = None
       self.phase = None
       self.version = None
       self.type = None
