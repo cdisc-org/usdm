@@ -51,3 +51,6 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   conditions: List[Condition] = []
   organizations: List[ResearchOrganization] = []
   instanceType: Literal['StudyDesign']
+
+  def main_timeline(self):
+    return next((item for item in self.scheduleTimelines if item.mainTimeline), None)

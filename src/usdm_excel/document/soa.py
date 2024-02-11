@@ -19,7 +19,7 @@ class SoA():
   def _find(self, collection, id):
     return next((item for item in collection if item.id == id), None)
 
-  def simple(self):
+  def generate(self):
 
     # Activity order
     activity_order = []

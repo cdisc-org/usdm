@@ -17,9 +17,9 @@ class Macros():
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
-    self.elements = Elements(self.study)
-    self.m11 = TemplateM11(self.study)
-    self.plain = TemplatePlain(self.study)
+    self.elements = Elements(parent, self.study)
+    self.m11 = TemplateM11(parent, self.study)
+    self.plain = TemplatePlain(parent, self.study)
     self.template_map = {'m11': self.m11, 'plain': self.plain}
   
   def resolve(self, content_text: str) -> str:

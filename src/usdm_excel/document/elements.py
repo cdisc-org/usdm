@@ -1,13 +1,18 @@
-from .template_base import TemplateBase
+from usdm_excel.base_sheet import BaseSheet
 
-class Elements(TemplateBase):
+class Elements():
 
-  def __init__(self, study):
+  def __init__(self, parent: BaseSheet, study):
     super().__init__()
+    self.parent = parent
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
+    self.methods = [func for func in dir(self.__class__) if callable(getattr(self.__class__, func)) and not func.startswith("_")]
+
+  def valid_method(self, name):
+    return name in self.methods
 
   def study_phase(self):
     phase = self.study_version.studyPhase.standardCode

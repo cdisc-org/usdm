@@ -1,18 +1,14 @@
 import re
 from yattag import Doc
-from .elements import Elements
+#from .elements import Elements
 from .template_base import TemplateBase
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
+from usdm_excel.base_sheet import BaseSheet
 
 class TemplateM11(TemplateBase):
 
-  def __init__(self, study):
-    super().__init__()
-    self.study = study
-    self.study_version = study.versions[0]
-    self.study_design = self.study_version.studyDesigns[0]
-    self.protocol_document_version = self.study.documentedBy.versions[0]
-    self.elements = Elements(study)
+  def __init__(self, parent: BaseSheet, study):
+    super().__init__(parent, study)
 
   def title_page(self):
     doc = Doc()

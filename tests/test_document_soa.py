@@ -111,7 +111,7 @@ def test_create(mocker):
   bs = fake_sheet(mocker)
   study_design, timeline = scenario_1()
   soa = SoA(bs, study_design, timeline)
-  result = soa.simple()
+  result = soa.generate()
   assert result == [
     ['',           0,             1,             2], 
     ['',           'Encounter_1', 'Encounter_2', 'Encounter_3'], 
