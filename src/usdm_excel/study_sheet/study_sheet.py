@@ -125,14 +125,16 @@ class StudySheet(BaseSheet):
       activity_ids = [item.id for item in study_design.activities]
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
-      for key,tl in self.timelines.items():
+      for key, tl in self.timelines.items():
         study_design.scheduleTimelines.append(tl.timeline)
         for activity in tl.activities:
+          #print(f"ADD: {key} {activity.id}")
           if activity.id not in activity_ids:
             study_design.activities.append(activity)
             activity_ids.append(activity.id)
         study_design.biomedicalConcepts += tl.biomedical_concepts
         study_design.bcSurrogates += tl.biomedical_concept_surrogates
+      self.double_link(study_design.activities, 'previousId', 'nextId')
       study_design.indications = self.indications.items
       study_design.studyInterventions = self.interventions.items
       study_design.population = self.study_population.population

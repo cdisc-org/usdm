@@ -33,20 +33,20 @@ class SoA():
           required_activities.append(id)
       more = False if not item.defaultConditionId else True
       item = self._find(self.timeline.instances, item.defaultConditionId)
-    print(f"SAI ORDER: {sai_order}\n\n")
-    print(f"ACTIVITIES: {required_activities}\n\n")
+    #print(f"SAI ORDER: {sai_order}\n\n")
+    #print(f"ACTIVITIES: {required_activities}\n\n")
 
     # Activity order
     activity_order = []
     item = self._first(self.study_design.activities)
     more = True
     while more:
-      print(f"ACTIVITY: {item.id}\n\n")
+      #print(f"ACTIVITY CHECK: {item.id}\n\n")
       if item.id in required_activities:
         activity_order.append(item)
       more = False if not item.nextId else True
       item = self._find(self.study_design.activities, item.nextId)
-    print(f"ACTIVITY ORDER: {activity_order}\n\n")
+    #print(f"ACTIVITY ORDER: {activity_order}\n\n")
 
     row_template = []
     lh_columns = ['activity']
