@@ -21,26 +21,32 @@ class SoA():
 
   def generate(self):
 
+    # ScheduleActivityInstance order
+    required_activities = []
+    sai_order = []
+    item = self._find(self.timeline.instances, self.timeline.entryId)
+    more = True
+    while more:
+      sai_order.append(item)
+      for id in item.activityIds:
+        if id not in required_activities:
+          required_activities.append(id)
+      more = False if not item.defaultConditionId else True
+      item = self._find(timeline.instances, item.defaultConditionId)
+    print(f"SAI ORDER: {sai_order}\n\n")
+    print(f"ACTIVITIES: {required_activities}\n\n")
+
     # Activity order
     activity_order = []
     item = self._first(self.study_design.activities)
     more = True
     while more:
-      activity_order.append(item)
+      print(f"ACTIVITY: {item.id}\n\n")
+      if item.id in required_activities:
+        activity_order.append(item)
       more = False if not item.nextId else True
       item = self._find(self.study_design.activities, item.nextId)
-    #print(f"ACTIVITY ORDER: {activity_order}\n\n")
-
-    # ScheduleActivityInstance order
-    sai_order = []
-    timeline = self.timeline
-    item = self._find(timeline.instances, self.timeline.entryId)
-    more = True
-    while more:
-      sai_order.append(item)
-      more = False if not item.defaultConditionId else True
-      item = self._find(timeline.instances, item.defaultConditionId)
-    #print(f"SAI ORDER: {sai_order}\n\n")
+    print(f"ACTIVITY ORDER: {activity_order}\n\n")
 
     row_template = []
     lh_columns = ['activity']
@@ -57,11 +63,11 @@ class SoA():
       row[index + sai_start_index] = index
     results.append(row)
 
-    # row = row_template.copy()
-    # for index, sai in enumerate(sai_order):
-    #   if sai.epochId:
-    #     row[index + sai_start_index] = sai.epochId
-    # results.append(row)
+    row = row_template.copy()
+    for index, sai in enumerate(sai_order):
+      if sai.epochId:
+        row[index + sai_start_index] = sai.epochId
+    results.append(row)
 
     row = row_template.copy()
     for index, sai in enumerate(sai_order):

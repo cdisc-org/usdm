@@ -48,7 +48,9 @@ def create_activities():
 
 def create_epochs():
   item_list = [
-    {'name': 'EP1', 'label': '', 'description': '', 'type': dummy_code},
+    {'name': 'EP1', 'label': 'Epoch A', 'description': '', 'type': dummy_code},
+    {'name': 'EP2', 'label': 'Epoch B', 'description': '', 'type': dummy_code},
+    {'name': 'EP3', 'label': 'Epoch C', 'description': '', 'type': dummy_code},
   ]
   results = factory.set(StudyEpoch, item_list)
   double_link(results, 'previousId', 'nextId')
@@ -85,10 +87,13 @@ def scenario_1():
 
   activity_instances[0].activityIds = [activities[0].id, activities[1].id]
   activity_instances[0].encounterId = encounters[0].id
+  activity_instances[0].epochId = epochs[0].id
   activity_instances[1].activityIds = [activities[1].id, activities[2].id]
   activity_instances[1].encounterId = encounters[1].id
+  activity_instances[1].epochId = epochs[1].id
   activity_instances[2].activityIds = [activities[2].id, activities[3].id, activities[4].id]
   activity_instances[2].encounterId = encounters[2].id
+  activity_instances[2].epochId = epochs[2].id
 
   exit = factory.item(ScheduleTimelineExit, {})
   activity_instances[-1].timelineExitId = exit.id
@@ -113,11 +118,12 @@ def test_create(mocker):
   soa = SoA(bs, study_design, timeline)
   result = soa.generate()
   assert result == [
-    ['',           0,             1,             2], 
-    ['',           'Encounter_1', 'Encounter_2', 'Encounter_3'], 
-    ['Activity 1', 'X',           '',            ''], 
-    ['Activity 2', 'X',           'X',           ''], 
-    ['Activity 3', '',            'X',           'X'], 
-    ['Activity 4', '',            '',            'X'], 
-    ['Activity 5', '',            '',            'X']
+    ['',           0,              1,              2], 
+    ['',           'StudyEpoch_1', 'StudyEpoch_2', 'StudyEpoch_3'],
+    ['',           'Encounter_1',  'Encounter_2',  'Encounter_3'], 
+    ['Activity 1', 'X',            '',             ''], 
+    ['Activity 2', 'X',            'X',            ''], 
+    ['Activity 3', '',             'X',            'X'], 
+    ['Activity 4', '',             '',             'X'], 
+    ['Activity 5', '',             '',             'X']
   ]
