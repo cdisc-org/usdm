@@ -128,7 +128,6 @@ class StudySheet(BaseSheet):
       for key, tl in self.timelines.items():
         study_design.scheduleTimelines.append(tl.timeline)
         for activity in tl.activities:
-          #print(f"ADD: {key} {activity.id}")
           if activity.id not in activity_ids:
             study_design.activities.append(activity)
             activity_ids.append(activity.id)
