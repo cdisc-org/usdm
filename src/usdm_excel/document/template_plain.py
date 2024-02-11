@@ -49,7 +49,7 @@ class TemplatePlain(TemplateBase):
       result = soa.generate()
       with doc.tag('p'):
         with doc.tag('b'):
-          doc.asis(f"Entry condition: {timeline.entryCondition}")
+          doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
       with doc.tag('table', klass='table'):
         for row in range(len(result)):
           print(f"ROW: {result[row]}")
