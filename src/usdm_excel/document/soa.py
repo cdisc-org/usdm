@@ -22,6 +22,18 @@ class SoA():
   def _timing_from(self, timings, sai):
     return next((item for item in timings if item.relativeFromScheduledInstanceId == sai.id), None)
 
+  def _condition_no_context(self, conditions, target):
+    return next((item for item in conditions if target.id in item.appliesToIds and not item.contextIds), None)
+
+  def _condition_with_context(self, conditions, target, context):
+    return next((item for item in conditions if target.id in item.appliesToIds and context.id in item.contextIds), None)
+
+  def _template_copy(self, template):
+    result = []
+    for item in template:
+      result.append(item.copy())
+    return result
+        
   def generate(self):
 
     # ScheduleActivityInstance order
@@ -55,46 +67,55 @@ class SoA():
     lh_columns = ['activity']
     sai_start_index = len(lh_columns)
     for item in lh_columns:
-      row_template.append('')
+      row_template.append({'label': ''})
     for sai in enumerate(sai_order):
-      row_template.append(f'')
+      row_template.append({'label': ''})
 
     results = []
 
-    row = row_template.copy()
+    row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
-      row[index + sai_start_index] = index
+      row[index + sai_start_index]['label'] = index
     results.append(row)
 
-    row = row_template.copy()
+    row = self._template_copy(row_template)
+    
     for index, sai in enumerate(sai_order):
       if sai.epochId:
         item = cross_references.get_by_id("StudyEpoch", sai.epochId)
-        row[index + sai_start_index] = item.label if item else "???"
+        row[index + sai_start_index]['label'] = item.label if item else "???"
         #row[index + sai_start_index] = sai.epochId
     results.append(row)
 
-    row = row_template.copy()
+    row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
         item = cross_references.get_by_id("Encounter", sai.encounterId)
-        row[index + sai_start_index] = item.label if item else "???"
+        row[index + sai_start_index]['label'] = item.label if item else "???"
         #row[index + sai_start_index] = sai.encounterId
     results.append(row)
 
-    row = row_template.copy()
+    row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
       timing = self._timing_from(self.timeline.timings, sai)
       if timing:
-        row[index + sai_start_index] = timing.label
+        row[index + sai_start_index]['label'] = timing.label
     results.append(row)
 
     for activity in activity_order:
-      row = row_template.copy()
-      row[0] = activity.label
+      row = self._template_copy(row_template)
+      row[0]['label'] = activity.label
+      condition = self._condition_no_context(self.study_design.conditions, activity)
+      if condition:
+        #print(f"COND: {condition}")
+        row[0]['condition'] = condition
       for index, sai in enumerate(sai_order):
+        row[index + sai_start_index]['set'] = False
         if activity.id in sai.activityIds:
-          row[index + sai_start_index] = "X"
+          row[index + sai_start_index]['set'] = True
+          condition = self._condition_with_context(self.study_design.conditions, activity, sai)
+          if condition:
+            row[index + sai_start_index]['condition'] = condition
       results.append(row)
 
     return results

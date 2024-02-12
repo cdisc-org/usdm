@@ -14,6 +14,8 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.scheduled_instance import ScheduledActivityInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 from usdm_model.timing import Timing
+from usdm_model.condition import Condition
+
 
 from tests.test_factory import Factory
 
@@ -47,6 +49,15 @@ def double_link(items, prev, next):
 def add_cross_ref(collection):
   for item in collection:
     cross_references.add(item.id, item)
+
+def create_conditions():
+  item_list = [
+    {'name': 'COND1', 'label': '', 'description': '', 'text': 'Only perform at baseline', 'appliesToIds': [], 'contextIds': []},
+    {'name': 'COND2', 'label': '', 'description': '', 'text': 'Only perform on males', 'appliesToIds': [], 'contextIds': []},
+  ]
+  results = factory.set(Condition, item_list)
+  add_cross_ref(results)
+  return results
 
 def create_timings():
   item_list = [
@@ -113,6 +124,7 @@ def scenario_1():
   encounters = create_encounters()
   activity_instances = create_activity_instances()
   timings = create_timings()
+  conditions = create_conditions()
 
   activity_instances[0].activityIds = [activities[0].id, activities[1].id]
   activity_instances[0].encounterId = encounters[0].id
@@ -129,6 +141,9 @@ def scenario_1():
   timings[1].relativeToScheduledInstanceId = activity_instances[1].id
   timings[2].relativeFromScheduledInstanceId = activity_instances[2].id
   timings[2].relativeToScheduledInstanceId = activity_instances[1].id
+  conditions[0].appliesToIds = [activities[0].id]
+  conditions[0].contextIds = [activity_instances[0].id]
+  conditions[1].appliesToIds = [activities[3].id]
   
   exit = factory.item(ScheduleTimelineExit, {})
   activity_instances[-1].timelineExitId = exit.id
@@ -136,7 +151,8 @@ def scenario_1():
   study_design = factory.item(StudyDesign, {'name': 'Study Design', 'label': '', 'description': '', 
     'rationale': 'XXX', 'interventionModel': dummy_code,
     'arms': [dummy_arm], 'studyCells': [dummy_cell], 'epochs': epochs,
-    'activities': activities, 'scheduledTimelines': [timeline]})
+    'activities': activities, 'scheduledTimelines': [timeline],
+    'conditions': conditions})
   return study_design, timeline
 
 def fake_sheet(mocker):
@@ -153,14 +169,25 @@ def test_create(mocker):
   soa = SoA(bs, study_design, timeline)
   result = soa.generate()
   print(f"RESULT: {result}")
-  assert result == [
+  labels = []
+  for row in range(len(result)):
+    labels.append([])
+    for col in range(len(result[row])):
+      if 'set' in result[row][col].keys():
+        label = 'X' if result[row][col]['set'] else ''
+      else:
+        label = result[row][col]['label']
+      if 'condition' in result[row][col].keys():
+        label = f"{label} [c]"
+      labels[row].append(label)
+  assert labels == [
     ['',           0,              1,              2], 
     ['',           'Epoch A',      'Epoch B',      'Epoch C'],
     ['',           'Screening',    'Dose',         'Check Up'], 
     ['',           '-2 Days',      'Dose',         '7 Days'], 
-    ['Activity 1', 'X',            '',             ''], 
+    ['Activity 1', 'X [c]',        '',             ''], 
     ['Activity 2', 'X',            'X',            ''], 
     ['Activity 3', '',             'X',            'X'], 
-    ['Activity 4', '',             '',             'X'], 
+    ['Activity 4 [c]', '',         '',             'X'], 
     ['Activity 5', '',             '',             'X']
   ]
