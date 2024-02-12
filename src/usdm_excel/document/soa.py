@@ -19,6 +19,9 @@ class SoA():
   def _find(self, collection, id):
     return next((item for item in collection if item.id == id), None)
 
+  def _timing_from(self, timings, sai):
+    return next((item for item in timings if item.relativeFromScheduledInstanceId == sai.id), None)
+
   def generate(self):
 
     # ScheduleActivityInstance order
@@ -72,7 +75,16 @@ class SoA():
     row = row_template.copy()
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
+        encounter = cross_references.get_by_id("Encounter", sai.encounterId)
+        #row[index + sai_start_index] = encounter.label if encounter else "???"
         row[index + sai_start_index] = sai.encounterId
+    results.append(row)
+
+    row = row_template.copy()
+    for index, sai in enumerate(sai_order):
+      timing = self._timing_from(self.timeline.timings, sai)
+      if timing:
+        row[index + sai_start_index] = timing.label
     results.append(row)
 
     for activity in activity_order:
