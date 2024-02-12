@@ -52,7 +52,7 @@ class TemplatePlain(TemplateBase):
           doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
       with doc.tag('table', klass='table'):
         for row in range(len(result)):
-          print(f"ROW: {result[row]}")
+          #print(f"ROW: {result[row]}")
           with doc.tag('tr'):
             for col in range(len(result[row])):
               with doc.tag('td'):
