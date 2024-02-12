@@ -2186,9 +2186,9 @@
                 },
                 {
                   "id": "EligibilityCriterion_4",
-                  "name": "Berber",
+                  "name": "Missing Tag",
                   "label": "",
-                  "description": "Test for Berber",
+                  "description": "Test for missing tag",
                   "text": "Pick up activity <usdm:tag name=\"xxxx\"/>",
                   "dictionaryId": "SyntaxTemplateDictionary_3",
                   "instanceType": "EligibilityCriterion",
@@ -2201,6 +2201,27 @@
                     "instanceType": "Code"
                   },
                   "identifier": "2",
+                  "nextId": null,
+                  "previousId": null,
+                  "contextId": null
+                },
+                {
+                  "id": "EligibilityCriterion_5",
+                  "name": "Value Example",
+                  "label": "",
+                  "description": "Test for value dict key",
+                  "text": "If the value is equal to <usdm:tag name=\"value_key\"/>",
+                  "dictionaryId": "SyntaxTemplateDictionary_3",
+                  "instanceType": "EligibilityCriterion",
+                  "category": {
+                    "id": "Code_146",
+                    "code": "C25370",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-09-29",
+                    "decode": "Exclusion Criteria",
+                    "instanceType": "Code"
+                  },
+                  "identifier": "3",
                   "nextId": null,
                   "previousId": null,
                   "contextId": null
@@ -2577,11 +2598,12 @@
               },
               {
                 "id": "SyntaxTemplateDictionary_3",
-                "name": "Berber_Dict",
-                "label": "Berber Dictionary",
-                "description": "Dictionary for Berber Example",
+                "name": "Example3_Dict",
+                "label": "Example 3 Dictionary",
+                "description": "Dictionary for Example",
                 "parameterMap": {
-                  "xxxx": "<usdm:ref klass=\"Activity\" id=\"Activity_1\" attribute=\"label\"></usdm:ref>"
+                  "xxxx": "<usdm:ref klass=\"Activity\" id=\"Activity_1\" attribute=\"label\"></usdm:ref>",
+                  "value_key": "<div>1234.0</div>"
                 },
                 "instanceType": "SyntaxTemplateDictionary"
               }
@@ -2637,7 +2659,7 @@
                 "name": "SITE_ORG_1",
                 "label": "Site Org",
                 "organizationType": {
-                  "id": "Code_146",
+                  "id": "Code_147",
                   "code": "C70793",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -2655,7 +2677,7 @@
                   "state": "state",
                   "postalCode": "postal_code",
                   "country": {
-                    "id": "Code_147",
+                    "id": "Code_148",
                     "code": "GBR",
                     "codeSystem": "ISO 3166 1 alpha3",
                     "codeSystemVersion": "2020-08",
@@ -2689,7 +2711,7 @@
                 "name": "SITE_ORG_2",
                 "label": "Clinical Trials Org",
                 "organizationType": {
-                  "id": "Code_148",
+                  "id": "Code_149",
                   "code": "C70793",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-09-29",
@@ -2707,7 +2729,7 @@
                   "state": "In a big state",
                   "postalCode": "12345",
                   "country": {
-                    "id": "Code_149",
+                    "id": "Code_150",
                     "code": "FRA",
                     "codeSystem": "ISO 3166 1 alpha3",
                     "codeSystemVersion": "2020-08",
@@ -3118,7 +3140,7 @@
               "name": "SECTION 5.4",
               "sectionNumber": "5.4",
               "sectionTitle": "Exclusion Criteria",
-              "text": "<div><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
+              "text": "<div><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
               "childIds": [],
               "instanceType": "NarrativeContent"
             },
