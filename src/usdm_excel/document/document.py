@@ -188,8 +188,8 @@ class Document():
         </div>
         <div align="center">
           <br/>
-          <p><i>Note:</i></p>
-          <p><i>The table of contents is auto generated upon PDF production and only includes first level sections.</i></p>
+          <p class="usdm-warning">Note:</p>
+          <p class="usdm-warning">The table of contents is auto generated upon PDF production and only includes first level sections.</p>
         </div>
         <div id="header-and-footer">
           <span id="page-number"></span>
@@ -208,7 +208,8 @@ class Document():
           </div>
           <div class="row mt-5">
             <div class="col-md-8 offset-md-2 text-center">
-              <p><b>This document is generated from content held within the Unified Studies Definitions Model. It is for test purposes only.</b></p>
+              <p class="usdm-warning">Note:</p>
+              <p class="usdm-warning">This document is generated from content held within the Unified Studies Definitions Model. It is for test purposes only.</p>
             </div>
           </div>
         </div>
@@ -280,6 +281,11 @@ class Document():
         counter-reset: chapter;
         font-family: 'Times New Roman';
         color: #000000;
+      }
+
+      .usdm-warning {
+        font-style: italic;
+        color: red;
       }
     """
     
