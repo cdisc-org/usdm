@@ -69,15 +69,17 @@ class SoA():
     row = row_template.copy()
     for index, sai in enumerate(sai_order):
       if sai.epochId:
-        row[index + sai_start_index] = sai.epochId
+        item = cross_references.get_by_id("StudyEpoch", sai.epochId)
+        row[index + sai_start_index] = item.label if item else "???"
+        #row[index + sai_start_index] = sai.epochId
     results.append(row)
 
     row = row_template.copy()
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
-        encounter = cross_references.get_by_id("Encounter", sai.encounterId)
-        #row[index + sai_start_index] = encounter.label if encounter else "???"
-        row[index + sai_start_index] = sai.encounterId
+        item = cross_references.get_by_id("Encounter", sai.encounterId)
+        row[index + sai_start_index] = item.label if item else "???"
+        #row[index + sai_start_index] = sai.encounterId
     results.append(row)
 
     row = row_template.copy()

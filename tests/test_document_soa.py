@@ -1,4 +1,4 @@
-#from usdm_excel.cross_ref import cross_references
+from usdm_excel.cross_ref import cross_references
 #from usdm_excel.id_manager import id_manager
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
@@ -44,6 +44,10 @@ def double_link(items, prev, next):
       the_id = getattr(items[idx+1], 'id')
       setattr(item, next, the_id)
 
+def add_cross_ref(collection):
+  for item in collection:
+    cross_references.add(item.id, item)
+
 def create_timings():
   item_list = [
     {'name': 'T1', 'label': '-2 Days', 'description': '', 'type': BEFORE, 'value': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'window': ''},
@@ -51,6 +55,7 @@ def create_timings():
     {'name': 'T3', 'label': '7 Days',  'description': '', 'type': AFTER,  'value': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'window': '1..1 Days'}
   ]
   results = factory.set(Timing, item_list)
+  add_cross_ref(results)
   return results
 
 def create_activities():
@@ -63,6 +68,7 @@ def create_activities():
   ]
   results = factory.set(Activity, item_list)
   double_link(results, 'previousId', 'nextId')
+  add_cross_ref(results)
   return results
 
 def create_epochs():
@@ -73,16 +79,18 @@ def create_epochs():
   ]
   results = factory.set(StudyEpoch, item_list)
   double_link(results, 'previousId', 'nextId')
+  add_cross_ref(results)
   return results
 
 def create_encounters():
   item_list = [
-    {'name': 'E1', 'label': '', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
-    {'name': 'E2', 'label': '', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
-    {'name': 'E3', 'label': '', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None}
+    {'name': 'E1', 'label': 'Screening', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
+    {'name': 'E2', 'label': 'Dose', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
+    {'name': 'E3', 'label': 'Check Up', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None}
   ]
   results = factory.set(Encounter, item_list)
   double_link(results, 'previousId', 'nextId')
+  add_cross_ref(results)
   return results
 
 def create_activity_instances():
@@ -94,6 +102,7 @@ def create_activity_instances():
   results = factory.set(ScheduledActivityInstance, item_list)
   results[0].defaultConditionId = results[1].id
   results[1].defaultConditionId = results[2].id
+  add_cross_ref(results)
   return results
 
 def scenario_1():
@@ -146,8 +155,8 @@ def test_create(mocker):
   print(f"RESULT: {result}")
   assert result == [
     ['',           0,              1,              2], 
-    ['',           'StudyEpoch_1', 'StudyEpoch_2', 'StudyEpoch_3'],
-    ['',           'Encounter_1',  'Encounter_2',  'Encounter_3'], 
+    ['',           'Epoch A',      'Epoch B',      'Epoch C'],
+    ['',           'Screening',    'Dose',         'Check Up'], 
     ['',           '-2 Days',      'Dose',         '7 Days'], 
     ['Activity 1', 'X',            '',             ''], 
     ['Activity 2', 'X',            'X',            ''], 
