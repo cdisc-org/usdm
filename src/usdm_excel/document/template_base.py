@@ -13,7 +13,10 @@ class TemplateBase():
     self.methods = [func for func in dir(self.__class__) if callable(getattr(self.__class__, func)) and not func.startswith("_")]
 
   def valid_method(self, name):
-    return name in self.methods
+    result = name in self.methods
+    if not result:
+      self.parent._general_warning(f"Could not resolve method name, {name} not in {self.methods}")
+    return result
   
   def _reference(self, item, attribute):
     return f'<usdm:ref klass="{item.__class__.__name__}" id="{item.id}" attribute="{attribute}"></usdm:ref>'

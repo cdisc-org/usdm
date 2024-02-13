@@ -55,8 +55,14 @@ class TemplatePlain(TemplateBase):
           #print(f"ROW: {result[row]}")
           with doc.tag('tr'):
             for col in range(len(result[row])):
+              if 'set' in result[row][col].keys():
+                label = 'X' if result[row][col]['set'] else ''
+              else:
+                label = result[row][col]['label']
+              if 'condition' in result[row][col].keys():
+                label = f"{label} [c]"
               with doc.tag('td'):
-                doc.asis(f"{result[row][col]}")
+                doc.asis(f"{label}")
     return doc.getvalue()
   
   def _criteria(self, type):
