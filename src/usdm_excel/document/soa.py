@@ -34,7 +34,10 @@ class SoA():
     for item in template:
       result.append(item.copy())
     return result
-        
+
+  def _has_non_empty(self, the_list):
+    return any(s['label'] != '' for s in the_list)
+
   def generate(self):
 
     # ScheduleActivityInstance order
@@ -79,36 +82,35 @@ class SoA():
       row[index + sai_start_index]['label'] = index
     results.append(row)
 
-    row = self._template_copy(row_template)
-    
+    row = self._template_copy(row_template)    
     for index, sai in enumerate(sai_order):
       if sai.epochId:
         item = cross_references.get_by_id("StudyEpoch", sai.epochId)
         row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
-        #row[index + sai_start_index] = sai.epochId
-    results.append(row)
+    if self._has_non_empty(row):
+      results.append(row)
 
     row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
         item = cross_references.get_by_id("Encounter", sai.encounterId)
         row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
-        #row[index + sai_start_index] = sai.encounterId
-    results.append(row)
+    if self._has_non_empty(row):
+      results.append(row)
 
     row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
       timing = self._timing_from(self.timeline.timings, sai)
       if timing:
         row[index + sai_start_index]['label'] = usdm_reference(timing, 'label')
-    results.append(row)
+    if self._has_non_empty(row):
+      results.append(row)
 
     for activity in activity_order:
       row = self._template_copy(row_template)
       row[0]['label'] = usdm_reference(activity, 'label')
       condition = self._condition_no_context(self.study_design.conditions, activity)
       if condition:
-        #print(f"COND: {condition}")
         row[0]['condition'] = condition
       for index, sai in enumerate(sai_order):
         row[index + sai_start_index]['set'] = False

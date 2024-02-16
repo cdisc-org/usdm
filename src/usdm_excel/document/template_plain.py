@@ -63,7 +63,8 @@ class TemplatePlain(TemplateBase):
                 if 'condition' in result[row][col].keys():
                   label = f"{label} [c]"
                 with doc.tag('td'):
-                  doc.asis(f"{label}")
+                  with doc.tag('p', klass='soa-text'):
+                    doc.asis(f"{label}")
     return doc.getvalue()
   
   def _criteria(self, type):

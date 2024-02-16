@@ -297,6 +297,11 @@ class Document():
         font-style: italic;
         color: red;
       }
+
+      .soa-text {
+        font-size: 10px;
+      }
+
     """
     
   def _get_soup(self, text):
