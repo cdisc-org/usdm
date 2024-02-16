@@ -32,10 +32,10 @@ class StudyDesignInterventionSheet(BaseSheet):
       description = self.read_cell_by_name(index, 'description', must_be_present=False)
       label = self.read_cell_by_name(index, 'label', must_be_present=False)
       codes = self.read_other_code_cell_multiple_by_name(index, "codes")
-      role = self.read_other_code_cell_by_name(index, "role")
+      role = self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "role", index, "role")
       type = self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "type", index, "type")
       pharm_class = self.read_other_code_cell_by_name(index, "pharmacologicalClass")
-      product_designation = self.read_other_code_cell_by_name(index, "productDesignation")
+      product_designation = self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "productDesignation", index, "productDesignation")
       min_duration =self.read_quantity_cell_by_name(index, "minimumResponseDuration")
       self.current_intervention = self._intervention(name, description, label, role, codes, type, pharm_class, product_designation, min_duration, agent_admin)
     else:
@@ -89,6 +89,7 @@ class StudyDesignInterventionSheet(BaseSheet):
       self._general_error(f"Failed to create AgentAdministration object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
     else:
+      cross_references.add(name, item)
       return item
 
   def _create_administration_duration(self, index):
