@@ -1,6 +1,6 @@
-from usdm_excel.cross_ref import cross_references
-#from usdm_excel.id_manager import id_manager
 import pandas as pd
+from bs4 import BeautifulSoup   
+from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.document.soa import SoA
@@ -32,6 +32,15 @@ E2E = cdisc_ct.code('C201352', 'End to End')
 E2S = cdisc_ct.code('C201353', 'End to Start')
 S2E = cdisc_ct.code('C201354', 'Start to End')
 S2S = cdisc_ct.code('C201355', 'Start to Start')
+
+def translate_reference(text):
+  soup = BeautifulSoup(str(text), 'html.parser')
+  for ref in soup(['usdm:ref']):
+    attributes = ref.attrs
+    instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
+    value = str(getattr(instance, attributes['attribute']))
+    ref.replace_with(value)
+  return str(soup)
 
 def double_link(items, prev, next):
   for idx, item in enumerate(items):
@@ -176,12 +185,12 @@ def test_create(mocker):
       if 'set' in result[row][col].keys():
         label = 'X' if result[row][col]['set'] else ''
       else:
-        label = result[row][col]['label']
+        label = translate_reference(result[row][col]['label'])
       if 'condition' in result[row][col].keys():
         label = f"{label} [c]"
       labels[row].append(label)
   assert labels == [
-    ['',           0,              1,              2], 
+    ['',           '0',            '1',            '2'], 
     ['',           'Epoch A',      'Epoch B',      'Epoch C'],
     ['',           'Screening',    'Dose',         'Check Up'], 
     ['',           '-2 Days',      'Dose',         '7 Days'], 
@@ -191,3 +200,4 @@ def test_create(mocker):
     ['Activity 4 [c]', '',         '',             'X'], 
     ['Activity 5', '',             '',             'X']
   ]
+

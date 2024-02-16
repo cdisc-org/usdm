@@ -1,4 +1,5 @@
 from .elements import Elements
+from .utility import usdm_reference
 from usdm_excel.base_sheet import BaseSheet
 
 class TemplateBase():
@@ -19,7 +20,7 @@ class TemplateBase():
     return result
   
   def _reference(self, item, attribute):
-    return f'<usdm:ref klass="{item.__class__.__name__}" id="{item.id}" attribute="{attribute}"></usdm:ref>'
+    return usdm_reference(item, attribute)
 
   def _add_checking_for_tag(self, doc, tag, text):
     if text.startswith(f"<{tag}>"):

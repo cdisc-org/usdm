@@ -1,3 +1,4 @@
+from .utility import usdm_reference
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 #from usdm_excel.study_sheet.study_sheet import Study
@@ -83,7 +84,7 @@ class SoA():
     for index, sai in enumerate(sai_order):
       if sai.epochId:
         item = cross_references.get_by_id("StudyEpoch", sai.epochId)
-        row[index + sai_start_index]['label'] = item.label if item else "???"
+        row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
         #row[index + sai_start_index] = sai.epochId
     results.append(row)
 
@@ -91,7 +92,7 @@ class SoA():
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
         item = cross_references.get_by_id("Encounter", sai.encounterId)
-        row[index + sai_start_index]['label'] = item.label if item else "???"
+        row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
         #row[index + sai_start_index] = sai.encounterId
     results.append(row)
 
@@ -99,12 +100,12 @@ class SoA():
     for index, sai in enumerate(sai_order):
       timing = self._timing_from(self.timeline.timings, sai)
       if timing:
-        row[index + sai_start_index]['label'] = timing.label
+        row[index + sai_start_index]['label'] = usdm_reference(timing, 'label')
     results.append(row)
 
     for activity in activity_order:
       row = self._template_copy(row_template)
-      row[0]['label'] = activity.label
+      row[0]['label'] = usdm_reference(activity, 'label')
       condition = self._condition_no_context(self.study_design.conditions, activity)
       if condition:
         #print(f"COND: {condition}")
