@@ -77,10 +77,10 @@ class SoA():
 
     results = []
 
-    row = self._template_copy(row_template)
-    for index, sai in enumerate(sai_order):
-      row[index + sai_start_index]['label'] = index
-    results.append(row)
+    # row = self._template_copy(row_template)
+    # for index, sai in enumerate(sai_order):
+    #   row[index + sai_start_index]['label'] = index
+    # results.append(row)
 
     row = self._template_copy(row_template)    
     for index, sai in enumerate(sai_order):

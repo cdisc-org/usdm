@@ -47,11 +47,11 @@ class TemplatePlain(TemplateBase):
     for timeline in self.study_design.scheduleTimelines:      
       soa = SoA(self.parent, self.study_design, timeline)
       result = soa.generate()
-      with doc.tag('div', klass="page soa-page"):
+      with doc.tag('div', klass="page soa-page table-responsive"):
         with doc.tag('p'):
           with doc.tag('b'):
             doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
-        with doc.tag('table', klass='table table-bordered', style="width:100%"):
+        with doc.tag('table', klass='table table-bordered table-sm', style="width:100%"):
           for row in range(len(result)):
             #print(f"ROW: {result[row]}")
             with doc.tag('tr'):
@@ -63,7 +63,8 @@ class TemplatePlain(TemplateBase):
                 if 'condition' in result[row][col].keys():
                   label = f"{label} [c]"
                 with doc.tag('td'):
-                  with doc.tag('p', klass='soa-text'):
+                  klass = 'soa-activity-text' if col == 0 else 'soa-body-text'
+                  with doc.tag('p', klass=klass):
                     doc.asis(f"{label}")
     return doc.getvalue()
   

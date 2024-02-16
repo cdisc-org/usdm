@@ -298,8 +298,14 @@ class Document():
         color: red;
       }
 
-      .soa-text {
+      .soa-body-text {
         font-size: 10px;
+        text-align: center
+      }
+
+      .soa-activity-text {
+        font-size: 10px;
+        text-align: left
       }
 
     """

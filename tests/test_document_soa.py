@@ -190,7 +190,7 @@ def test_create(mocker):
         label = f"{label} [c]"
       labels[row].append(label)
   assert labels == [
-    ['',           '0',            '1',            '2'], 
+    #['',           '0',            '1',            '2'], 
     ['',           'Epoch A',      'Epoch B',      'Epoch C'],
     ['',           'Screening',    'Dose',         'Check Up'], 
     ['',           '-2 Days',      'Dose',         '7 Days'], 
