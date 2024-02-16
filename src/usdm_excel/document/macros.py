@@ -72,8 +72,17 @@ class Macros():
       self.parent._general_error(f"Failed to translate section method name '{method}' in '{attributes}', invalid method")
       ref.replace_with('Missing content: invalid method name')       
 
+  def _note(self, attributes, soup, ref) -> None:
+    text = f"""
+      <div class="col-md-8 offset-md-2 text-center">
+        <p class="usdm-warning">Note:</p>
+        <p class="usdm-warning">{attributes['text']}</p>
+      </div>
+    """
+    ref.replace_with(self._get_soup(text))
+
   def _valid_method(self, name):
-    return name in ['_xref', '_image', '_element', '_section']
+    return name in ['_xref', '_image', '_element', '_section', '_note']
   
   def _resolve_template(self, template) -> object:
     try:
