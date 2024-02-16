@@ -51,7 +51,7 @@ class TemplatePlain(TemplateBase):
         with doc.tag('p'):
           with doc.tag('b'):
             doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
-        with doc.tag('table', klass='table', style="width:100%"):
+        with doc.tag('table', klass='table table-bordered', style="width:100%"):
           for row in range(len(result)):
             #print(f"ROW: {result[row]}")
             with doc.tag('tr'):
