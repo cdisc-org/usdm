@@ -242,15 +242,25 @@ class Document():
         content: "Page " counter(page);
       }
 
+      @page { size: A4 }
+
       /* Create a title page with a full-bleed background and no header */
+      /* Create a soa page with landscape orientation */
       #title-page {
         page: title-page;
+      }
+      .soa-page {
+        page: soa-page
       }
 
       @page title-page {
         @top {
           content: "";
         }
+      }
+
+      @page soa-page {
+        size: A4 landscape
       }
 
       #title-page h1 {

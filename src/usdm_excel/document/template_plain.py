@@ -47,22 +47,23 @@ class TemplatePlain(TemplateBase):
     for timeline in self.study_design.scheduleTimelines:      
       soa = SoA(self.parent, self.study_design, timeline)
       result = soa.generate()
-      with doc.tag('p'):
-        with doc.tag('b'):
-          doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
-      with doc.tag('table', klass='table', style="width:100%"):
-        for row in range(len(result)):
-          #print(f"ROW: {result[row]}")
-          with doc.tag('tr'):
-            for col in range(len(result[row])):
-              if 'set' in result[row][col].keys():
-                label = 'X' if result[row][col]['set'] else ''
-              else:
-                label = result[row][col]['label']
-              if 'condition' in result[row][col].keys():
-                label = f"{label} [c]"
-              with doc.tag('td'):
-                doc.asis(f"{label}")
+      with doc.tag('div', klass="page soa-page"):
+        with doc.tag('p'):
+          with doc.tag('b'):
+            doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
+        with doc.tag('table', klass='table', style="width:100%"):
+          for row in range(len(result)):
+            #print(f"ROW: {result[row]}")
+            with doc.tag('tr'):
+              for col in range(len(result[row])):
+                if 'set' in result[row][col].keys():
+                  label = 'X' if result[row][col]['set'] else ''
+                else:
+                  label = result[row][col]['label']
+                if 'condition' in result[row][col].keys():
+                  label = f"{label} [c]"
+                with doc.tag('td'):
+                  doc.asis(f"{label}")
     return doc.getvalue()
   
   def _criteria(self, type):
