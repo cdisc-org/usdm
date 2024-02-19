@@ -3,7 +3,7 @@ from usdm_excel.id_manager import id_manager
 class Factory():
   
   def item(self, cls, params):
-    params['id'] = id_manager.build_id(cls)
+    params['id'] = params['id'] if 'id' in params else id_manager.build_id(cls)
     params['instanceType'] = cls.__name__
     return cls(**params)
 
