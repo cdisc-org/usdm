@@ -1,4 +1,5 @@
 import warnings
+import traceback
 from bs4 import BeautifulSoup   
 
 def usdm_reference(item, attribute):
