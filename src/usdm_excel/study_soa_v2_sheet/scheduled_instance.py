@@ -57,6 +57,7 @@ class ScheduledInstance():
         )
         #print(f"ENCOUNTER3: {self.item}")
         cross_references.add(self.item.id, self.item)
+        cross_references.add(self.name, self.item)
       elif type.upper() == "DECISION":
         self.item = ScheduledDecisionInstance(
           id=id_manager.build_id(ScheduledDecisionInstance),
@@ -67,6 +68,7 @@ class ScheduledInstance():
           conditionAssignments=[]
         )
         cross_references.add(self.item.id, self.item)
+        cross_references.add(self.name, self.item)
       else:
         self.parent._general_warning(f"Unrecognized ScheduledInstance type: '{type}'")
     except Exception as e:
