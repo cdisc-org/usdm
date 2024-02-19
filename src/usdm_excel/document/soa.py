@@ -106,6 +106,14 @@ class SoA():
     if self._has_non_empty(row):
       results.append(row)
 
+    row = self._template_copy(row_template)
+    for index, sai in enumerate(sai_order):
+      timing = self._timing_from(self.timeline.timings, sai)
+      if timing:
+        row[index + sai_start_index]['label'] = usdm_reference(timing, 'window')
+    if self._has_non_empty(row):
+      results.append(row)
+
     for activity in activity_order:
       row = self._template_copy(row_template)
       row[0]['label'] = usdm_reference(activity, 'label')

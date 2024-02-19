@@ -194,6 +194,7 @@ def test_create(mocker):
     ['',           'Epoch A',      'Epoch B',      'Epoch C'],
     ['',           'Screening',    'Dose',         'Check Up'], 
     ['',           '-2 Days',      'Dose',         '7 Days'], 
+    ['',           '',             '',             '1..1 Days'], 
     ['Activity 1', 'X [c]',        '',             ''], 
     ['Activity 2', 'X',            'X',            ''], 
     ['Activity 3', '',             'X',            'X'], 

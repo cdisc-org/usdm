@@ -68,8 +68,9 @@ class TemplatePlain(TemplateBase):
                       doc.asis(label)
                       if 'condition' in result[row][col].keys():
                         with doc.tag('sup'):
-                          doc.text(str(footnote))
-                        footnotes.append({'number': str(footnote), 'text': result[row][col]['condition'].text})
+                          footnote_str = str(footnote)
+                          doc.text(footnote_str)
+                        footnotes.append({'number': footnote_str, 'text': result[row][col]['condition'].text})
                         footnote += 1
           if footnotes:
             with doc.tag('table', klass='table table-borderless table-sm'):
@@ -77,7 +78,8 @@ class TemplatePlain(TemplateBase):
                 with doc.tag('tr'):
                   with doc.tag('td'):
                     with doc.tag('p', klass="small"):
-                      doc.asis(item['number'])
+                      with doc.tag('sup'):
+                        doc.text(item['number'])
                   with doc.tag('td'):
                     with doc.tag('p', klass="small"):
                       doc.asis(item['text'])
