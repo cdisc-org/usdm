@@ -29,8 +29,8 @@ def test_create(mocker):
   bs = factory.base_sheet(mocker)
   macro = Macros(bs, minimal.study)
   result = macro.resolve('<usdm:macro id="section" name="inclusion"/>')
-  expected = '<table class="table"><tr><td><p>01</p></td><td><p><usdm:ref attribute="text" '\
-    'id="EligibilityCriterion_1" klass="EligibilityCriterion"></usdm:ref></p></td></tr><tr><td><p>02</p>'\
-    '</td><td><p><usdm:ref attribute="text" id="EligibilityCriterion_2" klass="EligibilityCriterion">'\
-    '</usdm:ref></p></td></tr></table>'
+  expected = '<table class="table"><tr><td>01</td><td><usdm:ref attribute="text" '\
+    'id="EligibilityCriterion_1" klass="EligibilityCriterion"></usdm:ref></td></tr><tr><td>02'\
+    '</td><td><usdm:ref attribute="text" id="EligibilityCriterion_2" klass="EligibilityCriterion">'\
+    '</usdm:ref></td></tr></table>'
   assert result == expected

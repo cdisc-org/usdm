@@ -23,8 +23,9 @@ class TemplateBase():
     return usdm_reference(item, attribute)
 
   def _add_checking_for_tag(self, doc, tag, text):
-    if text.startswith(f"<{tag}>"):
-      doc.asis(text)
-    else:
-      with doc.tag('p'):
-        doc.asis(text)
+    # if text.startswith(f"<{tag}>"):
+    #   doc.asis(text)
+    # else:
+    #   with doc.tag('p'):
+    #     doc.asis(text)
+    doc.asis(text)
