@@ -315,7 +315,8 @@ class Document():
       with warnings.catch_warnings(record=True) as warning_list:
         result =  BeautifulSoup(text, 'html.parser')
       if warning_list:
-        self.parent._general_warning(f"Warning raised within Soup package, processing '{text}'")
+        for item in warning_list:
+          self.parent._general_warning(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
       return result
     except Exception as e:
       self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
