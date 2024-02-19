@@ -1,4 +1,4 @@
-import re
+import traceback
 from yattag import Doc
 #from .elements import Elements
 from .template_base import TemplateBase
@@ -43,29 +43,47 @@ class TemplatePlain(TemplateBase):
     return doc.getvalue()
 
   def soa(self):
-    doc = Doc()
-    for timeline in self.study_design.scheduleTimelines:      
-      soa = SoA(self.parent, self.study_design, timeline)
-      result = soa.generate()
-      with doc.tag('div', klass="page soa-page table-responsive"):
-        with doc.tag('p'):
-          with doc.tag('b'):
-            doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
-        with doc.tag('table', klass='table table-bordered table-sm', style="width:100%"):
-          for row in range(len(result)):
-            #print(f"ROW: {result[row]}")
-            with doc.tag('tr'):
-              for col in range(len(result[row])):
-                if 'set' in result[row][col].keys():
-                  label = 'X' if result[row][col]['set'] else ''
-                else:
-                  label = result[row][col]['label']
-                if 'condition' in result[row][col].keys():
-                  label = f"{label} [c]"
-                with doc.tag('td'):
-                  klass = 'soa-activity-text' if col == 0 else 'soa-body-text'
-                  with doc.tag('p', klass=klass):
-                    doc.asis(f"{label}")
+    try:
+      doc = Doc()
+      for timeline in self.study_design.scheduleTimelines:      
+        footnote = 1
+        footnotes = []
+        soa = SoA(self.parent, self.study_design, timeline)
+        result = soa.generate()
+        with doc.tag('div', klass="page soa-page table-responsive"):
+          with doc.tag('p'):
+            with doc.tag('b'):
+              doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
+          with doc.tag('table', klass='table table-bordered table-sm', style="width:100%"):
+            for row in range(len(result)):
+              with doc.tag('tr'):
+                for col in range(len(result[row])):
+                  if 'set' in result[row][col].keys():
+                    label = 'X' if result[row][col]['set'] else ''
+                  else:
+                    label = result[row][col]['label']
+                  with doc.tag('td'):
+                    klass = 'soa-activity-text' if col == 0 else 'soa-body-text'
+                    with doc.tag('p', klass=klass):
+                      doc.asis(label)
+                      if 'condition' in result[row][col].keys():
+                        with doc.tag('sup'):
+                          doc.text(str(footnote))
+                        footnotes.append({'number': str(footnote), 'text': result[row][col]['condition'].text})
+                        footnote += 1
+          if footnotes:
+            with doc.tag('table', klass='table table-borderless table-sm'):
+              for item in footnotes:
+                with doc.tag('tr'):
+                  with doc.tag('td'):
+                    with doc.tag('p', klass="small"):
+                      doc.asis(item['number'])
+                  with doc.tag('td'):
+                    with doc.tag('p', klass="small"):
+                      doc.asis(item['text'])
+    except Exception as e:
+      self.parent._traceback(f"Exception '{e}' raised generating SoA content.\n{traceback.format_exc()}")
+      self.parent._general_error(f"Exception '{e}' raised generating SoA content")
     return doc.getvalue()
   
   def _criteria(self, type):
