@@ -1,13 +1,12 @@
 import os
 import base64
 import traceback
-import warnings
-from bs4 import BeautifulSoup   
 from .template_m11 import TemplateM11
 from .template_plain import TemplatePlain
 from .elements import Elements
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
+from .utility import get_soup
 
 class Macros():
 
@@ -23,7 +22,7 @@ class Macros():
     self.template_map = {'m11': self.m11, 'plain': self.plain}
   
   def resolve(self, content_text: str) -> str:
-    soup = self._get_soup(content_text)
+    soup = get_soup(content_text, self.parent)
     for ref in soup(['usdm:macro']):
       try:
         attributes = ref.attrs
@@ -56,7 +55,7 @@ class Macros():
     method = attributes['name'].lower()
     if self.elements.valid_method(method):
       text = getattr(self.elements, method)()
-      ref.replace_with(self._get_soup(text))
+      ref.replace_with(get_soup(text, self.parent))
     else:
       self.parent._general_error(f"Failed to translate element method name '{method}' in '{attributes}', invalid method")
       ref.replace_with('Missing content: invalid method name')
@@ -67,7 +66,7 @@ class Macros():
     instance = self._resolve_template(template)
     if instance.valid_method(method):
       text = getattr(instance, method)()
-      ref.replace_with(self._get_soup(text))
+      ref.replace_with(get_soup(text, self.parent))
     else:
       self.parent._general_error(f"Failed to translate section method name '{method}' in '{attributes}', invalid method")
       ref.replace_with('Missing content: invalid method name')       
@@ -79,7 +78,7 @@ class Macros():
         <p class="usdm-warning">{attributes['text']}</p>
       </div>
     """
-    ref.replace_with(self._get_soup(text))
+    ref.replace_with(get_soup(text, self.parent))
 
   def _valid_method(self, name):
     return name in ['_xref', '_image', '_element', '_section', '_note']
@@ -96,16 +95,16 @@ class Macros():
       data = base64.b64encode(image_file.read())
     return data
   
-  def _get_soup(self, text) -> str:
-    try:
-      #print(f"SOUP: {text}")
-      with warnings.catch_warnings(record=True) as warning_list:
-        result =  BeautifulSoup(text, 'html.parser')
-      if warning_list:
-        self.parent._general_warning(None, None, None, f"Warning raised within Soup package, processing '{text}'")
-      return result
-    except Exception as e:
-      self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-      self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
-      return ""
+  # def _get_soup(self, text) -> str:
+  #   try:
+  #     #print(f"SOUP: {text}")
+  #     with warnings.catch_warnings(record=True) as warning_list:
+  #       result =  BeautifulSoup(text, 'html.parser')
+  #     if warning_list:
+  #       self.parent._general_warning(None, None, None, f"Warning raised within Soup package, processing '{text}'")
+  #     return result
+  #   except Exception as e:
+  #     self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
+  #     self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
+  #     return ""
     

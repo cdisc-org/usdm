@@ -1,13 +1,11 @@
 import os
-import base64
 import traceback
 import docraptor
-import warnings
 from yattag import Doc
-from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_sheet.study_sheet import Study
+from .utility import get_soup
 
 class Document():
 
@@ -139,7 +137,7 @@ class Document():
       return False
 
   def _translate_references(self, content_text):
-    soup = self._get_soup(content_text)
+    soup = get_soup(content_text, self.parent)
     for ref in soup(['usdm:ref']):
       try:
         attributes = ref.attrs
@@ -151,19 +149,19 @@ class Document():
         self.parent._traceback(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content: exception')
-    self.parent._general_debug(f"Translate references from {content_text} => {self._get_soup(str(soup))}")
-    return self._get_soup(str(soup))
+    self.parent._general_debug(f"Translate references from {content_text} => {get_soup(str(soup), self.parent)}")
+    return get_soup(str(soup), self.parent)
 
   def _resolve_instance(self, instance, attribute):
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
-    soup = self._get_soup(value)
+    soup = get_soup(value, self.parent)
     for ref in soup(['usdm:tag']):
       try:
         attributes = ref.attrs
         if dictionary:
           value = dictionary.parameterMap[attributes['name']]
-          ref.replace_with(self._get_soup(value))
+          ref.replace_with(get_soup(value, self.parent))
         else:
           self.parent._general_error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document")
           ref.replace_with('Missing content: missing dictionary')
@@ -313,16 +311,16 @@ class Document():
       }
     """
     
-  def _get_soup(self, text):
-    try:
-      with warnings.catch_warnings(record=True) as warning_list:
-        result =  BeautifulSoup(text, 'html.parser')
-      if warning_list:
-        for item in warning_list:
-          self.parent._general_warning(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
-      return result
-    except Exception as e:
-      self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-      self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
-      return ""
+  # def _get_soup(self, text):
+  #   try:
+  #     with warnings.catch_warnings(record=True) as warning_list:
+  #       result =  BeautifulSoup(text, 'html.parser')
+  #     if warning_list:
+  #       for item in warning_list:
+  #         self.parent._general_warning(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
+  #     return result
+  #   except Exception as e:
+  #     self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
+  #     self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
+  #     return ""
     
