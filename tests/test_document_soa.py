@@ -1,4 +1,3 @@
-import pandas as pd
 from bs4 import BeautifulSoup   
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
@@ -16,22 +15,19 @@ from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 from usdm_model.timing import Timing
 from usdm_model.condition import Condition
 
-
 from tests.test_factory import Factory
+from tests.test_utility import clear as tu_clear
 
-cdisc_ct = CDISCCT()
 factory = Factory()
 
-dummy_code = cdisc_ct.code("C12345", "decode")
+FIXED = factory.cdisc_code('C201358', 'Fixed Reference')
+BEFORE = factory.cdisc_code('C201356', 'After')
+AFTER = factory.cdisc_code('C201357', 'Before')
 
-FIXED = cdisc_ct.code('C201358', 'Fixed Reference')
-BEFORE = cdisc_ct.code('C201356', 'After')
-AFTER = cdisc_ct.code('C201357', 'Before')
-
-E2E = cdisc_ct.code('C201352', 'End to End')
-E2S = cdisc_ct.code('C201353', 'End to Start')
-S2E = cdisc_ct.code('C201354', 'Start to End')
-S2S = cdisc_ct.code('C201355', 'Start to Start')
+E2E = factory.cdisc_code('C201352', 'End to End')
+E2S = factory.cdisc_code('C201353', 'End to Start')
+S2E = factory.cdisc_code('C201354', 'Start to End')
+S2S = factory.cdisc_code('C201355', 'Start to Start')
 
 def translate_reference(text):
   soup = BeautifulSoup(str(text), 'html.parser')
@@ -93,9 +89,9 @@ def create_activities():
 
 def create_epochs():
   item_list = [
-    {'name': 'EP1', 'label': 'Epoch A', 'description': '', 'type': dummy_code},
-    {'name': 'EP2', 'label': 'Epoch B', 'description': '', 'type': dummy_code},
-    {'name': 'EP3', 'label': 'Epoch C', 'description': '', 'type': dummy_code},
+    {'name': 'EP1', 'label': 'Epoch A', 'description': '', 'type': factory.cdisc_dummy()},
+    {'name': 'EP2', 'label': 'Epoch B', 'description': '', 'type': factory.cdisc_dummy()},
+    {'name': 'EP3', 'label': 'Epoch C', 'description': '', 'type': factory.cdisc_dummy()},
   ]
   results = factory.set(StudyEpoch, item_list)
   double_link(results, 'previousId', 'nextId')
@@ -104,9 +100,9 @@ def create_epochs():
 
 def create_encounters():
   item_list = [
-    {'name': 'E1', 'label': 'Screening', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
-    {'name': 'E2', 'label': 'Dose', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
-    {'name': 'E3', 'label': 'Check Up', 'description': '', 'type': dummy_code, 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None}
+    {'name': 'E1', 'label': 'Screening', 'description': '', 'type': factory.cdisc_dummy(), 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
+    {'name': 'E2', 'label': 'Dose', 'description': '', 'type': factory.cdisc_dummy(), 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
+    {'name': 'E3', 'label': 'Check Up', 'description': '', 'type': factory.cdisc_dummy(), 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None}
   ]
   results = factory.set(Encounter, item_list)
   double_link(results, 'previousId', 'nextId')
@@ -127,7 +123,7 @@ def create_activity_instances():
 
 def scenario_1():
   dummy_cell = factory.item(StudyCell, {'armId': "X", 'epochId': "Y"})
-  dummy_arm = factory.item(StudyArm, {'name': "Arm1", 'type': dummy_code, 'dataOriginDescription': 'xxx', 'dataOriginType': dummy_code})
+  dummy_arm = factory.item(StudyArm, {'name': "Arm1", 'type': factory.cdisc_dummy(), 'dataOriginDescription': 'xxx', 'dataOriginType': factory.cdisc_dummy()})
   activities = create_activities()
   epochs = create_epochs()
   encounters = create_encounters()
@@ -158,22 +154,15 @@ def scenario_1():
   activity_instances[-1].timelineExitId = exit.id
   timeline = factory.item(ScheduleTimeline, {'name': 'Study Design', 'label': '', 'description': '', 'mainTimeline': True, 'entryCondition': "Condition", 'entryId': activity_instances[0].id, 'exits': [exit], 'instances': activity_instances, 'timings': timings})
   study_design = factory.item(StudyDesign, {'name': 'Study Design', 'label': '', 'description': '', 
-    'rationale': 'XXX', 'interventionModel': dummy_code,
+    'rationale': 'XXX', 'interventionModel': factory.cdisc_dummy(),
     'arms': [dummy_arm], 'studyCells': [dummy_cell], 'epochs': epochs,
     'activities': activities, 'scheduledTimelines': [timeline],
     'conditions': conditions})
   return study_design, timeline
 
-def fake_sheet(mocker):
-  mocked_open = mocker.mock_open(read_data="File")
-  mocker.patch("builtins.open", mocked_open)
-  data = []
-  mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=[])
-  return BaseSheet("", "")
-
 def test_create(mocker):
-  bs = fake_sheet(mocker)
+  tu_clear()
+  bs = factory.base_sheet(mocker)
   study_design, timeline = scenario_1()
   soa = SoA(bs, study_design, timeline)
   result = soa.generate()

@@ -28,7 +28,6 @@ class Document():
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
 
   def to_pdf(self, test=True):
-    #print(f"PDF: Test set {test}")
     doc_api = docraptor.DocApi()
     doc_api.api_client.configuration.username = os.getenv('DOCRAPTOR_API_KEY')
     document_content = self.to_html()
@@ -98,7 +97,6 @@ class Document():
       self.parent._general_error(f"Exception '{e}' raised generating HTML content")
 
   def _content_to_html(self, content, doc):
-    #level = len(content.sectionNumber.split('.'))
     level = self._get_level(content.sectionNumber)
     klass = "page" if level == 1 else ""
     heading_id = f"section-{content.sectionNumber}"
@@ -153,6 +151,7 @@ class Document():
         self.parent._traceback(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
         ref.replace_with('Missing content: exception')
+    self.parent._general_debug(f"Translate references from {content_text} => {self._get_soup(str(soup))}")
     return self._get_soup(str(soup))
 
   def _resolve_instance(self, instance, attribute):
