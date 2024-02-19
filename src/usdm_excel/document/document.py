@@ -308,6 +308,10 @@ class Document():
         text-align: left
       }
 
+      .soa-footnote-text {
+        font-size: 12px;
+        text-align: left
+      }
     """
     
   def _get_soup(self, text):

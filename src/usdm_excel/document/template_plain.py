@@ -77,11 +77,11 @@ class TemplatePlain(TemplateBase):
               for item in footnotes:
                 with doc.tag('tr'):
                   with doc.tag('td'):
-                    with doc.tag('p', klass="small"):
+                    with doc.tag('p', klass="soa-footnote-text"):
                       with doc.tag('sup'):
                         doc.text(item['number'])
                   with doc.tag('td'):
-                    with doc.tag('p', klass="small"):
+                    with doc.tag('p', klass="soa-footnote-text"):
                       doc.asis(item['text'])
     except Exception as e:
       self.parent._traceback(f"Exception '{e}' raised generating SoA content.\n{traceback.format_exc()}")
