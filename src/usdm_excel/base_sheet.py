@@ -193,12 +193,12 @@ class BaseSheet():
     if len(parts) == 6:
       result = self._to_address(
           id_manager.build_id(Address),
-          line=parts[0], 
-          district=parts[1], 
-          city=parts[2], 
-          state=parts[3], 
-          postal_code=parts[4], 
-          country=ISO3166().code(parts[5])
+          line=parts[0].strip(), 
+          district=parts[1].strip(), 
+          city=parts[2].strip(), 
+          state=parts[3].strip(), 
+          postal_code=parts[4].strip(), 
+          country=ISO3166().code(parts[5].strip())
         )
       return result
     elif allow_empty:
@@ -227,23 +227,6 @@ class BaseSheet():
       self._general_error(f"Failed to create {cls.__name__} object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
       return None
-
-  # def read_description_by_name(self, row_index, field_name):
-  #   value = self.read_cell_by_name(row_index, field_name)
-  #   empty_value = option_manager.get(Options.DESCRIPTION)
-  #   if value == "" and not empty_value == "":
-  #     return empty_value
-  #   return value
-
-  # def set_cdisc_code(self, value):
-  #   if value.strip() == "":
-  #     return None
-  #   parts = value.split("=")
-  #   try:
-  #     return CDISCCT().code(code=parts[0].strip(), decode=parts[1].strip())
-  #   except Exception as e:
-  #     self._error(0, 0, "CDISC code error '%s'" % (e))
-  #     return None
 
   def read_other_code_cell_by_name(self, row_index, field_name):
     #col_index = self.sheet.columns.get_loc(field_name)
