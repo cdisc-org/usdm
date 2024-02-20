@@ -224,8 +224,8 @@ class Document():
 
   def _link(self, id):
     return f"""
-      <a class="link-dark" style="font-size: 12px;" data-bs-toggle="modal" data-bs-target="#{id}">
-        <i class="ps-2 pe-2 bi bi-info-circle"></i>
+      <a class="link-dark usdm-highlight-link" style="font-size: 12px;" data-bs-toggle="modal" data-bs-target="#{id}">
+        <i class="ps-1 pe-1 bi bi-info-circle"/>
       </a>
     """
 
@@ -391,4 +391,9 @@ class Document():
       p .usdm-highlight {
         background-color: LightGray;
       }
+
+      .usdm-highlight-link {
+        text-decoration:none;
+      }
+
     """  
