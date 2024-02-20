@@ -216,8 +216,8 @@ class StudySheet(BaseSheet):
   def api_root(self):
     return Wrapper(study=self.study)
 
-  def to_html(self):
-    return Document(self, self.brief_title.text, self.study, self.dir_path).to_html()
+  def to_html(self, highlight=False):
+    return Document(self, self.brief_title.text, self.study, self.dir_path).to_html(highlight)
 
   def to_pdf(self, test=True):
     return Document(self, self.brief_title.text, self.study, self.dir_path).to_pdf(test)

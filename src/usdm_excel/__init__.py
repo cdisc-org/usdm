@@ -48,9 +48,9 @@ class USDMExcel():
       raw_json = json.dumps({'error': message}, indent = 2)
     return raw_json
 
-  def to_html(self):
+  def to_html(self, highlight=False):
     try:
-      html = self.study.to_html()
+      html = self.study.to_html(highlight)
     except Exception as e:
       message = f"Failed to generate HTML output, exception {e}"
       error_manager.add(None, None, None, message)

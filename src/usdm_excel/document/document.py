@@ -51,7 +51,7 @@ class Document():
       self.parent._general_error(f"Exception '{e}' raised generating PDF content.\n{traceback.format_exc()}")
       self.parent._general_error(f"Exception '{e}' raised generating PDF content")
 
-  def to_html(self):
+  def to_html(self, highlight=False):
     try:
       self.chapters = []
       root = self.protocol_document_version.contents[0]
@@ -88,13 +88,13 @@ class Document():
           for id in root.childIds:
             content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
             if content:
-              self._content_to_html(content, doc)
+              self._content_to_html(content, doc, highlight)
       return doc.getvalue()
     except Exception as e:
       self.parent._traceback(f"Exception '{e}' raised generating HTML content.\n{traceback.format_exc()}")
       self.parent._general_error(f"Exception '{e}' raised generating HTML content")
 
-  def _content_to_html(self, content, doc):
+  def _content_to_html(self, content, doc, highlight=False):
     level = self._get_level(content.sectionNumber)
     klass = "page" if level == 1 else ""
     heading_id = f"section-{content.sectionNumber}"
@@ -105,10 +105,10 @@ class Document():
       if (self._is_level_1_doc_section(content.sectionNumber)) or (level > 1):
         with doc.tag(f'h{level}', id=heading_id):
           doc.asis(f"{content.sectionNumber} {content.sectionTitle}")
-      doc.asis(str(self._translate_references(content.text)))
+      doc.asis(str(self._translate_references(content.text, highlight)))
       for id in content.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-        self._content_to_html(content, doc)
+        self._content_to_html(content, doc, highlight)
 
   def _get_level(self, section_number):
     if section_number.lower().startswith("appendix"):
@@ -136,23 +136,25 @@ class Document():
     except:
       return False
 
-  def _translate_references(self, content_text):
+  def _translate_references(self, content_text, highlight=False):
     soup = get_soup(content_text, self.parent)
     for ref in soup(['usdm:ref']):
       try:
         attributes = ref.attrs
         instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
         value = self._resolve_instance(instance, attributes['attribute'])
-        translated_text = self._translate_references(value)
-        ref.replace_with(translated_text)
+        translated_text = self._translate_references(value, highlight)
+        self._replace_and_highlight(soup, ref, translated_text, highlight)
+        #ref.replace_with(translated_text)
       except Exception as e:
         self.parent._traceback(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
-        ref.replace_with('Missing content: exception')
+        self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
+        #ref.replace_with('Missing content: exception')
     self.parent._general_debug(f"Translate references from {content_text} => {get_soup(str(soup), self.parent)}")
     return get_soup(str(soup), self.parent)
 
-  def _resolve_instance(self, instance, attribute):
+  def _resolve_instance(self, instance, attribute, highlight=False):
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
     soup = get_soup(value, self.parent)
@@ -161,14 +163,17 @@ class Document():
         attributes = ref.attrs
         if dictionary:
           value = dictionary.parameterMap[attributes['name']]
-          ref.replace_with(get_soup(value, self.parent))
+          self._replace_and_highlight(soup, ref, get_soup(value, self.parent), highlight)
+          #ref.replace_with(get_soup(value, self.parent))
         else:
           self.parent._general_error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document")
-          ref.replace_with('Missing content: missing dictionary')
+          self._replace_and_highlight(soup, ref, 'Missing content: missing dictionary', highlight)
+          #ref.replace_with('Missing content: missing dictionary')
       except Exception as e:
         self.parent._traceback(f"Failed to resolve reference '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to resolve reference '{attributes}' while generating the HTML document")
-        ref.replace_with('Missing content: exception')
+        self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
+        #ref.replace_with('Missing content: exception')
     return str(soup)
 
   def _get_dictionary(self, instance):
@@ -176,7 +181,15 @@ class Document():
       return cross_references.get_by_id('SyntaxTemplateDictionary', instance.dictionaryId)
     except:
       return None  
-    
+
+  def _replace_and_highlight(self, soup, ref, text, highlight):
+    if highlight:
+      self._wrap_in_span_and_modal(soup, ref)
+    ref.replace_with(text)
+
+  def _wrap_in_span_and_modal(self, soup, ref):
+    ref.wrap(soup.new_tag('span', style="background-color:LightGray;"))
+
   def _table_of_contents(self):
     return f"""
       <div id="toc-page" class="page">
