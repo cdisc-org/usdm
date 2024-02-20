@@ -18,13 +18,11 @@ class ISO3166(CodeBase):
     return self._build(code=code, system='ISO 3166 1 alpha3', version='2020-08', decode=decode)
 
   def _get_decode(self, code):
-    #print(f"ISO31661: {code}")
     if len(code) == 2:
       field = 'alpha-2'
     else:
       field = 'alpha-3'
     entry = next((item for item in self.db if item[field] == code), None)
-    #print(f"ISO31662: {entry} {field}")
     if entry == None:
       return 'DNK', 'Denmark'
     else:
