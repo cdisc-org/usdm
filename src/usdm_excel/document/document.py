@@ -213,7 +213,7 @@ class Document():
     ref.replace_with(text)
 
   def _wrap_in_span_and_modal(self, soup, ref):
-    span = soup.new_tag('span', style="background-color:LightGray;")
+    span = soup.new_tag('span', attrs={'class': "usdm-highlight"})
     span.append(get_soup(self._modal(ref), self.parent))
     ref.wrap(span)
 
@@ -221,9 +221,9 @@ class Document():
     id = f"usdmContent{self.modal_count}"
     self.modal_count += 1
     return f"""
-      <a class="link-dark" style="font-size: 10px;" data-bs-toggle="modal" data-bs-target="#{id}">
-        <i class="bi bi-info-circle"></i>
-      </a>  
+      <a class="link-dark" style="font-size: 12px;" data-bs-toggle="modal" data-bs-target="#{id}">
+        <i class="ps-2 pe-2 bi bi-info-circle"></i>
+      </a>
       <div class="modal fade" id="{id}" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -371,18 +371,16 @@ class Document():
         font-size: 12px;
         text-align: left
       }
-    """
-    
-  # def _get_soup(self, text):
-  #   try:
-  #     with warnings.catch_warnings(record=True) as warning_list:
-  #       result =  BeautifulSoup(text, 'html.parser')
-  #     if warning_list:
-  #       for item in warning_list:
-  #         self.parent._general_warning(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
-  #     return result
-  #   except Exception as e:
-  #     self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-  #     self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
-  #     return ""
-    
+
+      .usdm-highlight {
+        background-color: LightGray !important;
+      }
+
+      .usdm-highlight p {
+        background-color: LightGray;
+      }
+
+      p .usdm-highlight {
+        background-color: LightGray;
+      }
+    """  
