@@ -209,21 +209,28 @@ class Document():
 
   def _replace_and_highlight(self, soup, ref, text, highlight):
     if highlight:
-      self._wrap_in_span_and_modal(soup, ref)
-    ref.replace_with(text)
+      self._wrap_in_span_and_modal(soup, ref, text)
+    else:
+      ref.replace_with(text)
 
-  def _wrap_in_span_and_modal(self, soup, ref):
-    span = soup.new_tag('span', attrs={'class': "usdm-highlight"})
-    span.append(get_soup(self._modal(ref), self.parent))
-    ref.wrap(span)
-
-  def _modal(self, ref):
+  def _wrap_in_span_and_modal(self, soup, ref, text):
     id = f"usdmContent{self.modal_count}"
+    span = soup.new_tag('span', attrs={'class': "usdm-highlight"})
+    span.append(get_soup(self._link(id), self.parent))
+    span.append(text)
+    ref.replace_with(span)
+    ref.append(get_soup(self._modal(ref, id), self.parent))
     self.modal_count += 1
+
+  def _link(self, id):
     return f"""
       <a class="link-dark" style="font-size: 12px;" data-bs-toggle="modal" data-bs-target="#{id}">
         <i class="ps-2 pe-2 bi bi-info-circle"></i>
       </a>
+      """
+
+  def _modal(self, ref, id):
+    return f"""
       <div class="modal fade" id="{id}" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
