@@ -1117,3 +1117,485 @@
   shortName: Creatinine Measurement
   synonyms:
   - Creatinine
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C164634:
+  _links:
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C164634
+      title: Body Height
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  coding:
+  - code: 8302-2
+    system: http://loinc.org/
+    systemName: LOINC
+  conceptId: C164634
+  dataElementConcepts:
+  - conceptId: C77140
+    dataType: decimal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77140
+    ncitCode: C77140
+    shortName: Clinical Test Result
+  - conceptId: C168688
+    dataType: string
+    exampleSet:
+    - Centimeter
+    - Inch
+    - Millimeter
+    - Meter
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C168688
+    ncitCode: C168688
+    shortName: Unit of Height
+  definition: The vertical measurement or distance from the base to the top of a subject
+    or participant.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164634
+  ncitCode: C164634
+  resultScales:
+  - Quantitative
+  shortName: Body Height
+  synonyms:
+  - Height
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C174446:
+  _links:
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C174446
+      title: Body Temperature
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  coding:
+  - code: 8310-5
+    system: http://loinc.org/
+    systemName: LOINC
+  conceptId: C174446
+  dataElementConcepts:
+  - conceptId: C77140
+    dataType: decimal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77140
+    ncitCode: C77140
+    shortName: Clinical Test Result
+  - conceptId: C44276
+    dataType: string
+    exampleSet:
+    - Fahrenheit
+    - Celsius
+    - Kelvin
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C44276
+    ncitCode: C44276
+    shortName: Unit of Temperature
+  - conceptId: C13717
+    dataType: string
+    exampleSet:
+    - Axilla
+    - Ear
+    - Forehead
+    - Oral Cavity
+    - Rectum
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13717
+    ncitCode: C13717
+    shortName: Anatomic Site
+  definition: A measurement of the temperature of the body.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C174446
+  ncitCode: C174446
+  resultScales:
+  - Quantitative
+  shortName: Body Temperature
+  synonyms:
+  - Temperature
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C25298:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C54706
+      title: Blood Pressure
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C25298
+      title: Systolic Blood Pressure
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  coding:
+  - code: 8480-6
+    system: http://loinc.org/
+    systemName: LOINC
+  conceptId: C25298
+  dataElementConcepts:
+  - conceptId: C77140
+    dataType: decimal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77140
+    ncitCode: C77140
+    shortName: Clinical Test Result
+  - conceptId: C49669
+    dataType: string
+    exampleSet:
+    - cmHg
+    - mmHG
+    - Pascal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49669
+    ncitCode: C49669
+    shortName: Unit of Pressure
+  - conceptId: C13717
+    dataType: string
+    exampleSet:
+    - Arm
+    - Forearm
+    - Thigh
+    - Calf
+    - Artery
+    - Vein
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13717
+    ncitCode: C13717
+    shortName: Anatomic Site
+  - conceptId: C25185
+    dataType: string
+    exampleSet:
+    - Left
+    - Right
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25185
+    ncitCode: C25185
+    shortName: Laterality
+  - conceptId: C82535
+    dataType: string
+    exampleSet:
+    - Auscultation automatic
+    - Auscaltation manual
+    - Cuff-manual palpated
+    - Doppler
+    - Oscillometry
+    - Arterial line
+    - Venous line
+    - Continuous noninvasive arterial pressure (CNAP)
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82535
+    ncitCode: C82535
+    shortName: Test Method
+  - conceptId: C62164
+    dataType: string
+    exampleSet:
+    - Decupitus
+    - Fowlers
+    - Lateral Decupitus
+    - Prone
+    - Reverse Trendelenburg
+    - Semi-Fowlers
+    - Semi-Recumbent
+    - Sitting
+    - Sitting Legs Dependent
+    - Sling
+    - Standing
+    - Supine
+    - Trendelenburg
+    - Unconstrained
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C62164
+    ncitCode: C62164
+    shortName: Body Position
+  definition: The maximum pressure exerted into the systemic arterial circulation
+    during the contraction of the left ventricle of the heart.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25298
+  ncitCode: C25298
+  resultScales:
+  - Quantitative
+  shortName: Systolic Blood Pressure
+  synonyms:
+  - SYSBP
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C25299:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C54706
+      title: Blood Pressure
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C25299
+      title: Diastolic Blood Pressure
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  coding:
+  - code: 8462-4
+    system: http://loinc.org/
+    systemName: LOINC
+  conceptId: C25299
+  dataElementConcepts:
+  - conceptId: C77140
+    dataType: decimal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77140
+    ncitCode: C77140
+    shortName: Clinical Test Result
+  - conceptId: C49669
+    dataType: string
+    exampleSet:
+    - cmHg
+    - mmHG
+    - Pascal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49669
+    ncitCode: C49669
+    shortName: Unit of Pressure
+  - conceptId: C13717
+    dataType: string
+    exampleSet:
+    - Arm
+    - Artery
+    - Calf
+    - Forearm
+    - Thigh
+    - Vein
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13717
+    ncitCode: C13717
+    shortName: Anatomic Site
+  - conceptId: C25185
+    dataType: string
+    exampleSet:
+    - Left
+    - Right
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25185
+    ncitCode: C25185
+    shortName: Laterality
+  - conceptId: C82535
+    dataType: string
+    exampleSet:
+    - Auscultation automatic
+    - Auscaltation manual
+    - Cuff-manual palpated
+    - Doppler
+    - Oscillometry
+    - Arterial line
+    - Venous line
+    - Continuous noninvasive arterial pressure (CNAP)
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82535
+    ncitCode: C82535
+    shortName: Test Method
+  - conceptId: C62164
+    dataType: string
+    exampleSet:
+    - Decupitus
+    - Fowlers
+    - Lateral Decupitus
+    - Prone
+    - Reverse Trendelenburg
+    - Semi-Fowlers
+    - Semi-Recumbent
+    - Sitting
+    - Sitting Legs Dependent
+    - Sling
+    - Standing
+    - Supine
+    - Trendelenburg
+    - Unconstrained
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C62164
+    ncitCode: C62164
+    shortName: Body Position
+  definition: The minimum pressure exerted into the systemic arterial circulation
+    during cardiac ventricular relaxation and filling.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25299
+  ncitCode: C25299
+  resultScales:
+  - Quantitative
+  shortName: Diastolic Blood Pressure
+  synonyms:
+  - DIABP
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C41331:
+  _links:
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C41331
+      title: Adverse Event
+      type: Biomedical Concept
+  categories:
+  - Subject Disposition
+  - Protocol Disposition Events
+  conceptId: C41331
+  dataElementConcepts:
+  - conceptId: C82571
+    dataType: string
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82571
+    ncitCode: C82571
+    shortName: Reported Event Term
+  - conceptId: C82977
+    dataType: string
+    exampleSet:
+    - Adverse Event
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82977
+    ncitCode: C82977
+    shortName: Dictionary-derived Term
+  - conceptId: C25372
+    dataType: string
+    exampleSet:
+    - Disposition Event
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25372
+    ncitCode: C25372
+    shortName: Category
+  - conceptId: C25692
+    dataType: string
+    exampleSet:
+    - Study Participation
+    - Study Treatment
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25692
+    ncitCode: C25692
+    shortName: Subcategory
+  - conceptId: C82517
+    dataType: datetime
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82517
+    ncitCode: C82517
+    shortName: Observation Start Date Time
+  definition: Any unfavorable or unintended disease, sign, or symptom (including an
+    abnormal laboratory finding) that is temporally associated with the use of a medical
+    treatment or procedure, and that may or may not be considered related to the medical
+    treatment or procedure. Such events can be related to the intervention, dose,
+    route of administration, patient, or caused by an interaction with another drug(s)
+    or procedure(s).
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41331
+  ncitCode: C41331
+  resultScales:
+  - Nominal
+  shortName: Adverse Event
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C49677:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C49672
+      title: Vital Signs Measurement
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C49677
+      title: Heart Rate
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  coding:
+  - code: 8867-4
+    system: http://loinc.org/
+    systemName: LOINC
+  conceptId: C49677
+  dataElementConcepts:
+  - conceptId: C77140
+    dataType: integer
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77140
+    ncitCode: C77140
+    shortName: Clinical Test Result
+  - conceptId: C73688
+    dataType: string
+    exampleSet:
+    - Beats per Minute
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C73688
+    ncitCode: C73688
+    shortName: Count per Minute
+  - conceptId: C13717
+    dataType: string
+    exampleSet:
+    - Wrist
+    - Neck
+    - Temple
+    - Groin
+    - Behind the knees
+    - On top of the foot
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13717
+    ncitCode: C13717
+    shortName: Anatomic Site
+  - conceptId: C25185
+    dataType: string
+    exampleSet:
+    - Left
+    - Right
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25185
+    ncitCode: C25185
+    shortName: Laterality
+  - conceptId: C82535
+    dataType: string
+    exampleSet:
+    - Acoustic Monitoring
+    - Auscaltation Manual
+    - Palpation
+    - Oscillometry
+    - Pulse Oximetry
+    - EKG/ECG
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C82535
+    ncitCode: C82535
+    shortName: Test Method
+  - conceptId: C62164
+    dataType: string
+    exampleSet:
+    - Decupitus
+    - Fowlers
+    - Lateral Decupitus
+    - Prone
+    - Reverse Trendelenburg
+    - Semi-Fowlers
+    - Semi-Recumbent
+    - Sitting
+    - Sitting Legs Dependent
+    - Sling
+    - Standing
+    - Supine
+    - Trendelenburg
+    - Unconstrained
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C62164
+    ncitCode: C62164
+    shortName: Body Position
+  definition: The number of heartbeats per unit of time, usually expressed as beats
+    per minute.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49677
+  ncitCode: C49677
+  resultScales:
+  - Quantitative
+  shortName: Heart Rate
+/mdr/bc/packages/2023-12-12/biomedicalconcepts/C81328:
+  _links:
+    parentPackage:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts
+      title: Biomedical Concept Package Effective 2023-12-12
+      type: Biomedical Concept Package
+    self:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C81328
+      title: Body Weight
+      type: Biomedical Concept
+  categories:
+  - Vital Signs
+  coding:
+  - code: 29463-7
+    system: http://loinc.org/
+    systemName: LOINC
+  conceptId: C81328
+  dataElementConcepts:
+  - conceptId: C77140
+    dataType: decimal
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77140
+    ncitCode: C77140
+    shortName: Clinical Test Result
+  - conceptId: C48208
+    dataType: string
+    exampleSet:
+    - Kilogram
+    - Gram
+    - Pound
+    href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48208
+    ncitCode: C48208
+    shortName: Unit of Weight
+  definition: The weight of a subject.
+  href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C81328
+  ncitCode: C81328
+  resultScales:
+  - Quantitative
+  shortName: Body Weight
+  synonyms:
+  - Weight

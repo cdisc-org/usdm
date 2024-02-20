@@ -1161,12 +1161,12 @@
                 "synonyms": [
                   "Weight"
                 ],
-                "reference": "/mdr/bc/packages/2022-10-26/biomedicalconcepts/C81328",
+                "reference": "/mdr/bc/packages/2023-12-12/biomedicalconcepts/C81328",
                 "properties": [
                   {
                     "id": "BiomedicalConceptProperty_3",
-                    "name": "Vital Signs Result",
-                    "label": "Vital Signs Result",
+                    "name": "Clinical Test Result",
+                    "label": "Clinical Test Result",
                     "isRequired": true,
                     "isEnabled": true,
                     "datatype": "decimal",
@@ -1175,10 +1175,10 @@
                       "id": "AliasCode_15",
                       "standardCode": {
                         "id": "Code_108",
-                        "code": "C173522",
+                        "code": "C77140",
                         "codeSystem": "NCI Thesaurus",
                         "codeSystemVersion": "",
-                        "decode": "Vital Signs Result",
+                        "decode": "Clinical Test Result",
                         "instanceType": "Code"
                       },
                       "standardCodeAliases": [],
