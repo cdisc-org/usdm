@@ -712,6 +712,26 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 | C | sectionTitle | The section title | Text String |
 | D | sectionText | The section text | HTML formatted text String |
 
+There are some prefined macros that can be used to generate content. These are pre processed when the content sheet is read and transated into the appropriate USDM references ```usdm:ref``` or ```usdm:tag```. These macros use a similar syntax to the USDM references: 
+
+```<usdm:macro id="macro name" attrib1="data1" attrib2="data2" .../>```
+
+| Macro Name | Purpose | Attributes |
+| :--- | :--- | :--- |
+| xref | Refer to a data element by name reference | 'klass', 'name' and 'attribute'. The name is the name used within the workbook to define the content. |
+| image | Insert an mage into the document | 'file' and 'type'. The file attribute specifies the name of a file in the same directory as the Excel workbook. |
+| element | Refer to a predefined element | 'name' of the element. Supported element names are 'study_phase', 'study_short_title', 'study_full_title', 'study_acronym', 'study_rationale', 'study_version_identifier', 'study_identifier', 'study_regulatory_identifiers', 'study_date', 'approval_date', 'organization_name_and_address', 'amendment' and 'amendment_scope' |
+| section | Add a pre defined section into the document | 'name' and 'template'. Supported section are 'title_page', 'inclusion', 'exclusion' and 'objective_endpoints'. Supported templates are 'm11' and 'plain' |
+| note | Insert a note into the document | 'text' |
+
+Examples of macros are:
+
+```<usdm:macro id="xref" klass="Objective" name="OBJ1" attribute="text"/>```
+```<usdm:macro id="xref" klass="StudyDesignPopulation" name="STUDY_POP" attribute="@plannedCompletionNumber/Range/maxValue"/>```
+```<usdm:macro id="element" name="study_identifier"/>```
+```<usdm:macro id="image" file="design.png" type="png"/>```
+```<usdm:macro id="section" name="inclusion" template="plain"/>```
+```<usdm:macro id="note" text="A note here please"/>```
 
 ### Study Design Sites sheet
 
