@@ -21,6 +21,7 @@ class Document():
     self.protocol_document_version = self.study.documentedBy.versions[0]
     self.doc_title = doc_title
     self.chapters = []
+    self.modal_count = 1
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
       self.parent._general_error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
@@ -53,6 +54,7 @@ class Document():
 
   def to_html(self, highlight=False):
     try:
+      self.modal_count = 1
       self.chapters = []
       root = self.protocol_document_version.contents[0]
       doc = Doc()
@@ -69,12 +71,25 @@ class Document():
             pass
           with doc.tag('style'):
             doc.asis(self._style())     
+          
+          # Google fonts
           attributes = {
             'href': "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap",
             'rel': "stylesheet"
           }
           with doc.tag('link', **attributes):
             pass
+
+          # Bootstrap Icons
+          attributes = {
+            'href': "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css",
+            'rel': "stylesheet",
+            'type': "text/css"
+          }
+          with doc.tag('link', **attributes):
+            pass
+          
+          # Bootstrap CSS
           attributes = {
             'href': "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
             'rel': "stylesheet",
@@ -83,6 +98,16 @@ class Document():
           }
           with doc.tag('link', **attributes):
             pass
+
+          # Bootstrap JS
+          attributes = {
+            'src': "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+            'integrity': "sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL",
+            'crossorigin': "anonymous"
+          }
+          with doc.tag('script', **attributes):
+            pass
+        
         with doc.tag('body'):
           doc.asis(self._title_page())    
           for id in root.childIds:
@@ -188,7 +213,31 @@ class Document():
     ref.replace_with(text)
 
   def _wrap_in_span_and_modal(self, soup, ref):
-    ref.wrap(soup.new_tag('span', style="background-color:LightGray;"))
+    span = soup.new_tag('span', style="background-color:LightGray;")
+    span.append(get_soup(self._modal(ref), self.parent))
+    ref.wrap(span)
+
+  def _modal(self, ref):
+    id = f"usdmContent{self.modal_count}"
+    self.modal_count += 1
+    return f"""
+      <a class="link-dark" style="font-size: 10px;" data-bs-toggle="modal" data-bs-target="#{id}">
+        <i class="bi bi-info-circle"></i>
+      </a>  
+      <div class="modal fade" id="{id}" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{ref.name}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {ref.attrs}
+            </div>
+          </div>
+        </div>
+      </div>
+      """
 
   def _table_of_contents(self):
     return f"""
