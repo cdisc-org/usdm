@@ -219,9 +219,7 @@ class Document():
     span.append(get_soup(self._link(id), self.parent))
     span.append(text)
     ref.replace_with(span)
-    #print(f"WRAP1: {ref}")
     span.append(get_soup(self._modal(ref, id), self.parent))
-    #print(f"WRAP2: {ref}")
     self.modal_count += 1
 
   def _link(self, id):
@@ -232,16 +230,17 @@ class Document():
     """
 
   def _modal(self, ref, id):
+    body = [f"<b>'{k}':</b> '{v}'" for k,v in ref.attrs.items()]
     return f"""
       <div class="modal fade" id="{id}" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">{ref.name}</h5>
+              <h5 class="modal-title">Included using '{ref.name}'</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              {ref.attrs}
+              Attributes: {(', ').join(body)}
             </div>
           </div>
         </div>
