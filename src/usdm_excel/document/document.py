@@ -219,7 +219,9 @@ class Document():
     span.append(get_soup(self._link(id), self.parent))
     span.append(text)
     ref.replace_with(span)
-    ref.append(get_soup(self._modal(ref, id), self.parent))
+    #print(f"WRAP1: {ref}")
+    span.append(get_soup(self._modal(ref, id), self.parent))
+    #print(f"WRAP2: {ref}")
     self.modal_count += 1
 
   def _link(self, id):
@@ -227,7 +229,7 @@ class Document():
       <a class="link-dark" style="font-size: 12px;" data-bs-toggle="modal" data-bs-target="#{id}">
         <i class="ps-2 pe-2 bi bi-info-circle"></i>
       </a>
-      """
+    """
 
   def _modal(self, ref, id):
     return f"""
@@ -244,7 +246,7 @@ class Document():
           </div>
         </div>
       </div>
-      """
+    """
 
   def _table_of_contents(self):
     return f"""

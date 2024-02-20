@@ -52,22 +52,23 @@ def run_test(filename, save=False):
     expected = read_error_csv(f)
   assert prep_errors_for_csv_compare(errors) == expected
 
-def run_test_html(filename, save=False):
+def run_test_html(filename, save=False, highlight=False):
+  suffix = "_highlight" if highlight else ""
   excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result = excel.to_html()
+  result = excel.to_html(highlight)
   errors = excel.errors()
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
-    with open(f"tests/integration_test_files/{filename}.html", 'w') as f:
+    with open(f"tests/integration_test_files/{filename}{suffix}.html", 'w') as f:
       f.write(format_html(result))
-    with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'w',newline='') as f:
+    with open(f"tests/integration_test_files/{filename}{suffix}_html_errors.csv", 'w',newline='') as f:
       save_error_csv(f, errors) 
 
-  with open(f"tests/integration_test_files/{filename}.html", 'r') as f:
+  with open(f"tests/integration_test_files/{filename}{suffix}.html", 'r') as f:
     expected = f.read()
   assert format_html(result) == expected
-  with open(f"tests/integration_test_files/{filename}_html_errors.csv", 'r') as f:
+  with open(f"tests/integration_test_files/{filename}{suffix}_html_errors.csv", 'r') as f:
     expected = read_error_csv(f)
   assert prep_errors_for_csv_compare(errors) == expected
 
@@ -209,3 +210,6 @@ def test_references():
 
 def test_references_html():
   run_test_html('references')
+
+def test_references_html_highlight():
+  run_test_html('references', highlight=True)
