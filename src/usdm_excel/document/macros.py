@@ -47,9 +47,12 @@ class Macros():
   def _image(self, attributes, soup, ref) -> None:
     type = {attributes['type']}
     data = self._encode_image(attributes['file'])
-    img_tag = soup.new_tag("img")
-    img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
-    ref.replace_with(img_tag)
+    if data:
+      img_tag = soup.new_tag("img")
+      img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
+      ref.replace_with(img_tag)
+    else:
+      self._note({'text': f"Failed to insert image '{attributes['file']}', ignoring!"}, soup, ref)
 
   def _element(self, attributes, soup, ref) -> None:
     method = attributes['name'].lower()
@@ -91,20 +94,11 @@ class Macros():
       return self.plain
 
   def _encode_image(self, filename) -> bytes:
-    with open(os.path.join(self.parent.dir_path, filename), "rb") as image_file:
-      data = base64.b64encode(image_file.read())
-    return data
-  
-  # def _get_soup(self, text) -> str:
-  #   try:
-  #     #print(f"SOUP: {text}")
-  #     with warnings.catch_warnings(record=True) as warning_list:
-  #       result =  BeautifulSoup(text, 'html.parser')
-  #     if warning_list:
-  #       self.parent._general_warning(None, None, None, f"Warning raised within Soup package, processing '{text}'")
-  #     return result
-  #   except Exception as e:
-  #     self.parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-  #     self.parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
-  #     return ""
-    
+    try:
+      with open(os.path.join(self.parent.dir_path, filename), "rb") as image_file:
+        data = base64.b64encode(image_file.read())
+      return data
+    except:
+      self.parent._general_error(f"Failed to open image file '{filename}', ignored")
+      return None
+      
