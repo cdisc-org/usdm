@@ -3,7 +3,7 @@ import csv
 from usdm_excel import USDMExcel
 from uuid import UUID
 
-SAVE_ALL = False
+SAVE_ALL = True
 
 def to_int(value):
   try:
@@ -42,3 +42,6 @@ def test_full_1(mocker):
 
 def test_full_2(mocker):
   run_test('full_2', mocker)
+
+def test_full_3(mocker):
+  run_test('full_3', mocker)
