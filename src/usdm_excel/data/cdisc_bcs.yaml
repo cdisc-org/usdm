@@ -1,3 +1,762 @@
+/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/ADVEVENT:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C41331
+      title: Adverse Event
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations
+      title: SDTM Dataset Specialization Package Effective 2023-12-12
+      type: SDTM Dataset Specialization Package
+    self:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/ADVEVENT
+      title: Adverse Event
+      type: SDTM Dataset Specialization
+  datasetSpecializationId: ADVEVENT
+  domain: DS
+  sdtmigEndVersion: ''
+  sdtmigStartVersion: 3-2
+  shortName: Adverse Event
+  source: DS.DECODE
+  variables:
+  - assignedTerm:
+      conceptId: C74590
+      value: DISPOSITION EVENT
+    codelist:
+      conceptId: C74558
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C74558
+      submissionValue: DSCAT
+    dataElementConceptId: C25372
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: DSCAT
+    originSource: Sponsor
+    originType: Assigned
+    relationship:
+      linkingPhrase: groups values in
+      object: DSTERM
+      predicateTerm: GROUPS
+      subject: DSCAT
+    role: Qualifier
+  - codelist:
+      conceptId: C170443
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C170443
+      submissionValue: DSSCAT
+    dataElementConceptId: C25692
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: DSSCAT
+    originSource: Sponsor
+    originType: Assigned
+    relationship:
+      linkingPhrase: groups values in
+      object: DSTERM
+      predicateTerm: GROUPS
+      subject: DSSCAT
+    role: Qualifier
+    valueList:
+    - STUDY PARTICIPATION
+    - STUDY TREATMENT
+  - assignedTerm:
+      conceptId: C41331
+      value: ADVERSE EVENT
+    codelist:
+      conceptId: C66727
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66727
+      submissionValue: NCOMPLT
+    dataElementConceptId: C82977
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: true
+    mandatoryVariable: true
+    name: DSDECOD
+    originSource: Sponsor
+    originType: Assigned
+    relationship:
+      linkingPhrase: is a dictionary-derived term for the value in
+      object: DSTERM
+      predicateTerm: IS_DERIVED_FROM
+      subject: DSDECOD
+    role: Qualifier
+  - dataElementConceptId: C82571
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: true
+    mandatoryVariable: true
+    name: DSTERM
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is original text for
+      object: DSDECOD
+      predicateTerm: IS_ORIGINAL_TEXT_FOR
+      subject: DSTERM
+    role: Topic
+  - dataElementConceptId: C82517
+    dataType: datetime
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: DSSTDTC
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is the start date for
+      object: DSTERM
+      predicateTerm: IS_TIMING_FOR
+      subject: DSSTDTC
+    role: Timing
+/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/CONSENT:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C16735
+      title: Informed Consent
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations
+      title: SDTM Dataset Specialization Package Effective 2023-12-12
+      type: SDTM Dataset Specialization Package
+    self:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/CONSENT
+      title: Informed Consent Obtained
+      type: SDTM Dataset Specialization
+  datasetSpecializationId: CONSENT
+  domain: DS
+  sdtmigEndVersion: ''
+  sdtmigStartVersion: 3-2
+  shortName: Informed Consent Obtained
+  source: DS.DECODE
+  variables:
+  - assignedTerm:
+      conceptId: C74588
+      value: PROTOCOL MILESTONE
+    codelist:
+      conceptId: C74558
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C74558
+      submissionValue: DSCAT
+    dataElementConceptId: C25372
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: DSCAT
+    originSource: Sponsor
+    originType: Assigned
+    relationship:
+      linkingPhrase: groups values in
+      object: DSTERM
+      predicateTerm: GROUPS
+      subject: DSCAT
+    role: Qualifier
+  - assignedTerm:
+      conceptId: C16735
+      value: INFORMED CONSENT OBTAINED
+    codelist:
+      conceptId: C114118
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C114118
+      submissionValue: PROTMLST
+    dataElementConceptId: C82977
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: true
+    mandatoryVariable: true
+    name: DSDECOD
+    originSource: Sponsor
+    originType: Assigned
+    relationship:
+      linkingPhrase: is a dictionary-derived term for the value in
+      object: DSTERM
+      predicateTerm: IS_DERIVED_FROM
+      subject: DSDECOD
+    role: Qualifier
+  - dataElementConceptId: C82571
+    dataType: text
+    isNonStandard: false
+    length: 200
+    mandatoryValue: true
+    mandatoryVariable: true
+    name: DSTERM
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is original text for
+      object: DSDECOD
+      predicateTerm: IS_ORIGINAL_TEXT_FOR
+      subject: DSTERM
+    role: Topic
+  - dataElementConceptId: C82517
+    dataType: datetime
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: DSSTDTC
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is the start date for
+      object: DSTERM
+      predicateTerm: IS_TIMING_FOR
+      subject: DSSTDTC
+    role: Timing
+/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/DIABP:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C25299
+      title: Diastolic Blood Pressure
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations
+      title: SDTM Dataset Specialization Package Effective 2023-12-12
+      type: SDTM Dataset Specialization Package
+    self:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/DIABP
+      title: Diastolic Blood Pressure
+      type: SDTM Dataset Specialization
+  datasetSpecializationId: DIABP
+  domain: VS
+  sdtmigEndVersion: ''
+  sdtmigStartVersion: 3-2
+  shortName: Diastolic Blood Pressure
+  source: VS.VSTESTCD
+  variables:
+  - assignedTerm:
+      conceptId: C25299
+      value: DIABP
+    codelist:
+      conceptId: C66741
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66741
+      submissionValue: VSTESTCD
+    comparator: EQ
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSTESTCD
+    relationship:
+      linkingPhrase: is the code for the value in
+      object: VSTEST
+      predicateTerm: IS_DECODED_BY
+      subject: VSTESTCD
+    role: Topic
+  - assignedTerm:
+      conceptId: C25299
+      value: Diastolic Blood Pressure
+    codelist:
+      conceptId: C67153
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67153
+      submissionValue: VSTEST
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSTEST
+    relationship:
+      linkingPhrase: decodes the value in
+      object: VSTESTCD
+      predicateTerm: DECODES
+      subject: VSTEST
+    role: Qualifier
+  - dataElementConceptId: C77140
+    dataType: integer
+    isNonStandard: false
+    length: 3
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSORRES
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSORRES
+    role: Qualifier
+    vlmTarget: true
+  - assignedTerm:
+      conceptId: C49670
+      value: mmHg
+    codelist:
+      conceptId: C66770
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66770
+      submissionValue: VSRESU
+    dataElementConceptId: C49669
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSORRESU
+    relationship:
+      linkingPhrase: is the unit for the value in
+      object: VSORRES
+      predicateTerm: IS_UNIT_FOR
+      subject: VSORRESU
+    role: Qualifier
+    vlmTarget: true
+  - dataElementConceptId: C77140
+    dataType: integer
+    isNonStandard: false
+    length: 3
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESC
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSSTRESC
+    role: Qualifier
+    vlmTarget: true
+  - dataElementConceptId: C77140
+    dataType: integer
+    isNonStandard: false
+    length: 3
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESN
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSSTRESN
+    role: Qualifier
+    vlmTarget: true
+  - assignedTerm:
+      conceptId: C49670
+      value: mmHg
+    codelist:
+      conceptId: C66770
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66770
+      submissionValue: VSRESU
+    dataElementConceptId: C49669
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESU
+    relationship:
+      linkingPhrase: is the unit for the value in
+      object: VSSTRESN
+      predicateTerm: IS_UNIT_FOR
+      subject: VSSTRESU
+    role: Qualifier
+    vlmTarget: true
+  - codelist:
+      conceptId: C71148
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71148
+      submissionValue: POSITION
+    comparator: IN
+    dataElementConceptId: C62164
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSPOS
+    relationship:
+      linkingPhrase: is the subject position during performance of the test in
+      object: VSTESTCD
+      predicateTerm: IS_SUBJECT_STATE_FOR
+      subject: VSPOS
+    role: Qualifier
+    subsetCodelist: VSPOS
+    valueList:
+    - SITTING
+    - STANDING
+    - SUPINE
+  - codelist:
+      conceptId: C74456
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C74456
+      submissionValue: LOC
+    comparator: IN
+    dataElementConceptId: C13717
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSLOC
+    relationship:
+      linkingPhrase: specifies the anatomical location of the performance of the test
+        in
+      object: VSTESTCD
+      predicateTerm: SPECIFIES
+      subject: VSLOC
+    role: Qualifier
+    subsetCodelist: VSLOC_PULSE
+    valueList:
+    - BRACHIAL ARTERY
+    - CAROTID ARTERY
+    - DORSALIS PEDIS ARTERY
+    - FEMORAL ARTERY
+    - RADIAL ARTERY
+  - codelist:
+      conceptId: C99073
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C99073
+      submissionValue: LAT
+    comparator: IN
+    dataElementConceptId: C25185
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSLAT
+    relationship:
+      linkingPhrase: further specifies the anatomical location in
+      object: VSLOC
+      predicateTerm: SPECIFIES
+      subject: VSLAT
+    role: Qualifier
+    subsetCodelist: VSLAT_BP
+    valueList:
+    - LEFT
+    - RIGHT
+/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/HEIGHT:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C164634
+      title: Body Height
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations
+      title: SDTM Dataset Specialization Package Effective 2023-12-12
+      type: SDTM Dataset Specialization Package
+    self:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/HEIGHT
+      title: Height
+      type: SDTM Dataset Specialization
+  datasetSpecializationId: HEIGHT
+  domain: VS
+  sdtmigEndVersion: ''
+  sdtmigStartVersion: 3-2
+  shortName: Height
+  source: VS.VSTESTCD
+  variables:
+  - assignedTerm:
+      conceptId: C25347
+      value: HEIGHT
+    codelist:
+      conceptId: C66741
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66741
+      submissionValue: VSTESTCD
+    comparator: EQ
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSTESTCD
+    relationship:
+      linkingPhrase: is the code for the value in
+      object: VSTEST
+      predicateTerm: IS_DECODED_BY
+      subject: VSTESTCD
+    role: Topic
+  - assignedTerm:
+      conceptId: C25347
+      value: Height
+    codelist:
+      conceptId: C67153
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67153
+      submissionValue: VSTEST
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSTEST
+    relationship:
+      linkingPhrase: decodes the value in
+      object: VSTESTCD
+      predicateTerm: DECODES
+      subject: VSTEST
+    role: Qualifier
+  - dataElementConceptId: C77140
+    dataType: float
+    format: '8.3'
+    isNonStandard: false
+    length: 8
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSORRES
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSORRES
+    role: Qualifier
+    significantDigits: 3
+    vlmTarget: true
+  - codelist:
+      conceptId: C66770
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66770
+      submissionValue: VSRESU
+    dataElementConceptId: C168688
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSORRESU
+    relationship:
+      linkingPhrase: is the unit for the value in
+      object: VSORRES
+      predicateTerm: IS_UNIT_FOR
+      subject: VSORRESU
+    role: Qualifier
+    subsetCodelist: VSRESU_HT
+    valueList:
+    - cm
+    - in
+    - m
+    vlmTarget: true
+  - dataElementConceptId: C77140
+    dataType: float
+    format: '8.3'
+    isNonStandard: false
+    length: 8
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESC
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSSTRESC
+    role: Qualifier
+    significantDigits: 3
+    vlmTarget: true
+  - dataElementConceptId: C77140
+    dataType: float
+    format: '8.3'
+    isNonStandard: false
+    length: 8
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESN
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSSTRESN
+    role: Qualifier
+    significantDigits: 3
+    vlmTarget: true
+  - codelist:
+      conceptId: C66770
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66770
+      submissionValue: VSRESU
+    dataElementConceptId: C168688
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESU
+    relationship:
+      linkingPhrase: is the unit for the value in
+      object: VSSTRESN
+      predicateTerm: IS_UNIT_FOR
+      subject: VSSTRESU
+    role: Qualifier
+    vlmTarget: true
+/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/SYSBP:
+  _links:
+    parentBiomedicalConcept:
+      href: /mdr/bc/packages/2023-12-12/biomedicalconcepts/C25298
+      title: Systolic Blood Pressure
+      type: Biomedical Concept
+    parentPackage:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations
+      title: SDTM Dataset Specialization Package Effective 2023-12-12
+      type: SDTM Dataset Specialization Package
+    self:
+      href: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/SYSBP
+      title: Systolic Blood Pressure
+      type: SDTM Dataset Specialization
+  datasetSpecializationId: SYSBP
+  domain: VS
+  sdtmigEndVersion: ''
+  sdtmigStartVersion: 3-2
+  shortName: Systolic Blood Pressure
+  source: VS.VSTESTCD
+  variables:
+  - assignedTerm:
+      conceptId: C25298
+      value: SYSBP
+    codelist:
+      conceptId: C66741
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66741
+      submissionValue: VSTESTCD
+    comparator: EQ
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSTESTCD
+    relationship:
+      linkingPhrase: is the code for the value in
+      object: VSTEST
+      predicateTerm: IS_DECODED_BY
+      subject: VSTESTCD
+    role: Topic
+  - assignedTerm:
+      conceptId: C25298
+      value: Systolic Blood Pressure
+    codelist:
+      conceptId: C67153
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67153
+      submissionValue: VSTEST
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSTEST
+    relationship:
+      linkingPhrase: decodes the value in
+      object: VSTESTCD
+      predicateTerm: DECODES
+      subject: VSTEST
+    role: Qualifier
+  - dataElementConceptId: C77140
+    dataType: integer
+    isNonStandard: false
+    length: 3
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSORRES
+    originSource: Investigator
+    originType: Collected
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSORRES
+    role: Qualifier
+    vlmTarget: true
+  - assignedTerm:
+      conceptId: C49670
+      value: mmHg
+    codelist:
+      conceptId: C66770
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66770
+      submissionValue: VSRESU
+    dataElementConceptId: C49669
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: true
+    name: VSORRESU
+    relationship:
+      linkingPhrase: is the unit for the value in
+      object: VSORRES
+      predicateTerm: IS_UNIT_FOR
+      subject: VSORRESU
+    role: Qualifier
+    vlmTarget: true
+  - dataElementConceptId: C77140
+    dataType: integer
+    isNonStandard: false
+    length: 3
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESC
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSSTRESC
+    role: Qualifier
+    vlmTarget: true
+  - dataElementConceptId: C77140
+    dataType: integer
+    isNonStandard: false
+    length: 3
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESN
+    relationship:
+      linkingPhrase: is the result of the test in
+      object: VSTESTCD
+      predicateTerm: IS_RESULT_OF
+      subject: VSSTRESN
+    role: Qualifier
+    vlmTarget: true
+  - assignedTerm:
+      conceptId: C49670
+      value: mmHg
+    codelist:
+      conceptId: C66770
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C66770
+      submissionValue: VSRESU
+    dataElementConceptId: C49669
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSSTRESU
+    relationship:
+      linkingPhrase: is the unit for the value in
+      object: VSSTRESN
+      predicateTerm: IS_UNIT_FOR
+      subject: VSSTRESU
+    role: Qualifier
+    vlmTarget: true
+  - codelist:
+      conceptId: C71148
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71148
+      submissionValue: POSITION
+    comparator: IN
+    dataElementConceptId: C62164
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSPOS
+    relationship:
+      linkingPhrase: is the subject position during performance of the test in
+      object: VSTESTCD
+      predicateTerm: IS_SUBJECT_STATE_FOR
+      subject: VSPOS
+    role: Qualifier
+    subsetCodelist: VSPOS
+    valueList:
+    - SITTING
+    - STANDING
+    - SUPINE
+  - codelist:
+      conceptId: C74456
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C74456
+      submissionValue: LOC
+    comparator: IN
+    dataElementConceptId: C13717
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSLOC
+    relationship:
+      linkingPhrase: specifies the anatomical location of the performance of the test
+        in
+      object: VSTESTCD
+      predicateTerm: SPECIFIES
+      subject: VSLOC
+    role: Qualifier
+    subsetCodelist: VSLOC_PULSE
+    valueList:
+    - BRACHIAL ARTERY
+    - CAROTID ARTERY
+    - DORSALIS PEDIS ARTERY
+    - FEMORAL ARTERY
+    - RADIAL ARTERY
+  - codelist:
+      conceptId: C99073
+      href: https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C99073
+      submissionValue: LAT
+    comparator: IN
+    dataElementConceptId: C25185
+    isNonStandard: false
+    mandatoryValue: false
+    mandatoryVariable: false
+    name: VSLAT
+    relationship:
+      linkingPhrase: further specifies the anatomical location in
+      object: VSLOC
+      predicateTerm: SPECIFIES
+      subject: VSLAT
+    role: Qualifier
+    subsetCodelist: VSLAT_BP
+    valueList:
+    - LEFT
+    - RIGHT
 /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/WEIGHT:
   _links:
     parentBiomedicalConcept:

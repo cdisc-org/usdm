@@ -158,7 +158,6 @@ class CDISCBiomedicalConcepts():
   def _get_role_variable(self, api_bc):
     return next((item for item in api_bc['variables'] if item["role"] == "Topic"), None)
 
-
   def _get_bc(self, url):
     if url in self._bc_responses:
       return self._bc_responses[url]
