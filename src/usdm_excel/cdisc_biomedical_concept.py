@@ -72,9 +72,10 @@ class CDISCBiomedicalConcepts():
       return None
     else:
       response = self._get_bc(metadata['href'])
+      #print(f"BC: {response}")
       bc = self._bc_as_usdm(response)
-      if 'dataElementConcepts' in response:
-        for item in response['dataElementConcepts']:
+      if 'variables' in response:
+        for item in response['variables']:
           codes = []
           if 'exampleSet' in item:
             for example in item['exampleSet']:
@@ -85,11 +86,13 @@ class CDISCBiomedicalConcepts():
       return bc
 
   def _get_package_metadata(self) -> dict:
-    api_url = self._url('/mdr/bc/packages')
+    #api_url = self._url('/mdr/bc/packages')
+    api_url = self._url('/mdr/specializations/sdtm/packages')
     package_logger.info("CDISC BC Library: %s" % api_url)
     try:
       raw = requests.get(api_url, headers=self.headers)
       response = raw.json()
+      #print(f"PACKAGE: {response}")
       packages = response['_links']['packages']
       return packages
     except Exception as e:
@@ -105,7 +108,8 @@ class CDISCBiomedicalConcepts():
         package_logger.info("CDISC BC Library: %s" % api_url)
         raw = requests.get(api_url, headers=self.headers)
         response = raw.json()
-        for item in response['_links']['biomedicalConcepts']:
+        #print(f"ITEMS: {response}")
+        for item in response['_links']['datasetSpecializations']:
           results[item['title'].upper()] = item
       return results
     except Exception as e:
@@ -117,7 +121,8 @@ class CDISCBiomedicalConcepts():
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
 
   def _bc_as_usdm(self, api_bc) -> BiomedicalConcept:
-    code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
+    role_variable = self._get_role_variable(api_bc)
+    code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return BiomedicalConcept(
       id=id_manager.build_id(BiomedicalConcept),
@@ -130,21 +135,29 @@ class CDISCBiomedicalConcepts():
     )
 
   def _bc_property_as_usdm(self, property, codes) -> BiomedicalConceptProperty:
-    concept_code = NCIt().code(property['conceptId'], property['shortName'])
+    print(f"PROPERTY: {property}")
+    if 'dataElementConceptId' in property:
+      concept_code = NCIt().code(property['dataElementConceptId'], property['name'])
+    else:
+      concept_code = NCIt().code(property['assignedTerm']['conceptId'], property['assignedTerm']['value'])
     concept_aliases = []
     responses = []
     for code in codes:
       responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
     return BiomedicalConceptProperty(
       id=id_manager.build_id(BiomedicalConceptProperty),
-      name=property['shortName'],
-      label=property['shortName'],
+      name=property['name'],
+      label=property['name'],
       isRequired=True,
       isEnabled=True,
-      datatype=property['dataType'],
+      datatype=property['dataType'] if 'dataType' in property else '',
       responseCodes=responses,
       code=Alias().code(concept_code, concept_aliases)
     )
+
+  def _get_role_variable(self, api_bc):
+    return next((item for item in api_bc['variables'] if item["role"] == "Topic"), None)
+
 
   def _get_bc(self, url):
     if url in self._bc_responses:
