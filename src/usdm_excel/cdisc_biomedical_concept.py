@@ -43,7 +43,23 @@ class CDISCBiomedicalConcepts():
     return list(self._bcs.keys())
   
   def usdm(self, name) -> BiomedicalConcept:
-    return self._get_bc_data(name) if self.exists(name) else None
+    bc = self._get_bc_data(name) if self.exists(name) else None
+    if bc:
+      bc_copy = bc.model_dump()
+      self._set_ids(bc_copy)
+      bc = BiomedicalConcept(**bc_copy)
+    return bc
+
+  def _set_ids(self, parent):
+    if isinstance(parent, str) or isinstance(parent, bool):
+      return
+    parent['id'] = id_manager.build_id(parent['instanceType'])
+    for name, value in parent.items():
+      if isinstance(value, list):
+        for child in value:
+          self._set_ids(child)    
+      else:
+        self._set_ids(value)
 
   def _load_bcs(self):
     results = {}

@@ -63,7 +63,7 @@ class IdManager():
     }
 
   def build_id(self, klass):
-    klass_name = str(klass.__name__)
+    klass_name = klass if isinstance(klass, str) else str(klass.__name__)
     self.id_index[klass_name] += 1
     return "%s_%s" % (klass_name, self.id_index[klass_name])
 
