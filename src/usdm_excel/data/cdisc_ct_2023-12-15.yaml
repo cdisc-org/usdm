@@ -1,3 +1,290 @@
+C123650:
+  conceptId: C123650
+  definition: Terminology relevant to tumor or lesion identification test results.
+  extensible: 'true'
+  name: Tumor or Lesion Identification Test Results
+  preferredTerm: CDISC SDTM Tumor and Lesion Identification Test Result Terminology
+  submissionValue: TUIDRS
+  synonyms:
+  - Tumor or Lesion Identification Test Results
+  terms:
+  - conceptId: C14172
+    definition: For neoplasms, a non-infiltrating and non-metastasizing neoplastic
+      process that is characterized by the absence of morphologic features associated
+      with malignancy (e.g., severe atypia, nuclear pleomorphism, tumor cell necrosis,
+      and abnormal mitoses). For other conditions, a process that is mild in nature
+      and not dangerous to health. (NCI)
+    preferredTerm: Benign
+    submissionValue: BENIGN
+    synonyms:
+    - Benign
+  - conceptId: C132466
+    definition: A localized pathological or traumatic structural change, damage, deformity,
+      or discontinuity of the bone.
+    preferredTerm: Bone Lesion Identification
+    submissionValue: BONE LESION
+  - conceptId: C173263
+    definition: The anatomical location at which the disease is present.
+    preferredTerm: Disease Involvement Site
+    submissionValue: DISEASE SITE
+    synonyms:
+    - Site of Disease
+  - conceptId: C25321
+    definition: Of or belonging to an area on the body that is far apart in relation
+      to a point of origin.
+    preferredTerm: Distant
+    submissionValue: DISTANT
+  - conceptId: C67263
+    definition: Of or belonging to a restricted area on the body in relation to a
+      point of origin.
+    preferredTerm: Local
+    submissionValue: LOCAL
+  - conceptId: C161481
+    definition: The identification of an anatomical location that may contain a tumor,
+      lesion or site of disease, and is part of the assessment of the response to
+      the therapeutic intervention.
+    preferredTerm: Anatomical Location of Interest
+    submissionValue: LOCATION OF INTEREST
+  - conceptId: C25388
+    definition: Of or belonging to either a local and/or regional area of the body
+      in relation to a point of origin.
+    preferredTerm: Local-Regional
+    submissionValue: LOCOREGIONAL
+  - conceptId: C103416
+    definition: The identification of a tumor, lesion, or site of disease that is
+      present at baseline and will be quantifiably measured.
+    preferredTerm: Measured Tumor Identification
+    submissionValue: MEASURED
+  - conceptId: C132467
+    definition: A localized pathological or traumatic structural change, damage, deformity,
+      or discontinuity of the bone, which has not been previously seen or characterized.
+    preferredTerm: New Bone Lesion Lesion Identification
+    submissionValue: NEW BONE LESION
+  - conceptId: C191354
+    definition: The identification of a tumor, lesion, or site of disease, located
+      outside of or independent of any lymph nodes, which was not detected at baseline.
+    preferredTerm: New Extranodal Lesion Identification
+    submissionValue: NEW EXTRA NODAL
+  - conceptId: C191353
+    definition: The identification of a tumor, lesion, or site of disease, located
+      at or near the lymph node, which was not detected at baseline.
+    preferredTerm: New Nodal Lesion Identification
+    submissionValue: NEW NODAL
+  - conceptId: C139126
+    definition: The identification of a tumor, lesion, or site of disease that will
+      be assessed qualitatively over time, and which was not detected at baseline.
+    preferredTerm: New Non-Target Lesion Identification
+    submissionValue: NEW NON-TARGET
+    synonyms:
+    - New Non-Index
+  - conceptId: C139127
+    definition: The identification of a tumor, lesion, or site of disease that will
+      be assessed quantitatively over time, and which was not detected at baseline.
+    preferredTerm: New Target Lesion Identification
+    submissionValue: NEW TARGET
+    synonyms:
+    - New Index
+  - conceptId: C94522
+    definition: The identification of a tumor, lesion, or site of disease which has
+      not been previously seen or characterized.
+    preferredTerm: New Lesion Identification
+    submissionValue: NEW
+  - conceptId: C103423
+    definition: The identification of a tumor, lesion, or site of disease that is
+      incapable of being measured at baseline.
+    preferredTerm: Non-Measurable Tumor Identification
+    submissionValue: NON-MEASURABLE
+  - conceptId: C132468
+    definition: The identification of a contrast-enhancing tumor, lesion, or site
+      of disease that is present at baseline and not considered a target, but may
+      be part of the objective assessment of the response to the therapeutic intervention.
+    preferredTerm: Non-target Enhancing Lesion Identification
+    submissionValue: NON-TARGET ENHANCING
+  - conceptId: C132469
+    definition: The identification of a tumor or lesion located outside of or independent
+      of any lymph nodes that is present at baseline and not considered a target,
+      but may be part of the assessment of the response to the therapeutic intervention.
+    preferredTerm: Non-Target Extra Nodal Lesion Identification
+    submissionValue: NON-TARGET EXTRA NODAL
+  - conceptId: C132470
+    definition: The identification of a tumor or lesion located at or near the lymph
+      node that is present at baseline and not considered a target, but may be part
+      of the assessment of the response to the therapeutic intervention.
+    preferredTerm: Non-Target Nodal Lesion Identification
+    submissionValue: NON-TARGET NODAL
+  - conceptId: C132471
+    definition: The identification of a non-contrast-enhancing tumor, lesion, or site
+      of disease that is present at baseline and not considered a target, but may
+      be part of the assessment of the response to the therapeutic intervention.
+    preferredTerm: Non-target Non-enhancing Lesion Identification
+    submissionValue: NON-TARGET NON-ENHANCING
+  - conceptId: C94521
+    definition: The identification of a tumor, lesion or site of disease that is present
+      at baseline and not considered a target, but may be part of the objective assessment
+      of the response to the therapeutic intervention.
+    preferredTerm: Non-Target Lesion Identification
+    submissionValue: NON-TARGET
+    synonyms:
+    - Non-Index
+  - conceptId: C103425
+    definition: The identification of a tumor, lesion, or site of disease that is
+      present at baseline and will not be quantifiably measured.
+    preferredTerm: Not Measured Tumor Identification
+    submissionValue: NOT MEASURED
+  - conceptId: C40558
+    definition: The identification of a tumor, lesion, or site of disease that is
+      present at the site of origin.
+    preferredTerm: Primary Lesion
+    submissionValue: PRIMARY
+  - conceptId: C25643
+    definition: Of or belonging to a broader area or region of the body in relation
+      to a point of origin.
+    preferredTerm: Regional
+    submissionValue: REGIONAL
+  - conceptId: C103442
+    definition: The identification of a tumor or lesion that is present at baseline,
+      located outside of or independent of any lymph nodes, and is the target of the
+      therapeutic intervention.
+    preferredTerm: Target Extra Nodal Tumor Identification
+    submissionValue: TARGET EXTRA NODAL
+  - conceptId: C103443
+    definition: The identification of a tumor or lesion located at or near the lymph
+      node that is present at baseline and is the target of the therapeutic intervention.
+    preferredTerm: Target Nodal Tumor Identification
+    submissionValue: TARGET NODAL
+  - conceptId: C103444
+    definition: The identification of a nodule that is the target of the therapeutic
+      intervention.
+    preferredTerm: Target Nodule Tumor Identification
+    submissionValue: TARGET NODULE
+  - conceptId: C94520
+    definition: The identification of a tumor, lesion, or site of disease that is
+      present at baseline and is the target of the therapeutic intervention.
+    preferredTerm: Target Lesion Identification
+    submissionValue: TARGET
+    synonyms:
+    - Index
+  - conceptId: C17998
+    definition: Not known, not observed, not recorded, or refused. (NCI)
+    preferredTerm: Unknown
+    submissionValue: UNKNOWN
+    synonyms:
+    - U
+    - UNK
+    - Unknown
+C124309:
+  conceptId: C124309
+  definition: Terminology relevant to the results from the assessment or measurement
+    of a tumor, lesion or site of disease.
+  extensible: 'true'
+  name: Tumor or Lesion Properties Test Result
+  preferredTerm: CDISC SDTM Tumor or Lesion Properties Test Result Terminology
+  submissionValue: TRPROPRS
+  synonyms:
+  - Tumor or Lesion Properties Test Result
+  terms:
+  - conceptId: C48190
+    definition: Not existing in a specified place at a specified time. (NCI)
+    preferredTerm: Absent
+    submissionValue: ABSENT
+  - conceptId: C25640
+    definition: Made less in size, amount, degree, or extent.
+    preferredTerm: Reduced
+    submissionValue: DECREASED
+    synonyms:
+    - Reduced
+  - conceptId: C147486
+    definition: An indication that the increase is homogenously dispersed.
+    preferredTerm: Diffusely Increased
+    submissionValue: DIFFUSELY INCREASED
+  - conceptId: C156593
+    definition: An increase in size, volume, or quantity in comparison to nadir.
+    preferredTerm: Enlargement from Nadir
+    submissionValue: ENLARGEMENT FROM NADIR
+  - conceptId: C73432
+    definition: An increase in size, volume, quantity or scope in comparison to normal
+      or previous state.
+    preferredTerm: Enlargement
+    submissionValue: ENLARGEMENT
+  - conceptId: C86071
+    definition: Open to question.
+    preferredTerm: Equivocal
+    submissionValue: EQUIVOCAL
+  - conceptId: C147487
+    definition: An indication that the increase is concentrated in a specific area(s).
+    preferredTerm: Focally Increased
+    submissionValue: FOCALLY INCREASED
+  - conceptId: C156594
+    definition: An increase in size, volume, or quantity in comparison to a previous
+      state that was enlarged from nadir.
+    preferredTerm: Further Enlargement from Nadir
+    submissionValue: FURTHER ENLARGEMENT FROM NADIR
+  - conceptId: C142367
+    definition: An increase in size, volume, quantity or scope in comparison to a
+      previous enlarged state.
+    preferredTerm: Further Enlargement
+    submissionValue: FURTHER ENLARGEMENT
+  - conceptId: C25533
+    definition: A process of becoming larger, more intense, more extensive, more numerous,
+      more important, or more likely.
+    preferredTerm: Increase
+    submissionValue: INCREASED
+  - conceptId: C62222
+    definition: Unable to be evaluated. (NCI)
+    preferredTerm: Unevaluable
+    submissionValue: NE
+    synonyms:
+    - Not Assessable
+    - Not Evaluable
+  - conceptId: C38757
+    definition: An indication of a negative finding for a test or assessment, such
+      as for a disease, condition, analyte, or microorganism.
+    preferredTerm: Negative Finding
+    submissionValue: NEGATIVE
+  - conceptId: C126054
+    definition: The absence of disease or pathology. (NCI)
+    preferredTerm: Non-Pathological
+    submissionValue: NON-PATHOLOGICAL
+  - conceptId: C124445
+    definition: Incapable of being handled, touched or felt through palpation. (NCI)
+    preferredTerm: Non-Palpable
+    submissionValue: NONPALPABLE
+  - conceptId: C14165
+    definition: Being approximately average or within certain limits; conforming with
+      or constituting a norm or standard or level or type or social norm. (NCI)
+    preferredTerm: Normal
+    submissionValue: NORMAL
+  - conceptId: C25606
+    definition: Capable of being handled, touched or felt through palpation. (NCI)
+    preferredTerm: Palpable
+    submissionValue: PALPABLE
+  - conceptId: C25610
+    definition: Manifesting disease or pathology.
+    preferredTerm: Pathologic
+    submissionValue: PATHOLOGICAL
+  - conceptId: C38758
+    definition: An indication of an affirmative finding for a test or assessment,
+      such as for a disease, condition, analyte, or microorganism.
+    preferredTerm: Positive Finding
+    submissionValue: POSITIVE
+  - conceptId: C25626
+    definition: Being or existing in a specified place or at the specified time. (NCI)
+    preferredTerm: Present
+    submissionValue: PRESENT
+  - conceptId: C94525
+    definition: An indication that multiple tumors have coalesced into one tumor.
+    preferredTerm: Matted Tumor Mass Present
+    submissionValue: TUMOR MERGED
+    synonyms:
+    - Tumor Merged
+  - conceptId: C71687
+    definition: In an unchanged or similar condition.
+    preferredTerm: Unchanged
+    submissionValue: UNCHANGED
+  - conceptId: C123645
+    definition: Leaving no doubt; not open to question. (NCI)
+    preferredTerm: Unequivocal
+    submissionValue: UNEQUIVOCAL
 C127262:
   conceptId: C127262
   definition: Terminology relevant to the surroundings or environment.
@@ -22421,6 +22708,254 @@ C99073:
     definition: Affecting one side of the body or one of a pair of organs.
     preferredTerm: Unilateral
     submissionValue: UNILATERAL
+C99074:
+  conceptId: C99074
+  definition: CDISC terminology for anatomical location or specimen further detailing
+    directionality.
+  extensible: 'true'
+  name: Directionality
+  preferredTerm: CDISC SDTM Directionality Terminology
+  submissionValue: DIR
+  synonyms:
+  - Directionality
+  terms:
+  - conceptId: C199841
+    definition: Of, or pertaining to, a point furthest from the center; belonging
+      to the distal ends of the extremities.
+    preferredTerm: Acral
+    submissionValue: ACRAL
+  - conceptId: C25231
+    definition: Denoting the front portion of the body or a structure.
+    preferredTerm: Anterior
+    submissionValue: ANTERIOR
+  - conceptId: C25422
+    definition: Denoting the area of the body in front of and away from the middle
+      line.
+    preferredTerm: Anterolateral
+    submissionValue: ANTEROLATERAL
+  - conceptId: C147159
+    definition: Denoting the front portion of the body towards the median plane.
+    preferredTerm: Anteromedial
+    submissionValue: ANTEROMEDIAL
+  - conceptId: C85512
+    definition: Directed from front to back.
+    preferredTerm: Anteroposterior Orientation
+    submissionValue: ANTEROPOSTERIOR
+  - conceptId: C165868
+    definition: Denoting the front portion of the body toward the temple.
+    preferredTerm: Anterotemporal
+    submissionValue: ANTEROTEMPORAL
+  - conceptId: C25423
+    definition: Relating to or located at the apex.
+    preferredTerm: Apical
+    submissionValue: APICAL
+  - conceptId: C90067
+    definition: Relating to or located at the lowest portion of a structure.
+    preferredTerm: Basal
+    submissionValue: BASAL
+  - conceptId: C73851
+    definition: Toward the tail in a body.
+    preferredTerm: Caudal
+    submissionValue: CAUDAL
+  - conceptId: C25445
+    definition: A point or area that is approximately central within some larger region
+      or structure. (NCI)
+    preferredTerm: Center
+    submissionValue: CENTRAL
+  - conceptId: C37936
+    definition: Toward the head in a body.
+    preferredTerm: Cranial
+    submissionValue: CRANIAL
+  - conceptId: C186020
+    definition: Pertaining to an anatomical plane extending between the cranial (towards
+      the head) and caudal (towards the tail) portions of a body.
+    preferredTerm: Craniocaudal Plane
+    submissionValue: CRANIOCAUDAL
+  - conceptId: C25240
+    definition: Extending relatively far inward. (NCI)
+    preferredTerm: Deep
+    submissionValue: DEEP
+  - conceptId: C147160
+    definition: Pertaining to the farthest portion from the palm side of a hand or
+      the sole side of a foot.
+    preferredTerm: Distal Volar
+    submissionValue: DISTAL VOLAR
+  - conceptId: C25237
+    definition: Situated farthest from a point of reference.
+    preferredTerm: Distal
+    submissionValue: DISTAL
+  - conceptId: C45874
+    definition: Pertaining to the back or upper surface of the body.
+    preferredTerm: Dorsal
+    submissionValue: DORSAL
+  - conceptId: C90376
+    definition: Toward the back and side of a body.
+    preferredTerm: Dorsolateral
+    submissionValue: DORSOLATERAL
+  - conceptId: C161327
+    definition: Of, or related to, or in the direction of the face. (NCI)
+    preferredTerm: Facial
+    submissionValue: FACIAL
+  - conceptId: C90386
+    definition: Of or involving the front of a main body. (NCI)
+    preferredTerm: Fore
+    submissionValue: FORE
+  - conceptId: C161325
+    definition: Of, or related to, or in the direction of the front of the body, structure,
+      or object. (NCI)
+    preferredTerm: Frontal
+    submissionValue: FRONTAL
+  - conceptId: C90393
+    definition: Of or involving the back of a main body. (NCI)
+    preferredTerm: Hind
+    submissionValue: HIND
+  - conceptId: C25353
+    definition: Pertaining to a point below a given reference point.
+    preferredTerm: Inferior
+    submissionValue: INFERIOR
+  - conceptId: C37980
+    definition: Inside or closer to the inside of the body or object. (NCI)
+    preferredTerm: Inner
+    submissionValue: INNER
+  - conceptId: C73705
+    definition: Located between two points or extremes.
+    preferredTerm: Intermediate
+    submissionValue: INTERMEDIATE
+  - conceptId: C25230
+    definition: Situated at or extending to the side.
+    preferredTerm: Lateral
+    submissionValue: LATERAL
+  - conceptId: C147161
+    definition: Pertaining to the lower portion of the surface on the opposite side
+      of the joint when it bends.
+    preferredTerm: Lower Extensor Surface
+    submissionValue: LOWER EXTENSOR SURFACE
+  - conceptId: C147162
+    definition: Pertaining to the lower portion of the surface on the same side of
+      the joint when it bends.
+    preferredTerm: Lower Flexor Surface
+    submissionValue: LOWER FLEXOR SURFACE
+  - conceptId: C147163
+    definition: Denoting the lower portion of the body towards the median plane.
+    preferredTerm: Lower Medial
+    submissionValue: LOWER MEDIAL
+  - conceptId: C25309
+    definition: The bottom one of two. (NCI)
+    preferredTerm: Lower
+    submissionValue: LOWER
+  - conceptId: C25232
+    definition: Toward the middle or in a limb toward the median plane.
+    preferredTerm: Medial
+    submissionValue: MEDIAL
+  - conceptId: C81170
+    definition: A medial line, especially the medial line or medial plane of the body
+      (or some part of the body).
+    preferredTerm: Midline
+    submissionValue: MIDLINE
+  - conceptId: C27958
+    definition: Of, or related to, or in the direction of the nose.
+    preferredTerm: Nasal
+    submissionValue: NASAL
+  - conceptId: C161326
+    definition: Of, or related to, or in the direction of the occiput, or back of
+      the head. (NCI)
+    preferredTerm: Occipital
+    submissionValue: OCCIPITAL
+  - conceptId: C38166
+    definition: Being on or toward the outside of the body or object. (NCI)
+    preferredTerm: Outer
+    submissionValue: OUTER
+  - conceptId: C170564
+    definition: Of, or related to, the area of the body where the parietal and occipital
+      lobes of the brain meet.
+    preferredTerm: Parieto-Occipital
+    submissionValue: PARIETO-OCCIPITAL
+  - conceptId: C25233
+    definition: On or near an edge or constituting an outer boundary; the outer area.
+      (NCI)
+    preferredTerm: Peripheral
+    submissionValue: PERIPHERAL
+  - conceptId: C165869
+    definition: Of, or pertaining to, the area surrounding the ventricles of the brain.
+    preferredTerm: Periventricular
+    submissionValue: PERIVENTRICULAR
+  - conceptId: C25622
+    definition: Denoting the back portion of the body or a structure.
+    preferredTerm: Posterior
+    submissionValue: POSTERIOR
+  - conceptId: C202344
+    definition: Situated in the back and middle of the body or structure.
+    preferredTerm: Posteromedial
+    submissionValue: POSTEROMEDIAL
+  - conceptId: C147164
+    definition: Pertaining to the nearest portion from the palm side of a hand or
+      the sole side of a foot.
+    preferredTerm: Proximal Volar
+    submissionValue: PROXIMAL VOLAR
+  - conceptId: C25236
+    definition: Situated nearest to a point of reference.
+    preferredTerm: Proximal
+    submissionValue: PROXIMAL
+  - conceptId: C94393
+    definition: Toward the muzzle in the head.
+    preferredTerm: Rostral
+    submissionValue: ROSTRAL
+  - conceptId: C186021
+    definition: Of, or related to, or in the direction of, an anatomical septum.
+    preferredTerm: Septal
+    submissionValue: SEPTAL
+  - conceptId: C165870
+    definition: Denoting the area below a cortex.
+    preferredTerm: Subcortical
+    submissionValue: SUBCORTICAL
+  - conceptId: C25239
+    definition: Of or pertaining to the exterior surface. (NCI)
+    preferredTerm: Superficial
+    submissionValue: SUPERFICIAL
+  - conceptId: C25235
+    definition: Pertaining to a point above a given reference point.
+    preferredTerm: Superior
+    submissionValue: SUPERIOR
+  - conceptId: C25245
+    definition: The extended two-dimensional outer layer or area of a three-dimensional
+      object. (NCI)
+    preferredTerm: Surface
+    submissionValue: SURFACE
+  - conceptId: C117754
+    definition: Of, or related to, or in the direction of the anatomic sites that
+      are located in the temple.
+    preferredTerm: Temporal Anatomic Qualifier
+    submissionValue: TEMPORAL
+  - conceptId: C90069
+    definition: The pointed end of a structure.
+    preferredTerm: Tip
+    submissionValue: TIP
+  - conceptId: C147165
+    definition: Pertaining to the upper portion of the surface on the opposite side
+      of the joint when it bends.
+    preferredTerm: Upper Extensor Surface
+    submissionValue: UPPER EXTENSOR SURFACE
+  - conceptId: C147166
+    definition: Pertaining to the upper portion of the surface on the same side of
+      the joint when it bends.
+    preferredTerm: Upper Flexor Surface
+    submissionValue: UPPER FLEXOR SURFACE
+  - conceptId: C25355
+    definition: The top one of two.
+    preferredTerm: Upper
+    submissionValue: UPPER
+  - conceptId: C45875
+    definition: Pertaining to the front or lower surface of the body.
+    preferredTerm: Ventral
+    submissionValue: VENTRAL
+  - conceptId: C98798
+    definition: Of or pertaining to the front and side of a main body. (NCI)
+    preferredTerm: Ventrolateral
+    submissionValue: VENTROLATERAL
+  - conceptId: C147167
+    definition: Pertaining to the palm side of a hand or the sole side of a foot.
+    preferredTerm: Volar
+    submissionValue: VOLAR
 C99076:
   conceptId: C99076
   definition: A terminology codelist relevant to the trial design developed to compare
