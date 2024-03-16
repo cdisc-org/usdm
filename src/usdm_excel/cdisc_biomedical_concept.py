@@ -97,8 +97,7 @@ class CDISCBiomedicalConcepts():
       response = raw.json()
       packages = response['_links']['packages']
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to retrieve CDISC BC package metadata from '{api_url}'")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to retrieve CDISC BC package metadata from '{api_url}'", e)
       packages = {}
     package_logger.debug(f"PACKAGES: {packages}")
     return packages
@@ -118,8 +117,7 @@ class CDISCBiomedicalConcepts():
           results[key] = item
         return results
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
 
   def _get_bcs(self):
@@ -141,34 +139,52 @@ class CDISCBiomedicalConcepts():
   
   def _bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
     try:
-      package_logger.debug(f"BC: {sdtm}\n\n{generic}")
-      role_variable = self._get_role_variable(sdtm)
-      code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
-      synonyms = generic['synonyms'] if 'synonyms' in generic else []
-      synonyms.append(generic['shortName'])
-      return BiomedicalConcept(
-        id=id_manager.build_id(BiomedicalConcept),
-        name=sdtm['shortName'],
-        label=sdtm['shortName'],
-        synonyms=synonyms,
-        reference=sdtm['_links']['self']['href'],
-        properties=[],
-        code=Alias().code(code, [])
-      )
+      if self._process_bc(sdtm['shortName']):
+        package_logger.debug(f"BC: {sdtm}\n\n{generic}")
+        role_variable = self._get_role_variable(sdtm)
+        if role_variable:
+          if 'assignedTerm' in role_variable:
+            print(f"ASSIGNED TERM: {role_variable['assignedTerm']}")
+            code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+          else:
+            code = NCIt().code(generic['conceptId'], generic['shortName'])
+        else:
+          package_logger.error(f"Failed to set BC concept {sdtm}\n\n{generic}")
+          code = NCIt().code(generic['conceptId'], generic['shortName'])
+        synonyms = generic['synonyms'] if 'synonyms' in generic else []
+        synonyms.append(generic['shortName'])
+        return BiomedicalConcept(
+          id=id_manager.build_id(BiomedicalConcept),
+          name=sdtm['shortName'],
+          label=sdtm['shortName'],
+          synonyms=synonyms,
+          reference=sdtm['_links']['self']['href'],
+          properties=[],
+          code=Alias().code(code, [])
+        )
+      else:
+        return None
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to build BC \n'{sdtm}'\n\n{generic}")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to build BC \n{sdtm['shortName']}", e)
       return None
 
   def _bc_property_as_usdm(self, sdtm_property, generic) -> BiomedicalConceptProperty:
     try:
-      if sdtm_property['name'][2:-1] not in ['TEST', 'STRESN', 'STRESU']:
+      package_logger.info(f"NAME: {sdtm_property['name']}, {sdtm_property['name'][2:]}")
+      if self._process_property(sdtm_property['name']):
         package_logger.debug(f"PROPERTY: {sdtm_property}")
         if 'dataElementConceptId' in sdtm_property:
           generic_match = self._get_dec_match(generic, sdtm_property['dataElementConceptId'])
-          concept_code = NCIt().code(generic_match['conceptId'], generic_match['shortName'])
+          if generic_match:
+            concept_code = NCIt().code(generic_match['conceptId'], generic_match['shortName'])
+          else:
+            #package_logger.error(f"Failed to set property concept {sdtm_property}\n\n{generic}")
+            concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
         else:
-          concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
+          if 'assignedTerm' in sdtm_property:
+            concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
+          else:
+            concept_code = None
         concept_aliases = []
         responses = []
         codes = []
@@ -182,7 +198,7 @@ class CDISCBiomedicalConcepts():
               if term:
                 codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
               else:
-                package_logger.error(f"Failed to find submission or preferred term '{value}' from code list '{sdtm_property['codeList']['conceptId']}'")
+                package_logger.error(f"Failed to find submission or preferred term '{value}' from code list '{sdtm_property['codelist']['conceptId']}'")
         for code in codes:
          responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
         return BiomedicalConceptProperty(
@@ -198,10 +214,41 @@ class CDISCBiomedicalConcepts():
       else:
         return None
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to build property '{sdtm_property}'")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to build property {sdtm_property}", e)
       return None
 
+  def _process_bc(self, name):
+    if name in [
+      'Exclusion Criteria 01', 'Inclusion Criteria 01', "Medical History Prespecified: Alzheimer's Disease", "Medical History Prespecified: Confusional Episodes", 
+      "Medical History Prespecified: Essential Tremor",
+      "Medical History Prespecified: Extrapyramidal Features",
+      "Medical History Prespecified: Facial Masking",
+      "Medical History Prespecified: Rigidity Upper Extremity",
+      "Medical History Prespecified: Sensitivity to Neuroleptics",
+      "Medical History Prespecified: Visual Hallucinations",
+      "TTS Acceptability Survey - Patch Acceptability",
+      "TTS Acceptability Survey - Patch Appearance",
+      "TTS Acceptability Survey - Patch Durability",
+      "TTS Acceptability Survey - Patch Size",
+      "Beer Use History",
+      "Cigarette History",
+      "Cigar History",
+      "Coffee Use History",
+      "Cola Use History",
+      "Distilled Spirits Use History",
+      "Pipe History",
+      "Tea Use History"
+    ]:
+      return False
+    return True
+  
+  def _process_property(self, name):
+    if name[2:] in ['TEST', 'STRESN', 'STRESU', 'STRESC', 'CLASCD', 'LOINC', 'LOT', 'CAT', 'SCAT']:
+      return False
+    if name in ['EPOCH']:
+      return False
+    return True
+ 
   def _get_role_variable(self, data):
     return next((item for item in data['variables'] if item["role"] == "Topic"), None)
 
@@ -217,8 +264,7 @@ class CDISCBiomedicalConcepts():
       generic_response = self._get_from_url(generic['href'])
       return sdtm_response, generic_response
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{item['href']}'")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{item['href']}'", e)
       return None, None
 
   def _get_from_url(self, url):
@@ -267,8 +313,7 @@ class CDISCBiomedicalConcepts():
       with open(self._bcs_filename(), 'w') as f:
         yaml.dump(data, f, indent=2, sort_keys=True)
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to save CDSIC BC file")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to save CDSIC BC file", e)
 
   def _read_bcs(self):
     try:
@@ -279,13 +324,16 @@ class CDISCBiomedicalConcepts():
         package_logger.error(f"Failed to read CDSIC BC file, does not exist")
         return None
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to read CDSIC CT file")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._exception(f"Exception '{e}', failed to read CDSIC CT file", e)
 
   def _bcs_exist(self):
     return os.path.isfile(self._bcs_filename()) 
 
   def _bcs_filename(self):
     return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bcs.yaml")
+
+  def _exception(self, message, e):
+    package_logger.error(message)
+    package_logger.error(f"{e}\n{traceback.format_exc()}")
 
 cdisc_bc_library = CDISCBiomedicalConcepts()
