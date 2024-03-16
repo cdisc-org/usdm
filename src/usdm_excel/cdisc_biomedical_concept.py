@@ -42,32 +42,6 @@ class CDISCBiomedicalConcepts():
   def catalogue(self) -> list:
     return list(self._bcs.keys())
   
-  # def synonyms(self, name) -> list:
-  #   metadata = self.exists(name)
-  #   if not metadata:
-  #     return []
-  #   else:
-  #     # ToDo, needs a tweak
-  #     bc = self.usdm(name)
-  #     return bc.bcSynonyms
-
-  # # Not sure used anymore?
-  # def to_cdisc_json(self, name) -> dict:
-  #   metadata = self.exists(name)
-  #   if not metadata:
-  #     return {}
-  #   else:
-  #     sdtm_response, generic_response = self._get_from_url_both(metadata['href'])
-  #     return sdtm_response
-
-  # def to_usdm_json(self, name) -> dict:
-  #   metadata = self.exists(name)
-  #   return metadata if metadata else {}
-  #     return {}
-  #   else:
-  #     bc = self.usdm(name)
-  #     return bc.to_json()
-
   def usdm(self, name) -> BiomedicalConcept:
     return self._get_bc_data(name) if self.exists(name) else None
 
@@ -273,45 +247,13 @@ class CDISCBiomedicalConcepts():
       return None, None
 
   def _get_from_url(self, url):
-    # if url in self._bc_responses:
-    #   return self._bc_responses[url]
-    # else:
     api_url = self._url(url)
     raw = requests.get(api_url, headers=self.headers)
     result = raw.json()
-    #self._bc_responses[url] = result
-    #self._save_bcs(self._bc_responses)
     return result
 
   def _url(self, relative_url) -> str:
     return "%s%s" % (self.__class__.API_ROOT, relative_url)
-
-  # def _save_bc_items(self, data):
-  #   try:
-  #     if not self._bc_items_exist():
-  #       with open(self._bc_items_filename(), 'w') as f:
-  #         yaml.dump(data, f, indent=2, sort_keys=True)
-  #   except Exception as e:
-  #     package_logger.error(f"Exception '{e}', failed to save CDSIC BC items file")
-  #     package_logger.debug(f"{e}\n{traceback.format_exc()}")
-
-  # def _read_bc_items(self):
-  #   try:
-  #     if self._bc_items_exist():
-  #       with open(self._bc_items_filename()) as f:
-  #         return yaml.load(f, Loader=yaml.FullLoader)
-  #     else:
-  #       package_logger.error(f"Failed to read CDSIC BC items file, does not exist")
-  #       return None
-  #   except Exception as e:
-  #     package_logger.error(f"Exception '{e}', failed to read CDSIC BC items file")
-  #     package_logger.debug(f"{e}\n{traceback.format_exc()}")
-
-  # def _bc_items_exist(self):
-  #   return os.path.isfile(self._bc_items_filename()) 
-
-  # def _bc_items_filename(self):
-  #   return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bc_items.yaml")
 
   def _save_bcs(self, data):
     try:
