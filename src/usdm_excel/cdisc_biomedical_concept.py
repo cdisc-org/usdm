@@ -182,7 +182,7 @@ class CDISCBiomedicalConcepts():
               if term:
                 codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
               else:
-                package_logger.error(f"Failed to find submission 7 preferred term '{value}'")
+                package_logger.error(f"Failed to find submission or preferred term '{value}' from code list '{sdtm_property['codeList']['conceptId']}'")
         for code in codes:
          responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
         return BiomedicalConceptProperty(
