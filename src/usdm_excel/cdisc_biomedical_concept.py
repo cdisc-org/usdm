@@ -174,8 +174,11 @@ class CDISCBiomedicalConcepts():
           if generic_match:
             concept_code = NCIt().code(generic_match['conceptId'], generic_match['shortName'])
           else:
-            package_logger.error(f"Failed to set property concept 1, {sdtm_property}")
-            concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+            if 'assignedTerm' in sdtm_property and 'conceptId' in sdtm_property['assignedTerm'] and 'value' in sdtm_property['assignedTerm']:
+              concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+            else:
+              package_logger.error(f"Failed to set property concept 1, {sdtm_property}")
+              concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
         else:
           if 'assignedTerm' in sdtm_property:
             concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
@@ -248,7 +251,10 @@ class CDISCBiomedicalConcepts():
     return True
   
   def _process_property(self, name):
-    if name[2:] in ['TEST', 'STRESN', 'STRESU', 'STRESC', 'CLASCD', 'LOINC', 'LOT', 'CAT', 'SCAT']:
+    if name[2:] in [
+      'TEST', 'STRESN', 'STRESU', 'STRESC', 'CLASCD', 'LOINC', 'LOT', 'CAT', 'SCAT', 'LLT', 'LLTCD', 'HLT', 'HLTCD',
+      'PTCD', 'BODSYS', 'BDSYCD', 'SOC', 'SOCCD', 'RLDEV'
+    ]:
       return False
     if name in ['EPOCH']:
       return False
