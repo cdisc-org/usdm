@@ -79,8 +79,7 @@ class CDISCBiomedicalConcepts():
   def _get_package_items(self) -> dict:
     results = {}
     try:
-      #for package in self._package_metadata:
-        package = self._package_metadata[-1]
+      for package in self._package_metadata:
         api_url = self._url(package['href']) 
         package_logger.info("CDISC BC Library: %s" % api_url)
         raw = requests.get(api_url, headers=self.headers)
@@ -89,7 +88,7 @@ class CDISCBiomedicalConcepts():
         for item in response['_links']['datasetSpecializations']:
           key = item['title'].upper()
           results[key] = item
-        return results
+      return results
     except Exception as e:
       self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
@@ -118,15 +117,16 @@ class CDISCBiomedicalConcepts():
         role_variable = self._get_role_variable(sdtm)
         if role_variable:
           if 'assignedTerm' in role_variable:
-            print(f"ASSIGNED TERM: {role_variable['assignedTerm']}")
             if 'conceptId' in role_variable['assignedTerm'] and 'value' in role_variable['assignedTerm']:
               code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
             else:
+              package_logger.error(f"Failed to set BC concept 1, {sdtm['shortName']}")
               code = NCIt().code('No Concept Code', role_variable['assignedTerm']['value'])
           else:
+            package_logger.error(f"Failed to set BC concept 2, {sdtm['shortName']}")
             code = NCIt().code(generic['conceptId'], generic['shortName'])
         else:
-          package_logger.error(f"Failed to set BC concept {sdtm}\n\n{generic}")
+          package_logger.error(f"Failed to set BC concept {sdtm['shortName']}")
           code = NCIt().code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
@@ -142,12 +142,12 @@ class CDISCBiomedicalConcepts():
       else:
         return None
     except Exception as e:
-      self._exception(f"Exception '{e}', failed to build BC \n{sdtm['shortName']}", e)
+      self._exception(f"Exception '{e}', failed to build BC {sdtm['shortName']}", e)
       return None
 
   def _bc_property_as_usdm(self, sdtm_property, generic) -> BiomedicalConceptProperty:
     try:
-      package_logger.info(f"NAME: {sdtm_property['name']}, {sdtm_property['name'][2:]}")
+      package_logger.debug(f"NAME: {sdtm_property['name']}, {sdtm_property['name'][2:]}")
       if self._process_property(sdtm_property['name']):
         package_logger.debug(f"PROPERTY: {sdtm_property}")
         if 'dataElementConceptId' in sdtm_property:
@@ -155,13 +155,14 @@ class CDISCBiomedicalConcepts():
           if generic_match:
             concept_code = NCIt().code(generic_match['conceptId'], generic_match['shortName'])
           else:
-            #package_logger.error(f"Failed to set property concept {sdtm_property}\n\n{generic}")
+            package_logger.error(f"Failed to set property concept 1, {sdtm_property}")
             concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
         else:
           if 'assignedTerm' in sdtm_property:
             concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
           else:
-            concept_code = None
+            package_logger.error(f"Failed to set property concept 2, {sdtm_property}")
+            concept_code = NCIt().code('No Concept Code', sdtm_property['name'])
         concept_aliases = []
         responses = []
         codes = []
