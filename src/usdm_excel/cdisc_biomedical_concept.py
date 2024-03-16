@@ -145,7 +145,10 @@ class CDISCBiomedicalConcepts():
         if role_variable:
           if 'assignedTerm' in role_variable:
             print(f"ASSIGNED TERM: {role_variable['assignedTerm']}")
-            code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+            if 'conceptId' in role_variable['assignedTerm'] and 'value' in role_variable['assignedTerm']:
+              code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+            else:
+              code = NCIt().code('No Concept Code', role_variable['assignedTerm']['value'])
           else:
             code = NCIt().code(generic['conceptId'], generic['shortName'])
         else:
@@ -198,7 +201,8 @@ class CDISCBiomedicalConcepts():
               if term:
                 codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
               else:
-                package_logger.error(f"Failed to find submission or preferred term '{value}' from code list '{sdtm_property['codelist']['conceptId']}'")
+                cl = f", code list {sdtm_property['codelist']['conceptId'] if 'codelist' in sdtm_property else '<not defined>'}"
+                package_logger.error(f"Failed to find submission or preferred term '{value}' {cl}")
         for code in codes:
          responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
         return BiomedicalConceptProperty(
@@ -237,7 +241,8 @@ class CDISCBiomedicalConcepts():
       "Cola Use History",
       "Distilled Spirits Use History",
       "Pipe History",
-      "Tea Use History"
+      "Tea Use History",
+      "Wine Use History"
     ]:
       return False
     return True

@@ -193,6 +193,25 @@ ALCOHOL USE HISTORY:
       id: AliasCode_378
       instanceType: AliasCode
       standardCode:
+        code: C83092
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Substance Use Reported Name
+        id: Code_412
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: text
+    id: BiomedicalConceptProperty_311
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: SUTRT
+    name: SUTRT
+    responseCodes: []
+  - code:
+      id: AliasCode_379
+      instanceType: AliasCode
+      standardCode:
         code: C171000
         codeSystem: NCI Thesaurus
         codeSystemVersion: ''
@@ -201,7 +220,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_311
+    id: BiomedicalConceptProperty_312
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -209,7 +228,7 @@ ALCOHOL USE HISTORY:
     name: SUPRESP
     responseCodes: []
   - code:
-      id: AliasCode_379
+      id: AliasCode_380
       instanceType: AliasCode
       standardCode:
         code: C127786
@@ -220,7 +239,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_312
+    id: BiomedicalConceptProperty_313
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -228,7 +247,7 @@ ALCOHOL USE HISTORY:
     name: SUOCCUR
     responseCodes: []
   - code:
-      id: AliasCode_380
+      id: AliasCode_381
       instanceType: AliasCode
       standardCode:
         code: C83416
@@ -239,7 +258,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_313
+    id: BiomedicalConceptProperty_314
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -247,7 +266,7 @@ ALCOHOL USE HISTORY:
     name: SUDOSE
     responseCodes: []
   - code:
-      id: AliasCode_381
+      id: AliasCode_382
       instanceType: AliasCode
       standardCode:
         code: C83041
@@ -258,7 +277,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_314
+    id: BiomedicalConceptProperty_315
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -266,7 +285,7 @@ ALCOHOL USE HISTORY:
     name: SUDOSTXT
     responseCodes: []
   - code:
-      id: AliasCode_382
+      id: AliasCode_383
       instanceType: AliasCode
       standardCode:
         code: C83038
@@ -277,7 +296,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_315
+    id: BiomedicalConceptProperty_316
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -335,7 +354,7 @@ ALCOHOL USE HISTORY:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_383
+      id: AliasCode_384
       instanceType: AliasCode
       standardCode:
         code: C83044
@@ -346,7 +365,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_316
+    id: BiomedicalConceptProperty_317
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -374,7 +393,7 @@ ALCOHOL USE HISTORY:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_384
+      id: AliasCode_385
       instanceType: AliasCode
       standardCode:
         code: C83431
@@ -385,7 +404,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: datetime
-    id: BiomedicalConceptProperty_317
+    id: BiomedicalConceptProperty_318
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -393,7 +412,7 @@ ALCOHOL USE HISTORY:
     name: SUSTDTC
     responseCodes: []
   - code:
-      id: AliasCode_385
+      id: AliasCode_386
       instanceType: AliasCode
       standardCode:
         code: C83419
@@ -404,7 +423,7 @@ ALCOHOL USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: datetime
-    id: BiomedicalConceptProperty_318
+    id: BiomedicalConceptProperty_319
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -750,7 +769,7 @@ BILIRUBIN PRESENCE IN URINE:
   - Total Bilirubin Measurement
 BODY MASS INDEX:
   code:
-    id: AliasCode_405
+    id: AliasCode_408
     instanceType: AliasCode
     standardCode:
       code: C16358
@@ -766,7 +785,7 @@ BODY MASS INDEX:
   name: Body Mass Index
   properties:
   - code:
-      id: AliasCode_406
+      id: AliasCode_409
       instanceType: AliasCode
       standardCode:
         code: C16358
@@ -777,7 +796,7 @@ BODY MASS INDEX:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_336
+    id: BiomedicalConceptProperty_339
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -785,7 +804,7 @@ BODY MASS INDEX:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_407
+      id: AliasCode_410
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -796,7 +815,7 @@ BODY MASS INDEX:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_337
+    id: BiomedicalConceptProperty_340
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -804,7 +823,7 @@ BODY MASS INDEX:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_408
+      id: AliasCode_411
       instanceType: AliasCode
       standardCode:
         code: C42575
@@ -815,7 +834,7 @@ BODY MASS INDEX:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_338
+    id: BiomedicalConceptProperty_341
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -849,7 +868,7 @@ BODY MASS INDEX:
   - Body Mass Index
 CAFFEINE USE HISTORY:
   code:
-    id: AliasCode_386
+    id: AliasCode_387
     instanceType: AliasCode
     standardCode:
       code: C201990
@@ -865,7 +884,26 @@ CAFFEINE USE HISTORY:
   name: Caffeine Use History
   properties:
   - code:
-      id: AliasCode_387
+      id: AliasCode_388
+      instanceType: AliasCode
+      standardCode:
+        code: C83092
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Substance Use Reported Name
+        id: Code_429
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: text
+    id: BiomedicalConceptProperty_320
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: SUTRT
+    name: SUTRT
+    responseCodes: []
+  - code:
+      id: AliasCode_389
       instanceType: AliasCode
       standardCode:
         code: C171000
@@ -876,7 +914,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_319
+    id: BiomedicalConceptProperty_321
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -884,7 +922,7 @@ CAFFEINE USE HISTORY:
     name: SUPRESP
     responseCodes: []
   - code:
-      id: AliasCode_388
+      id: AliasCode_390
       instanceType: AliasCode
       standardCode:
         code: C127786
@@ -895,7 +933,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_320
+    id: BiomedicalConceptProperty_322
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -903,7 +941,7 @@ CAFFEINE USE HISTORY:
     name: SUOCCUR
     responseCodes: []
   - code:
-      id: AliasCode_389
+      id: AliasCode_391
       instanceType: AliasCode
       standardCode:
         code: C83416
@@ -914,7 +952,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_321
+    id: BiomedicalConceptProperty_323
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -922,7 +960,7 @@ CAFFEINE USE HISTORY:
     name: SUDOSE
     responseCodes: []
   - code:
-      id: AliasCode_390
+      id: AliasCode_392
       instanceType: AliasCode
       standardCode:
         code: C83041
@@ -933,7 +971,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_322
+    id: BiomedicalConceptProperty_324
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -941,7 +979,7 @@ CAFFEINE USE HISTORY:
     name: SUDOSTXT
     responseCodes: []
   - code:
-      id: AliasCode_391
+      id: AliasCode_393
       instanceType: AliasCode
       standardCode:
         code: C83038
@@ -952,7 +990,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_323
+    id: BiomedicalConceptProperty_325
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -1010,7 +1048,7 @@ CAFFEINE USE HISTORY:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_392
+      id: AliasCode_394
       instanceType: AliasCode
       standardCode:
         code: C83044
@@ -1021,7 +1059,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_324
+    id: BiomedicalConceptProperty_326
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -1049,7 +1087,7 @@ CAFFEINE USE HISTORY:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_393
+      id: AliasCode_395
       instanceType: AliasCode
       standardCode:
         code: C83431
@@ -1060,7 +1098,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: datetime
-    id: BiomedicalConceptProperty_325
+    id: BiomedicalConceptProperty_327
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -1068,7 +1106,7 @@ CAFFEINE USE HISTORY:
     name: SUSTDTC
     responseCodes: []
   - code:
-      id: AliasCode_394
+      id: AliasCode_396
       instanceType: AliasCode
       standardCode:
         code: C83419
@@ -1079,7 +1117,7 @@ CAFFEINE USE HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: datetime
-    id: BiomedicalConceptProperty_326
+    id: BiomedicalConceptProperty_328
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -2227,7 +2265,7 @@ DEAD:
   - Dead
 DIASTOLIC BLOOD PRESSURE:
   code:
-    id: AliasCode_409
+    id: AliasCode_412
     instanceType: AliasCode
     standardCode:
       code: C25299
@@ -2243,7 +2281,7 @@ DIASTOLIC BLOOD PRESSURE:
   name: Diastolic Blood Pressure
   properties:
   - code:
-      id: AliasCode_410
+      id: AliasCode_413
       instanceType: AliasCode
       standardCode:
         code: C25299
@@ -2254,7 +2292,7 @@ DIASTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_339
+    id: BiomedicalConceptProperty_342
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -2262,7 +2300,7 @@ DIASTOLIC BLOOD PRESSURE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_411
+      id: AliasCode_414
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -2273,7 +2311,7 @@ DIASTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: integer
-    id: BiomedicalConceptProperty_340
+    id: BiomedicalConceptProperty_343
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -2281,7 +2319,7 @@ DIASTOLIC BLOOD PRESSURE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_412
+      id: AliasCode_415
       instanceType: AliasCode
       standardCode:
         code: C49669
@@ -2292,7 +2330,7 @@ DIASTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_341
+    id: BiomedicalConceptProperty_344
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -2300,7 +2338,7 @@ DIASTOLIC BLOOD PRESSURE:
     name: VSORRESU
     responseCodes: []
   - code:
-      id: AliasCode_413
+      id: AliasCode_416
       instanceType: AliasCode
       standardCode:
         code: C62164
@@ -2311,7 +2349,7 @@ DIASTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_342
+    id: BiomedicalConceptProperty_345
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -2319,7 +2357,7 @@ DIASTOLIC BLOOD PRESSURE:
     name: VSPOS
     responseCodes: []
   - code:
-      id: AliasCode_414
+      id: AliasCode_417
       instanceType: AliasCode
       standardCode:
         code: C13717
@@ -2330,7 +2368,7 @@ DIASTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_343
+    id: BiomedicalConceptProperty_346
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -2338,7 +2376,7 @@ DIASTOLIC BLOOD PRESSURE:
     name: VSLOC
     responseCodes: []
   - code:
-      id: AliasCode_415
+      id: AliasCode_418
       instanceType: AliasCode
       standardCode:
         code: C25185
@@ -2349,7 +2387,7 @@ DIASTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_344
+    id: BiomedicalConceptProperty_347
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3179,7 +3217,7 @@ FAILURE TO MEET RANDOMIZATION CRITERIA:
   - Failure to Meet Randomization Criteria
 FRAME SIZE:
   code:
-    id: AliasCode_416
+    id: AliasCode_419
     instanceType: AliasCode
     standardCode:
       code: C49680
@@ -3195,7 +3233,7 @@ FRAME SIZE:
   name: Frame Size
   properties:
   - code:
-      id: AliasCode_417
+      id: AliasCode_420
       instanceType: AliasCode
       standardCode:
         code: C49680
@@ -3206,7 +3244,7 @@ FRAME SIZE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_345
+    id: BiomedicalConceptProperty_348
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3214,7 +3252,7 @@ FRAME SIZE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_418
+      id: AliasCode_421
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -3225,7 +3263,7 @@ FRAME SIZE:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_346
+    id: BiomedicalConceptProperty_349
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3451,7 +3489,7 @@ GLUCOSE PRESENCE IN URINE:
   - Glucose Measurement
 HEART RATE:
   code:
-    id: AliasCode_423
+    id: AliasCode_426
     instanceType: AliasCode
     standardCode:
       code: C49677
@@ -3467,7 +3505,7 @@ HEART RATE:
   name: Heart Rate
   properties:
   - code:
-      id: AliasCode_424
+      id: AliasCode_427
       instanceType: AliasCode
       standardCode:
         code: C49677
@@ -3478,7 +3516,7 @@ HEART RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_350
+    id: BiomedicalConceptProperty_353
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3486,7 +3524,7 @@ HEART RATE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_425
+      id: AliasCode_428
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -3497,7 +3535,7 @@ HEART RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: integer
-    id: BiomedicalConceptProperty_351
+    id: BiomedicalConceptProperty_354
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3505,7 +3543,7 @@ HEART RATE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_426
+      id: AliasCode_429
       instanceType: AliasCode
       standardCode:
         code: C73688
@@ -3516,7 +3554,7 @@ HEART RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_352
+    id: BiomedicalConceptProperty_355
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3524,7 +3562,7 @@ HEART RATE:
     name: VSORRESU
     responseCodes: []
   - code:
-      id: AliasCode_427
+      id: AliasCode_430
       instanceType: AliasCode
       standardCode:
         code: C62164
@@ -3535,7 +3573,7 @@ HEART RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_353
+    id: BiomedicalConceptProperty_356
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3543,7 +3581,7 @@ HEART RATE:
     name: VSPOS
     responseCodes: []
   - code:
-      id: AliasCode_428
+      id: AliasCode_431
       instanceType: AliasCode
       standardCode:
         code: C13717
@@ -3554,7 +3592,7 @@ HEART RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_354
+    id: BiomedicalConceptProperty_357
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3562,7 +3600,7 @@ HEART RATE:
     name: VSLOC
     responseCodes: []
   - code:
-      id: AliasCode_429
+      id: AliasCode_432
       instanceType: AliasCode
       standardCode:
         code: C25185
@@ -3573,7 +3611,7 @@ HEART RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_355
+    id: BiomedicalConceptProperty_358
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3585,7 +3623,7 @@ HEART RATE:
   - Heart Rate
 HEIGHT:
   code:
-    id: AliasCode_419
+    id: AliasCode_422
     instanceType: AliasCode
     standardCode:
       code: C25347
@@ -3601,7 +3639,7 @@ HEIGHT:
   name: Height
   properties:
   - code:
-      id: AliasCode_420
+      id: AliasCode_423
       instanceType: AliasCode
       standardCode:
         code: C25347
@@ -3612,7 +3650,7 @@ HEIGHT:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_347
+    id: BiomedicalConceptProperty_350
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3620,7 +3658,7 @@ HEIGHT:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_421
+      id: AliasCode_424
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -3631,7 +3669,7 @@ HEIGHT:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_348
+    id: BiomedicalConceptProperty_351
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -3639,7 +3677,7 @@ HEIGHT:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_422
+      id: AliasCode_425
       instanceType: AliasCode
       standardCode:
         code: C168688
@@ -3650,7 +3688,7 @@ HEIGHT:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_349
+    id: BiomedicalConceptProperty_352
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -4993,7 +5031,7 @@ NUMBER OF YEARS OF EDUCATION:
   - Number of Years of Education
 OXYGEN SATURATION:
   code:
-    id: AliasCode_430
+    id: AliasCode_433
     instanceType: AliasCode
     standardCode:
       code: C60832
@@ -5009,7 +5047,7 @@ OXYGEN SATURATION:
   name: Oxygen Saturation
   properties:
   - code:
-      id: AliasCode_431
+      id: AliasCode_434
       instanceType: AliasCode
       standardCode:
         code: C60832
@@ -5020,7 +5058,7 @@ OXYGEN SATURATION:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_356
+    id: BiomedicalConceptProperty_359
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -5028,7 +5066,7 @@ OXYGEN SATURATION:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_432
+      id: AliasCode_435
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -5039,7 +5077,7 @@ OXYGEN SATURATION:
         instanceType: Code
       standardCodeAliases: []
     datatype: integer
-    id: BiomedicalConceptProperty_357
+    id: BiomedicalConceptProperty_360
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -5047,7 +5085,7 @@ OXYGEN SATURATION:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_433
+      id: AliasCode_436
       instanceType: AliasCode
       standardCode:
         code: C48570
@@ -5058,7 +5096,7 @@ OXYGEN SATURATION:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_358
+    id: BiomedicalConceptProperty_361
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -5066,7 +5104,7 @@ OXYGEN SATURATION:
     name: VSORRESU
     responseCodes: []
   - code:
-      id: AliasCode_434
+      id: AliasCode_437
       instanceType: AliasCode
       standardCode:
         code: C82535
@@ -5077,7 +5115,7 @@ OXYGEN SATURATION:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_359
+    id: BiomedicalConceptProperty_362
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -5085,7 +5123,7 @@ OXYGEN SATURATION:
     name: VSMETHOD
     responseCodes: []
   - code:
-      id: AliasCode_435
+      id: AliasCode_438
       instanceType: AliasCode
       standardCode:
         code: C13717
@@ -5096,7 +5134,7 @@ OXYGEN SATURATION:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_360
+    id: BiomedicalConceptProperty_363
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -5104,7 +5142,7 @@ OXYGEN SATURATION:
     name: VSLOC
     responseCodes: []
   - code:
-      id: AliasCode_436
+      id: AliasCode_439
       instanceType: AliasCode
       standardCode:
         code: C25185
@@ -5115,7 +5153,7 @@ OXYGEN SATURATION:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_361
+    id: BiomedicalConceptProperty_364
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -6062,7 +6100,7 @@ PROTOCOL DEVIATION:
   - Protocol Deviation
 PULSE:
   code:
-    id: AliasCode_437
+    id: AliasCode_440
     instanceType: AliasCode
     standardCode:
       code: C49676
@@ -6078,7 +6116,7 @@ PULSE:
   name: Pulse
   properties:
   - code:
-      id: AliasCode_438
+      id: AliasCode_441
       instanceType: AliasCode
       standardCode:
         code: C49676
@@ -6089,7 +6127,7 @@ PULSE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_362
+    id: BiomedicalConceptProperty_365
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -6097,7 +6135,7 @@ PULSE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_439
+      id: AliasCode_442
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -6108,7 +6146,7 @@ PULSE:
         instanceType: Code
       standardCodeAliases: []
     datatype: integer
-    id: BiomedicalConceptProperty_363
+    id: BiomedicalConceptProperty_366
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -6116,7 +6154,7 @@ PULSE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_440
+      id: AliasCode_443
       instanceType: AliasCode
       standardCode:
         code: C73688
@@ -6127,7 +6165,7 @@ PULSE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_364
+    id: BiomedicalConceptProperty_367
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -6135,7 +6173,7 @@ PULSE:
     name: VSORRESU
     responseCodes: []
   - code:
-      id: AliasCode_441
+      id: AliasCode_444
       instanceType: AliasCode
       standardCode:
         code: C62164
@@ -6146,7 +6184,7 @@ PULSE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_365
+    id: BiomedicalConceptProperty_368
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -6154,7 +6192,7 @@ PULSE:
     name: VSPOS
     responseCodes: []
   - code:
-      id: AliasCode_442
+      id: AliasCode_445
       instanceType: AliasCode
       standardCode:
         code: C13717
@@ -6165,7 +6203,7 @@ PULSE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_366
+    id: BiomedicalConceptProperty_369
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -6173,7 +6211,7 @@ PULSE:
     name: VSLOC
     responseCodes: []
   - code:
-      id: AliasCode_443
+      id: AliasCode_446
       instanceType: AliasCode
       standardCode:
         code: C25185
@@ -6184,7 +6222,7 @@ PULSE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_367
+    id: BiomedicalConceptProperty_370
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -7110,7 +7148,7 @@ QTCF INTERVAL AGGREGATE:
   - Aggregate QTCF Interval
 RESPIRATORY RATE:
   code:
-    id: AliasCode_444
+    id: AliasCode_447
     instanceType: AliasCode
     standardCode:
       code: C49678
@@ -7126,7 +7164,7 @@ RESPIRATORY RATE:
   name: Respiratory Rate
   properties:
   - code:
-      id: AliasCode_445
+      id: AliasCode_448
       instanceType: AliasCode
       standardCode:
         code: C49678
@@ -7137,7 +7175,7 @@ RESPIRATORY RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_368
+    id: BiomedicalConceptProperty_371
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -7145,7 +7183,7 @@ RESPIRATORY RATE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_446
+      id: AliasCode_449
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -7156,7 +7194,7 @@ RESPIRATORY RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: integer
-    id: BiomedicalConceptProperty_369
+    id: BiomedicalConceptProperty_372
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -7164,7 +7202,7 @@ RESPIRATORY RATE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_447
+      id: AliasCode_450
       instanceType: AliasCode
       standardCode:
         code: C73688
@@ -7175,7 +7213,7 @@ RESPIRATORY RATE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_370
+    id: BiomedicalConceptProperty_373
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8329,7 +8367,7 @@ SUPRAVENTRICULAR TACHYARRHYTHMIA ECG ASSESSMENT:
   - Supraventricular Tachyarrhythmia ECG Assessment
 SYSTOLIC BLOOD PRESSURE:
   code:
-    id: AliasCode_448
+    id: AliasCode_451
     instanceType: AliasCode
     standardCode:
       code: C25298
@@ -8345,7 +8383,7 @@ SYSTOLIC BLOOD PRESSURE:
   name: Systolic Blood Pressure
   properties:
   - code:
-      id: AliasCode_449
+      id: AliasCode_452
       instanceType: AliasCode
       standardCode:
         code: C25298
@@ -8356,7 +8394,7 @@ SYSTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_371
+    id: BiomedicalConceptProperty_374
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8364,7 +8402,7 @@ SYSTOLIC BLOOD PRESSURE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_450
+      id: AliasCode_453
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -8375,7 +8413,7 @@ SYSTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: integer
-    id: BiomedicalConceptProperty_372
+    id: BiomedicalConceptProperty_375
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8383,7 +8421,7 @@ SYSTOLIC BLOOD PRESSURE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_451
+      id: AliasCode_454
       instanceType: AliasCode
       standardCode:
         code: C49669
@@ -8394,7 +8432,7 @@ SYSTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_373
+    id: BiomedicalConceptProperty_376
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8402,7 +8440,7 @@ SYSTOLIC BLOOD PRESSURE:
     name: VSORRESU
     responseCodes: []
   - code:
-      id: AliasCode_452
+      id: AliasCode_455
       instanceType: AliasCode
       standardCode:
         code: C62164
@@ -8413,7 +8451,7 @@ SYSTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_374
+    id: BiomedicalConceptProperty_377
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8421,7 +8459,7 @@ SYSTOLIC BLOOD PRESSURE:
     name: VSPOS
     responseCodes: []
   - code:
-      id: AliasCode_453
+      id: AliasCode_456
       instanceType: AliasCode
       standardCode:
         code: C13717
@@ -8432,7 +8470,7 @@ SYSTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_375
+    id: BiomedicalConceptProperty_378
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8440,7 +8478,7 @@ SYSTOLIC BLOOD PRESSURE:
     name: VSLOC
     responseCodes: []
   - code:
-      id: AliasCode_454
+      id: AliasCode_457
       instanceType: AliasCode
       standardCode:
         code: C25185
@@ -8451,7 +8489,7 @@ SYSTOLIC BLOOD PRESSURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_376
+    id: BiomedicalConceptProperty_379
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8464,7 +8502,7 @@ SYSTOLIC BLOOD PRESSURE:
   - Systolic Blood Pressure
 TEMPERATURE:
   code:
-    id: AliasCode_455
+    id: AliasCode_458
     instanceType: AliasCode
     standardCode:
       code: C174446
@@ -8480,7 +8518,7 @@ TEMPERATURE:
   name: Temperature
   properties:
   - code:
-      id: AliasCode_456
+      id: AliasCode_459
       instanceType: AliasCode
       standardCode:
         code: C174446
@@ -8491,7 +8529,7 @@ TEMPERATURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_377
+    id: BiomedicalConceptProperty_380
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8499,7 +8537,7 @@ TEMPERATURE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_457
+      id: AliasCode_460
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -8510,7 +8548,7 @@ TEMPERATURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_378
+    id: BiomedicalConceptProperty_381
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8518,7 +8556,7 @@ TEMPERATURE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_458
+      id: AliasCode_461
       instanceType: AliasCode
       standardCode:
         code: C44276
@@ -8529,7 +8567,7 @@ TEMPERATURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_379
+    id: BiomedicalConceptProperty_382
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8557,7 +8595,7 @@ TEMPERATURE:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_459
+      id: AliasCode_462
       instanceType: AliasCode
       standardCode:
         code: C13717
@@ -8568,7 +8606,7 @@ TEMPERATURE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_380
+    id: BiomedicalConceptProperty_383
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8581,7 +8619,7 @@ TEMPERATURE:
   - Body Temperature
 TOBACCO HISTORY:
   code:
-    id: AliasCode_395
+    id: AliasCode_397
     instanceType: AliasCode
     standardCode:
       code: C181760
@@ -8597,7 +8635,26 @@ TOBACCO HISTORY:
   name: Tobacco History
   properties:
   - code:
-      id: AliasCode_396
+      id: AliasCode_398
+      instanceType: AliasCode
+      standardCode:
+        code: C83092
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Substance Use Reported Name
+        id: Code_446
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: text
+    id: BiomedicalConceptProperty_329
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: SUTRT
+    name: SUTRT
+    responseCodes: []
+  - code:
+      id: AliasCode_399
       instanceType: AliasCode
       standardCode:
         code: C171000
@@ -8608,7 +8665,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_327
+    id: BiomedicalConceptProperty_330
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8616,7 +8673,7 @@ TOBACCO HISTORY:
     name: SUPRESP
     responseCodes: []
   - code:
-      id: AliasCode_397
+      id: AliasCode_400
       instanceType: AliasCode
       standardCode:
         code: C127786
@@ -8627,7 +8684,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_328
+    id: BiomedicalConceptProperty_331
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8635,7 +8692,7 @@ TOBACCO HISTORY:
     name: SUOCCUR
     responseCodes: []
   - code:
-      id: AliasCode_398
+      id: AliasCode_401
       instanceType: AliasCode
       standardCode:
         code: C83416
@@ -8646,7 +8703,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_329
+    id: BiomedicalConceptProperty_332
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8654,7 +8711,7 @@ TOBACCO HISTORY:
     name: SUDOSE
     responseCodes: []
   - code:
-      id: AliasCode_399
+      id: AliasCode_402
       instanceType: AliasCode
       standardCode:
         code: C83041
@@ -8665,7 +8722,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_330
+    id: BiomedicalConceptProperty_333
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8673,7 +8730,7 @@ TOBACCO HISTORY:
     name: SUDOSTXT
     responseCodes: []
   - code:
-      id: AliasCode_400
+      id: AliasCode_403
       instanceType: AliasCode
       standardCode:
         code: C83038
@@ -8684,7 +8741,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_331
+    id: BiomedicalConceptProperty_334
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8752,7 +8809,7 @@ TOBACCO HISTORY:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_401
+      id: AliasCode_404
       instanceType: AliasCode
       standardCode:
         code: C83044
@@ -8763,7 +8820,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: text
-    id: BiomedicalConceptProperty_332
+    id: BiomedicalConceptProperty_335
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8791,7 +8848,7 @@ TOBACCO HISTORY:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_402
+      id: AliasCode_405
       instanceType: AliasCode
       standardCode:
         code: C83431
@@ -8802,7 +8859,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: datetime
-    id: BiomedicalConceptProperty_333
+    id: BiomedicalConceptProperty_336
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8810,7 +8867,7 @@ TOBACCO HISTORY:
     name: SUSTDTC
     responseCodes: []
   - code:
-      id: AliasCode_403
+      id: AliasCode_406
       instanceType: AliasCode
       standardCode:
         code: C83419
@@ -8821,7 +8878,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: datetime
-    id: BiomedicalConceptProperty_334
+    id: BiomedicalConceptProperty_337
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -8829,7 +8886,7 @@ TOBACCO HISTORY:
     name: SUENDTC
     responseCodes: []
   - code:
-      id: AliasCode_404
+      id: AliasCode_407
       instanceType: AliasCode
       standardCode:
         code: C83419
@@ -8840,7 +8897,7 @@ TOBACCO HISTORY:
         instanceType: Code
       standardCodeAliases: []
     datatype: durationDatetime
-    id: BiomedicalConceptProperty_335
+    id: BiomedicalConceptProperty_338
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9411,7 +9468,7 @@ VENTRICULAR TACHYARRHYTHMIA ECG ASSESSMENT:
   - Ventricular Tachyarrhythmia ECG Assessment
 WAIST CIRCUMFERENCE:
   code:
-    id: AliasCode_464
+    id: AliasCode_467
     instanceType: AliasCode
     standardCode:
       code: C100948
@@ -9427,7 +9484,7 @@ WAIST CIRCUMFERENCE:
   name: Waist Circumference
   properties:
   - code:
-      id: AliasCode_465
+      id: AliasCode_468
       instanceType: AliasCode
       standardCode:
         code: C100948
@@ -9438,7 +9495,7 @@ WAIST CIRCUMFERENCE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_384
+    id: BiomedicalConceptProperty_387
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9446,7 +9503,7 @@ WAIST CIRCUMFERENCE:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_466
+      id: AliasCode_469
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -9457,7 +9514,7 @@ WAIST CIRCUMFERENCE:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_385
+    id: BiomedicalConceptProperty_388
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9465,7 +9522,7 @@ WAIST CIRCUMFERENCE:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_467
+      id: AliasCode_470
       instanceType: AliasCode
       standardCode:
         code: C42578
@@ -9476,7 +9533,7 @@ WAIST CIRCUMFERENCE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_386
+    id: BiomedicalConceptProperty_389
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9514,7 +9571,7 @@ WAIST CIRCUMFERENCE:
       instanceType: ResponseCode
       isEnabled: true
   - code:
-      id: AliasCode_468
+      id: AliasCode_471
       instanceType: AliasCode
       standardCode:
         code: C93507
@@ -9525,7 +9582,7 @@ WAIST CIRCUMFERENCE:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_387
+    id: BiomedicalConceptProperty_390
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9537,7 +9594,7 @@ WAIST CIRCUMFERENCE:
   - Waist Circumference
 WEIGHT:
   code:
-    id: AliasCode_460
+    id: AliasCode_463
     instanceType: AliasCode
     standardCode:
       code: C25208
@@ -9553,7 +9610,7 @@ WEIGHT:
   name: Weight
   properties:
   - code:
-      id: AliasCode_461
+      id: AliasCode_464
       instanceType: AliasCode
       standardCode:
         code: C25208
@@ -9564,7 +9621,7 @@ WEIGHT:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_381
+    id: BiomedicalConceptProperty_384
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9572,7 +9629,7 @@ WEIGHT:
     name: VSTESTCD
     responseCodes: []
   - code:
-      id: AliasCode_462
+      id: AliasCode_465
       instanceType: AliasCode
       standardCode:
         code: C77140
@@ -9583,7 +9640,7 @@ WEIGHT:
         instanceType: Code
       standardCodeAliases: []
     datatype: float
-    id: BiomedicalConceptProperty_382
+    id: BiomedicalConceptProperty_385
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
@@ -9591,7 +9648,7 @@ WEIGHT:
     name: VSORRES
     responseCodes: []
   - code:
-      id: AliasCode_463
+      id: AliasCode_466
       instanceType: AliasCode
       standardCode:
         code: C48208
@@ -9602,7 +9659,7 @@ WEIGHT:
         instanceType: Code
       standardCodeAliases: []
     datatype: ''
-    id: BiomedicalConceptProperty_383
+    id: BiomedicalConceptProperty_386
     instanceType: BiomedicalConceptProperty
     isEnabled: true
     isRequired: true
