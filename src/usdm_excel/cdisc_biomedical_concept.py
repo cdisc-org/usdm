@@ -204,7 +204,8 @@ class CDISCBiomedicalConcepts():
                 cl = f", code list {sdtm_property['codelist']['conceptId'] if 'codelist' in sdtm_property else '<not defined>'}"
                 package_logger.error(f"Failed to find submission or preferred term '{value}' {cl}")
         for code in codes:
-         responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
+         response_code = ResponseCode(id="tbd", isEnabled=True, code=code)
+         responses.append(response_code)
         concept_code.id = "tbd"
         alias_code=Alias().code(concept_code, [])
         alias_code.id = "tbd"
@@ -280,6 +281,7 @@ class CDISCBiomedicalConcepts():
 
   def _get_from_url(self, url):
     api_url = self._url(url)
+    package_logger.info("CDISC BC Library: %s" % api_url)
     raw = requests.get(api_url, headers=self.headers)
     result = raw.json()
     return result
