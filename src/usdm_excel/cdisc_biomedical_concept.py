@@ -165,19 +165,26 @@ class CDISCBiomedicalConcepts():
       if sdtm_property['name'][2:-1] not in ['TEST', 'STRESN', 'STRESU']:
         package_logger.debug(f"PROPERTY: {sdtm_property}")
         if 'dataElementConceptId' in sdtm_property:
-          concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+          generic_match = self._get_dec_match(generic, sdtm_property['dataElementConceptId'])
+          concept_code = NCIt().code(generic_match['conceptId'], generic_match['shortName'])
         else:
           concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
         concept_aliases = []
         responses = []
-                # codes = []
-                # if 'exampleSet' in item:
-                #   for example in item['exampleSet']:
-                #     term = cdisc_ct_library.preferred_term(example)
-                #     if term != None:
-                #       codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-        #for code in codes:
-        #  responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
+        codes = []
+        if 'valueList' in sdtm_property:
+          for value in sdtm_property['valueList']:
+            term = cdisc_ct_library.preferred_term(value)
+            if term:
+              codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+            else:
+              term = cdisc_ct_library.submission(value)
+              if term:
+                codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+              else:
+                package_logger.error(f"Failed to find submission 7 preferred term '{value}'")
+        for code in codes:
+         responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
         return BiomedicalConceptProperty(
           id=id_manager.build_id(BiomedicalConceptProperty),
           name=sdtm_property['name'],
@@ -191,12 +198,15 @@ class CDISCBiomedicalConcepts():
       else:
         return None
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to build property '{property}'")
+      package_logger.error(f"Exception '{e}', failed to build property '{sdtm_property}'")
       package_logger.debug(f"{e}\n{traceback.format_exc()}")
       return None
 
-  def _get_role_variable(self, api_bc):
-    return next((item for item in api_bc['variables'] if item["role"] == "Topic"), None)
+  def _get_role_variable(self, data):
+    return next((item for item in data['variables'] if item["role"] == "Topic"), None)
+
+  def _get_dec_match(self, data, id):
+    return next((item for item in data['dataElementConcepts'] if item["conceptId"] == id), None)
 
   def _get_from_url_all(self, name) -> dict:
     try:

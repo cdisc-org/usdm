@@ -42,6 +42,8 @@ class CDISCCTLibrary():
         return next((item for item in code_list['terms'] if item["submissionValue"] == value), None)
       else:
         return None 
+    else:
+      return None
     
   def preferred_term(self, value):
     if value in list(self._by_pt.keys()):
@@ -53,6 +55,8 @@ class CDISCCTLibrary():
         return next((item for item in code_list['terms'] if item["preferredTerm"] == value), None)
       else:
         return None 
+    else:
+      return None
 
   def klass_and_attribute(self, klass, attribute, value):
     try:
