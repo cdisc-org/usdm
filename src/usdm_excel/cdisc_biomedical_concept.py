@@ -132,15 +132,7 @@ class CDISCBiomedicalConcepts():
         if bc:
           if 'variables' in sdtm:
             for item in sdtm['variables']:
-              #print(f"ITEM: {item}")
-              if item['name'][2:-1] not in ['TEST', 'STRESN', 'STRESU']:
-                codes = []
-                if 'exampleSet' in item:
-                  for example in item['exampleSet']:
-                    term = cdisc_ct_library.preferred_term(example)
-                    if term != None:
-                      codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-                property = self._bc_property_as_usdm(item, codes)
+                property = self._bc_property_as_usdm(item, generic)
                 if property:
                   bc.properties.append(property)
           raw_results[name] = bc.model_dump()
@@ -168,27 +160,36 @@ class CDISCBiomedicalConcepts():
       package_logger.debug(f"{e}\n{traceback.format_exc()}")
       return None
 
-  def _bc_property_as_usdm(self, property, codes) -> BiomedicalConceptProperty:
+  def _bc_property_as_usdm(self, sdtm_property, generic) -> BiomedicalConceptProperty:
     try:
-      package_logger.debug(f"PROPERTY: {property}")
-      if 'dataElementConceptId' in property:
-        concept_code = NCIt().code(property['dataElementConceptId'], property['name'])
+      if sdtm_property['name'][2:-1] not in ['TEST', 'STRESN', 'STRESU']:
+        package_logger.debug(f"PROPERTY: {sdtm_property}")
+        if 'dataElementConceptId' in sdtm_property:
+          concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+        else:
+          concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
+        concept_aliases = []
+        responses = []
+                # codes = []
+                # if 'exampleSet' in item:
+                #   for example in item['exampleSet']:
+                #     term = cdisc_ct_library.preferred_term(example)
+                #     if term != None:
+                #       codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+        #for code in codes:
+        #  responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
+        return BiomedicalConceptProperty(
+          id=id_manager.build_id(BiomedicalConceptProperty),
+          name=sdtm_property['name'],
+          label=sdtm_property['name'],
+          isRequired=True,
+          isEnabled=True,
+          datatype=sdtm_property['dataType'] if 'dataType' in sdtm_property else '',
+          responseCodes=responses,
+          code=Alias().code(concept_code, concept_aliases)
+        )
       else:
-        concept_code = NCIt().code(property['assignedTerm']['conceptId'], property['assignedTerm']['value'])
-      concept_aliases = []
-      responses = []
-      for code in codes:
-        responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
-      return BiomedicalConceptProperty(
-        id=id_manager.build_id(BiomedicalConceptProperty),
-        name=property['name'],
-        label=property['name'],
-        isRequired=True,
-        isEnabled=True,
-        datatype=property['dataType'] if 'dataType' in property else '',
-        responseCodes=responses,
-        code=Alias().code(concept_code, concept_aliases)
-      )
+        return None
     except Exception as e:
       package_logger.error(f"Exception '{e}', failed to build property '{property}'")
       package_logger.debug(f"{e}\n{traceback.format_exc()}")
