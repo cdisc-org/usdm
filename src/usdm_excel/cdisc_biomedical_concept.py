@@ -106,7 +106,8 @@ class CDISCBiomedicalConcepts():
   def _get_package_items(self) -> dict:
     results = {}
     try:
-      for package in self._package_metadata:
+      #for package in self._package_metadata:
+        package = self._package_metadata[-1]
         api_url = self._url(package['href']) 
         package_logger.info("CDISC BC Library: %s" % api_url)
         raw = requests.get(api_url, headers=self.headers)
@@ -115,7 +116,7 @@ class CDISCBiomedicalConcepts():
         for item in response['_links']['datasetSpecializations']:
           key = item['title'].upper()
           results[key] = item
-      return results
+        return results
     except Exception as e:
       package_logger.error(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'")
       package_logger.debug(f"{e}\n{traceback.format_exc()}")
@@ -131,15 +132,17 @@ class CDISCBiomedicalConcepts():
         if bc:
           if 'variables' in sdtm:
             for item in sdtm['variables']:
-              codes = []
-              if 'exampleSet' in item:
-                for example in item['exampleSet']:
-                  term = cdisc_ct_library.preferred_term(example)
-                  if term != None:
-                    codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-              property = self._bc_property_as_usdm(item, codes)
-              if property:
-                bc.properties.append(property)
+              #print(f"ITEM: {item}")
+              if item['name'][2:-1] not in ['TEST', 'STRESN', 'STRESU']:
+                codes = []
+                if 'exampleSet' in item:
+                  for example in item['exampleSet']:
+                    term = cdisc_ct_library.preferred_term(example)
+                    if term != None:
+                      codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+                property = self._bc_property_as_usdm(item, codes)
+                if property:
+                  bc.properties.append(property)
           raw_results[name] = bc.model_dump()
           results[name] = bc
     return results, raw_results
