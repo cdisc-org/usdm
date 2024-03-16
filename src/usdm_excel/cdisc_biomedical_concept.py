@@ -28,7 +28,7 @@ class CDISCBiomedicalConcepts():
     self._bcs_raw = {}
     self._bc_index = {}
     if self._bcs_exist():
-      self._bcs = self._read_bcs()
+      self._bcs = self._load_bcs()
     else:
       self._package_metadata = self._get_package_metadata()
       self._package_items = self._get_package_items()
@@ -69,17 +69,20 @@ class CDISCBiomedicalConcepts():
   #     return bc.to_json()
 
   def usdm(self, name) -> BiomedicalConcept:
-    if self.exists(name):
-      bc = BiomedicalConcept(**self._get_bc_data(name))
-      return bc
-    else:
-      return None
+    return self._get_bc_data(name) if self.exists(name) else None
 
+  def _load_bcs(self):
+    results = {}
+    data = self._read_bcs()
+    for key, item in data.items():
+      results[key] = BiomedicalConcept(**item)
+    return results
+  
   def _create_bc_index(self):
     results = {}
     for name, item in self._bcs.items():
       results[name] = name
-      for synonym in item['synonyms']:
+      for synonym in item.synonyms:
         results[synonym.upper()] = name
     return results
 
@@ -146,7 +149,8 @@ class CDISCBiomedicalConcepts():
       package_logger.debug(f"BC: {sdtm}\n\n{generic}")
       role_variable = self._get_role_variable(sdtm)
       code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
-      synonyms = sdtm['synonyms'] if 'synonyms' in sdtm else []
+      synonyms = generic['synonyms'] if 'synonyms' in generic else []
+      synonyms.append(generic['shortName'])
       return BiomedicalConcept(
         id=id_manager.build_id(BiomedicalConcept),
         name=sdtm['shortName'],
