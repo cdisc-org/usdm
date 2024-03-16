@@ -118,26 +118,29 @@ class CDISCBiomedicalConcepts():
         if role_variable:
           if 'assignedTerm' in role_variable:
             if 'conceptId' in role_variable['assignedTerm'] and 'value' in role_variable['assignedTerm']:
-              code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+              concept_code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
             else:
               package_logger.error(f"Failed to set BC concept 1, {sdtm['shortName']}")
-              code = NCIt().code('No Concept Code', role_variable['assignedTerm']['value'])
+              concept_code = NCIt().code('No Concept Code', role_variable['assignedTerm']['value'])
           else:
             package_logger.error(f"Failed to set BC concept 2, {sdtm['shortName']}")
-            code = NCIt().code(generic['conceptId'], generic['shortName'])
+            concept_code = NCIt().code(generic['conceptId'], generic['shortName'])
         else:
           package_logger.error(f"Failed to set BC concept {sdtm['shortName']}")
-          code = NCIt().code(generic['conceptId'], generic['shortName'])
+          concept_code = NCIt().code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
+        concept_code.id = "tbd"
+        alias_code=Alias().code(concept_code, [])
+        alias_code.id = "tbd"
         return BiomedicalConcept(
-          id=id_manager.build_id(BiomedicalConcept),
+          id="tbd",
           name=sdtm['shortName'],
           label=sdtm['shortName'],
           synonyms=synonyms,
           reference=sdtm['_links']['self']['href'],
           properties=[],
-          code=Alias().code(code, [])
+          code=alias_code
         )
       else:
         return None
@@ -163,32 +166,38 @@ class CDISCBiomedicalConcepts():
           else:
             package_logger.error(f"Failed to set property concept 2, {sdtm_property}")
             concept_code = NCIt().code('No Concept Code', sdtm_property['name'])
-        concept_aliases = []
         responses = []
         codes = []
         if 'valueList' in sdtm_property:
           for value in sdtm_property['valueList']:
             term = cdisc_ct_library.preferred_term(value)
             if term:
-              codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+              code = CDISCCT().code(term['conceptId'], term['preferredTerm'])
+              code.id = "tbd"
+              codes.append(code)
             else:
               term = cdisc_ct_library.submission(value)
               if term:
-                codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+                code = CDISCCT().code(term['conceptId'], term['preferredTerm'])
+                code.id = "tbd"
+                codes.append(code)
               else:
                 cl = f", code list {sdtm_property['codelist']['conceptId'] if 'codelist' in sdtm_property else '<not defined>'}"
                 package_logger.error(f"Failed to find submission or preferred term '{value}' {cl}")
         for code in codes:
          responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
+        concept_code.id = "tbd"
+        alias_code=Alias().code(concept_code, [])
+        alias_code.id = "tbd"
         return BiomedicalConceptProperty(
-          id=id_manager.build_id(BiomedicalConceptProperty),
+          id="tbd",
           name=sdtm_property['name'],
           label=sdtm_property['name'],
           isRequired=True,
           isEnabled=True,
           datatype=sdtm_property['dataType'] if 'dataType' in sdtm_property else '',
           responseCodes=responses,
-          code=Alias().code(concept_code, concept_aliases)
+          code=alias_code
         )
       else:
         return None
