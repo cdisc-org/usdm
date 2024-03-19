@@ -80,34 +80,58 @@ class CDISCBiomedicalConcepts():
     return self._bcs[self._bc_index[name.upper()]]
   
   def _get_package_metadata(self) -> dict:
-    try:
-      api_url = self._url('/mdr/specializations/sdtm/packages')
-      package_logger.info("CDISC BC Library: %s" % api_url)
-      raw = requests.get(api_url, headers=self.headers)
-      response = raw.json()
-      packages = response['_links']['packages']
-    except Exception as e:
-      self._exception(f"Exception '{e}', failed to retrieve CDISC BC package metadata from '{api_url}'", e)
-      packages = {}
+    packages = {}
+    urls = {
+      'generic': '/mdr/bc/packages',
+      'sdtm': '/mdr/specializations/sdtm/packages'
+    } 
+    for url_type, url in urls:
+      try:
+        api_url = self._url(url)
+        package_logger.info(f"CDISC BC Library: {url_type}: {url}")
+        raw = requests.get(api_url, headers=self.headers)
+        response = raw.json()
+        packages[url_type] = response['_links']['packages']
+      except Exception as e:
+        self._exception(f"Exception '{e}', failed to retrieve CDISC BC package metadata from '{api_url}'", e)
+        packages = None
     package_logger.debug(f"PACKAGES: {packages}")
     return packages
         
   def _get_package_items(self) -> dict:
     results = {}
     try:
-      for package in self._package_metadata:
-        api_url = self._url(package['href']) 
-        package_logger.info("CDISC BC Library: %s" % api_url)
-        raw = requests.get(api_url, headers=self.headers)
-        response = raw.json()
-        package_logger.debug(f"ITEMS: {response}")
-        for item in response['_links']['datasetSpecializations']:
-          key = item['title'].upper()
-          results[key] = item
+      for package_type in ['sdtm', 'generic']:
+        for package in self._package_metadata[package_type]:
+          self._get_package(package, package_type, results)        
+      # for package in self._package_metadata['sdtm']:
+      #   api_url = self._url(package['href']) 
+      #   package_logger.info("CDISC BC Library: %s" % api_url)
+      #   raw = requests.get(api_url, headers=self.headers)
+      #   response = raw.json()
+      #   package_logger.debug(f"ITEMS: {response}")
+      #   for item in response['_links']['datasetSpecializations']:
+      #     key = item['title'].upper()
+      #     results[key] = item
       return results
     except Exception as e:
       self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
+
+  def _get_package(self, package, package_type, results):
+      response_field = {'sdtm': 'datasetSpecializations', 'generic': 'biomedicalConcepts'}
+      api_url = self._url(package['href']) 
+      package_logger.info(f"CDISC BC Library: {package_type}, {api_url}")
+      raw = requests.get(api_url, headers=self.headers)
+      response = raw.json()
+      package_logger.debug(f"ITEMS: {response}")
+      for item in response['_links'][response_field[package_type]]:
+        key = item['title'].upper()
+        if package_type == 'sdtm':
+          results[key] = {'type': package_type, 'item': item}
+        elif package_type == 'generic' and not key in results:
+          package_logger.info("GENERIC: Detected generic only BC {key}")
+          #results[key] = {'type': package_type, 'item': item}
 
   def _get_bcs(self):
     results = {}
@@ -269,14 +293,14 @@ class CDISCBiomedicalConcepts():
 
   def _get_from_url_all(self, name) -> dict:
     try:
-      item = self._package_items[name]
-      package_logger.debug(f"{item}")
-      sdtm_response = self._get_from_url(item['href'])
+      details = self._package_items[name]
+      package_logger.debug(f"{details}")
+      sdtm_response = self._get_from_url(details['item']['href'])
       generic = sdtm_response["_links"]["parentBiomedicalConcept"]
       generic_response = self._get_from_url(generic['href'])
       return sdtm_response, generic_response
     except Exception as e:
-      self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{item['href']}'", e)
+      self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{details['item']['href']}'", e)
       return None, None
 
   def _get_from_url(self, url):
