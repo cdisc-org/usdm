@@ -27,11 +27,12 @@ class CDISCBiomedicalConcepts():
     self._bcs = {}
     self._bcs_raw = {}
     self._bc_index = {}
+    self._map = {}
     if self._bcs_exist():
       self._bcs = self._load_bcs()
     else:
       self._package_metadata = self._get_package_metadata()
-      self._package_items = self._get_package_items()
+      self._package_items, self._map = self._get_package_items()
       self._bcs, self._bcs_raw = self._get_bcs()
       self._save_bcs(self._bcs_raw)
     self._bc_index = self._create_bc_index()
@@ -100,44 +101,40 @@ class CDISCBiomedicalConcepts():
         
   def _get_package_items(self) -> dict:
     results = {}
+    map = {}
+    for package_type in ['sdtm', 'generic']:
+      results[package_type] = {}
+      for package in self._package_metadata[package_type]:
+        self._get_package(package, package_type, results, map)        
+    return results, map
+
+  def _get_package(self, package, package_type, results, map):
     try:
-      for package_type in ['sdtm', 'generic']:
-        for package in self._package_metadata[package_type]:
-          self._get_package(package, package_type, results)        
-      # for package in self._package_metadata['sdtm']:
-      #   api_url = self._url(package['href']) 
-      #   package_logger.info("CDISC BC Library: %s" % api_url)
-      #   raw = requests.get(api_url, headers=self.headers)
-      #   response = raw.json()
-      #   package_logger.debug(f"ITEMS: {response}")
-      #   for item in response['_links']['datasetSpecializations']:
-      #     key = item['title'].upper()
-      #     results[key] = item
-      return results
+      response_field = {'sdtm': 'datasetSpecializations', 'generic': 'biomedicalConcepts'}
+      api_url = self._url(package['href']) if 'href' in package else 'not set'
+      package_logger.info(f"CDISC BC Library: {package_type}, {api_url}")
+      raw = requests.get(api_url, headers=self.headers)
+      response = raw.json()
+      for item in response['_links'][response_field[package_type]]:
+        package_logger.debug(f"ITEM: {item}")
+        key = item['title'].upper()
+        if package_type == 'sdtm':
+          results[package_type][key] = item
+          map[item['href']] = key
+        elif package_type == 'generic' and not key in results:
+          package_logger.info(f"GENERIC: Detected generic only BC {key}")
+          results[package_type][key] = item
+          map[item['href']] = key
     except Exception as e:
       self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
 
-  def _get_package(self, package, package_type, results):
-      response_field = {'sdtm': 'datasetSpecializations', 'generic': 'biomedicalConcepts'}
-      api_url = self._url(package['href']) 
-      package_logger.info(f"CDISC BC Library: {package_type}, {api_url}")
-      raw = requests.get(api_url, headers=self.headers)
-      response = raw.json()
-      package_logger.debug(f"ITEMS: {response}")
-      for item in response['_links'][response_field[package_type]]:
-        key = item['title'].upper()
-        if package_type == 'sdtm':
-          results[key] = {'type': package_type, 'item': item}
-        elif package_type == 'generic' and not key in results:
-          package_logger.info(f"GENERIC: Detected generic only BC {key}")
-          #results[key] = {'type': package_type, 'item': item}
-
   def _get_bcs(self):
     results = {}
     raw_results = {}
-    for name, item in self._package_items.items():
-      sdtm, generic = self._get_from_url_all(name)
+    for name, item in self._package_items['sdtm'].items():
+      print(f"ITEM IN GET BC: {item}")
+      sdtm, generic = self._get_from_url_all(name, item)
       if sdtm:
         bc = self._bc_as_usdm(sdtm, generic)
         if bc:
@@ -148,6 +145,14 @@ class CDISCBiomedicalConcepts():
                   bc.properties.append(property)
           raw_results[name] = bc.model_dump()
           results[name] = bc
+        if generic:
+          href = generic['_links']['self']['href']
+          if href in self._map:
+            print(f"POP: {href}")
+            self._map.pop(generic['_links']['self']['href'])
+          else:
+            print(f"MISSING: {href}")
+    print(f"REMAINING: {self._map}")
     return results, raw_results
   
   def _bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
@@ -291,16 +296,15 @@ class CDISCBiomedicalConcepts():
   def _get_dec_match(self, data, id):
     return next((item for item in data['dataElementConcepts'] if item["conceptId"] == id), None)
 
-  def _get_from_url_all(self, name) -> dict:
+  def _get_from_url_all(self, name, details) -> dict:
     try:
-      details = self._package_items[name]
-      package_logger.debug(f"{details}")
-      sdtm_response = self._get_from_url(details['item']['href'])
+      package_logger.debug(f"DETAILS: {details}")
+      sdtm_response = self._get_from_url(details['href'])
       generic = sdtm_response["_links"]["parentBiomedicalConcept"]
       generic_response = self._get_from_url(generic['href'])
       return sdtm_response, generic_response
     except Exception as e:
-      self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{details['item']['href']}'", e)
+      self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata for {name} from '{details['href']}'", e)
       return None, None
 
   def _get_from_url(self, url):
