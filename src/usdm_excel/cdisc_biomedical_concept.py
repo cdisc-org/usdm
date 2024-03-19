@@ -85,7 +85,7 @@ class CDISCBiomedicalConcepts():
       'generic': '/mdr/bc/packages',
       'sdtm': '/mdr/specializations/sdtm/packages'
     } 
-    for url_type, url in urls:
+    for url_type, url in urls.items():
       try:
         api_url = self._url(url)
         package_logger.info(f"CDISC BC Library: {url_type}: {url}")
@@ -130,7 +130,7 @@ class CDISCBiomedicalConcepts():
         if package_type == 'sdtm':
           results[key] = {'type': package_type, 'item': item}
         elif package_type == 'generic' and not key in results:
-          package_logger.info("GENERIC: Detected generic only BC {key}")
+          package_logger.info(f"GENERIC: Detected generic only BC {key}")
           #results[key] = {'type': package_type, 'item': item}
 
   def _get_bcs(self):

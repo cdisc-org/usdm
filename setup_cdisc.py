@@ -12,7 +12,7 @@ def file_delete(pattern):
       print(f"FILE1: {f}")
       if f not in [f"{DIR}cdisc_ct_config.yaml"]:
         print(f"FILE2: {f}")
-        #os.remove(f)
+        os.remove(f)
   except Exception as e:
     print(f"Exception '{e}' deleteing file {pattern}")
 
