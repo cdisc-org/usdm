@@ -33,7 +33,7 @@ class CDISCBiomedicalConcepts():
     else:
       self._package_metadata = self._get_package_metadata()
       self._package_items, self._map = self._get_package_items()
-      self._bcs, self._bcs_raw = self._get_bcs()
+      self._bcs, self._bcs_raw = self._get_sdtm_bcs()
       self._save_bcs(self._bcs_raw)
     self._bc_index = self._create_bc_index()
 
@@ -120,7 +120,7 @@ class CDISCBiomedicalConcepts():
         key = item['title'].upper()
         if package_type == 'sdtm':
           results[package_type][key] = item
-          map[item['href']] = key
+          #map[item['href']] = key
         elif package_type == 'generic' and not key in results:
           package_logger.info(f"GENERIC: Detected generic only BC {key}")
           results[package_type][key] = item
@@ -129,18 +129,18 @@ class CDISCBiomedicalConcepts():
       self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
 
-  def _get_bcs(self):
+  def _get_sdtm_bcs(self):
     results = {}
     raw_results = {}
     for name, item in self._package_items['sdtm'].items():
       print(f"ITEM IN GET BC: {item}")
       sdtm, generic = self._get_from_url_all(name, item)
       if sdtm:
-        bc = self._bc_as_usdm(sdtm, generic)
+        bc = self._sdtm_bc_as_usdm(sdtm, generic)
         if bc:
           if 'variables' in sdtm:
             for item in sdtm['variables']:
-                property = self._bc_property_as_usdm(item, generic)
+                property = self._sdtm_bc_property_as_usdm(item, generic)
                 if property:
                   bc.properties.append(property)
           raw_results[name] = bc.model_dump()
@@ -154,8 +154,37 @@ class CDISCBiomedicalConcepts():
             print(f"MISSING: {href}")
     print(f"REMAINING: {self._map}")
     return results, raw_results
-  
-  def _bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
+
+  def _get_generic_bcs(self, name) -> BiomedicalConcept:
+    for url, name in self._map.items():
+      item = self._package_items[name]
+      print(f"ITEM IN GET GENERIC BC: {item}")
+      response = self._get_from_url(self, item['href'])
+      bc = self._generic_bc_as_usdm(response)
+      if 'dataElementConcepts' in response:
+        for item in response['dataElementConcepts']:
+          codes = []
+          if 'exampleSet' in item:
+            for example in item['exampleSet']:
+              term = cdisc_ct_library.preferred_term(example)
+              if term != None:
+                codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
+          bc.properties.append(self._generic_bc_property_as_usdm(item, codes))
+      return bc
+
+  def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
+    concept_code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
+    synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
+    return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, ['_links']['self']['href'], concept_code)
+
+  def _generic_bc_property_as_usdm(self, property, codes) -> BiomedicalConceptProperty:
+    concept_code = NCIt().code(property['conceptId'], property['shortName'])
+    responses = []
+    for code in codes:
+      responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
+    return self._biomedical_concept_property_object(property['name'], property['name'], property['dataType'], responses, concept_code)
+
+  def _sdtm_bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
     try:
       if self._process_bc(sdtm['shortName']):
         package_logger.debug(f"BC: {sdtm}\n\n{generic}")
@@ -175,25 +204,14 @@ class CDISCBiomedicalConcepts():
           concept_code = NCIt().code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
-        concept_code.id = "tbd"
-        alias_code=Alias().code(concept_code, [])
-        alias_code.id = "tbd"
-        return BiomedicalConcept(
-          id="tbd",
-          name=sdtm['shortName'],
-          label=sdtm['shortName'],
-          synonyms=synonyms,
-          reference=sdtm['_links']['self']['href'],
-          properties=[],
-          code=alias_code
-        )
+        return self._biomedical_concept_object(sdtm['shortName'], sdtm['shortName'], synonyms, ['_links']['self']['href'], concept_code)
       else:
         return None
     except Exception as e:
       self._exception(f"Exception '{e}', failed to build BC {sdtm['shortName']}", e)
       return None
 
-  def _bc_property_as_usdm(self, sdtm_property, generic) -> BiomedicalConceptProperty:
+  def _sdtm_bc_property_as_usdm(self, sdtm_property, generic) -> BiomedicalConceptProperty:
     try:
       package_logger.debug(f"NAME: {sdtm_property['name']}, {sdtm_property['name'][2:]}")
       if self._process_property(sdtm_property['name']):
@@ -235,24 +253,42 @@ class CDISCBiomedicalConcepts():
         for code in codes:
          response_code = ResponseCode(id="tbd", isEnabled=True, code=code)
          responses.append(response_code)
-        concept_code.id = "tbd"
-        alias_code=Alias().code(concept_code, [])
-        alias_code.id = "tbd"
-        return BiomedicalConceptProperty(
-          id="tbd",
-          name=sdtm_property['name'],
-          label=sdtm_property['name'],
-          isRequired=True,
-          isEnabled=True,
-          datatype=sdtm_property['dataType'] if 'dataType' in sdtm_property else '',
-          responseCodes=responses,
-          code=alias_code
-        )
+        datatype = sdtm_property['dataType'] if 'dataType' in sdtm_property else ''
+        return self._biomedical_concept_property_object(sdtm_property['name'], sdtm_property['name'], datatype, responses, concept_code)
       else:
         return None
     except Exception as e:
       self._exception(f"Exception '{e}', failed to build property {sdtm_property}", e)
       return None
+
+  def _biomedical_concept_object(self, name, label, synonyms, reference, code) -> BiomedicalConcept:
+    code.id = "tbd"
+    alias_code=Alias().code(code, [])
+    alias_code.id = "tbd"
+    return BiomedicalConcept(
+      id="tbd",
+      name=name,
+      label=label,
+      synonyms=synonyms,
+      reference=reference,
+      properties=[],
+      code=code
+    )
+
+  def _biomedical_concept_property_object(self, name, label, datatype, responses, code):
+    code.id = "tbd"
+    alias_code=Alias().code(code, [])
+    alias_code.id = "tbd"
+    return BiomedicalConceptProperty(
+      id="tbd",
+      name=name,
+      label=label,
+      isRequired=True,
+      isEnabled=True,
+      datatype=datatype,
+      responseCodes=responses,
+      code=alias_code
+    )
 
   def _process_bc(self, name):
     if name in [
