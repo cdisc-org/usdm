@@ -31,9 +31,9 @@ class CDISCBiomedicalConcepts():
     if self._bcs_exist():
       self._bcs = self._load_bcs()
     else:
-      self._package_metadata = self._get_package_metadata()
-      self._package_items, self._map = self._get_package_items()
-      self._bcs, self._bcs_raw = self._get_sdtm_bcs()
+      self._get_package_metadata()
+      self._get_package_items()
+      self._get_sdtm_bcs()
       self._save_bcs(self._bcs_raw)
     self._bc_index = self._create_bc_index()
 
@@ -80,8 +80,7 @@ class CDISCBiomedicalConcepts():
   def _get_bc_data(self, name):
     return self._bcs[self._bc_index[name.upper()]]
   
-  def _get_package_metadata(self) -> dict:
-    packages = {}
+  def _get_package_metadata(self):
     urls = {
       'generic': '/mdr/bc/packages',
       'sdtm': '/mdr/specializations/sdtm/packages'
@@ -92,23 +91,19 @@ class CDISCBiomedicalConcepts():
         package_logger.info(f"CDISC BC Library: {url_type}: {url}")
         raw = requests.get(api_url, headers=self.headers)
         response = raw.json()
-        packages[url_type] = response['_links']['packages']
+        self._package_metadata[url_type] = response['_links']['packages']
       except Exception as e:
         self._exception(f"Exception '{e}', failed to retrieve CDISC BC package metadata from '{api_url}'", e)
-        packages = None
-    package_logger.debug(f"PACKAGES: {packages}")
-    return packages
+    package_logger.debug(f"PACKAGES: {self._package_metadata}")
         
   def _get_package_items(self) -> dict:
-    results = {}
-    map = {}
+    #self._package_items, self._map
     for package_type in ['sdtm', 'generic']:
-      results[package_type] = {}
+      self._package_items[package_type] = {}
       for package in self._package_metadata[package_type]:
-        self._get_package(package, package_type, results, map)        
-    return results, map
+        self._get_package(package, package_type)        
 
-  def _get_package(self, package, package_type, results, map):
+  def _get_package(self, package, package_type):
     try:
       response_field = {'sdtm': 'datasetSpecializations', 'generic': 'biomedicalConcepts'}
       api_url = self._url(package['href']) if 'href' in package else 'not set'
@@ -119,19 +114,18 @@ class CDISCBiomedicalConcepts():
         package_logger.debug(f"ITEM: {item}")
         key = item['title'].upper()
         if package_type == 'sdtm':
-          results[package_type][key] = item
+          self._package_items[package_type][key] = item
           #map[item['href']] = key
-        elif package_type == 'generic' and not key in results:
+        elif package_type == 'generic' and not key in self._package_items:
           package_logger.info(f"GENERIC: Detected generic only BC {key}")
-          results[package_type][key] = item
+          self._package_items[package_type][key] = item
           map[item['href']] = key
     except Exception as e:
       self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
 
   def _get_sdtm_bcs(self):
-    results = {}
-    raw_results = {}
+    # self._bcs, self._bcs_raw = 
     for name, item in self._package_items['sdtm'].items():
       print(f"ITEM IN GET BC: {item}")
       sdtm, generic = self._get_from_url_all(name, item)
@@ -143,8 +137,8 @@ class CDISCBiomedicalConcepts():
                 property = self._sdtm_bc_property_as_usdm(item, generic)
                 if property:
                   bc.properties.append(property)
-          raw_results[name] = bc.model_dump()
-          results[name] = bc
+          self._bcs_raw[name] = bc.model_dump()
+          self._bcs[name] = bc
         if generic:
           href = generic['_links']['self']['href']
           if href in self._map:
@@ -153,9 +147,8 @@ class CDISCBiomedicalConcepts():
           else:
             print(f"MISSING: {href}")
     print(f"REMAINING: {self._map}")
-    return results, raw_results
 
-  def _get_generic_bcs(self, name) -> BiomedicalConcept:
+  def _get_generic_bcs(self) -> BiomedicalConcept:
     for url, name in self._map.items():
       item = self._package_items[name]
       print(f"ITEM IN GET GENERIC BC: {item}")
@@ -163,25 +156,27 @@ class CDISCBiomedicalConcepts():
       bc = self._generic_bc_as_usdm(response)
       if 'dataElementConcepts' in response:
         for item in response['dataElementConcepts']:
-          codes = []
-          if 'exampleSet' in item:
-            for example in item['exampleSet']:
-              term = cdisc_ct_library.preferred_term(example)
-              if term != None:
-                codes.append(CDISCCT().code(term['conceptId'], term['preferredTerm']))
-          bc.properties.append(self._generic_bc_property_as_usdm(item, codes))
-      return bc
+          property = self._generic_bc_property_as_usdm(item)
+          if property:
+            bc.properties.append(property)
+      self._bcs_raw[name] = bc.model_dump()
+      self._bcs[name] = bc
 
   def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
     concept_code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, ['_links']['self']['href'], concept_code)
 
-  def _generic_bc_property_as_usdm(self, property, codes) -> BiomedicalConceptProperty:
+  def _generic_bc_property_as_usdm(self, property) -> BiomedicalConceptProperty:
     concept_code = NCIt().code(property['conceptId'], property['shortName'])
     responses = []
-    for code in codes:
-      responses.append(ResponseCode(id=id_manager.build_id(ResponseCode), isEnabled=True, code=code))
+    if 'exampleSet' in property:
+      for example in property['exampleSet']:
+        term = cdisc_ct_library.preferred_term(example)
+        if term != None:
+          code = CDISCCT().code(term['conceptId'], term['preferredTerm'])
+          code.id = "tbd"
+          responses.append(ResponseCode("tbd", isEnabled=True, code=code))
     return self._biomedical_concept_property_object(property['name'], property['name'], property['dataType'], responses, concept_code)
 
   def _sdtm_bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
