@@ -119,7 +119,7 @@ class CDISCBiomedicalConcepts():
         elif package_type == 'generic' and not key in self._package_items:
           package_logger.info(f"GENERIC: Detected generic only BC {key}")
           self._package_items[package_type][key] = item
-          map[item['href']] = key
+          self._map[item['href']] = key
     except Exception as e:
       self._exception(f"Exception '{e}', failed to retrieve CDISC BC metadata from '{api_url}'", e)
       return {}
@@ -165,7 +165,7 @@ class CDISCBiomedicalConcepts():
   def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
     concept_code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
-    return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, ['_links']['self']['href'], concept_code)
+    return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, api_bc['_links']['self']['href'], concept_code)
 
   def _generic_bc_property_as_usdm(self, property) -> BiomedicalConceptProperty:
     concept_code = NCIt().code(property['conceptId'], property['shortName'])
@@ -199,7 +199,7 @@ class CDISCBiomedicalConcepts():
           concept_code = NCIt().code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
-        return self._biomedical_concept_object(sdtm['shortName'], sdtm['shortName'], synonyms, ['_links']['self']['href'], concept_code)
+        return self._biomedical_concept_object(sdtm['shortName'], sdtm['shortName'], synonyms, sdtm['_links']['self']['href'], concept_code)
       else:
         return None
     except Exception as e:
@@ -267,7 +267,7 @@ class CDISCBiomedicalConcepts():
       synonyms=synonyms,
       reference=reference,
       properties=[],
-      code=code
+      code=alias_code
     )
 
   def _biomedical_concept_property_object(self, name, label, datatype, responses, code):
