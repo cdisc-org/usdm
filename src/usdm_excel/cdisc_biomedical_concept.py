@@ -154,7 +154,7 @@ class CDISCBiomedicalConcepts():
     for name, item in self._package_items['generic'].items():
       if self._process_genric_bc(name):
         print(f"ITEM IN GET GENERIC BC: {item}")
-        response = self._get_from_url(self, item['href'])
+        response = self._get_from_url(item['href'])
         bc = self._generic_bc_as_usdm(response)
         if 'dataElementConcepts' in response:
           for item in response['dataElementConcepts']:
@@ -178,8 +178,8 @@ class CDISCBiomedicalConcepts():
         if term != None:
           code = CDISCCT().code(term['conceptId'], term['preferredTerm'])
           code.id = "tbd"
-          responses.append(ResponseCode("tbd", isEnabled=True, code=code))
-    return self._biomedical_concept_property_object(property['name'], property['name'], property['dataType'], responses, concept_code)
+          responses.append(ResponseCode(id="tbd", isEnabled=True, code=code))
+    return self._biomedical_concept_property_object(property['shortName'], property['shortName'], property['dataType'], responses, concept_code)
 
   def _sdtm_bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
     try:

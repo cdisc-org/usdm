@@ -24132,6 +24132,45 @@ QTCF INTERVAL AGGREGATE:
   - QTCF Interval Aggregate
   - QTCFAG
   - Aggregate QTCF Interval
+RACE:
+  code:
+    id: tbd
+    instanceType: AliasCode
+    standardCode:
+      code: C17049
+      codeSystem: NCI Thesaurus
+      codeSystemVersion: ''
+      decode: Race
+      id: tbd
+      instanceType: Code
+    standardCodeAliases: []
+  id: tbd
+  instanceType: BiomedicalConcept
+  label: Race
+  name: Race
+  properties:
+  - code:
+      id: tbd
+      instanceType: AliasCode
+      standardCode:
+        code: C17049
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Race
+        id: tbd
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: string
+    id: tbd
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: Race
+    name: Race
+    responseCodes: []
+  reference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C17049
+  synonyms:
+  - Racial Group
 RANDOMIZED:
   code:
     id: tbd
@@ -25626,6 +25665,64 @@ SEGMENTED NEUTROPHILS IN BLOOD:
   - Segmented Neutrophils
   - NEUTSG
   - Segmented Neutrophil Count
+SEX:
+  code:
+    id: tbd
+    instanceType: AliasCode
+    standardCode:
+      code: C28421
+      codeSystem: NCI Thesaurus
+      codeSystemVersion: ''
+      decode: Sex
+      id: tbd
+      instanceType: Code
+    standardCodeAliases: []
+  id: tbd
+  instanceType: BiomedicalConcept
+  label: Sex
+  name: Sex
+  properties:
+  - code:
+      id: tbd
+      instanceType: AliasCode
+      standardCode:
+        code: C28421
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Sex
+        id: tbd
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: string
+    id: tbd
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: Sex
+    name: Sex
+    responseCodes:
+    - code:
+        code: C20197
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Male
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C16576
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Female
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+  reference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C28421
+  synonyms: []
 SINUS NODE RHYTHM AND ARRHYTHMIA ECG ASSESSMENT:
   code:
     id: tbd
@@ -26637,6 +26734,64 @@ ST SEGMENT, T WAVE, AND U WAVE ECG ASSESSMENT:
   - STSTWUW
   - ST Segment, T wave, and U wave
   - ST Segment, T wave, and U wave ECG Assessment
+SUBJECT AGE:
+  code:
+    id: tbd
+    instanceType: AliasCode
+    standardCode:
+      code: C69260
+      codeSystem: NCI Thesaurus
+      codeSystemVersion: ''
+      decode: Subject Age
+      id: tbd
+      instanceType: Code
+    standardCodeAliases: []
+  id: tbd
+  instanceType: BiomedicalConcept
+  label: Subject Age
+  name: Subject Age
+  properties:
+  - code:
+      id: tbd
+      instanceType: AliasCode
+      standardCode:
+        code: C170981
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Numeric Age for Data Tabulation
+        id: tbd
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: decimal
+    id: tbd
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: Numeric Age for Data Tabulation
+    name: Numeric Age for Data Tabulation
+    responseCodes: []
+  - code:
+      id: tbd
+      instanceType: AliasCode
+      standardCode:
+        code: C50400
+        codeSystem: NCI Thesaurus
+        codeSystemVersion: ''
+        decode: Age Unit
+        id: tbd
+        instanceType: Code
+      standardCodeAliases: []
+    datatype: string
+    id: tbd
+    instanceType: BiomedicalConceptProperty
+    isEnabled: true
+    isRequired: true
+    label: Age Unit
+    name: Age Unit
+    responseCodes: []
+  reference: /mdr/bc/packages/2023-03-31/biomedicalconcepts/C69260
+  synonyms:
+  - Age
 SUBJECT PREGNANCY:
   code:
     id: tbd
