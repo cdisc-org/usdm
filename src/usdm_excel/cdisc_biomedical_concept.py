@@ -34,6 +34,7 @@ class CDISCBiomedicalConcepts():
       self._get_package_metadata()
       self._get_package_items()
       self._get_sdtm_bcs()
+      self._get_generic_bcs()
       self._save_bcs(self._bcs_raw)
     self._bc_index = self._create_bc_index()
 
@@ -149,18 +150,19 @@ class CDISCBiomedicalConcepts():
     print(f"REMAINING: {self._map}")
 
   def _get_generic_bcs(self) -> BiomedicalConcept:
-    for url, name in self._map.items():
-      item = self._package_items[name]
-      print(f"ITEM IN GET GENERIC BC: {item}")
-      response = self._get_from_url(self, item['href'])
-      bc = self._generic_bc_as_usdm(response)
-      if 'dataElementConcepts' in response:
-        for item in response['dataElementConcepts']:
-          property = self._generic_bc_property_as_usdm(item)
-          if property:
-            bc.properties.append(property)
-      self._bcs_raw[name] = bc.model_dump()
-      self._bcs[name] = bc
+    print(f"GENRIC KEYS: {self._package_items['generic'].keys()}")
+    for name, item in self._package_items['generic'].items():
+      if self._process_genric_bc(name):
+        print(f"ITEM IN GET GENERIC BC: {item}")
+        response = self._get_from_url(self, item['href'])
+        bc = self._generic_bc_as_usdm(response)
+        if 'dataElementConcepts' in response:
+          for item in response['dataElementConcepts']:
+            property = self._generic_bc_property_as_usdm(item)
+            if property:
+              bc.properties.append(property)
+        self._bcs_raw[name] = bc.model_dump()
+        self._bcs[name] = bc
 
   def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
     concept_code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
@@ -181,7 +183,7 @@ class CDISCBiomedicalConcepts():
 
   def _sdtm_bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
     try:
-      if self._process_bc(sdtm['shortName']):
+      if self._process_sdtm_bc(sdtm['shortName']):
         package_logger.debug(f"BC: {sdtm}\n\n{generic}")
         role_variable = self._get_role_variable(sdtm)
         if role_variable:
@@ -285,7 +287,7 @@ class CDISCBiomedicalConcepts():
       code=alias_code
     )
 
-  def _process_bc(self, name):
+  def _process_sdtm_bc(self, name):
     if name in [
       'Exclusion Criteria 01', 'Inclusion Criteria 01', "Medical History Prespecified: Alzheimer's Disease", "Medical History Prespecified: Confusional Episodes", 
       "Medical History Prespecified: Essential Tremor",
@@ -310,6 +312,9 @@ class CDISCBiomedicalConcepts():
     ]:
       return False
     return True
+  
+  def _process_genric_bc(self, name):
+    return True if name.upper() in [ "SUBJECT AGE", "RACE", "SEX" ] else False
   
   def _process_property(self, name):
     if name[2:] in [
