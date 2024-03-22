@@ -128,7 +128,7 @@ class CDISCBiomedicalConcepts():
   def _get_sdtm_bcs(self):
     # self._bcs, self._bcs_raw = 
     for name, item in self._package_items['sdtm'].items():
-      print(f"ITEM IN GET BC: {item}")
+      #print(f"ITEM IN GET BC: {item}")
       sdtm, generic = self._get_from_url_all(name, item)
       if sdtm:
         bc = self._sdtm_bc_as_usdm(sdtm, generic)
@@ -143,17 +143,17 @@ class CDISCBiomedicalConcepts():
         if generic:
           href = generic['_links']['self']['href']
           if href in self._map:
-            print(f"POP: {href}")
+            #print(f"POP: {href}")
             self._map.pop(generic['_links']['self']['href'])
           else:
-            print(f"MISSING: {href}")
-    print(f"REMAINING: {self._map}")
+            package_logger.error(f"Missing reference when popping {href}")
+    #print(f"REMAINING: {self._map}")
 
   def _get_generic_bcs(self) -> BiomedicalConcept:
-    print(f"GENRIC KEYS: {self._package_items['generic'].keys()}")
+    #print(f"GENRIC KEYS: {self._package_items['generic'].keys()}")
     for name, item in self._package_items['generic'].items():
       if self._process_genric_bc(name):
-        print(f"ITEM IN GET GENERIC BC: {item}")
+        #print(f"ITEM IN GET GENERIC BC: {item}")
         response = self._get_from_url(item['href'])
         bc = self._generic_bc_as_usdm(response)
         if 'dataElementConcepts' in response:
@@ -232,14 +232,15 @@ class CDISCBiomedicalConcepts():
         responses = []
         codes = []
         if 'valueList' in sdtm_property:
+          codelist = sdtm_property['codelist']['conceptId'] if 'codelist' in sdtm_property else None
           for value in sdtm_property['valueList']:
-            term = cdisc_ct_library.preferred_term(value)
+            term = cdisc_ct_library.preferred_term(value, codelist)
             if term:
               code = CDISCCT().code(term['conceptId'], term['preferredTerm'])
               code.id = "tbd"
               codes.append(code)
             else:
-              term = cdisc_ct_library.submission(value)
+              term = cdisc_ct_library.submission(value, codelist)
               if term:
                 code = CDISCCT().code(term['conceptId'], term['preferredTerm'])
                 code.id = "tbd"

@@ -1,17 +1,13 @@
-import os
+import glob, os
 import argparse
 import logging
-
-import glob, os
 
 DIR = 'src/usdm_excel/data/'
 
 def file_delete(pattern):
   try:
     for f in glob.glob(os.path.join(DIR, pattern)):
-      #print(f"FILE1: {f}")
       if f not in [f"{DIR}cdisc_ct_config.yaml"]:
-        #print(f"FILE2: {f}")
         os.remove(f)
   except Exception as e:
     print(f"Exception '{e}' deleteing file {pattern}")

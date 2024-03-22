@@ -32,7 +32,7 @@ class CDISCCTLibrary():
     self._get_missing_ct()
     self._get_klass_attribute()
 
-  def submission(self, value):
+  def submission(self, value, cl=None):
     if value in list(self._by_submission.keys()):
       concept_ids = self._by_submission[value]
       if len(concept_ids) == 0:
@@ -41,11 +41,15 @@ class CDISCCTLibrary():
         code_list = self._by_code_list[concept_ids[0]]
         return next((item for item in code_list['terms'] if item["submissionValue"] == value), None)
       else:
-        return None 
+        if cl and cl in concept_ids:
+          code_list = self._by_code_list[cl]
+          return next((item for item in code_list['terms'] if item["submissionValue"] == value), None)
+        else:
+          return None 
     else:
       return None
     
-  def preferred_term(self, value):
+  def preferred_term(self, value, cl=None):
     if value in list(self._by_pt.keys()):
       concept_ids = self._by_pt[value]
       if len(concept_ids) == 0:
@@ -54,7 +58,11 @@ class CDISCCTLibrary():
         code_list = self._by_code_list[concept_ids[0]]
         return next((item for item in code_list['terms'] if item["preferredTerm"] == value), None)
       else:
-        return None 
+        if cl and cl in concept_ids:
+          code_list = self._by_code_list[cl]
+          return next((item for item in code_list['terms'] if item["preferredTerm"] == value), None)
+        else:
+          return None 
     else:
       return None
 
@@ -100,8 +108,7 @@ class CDISCCTLibrary():
         self._check_in_and_add(self._by_term, item['conceptId'], c_code)
         self._check_in_and_add(self._by_submission, item['submissionValue'], c_code)
         self._check_in_and_add(self._by_pt, item['preferredTerm'], c_code)
-    return
-
+ 
   def _get_missing_ct(self):
     for response in self.missing_ct:
       self._by_code_list[response['conceptId']] = response

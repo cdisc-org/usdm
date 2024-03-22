@@ -4968,6 +4968,16 @@ BODY MASS INDEX:
     name: VSORRESU
     responseCodes:
     - code:
+        code: C49671
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Kilogram per Square Meter
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
         code: C67334
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
@@ -6567,6 +6577,16 @@ CARBOXYHEMOGLOBIN TO TOTAL HEMOGLOBIN IN BLOOD:
     label: LBORRESU
     name: LBORRESU
     responseCodes:
+    - code:
+        code: C25613
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Percentage
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
     - code:
         code: C105484
         codeSystem: http://www.cdisc.org
@@ -13360,7 +13380,37 @@ HEIGHT:
     isRequired: true
     label: VSORRESU
     name: VSORRESU
-    responseCodes: []
+    responseCodes:
+    - code:
+        code: C49668
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Centimeter
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C48500
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Inch
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C41139
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Meter
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   reference: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/HEIGHT
   synonyms:
   - Height
@@ -13737,6 +13787,16 @@ HEMOGLOBIN A1C TO HEMOGLOBIN RATIO MEASUREMENT:
     label: LBORRESU
     name: LBORRESU
     responseCodes:
+    - code:
+        code: C25613
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Percentage
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
     - code:
         code: C111253
         codeSystem: http://www.cdisc.org
@@ -19005,7 +19065,27 @@ NEW LESION PROGRESSION:
     isRequired: true
     label: RSORRES
     name: RSORRES
-    responseCodes: []
+    responseCodes:
+    - code:
+        code: C86071
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Equivocal
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C123645
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unequivocal
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   - code:
       id: tbd
       instanceType: AliasCode
@@ -19661,6 +19741,16 @@ NON-TARGET INDICATOR:
       id: tbd
       instanceType: ResponseCode
       isEnabled: true
+    - code:
+        code: C17998
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unknown
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   - code:
       id: tbd
       instanceType: AliasCode
@@ -19754,6 +19844,16 @@ NON-TARGET RESPONSE:
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
         decode: Progressive Disease
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C62222
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unevaluable
         id: tbd
         instanceType: Code
       id: tbd
@@ -20039,6 +20139,16 @@ OVERALL RESPONSE:
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
         decode: Complete Remission
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C62222
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unevaluable
         id: tbd
         instanceType: Code
       id: tbd
@@ -27652,6 +27762,16 @@ TARGET INDICATOR:
       id: tbd
       instanceType: ResponseCode
       isEnabled: true
+    - code:
+        code: C17998
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unknown
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   - code:
       id: tbd
       instanceType: AliasCode
@@ -27735,6 +27855,16 @@ TARGET RESPONSE:
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
         decode: Complete Remission
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C62222
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unevaluable
         id: tbd
         instanceType: Code
       id: tbd
@@ -27867,7 +27997,37 @@ TEMPERATURE:
     isRequired: true
     label: VSORRESU
     name: VSORRESU
-    responseCodes: []
+    responseCodes:
+    - code:
+        code: C42559
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Degree Celsius
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C44277
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Degree Fahrenheit
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C42537
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Kelvin
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   - code:
       id: tbd
       instanceType: AliasCode
@@ -28760,6 +28920,16 @@ TOBACCO HISTORY:
       instanceType: ResponseCode
       isEnabled: true
     - code:
+        code: C48155
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Gram
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
         code: C28253
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
@@ -29221,6 +29391,16 @@ TREPONEMA PALLIDUM DETECTION BY IMMUNOFLUORESCENCE:
     name: MBSPEC
     responseCodes:
     - code:
+        code: C12434
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Blood
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
         code: C13325
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
@@ -29386,6 +29566,16 @@ TREPONEMA PALLIDUM DNA BY NUCLEIC ACID AMPLIFICATION:
     label: MBSPEC
     name: MBSPEC
     responseCodes:
+    - code:
+        code: C12434
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Blood
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
     - code:
         code: C12692
         codeSystem: http://www.cdisc.org
@@ -31059,6 +31249,26 @@ TUMOR STATUS:
         codeSystem: http://www.cdisc.org
         codeSystemVersion: '2023-12-15'
         decode: Absent
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C123645
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Unequivocal
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C86071
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Equivocal
         id: tbd
         instanceType: Code
       id: tbd
@@ -32983,7 +33193,37 @@ WAIST CIRCUMFERENCE:
     isRequired: true
     label: VSORRESU
     name: VSORRESU
-    responseCodes: []
+    responseCodes:
+    - code:
+        code: C49668
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Centimeter
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C48500
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Inch
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C28251
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Millimeter
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   - code:
       id: tbd
       instanceType: AliasCode
@@ -33079,7 +33319,37 @@ WEIGHT:
     isRequired: true
     label: VSORRESU
     name: VSORRESU
-    responseCodes: []
+    responseCodes:
+    - code:
+        code: C48531
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Pound
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C48155
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Gram
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
+    - code:
+        code: C28252
+        codeSystem: http://www.cdisc.org
+        codeSystemVersion: '2023-12-15'
+        decode: Kilogram
+        id: tbd
+        instanceType: Code
+      id: tbd
+      instanceType: ResponseCode
+      isEnabled: true
   reference: /mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/WEIGHT
   synonyms:
   - Weight
