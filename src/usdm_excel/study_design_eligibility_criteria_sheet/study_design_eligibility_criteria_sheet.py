@@ -61,7 +61,9 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
         return
       tags = re.findall(r'\[([^]]*)\]',text)
       for tag in tags:
-        if not tag in dictionary.parameterMap:
+        entry = next((item for item in dictionary.parameterMaps if item.tag == tag), None)
+        if not entry:
+        #if not tag in dictionary.parameterMap:
           self._warning(row, column, f"Failed to find '{tag}' in dictionary '{dictionary_name}'")
   
   def _get_dictionary_id(self, dictionary_name):

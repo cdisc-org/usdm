@@ -3442,10 +3442,20 @@
                 "name": "IE_Dict",
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
-                "parameterMap": {
-                  "min_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedAge\"></usdm:ref>",
-                  "max_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedAge\"></usdm:ref>"
-                },
+                "parameterMaps": [
+                  {
+                    "id": "ParameterMap_1",
+                    "tag": "min_age",
+                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedAge\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  },
+                  {
+                    "id": "ParameterMap_2",
+                    "tag": "max_age",
+                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedAge\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  }
+                ],
                 "instanceType": "SyntaxTemplateDictionary"
               },
               {
@@ -3453,9 +3463,14 @@
                 "name": "OE_Dict",
                 "label": "OE Dictionary",
                 "description": "Dictionary for OE",
-                "parameterMap": {
-                  "min_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedAge\"></usdm:ref>"
-                },
+                "parameterMaps": [
+                  {
+                    "id": "ParameterMap_3",
+                    "tag": "min_age",
+                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedAge\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  }
+                ],
                 "instanceType": "SyntaxTemplateDictionary"
               },
               {
@@ -3463,10 +3478,20 @@
                 "name": "Example3_Dict",
                 "label": "Example 3 Dictionary",
                 "description": "Dictionary for Example",
-                "parameterMap": {
-                  "xxxx": "<usdm:ref klass=\"Activity\" id=\"Activity_1\" attribute=\"label\"></usdm:ref>",
-                  "value_key": "<div>1234.0</div>"
-                },
+                "parameterMaps": [
+                  {
+                    "id": "ParameterMap_4",
+                    "tag": "xxxx",
+                    "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_1\" attribute=\"label\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  },
+                  {
+                    "id": "ParameterMap_5",
+                    "tag": "value_key",
+                    "reference": "<div>1234.0</div>",
+                    "instanceType": "ParameterMap"
+                  }
+                ],
                 "instanceType": "SyntaxTemplateDictionary"
               }
             ],

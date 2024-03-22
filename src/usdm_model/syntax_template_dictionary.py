@@ -1,6 +1,11 @@
-from typing import Literal
-from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
+from typing import List, Literal
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc, ApiBaseModelWithId
+
+class ParameterMap(ApiBaseModelWithId):
+  tag: str
+  reference: str
+  instanceType: Literal['ParameterMap']
 
 class SyntaxTemplateDictionary(ApiBaseModelWithIdNameLabelAndDesc):
-  parameterMap: dict
+  parameterMaps: List[ParameterMap] = []
   instanceType: Literal['SyntaxTemplateDictionary']

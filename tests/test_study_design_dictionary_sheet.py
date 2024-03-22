@@ -9,11 +9,13 @@ from usdm_model.api_base_model import ApiBaseModelWithId
 
 def test_create(mocker):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
-  mock_cross_ref.side_effect=[ApiBaseModelWithId(id="1"), ApiBaseModelWithId(id="2"), ApiBaseModelWithId(id="3"), ApiBaseModelWithId(id="4"), ApiBaseModelWithId(id="5")]
+  mock_cross_ref.side_effect=[
+    ApiBaseModelWithId(id="1"), ApiBaseModelWithId(id="2"), ApiBaseModelWithId(id="3"), ApiBaseModelWithId(id="4"), ApiBaseModelWithId(id="5")
+  ]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.build_id")
-  mock_id.side_effect=['DictionaryId_1', 'DictionaryId_2', 'DictionaryId_3']
+  mock_id.side_effect=['DictionaryId_1', 'MapId_1', 'MapId_2', 'DictionaryId_2', 'MapId_3', 'DictionaryId_3', 'MapId_4', 'MapId_5', 'MapId_6']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
@@ -32,10 +34,11 @@ def test_create(mocker):
   assert dictionaries.items[0].name == 'Dictionary 1'
   assert dictionaries.items[0].description == 'Dictionary One'
   assert dictionaries.items[0].label == 'Label One'
-  assert dictionaries.items[0].parameterMap['Key 2'] == '<usdm:ref klass="ApiBaseModelWithId" id="2" attribute="Attribute 2"></usdm:ref>'
-  assert list(dictionaries.items[1].parameterMap.keys()) == ['Key 3']
-  assert list(dictionaries.items[2].parameterMap.keys()) == ['Key 4', 'Key 5', 'Key 6']
-  assert dictionaries.items[2].parameterMap['Key 6'] == "<div>Hello!</div>"
+  assert dictionaries.items[0].parameterMaps[1].tag == 'Key 2'
+  assert dictionaries.items[0].parameterMaps[1].reference == '<usdm:ref klass="ApiBaseModelWithId" id="2" attribute="Attribute 2"></usdm:ref>'
+  assert [x.tag for x in dictionaries.items[1].parameterMaps] == ['Key 3']
+  assert [x.tag for x in dictionaries.items[2].parameterMaps] == ['Key 4', 'Key 5', 'Key 6']
+  assert dictionaries.items[2].parameterMaps[2].reference == "<div>Hello!</div>"
   
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

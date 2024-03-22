@@ -10375,11 +10375,26 @@
                 "name": "IE_Dict",
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
-                "parameterMap": {
-                  "min_age": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"minValue\"></usdm:ref>",
-                  "max_age": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"maxValue\"></usdm:ref>",
-                  "StudyPopulation": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>"
-                },
+                "parameterMaps": [
+                  {
+                    "id": "ParameterMap_1",
+                    "tag": "min_age",
+                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"minValue\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  },
+                  {
+                    "id": "ParameterMap_2",
+                    "tag": "max_age",
+                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"maxValue\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  },
+                  {
+                    "id": "ParameterMap_3",
+                    "tag": "StudyPopulation",
+                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  }
+                ],
                 "instanceType": "SyntaxTemplateDictionary"
               },
               {
@@ -10387,9 +10402,14 @@
                 "name": "AS_Dict",
                 "label": "Assessment Dictionary",
                 "description": "Dictionary for Study Assessments",
-                "parameterMap": {
-                  "Activity1": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>"
-                },
+                "parameterMaps": [
+                  {
+                    "id": "ParameterMap_4",
+                    "tag": "Activity1",
+                    "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  }
+                ],
                 "instanceType": "SyntaxTemplateDictionary"
               }
             ],

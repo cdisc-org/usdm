@@ -2530,10 +2530,20 @@
                 "name": "IE_Dict",
                 "label": "IE Dictionary",
                 "description": "Dictionary for IE",
-                "parameterMap": {
-                  "min_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMinimumAgeOfParticipants\"></usdm:ref>",
-                  "max_age": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMaximumAgeOfParticipants\"></usdm:ref>"
-                },
+                "parameterMaps": [
+                  {
+                    "id": "ParameterMap_1",
+                    "tag": "min_age",
+                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMinimumAgeOfParticipants\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  },
+                  {
+                    "id": "ParameterMap_2",
+                    "tag": "max_age",
+                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMaximumAgeOfParticipants\"></usdm:ref>",
+                    "instanceType": "ParameterMap"
+                  }
+                ],
                 "instanceType": "SyntaxTemplateDictionary"
               }
             ],

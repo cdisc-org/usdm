@@ -187,18 +187,15 @@ class Document():
       try:
         attributes = ref.attrs
         if dictionary:
-          value = dictionary.parameterMap[attributes['name']]
-          self._replace_and_highlight(soup, ref, get_soup(value, self.parent), highlight)
-          #ref.replace_with(get_soup(value, self.parent))
+          entry = next((item for item in dictionary.parameterMaps if item.tag == attributes['name']), None)
+          self._replace_and_highlight(soup, ref, get_soup(entry.reference, self.parent), highlight)
         else:
           self.parent._general_error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document")
           self._replace_and_highlight(soup, ref, 'Missing content: missing dictionary', highlight)
-          #ref.replace_with('Missing content: missing dictionary')
       except Exception as e:
         self.parent._traceback(f"Failed to resolve reference '{attributes}'\n{traceback.format_exc()}")
         self.parent._general_error(f"Exception '{e} while attempting to resolve reference '{attributes}' while generating the HTML document")
         self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
-        #ref.replace_with('Missing content: exception')
     return str(soup)
 
   def _get_dictionary(self, instance):
