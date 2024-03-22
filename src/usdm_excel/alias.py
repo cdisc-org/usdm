@@ -3,5 +3,6 @@ from usdm_model.alias_code import AliasCode
 
 class Alias():
 
+  @classmethod
   def code(self, standard_code, aliases):
-    return AliasCode(id=id_manager.build_id(AliasCode), standardCode=standard_code, standardCodeAliases=aliases)
+    return AliasCode(id=id_manager.build_id(AliasCode), standardCode=standard_code, standardCodeAliases=aliases) if standard_code else None

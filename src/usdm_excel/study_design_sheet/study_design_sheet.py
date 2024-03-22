@@ -79,7 +79,7 @@ class StudyDesignSheet(BaseSheet):
         elif key in self.RATIONALE_LABEL:
           self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.BLINDING_LABEL:
-          self.blinding = Alias().code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
+          self.blinding = Alias.code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
         elif key in self.INTENT_LABEL:
           self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
         elif key in self.CHARACTERISTICS_LABEL:

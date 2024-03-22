@@ -1,4 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.alias import Alias
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 import traceback
@@ -82,8 +83,8 @@ class StudyDesignInterventionSheet(BaseSheet):
         label=label,
         duration=admin_duration,
         dose=dose,
-        route=route,
-        frequency=frequency
+        route=Alias.code(route, []),
+        frequency=Alias.code(frequency, [])
       )
     except Exception as e:
       self._general_error(f"Failed to create AgentAdministration object, exception {e}")

@@ -141,13 +141,13 @@ class StudyDesignAmendmentSheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic enrollment data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code': Alias().code(code, []), 'quantity': quantity})
+            result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code': Alias.code(code, []), 'quantity': quantity})
       return result
 
   def _get_quantitiy(self, text):
     #print(f"QUANTITY1: {text}")
     quantity = QuantityType(text, True, False)
-    unit = Alias().code(quantity.units_code, []) if quantity.units_code else None
+    unit = Alias.code(quantity.units_code, [])
     #print(f"QUANTITY2: {quantity_details}")
     return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
 

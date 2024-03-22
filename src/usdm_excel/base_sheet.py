@@ -148,7 +148,7 @@ class BaseSheet():
       text = self.read_cell(row_index, col_index)
       quantity = QuantityType(text, allow_missing_units, allow_empty)
       if not quantity.errors:
-        unit = Alias().code(quantity.units_code, []) if quantity.units_code else None
+        unit = Alias.code(quantity.units_code, [])
         return None if quantity.empty else Quantity(id=id_manager.build_id(Quantity), value=float(quantity.value), unit=unit)
       else:
         self._add_errors(quantity.errors, row_index, col_index)

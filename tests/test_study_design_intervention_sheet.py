@@ -42,9 +42,6 @@ def test_create(mocker):
     [ '',      '',            '',            '',                            '',                          '',       '',                   '',                     '',                       'Admin 5',              'Admin Desc 5',           'Admin Label 1',    'C34567',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '15 in'                        ], 
   ]
 
-
-
-
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)
   interventions = StudyDesignInterventionSheet("")

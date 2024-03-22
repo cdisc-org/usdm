@@ -261,7 +261,7 @@ class CDISCBiomedicalConcepts():
 
   def _biomedical_concept_object(self, name, label, synonyms, reference, code) -> BiomedicalConcept:
     code.id = "tbd"
-    alias_code=Alias().code(code, [])
+    alias_code=Alias.code(code, [])
     alias_code.id = "tbd"
     return BiomedicalConcept(
       id="tbd",
@@ -275,7 +275,7 @@ class CDISCBiomedicalConcepts():
 
   def _biomedical_concept_property_object(self, name, label, datatype, responses, code):
     code.id = "tbd"
-    alias_code=Alias().code(code, [])
+    alias_code=Alias.code(code, [])
     alias_code.id = "tbd"
     return BiomedicalConceptProperty(
       id="tbd",

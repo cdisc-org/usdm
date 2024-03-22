@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "id": "Id_13",
+      "id": "Id_15",
       "name": "Int 1",
       "label": "Int Label 1",
       "description": "Int Desc 1",
@@ -22,12 +22,12 @@
         "instanceType": "Code"
       },
       "minimumResponseDuration": {
-        "id": "Id_12",
+        "id": "Id_14",
         "value": 1.0,
         "unit": {
-          "id": "Id_11",
+          "id": "Id_13",
           "standardCode": {
-            "id": "Id_10",
+            "id": "Id_12",
             "code": "C25301",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2023-12-15",
@@ -41,7 +41,7 @@
       },
       "codes": [
         {
-          "id": "Id_8",
+          "id": "Id_10",
           "code": "A",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -99,37 +99,47 @@
             "instanceType": "Quantity"
           },
           "route": {
-            "id": "Code_0",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX0",
-            "instanceType": "Code"
+            "id": "Id_8",
+            "standardCode": {
+              "id": "Code_0",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX0",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "frequency": {
-            "id": "Code_1",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX1",
-            "instanceType": "Code"
+            "id": "Id_9",
+            "standardCode": {
+              "id": "Code_1",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX1",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "instanceType": "AgentAdministration"
         },
         {
-          "id": "Id_21",
+          "id": "Id_23",
           "name": "Admin 2",
           "label": "Admin Label 1",
           "description": "Admin Desc 2",
           "duration": {
-            "id": "Id_17",
+            "id": "Id_19",
             "quantity": {
-              "id": "Id_16",
+              "id": "Id_18",
               "value": 10.0,
               "unit": {
-                "id": "Id_15",
+                "id": "Id_17",
                 "standardCode": {
-                  "id": "Id_14",
+                  "id": "Id_16",
                   "code": "C41139",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -147,12 +157,12 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_20",
+            "id": "Id_22",
             "value": 1.0,
             "unit": {
-              "id": "Id_19",
+              "id": "Id_21",
               "standardCode": {
-                "id": "Id_18",
+                "id": "Id_20",
                 "code": "C28253",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -165,20 +175,30 @@
             "instanceType": "Quantity"
           },
           "route": {
-            "id": "Code_5",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX5",
-            "instanceType": "Code"
+            "id": "Id_24",
+            "standardCode": {
+              "id": "Code_5",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX5",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "frequency": {
-            "id": "Code_6",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX6",
-            "instanceType": "Code"
+            "id": "Id_25",
+            "standardCode": {
+              "id": "Code_6",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX6",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "instanceType": "AgentAdministration"
         }
@@ -192,7 +212,7 @@
         "instanceType": "Code"
       },
       "pharmacologicClass": {
-        "id": "Id_9",
+        "id": "Id_11",
         "code": "A",
         "codeSystem": "FDA",
         "codeSystemVersion": "None set",
@@ -202,7 +222,7 @@
       "instanceType": "StudyIntervention"
     },
     {
-      "id": "Id_35",
+      "id": "Id_41",
       "name": "Int 2",
       "label": "Int Label 2",
       "description": "Int Desc 2",
@@ -223,12 +243,12 @@
         "instanceType": "Code"
       },
       "minimumResponseDuration": {
-        "id": "Id_34",
+        "id": "Id_40",
         "value": 3.0,
         "unit": {
-          "id": "Id_33",
+          "id": "Id_39",
           "standardCode": {
-            "id": "Id_32",
+            "id": "Id_38",
             "code": "C29844",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2023-12-15",
@@ -242,7 +262,7 @@
       },
       "codes": [
         {
-          "id": "Id_30",
+          "id": "Id_36",
           "code": "C",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -252,19 +272,19 @@
       ],
       "administrations": [
         {
-          "id": "Id_29",
+          "id": "Id_33",
           "name": "Admin 3",
           "label": "Admin Label 1",
           "description": "Admin Desc 3",
           "duration": {
-            "id": "Id_25",
+            "id": "Id_29",
             "quantity": {
-              "id": "Id_24",
+              "id": "Id_28",
               "value": 12.0,
               "unit": {
-                "id": "Id_23",
+                "id": "Id_27",
                 "standardCode": {
-                  "id": "Id_22",
+                  "id": "Id_26",
                   "code": "C42559",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -282,12 +302,12 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_28",
+            "id": "Id_32",
             "value": 100.0,
             "unit": {
-              "id": "Id_27",
+              "id": "Id_31",
               "standardCode": {
-                "id": "Id_26",
+                "id": "Id_30",
                 "code": "C28253",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -300,20 +320,30 @@
             "instanceType": "Quantity"
           },
           "route": {
-            "id": "Code_7",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX7",
-            "instanceType": "Code"
+            "id": "Id_34",
+            "standardCode": {
+              "id": "Code_7",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX7",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "frequency": {
-            "id": "Code_8",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX8",
-            "instanceType": "Code"
+            "id": "Id_35",
+            "standardCode": {
+              "id": "Code_8",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX8",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "instanceType": "AgentAdministration"
         }
@@ -327,7 +357,7 @@
         "instanceType": "Code"
       },
       "pharmacologicClass": {
-        "id": "Id_31",
+        "id": "Id_37",
         "code": "A",
         "codeSystem": "FDA",
         "codeSystemVersion": "None set",
@@ -337,7 +367,7 @@
       "instanceType": "StudyIntervention"
     },
     {
-      "id": "Id_50",
+      "id": "Id_58",
       "name": "Int 3",
       "label": "Int Label 3",
       "description": "Int Desc 3",
@@ -358,12 +388,12 @@
         "instanceType": "Code"
       },
       "minimumResponseDuration": {
-        "id": "Id_49",
+        "id": "Id_57",
         "value": 4.0,
         "unit": {
-          "id": "Id_48",
+          "id": "Id_56",
           "standardCode": {
-            "id": "Id_47",
+            "id": "Id_55",
             "code": "C29848",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2023-12-15",
@@ -377,7 +407,7 @@
       },
       "codes": [
         {
-          "id": "Id_44",
+          "id": "Id_52",
           "code": "E",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -385,7 +415,7 @@
           "instanceType": "Code"
         },
         {
-          "id": "Id_45",
+          "id": "Id_53",
           "code": "G",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -395,19 +425,19 @@
       ],
       "administrations": [
         {
-          "id": "Id_43",
+          "id": "Id_49",
           "name": "Admin 4",
           "label": "Admin Label 1",
           "description": "Admin Desc 4",
           "duration": {
-            "id": "Id_39",
+            "id": "Id_45",
             "quantity": {
-              "id": "Id_38",
+              "id": "Id_44",
               "value": 12.0,
               "unit": {
-                "id": "Id_37",
+                "id": "Id_43",
                 "standardCode": {
-                  "id": "Id_36",
+                  "id": "Id_42",
                   "code": "C44277",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -425,12 +455,12 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_42",
+            "id": "Id_48",
             "value": 500.0,
             "unit": {
-              "id": "Id_41",
+              "id": "Id_47",
               "standardCode": {
-                "id": "Id_40",
+                "id": "Id_46",
                 "code": "C28253",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -443,37 +473,47 @@
             "instanceType": "Quantity"
           },
           "route": {
-            "id": "Code_12",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX12",
-            "instanceType": "Code"
+            "id": "Id_50",
+            "standardCode": {
+              "id": "Code_12",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX12",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "frequency": {
-            "id": "Code_13",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX13",
-            "instanceType": "Code"
+            "id": "Id_51",
+            "standardCode": {
+              "id": "Code_13",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX13",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "instanceType": "AgentAdministration"
         },
         {
-          "id": "Id_58",
+          "id": "Id_66",
           "name": "Admin 5",
           "label": "Admin Label 1",
           "description": "Admin Desc 5",
           "duration": {
-            "id": "Id_54",
+            "id": "Id_62",
             "quantity": {
-              "id": "Id_53",
+              "id": "Id_61",
               "value": 15.0,
               "unit": {
-                "id": "Id_52",
+                "id": "Id_60",
                 "standardCode": {
-                  "id": "Id_51",
+                  "id": "Id_59",
                   "code": "C48500",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -491,12 +531,12 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_57",
+            "id": "Id_65",
             "value": 1.0,
             "unit": {
-              "id": "Id_56",
+              "id": "Id_64",
               "standardCode": {
-                "id": "Id_55",
+                "id": "Id_63",
                 "code": "C28253",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -509,20 +549,30 @@
             "instanceType": "Quantity"
           },
           "route": {
-            "id": "Code_17",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX17",
-            "instanceType": "Code"
+            "id": "Id_67",
+            "standardCode": {
+              "id": "Code_17",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX17",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "frequency": {
-            "id": "Code_18",
-            "code": "C12345",
-            "codeSystem": "CDISC",
-            "codeSystemVersion": "1",
-            "decode": "INDEX18",
-            "instanceType": "Code"
+            "id": "Id_68",
+            "standardCode": {
+              "id": "Code_18",
+              "code": "C12345",
+              "codeSystem": "CDISC",
+              "codeSystemVersion": "1",
+              "decode": "INDEX18",
+              "instanceType": "Code"
+            },
+            "standardCodeAliases": [],
+            "instanceType": "AliasCode"
           },
           "instanceType": "AgentAdministration"
         }
@@ -536,7 +586,7 @@
         "instanceType": "Code"
       },
       "pharmacologicClass": {
-        "id": "Id_46",
+        "id": "Id_54",
         "code": "A",
         "codeSystem": "FDA",
         "codeSystemVersion": "None set",

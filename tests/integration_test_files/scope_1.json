@@ -1367,7 +1367,7 @@
                   "id": "Quantity_3",
                   "value": 1.0,
                   "unit": {
-                    "id": "AliasCode_20",
+                    "id": "AliasCode_22",
                     "standardCode": {
                       "id": "Code_99",
                       "code": "C25301",
@@ -1441,20 +1441,30 @@
                       "instanceType": "Quantity"
                     },
                     "route": {
-                      "id": "Code_91",
-                      "code": "C38197",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Dental Route of Administration",
-                      "instanceType": "Code"
+                      "id": "AliasCode_20",
+                      "standardCode": {
+                        "id": "Code_91",
+                        "code": "C38197",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2023-12-15",
+                        "decode": "Dental Route of Administration",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
                     },
                     "frequency": {
-                      "id": "Code_93",
-                      "code": "C139179",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Ten Days Per Month",
-                      "instanceType": "Code"
+                      "id": "AliasCode_21",
+                      "standardCode": {
+                        "id": "Code_93",
+                        "code": "C139179",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2023-12-15",
+                        "decode": "Ten Days Per Month",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
                     },
                     "instanceType": "AgentAdministration"
                   }
@@ -1502,7 +1512,7 @@
                   "id": "Quantity_6",
                   "value": 1.0,
                   "unit": {
-                    "id": "AliasCode_23",
+                    "id": "AliasCode_27",
                     "standardCode": {
                       "id": "Code_109",
                       "code": "C25301",
@@ -1538,7 +1548,7 @@
                         "id": "Quantity_4",
                         "value": 14.0,
                         "unit": {
-                          "id": "AliasCode_21",
+                          "id": "AliasCode_23",
                           "standardCode": {
                             "id": "Code_100",
                             "code": "C25613",
@@ -1561,7 +1571,7 @@
                       "id": "Quantity_5",
                       "value": 12.0,
                       "unit": {
-                        "id": "AliasCode_22",
+                        "id": "AliasCode_24",
                         "standardCode": {
                           "id": "Code_102",
                           "code": "C28253",
@@ -1576,20 +1586,30 @@
                       "instanceType": "Quantity"
                     },
                     "route": {
-                      "id": "Code_101",
-                      "code": "C38197",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Dental Route of Administration",
-                      "instanceType": "Code"
+                      "id": "AliasCode_25",
+                      "standardCode": {
+                        "id": "Code_101",
+                        "code": "C38197",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2023-12-15",
+                        "decode": "Dental Route of Administration",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
                     },
                     "frequency": {
-                      "id": "Code_103",
-                      "code": "C139179",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Ten Days Per Month",
-                      "instanceType": "Code"
+                      "id": "AliasCode_26",
+                      "standardCode": {
+                        "id": "Code_103",
+                        "code": "C139179",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2023-12-15",
+                        "decode": "Ten Days Per Month",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
                     },
                     "instanceType": "AgentAdministration"
                   }
