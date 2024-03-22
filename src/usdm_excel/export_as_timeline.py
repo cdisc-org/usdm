@@ -45,37 +45,27 @@ class ExportAsTimeline():
         doc.asis('\ngraph LR\n')
         doc.asis(f'{timeline.id}([{timeline.entryCondition}])\n')
         instance = cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
-        #print(f"INST: {instance.instanceType} {ScheduledActivityInstance.__name__}")
         if instance.instanceType == ScheduledActivityInstance.__name__: 
           doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
         else:
           doc.asis(f'{instance.id}{{{{ScheduledDecisionInstance}}}}\n')
         doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
-        #for timing in instance.timings:
-        #  #print(f"APPEND: {timing}")
-        #  timings.append(timing)
         prev_instance = instance
         instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
         while instance:
-          #print(f"INST: {instance.instanceType} {ScheduledActivityInstance.__name__}")
           if instance.instanceType == ScheduledActivityInstance.__name__: 
             doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
           else:
             doc.asis(f'{instance.id}{{{{ScheduledDecisionInstance}}}}\n')
             for condition in instance.conditionAssignments:
-              doc.asis(f'{instance.id} -->|{condition[0]}| {condition[1]}\n') 
+              doc.asis(f'{instance.id} -->|{condition.condition}| {condition.conditionTargetId}\n') 
           doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
-          #for timing in instance.timings:
-          #  #print(f"APPEND: {timing}")
-          #  timings.append(timing)
           prev_instance = instance
           instance = self._get_cross_reference(prev_instance.defaultConditionId)
-          #print(f"NEXT: {instance}")
         exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.timelineExitId)
         doc.asis(f'{exit.id}([Exit])\n')
         doc.asis(f'{prev_instance.id} -->|exit| {exit.id}\n')      
         for timing in timings:
-          #print(f"TIMING: {timing}")
           doc.asis(f'{timing.id}(({timing.label}\n{timing.type.decode}\n{timing.value}\n{timing.windowLower}..{timing.windowUpper}))\n')            
           doc.asis(f'{timing.id} -->|from| {timing.relativeFromScheduledInstanceId}\n')      
           doc.asis(f'{timing.id} -->|to| {timing.relativeToScheduledInstanceId}\n')      

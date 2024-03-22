@@ -60,7 +60,8 @@ class IdManager():
       'ResearchOrganization': 0,
       'StudySite': 0,
       'Condition': 0,
-      'ParameterMap': 0
+      'ParameterMap': 0,
+      'ConditionAssignment': 0
     }
 
   def build_id(self, klass):

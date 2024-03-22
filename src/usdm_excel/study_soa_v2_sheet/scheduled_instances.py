@@ -3,6 +3,7 @@ from usdm_excel.study_soa_v2_sheet.scheduled_instance import ScheduledInstance
 from usdm_excel.cross_ref import cross_references
 from usdm_excel.id_manager import id_manager
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
+from usdm_model.scheduled_instance import ConditionAssignment
 
 class ScheduledInstances():
   
@@ -51,7 +52,9 @@ class ScheduledInstances():
         for condition in instance.conditions.items:
           #print(f"COND: {condition} ")
           if condition['name'] in self.map.keys():
-            item.conditionAssignments.append([condition['condition'], self.map[condition['name']].item.id])
+            ca = self.parent.create_object(ConditionAssignment, {'condition': condition['condition'], 'conditionTargetId': self.map[condition['name']].item.id})
+            if ca:
+              item.conditionAssignments.append(ca)
           else:
             self.parent._general_error(f"Conditonal reference from {instance.name} to {condition['name']} cannot be made, not found on the same timeline")
   

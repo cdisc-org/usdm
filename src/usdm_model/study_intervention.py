@@ -9,7 +9,7 @@ class StudyIntervention(ApiBaseModelWithIdNameLabelAndDesc):
   type:	Code
   minimumResponseDuration: Union[Quantity, None] = None
   codes: List[Code] = []
-  administrations: List[AgentAdministration]
+  administrations: List[AgentAdministration] = []
   productDesignation:	Code
   pharmacologicClass:	Union[Code, None] = None
   instanceType: Literal['StudyIntervention']

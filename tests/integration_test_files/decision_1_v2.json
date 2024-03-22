@@ -2075,14 +2075,18 @@
                     "epochId": null,
                     "instanceType": "ScheduledDecisionInstance",
                     "conditionAssignments": [
-                      [
-                        "if major rash",
-                        "ScheduledActivityInstance_3"
-                      ],
-                      [
-                        "If minor rash",
-                        "ScheduledActivityInstance_4"
-                      ]
+                      {
+                        "id": "ConditionAssignment_1",
+                        "condition": "if major rash",
+                        "conditionTargetId": "ScheduledActivityInstance_3",
+                        "instanceType": "ConditionAssignment"
+                      },
+                      {
+                        "id": "ConditionAssignment_2",
+                        "condition": "If minor rash",
+                        "conditionTargetId": "ScheduledActivityInstance_4",
+                        "instanceType": "ConditionAssignment"
+                      }
                     ]
                   },
                   {

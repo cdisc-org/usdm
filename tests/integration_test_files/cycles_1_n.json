@@ -1754,8 +1754,6 @@
     "properties": {
       "id": "Estimand_1",
       "summaryMeasure": "Survival of all patients",
-      "interventionId": "StudyIntervention_1",
-      "variableOfInterestId": "Endpoint_1",
       "instanceType": "Estimand",
       "_type": "Estimand",
       "label": "Estimand_1"
@@ -3262,6 +3260,16 @@
     }
   },
   {
+    "id": 258,
+    "properties": {
+      "id": "ConditionAssignment_1",
+      "condition": "Cycle 4 to 12",
+      "instanceType": "ConditionAssignment",
+      "_type": "ConditionAssignment",
+      "label": "ConditionAssignment_1"
+    }
+  },
+  {
     "id": 257,
     "properties": {
       "id": "ScheduledDecisionInstance_1",
@@ -3275,7 +3283,7 @@
     }
   },
   {
-    "id": 258,
+    "id": 259,
     "properties": {
       "id": "ScheduledActivityInstance_12",
       "name": "C13-PLUS-BASE",
@@ -3288,7 +3296,7 @@
     }
   },
   {
-    "id": 259,
+    "id": 260,
     "properties": {
       "id": "ScheduledActivityInstance_13",
       "name": "C13-PLUS-D1",
@@ -3301,7 +3309,7 @@
     }
   },
   {
-    "id": 260,
+    "id": 261,
     "properties": {
       "id": "ScheduledActivityInstance_14",
       "name": "C13-PLUS-DELAY",
@@ -3314,7 +3322,17 @@
     }
   },
   {
-    "id": 261,
+    "id": 263,
+    "properties": {
+      "id": "ConditionAssignment_2",
+      "condition": "No Disease Progresssion",
+      "instanceType": "ConditionAssignment",
+      "_type": "ConditionAssignment",
+      "label": "ConditionAssignment_2"
+    }
+  },
+  {
+    "id": 262,
     "properties": {
       "id": "ScheduledDecisionInstance_2",
       "name": "C13-PLUS-CYCLE",
@@ -3327,7 +3345,7 @@
     }
   },
   {
-    "id": 262,
+    "id": 264,
     "properties": {
       "id": "ScheduledActivityInstance_15",
       "name": "EOT",
@@ -3340,7 +3358,7 @@
     }
   },
   {
-    "id": 263,
+    "id": 265,
     "properties": {
       "id": "ScheduledActivityInstance_16",
       "name": "FOLLOW-UP",
@@ -3386,7 +3404,7 @@
     }
   },
   {
-    "id": 265,
+    "id": 267,
     "properties": {
       "id": "Code_3",
       "code": "C94108",
@@ -3399,7 +3417,7 @@
     }
   },
   {
-    "id": 264,
+    "id": 266,
     "properties": {
       "id": "StudyTitle_1",
       "text": "SIMPLE",
@@ -3409,7 +3427,7 @@
     }
   },
   {
-    "id": 267,
+    "id": 269,
     "properties": {
       "id": "Code_6",
       "code": "C99905x1",
@@ -3422,7 +3440,7 @@
     }
   },
   {
-    "id": 266,
+    "id": 268,
     "properties": {
       "id": "StudyTitle_2",
       "text": "Something Brief",
@@ -3432,7 +3450,7 @@
     }
   },
   {
-    "id": 269,
+    "id": 271,
     "properties": {
       "id": "Code_7",
       "code": "C99905x2",
@@ -3445,7 +3463,7 @@
     }
   },
   {
-    "id": 268,
+    "id": 270,
     "properties": {
       "id": "StudyTitle_3",
       "text": "Something Very Official",
@@ -3455,7 +3473,7 @@
     }
   },
   {
-    "id": 271,
+    "id": 273,
     "properties": {
       "id": "Code_8",
       "code": "C99905x3",
@@ -3468,7 +3486,7 @@
     }
   },
   {
-    "id": 270,
+    "id": 272,
     "properties": {
       "id": "StudyTitle_4",
       "text": "Something Public",
@@ -3478,7 +3496,7 @@
     }
   },
   {
-    "id": 273,
+    "id": 275,
     "properties": {
       "id": "Code_9",
       "code": "C99905x4",
@@ -3491,7 +3509,7 @@
     }
   },
   {
-    "id": 272,
+    "id": 274,
     "properties": {
       "id": "StudyTitle_5",
       "text": "Somethign Clever But New",
@@ -3515,7 +3533,7 @@
     }
   },
   {
-    "id": 276,
+    "id": 278,
     "properties": {
       "id": "Code_10",
       "code": "C85255",
@@ -3528,7 +3546,7 @@
     }
   },
   {
-    "id": 275,
+    "id": 277,
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
       "protocolVersion": "1",
@@ -3541,7 +3559,7 @@
     }
   },
   {
-    "id": 274,
+    "id": 276,
     "properties": {
       "id": "StudyProtocolDocument_1",
       "name": "Protocol_Document_CYCLES1",

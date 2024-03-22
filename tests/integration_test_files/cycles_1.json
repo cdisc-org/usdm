@@ -2344,10 +2344,12 @@
                     "epochId": null,
                     "instanceType": "ScheduledDecisionInstance",
                     "conditionAssignments": [
-                      [
-                        "Cycle 4 to 12",
-                        "ScheduledActivityInstance_9"
-                      ]
+                      {
+                        "id": "ConditionAssignment_1",
+                        "condition": "Cycle 4 to 12",
+                        "conditionTargetId": "ScheduledActivityInstance_9",
+                        "instanceType": "ConditionAssignment"
+                      }
                     ]
                   },
                   {
@@ -2402,10 +2404,12 @@
                     "epochId": null,
                     "instanceType": "ScheduledDecisionInstance",
                     "conditionAssignments": [
-                      [
-                        "No Disease Progresssion",
-                        "ScheduledActivityInstance_12"
-                      ]
+                      {
+                        "id": "ConditionAssignment_2",
+                        "condition": "No Disease Progresssion",
+                        "conditionTargetId": "ScheduledActivityInstance_12",
+                        "instanceType": "ConditionAssignment"
+                      }
                     ]
                   },
                   {

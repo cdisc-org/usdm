@@ -7,5 +7,5 @@ class ParameterMap(ApiBaseModelWithId):
   instanceType: Literal['ParameterMap']
 
 class SyntaxTemplateDictionary(ApiBaseModelWithIdNameLabelAndDesc):
-  parameterMaps: List[ParameterMap] = []
+  parameterMaps: List[ParameterMap] = [] # Allow for empty list, not in API
   instanceType: Literal['SyntaxTemplateDictionary']

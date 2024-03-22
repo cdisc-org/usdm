@@ -3395,10 +3395,12 @@
                     "epochId": null,
                     "instanceType": "ScheduledDecisionInstance",
                     "conditionAssignments": [
-                      [
-                        "if opted out",
-                        "ScheduledActivityInstance_6"
-                      ]
+                      {
+                        "id": "ConditionAssignment_1",
+                        "condition": "if opted out",
+                        "conditionTargetId": "ScheduledActivityInstance_6",
+                        "instanceType": "ConditionAssignment"
+                      }
                     ]
                   },
                   {

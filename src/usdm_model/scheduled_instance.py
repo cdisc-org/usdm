@@ -1,5 +1,10 @@
 from typing import List, Literal, Union
-from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc, ApiBaseModelWithId
+
+class ConditionAssignment(ApiBaseModelWithId):
+  condition: str
+  conditionTargetId: str
+  instanceType: Literal['ConditionAssignment']
 
 class ScheduledInstance(ApiBaseModelWithIdNameLabelAndDesc):
   timelineId: Union[str, None] = None
@@ -14,5 +19,5 @@ class ScheduledActivityInstance(ScheduledInstance):
   instanceType: Literal['ScheduledActivityInstance']
 
 class ScheduledDecisionInstance(ScheduledInstance):
-  conditionAssignments: List[List] = []
+  conditionAssignments: List[ConditionAssignment] = [] # Allow for empty list, not in API
   instanceType: Literal['ScheduledDecisionInstance']

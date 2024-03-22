@@ -10,7 +10,7 @@ class PopulationDefinition(ApiBaseModelWithIdNameLabelAndDesc):
   plannedEnrollmentNumber: Union[Range, None] = None
   plannedCompletionNumber: Union[Range, None] = None
   plannedSex: List[Code] = []
-  criteria: List[EligibilityCriterion] = []
+  criteria: List[EligibilityCriterion] = [] # Allow for empty list, not in API
   plannedAge: Union[Range, None] = None
   instanceType: Literal['PopulationDefinition']
 

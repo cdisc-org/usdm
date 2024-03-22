@@ -24,8 +24,10 @@ class ExportAsYworksDict():
       'ScheduledDecisionInstance': [
         'timepointActivityIds',
         'epochId',
-        'defaultConditionId',
-        'conditionAssignments',
+        'defaultConditionId'
+      ],
+      'ConditionAssignment': [
+        'conditionTargetId'
       ],
       'Activity': [
         'bcSurrogateIds',
@@ -37,8 +39,8 @@ class ExportAsYworksDict():
         'relativeToScheduledInstanceId',
       ],
       'Estimand': [
-        'treatment',
-        'variableOfInterest',
+        'interventionId',
+        'variableOfInterestId'
       ],
       'ScheduledTimeline': [
         'activityTimelineId',
@@ -49,12 +51,6 @@ class ExportAsYworksDict():
         'studyElementIds',
       ]
     }
-    # self.fix_id_name = {
-    #   'scheduledActivityInstanceId': 'scheduledInstanceId',
-    #   'scheduledDecisionInstanceId': 'scheduledInstanceId',
-    #   'biomedicalConceptSurrogateId': 'bcSurrogateId',
-    #   'biomedicalConceptPropertyId': 'bcPropertyId'
-    # }
     self.order_attributes = []
     self.ignore_klass = []
     self.collapse_klass = []
@@ -68,16 +64,13 @@ class ExportAsYworksDict():
         'StudyProtocolDocument', 'GovernanceDate'
       ]
       self.collapse_klass = ['Code']
-      #self.order_attributes = [
-      #  'scheduleSequenceNumber'
-      #]
-    #self.sequence_number_map = {}
       
   def export(self):
     node = json.loads(self.study.to_json_with_type())
     #print(f"NODE: {node}")
     self._process_node(node)
     for edge in self.add_edges:
+      print(f"EDGE: {edge}")
       if edge['end'] in self.id_node_index_map:
         edge['id'] = self.edge_index
         edge['end'] = self.id_node_index_map[edge['end']]
@@ -112,24 +105,15 @@ class ExportAsYworksDict():
       if klass in self.collapse_klass:
         return []
       for key, value in node.items():
-        # Special case, get the ids for the sequence numbers but within scope of each timeline
-        # if key == "scheduleTimelineInstances":
-        #   self.sequence_number_map = {}
-        #   for item in value:
-        #     self.sequence_number_map[item['scheduleSequenceNumber']] = item['scheduledInstanceId']
-        # Link the sequence numbers
-        # if key in self.order_attributes:
-        #   seq = value + 1
-        #   if seq in self.sequence_number_map:
-        #     self.add_edges.append( { 'start': this_node_index, 'end': self.sequence_number_map[seq], 'properties': { 'label': key, 'type': 'Order' }})
         if klass in self.edge_attributes and key in self.edge_attributes[klass]:
-          if key == "conditionAssignments":
-            # Special case, array of arrays of condition and link id
-            for item in value:
-              self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
-          # elif key == "parameterMap":
-          #   properties[key] = value
-          elif type(value) == list:
+          # if key == "conditionAssignments":
+          #   # Special case, array of arrays of condition and link id
+          #   for item in value:
+          #     self.add_edges.append( { 'start': this_node_index, 'end': item[1], 'properties': { 'label': key, 'type': 'Condition' }})
+          # # elif key == "parameterMap":
+          # #   properties[key] = value
+          # elif type(value) == list:
+          if type(value) == list:
             for item in value:
               if item:
                 self.add_edges.append( { 'start': this_node_index, 'end': item, 'properties': { 'label': key, 'type': 'List' }})
@@ -158,11 +142,7 @@ class ExportAsYworksDict():
   def _get_id_field_and_klass(self, node):
     try:
       klass = node['_type']
-    # id_name = "%s%s" % (stringcase.camelcase(klass), "Id")
-    # if id_name in self.fix_id_name:
-    #   id_name = self.fix_id_name[id_name]
       return 'id', klass
     except Exception as e:
-      #print(f"NODE: {node}")
       return 'id', None
 

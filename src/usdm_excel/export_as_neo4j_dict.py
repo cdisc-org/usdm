@@ -74,10 +74,11 @@ class ExportAsNeo4jDict():
     return False
 
   def _edge_field(self, key, value, current_index):
-    if key == "conditionAssignments":
-      for item in value:
-        self._add_post_edge(current_index, item[1], key)
-    elif key.endswith('Ids'):
+    # if key == "conditionAssignments":
+    #   for item in value:
+    #     self._add_post_edge(current_index, item['conditionTargetId'], key)
+    #elif key.endswith('Ids'):
+    if key.endswith('Ids'):
       for item in value:
         if item:
           self._add_post_edge(current_index, item, key)
