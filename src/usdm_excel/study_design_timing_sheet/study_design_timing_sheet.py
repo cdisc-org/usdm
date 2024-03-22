@@ -22,6 +22,7 @@ class StudyDesignTimingSheet(BaseSheet):
           type = self._set_type(self.read_cell_by_name(index, 'type'))
           from_name = self.read_cell_by_name(index, 'from')
           to_name = self.read_cell_by_name(index, 'to')
+          timing_label = self.read_cell_by_name(index, 'timingValue')
           timing_value = self._set_text_and_encoded(self.read_cell_by_name(index, 'timingValue'))
           to_from_type = self._set_to_from_type(self.read_cell_by_name(index, 'toFrom'))
           window = WindowType(self.read_cell_by_name(index, 'window'))
@@ -32,11 +33,12 @@ class StudyDesignTimingSheet(BaseSheet):
               id=id_manager.build_id(Timing),
               type=type,
               value=timing_value,
+              valueLabel=timing_label,
               name=name,
               description=description,
               label=label,
               relativeToFrom=to_from_type,
-              window=window.label,
+              windowLabel=window.label,
               windowLower=window.lower,
               windowUpper=window.upper,
               relativeFromScheduledInstanceId=from_name,

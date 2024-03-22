@@ -110,7 +110,7 @@ class SoA():
     for index, sai in enumerate(sai_order):
       timing = self._timing_from(self.timeline.timings, sai)
       if timing:
-        row[index + sai_start_index]['label'] = usdm_reference(timing, 'window')
+        row[index + sai_start_index]['label'] = usdm_reference(timing, 'windowLabel')
     if self._has_non_empty(row):
       results.append(row)
 

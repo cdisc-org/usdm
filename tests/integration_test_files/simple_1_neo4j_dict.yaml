@@ -4304,7 +4304,8 @@ nodes:
     name: TIM1
     uuid: 00000000-0000-4000-8000-000000000218
     value: P2D
-    window: ''
+    valueLabel: 2 days
+    windowLabel: ''
   - description: Pre dose timing
     id: Timing_2
     instanceType: Timing
@@ -4312,7 +4313,8 @@ nodes:
     name: TIM2
     uuid: 00000000-0000-4000-8000-000000000221
     value: PT15M
-    window: 0..4 hours
+    valueLabel: 15 min
+    windowLabel: 0..4 hours
     windowLower: PT0H
     windowUpper: PT4H
   - description: Dosing anchor
@@ -4322,7 +4324,8 @@ nodes:
     name: TIM3
     uuid: 00000000-0000-4000-8000-000000000224
     value: P1D
-    window: ''
+    valueLabel: 1 Day
+    windowLabel: ''
   - description: Day 14 timing
     id: Timing_4
     instanceType: Timing
@@ -4330,7 +4333,8 @@ nodes:
     name: TIM4
     uuid: 00000000-0000-4000-8000-000000000227
     value: P14D
-    window: -1..1 days
+    valueLabel: 14 days
+    windowLabel: -1..1 days
     windowLower: P1D
     windowUpper: P1D
   - description: Follow up timing
@@ -4340,7 +4344,8 @@ nodes:
     name: TIM5
     uuid: 00000000-0000-4000-8000-000000000230
     value: P21D
-    window: -3..3 days
+    valueLabel: 21 days
+    windowLabel: -3..3 days
     windowLower: P3D
     windowUpper: P3D
   TransitionRule:

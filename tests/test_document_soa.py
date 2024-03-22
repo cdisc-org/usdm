@@ -66,9 +66,9 @@ def create_conditions():
 
 def create_timings():
   item_list = [
-    {'name': 'T1', 'label': '-2 Days', 'description': '', 'type': BEFORE, 'value': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'window': ''},
-    {'name': 'T2', 'label': 'Dose',    'description': '', 'type': FIXED,  'value': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'window': ''},
-    {'name': 'T3', 'label': '7 Days',  'description': '', 'type': AFTER,  'value': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'window': '1..1 Days'}
+    {'name': 'T1', 'label': '-2 Days', 'description': '', 'type': BEFORE, 'value': '', 'valueLabel': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'windowLabel': ''},
+    {'name': 'T2', 'label': 'Dose',    'description': '', 'type': FIXED,  'value': '', 'valueLabel': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'windowLabel': ''},
+    {'name': 'T3', 'label': '7 Days',  'description': '', 'type': AFTER,  'value': '', 'valueLabel': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'windowLabel': '1..1 Days'}
   ]
   results = factory.set(Timing, item_list)
   add_cross_ref(results)

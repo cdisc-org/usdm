@@ -12971,7 +12971,8 @@ nodes:
     name: TIM1
     uuid: 00000000-0000-4000-8000-000000001163
     value: P2W
-    window: ''
+    valueLabel: 2 weeks
+    windowLabel: ''
   - description: Pre dose timing
     id: Timing_2
     instanceType: Timing
@@ -12979,7 +12980,8 @@ nodes:
     name: TIM2
     uuid: 00000000-0000-4000-8000-000000001166
     value: P2D
-    window: -4..0 hours
+    valueLabel: 2 days
+    windowLabel: -4..0 hours
     windowLower: PT4H
     windowUpper: PT0H
   - description: Dosing anchor
@@ -12989,7 +12991,8 @@ nodes:
     name: TIM3
     uuid: 00000000-0000-4000-8000-000000001169
     value: P1D
-    window: ''
+    valueLabel: 1 Day
+    windowLabel: ''
   - description: Week 2 timing
     id: Timing_4
     instanceType: Timing
@@ -12997,7 +13000,8 @@ nodes:
     name: TIM4
     uuid: 00000000-0000-4000-8000-000000001172
     value: P2W
-    window: -3..3 days
+    valueLabel: 2 Weeks
+    windowLabel: -3..3 days
     windowLower: P3D
     windowUpper: P3D
   - description: Week 4 timing
@@ -13007,7 +13011,8 @@ nodes:
     name: TIM5
     uuid: 00000000-0000-4000-8000-000000001175
     value: P4W
-    window: -3..3 days
+    valueLabel: 4 Weeks
+    windowLabel: -3..3 days
     windowLower: P3D
     windowUpper: P3D
   - description: Week 6 timing
@@ -13017,7 +13022,8 @@ nodes:
     name: TIM6
     uuid: 00000000-0000-4000-8000-000000001178
     value: P6W
-    window: -3..3 days
+    valueLabel: 6 Weeks
+    windowLabel: -3..3 days
     windowLower: P3D
     windowUpper: P3D
   - description: Week 8 timing
@@ -13027,7 +13033,8 @@ nodes:
     name: TIM7
     uuid: 00000000-0000-4000-8000-000000001181
     value: P8W
-    window: -3..3 days
+    valueLabel: 8 Weeks
+    windowLabel: -3..3 days
     windowLower: P3D
     windowUpper: P3D
   - description: Week 12 timing
@@ -13037,7 +13044,8 @@ nodes:
     name: TIM9
     uuid: 00000000-0000-4000-8000-000000001184
     value: P12W
-    window: -4..4 days
+    valueLabel: 12 Weeks
+    windowLabel: -4..4 days
     windowLower: P4D
     windowUpper: P4D
   - description: Week 16 timing
@@ -13047,7 +13055,8 @@ nodes:
     name: TIM11
     uuid: 00000000-0000-4000-8000-000000001187
     value: P16W
-    window: -4..4 days
+    valueLabel: 16 Weeks
+    windowLabel: -4..4 days
     windowLower: P4D
     windowUpper: P4D
   - description: Week 20 timing
@@ -13057,7 +13066,8 @@ nodes:
     name: TIM13
     uuid: 00000000-0000-4000-8000-000000001190
     value: P20W
-    window: -4..4 days
+    valueLabel: 20 Weeks
+    windowLabel: -4..4 days
     windowLower: P4D
     windowUpper: P4D
   - description: Week 24 timing
@@ -13067,7 +13077,8 @@ nodes:
     name: TIM15
     uuid: 00000000-0000-4000-8000-000000001193
     value: P24W
-    window: -4..4 days
+    valueLabel: 24 Weeks
+    windowLabel: -4..4 days
     windowLower: P4D
     windowUpper: P4D
   - description: Week 26 timing
@@ -13077,7 +13088,8 @@ nodes:
     name: TIM16
     uuid: 00000000-0000-4000-8000-000000001196
     value: P26W
-    window: -3..3 days
+    valueLabel: 26 Weeks
+    windowLabel: -3..3 days
     windowLower: P3D
     windowUpper: P3D
   - description: Week 8 at home timing
@@ -13087,7 +13099,8 @@ nodes:
     name: TIM8
     uuid: 00000000-0000-4000-8000-000000001199
     value: P2W
-    window: ''
+    valueLabel: 2 Weeks
+    windowLabel: ''
   - description: Week 12 at home timing
     id: Timing_10
     instanceType: Timing
@@ -13095,7 +13108,8 @@ nodes:
     name: TIM10
     uuid: 00000000-0000-4000-8000-000000001202
     value: P2W
-    window: ''
+    valueLabel: 2 Weeks
+    windowLabel: ''
   - description: Week 16 at home timing
     id: Timing_12
     instanceType: Timing
@@ -13103,7 +13117,8 @@ nodes:
     name: TIM12
     uuid: 00000000-0000-4000-8000-000000001205
     value: P2W
-    window: ''
+    valueLabel: 2 Weeks
+    windowLabel: ''
   - description: Week 20 at home timing
     id: Timing_14
     instanceType: Timing
@@ -13111,7 +13126,8 @@ nodes:
     name: TIM14
     uuid: 00000000-0000-4000-8000-000000001208
     value: P2W
-    window: ''
+    valueLabel: 2 Weeks
+    windowLabel: ''
   - description: Adverse Event
     id: Timing_17
     instanceType: Timing
@@ -13119,7 +13135,8 @@ nodes:
     name: TIM17
     uuid: 00000000-0000-4000-8000-000000001229
     value: P1D
-    window: ''
+    valueLabel: 1 Day
+    windowLabel: ''
   - description: Early Termination
     id: Timing_18
     instanceType: Timing
@@ -13127,7 +13144,8 @@ nodes:
     name: TIM18
     uuid: 00000000-0000-4000-8000-000000001235
     value: P1D
-    window: ''
+    valueLabel: 1 Day
+    windowLabel: ''
   - description: BP Anchor
     id: Timing_19
     instanceType: Timing
@@ -13135,7 +13153,8 @@ nodes:
     name: TIM19
     uuid: 00000000-0000-4000-8000-000000001241
     value: PT0M
-    window: ''
+    valueLabel: 0 mins
+    windowLabel: ''
   - description: BP while Supine
     id: Timing_20
     instanceType: Timing
@@ -13143,7 +13162,8 @@ nodes:
     name: TIM20
     uuid: 00000000-0000-4000-8000-000000001244
     value: PT5M
-    window: ''
+    valueLabel: 5 mins
+    windowLabel: ''
   - description: BP Stand Up
     id: Timing_21
     instanceType: Timing
@@ -13151,7 +13171,8 @@ nodes:
     name: TIM21
     uuid: 00000000-0000-4000-8000-000000001247
     value: PT3M
-    window: -2..0 min
+    valueLabel: 3 mins
+    windowLabel: -2..0 min
     windowLower: PT2M
     windowUpper: PT0M
   - description: BP while standing
@@ -13161,7 +13182,8 @@ nodes:
     name: TIM22
     uuid: 00000000-0000-4000-8000-000000001250
     value: PT0M
-    window: ''
+    valueLabel: 0 mins
+    windowLabel: ''
   TransitionRule:
   - id: TransitionRule_1
     instanceType: TransitionRule
