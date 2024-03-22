@@ -23,7 +23,6 @@ class ScheduledInstance():
     label = self.parent.read_cell(SoAColumnRows.LABEL_ROW, col_index)
     epoch_name = self.parent.read_cell(SoAColumnRows.EPOCH_ROW, col_index)
     encounter_name = self.parent.read_cell(SoAColumnRows.ENCOUNTER_ROW, col_index)
-    #print(f"ENCOUNTER: {encounter_name}")
     type = self.parent.read_cell(SoAColumnRows.TYPE_ROW, col_index)
     self.default_name = self.parent.read_cell(SoAColumnRows.DEFAULT_ROW, col_index)
     self.conditions = Conditons(self.parent.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index))
@@ -31,7 +30,6 @@ class ScheduledInstance():
       encounter = cross_references.get(Encounter, encounter_name)
       if encounter:
         encounter_id = encounter.id
-        #print(f"ENCOUNTER2: {encounter_id}")
       else:
         self.parent._general_warning(f"Failed to find encounter with name '{encounter_name}'")
     if epoch_name:
@@ -44,25 +42,25 @@ class ScheduledInstance():
       if type.upper() == "ACTIVITY":
         self.item = ScheduledActivityInstance(
           id=id_manager.build_id(ScheduledActivityInstance),
-#          name=name,
-#          description=description,
-#          label=label,
+          name=name,
+          description=description,
+          label=label,
           timelineExitId=None,
           encounterId=encounter_id,
-          #timings=[],
           scheduledInstanceTimelineId=None,
           defaultConditionId=None,
           epochId=epoch_id,
           activityIds=self._add_activities()
         )
-        #print(f"ENCOUNTER3: {self.item}")
         cross_references.add(self.item.id, self.item)
         cross_references.add(self.name, self.item)
       elif type.upper() == "DECISION":
         self.item = ScheduledDecisionInstance(
           id=id_manager.build_id(ScheduledDecisionInstance),
+          name=name,
+          description=description,
+          label=label,
           timelineExitId=None,
-          #timings=[],
           scheduledInstanceTimelineId=None,
           defaultConditionId=None,
           conditionAssignments=[]

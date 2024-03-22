@@ -3265,6 +3265,9 @@
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
+                    "name": "SCREEN",
+                    "label": "Screen",
+                    "description": "Screening",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
@@ -3279,6 +3282,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
+                    "name": "PRE DOSE",
+                    "label": "Baseline",
+                    "description": "Pre Dose",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
@@ -3291,6 +3297,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
+                    "name": "DOSE",
+                    "label": "Treatment",
+                    "description": "Dosing",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
@@ -3303,6 +3312,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
+                    "name": "D14",
+                    "label": "Day 14",
+                    "description": "Day 14",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledDecisionInstance_1",
@@ -3316,6 +3328,9 @@
                   },
                   {
                     "id": "ScheduledDecisionInstance_1",
+                    "name": "PROG",
+                    "label": "Check opt In by subject",
+                    "description": "Check Opt In",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
@@ -3330,6 +3345,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
+                    "name": "D28",
+                    "label": "Day 28",
+                    "description": "Day 28 Optional",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_6",
@@ -3342,6 +3360,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_6",
+                    "name": "FU",
+                    "label": "Follow Up",
+                    "description": "Follow Up",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,

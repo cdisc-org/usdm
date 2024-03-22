@@ -5576,27 +5576,48 @@ nodes:
     instanceType: ScheduleTimelineExit
     uuid: 00000000-0000-4000-8000-000000000386
   ScheduledActivityInstance:
-  - id: ScheduledActivityInstance_1
+  - description: Screening
+    id: ScheduledActivityInstance_1
     instanceType: ScheduledActivityInstance
+    label: Screen
+    name: SCREEN
     uuid: 00000000-0000-4000-8000-000000000405
-  - id: ScheduledActivityInstance_2
+  - description: Pre Dose
+    id: ScheduledActivityInstance_2
     instanceType: ScheduledActivityInstance
+    label: Baseline
+    name: PRE DOSE
     uuid: 00000000-0000-4000-8000-000000000406
-  - id: ScheduledActivityInstance_3
+  - description: Dosing
+    id: ScheduledActivityInstance_3
     instanceType: ScheduledActivityInstance
+    label: Treatment
+    name: DOSE
     uuid: 00000000-0000-4000-8000-000000000407
-  - id: ScheduledActivityInstance_4
+  - description: Day 14
+    id: ScheduledActivityInstance_4
     instanceType: ScheduledActivityInstance
+    label: Day 14
+    name: D14
     uuid: 00000000-0000-4000-8000-000000000408
-  - id: ScheduledActivityInstance_5
+  - description: Day 28 Optional
+    id: ScheduledActivityInstance_5
     instanceType: ScheduledActivityInstance
+    label: Day 28
+    name: D28
     uuid: 00000000-0000-4000-8000-000000000410
-  - id: ScheduledActivityInstance_6
+  - description: Follow Up
+    id: ScheduledActivityInstance_6
     instanceType: ScheduledActivityInstance
+    label: Follow Up
+    name: FU
     uuid: 00000000-0000-4000-8000-000000000411
   ScheduledDecisionInstance:
-  - id: ScheduledDecisionInstance_1
+  - description: Check Opt In
+    id: ScheduledDecisionInstance_1
     instanceType: ScheduledDecisionInstance
+    label: Check opt In by subject
+    name: PROG
     uuid: 00000000-0000-4000-8000-000000000409
   Study:
   - id: 00000000-0000-4000-8000-000000000000

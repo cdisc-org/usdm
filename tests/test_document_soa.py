@@ -111,9 +111,9 @@ def create_encounters():
 
 def create_activity_instances():
   item_list = [
-    {'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []},
-    {'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []},
-    {'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []}
+    {'name': 'SAI_1', 'description': '', 'label': '', 'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []},
+    {'name': 'SAI_2', 'description': '', 'label': '', 'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []},
+    {'name': 'SAI_3', 'description': '', 'label': '', 'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []}
   ]
   results = factory.set(ScheduledActivityInstance, item_list)
   results[0].defaultConditionId = results[1].id

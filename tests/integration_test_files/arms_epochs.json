@@ -1403,6 +1403,9 @@
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
+                    "name": "SCREEN",
+                    "label": "Screen",
+                    "description": "Screening",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
@@ -1416,6 +1419,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
+                    "name": "DOSE",
+                    "label": "Baseline",
+                    "description": "Pre Dose",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
@@ -1428,6 +1434,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
+                    "name": "TREAT",
+                    "label": "Treatment",
+                    "description": "Dosing",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,

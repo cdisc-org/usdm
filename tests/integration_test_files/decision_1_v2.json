@@ -1975,6 +1975,9 @@
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
+                    "name": "SCREEN",
+                    "label": "Screen",
+                    "description": "Screening",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
@@ -1988,6 +1991,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
+                    "name": "PRE DOSE",
+                    "label": "Baseline",
+                    "description": "Pre Dose",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
@@ -2000,6 +2006,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
+                    "name": "DOSE",
+                    "label": "Treatment",
+                    "description": "Dosing",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
@@ -2012,6 +2021,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
+                    "name": "D14",
+                    "label": "Day 14",
+                    "description": "Day 14",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledDecisionInstance_1",
@@ -2024,6 +2036,9 @@
                   },
                   {
                     "id": "ScheduledDecisionInstance_1",
+                    "name": "PROG",
+                    "label": "Progression",
+                    "description": "Progression",
                     "timelineId": null,
                     "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
@@ -2042,6 +2057,9 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
+                    "name": "FU",
+                    "label": "Follow Up",
+                    "description": "Follow Up",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,

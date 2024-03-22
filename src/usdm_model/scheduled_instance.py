@@ -1,7 +1,7 @@
 from typing import List, Literal, Union
-from .api_base_model import ApiBaseModelWithId
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 
-class ScheduledInstance(ApiBaseModelWithId):
+class ScheduledInstance(ApiBaseModelWithIdNameLabelAndDesc):
   timelineId: Union[str, None] = None
   timelineExitId: Union[str, None] = None
   defaultConditionId: Union[str, None] = None
