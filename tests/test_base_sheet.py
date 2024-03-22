@@ -251,7 +251,7 @@ def test_read_quantity_cell_by_name(mocker):
     if not test[4] and not test[5]:
       assert(item.value) == test[6]
       if not test[2]:
-        assert(item.unit.code) == test[7]
+        assert(item.unit.standardCode.code) == test[7]
       assert(len(error_manager.items)) == 0
     elif test[5]:
       assert(item) == None

@@ -20,7 +20,7 @@ def read_json(filename):
   return data
 
 def dump_json(data):
-  print(f"\n{json.dumps(data, indent=4)}")
+  print(f"\n{json.dumps(data, indent=2)}")
 
 def test_create(mocker):
   clear()

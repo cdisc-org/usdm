@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "id": "Id_10",
+      "id": "Id_13",
       "name": "Int 1",
       "label": "Int Label 1",
       "description": "Int Desc 1",
@@ -22,21 +22,26 @@
         "instanceType": "Code"
       },
       "minimumResponseDuration": {
-        "id": "Id_9",
+        "id": "Id_12",
         "value": 1.0,
         "unit": {
-          "id": "Id_8",
-          "code": "C25301",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
-          "decode": "Day",
-          "instanceType": "Code"
+          "id": "Id_11",
+          "standardCode": {
+            "id": "Id_10",
+            "code": "C25301",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2023-12-15",
+            "decode": "Day",
+            "instanceType": "Code"
+          },
+          "standardCodeAliases": [],
+          "instanceType": "AliasCode"
         },
         "instanceType": "Quantity"
       },
       "codes": [
         {
-          "id": "Id_6",
+          "id": "Id_8",
           "code": "A",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -46,22 +51,27 @@
       ],
       "administrations": [
         {
-          "id": "Id_5",
+          "id": "Id_7",
           "name": "Admin 1",
           "label": "Admin Label 1",
           "description": "Admin Desc 1",
           "duration": {
-            "id": "Id_2",
+            "id": "Id_3",
             "quantity": {
-              "id": "Id_1",
+              "id": "Id_2",
               "value": 14.0,
               "unit": {
-                "id": "Id_0",
-                "code": "C25613",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Percentage",
-                "instanceType": "Code"
+                "id": "Id_1",
+                "standardCode": {
+                  "id": "Id_0",
+                  "code": "C25613",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-12-15",
+                  "decode": "Percentage",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
               },
               "instanceType": "Quantity"
             },
@@ -71,15 +81,20 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_4",
+            "id": "Id_6",
             "value": 12.0,
             "unit": {
-              "id": "Id_3",
-              "code": "C28253",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Milligram",
-              "instanceType": "Code"
+              "id": "Id_5",
+              "standardCode": {
+                "id": "Id_4",
+                "code": "C28253",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "Milligram",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
             },
             "instanceType": "Quantity"
           },
@@ -102,22 +117,27 @@
           "instanceType": "AgentAdministration"
         },
         {
-          "id": "Id_16",
+          "id": "Id_21",
           "name": "Admin 2",
           "label": "Admin Label 1",
           "description": "Admin Desc 2",
           "duration": {
-            "id": "Id_13",
+            "id": "Id_17",
             "quantity": {
-              "id": "Id_12",
+              "id": "Id_16",
               "value": 10.0,
               "unit": {
-                "id": "Id_11",
-                "code": "C41139",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Meter",
-                "instanceType": "Code"
+                "id": "Id_15",
+                "standardCode": {
+                  "id": "Id_14",
+                  "code": "C41139",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-12-15",
+                  "decode": "Meter",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
               },
               "instanceType": "Quantity"
             },
@@ -127,15 +147,20 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_15",
+            "id": "Id_20",
             "value": 1.0,
             "unit": {
-              "id": "Id_14",
-              "code": "C28253",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Milligram",
-              "instanceType": "Code"
+              "id": "Id_19",
+              "standardCode": {
+                "id": "Id_18",
+                "code": "C28253",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "Milligram",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
             },
             "instanceType": "Quantity"
           },
@@ -167,7 +192,7 @@
         "instanceType": "Code"
       },
       "pharmacologicClass": {
-        "id": "Id_7",
+        "id": "Id_9",
         "code": "A",
         "codeSystem": "FDA",
         "codeSystemVersion": "None set",
@@ -177,7 +202,7 @@
       "instanceType": "StudyIntervention"
     },
     {
-      "id": "Id_27",
+      "id": "Id_35",
       "name": "Int 2",
       "label": "Int Label 2",
       "description": "Int Desc 2",
@@ -198,21 +223,26 @@
         "instanceType": "Code"
       },
       "minimumResponseDuration": {
-        "id": "Id_26",
+        "id": "Id_34",
         "value": 3.0,
         "unit": {
-          "id": "Id_25",
-          "code": "C29844",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
-          "decode": "Week",
-          "instanceType": "Code"
+          "id": "Id_33",
+          "standardCode": {
+            "id": "Id_32",
+            "code": "C29844",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2023-12-15",
+            "decode": "Week",
+            "instanceType": "Code"
+          },
+          "standardCodeAliases": [],
+          "instanceType": "AliasCode"
         },
         "instanceType": "Quantity"
       },
       "codes": [
         {
-          "id": "Id_23",
+          "id": "Id_30",
           "code": "C",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -222,22 +252,27 @@
       ],
       "administrations": [
         {
-          "id": "Id_22",
+          "id": "Id_29",
           "name": "Admin 3",
           "label": "Admin Label 1",
           "description": "Admin Desc 3",
           "duration": {
-            "id": "Id_19",
+            "id": "Id_25",
             "quantity": {
-              "id": "Id_18",
+              "id": "Id_24",
               "value": 12.0,
               "unit": {
-                "id": "Id_17",
-                "code": "C42559",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Degree Celsius",
-                "instanceType": "Code"
+                "id": "Id_23",
+                "standardCode": {
+                  "id": "Id_22",
+                  "code": "C42559",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-12-15",
+                  "decode": "Degree Celsius",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
               },
               "instanceType": "Quantity"
             },
@@ -247,15 +282,20 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_21",
+            "id": "Id_28",
             "value": 100.0,
             "unit": {
-              "id": "Id_20",
-              "code": "C28253",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Milligram",
-              "instanceType": "Code"
+              "id": "Id_27",
+              "standardCode": {
+                "id": "Id_26",
+                "code": "C28253",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "Milligram",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
             },
             "instanceType": "Quantity"
           },
@@ -287,7 +327,7 @@
         "instanceType": "Code"
       },
       "pharmacologicClass": {
-        "id": "Id_24",
+        "id": "Id_31",
         "code": "A",
         "codeSystem": "FDA",
         "codeSystemVersion": "None set",
@@ -297,7 +337,7 @@
       "instanceType": "StudyIntervention"
     },
     {
-      "id": "Id_39",
+      "id": "Id_50",
       "name": "Int 3",
       "label": "Int Label 3",
       "description": "Int Desc 3",
@@ -318,21 +358,26 @@
         "instanceType": "Code"
       },
       "minimumResponseDuration": {
-        "id": "Id_38",
+        "id": "Id_49",
         "value": 4.0,
         "unit": {
-          "id": "Id_37",
-          "code": "C29848",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
-          "decode": "Year",
-          "instanceType": "Code"
+          "id": "Id_48",
+          "standardCode": {
+            "id": "Id_47",
+            "code": "C29848",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2023-12-15",
+            "decode": "Year",
+            "instanceType": "Code"
+          },
+          "standardCodeAliases": [],
+          "instanceType": "AliasCode"
         },
         "instanceType": "Quantity"
       },
       "codes": [
         {
-          "id": "Id_34",
+          "id": "Id_44",
           "code": "E",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -340,7 +385,7 @@
           "instanceType": "Code"
         },
         {
-          "id": "Id_35",
+          "id": "Id_45",
           "code": "G",
           "codeSystem": "SPONSOR",
           "codeSystemVersion": "None set",
@@ -350,22 +395,27 @@
       ],
       "administrations": [
         {
-          "id": "Id_33",
+          "id": "Id_43",
           "name": "Admin 4",
           "label": "Admin Label 1",
           "description": "Admin Desc 4",
           "duration": {
-            "id": "Id_30",
+            "id": "Id_39",
             "quantity": {
-              "id": "Id_29",
+              "id": "Id_38",
               "value": 12.0,
               "unit": {
-                "id": "Id_28",
-                "code": "C44277",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Degree Fahrenheit",
-                "instanceType": "Code"
+                "id": "Id_37",
+                "standardCode": {
+                  "id": "Id_36",
+                  "code": "C44277",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-12-15",
+                  "decode": "Degree Fahrenheit",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
               },
               "instanceType": "Quantity"
             },
@@ -375,15 +425,20 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_32",
+            "id": "Id_42",
             "value": 500.0,
             "unit": {
-              "id": "Id_31",
-              "code": "C28253",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Milligram",
-              "instanceType": "Code"
+              "id": "Id_41",
+              "standardCode": {
+                "id": "Id_40",
+                "code": "C28253",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "Milligram",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
             },
             "instanceType": "Quantity"
           },
@@ -406,22 +461,27 @@
           "instanceType": "AgentAdministration"
         },
         {
-          "id": "Id_45",
+          "id": "Id_58",
           "name": "Admin 5",
           "label": "Admin Label 1",
           "description": "Admin Desc 5",
           "duration": {
-            "id": "Id_42",
+            "id": "Id_54",
             "quantity": {
-              "id": "Id_41",
+              "id": "Id_53",
               "value": 15.0,
               "unit": {
-                "id": "Id_40",
-                "code": "C48500",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Inch",
-                "instanceType": "Code"
+                "id": "Id_52",
+                "standardCode": {
+                  "id": "Id_51",
+                  "code": "C48500",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-12-15",
+                  "decode": "Inch",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
               },
               "instanceType": "Quantity"
             },
@@ -431,15 +491,20 @@
             "instanceType": "AdministrationDuration"
           },
           "dose": {
-            "id": "Id_44",
+            "id": "Id_57",
             "value": 1.0,
             "unit": {
-              "id": "Id_43",
-              "code": "C28253",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Milligram",
-              "instanceType": "Code"
+              "id": "Id_56",
+              "standardCode": {
+                "id": "Id_55",
+                "code": "C28253",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "Milligram",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
             },
             "instanceType": "Quantity"
           },
@@ -471,7 +536,7 @@
         "instanceType": "Code"
       },
       "pharmacologicClass": {
-        "id": "Id_36",
+        "id": "Id_46",
         "code": "A",
         "codeSystem": "FDA",
         "codeSystemVersion": "None set",

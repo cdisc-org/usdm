@@ -146,9 +146,10 @@ class StudyDesignAmendmentSheet(BaseSheet):
 
   def _get_quantitiy(self, text):
     #print(f"QUANTITY1: {text}")
-    quantity_details = QuantityType(text, True, False)
+    quantity = QuantityType(text, True, False)
+    unit = Alias().code(quantity.units_code, []) if quantity.units_code else None
     #print(f"QUANTITY2: {quantity_details}")
-    return self.create_object(Quantity, {'value': float(quantity_details.value), 'unit': quantity_details.units_code})
+    return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
 
   def _read_secondary_reason_cell(self, row_index):
     results = []
