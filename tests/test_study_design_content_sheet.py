@@ -28,14 +28,22 @@ def test_create(mocker):
   content = StudyDesignContentSheet("")
   assert len(content.items) == 8
   assert content.items[0].name == 'ROOT'
+  assert content.items[0].previousId == ''
+  assert content.items[0].nextId == 'Content_2'  
   assert content.items[1].id == 'Content_2'
   assert content.items[1].name == 'SECTION 1'
   assert content.items[1].sectionNumber == '1'
   assert content.items[1].sectionTitle == 'Section 1'
   assert content.items[1].text == '<div>Text 1</div>'
   assert content.items[1].childIds == ['Content_3', 'Content_4']
+  assert content.items[1].previousId == 'Content_1'
+  assert content.items[1].nextId == 'Content_3'  
   assert content.items[2].name == 'SET NAME'
+  assert content.items[2].previousId == 'Content_2'
+  assert content.items[2].nextId == 'Content_4'  
   assert content.items[3].name == 'SECTION 1.2'
+  assert content.items[3].previousId == 'Content_3'
+  assert content.items[3].nextId == 'Content_5'  
   assert content.items[4].name == 'SECTION 1.2.1'
   assert content.items[5].name == 'SECTION 2'
   assert content.items[6].name == 'SECTION 2.1'

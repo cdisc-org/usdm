@@ -65,6 +65,7 @@ class StudyDesignContentSheet(BaseSheet):
               parent.childIds.append(item.id)
               current_level = new_level
             previous_item = item
+          self.double_link(self.items, 'previousId', 'nextId')
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
