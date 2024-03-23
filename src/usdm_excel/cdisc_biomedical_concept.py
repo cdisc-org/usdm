@@ -165,12 +165,12 @@ class CDISCBiomedicalConcepts():
         self._bcs[name] = bc
 
   def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
-    concept_code = NCIt().code(api_bc['conceptId'], api_bc['shortName'])
+    concept_code = CDISCCT().code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, api_bc['_links']['self']['href'], concept_code)
 
   def _generic_bc_property_as_usdm(self, property) -> BiomedicalConceptProperty:
-    concept_code = NCIt().code(property['conceptId'], property['shortName'])
+    concept_code = CDISCCT().code(property['conceptId'], property['shortName'])
     responses = []
     if 'exampleSet' in property:
       for example in property['exampleSet']:
@@ -189,16 +189,16 @@ class CDISCBiomedicalConcepts():
         if role_variable:
           if 'assignedTerm' in role_variable:
             if 'conceptId' in role_variable['assignedTerm'] and 'value' in role_variable['assignedTerm']:
-              concept_code = NCIt().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+              concept_code = CDISCCT().code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
             else:
               package_logger.error(f"Failed to set BC concept 1, {sdtm['shortName']}")
-              concept_code = NCIt().code('No Concept Code', role_variable['assignedTerm']['value'])
+              concept_code = CDISCCT().code('No Concept Code', role_variable['assignedTerm']['value'])
           else:
             package_logger.error(f"Failed to set BC concept 2, {sdtm['shortName']}")
-            concept_code = NCIt().code(generic['conceptId'], generic['shortName'])
+            concept_code = CDISCCT().code(generic['conceptId'], generic['shortName'])
         else:
           package_logger.error(f"Failed to set BC concept {sdtm['shortName']}")
-          concept_code = NCIt().code(generic['conceptId'], generic['shortName'])
+          concept_code = CDISCCT().code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
         return self._biomedical_concept_object(sdtm['shortName'], sdtm['shortName'], synonyms, sdtm['_links']['self']['href'], concept_code)
@@ -216,19 +216,19 @@ class CDISCBiomedicalConcepts():
         if 'dataElementConceptId' in sdtm_property:
           generic_match = self._get_dec_match(generic, sdtm_property['dataElementConceptId'])
           if generic_match:
-            concept_code = NCIt().code(generic_match['conceptId'], generic_match['shortName'])
+            concept_code = CDISCCT().code(generic_match['conceptId'], generic_match['shortName'])
           else:
             if 'assignedTerm' in sdtm_property and 'conceptId' in sdtm_property['assignedTerm'] and 'value' in sdtm_property['assignedTerm']:
-              concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+              concept_code = CDISCCT().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
             else:
               package_logger.error(f"Failed to set property concept 1, {sdtm_property}")
-              concept_code = NCIt().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+              concept_code = CDISCCT().code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
         else:
           if 'assignedTerm' in sdtm_property:
-            concept_code = NCIt().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
+            concept_code = CDISCCT().code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
           else:
             package_logger.error(f"Failed to set property concept 2, {sdtm_property}")
-            concept_code = NCIt().code('No Concept Code', sdtm_property['name'])
+            concept_code = CDISCCT().code('No Concept Code', sdtm_property['name'])
         responses = []
         codes = []
         if 'valueList' in sdtm_property:
