@@ -211,7 +211,7 @@ class StudySheet(BaseSheet):
     return self.study
   
   def api_root(self):
-    return Wrapper(study=self.study, usdm_version=usdm_version, system_name=self.SYSTEM_NAME, system_version=system_version)
+    return Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
 
   def to_html(self, highlight=False):
     return Document(self, self.brief_title.text, self.study, self.dir_path).to_html(highlight)
