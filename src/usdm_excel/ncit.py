@@ -7,5 +7,5 @@ class NCIt():
     self.id_manager = id_manager
 
   def code(self, code, decode):
-    return Code(id=id_manager.build_id(Code), code=code, codeSystem='NCI Thesaurus', codeSystemVersion='', decode=decode)
+    return Code(id=id_manager.build_id(Code), code=code, codeSystem='NCI Thesaurus', codeSystemVersion='24.01e', decode=decode)
 
