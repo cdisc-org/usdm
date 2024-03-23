@@ -8,5 +8,5 @@ def test_code(mocker):
     assert code.id == "Code_1"
     assert code.code == "CODE"
     assert code.codeSystem == "NCI Thesaurus"
-    assert code.codeSystemVersion == ""
+    assert code.codeSystemVersion == "24.01e"
     assert code.decode == "DECODE"
