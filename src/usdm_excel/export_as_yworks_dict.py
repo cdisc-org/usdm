@@ -13,44 +13,43 @@ class ExportAsYworksDict():
     self.node_index = 1
     self.edge_index = 1
     self.id_node_index_map = {}
-    self.edge_attributes = {
-      'ScheduledActivityInstance': [
-        'timepointActivityIds',
-        'encounterId',
-        'activityIds',
-        'epochId',
-        'defaultConditionId',
-      ],
-      'ScheduledDecisionInstance': [
-        'timepointActivityIds',
-        'epochId',
-        'defaultConditionId'
-      ],
-      'ConditionAssignment': [
-        'conditionTargetId'
-      ],
-      'Activity': [
-        'bcSurrogateIds',
-        'bcCategoryIds',
-        'biomedicalConceptIds',
-      ],
-      'Timing': [
-        'relativeFromScheduledInstanceId',
-        'relativeToScheduledInstanceId',
-      ],
-      'Estimand': [
-        'interventionId',
-        'variableOfInterestId'
-      ],
-      'ScheduledTimeline': [
-        'activityTimelineId',
-      ],
-      'StudyCell': [
-        'studyArmId',
-        'studyEpochId',
-        'studyElementIds',
-      ]
-    }
+    # self.edge_attributes = {
+    #   'ScheduledActivityInstance': [
+    #     'activityIds',
+    #     'encounterId',
+    #     'epochId',
+    #     'defaultConditionId',
+    #   ],
+    #   'ScheduledDecisionInstance': [
+    #     'activityIds',
+    #     'epochId',
+    #     'defaultConditionId'
+    #   ],
+    #   'ConditionAssignment': [
+    #     'conditionTargetId'
+    #   ],
+    #   'Activity': [
+    #     'bcSurrogateIds',
+    #     'bcCategoryIds',
+    #     'biomedicalConceptIds',
+    #   ],
+    #   'Timing': [
+    #     'relativeFromScheduledInstanceId',
+    #     'relativeToScheduledInstanceId',
+    #   ],
+    #   'Estimand': [
+    #     'interventionId',
+    #     'variableOfInterestId'
+    #   ],
+    #   'ScheduledTimeline': [
+    #     'activityTimelineId',
+    #   ],
+    #   'StudyCell': [
+    #     'studyArmId',
+    #     'studyEpochId',
+    #     'studyElementIds',
+    #   ]
+    # }
     self.order_attributes = []
     self.ignore_klass = []
     self.collapse_klass = []
@@ -70,14 +69,17 @@ class ExportAsYworksDict():
     #print(f"NODE: {node}")
     self._process_node(node)
     for edge in self.add_edges:
-      print(f"EDGE: {edge}")
+      #print(f"EDGE: {edge}")
       if edge['end'] in self.id_node_index_map:
         edge['id'] = self.edge_index
         edge['end'] = self.id_node_index_map[edge['end']]
         self.edges.append(edge)
         self.edge_index += 1
       else:
-        print("***** %s -edge-> %s [%s] *****" % (edge['start'], edge['end'], edge['properties']))
+        node_details = next((i for i in self.nodes if i["id"] == edge['start']), None)
+        node_id = node_details['properties']['id']
+        node_type = node_details['properties']['_type']
+        print("***** %s [%s, %s] -- edge -> %s [%s] *****" % (edge['start'], node_type, node_id, edge['end'], edge['properties']))
     return self.nodes, self.edges
   
   def _process_node(self, node):
@@ -105,7 +107,8 @@ class ExportAsYworksDict():
       if klass in self.collapse_klass:
         return []
       for key, value in node.items():
-        if klass in self.edge_attributes and key in self.edge_attributes[klass]:
+        if key.endswith('Id') or key.endswith('Ids'):
+        #if klass in self.edge_attributes and key in self.edge_attributes[klass]:
           # if key == "conditionAssignments":
           #   # Special case, array of arrays of condition and link id
           #   for item in value:

@@ -272,9 +272,6 @@
       "name": "Screening",
       "label": "Encounter_1",
       "description": "Screening encounter",
-      "previousId": null,
-      "nextId": "Encounter_2",
-      "scheduledAtId": null,
       "instanceType": "Encounter",
       "_type": "Encounter"
     }
@@ -337,9 +334,6 @@
       "name": "Day 1",
       "label": "Encounter_2",
       "description": "Cycle 1, Day 1",
-      "previousId": "Encounter_1",
-      "nextId": "Encounter_3",
-      "scheduledAtId": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
       "_type": "Encounter"
@@ -391,9 +385,6 @@
       "name": "Day 15",
       "label": "Encounter_3",
       "description": "Cycle 1, Day 15",
-      "previousId": "Encounter_2",
-      "nextId": "Encounter_4",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -446,9 +437,6 @@
       "name": "Day 1",
       "label": "Encounter_4",
       "description": "Cycle 2, Day 1",
-      "previousId": "Encounter_3",
-      "nextId": "Encounter_5",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -501,9 +489,6 @@
       "name": "Day 15",
       "label": "Encounter_5",
       "description": "Cycle 2, Day 15",
-      "previousId": "Encounter_4",
-      "nextId": "Encounter_6",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -556,9 +541,6 @@
       "name": "Day 1",
       "label": "Encounter_6",
       "description": "Cycle 3, Day 1",
-      "previousId": "Encounter_5",
-      "nextId": "Encounter_7",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -611,9 +593,6 @@
       "name": "Day 15",
       "label": "Encounter_7",
       "description": "Cycle 3, Day 15",
-      "previousId": "Encounter_6",
-      "nextId": "Encounter_8",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -666,9 +645,6 @@
       "name": "Day 1",
       "label": "Encounter_8",
       "description": "Cycle 4 to 12, Day 1",
-      "previousId": "Encounter_7",
-      "nextId": "Encounter_9",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -721,9 +697,6 @@
       "name": "Day 1",
       "label": "Encounter_9",
       "description": "Cycle 13 onwards, Day 15",
-      "previousId": "Encounter_8",
-      "nextId": "Encounter_10",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -788,9 +761,6 @@
       "name": "EOT Visit",
       "label": "Encounter_10",
       "description": "End of Treatment Visit",
-      "previousId": "Encounter_9",
-      "nextId": "Encounter_11",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "instanceType": "Encounter",
       "_type": "Encounter"
@@ -842,9 +812,6 @@
       "name": "FU Visit",
       "label": "Encounter_11",
       "description": "Follow Up Visit",
-      "previousId": "Encounter_10",
-      "nextId": null,
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -858,10 +825,7 @@
       "name": "Informed Consent",
       "label": "Activity_1",
       "description": "Informed Consent",
-      "previousId": null,
-      "nextId": "Activity_2",
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -873,10 +837,7 @@
       "name": "Inclusion / Exclusion Criteria",
       "label": "Activity_2",
       "description": "Inclusion / Exclusion Criteria",
-      "previousId": "Activity_1",
-      "nextId": "Activity_3",
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -888,10 +849,7 @@
       "name": "Physical Examination",
       "label": "Activity_3",
       "description": "Physical Examination",
-      "previousId": "Activity_2",
-      "nextId": null,
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -1388,7 +1346,6 @@
       "label": "StudyArm_1",
       "description": "Active Substance",
       "dataOriginDescription": "Data collected from subjects",
-      "populationIds": [],
       "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
@@ -1427,7 +1384,6 @@
       "label": "StudyArm_2",
       "description": "Placebo",
       "dataOriginDescription": "Data collected from subjects",
-      "populationIds": [],
       "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
@@ -1436,11 +1392,6 @@
     "id": 115,
     "properties": {
       "id": "StudyCell_1",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_1",
-      "elementIds": [
-        "StudyElement_1"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_1"
@@ -1450,11 +1401,6 @@
     "id": 116,
     "properties": {
       "id": "StudyCell_2",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_2",
-      "elementIds": [
-        "StudyElement_2"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_2"
@@ -1464,11 +1410,6 @@
     "id": 117,
     "properties": {
       "id": "StudyCell_3",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_3",
-      "elementIds": [
-        "StudyElement_3"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_3"
@@ -1478,11 +1419,6 @@
     "id": 118,
     "properties": {
       "id": "StudyCell_4",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_1",
-      "elementIds": [
-        "StudyElement_1"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_4"
@@ -1492,11 +1428,6 @@
     "id": 119,
     "properties": {
       "id": "StudyCell_5",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_2",
-      "elementIds": [
-        "StudyElement_2"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_5"
@@ -1506,11 +1437,6 @@
     "id": 120,
     "properties": {
       "id": "StudyCell_6",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_3",
-      "elementIds": [
-        "StudyElement_3"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_6"
@@ -1559,8 +1485,6 @@
       "name": "Screening",
       "label": "StudyEpoch_1",
       "description": "Screening Epoch",
-      "previousId": null,
-      "nextId": "StudyEpoch_2",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -1585,8 +1509,6 @@
       "name": "Treatment",
       "label": "StudyEpoch_2",
       "description": "Treatment Epoch",
-      "previousId": "StudyEpoch_1",
-      "nextId": "StudyEpoch_3",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -1611,8 +1533,6 @@
       "name": "Follow-Up",
       "label": "StudyEpoch_3",
       "description": "Follow-up Epoch",
-      "previousId": "StudyEpoch_2",
-      "nextId": null,
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -1648,7 +1568,6 @@
       "name": "Screening",
       "label": "StudyElement_1",
       "description": "Screening Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -1684,7 +1603,6 @@
       "name": "Treatment",
       "label": "StudyElement_2",
       "description": "Treatment Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -1720,7 +1638,6 @@
       "name": "Follow Up",
       "label": "StudyElement_3",
       "description": "Follow Up Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -2331,7 +2248,6 @@
       "label": "Endpoint_1",
       "description": "",
       "text": "End Desc",
-      "dictionaryId": null,
       "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
@@ -2345,7 +2261,6 @@
       "label": "Objective_1",
       "description": "",
       "text": "Obj Desc",
-      "dictionaryId": null,
       "instanceType": "Objective",
       "_type": "Objective"
     }
@@ -3163,8 +3078,6 @@
       "name": "SCREEN",
       "label": "ScheduledActivityInstance_1",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3176,8 +3089,6 @@
       "name": "DAY_1",
       "label": "ScheduledActivityInstance_2",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3189,8 +3100,6 @@
       "name": "C1-D1",
       "label": "ScheduledActivityInstance_3",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3202,8 +3111,6 @@
       "name": "C1-D15",
       "label": "ScheduledActivityInstance_4",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3215,8 +3122,6 @@
       "name": "C2-D1",
       "label": "ScheduledActivityInstance_5",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3228,8 +3133,6 @@
       "name": "C2-D15",
       "label": "ScheduledActivityInstance_6",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3241,8 +3144,6 @@
       "name": "C3-D1",
       "label": "ScheduledActivityInstance_7",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3254,8 +3155,6 @@
       "name": "C3-D15",
       "label": "ScheduledActivityInstance_8",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3267,8 +3166,6 @@
       "name": "C4-12-BASE",
       "label": "ScheduledActivityInstance_9",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3280,8 +3177,6 @@
       "name": "C4-12-D1",
       "label": "ScheduledActivityInstance_10",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3293,8 +3188,6 @@
       "name": "C4-12-DELAY",
       "label": "ScheduledActivityInstance_11",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3316,8 +3209,6 @@
       "name": "C4-12-CYCLE",
       "label": "ScheduledDecisionInstance_1",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledDecisionInstance",
       "_type": "ScheduledDecisionInstance"
     }
@@ -3329,8 +3220,6 @@
       "name": "C13-PLUS-BASE",
       "label": "ScheduledActivityInstance_12",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3342,8 +3231,6 @@
       "name": "C13-PLUS-D1",
       "label": "ScheduledActivityInstance_13",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3355,8 +3242,6 @@
       "name": "C13-PLUS-DELAY",
       "label": "ScheduledActivityInstance_14",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3378,8 +3263,6 @@
       "name": "C13-PLUS-CYCLE",
       "label": "ScheduledDecisionInstance_2",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledDecisionInstance",
       "_type": "ScheduledDecisionInstance"
     }
@@ -3391,8 +3274,6 @@
       "name": "EOT",
       "label": "ScheduledActivityInstance_15",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3404,8 +3285,6 @@
       "name": "FOLLOW-UP",
       "label": "ScheduledActivityInstance_16",
       "description": "",
-      "timelineId": null,
-      "timelineExitId": "ScheduleTimelineExit_1",
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -3419,7 +3298,6 @@
       "description": "This is the main timeline for the study design.",
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
-      "entryId": "ScheduledActivityInstance_1",
       "instanceType": "ScheduleTimeline",
       "_type": "ScheduleTimeline"
     }
@@ -3435,7 +3313,6 @@
       "bcCategories": [],
       "rationale": "Multiple cycles test",
       "maskingRoles": [],
-      "documentVersionId": null,
       "dictionaries": [],
       "conditions": [],
       "organizations": [],
@@ -3564,7 +3441,6 @@
       "id": "StudyVersion_1",
       "versionIdentifier": "1",
       "rationale": "A simple test",
-      "documentVersionId": "StudyProtocolDocumentVersion_1",
       "dateValues": [],
       "amendments": [],
       "instanceType": "StudyVersion",
@@ -3592,7 +3468,6 @@
       "protocolVersion": "1",
       "dateValues": [],
       "contents": [],
-      "childIds": [],
       "instanceType": "StudyProtocolDocumentVersion",
       "_type": "StudyProtocolDocumentVersion",
       "label": "StudyProtocolDocumentVersion_1"

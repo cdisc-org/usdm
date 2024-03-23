@@ -327,7 +327,6 @@
       "summary": "Fix typos",
       "substantialImpact": false,
       "secondaryReasons": [],
-      "previousId": null,
       "instanceType": "StudyAmendment",
       "_type": "StudyAmendment",
       "label": "StudyAmendment_4"
@@ -442,7 +441,6 @@
       "number": "2",
       "summary": "Amended Design",
       "substantialImpact": true,
-      "previousId": "StudyAmendment_4",
       "instanceType": "StudyAmendment",
       "_type": "StudyAmendment",
       "label": "StudyAmendment_3"
@@ -613,7 +611,6 @@
       "summary": "Added section on unblinding",
       "substantialImpact": true,
       "secondaryReasons": [],
-      "previousId": "StudyAmendment_3",
       "instanceType": "StudyAmendment",
       "_type": "StudyAmendment",
       "label": "StudyAmendment_2"
@@ -706,7 +703,6 @@
       "summary": "Updated inclusion criteria",
       "substantialImpact": true,
       "secondaryReasons": [],
-      "previousId": "StudyAmendment_2",
       "instanceType": "StudyAmendment",
       "_type": "StudyAmendment",
       "label": "StudyAmendment_1"
@@ -1146,9 +1142,6 @@
       "name": "E1",
       "label": "Encounter_1",
       "description": "Screening encounter",
-      "previousId": null,
-      "nextId": "Encounter_2",
-      "scheduledAtId": "Timing_1",
       "instanceType": "Encounter",
       "_type": "Encounter"
     }
@@ -1199,9 +1192,6 @@
       "name": "E2",
       "label": "Encounter_2",
       "description": "Baseline encounter",
-      "previousId": "Encounter_1",
-      "nextId": "Encounter_3",
-      "scheduledAtId": "Timing_2",
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -1266,9 +1256,6 @@
       "name": "E3",
       "label": "Encounter_3",
       "description": "First dose",
-      "previousId": "Encounter_2",
-      "nextId": "Encounter_4",
-      "scheduledAtId": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
       "_type": "Encounter"
@@ -1320,9 +1307,6 @@
       "name": "E4",
       "label": "Encounter_4",
       "description": "2 week visit",
-      "previousId": "Encounter_3",
-      "nextId": "Encounter_5",
-      "scheduledAtId": "Timing_4",
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -1375,9 +1359,6 @@
       "name": "E5",
       "label": "Encounter_5",
       "description": "4 week visit",
-      "previousId": "Encounter_4",
-      "nextId": "Encounter_6",
-      "scheduledAtId": "Timing_5",
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -1430,9 +1411,6 @@
       "name": "E6",
       "label": "Encounter_6",
       "description": "6 week visit",
-      "previousId": "Encounter_5",
-      "nextId": null,
-      "scheduledAtId": "Timing_6",
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -1446,10 +1424,7 @@
       "name": "Demographics",
       "label": "Activity_1",
       "description": "Basic Demog",
-      "previousId": null,
-      "nextId": "Activity_2",
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -1475,7 +1450,6 @@
       "label": "Procedure_1",
       "description": "Stress procedure",
       "procedureType": "Stress",
-      "studyInterventionId": null,
       "instanceType": "Procedure",
       "_type": "Procedure"
     }
@@ -1501,7 +1475,6 @@
       "label": "Procedure_2",
       "description": "6min Walk Test conducted after the stress test",
       "procedureType": "Stress",
-      "studyInterventionId": null,
       "instanceType": "Procedure",
       "_type": "Procedure"
     }
@@ -1513,9 +1486,6 @@
       "name": "Procedures",
       "label": "Activity_2",
       "description": "Perform the procedures",
-      "previousId": "Activity_1",
-      "nextId": "Activity_3",
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -1527,10 +1497,7 @@
       "name": "Optional Weight",
       "label": "Activity_3",
       "description": "Perform the optional weight data collection",
-      "previousId": "Activity_2",
-      "nextId": "Activity_4",
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -1542,10 +1509,7 @@
       "name": "Optional",
       "label": "Activity_4",
       "description": "Optional safety activity",
-      "previousId": "Activity_3",
-      "nextId": null,
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -3294,7 +3258,6 @@
       "label": "StudyArm_1",
       "description": "Active Substance",
       "dataOriginDescription": "Data collected from subjects",
-      "populationIds": [],
       "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
@@ -3333,7 +3296,6 @@
       "label": "StudyArm_2",
       "description": "Placebo",
       "dataOriginDescription": "Data collected from subjects",
-      "populationIds": [],
       "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
@@ -3342,11 +3304,6 @@
     "id": 279,
     "properties": {
       "id": "StudyCell_1",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_1",
-      "elementIds": [
-        "StudyElement_1"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_1"
@@ -3356,11 +3313,6 @@
     "id": 280,
     "properties": {
       "id": "StudyCell_2",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_2",
-      "elementIds": [
-        "StudyElement_2"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_2"
@@ -3370,12 +3322,6 @@
     "id": 281,
     "properties": {
       "id": "StudyCell_3",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_3",
-      "elementIds": [
-        "StudyElement_3",
-        "StudyElement_5"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_3"
@@ -3385,11 +3331,6 @@
     "id": 282,
     "properties": {
       "id": "StudyCell_4",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_4",
-      "elementIds": [
-        "StudyElement_4"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_4"
@@ -3399,11 +3340,6 @@
     "id": 283,
     "properties": {
       "id": "StudyCell_5",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_1",
-      "elementIds": [
-        "StudyElement_1"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_5"
@@ -3413,11 +3349,6 @@
     "id": 284,
     "properties": {
       "id": "StudyCell_6",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_2",
-      "elementIds": [
-        "StudyElement_2"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_6"
@@ -3427,12 +3358,6 @@
     "id": 285,
     "properties": {
       "id": "StudyCell_7",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_3",
-      "elementIds": [
-        "StudyElement_5",
-        "StudyElement_3"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_7"
@@ -3442,11 +3367,6 @@
     "id": 286,
     "properties": {
       "id": "StudyCell_8",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_4",
-      "elementIds": [
-        "StudyElement_4"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_8"
@@ -3495,8 +3415,6 @@
       "name": "Screening",
       "label": "StudyEpoch_1",
       "description": "Screening Epoch",
-      "previousId": null,
-      "nextId": "StudyEpoch_2",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -3521,8 +3439,6 @@
       "name": "Baseline",
       "label": "StudyEpoch_2",
       "description": "Baseline Epoch",
-      "previousId": "StudyEpoch_1",
-      "nextId": "StudyEpoch_3",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -3547,8 +3463,6 @@
       "name": "Treatment",
       "label": "StudyEpoch_3",
       "description": "Treatment Epoch",
-      "previousId": "StudyEpoch_2",
-      "nextId": "StudyEpoch_4",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -3573,8 +3487,6 @@
       "name": "Follow-Up",
       "label": "StudyEpoch_4",
       "description": "Follow-up Epoch",
-      "previousId": "StudyEpoch_3",
-      "nextId": null,
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -3610,7 +3522,6 @@
       "name": "EL1",
       "label": "StudyElement_1",
       "description": "Screening Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -3646,7 +3557,6 @@
       "name": "EL2",
       "label": "StudyElement_2",
       "description": "Baseline Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -3682,7 +3592,6 @@
       "name": "EL3",
       "label": "StudyElement_3",
       "description": "Treatment Element 1",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -3718,7 +3627,6 @@
       "name": "EL5",
       "label": "StudyElement_5",
       "description": "Treatment Element 2",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -3754,7 +3662,6 @@
       "name": "EL4",
       "label": "StudyElement_4",
       "description": "Follow Up Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -4469,7 +4376,6 @@
       "label": "Endpoint_1",
       "description": "Day 28, 7 category scale",
       "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
-      "dictionaryId": null,
       "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
@@ -4483,7 +4389,6 @@
       "label": "Objective_1",
       "description": "Primary",
       "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
-      "dictionaryId": null,
       "instanceType": "Objective",
       "_type": "Objective"
     }
@@ -4522,7 +4427,6 @@
       "label": "Endpoint_2",
       "description": "TTCI",
       "text": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
-      "dictionaryId": null,
       "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
@@ -4549,7 +4453,6 @@
       "label": "Endpoint_3",
       "description": "Time to Imporvement",
       "text": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
-      "dictionaryId": null,
       "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
@@ -4563,7 +4466,6 @@
       "label": "Objective_2",
       "description": "Secondary",
       "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia over the age of <usdm:tag name=\"min_age\"/>",
-      "dictionaryId": "SyntaxTemplateDictionary_2",
       "instanceType": "Objective",
       "_type": "Objective"
     }
@@ -4615,12 +4517,8 @@
       "label": "EligibilityCriterion_1",
       "description": "The study age criterion",
       "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_age\"/>",
-      "dictionaryId": "SyntaxTemplateDictionary_1",
       "instanceType": "EligibilityCriterion",
       "identifier": "1",
-      "nextId": null,
-      "previousId": null,
-      "contextId": null,
       "_type": "EligibilityCriterion"
     }
   },
@@ -4645,12 +4543,8 @@
       "label": "EligibilityCriterion_2",
       "description": "The study age criterion with error",
       "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_agexxx\"/>",
-      "dictionaryId": "SyntaxTemplateDictionary_1",
       "instanceType": "EligibilityCriterion",
       "identifier": "2",
-      "nextId": null,
-      "previousId": null,
-      "contextId": null,
       "_type": "EligibilityCriterion"
     }
   },
@@ -4675,12 +4569,8 @@
       "label": "EligibilityCriterion_3",
       "description": "Ever taken drug A",
       "text": "Subjects has been treated with Drug A at any time in the past",
-      "dictionaryId": null,
       "instanceType": "EligibilityCriterion",
       "identifier": "1",
-      "nextId": null,
-      "previousId": null,
-      "contextId": null,
       "_type": "EligibilityCriterion"
     }
   },
@@ -4705,12 +4595,8 @@
       "label": "EligibilityCriterion_4",
       "description": "Test for missing tag",
       "text": "Pick up activity <usdm:tag name=\"xxxx\"/>",
-      "dictionaryId": "SyntaxTemplateDictionary_3",
       "instanceType": "EligibilityCriterion",
       "identifier": "2",
-      "nextId": null,
-      "previousId": null,
-      "contextId": null,
       "_type": "EligibilityCriterion"
     }
   },
@@ -4735,12 +4621,8 @@
       "label": "EligibilityCriterion_5",
       "description": "Test for value dict key",
       "text": "If the value is equal to <usdm:tag name=\"value_key\"/>",
-      "dictionaryId": "SyntaxTemplateDictionary_3",
       "instanceType": "EligibilityCriterion",
       "identifier": "3",
-      "nextId": null,
-      "previousId": null,
-      "contextId": null,
       "_type": "EligibilityCriterion"
     }
   },
@@ -5110,8 +4992,6 @@
       "name": "SCREEN",
       "label": "ScheduledActivityInstance_1",
       "description": "Screening",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -5123,8 +5003,6 @@
       "name": "PRE DOSE",
       "label": "ScheduledActivityInstance_2",
       "description": "Pre Dose",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -5136,8 +5014,6 @@
       "name": "DOSE",
       "label": "ScheduledActivityInstance_3",
       "description": "Dosing",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -5149,8 +5025,6 @@
       "name": "D14",
       "label": "ScheduledActivityInstance_4",
       "description": "Day 14",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -5172,8 +5046,6 @@
       "name": "PROG",
       "label": "ScheduledDecisionInstance_1",
       "description": "Check Opt In",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledDecisionInstance",
       "_type": "ScheduledDecisionInstance"
     }
@@ -5185,8 +5057,6 @@
       "name": "D28",
       "label": "ScheduledActivityInstance_5",
       "description": "Day 28 Optional",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -5198,8 +5068,6 @@
       "name": "FU",
       "label": "ScheduledActivityInstance_6",
       "description": "Follow Up",
-      "timelineId": null,
-      "timelineExitId": "ScheduleTimelineExit_1",
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -5213,7 +5081,6 @@
       "description": "This is the main timeline for the study design.",
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
-      "entryId": "ScheduledActivityInstance_1",
       "instanceType": "ScheduleTimeline",
       "_type": "ScheduleTimeline"
     }
@@ -5314,13 +5181,6 @@
       "label": "Condition_1",
       "description": "Condition for X",
       "text": "If this is true",
-      "dictionaryId": null,
-      "contextIds": [
-        "Activity_2"
-      ],
-      "appliesToIds": [
-        "Procedure_1"
-      ],
       "instanceType": "Condition",
       "_type": "Condition"
     }
@@ -5333,13 +5193,6 @@
       "label": "Condition_2",
       "description": "Condition for Y",
       "text": "If the sky is blue",
-      "dictionaryId": null,
-      "contextIds": [
-        "Activity_2"
-      ],
-      "appliesToIds": [
-        "Procedure_2"
-      ],
       "instanceType": "Condition",
       "_type": "Condition"
     }
@@ -5352,11 +5205,6 @@
       "label": "Condition_3",
       "description": "Condition for Z",
       "text": "If the sea is red",
-      "dictionaryId": null,
-      "contextIds": [],
-      "appliesToIds": [
-        "Activity_3"
-      ],
       "instanceType": "Condition",
       "_type": "Condition"
     }
@@ -5513,7 +5361,6 @@
       "bcCategories": [],
       "bcSurrogates": [],
       "rationale": "Basic study",
-      "documentVersionId": null,
       "instanceType": "StudyDesign",
       "_type": "StudyDesign"
     }
@@ -5639,7 +5486,6 @@
       "id": "StudyVersion_1",
       "versionIdentifier": "1",
       "rationale": "A simple test",
-      "documentVersionId": "StudyProtocolDocumentVersion_1",
       "instanceType": "StudyVersion",
       "_type": "StudyVersion",
       "label": "StudyVersion_1"
@@ -5714,26 +5560,6 @@
       "sectionNumber": "0",
       "sectionTitle": "Root",
       "text": "",
-      "childIds": [
-        "NarrativeContent_2",
-        "NarrativeContent_3",
-        "NarrativeContent_7",
-        "NarrativeContent_10",
-        "NarrativeContent_12",
-        "NarrativeContent_21",
-        "NarrativeContent_32",
-        "NarrativeContent_52",
-        "NarrativeContent_60",
-        "NarrativeContent_94",
-        "NarrativeContent_109",
-        "NarrativeContent_115",
-        "NarrativeContent_119",
-        "NarrativeContent_124",
-        "NarrativeContent_132",
-        "NarrativeContent_133"
-      ],
-      "previousId": null,
-      "nextId": "NarrativeContent_2",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_1"
@@ -5747,9 +5573,6 @@
       "sectionNumber": "0",
       "sectionTitle": "TITLE PAGE",
       "text": "<div><table><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Confidentiality Statement:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Full Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Acronym:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_1\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Protocol Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_2\" klass=\"StudyIdentifier\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Original Protocol:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Number:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"versionIdentifier\" id=\"StudyVersion_1\" klass=\"StudyVersion\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"dateValue\" id=\"GovernanceDate_2\" klass=\"GovernanceDate\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"number\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Scope:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"decode\" id=\"Code_40\" klass=\"Code\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Codes(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Name(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Phase:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"decode\" id=\"Code_2\" klass=\"Code\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Short Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Name and Address:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"name\" id=\"Organization_2\" klass=\"Organization\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"Address_2\" klass=\"Address\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Regulatory Agency Identifier Number(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_3\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_4\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_5\" klass=\"StudyIdentifier\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Spondor Approval Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"dateValue\" id=\"GovernanceDate_1\" klass=\"GovernanceDate\"></usdm:ref></p></td></tr></table></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_1",
-      "nextId": "NarrativeContent_3",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_2"
@@ -5763,13 +5586,6 @@
       "sectionNumber": "1",
       "sectionTitle": "PROTOCOL SUMMARY",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_4",
-        "NarrativeContent_5",
-        "NarrativeContent_6"
-      ],
-      "previousId": "NarrativeContent_2",
-      "nextId": "NarrativeContent_4",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_3"
@@ -5783,9 +5599,6 @@
       "sectionNumber": "1.1",
       "sectionTitle": "Protocol Synopsis",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_3",
-      "nextId": "NarrativeContent_5",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_4"
@@ -5799,9 +5612,6 @@
       "sectionNumber": "1.2",
       "sectionTitle": "Trial Schema",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_4",
-      "nextId": "NarrativeContent_6",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_5"
@@ -5815,9 +5625,6 @@
       "sectionNumber": "1.3",
       "sectionTitle": "Schedule of Activities",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_5",
-      "nextId": "NarrativeContent_7",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_6"
@@ -5831,12 +5638,6 @@
       "sectionNumber": "2",
       "sectionTitle": "INTRODUCTION",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_8",
-        "NarrativeContent_9"
-      ],
-      "previousId": "NarrativeContent_6",
-      "nextId": "NarrativeContent_8",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_7"
@@ -5850,9 +5651,6 @@
       "sectionNumber": "2.1",
       "sectionTitle": "Purpose of Trial",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_7",
-      "nextId": "NarrativeContent_9",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_8"
@@ -5866,9 +5664,6 @@
       "sectionNumber": "2.2",
       "sectionTitle": "Summary of Benefits and Risks",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_8",
-      "nextId": "NarrativeContent_10",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_9"
@@ -5882,11 +5677,6 @@
       "sectionNumber": "3",
       "sectionTitle": "TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_11"
-      ],
-      "previousId": "NarrativeContent_9",
-      "nextId": "NarrativeContent_11",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_10"
@@ -5900,9 +5690,6 @@
       "sectionNumber": "3.1",
       "sectionTitle": "Primary Objectives",
       "text": "<div><table><tr><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Objective_1\" klass=\"Objective\"></usdm:ref></p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Endpoint_1\" klass=\"Endpoint\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Objective_2\" klass=\"Objective\"></usdm:ref></p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"Endpoint_2\" klass=\"Endpoint\"></usdm:ref></p><p><usdm:ref attribute=\"text\" id=\"Endpoint_3\" klass=\"Endpoint\"></usdm:ref></p></td></tr></table></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_10",
-      "nextId": "NarrativeContent_12",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_11"
@@ -5916,14 +5703,6 @@
       "sectionNumber": "4",
       "sectionTitle": "TRIAL DESIGN",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_13",
-        "NarrativeContent_15",
-        "NarrativeContent_19",
-        "NarrativeContent_20"
-      ],
-      "previousId": "NarrativeContent_11",
-      "nextId": "NarrativeContent_13",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_12"
@@ -5937,11 +5716,6 @@
       "sectionNumber": "4.1",
       "sectionTitle": "Description of Trial Design",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_14"
-      ],
-      "previousId": "NarrativeContent_12",
-      "nextId": "NarrativeContent_14",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_13"
@@ -5955,9 +5729,6 @@
       "sectionNumber": "4.1.1",
       "sectionTitle": "Participant Input into Design",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_13",
-      "nextId": "NarrativeContent_15",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_14"
@@ -5971,13 +5742,6 @@
       "sectionNumber": "4.2",
       "sectionTitle": "Rationale for Trial Design",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_16",
-        "NarrativeContent_17",
-        "NarrativeContent_18"
-      ],
-      "previousId": "NarrativeContent_14",
-      "nextId": "NarrativeContent_16",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_15"
@@ -5991,9 +5755,6 @@
       "sectionNumber": "4.2.1",
       "sectionTitle": "Rationale for Comparator",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_15",
-      "nextId": "NarrativeContent_17",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_16"
@@ -6007,9 +5768,6 @@
       "sectionNumber": "4.2.2",
       "sectionTitle": "Rationale for Adaptive or Novel Trial Design",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_16",
-      "nextId": "NarrativeContent_18",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_17"
@@ -6023,9 +5781,6 @@
       "sectionNumber": "4.2.3",
       "sectionTitle": "Other Trial Design Considerations",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_17",
-      "nextId": "NarrativeContent_19",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_18"
@@ -6039,9 +5794,6 @@
       "sectionNumber": "4.3",
       "sectionTitle": "Access to Trial Intervention After End of Trial",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_18",
-      "nextId": "NarrativeContent_20",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_19"
@@ -6055,9 +5807,6 @@
       "sectionNumber": "4.4",
       "sectionTitle": "Start of Trial and End of Trial",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_19",
-      "nextId": "NarrativeContent_21",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_20"
@@ -6071,16 +5820,6 @@
       "sectionNumber": "5",
       "sectionTitle": "TRIAL POPULATION",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_22",
-        "NarrativeContent_23",
-        "NarrativeContent_24",
-        "NarrativeContent_25",
-        "NarrativeContent_26",
-        "NarrativeContent_31"
-      ],
-      "previousId": "NarrativeContent_20",
-      "nextId": "NarrativeContent_22",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_21"
@@ -6094,9 +5833,6 @@
       "sectionNumber": "5.1",
       "sectionTitle": "Selection of Trial Population",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_21",
-      "nextId": "NarrativeContent_23",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_22"
@@ -6110,9 +5846,6 @@
       "sectionNumber": "5.2",
       "sectionTitle": "Rationale for Trial Population",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_22",
-      "nextId": "NarrativeContent_24",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_23"
@@ -6126,9 +5859,6 @@
       "sectionNumber": "5.3",
       "sectionTitle": "Inclusion Criteria",
       "text": "<div><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_23",
-      "nextId": "NarrativeContent_25",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_24"
@@ -6142,9 +5872,6 @@
       "sectionNumber": "5.4",
       "sectionTitle": "Exclusion Criteria",
       "text": "<div><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_24",
-      "nextId": "NarrativeContent_26",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_25"
@@ -6158,14 +5885,6 @@
       "sectionNumber": "5.5",
       "sectionTitle": "Lifestyle Considerations",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_27",
-        "NarrativeContent_28",
-        "NarrativeContent_29",
-        "NarrativeContent_30"
-      ],
-      "previousId": "NarrativeContent_25",
-      "nextId": "NarrativeContent_27",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_26"
@@ -6179,9 +5898,6 @@
       "sectionNumber": "5.5.1",
       "sectionTitle": "Meals and Dietary Restrictions",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_26",
-      "nextId": "NarrativeContent_28",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_27"
@@ -6195,9 +5911,6 @@
       "sectionNumber": "5.5.2",
       "sectionTitle": "Caffeine, Alcohol, Tobacco, and Other Habits",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_27",
-      "nextId": "NarrativeContent_29",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_28"
@@ -6211,9 +5924,6 @@
       "sectionNumber": "5.5.3",
       "sectionTitle": "Physical Activity",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_28",
-      "nextId": "NarrativeContent_30",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_29"
@@ -6227,9 +5937,6 @@
       "sectionNumber": "5.5.4",
       "sectionTitle": "Other Activity",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_29",
-      "nextId": "NarrativeContent_31",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_30"
@@ -6243,9 +5950,6 @@
       "sectionNumber": "5.6",
       "sectionTitle": "Screen Failures",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_30",
-      "nextId": "NarrativeContent_32",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_31"
@@ -6259,18 +5963,6 @@
       "sectionNumber": "6",
       "sectionTitle": "TRIAL INTERVENTION AND CONCOMITANT THERAPY",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_33",
-        "NarrativeContent_34",
-        "NarrativeContent_35",
-        "NarrativeContent_37",
-        "NarrativeContent_38",
-        "NarrativeContent_42",
-        "NarrativeContent_46",
-        "NarrativeContent_47"
-      ],
-      "previousId": "NarrativeContent_31",
-      "nextId": "NarrativeContent_33",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_32"
@@ -6284,9 +5976,6 @@
       "sectionNumber": "6.1",
       "sectionTitle": "Description of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_32",
-      "nextId": "NarrativeContent_34",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_33"
@@ -6300,9 +5989,6 @@
       "sectionNumber": "6.2",
       "sectionTitle": "Rationale for Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_33",
-      "nextId": "NarrativeContent_35",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_34"
@@ -6316,11 +6002,6 @@
       "sectionNumber": "6.3",
       "sectionTitle": "Dosing and Administration",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_36"
-      ],
-      "previousId": "NarrativeContent_34",
-      "nextId": "NarrativeContent_36",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_35"
@@ -6334,9 +6015,6 @@
       "sectionNumber": "6.3.1",
       "sectionTitle": "Trial Intervention Dose Modification",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_35",
-      "nextId": "NarrativeContent_37",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_36"
@@ -6350,9 +6028,6 @@
       "sectionNumber": "6.4",
       "sectionTitle": "Treatment of Overdose",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_36",
-      "nextId": "NarrativeContent_38",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_37"
@@ -6366,13 +6041,6 @@
       "sectionNumber": "6.5",
       "sectionTitle": "Preparation, Handling, Storage and Accountability",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_39",
-        "NarrativeContent_40",
-        "NarrativeContent_41"
-      ],
-      "previousId": "NarrativeContent_37",
-      "nextId": "NarrativeContent_39",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_38"
@@ -6386,9 +6054,6 @@
       "sectionNumber": "6.5.1",
       "sectionTitle": "Preparation of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_38",
-      "nextId": "NarrativeContent_40",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_39"
@@ -6402,9 +6067,6 @@
       "sectionNumber": "6.5.2",
       "sectionTitle": "Handling and Storage of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_39",
-      "nextId": "NarrativeContent_41",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_40"
@@ -6418,9 +6080,6 @@
       "sectionNumber": "6.5.3",
       "sectionTitle": "Accountability of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_40",
-      "nextId": "NarrativeContent_42",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_41"
@@ -6434,13 +6093,6 @@
       "sectionNumber": "6.6",
       "sectionTitle": "Participant Assignment, Randomisation and Blinding",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_43",
-        "NarrativeContent_44",
-        "NarrativeContent_45"
-      ],
-      "previousId": "NarrativeContent_41",
-      "nextId": "NarrativeContent_43",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_42"
@@ -6454,9 +6106,6 @@
       "sectionNumber": "6.6.1",
       "sectionTitle": "Participant Assignment",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_42",
-      "nextId": "NarrativeContent_44",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_43"
@@ -6470,9 +6119,6 @@
       "sectionNumber": "6.6.2",
       "sectionTitle": "Randomisation",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_43",
-      "nextId": "NarrativeContent_45",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_44"
@@ -6486,9 +6132,6 @@
       "sectionNumber": "6.6.3",
       "sectionTitle": "Blinding and Unblinding",
       "text": "<div><p>Blinding and unblinding text here please</p></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_44",
-      "nextId": "NarrativeContent_46",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_45"
@@ -6502,9 +6145,6 @@
       "sectionNumber": "6.7",
       "sectionTitle": "Trial Intervention Compliance",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_45",
-      "nextId": "NarrativeContent_47",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_46"
@@ -6518,14 +6158,6 @@
       "sectionNumber": "6.8",
       "sectionTitle": "Concomitant Therapy",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_48",
-        "NarrativeContent_49",
-        "NarrativeContent_50",
-        "NarrativeContent_51"
-      ],
-      "previousId": "NarrativeContent_46",
-      "nextId": "NarrativeContent_48",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_47"
@@ -6539,9 +6171,6 @@
       "sectionNumber": "6.8.1",
       "sectionTitle": "Prohibited Concomitant Therapy",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_47",
-      "nextId": "NarrativeContent_49",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_48"
@@ -6555,9 +6184,6 @@
       "sectionNumber": "6.8.2",
       "sectionTitle": "Permitted Concomitant Therapy",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_48",
-      "nextId": "NarrativeContent_50",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_49"
@@ -6571,9 +6197,6 @@
       "sectionNumber": "6.8.3",
       "sectionTitle": "Rescue Therapy",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_49",
-      "nextId": "NarrativeContent_51",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_50"
@@ -6587,9 +6210,6 @@
       "sectionNumber": "6.8.4",
       "sectionTitle": "Other Therapy",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_50",
-      "nextId": "NarrativeContent_52",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_51"
@@ -6603,14 +6223,6 @@
       "sectionNumber": "7",
       "sectionTitle": "DISCONTINUATION OF TRIAL INTERVENTION AND PARTICIPANT WITHDRAWAL FROM TRIAL",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_53",
-        "NarrativeContent_57",
-        "NarrativeContent_58",
-        "NarrativeContent_59"
-      ],
-      "previousId": "NarrativeContent_51",
-      "nextId": "NarrativeContent_53",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_52"
@@ -6624,13 +6236,6 @@
       "sectionNumber": "7.1",
       "sectionTitle": "Discontinuation of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_54",
-        "NarrativeContent_55",
-        "NarrativeContent_56"
-      ],
-      "previousId": "NarrativeContent_52",
-      "nextId": "NarrativeContent_54",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_53"
@@ -6644,9 +6249,6 @@
       "sectionNumber": "7.1.1",
       "sectionTitle": "Criteria for Permanent Discontinuation of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_53",
-      "nextId": "NarrativeContent_55",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_54"
@@ -6660,9 +6262,6 @@
       "sectionNumber": "7.1.2",
       "sectionTitle": "Temporary Discontinuation or Interruption of Trial Intervention",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_54",
-      "nextId": "NarrativeContent_56",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_55"
@@ -6676,9 +6275,6 @@
       "sectionNumber": "7.1.3",
       "sectionTitle": "Rechallenge",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_55",
-      "nextId": "NarrativeContent_57",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_56"
@@ -6692,9 +6288,6 @@
       "sectionNumber": "7.2",
       "sectionTitle": "Participant Withdrawal from the Trial",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_56",
-      "nextId": "NarrativeContent_58",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_57"
@@ -6708,9 +6301,6 @@
       "sectionNumber": "7.3",
       "sectionTitle": "Lost to Follow-Up",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_57",
-      "nextId": "NarrativeContent_59",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_58"
@@ -6724,9 +6314,6 @@
       "sectionNumber": "7.4",
       "sectionTitle": "Trial Stopping Rules",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_58",
-      "nextId": "NarrativeContent_60",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_59"
@@ -6740,20 +6327,6 @@
       "sectionNumber": "8",
       "sectionTitle": "TRIAL ASSESSMENTS AND PROCEDURES",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_61",
-        "NarrativeContent_62",
-        "NarrativeContent_63",
-        "NarrativeContent_69",
-        "NarrativeContent_80",
-        "NarrativeContent_83",
-        "NarrativeContent_89",
-        "NarrativeContent_90",
-        "NarrativeContent_91",
-        "NarrativeContent_92"
-      ],
-      "previousId": "NarrativeContent_59",
-      "nextId": "NarrativeContent_61",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_60"
@@ -6767,9 +6340,6 @@
       "sectionNumber": "8.1",
       "sectionTitle": "Screening/Baseline Assessments and Procedures",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_60",
-      "nextId": "NarrativeContent_62",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_61"
@@ -6783,9 +6353,6 @@
       "sectionNumber": "8.2",
       "sectionTitle": "Efficacy Assessments and Procedures",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_61",
-      "nextId": "NarrativeContent_63",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_62"
@@ -6799,15 +6366,6 @@
       "sectionNumber": "8.3",
       "sectionTitle": "Safety Assessments and Procedures",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_64",
-        "NarrativeContent_65",
-        "NarrativeContent_66",
-        "NarrativeContent_67",
-        "NarrativeContent_68"
-      ],
-      "previousId": "NarrativeContent_62",
-      "nextId": "NarrativeContent_64",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_63"
@@ -6821,9 +6379,6 @@
       "sectionNumber": "8.3.1",
       "sectionTitle": "Physical Examination",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_63",
-      "nextId": "NarrativeContent_65",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_64"
@@ -6837,9 +6392,6 @@
       "sectionNumber": "8.3.2",
       "sectionTitle": "Vital Signs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_64",
-      "nextId": "NarrativeContent_66",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_65"
@@ -6853,9 +6405,6 @@
       "sectionNumber": "8.3.3",
       "sectionTitle": "Electrocardiograms",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_65",
-      "nextId": "NarrativeContent_67",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_66"
@@ -6869,9 +6418,6 @@
       "sectionNumber": "8.3.4",
       "sectionTitle": "Clinical Laboratory Assessments",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_66",
-      "nextId": "NarrativeContent_68",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_67"
@@ -6885,9 +6431,6 @@
       "sectionNumber": "8.3.5",
       "sectionTitle": "Suicidal Ideation and Behaviour Risk Monitoring",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_67",
-      "nextId": "NarrativeContent_69",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_68"
@@ -6901,20 +6444,6 @@
       "sectionNumber": "8.4",
       "sectionTitle": "Adverse Events and Serious Adverse Events",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_70",
-        "NarrativeContent_71",
-        "NarrativeContent_72",
-        "NarrativeContent_73",
-        "NarrativeContent_74",
-        "NarrativeContent_75",
-        "NarrativeContent_76",
-        "NarrativeContent_77",
-        "NarrativeContent_78",
-        "NarrativeContent_79"
-      ],
-      "previousId": "NarrativeContent_68",
-      "nextId": "NarrativeContent_70",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_69"
@@ -6928,9 +6457,6 @@
       "sectionNumber": "8.4.1",
       "sectionTitle": "Definitions of AE and SAE",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_69",
-      "nextId": "NarrativeContent_71",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_70"
@@ -6944,9 +6470,6 @@
       "sectionNumber": "8.4.2",
       "sectionTitle": "Time Period and Frequency for Collecting AE and SAE Information",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_70",
-      "nextId": "NarrativeContent_72",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_71"
@@ -6960,9 +6483,6 @@
       "sectionNumber": "8.4.3",
       "sectionTitle": "Identifying AEs and SAEs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_71",
-      "nextId": "NarrativeContent_73",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_72"
@@ -6976,9 +6496,6 @@
       "sectionNumber": "8.4.4",
       "sectionTitle": "Recording of AEs and SAEs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_72",
-      "nextId": "NarrativeContent_74",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_73"
@@ -6992,9 +6509,6 @@
       "sectionNumber": "8.4.5",
       "sectionTitle": "Follow-up of AEs and SAEs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_73",
-      "nextId": "NarrativeContent_75",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_74"
@@ -7008,9 +6522,6 @@
       "sectionNumber": "8.4.6",
       "sectionTitle": "Reporting of SAEs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_74",
-      "nextId": "NarrativeContent_76",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_75"
@@ -7024,9 +6535,6 @@
       "sectionNumber": "8.4.7",
       "sectionTitle": "Regulatory Reporting Requirements for SAEs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_75",
-      "nextId": "NarrativeContent_77",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_76"
@@ -7040,9 +6548,6 @@
       "sectionNumber": "8.4.8",
       "sectionTitle": "Serious and Unexpected Adverse Reaction Reporting",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_76",
-      "nextId": "NarrativeContent_78",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_77"
@@ -7056,9 +6561,6 @@
       "sectionNumber": "8.4.9",
       "sectionTitle": "Adverse Events of Special Interest",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_77",
-      "nextId": "NarrativeContent_79",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_78"
@@ -7072,9 +6574,6 @@
       "sectionNumber": "8.4.10",
       "sectionTitle": "Disease-related Events or Outcomes Not Qualifying as AEs or SAEs",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_78",
-      "nextId": "NarrativeContent_80",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_79"
@@ -7088,12 +6587,6 @@
       "sectionNumber": "8.5",
       "sectionTitle": "Pregnancy and Postpartum Information",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_81",
-        "NarrativeContent_82"
-      ],
-      "previousId": "NarrativeContent_79",
-      "nextId": "NarrativeContent_81",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_80"
@@ -7107,9 +6600,6 @@
       "sectionNumber": "8.5.1",
       "sectionTitle": "Participants Who Become Pregnant During the Trial",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_80",
-      "nextId": "NarrativeContent_82",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_81"
@@ -7123,9 +6613,6 @@
       "sectionNumber": "8.5.2",
       "sectionTitle": "Participants Whose Partners Become Pregnant",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_81",
-      "nextId": "NarrativeContent_83",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_82"
@@ -7139,15 +6626,6 @@
       "sectionNumber": "8.6",
       "sectionTitle": "Medical Device Product Complaints for Drug/Device Combination Products",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_84",
-        "NarrativeContent_85",
-        "NarrativeContent_86",
-        "NarrativeContent_87",
-        "NarrativeContent_88"
-      ],
-      "previousId": "NarrativeContent_82",
-      "nextId": "NarrativeContent_84",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_83"
@@ -7161,9 +6639,6 @@
       "sectionNumber": "8.6.1",
       "sectionTitle": "Definition of Medical Device Product Complaints",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_83",
-      "nextId": "NarrativeContent_85",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_84"
@@ -7177,9 +6652,6 @@
       "sectionNumber": "8.6.2",
       "sectionTitle": "Recording of Medical Device Product Complaints",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_84",
-      "nextId": "NarrativeContent_86",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_85"
@@ -7193,9 +6665,6 @@
       "sectionNumber": "8.6.3",
       "sectionTitle": "Time Period and Frequency for Collecting Medical Device Product Complaints .",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_85",
-      "nextId": "NarrativeContent_87",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_86"
@@ -7209,9 +6678,6 @@
       "sectionNumber": "8.6.4",
       "sectionTitle": "Follow-Up of Medical Device Product Complaints",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_86",
-      "nextId": "NarrativeContent_88",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_87"
@@ -7225,9 +6691,6 @@
       "sectionNumber": "8.6.5",
       "sectionTitle": "Regulatory Reporting Requirements for Medical Device Product Complaints",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_87",
-      "nextId": "NarrativeContent_89",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_88"
@@ -7241,9 +6704,6 @@
       "sectionNumber": "8.7",
       "sectionTitle": "Pharmacokinetics",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_88",
-      "nextId": "NarrativeContent_90",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_89"
@@ -7257,9 +6717,6 @@
       "sectionNumber": "8.8",
       "sectionTitle": "Genetics",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_89",
-      "nextId": "NarrativeContent_91",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_90"
@@ -7273,9 +6730,6 @@
       "sectionNumber": "8.9",
       "sectionTitle": "Biomarkers",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_90",
-      "nextId": "NarrativeContent_92",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_91"
@@ -7289,11 +6743,6 @@
       "sectionNumber": "8.1",
       "sectionTitle": "Immunogenicity Assessments",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_93"
-      ],
-      "previousId": "NarrativeContent_91",
-      "nextId": "NarrativeContent_93",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_92"
@@ -7307,9 +6756,6 @@
       "sectionNumber": "8.1.1",
       "sectionTitle": "Medical Resource Utilisation and Health Economics",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_92",
-      "nextId": "NarrativeContent_94",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_93"
@@ -7323,19 +6769,6 @@
       "sectionNumber": "9",
       "sectionTitle": "STATISTICAL CONSIDERATIONS",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_95",
-        "NarrativeContent_96",
-        "NarrativeContent_102",
-        "NarrativeContent_103",
-        "NarrativeContent_104",
-        "NarrativeContent_105",
-        "NarrativeContent_106",
-        "NarrativeContent_107",
-        "NarrativeContent_108"
-      ],
-      "previousId": "NarrativeContent_93",
-      "nextId": "NarrativeContent_95",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_94"
@@ -7349,9 +6782,6 @@
       "sectionNumber": "9.1",
       "sectionTitle": "Analysis Sets",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_94",
-      "nextId": "NarrativeContent_96",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_95"
@@ -7365,15 +6795,6 @@
       "sectionNumber": "9.2",
       "sectionTitle": "Analyses Supporting Primary Objective(s)",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_97",
-        "NarrativeContent_98",
-        "NarrativeContent_99",
-        "NarrativeContent_100",
-        "NarrativeContent_101"
-      ],
-      "previousId": "NarrativeContent_95",
-      "nextId": "NarrativeContent_97",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_96"
@@ -7387,9 +6808,6 @@
       "sectionNumber": "9.2.1",
       "sectionTitle": "Statistical Model, Hypothesis, and Method of Analysis",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_96",
-      "nextId": "NarrativeContent_98",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_97"
@@ -7403,9 +6821,6 @@
       "sectionNumber": "9.2.2",
       "sectionTitle": "Handling of Intercurrent Events of Primary Estimand(s)",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_97",
-      "nextId": "NarrativeContent_99",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_98"
@@ -7419,9 +6834,6 @@
       "sectionNumber": "9.2.3",
       "sectionTitle": "Handling of Missing Data",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_98",
-      "nextId": "NarrativeContent_100",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_99"
@@ -7435,9 +6847,6 @@
       "sectionNumber": "9.2.4",
       "sectionTitle": "Sensitivity Analysis",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_99",
-      "nextId": "NarrativeContent_101",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_100"
@@ -7451,9 +6860,6 @@
       "sectionNumber": "9.2.5",
       "sectionTitle": "Supplementary Analysis",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_100",
-      "nextId": "NarrativeContent_102",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_101"
@@ -7467,9 +6873,6 @@
       "sectionNumber": "9.3",
       "sectionTitle": "Analysis Supporting Secondary Objective(s)",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_101",
-      "nextId": "NarrativeContent_103",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_102"
@@ -7483,9 +6886,6 @@
       "sectionNumber": "9.4",
       "sectionTitle": "Analysis of Exploratory Objective(s)",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_102",
-      "nextId": "NarrativeContent_104",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_103"
@@ -7499,9 +6899,6 @@
       "sectionNumber": "9.5",
       "sectionTitle": "Safety Analyses",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_103",
-      "nextId": "NarrativeContent_105",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_104"
@@ -7515,9 +6912,6 @@
       "sectionNumber": "9.6",
       "sectionTitle": "Other Analyses",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_104",
-      "nextId": "NarrativeContent_106",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_105"
@@ -7531,9 +6925,6 @@
       "sectionNumber": "9.7",
       "sectionTitle": "Interim Analyses",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_105",
-      "nextId": "NarrativeContent_107",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_106"
@@ -7547,9 +6938,6 @@
       "sectionNumber": "9.8",
       "sectionTitle": "Sample Size Determination",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_106",
-      "nextId": "NarrativeContent_108",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_107"
@@ -7563,9 +6951,6 @@
       "sectionNumber": "9.9",
       "sectionTitle": "Protocol Deviations",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_107",
-      "nextId": "NarrativeContent_109",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_108"
@@ -7579,15 +6964,6 @@
       "sectionNumber": "10",
       "sectionTitle": "GENERAL CONSIDERATIONS: REGULATORY, ETHICAL, AND TRIAL OVERSIGHT",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_110",
-        "NarrativeContent_111",
-        "NarrativeContent_112",
-        "NarrativeContent_113",
-        "NarrativeContent_114"
-      ],
-      "previousId": "NarrativeContent_108",
-      "nextId": "NarrativeContent_110",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_109"
@@ -7601,9 +6977,6 @@
       "sectionNumber": "10.1",
       "sectionTitle": "Regulatory and Ethical Considerations",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_109",
-      "nextId": "NarrativeContent_111",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_110"
@@ -7617,9 +6990,6 @@
       "sectionNumber": "10.2",
       "sectionTitle": "Committees",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_110",
-      "nextId": "NarrativeContent_112",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_111"
@@ -7633,9 +7003,6 @@
       "sectionNumber": "10.3",
       "sectionTitle": "Informed Consent Process",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_111",
-      "nextId": "NarrativeContent_113",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_112"
@@ -7649,9 +7016,6 @@
       "sectionNumber": "10.4",
       "sectionTitle": "Data Protection",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_112",
-      "nextId": "NarrativeContent_114",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_113"
@@ -7665,9 +7029,6 @@
       "sectionNumber": "10.5",
       "sectionTitle": "Early Site Closure or Trial Termination",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_113",
-      "nextId": "NarrativeContent_115",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_114"
@@ -7681,13 +7042,6 @@
       "sectionNumber": "11",
       "sectionTitle": "GENERAL CONSIDERATIONS: RISK MANAGEMENT AND QUALITY ASSURANCE",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_116",
-        "NarrativeContent_117",
-        "NarrativeContent_118"
-      ],
-      "previousId": "NarrativeContent_114",
-      "nextId": "NarrativeContent_116",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_115"
@@ -7701,9 +7055,6 @@
       "sectionNumber": "11.1",
       "sectionTitle": "Quality Tolerance Limits",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_115",
-      "nextId": "NarrativeContent_117",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_116"
@@ -7717,9 +7068,6 @@
       "sectionNumber": "11.2",
       "sectionTitle": "Data Quality Assurance",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_116",
-      "nextId": "NarrativeContent_118",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_117"
@@ -7733,9 +7081,6 @@
       "sectionNumber": "11.3",
       "sectionTitle": "Source Data",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_117",
-      "nextId": "NarrativeContent_119",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_118"
@@ -7749,14 +7094,6 @@
       "sectionNumber": "12",
       "sectionTitle": "APPENDIX: ADVERSE EVENTS AND SERIOUS ADVERSE EVENTS - DEFINITIONS, SEVERITY, AND CAUSALITY",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_120",
-        "NarrativeContent_121",
-        "NarrativeContent_122",
-        "NarrativeContent_123"
-      ],
-      "previousId": "NarrativeContent_118",
-      "nextId": "NarrativeContent_120",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_119"
@@ -7770,9 +7107,6 @@
       "sectionNumber": "12.1",
       "sectionTitle": "Further Details and Clarifications on the AE Definition",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_119",
-      "nextId": "NarrativeContent_121",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_120"
@@ -7786,9 +7120,6 @@
       "sectionNumber": "12.2",
       "sectionTitle": "Further Details and Clarifications on the SAE Definition",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_120",
-      "nextId": "NarrativeContent_122",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_121"
@@ -7802,9 +7133,6 @@
       "sectionNumber": "12.3",
       "sectionTitle": "Severity",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_121",
-      "nextId": "NarrativeContent_123",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_122"
@@ -7818,9 +7146,6 @@
       "sectionNumber": "12.4",
       "sectionTitle": "Causality",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_122",
-      "nextId": "NarrativeContent_124",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_123"
@@ -7834,14 +7159,6 @@
       "sectionNumber": "13",
       "sectionTitle": "APPENDIX: DEFINITIONS AND SUPPORTING OPERATIONAL DETAILS",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_125",
-        "NarrativeContent_129",
-        "NarrativeContent_130",
-        "NarrativeContent_131"
-      ],
-      "previousId": "NarrativeContent_123",
-      "nextId": "NarrativeContent_125",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_124"
@@ -7855,13 +7172,6 @@
       "sectionNumber": "13.1",
       "sectionTitle": "Contraception and Pregnancy Testing",
       "text": "<div></div>",
-      "childIds": [
-        "NarrativeContent_126",
-        "NarrativeContent_127",
-        "NarrativeContent_128"
-      ],
-      "previousId": "NarrativeContent_124",
-      "nextId": "NarrativeContent_126",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_125"
@@ -7875,9 +7185,6 @@
       "sectionNumber": "13.1.1",
       "sectionTitle": "Definitions Related to Childbearing Potential",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_125",
-      "nextId": "NarrativeContent_127",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_126"
@@ -7891,9 +7198,6 @@
       "sectionNumber": "13.1.2",
       "sectionTitle": "Contraception",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_126",
-      "nextId": "NarrativeContent_128",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_127"
@@ -7907,9 +7211,6 @@
       "sectionNumber": "13.1.3",
       "sectionTitle": "Pregnancy Testing",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_127",
-      "nextId": "NarrativeContent_129",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_128"
@@ -7923,9 +7224,6 @@
       "sectionNumber": "13.2",
       "sectionTitle": "Clinical Laboratory Tests",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_128",
-      "nextId": "NarrativeContent_130",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_129"
@@ -7939,9 +7237,6 @@
       "sectionNumber": "13.3",
       "sectionTitle": "Country/Region-Specific Differences",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_129",
-      "nextId": "NarrativeContent_131",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_130"
@@ -7955,9 +7250,6 @@
       "sectionNumber": "13.4",
       "sectionTitle": "Prior Protocol Amendments",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_130",
-      "nextId": "NarrativeContent_132",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_131"
@@ -7971,9 +7263,6 @@
       "sectionNumber": "14",
       "sectionTitle": "APPENDIX: GLOSSARY OF TERMS",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_131",
-      "nextId": "NarrativeContent_133",
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_132"
@@ -7987,9 +7276,6 @@
       "sectionNumber": "15",
       "sectionTitle": "APPENDIX: REFERENCES",
       "text": "<div></div>",
-      "childIds": [],
-      "previousId": "NarrativeContent_132",
-      "nextId": null,
       "instanceType": "NarrativeContent",
       "_type": "NarrativeContent",
       "label": "NarrativeContent_133"
@@ -8000,7 +7286,6 @@
     "properties": {
       "id": "StudyProtocolDocumentVersion_1",
       "protocolVersion": "1",
-      "childIds": [],
       "instanceType": "StudyProtocolDocumentVersion",
       "_type": "StudyProtocolDocumentVersion",
       "label": "StudyProtocolDocumentVersion_1"

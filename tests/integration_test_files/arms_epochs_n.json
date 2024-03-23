@@ -259,9 +259,6 @@
       "name": "Screening",
       "label": "Encounter_1",
       "description": "Screening encounter",
-      "previousId": null,
-      "nextId": "Encounter_2",
-      "scheduledAtId": null,
       "instanceType": "Encounter",
       "_type": "Encounter"
     }
@@ -312,9 +309,6 @@
       "name": "Baseline",
       "label": "Encounter_2",
       "description": "Baseline encounter",
-      "previousId": "Encounter_1",
-      "nextId": "Encounter_3",
-      "scheduledAtId": null,
       "transitionStartRule": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
@@ -379,9 +373,6 @@
       "name": "Day 1",
       "label": "Encounter_3",
       "description": "First dose",
-      "previousId": "Encounter_2",
-      "nextId": null,
-      "scheduledAtId": null,
       "transitionEndRule": null,
       "instanceType": "Encounter",
       "_type": "Encounter"
@@ -394,10 +385,7 @@
       "name": "Demographics",
       "label": "Activity_1",
       "description": "Basic Demog",
-      "previousId": null,
-      "nextId": "Activity_2",
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -409,10 +397,7 @@
       "name": "Vital Signs",
       "label": "Activity_2",
       "description": "Vital Signs",
-      "previousId": "Activity_1",
-      "nextId": null,
       "definedProcedures": [],
-      "timelineId": "",
       "instanceType": "Activity",
       "_type": "Activity"
     }
@@ -970,7 +955,6 @@
       "label": "StudyArm_1",
       "description": "Active Substance",
       "dataOriginDescription": "Data collected from subjects",
-      "populationIds": [],
       "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
@@ -1009,7 +993,6 @@
       "label": "StudyArm_2",
       "description": "Placebo",
       "dataOriginDescription": "Data collected from subjects",
-      "populationIds": [],
       "instanceType": "StudyArm",
       "_type": "StudyArm"
     }
@@ -1018,11 +1001,6 @@
     "id": 85,
     "properties": {
       "id": "StudyCell_1",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_1",
-      "elementIds": [
-        "StudyElement_1"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_1"
@@ -1032,11 +1010,6 @@
     "id": 86,
     "properties": {
       "id": "StudyCell_2",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_2",
-      "elementIds": [
-        "StudyElement_2"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_2"
@@ -1046,11 +1019,6 @@
     "id": 87,
     "properties": {
       "id": "StudyCell_3",
-      "armId": "StudyArm_1",
-      "epochId": "StudyEpoch_3",
-      "elementIds": [
-        "StudyElement_3"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_3"
@@ -1060,11 +1028,6 @@
     "id": 88,
     "properties": {
       "id": "StudyCell_4",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_1",
-      "elementIds": [
-        "StudyElement_1"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_4"
@@ -1074,11 +1037,6 @@
     "id": 89,
     "properties": {
       "id": "StudyCell_5",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_2",
-      "elementIds": [
-        "StudyElement_2"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_5"
@@ -1088,11 +1046,6 @@
     "id": 90,
     "properties": {
       "id": "StudyCell_6",
-      "armId": "StudyArm_2",
-      "epochId": "StudyEpoch_3",
-      "elementIds": [
-        "StudyElement_3"
-      ],
       "instanceType": "StudyCell",
       "_type": "StudyCell",
       "label": "StudyCell_6"
@@ -1141,8 +1094,6 @@
       "name": "Screening",
       "label": "StudyEpoch_1",
       "description": "Screening Epoch",
-      "previousId": null,
-      "nextId": "StudyEpoch_2",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -1167,8 +1118,6 @@
       "name": "Baseline",
       "label": "StudyEpoch_2",
       "description": "Baseline Epoch",
-      "previousId": "StudyEpoch_1",
-      "nextId": "StudyEpoch_3",
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -1193,8 +1142,6 @@
       "name": "Treatment",
       "label": "StudyEpoch_3",
       "description": "Treatment Epoch",
-      "previousId": "StudyEpoch_2",
-      "nextId": null,
       "instanceType": "StudyEpoch",
       "_type": "StudyEpoch"
     }
@@ -1230,7 +1177,6 @@
       "name": "Screening",
       "label": "StudyElement_1",
       "description": "Screening Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -1266,7 +1212,6 @@
       "name": "Baseline",
       "label": "StudyElement_2",
       "description": "Baseline Element",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -1302,7 +1247,6 @@
       "name": "Treatment 1",
       "label": "StudyElement_3",
       "description": "Treatment Element 1",
-      "studyInterventionIds": [],
       "instanceType": "StudyElement",
       "_type": "StudyElement"
     }
@@ -1913,7 +1857,6 @@
       "label": "Endpoint_1",
       "description": "",
       "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
-      "dictionaryId": null,
       "instanceType": "Endpoint",
       "purpose": "",
       "_type": "Endpoint"
@@ -1927,7 +1870,6 @@
       "label": "Objective_1",
       "description": "",
       "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
-      "dictionaryId": null,
       "instanceType": "Objective",
       "_type": "Objective"
     }
@@ -2140,8 +2082,6 @@
       "name": "SCREEN",
       "label": "ScheduledActivityInstance_1",
       "description": "Screening",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -2153,8 +2093,6 @@
       "name": "DOSE",
       "label": "ScheduledActivityInstance_2",
       "description": "Pre Dose",
-      "timelineId": null,
-      "timelineExitId": null,
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -2166,8 +2104,6 @@
       "name": "TREAT",
       "label": "ScheduledActivityInstance_3",
       "description": "Dosing",
-      "timelineId": null,
-      "timelineExitId": "ScheduleTimelineExit_1",
       "instanceType": "ScheduledActivityInstance",
       "_type": "ScheduledActivityInstance"
     }
@@ -2181,7 +2117,6 @@
       "description": "This is the main timeline for the study design.",
       "mainTimeline": true,
       "entryCondition": "Potential subject identified",
-      "entryId": "ScheduledActivityInstance_1",
       "instanceType": "ScheduleTimeline",
       "_type": "ScheduleTimeline"
     }
@@ -2198,7 +2133,6 @@
       "bcSurrogates": [],
       "rationale": "Basic study",
       "maskingRoles": [],
-      "documentVersionId": null,
       "dictionaries": [],
       "conditions": [],
       "organizations": [],
@@ -2327,7 +2261,6 @@
       "id": "StudyVersion_1",
       "versionIdentifier": "1",
       "rationale": "A simple test",
-      "documentVersionId": "StudyProtocolDocumentVersion_1",
       "dateValues": [],
       "amendments": [],
       "instanceType": "StudyVersion",
@@ -2355,7 +2288,6 @@
       "protocolVersion": "1",
       "dateValues": [],
       "contents": [],
-      "childIds": [],
       "instanceType": "StudyProtocolDocumentVersion",
       "_type": "StudyProtocolDocumentVersion",
       "label": "StudyProtocolDocumentVersion_1"
