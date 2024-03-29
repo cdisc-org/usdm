@@ -20,11 +20,11 @@ def test_create(mocker):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['Obj 1','Obj Desc 1', 'Obj Label 1', 'Obj Text 1', 'Study Primary Objective',   'End 1', 'End Desc 1', 'End Label 1', 'End Text 1', '', 'Primary Endpoint'], 
-    ['','', '', '', '',                                                              'End 2', 'End Desc 2', 'End Label 2', 'End Text 2', '', 'Primary Endpoint'], 
-    ['Obj 2','Obj Desc 2', 'Obj Label 2', 'Obj Text 2', 'Study Secondary Objective', 'End 3', 'End Desc 3', 'End Label 3', 'End Text 3', '', 'Secondary Endpoint'], 
-    ['Obj 3','Obj Desc 3', 'Obj Label 3', 'Obj Text 3', 'Study Secondary Objective', 'End 4', 'End Desc 4', 'End Label 4', 'End Text 4', '', 'Secondary Endpoint'], 
-    ['','', '', '', '',                                                              'End 5', 'End Desc 5', 'End Label 5', 'End Text 5', '', 'Secondary Endpoint']
+    ['Obj 1','Obj Desc 1', 'Obj Label 1', 'Obj Text 1', 'Primary Objective',   'End 1', 'End Desc 1', 'End Label 1', 'End Text 1', '', 'Primary Endpoint'], 
+    ['','', '', '', '',                                                        'End 2', 'End Desc 2', 'End Label 2', 'End Text 2', '', 'Primary Endpoint'], 
+    ['Obj 2','Obj Desc 2', 'Obj Label 2', 'Obj Text 2', 'Secondary Objective', 'End 3', 'End Desc 3', 'End Label 3', 'End Text 3', '', 'Secondary Endpoint'], 
+    ['Obj 3','Obj Desc 3', 'Obj Label 3', 'Obj Text 3', 'Secondary Objective', 'End 4', 'End Desc 4', 'End Label 4', 'End Text 4', '', 'Secondary Endpoint'], 
+    ['','', '', '', '',                                                        'End 5', 'End Desc 5', 'End Label 5', 'End Text 5', '', 'Secondary Endpoint']
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=[
