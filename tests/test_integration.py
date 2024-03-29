@@ -3,7 +3,7 @@ import csv
 from usdm_excel import USDMExcel
 from bs4 import BeautifulSoup
 
-SAVE_ALL = False
+SAVE_ALL =False
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
@@ -120,6 +120,12 @@ def test_full_2():
 
 def test_full_2_html():
   run_test_html('full_2')
+
+def test_full_3():
+  run_test('full_3')
+
+def test_full_3_html():
+  run_test_html('full_3')
 
 def test_encounter_1():
   run_test('encounter_1')
