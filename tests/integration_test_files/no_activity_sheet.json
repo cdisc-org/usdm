@@ -1792,7 +1792,16 @@
                 "isApproximate": false,
                 "instanceType": "Range"
               },
-              "plannedSex": [],
+              "plannedSex": [
+                {
+                  "id": "Code_98",
+                  "code": "C49636",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2023-12-15",
+                  "decode": "Both",
+                  "instanceType": "Code"
+                }
+              ],
               "criteria": [],
               "plannedAge": null,
               "instanceType": "StudyDesignPopulation",
@@ -2209,5 +2218,5 @@
   },
   "usdmVersion": "2.11.0",
   "systemName": "CDISC E2J",
-  "systemVersion": "0.47.0"
+  "systemVersion": "0.48.0"
 }

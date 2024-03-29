@@ -50,7 +50,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         plannedEnrollmentNumber=recruit_number,
         plannedCompletionNumber=required_number,
         plannedAge=planned_age,
-        plannedSexOfParticipants=codes
+        plannedSex=codes
       )
     except Exception as e:
       self._general_error(f"Failed to create StudyDesignPopulation object, exception {e}")
@@ -70,7 +70,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         plannedEnrollmentNumber=recruit_number,
         plannedCompletionNumber=required_number,
         plannedAge=planned_age,
-        plannedSexOfParticipants=codes,
+        plannedSex=codes,
         characteristics=[]
       )
     except Exception as e:
