@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width" initial-scale="1" name="viewport"/>
+  <style>
+   /* Create a running element */
+      #header-and-footer {
+        position: running(header-and-footer);
+        text-align: right;
+      }
+
+      /* Add that running element to the top and bottom of every page */
+      @page {
+        @top {
+          content: element(header-and-footer);
+        }
+        @bottom {
+          content: element(header-and-footer);
+        }
+      }
+
+      /* Add a page number */
+      #page-number {
+        content: "Page " counter(page);
+      }
+
+      @page { size: A4 }
+
+      /* Create a title page with a full-bleed background and no header */
+      /* Create a soa page with landscape orientation */
+      #title-page {
+        page: title-page;
+      }
+      .soa-page {
+        page: soa-page
+      }
+
+      @page title-page {
+        @top {
+          content: "";
+        }
+      }
+
+      @page soa-page {
+        size: A4 landscape
+      }
+
+      #title-page h1 {
+        padding: 200px 0 40px 0;
+        font-size: 30px;
+      }
+
+      /* Dynamically create a table of contents with leaders */
+      #table-of-contents a {
+        content: target-content(attr(href)) leader('.') target-counter(attr(href), page);
+        color: #000000;
+        text-decoration: none;
+        display: block;
+        padding-top: 5px;
+      }
+
+      /* Float the footnote to a footnotes area on the page */
+      .footnote {
+        float: footnote;
+        font-size: small;
+      }
+
+      .page {
+        page-break-after: always;
+      }
+
+      body {
+        counter-reset: chapter;
+        font-family: 'Times New Roman';
+        color: #000000;
+      }
+
+      .usdm-warning {
+        font-style: italic;
+        color: red;
+      }
+
+      .soa-body-text {
+        font-size: 10px;
+        text-align: center
+      }
+
+      .soa-activity-text {
+        font-size: 10px;
+        text-align: left
+      }
+
+      .soa-footnote-text {
+        font-size: 12px;
+        text-align: left
+      }
+
+      .usdm-highlight {
+        background-color: LightGray !important;
+      }
+
+      .usdm-highlight p {
+        background-color: LightGray;
+      }
+
+      p .usdm-highlight {
+        background-color: LightGray;
+      }
+
+      .usdm-highlight-link {
+        text-decoration:none;
+      }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css"/>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+  <script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="page" id="title-page">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-8 offset-md-2 text-center">
+      <h1>
+       Xanomeline (LY246708)
+      </h1>
+     </div>
+    </div>
+    <div class="row mt-5">
+     <div class="col-md-8 offset-md-2 text-center">
+      <p class="usdm-warning">
+       Note:
+      </p>
+      <p class="usdm-warning">
+       This document is generated from content held within the Unified Studies Definitions Model. It is for test purposes only.
+      </p>
+     </div>
+    </div>
+   </div>
+   <div id="header-and-footer">
+    <span id="page-number">
+    </span>
+   </div>
+  </div>
+  <div class="page">
+   <div>
+    <table>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Sponsor Confidentiality Statement:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Full Title:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer's Disease
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Trial Acronym:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        H2Q-MC-LZZT
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Protocol Identifier:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        H2Q-MC-LZZT
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Original Protocol:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Version Number:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Version Date:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2006-07-01
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Amendment Identifier:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        1
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Amendment Scope:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Europe
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Compound Codes(s):
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Compound Name(s):
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Trial Phase:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Phase II Trial
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Short Title:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Xanomeline (LY246708)
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Sponsor Name and Address:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Eli Lilly, Lilly Corporate Ctr, Indianapolis, IN, 4628, United States of America
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Regulatory Agency Identifier Number(s):
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        NCT12345678
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Spondor Approval Date:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2006-06-01
+       </p>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div class="page">
+   <div class="page" id="toc-page">
+    <div id="table-of-contents">
+     <a href="#section-1">
+     </a>
+     <a href="#section-2">
+     </a>
+     <a href="#section-3">
+     </a>
+     <a href="#section-4">
+     </a>
+     <a href="#section-5">
+     </a>
+     <a href="#section-6">
+     </a>
+     <a href="#section-7">
+     </a>
+     <a href="#section-8">
+     </a>
+     <a href="#section-9">
+     </a>
+     <a href="#section-10">
+     </a>
+     <a href="#section-11">
+     </a>
+     <a href="#section-12">
+     </a>
+     <a href="#section-13">
+     </a>
+     <a href="#section-14">
+     </a>
+     <a href="#section-15">
+     </a>
+    </div>
+    <div align="center">
+     <br/>
+     <p class="usdm-warning">
+      Note:
+     </p>
+     <p class="usdm-warning">
+      The table of contents is auto generated upon PDF production and only includes first level sections.
+     </p>
+    </div>
+    <div id="header-and-footer">
+     <span id="page-number">
+     </span>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-1">
+    1 PROTOCOL SUMMARY
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-1.1">
+     1.1 Protocol Synopsis
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-1.2">
+     1.2 Trial Schema
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-1.3">
+     1.3 Schedule of Activities
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-2">
+    2 INTRODUCTION
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-2.1">
+     2.1 Purpose of Trial
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-2.2">
+     2.2 Summary of Benefits and Risks
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-3">
+    3 TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-3.1">
+     3.1 Primary Objectives
+    </h2>
+    <div>
+     <table>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         To determine if there is a statistically significant relationship (overall Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+ scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Week 24
+        </p>
+        <p>
+         Video-referenced Clinician’s Interview-based Impression of Change (CIBIC+) at Week 24
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         To document the safety profile of the xanomeline TTS.
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         Adverse events
+        </p>
+        <p>
+         Vital signs (weight, standing and supine blood pressure, heart rate)
+        </p>
+        <p>
+         Laboratory evaluations (Change from Baseline)
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these
+areas.
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Weeks 8 and 16
+        </p>
+        <p>
+         Video-referenced Clinician’s Interview-based Impression of Change (CIBIC+) at Weeks 8 and 16
+        </p>
+        <p>
+         Mean Revised Neuropsychiatric Inventory (NPI-X) from Week 4 to Week 24
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-4">
+    4 TRIAL DESIGN
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-4.1">
+     4.1 Description of Trial Design
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-4.1.1">
+      4.1.1 Participant Input into Design
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-4.2">
+     4.2 Rationale for Trial Design
+    </h2>
+    <div>
+     <p>
+      Previous studies of the oral formulation have shown that xanomeline tartrate may improve behavior and cognition. Effects on behavior are manifest within 2 to 4 weeks of initiation of treatment. The same studies have shown that 8 to 12 weeks are required to demonstrate effects on cognition and clinical global assessment. This study is intended to determine the acute and chronic effects of the TTS formulation in AD; for that reason, the study is of 26 weeks duration. Dosage specification has been made on the basis of tolerance to the xanomeline TTS in a clinical pharmacology study (H2Q-EW-LKAA), and target plasma levels as determined in studies of the oral formulation of xanomeline (H2Q-MC-LZZA).
+     </p>
+    </div>
+    <div class="">
+     <h3 id="section-4.2.1">
+      4.2.1 Rationale for Comparator
+     </h3>
+     <div>
+      <p>
+       The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups. The use of placebo allows for a blinded, thus minimally biased, study. The placebo treatment group is a comparator group for efficacy and safety assessment.
+      </p>
+      <p>
+       Two interim analyses are planned for this study. The first interim analysis will occur when 50% of the patients have completed Visit 8 (8 weeks). If required, the second interim analysis will occur when 50% of the patients have completed Visit 12 (24 weeks).
+      </p>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-4.2.2">
+      4.2.2 Rationale for Adaptive or Novel Trial Design
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-4.2.3">
+      4.2.3 Other Trial Design Considerations
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-4.3">
+     4.3 Access to Trial Intervention After End of Trial
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-4.4">
+     4.4 Start of Trial and End of Trial
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-5">
+    5 TRIAL POPULATION
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-5.1">
+     5.1 Selection of Trial Population
+    </h2>
+    <div>
+     <p>
+      For Lilly studies, the following definitions are used:
+     </p>
+     <div>
+      <div>
+       <strong>
+        Screen
+       </strong>
+      </div>
+      <div>
+       <p>
+        Screening is the act of determining if an individual meets minimum requirements to become part of a pool of potential candidates for participation in a clinical study.
+       </p>
+       <p>
+        In this study,
+        <strong>
+         screening
+        </strong>
+        will include asking the candidate preliminary questions (such as age and general health status) and conducting invasive or diagnostic procedures and/or tests (for example, diagnostic psychological tests, x-rays, blood draws). Patients will sign the consent at their screening visit, thereby consenting to undergo the screening procedures and to participate in the study if they qualify.
+       </p>
+      </div>
+     </div>
+     <div>
+      <div>
+       To
+       <strong>
+        enter
+       </strong>
+      </div>
+      <div>
+       <p>
+        Patients
+        <strong>
+         entered
+        </strong>
+        into the study are those from whom informed consent for the study has been obtained. Adverse events will be reported for each patient who has
+        <strong>
+         entered
+        </strong>
+        the study, even if the patient is never assigned to a treatment group (
+        <strong>
+         enrolled
+        </strong>
+        ).
+       </p>
+      </div>
+     </div>
+    </div>
+    <div>
+     <div>
+      To
+      <strong>
+       enroll
+      </strong>
+     </div>
+     <div>
+      <p>
+       Patients who are enrolled in the study are those who have been assigned to a treatment group. Patients who are entered into the study but fail to meet criteria specified in the protocol for treatment assignment will not be enrolled in the study.
+      </p>
+     </div>
+    </div>
+    <p>
+     At Visit 1, patients who meet the enrollment criteria of Mini-Mental State Examination (MMSE) score of 10 to 23 (Attachment LZZT.6), Hachinski Ischemia Score ≤4 (Attachment LZZT.8), a physical exam, safety labs, ECG, and urinalysis, will proceed to Visit 2 and Visit 3. At Visit 3, patients whose CNS imaging and other pending labs from Visit 1 satisfy the inclusion criteria (Section 3.4.2.1) will be enrolled in the study. Approximately 300 patients with a diagnosis of probable mild to moderate AD will be enrolled in the study.
+    </p>
+   </div>
+   <div class="">
+    <h2 id="section-5.2">
+     5.2 Rationale for Trial Population
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-5.3">
+     5.3 Inclusion Criteria
+    </h2>
+    <div>
+     <p>
+      Patients may be included in the study only if they meet
+      <strong>
+       all
+      </strong>
+      the following criteria:
+     </p>
+     <table>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         1
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         Subjects shall be between 50.0 and 100.0
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         2
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         Patients with Probable Mild to Moderate Alzheimer's Disease as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         3
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         MMSE score of 10 to 23
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-5.4">
+     5.4 Exclusion Criteria
+    </h2>
+    <div>
+     <p>
+      Patients may be excluded in the study for
+      <strong>
+       any
+      </strong>
+      of the following reasons:
+     </p>
+     <table>
+      <tr>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         9
+        </p>
+       </td>
+       <td style="vertical-align: top; text-align: left">
+        <p>
+         Persons who have previously completed or withdrawn from this study or any other study investigating xanomeline TTS or the oral formulation of xanomeline.
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-5.5">
+     5.5 Lifestyle Considerations
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-5.5.1">
+      5.5.1 Meals and Dietary Restrictions
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-5.5.2">
+      5.5.2 Caffeine, Alcohol, Tobacco, and Other Habits
+     </h3>
+     <div>
+      <p>
+       Not applicable
+      </p>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-5.5.3">
+      5.5.3 Physical Activity
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-5.5.4">
+      5.5.4 Other Activity
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-5.6">
+     5.6 Screen Failures
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-6">
+    6 TRIAL INTERVENTION AND CONCOMITANT THERAPY
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-6.1">
+     6.1 Description of Trial Intervention
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.2">
+     6.2 Rationale for Trial Intervention
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.3">
+     6.3 Dosing and Administration
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-6.3.1">
+      6.3.1 Trial Intervention Dose Modification
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.4">
+     6.4 Treatment of Overdose
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.5">
+     6.5 Preparation, Handling, Storage and Accountability
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-6.5.1">
+      6.5.1 Preparation of Trial Intervention
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.5.2">
+      6.5.2 Handling and Storage of Trial Intervention
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.5.3">
+      6.5.3 Accountability of Trial Intervention
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.6">
+     6.6 Participant Assignment, Randomisation and Blinding
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-6.6.1">
+      6.6.1 Participant Assignment
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.6.2">
+      6.6.2 Randomisation
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.6.3">
+      6.6.3 Blinding and Unblinding
+     </h3>
+     <div>
+      <p>
+       The study will be double-blind. To further preserve the blinding of the study, only a minimum number of Lilly and CRO personnel will see the randomization table and codes before the study is complete.
+      </p>
+      <p>
+       Emergency codes generated by a computer drug-labeling system will be available to the investigator. These codes, which reveal the patients treatment group, may be opened during the study only if the choice of follow-up treatment depends on the patient’s therapy assignment.
+      </p>
+      <p>
+       The investigator should make every effort to contact the clinical research physician prior to unblinding a patient’s therapy assignment. If a patient’s therapy assignment is unblinded, Lilly must be notified immediately by telephone. After the study, the investigator must return all sealed and any opened codes.
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.7">
+     6.7 Trial Intervention Compliance
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-6.8">
+     6.8 Concomitant Therapy
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-6.8.1">
+      6.8.1 Prohibited Concomitant Therapy
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.8.2">
+      6.8.2 Permitted Concomitant Therapy
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.8.3">
+      6.8.3 Rescue Therapy
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-6.8.4">
+      6.8.4 Other Therapy
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-7">
+    7 DISCONTINUATION OF TRIAL INTERVENTION AND PARTICIPANT WITHDRAWAL FROM TRIAL
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-7.1">
+     7.1 Discontinuation of Trial Intervention
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-7.1.1">
+      7.1.1 Criteria for Permanent Discontinuation of Trial Intervention
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-7.1.2">
+      7.1.2 Temporary Discontinuation or Interruption of Trial Intervention
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-7.1.3">
+      7.1.3 Rechallenge
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-7.2">
+     7.2 Participant Withdrawal from the Trial
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-7.3">
+     7.3 Lost to Follow-Up
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-7.4">
+     7.4 Trial Stopping Rules
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-8">
+    8 TRIAL ASSESSMENTS AND PROCEDURES
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-8.1">
+     8.1 Screening/Baseline Assessments and Procedures
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.2">
+     8.2 Efficacy Assessments and Procedures
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.3">
+     8.3 Safety Assessments and Procedures
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-8.3.1">
+      8.3.1 Physical Examination
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.3.2">
+      8.3.2 Vital Signs
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.3.3">
+      8.3.3 Electrocardiograms
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.3.4">
+      8.3.4 Clinical Laboratory Assessments
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.3.5">
+      8.3.5 Suicidal Ideation and Behaviour Risk Monitoring
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.4">
+     8.4 Adverse Events and Serious Adverse Events
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.1">
+      8.4.1 Definitions of AE and SAE
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.2">
+      8.4.2 Time Period and Frequency for Collecting AE and SAE Information
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.3">
+      8.4.3 Identifying AEs and SAEs
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.4">
+      8.4.4 Recording of AEs and SAEs
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.5">
+      8.4.5 Follow-up of AEs and SAEs
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.6">
+      8.4.6 Reporting of SAEs
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.7">
+      8.4.7 Regulatory Reporting Requirements for SAEs
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.8">
+      8.4.8 Serious and Unexpected Adverse Reaction Reporting
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.9">
+      8.4.9 Adverse Events of Special Interest
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.4.10">
+      8.4.10 Disease-related Events or Outcomes Not Qualifying as AEs or SAEs
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.5">
+     8.5 Pregnancy and Postpartum Information
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-8.5.1">
+      8.5.1 Participants Who Become Pregnant During the Trial
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.5.2">
+      8.5.2 Participants Whose Partners Become Pregnant
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.6">
+     8.6 Medical Device Product Complaints for Drug/Device Combination Products
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-8.6.1">
+      8.6.1 Definition of Medical Device Product Complaints
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.6.2">
+      8.6.2 Recording of Medical Device Product Complaints
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.6.3">
+      8.6.3 Time Period and Frequency for Collecting Medical Device Product Complaints .
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.6.4">
+      8.6.4 Follow-Up of Medical Device Product Complaints
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-8.6.5">
+      8.6.5 Regulatory Reporting Requirements for Medical Device Product Complaints
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.7">
+     8.7 Pharmacokinetics
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.8">
+     8.8 Genetics
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.9">
+     8.9 Biomarkers
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-8.1">
+     8.1 Immunogenicity Assessments
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-8.1.1">
+      8.1.1 Medical Resource Utilisation and Health Economics
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-9">
+    9 STATISTICAL CONSIDERATIONS
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-9.1">
+     9.1 Analysis Sets
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.2">
+     9.2 Analyses Supporting Primary Objective(s)
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-9.2.1">
+      9.2.1 Statistical Model, Hypothesis, and Method of Analysis
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-9.2.2">
+      9.2.2 Handling of Intercurrent Events of Primary Estimand(s)
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-9.2.3">
+      9.2.3 Handling of Missing Data
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-9.2.4">
+      9.2.4 Sensitivity Analysis
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-9.2.5">
+      9.2.5 Supplementary Analysis
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.3">
+     9.3 Analysis Supporting Secondary Objective(s)
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.4">
+     9.4 Analysis of Exploratory Objective(s)
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.5">
+     9.5 Safety Analyses
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.6">
+     9.6 Other Analyses
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.7">
+     9.7 Interim Analyses
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.8">
+     9.8 Sample Size Determination
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-9.9">
+     9.9 Protocol Deviations
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-10">
+    10 GENERAL CONSIDERATIONS: REGULATORY, ETHICAL, AND TRIAL OVERSIGHT
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-10.1">
+     10.1 Regulatory and Ethical Considerations
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-10.2">
+     10.2 Committees
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-10.3">
+     10.3 Informed Consent Process
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-10.4">
+     10.4 Data Protection
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-10.5">
+     10.5 Early Site Closure or Trial Termination
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-11">
+    11 GENERAL CONSIDERATIONS: RISK MANAGEMENT AND QUALITY ASSURANCE
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-11.1">
+     11.1 Quality Tolerance Limits
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-11.2">
+     11.2 Data Quality Assurance
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-11.3">
+     11.3 Source Data
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-12">
+    12 APPENDIX: ADVERSE EVENTS AND SERIOUS ADVERSE EVENTS - DEFINITIONS, SEVERITY, AND CAUSALITY
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-12.1">
+     12.1 Further Details and Clarifications on the AE Definition
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-12.2">
+     12.2 Further Details and Clarifications on the SAE Definition
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-12.3">
+     12.3 Severity
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-12.4">
+     12.4 Causality
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-13">
+    13 APPENDIX: DEFINITIONS AND SUPPORTING OPERATIONAL DETAILS
+   </h1>
+   <div>
+   </div>
+   <div class="">
+    <h2 id="section-13.1">
+     13.1 Contraception and Pregnancy Testing
+    </h2>
+    <div>
+    </div>
+    <div class="">
+     <h3 id="section-13.1.1">
+      13.1.1 Definitions Related to Childbearing Potential
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-13.1.2">
+      13.1.2 Contraception
+     </h3>
+     <div>
+     </div>
+    </div>
+    <div class="">
+     <h3 id="section-13.1.3">
+      13.1.3 Pregnancy Testing
+     </h3>
+     <div>
+     </div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-13.2">
+     13.2 Clinical Laboratory Tests
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-13.3">
+     13.3 Country/Region-Specific Differences
+    </h2>
+    <div>
+    </div>
+   </div>
+   <div class="">
+    <h2 id="section-13.4">
+     13.4 Prior Protocol Amendments
+    </h2>
+    <div>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-14">
+    14 APPENDIX: GLOSSARY OF TERMS
+   </h1>
+   <div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-15">
+    15 APPENDIX: REFERENCES
+   </h1>
+   <div>
+   </div>
+  </div>
+ </body>
+</html>
