@@ -1,9 +1,9 @@
+from typing import Literal, Union
 from .api_base_model import ApiBaseModelWithId
 from .quantity import Quantity
-from typing import Literal
 
 class AdministrationDuration(ApiBaseModelWithId):
-  quantity:	Quantity
+  quantity:	Union[Quantity, None] = None
   description: str
   durationWillVary: bool
   reasonDurationWillVary:	str
