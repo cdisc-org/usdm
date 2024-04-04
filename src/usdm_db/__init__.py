@@ -1,7 +1,5 @@
-import os
 import json
 import traceback
-import logging
 from usdm_excel import USDMExcel
 from usdm_model.wrapper import Wrapper
 from usdm_db.document.document import Document
