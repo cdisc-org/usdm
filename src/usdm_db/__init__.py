@@ -18,7 +18,6 @@ class USDMDb():
   def __init__(self):
     self._wrapper = None
     self._excel = None
-    self._dir_path = None
 
   def wrapper(self):
     return self._wrapper
@@ -30,7 +29,6 @@ class USDMDb():
     self._wrapper = Wrapper.model_validate(data)
 
   def from_excel(self, file_path):
-    self._dir_path, self._filename = os.path.split(file_path)
     self._excel = USDMExcel(file_path)
     self._wrapper = self._excel.wrapper
 
@@ -45,7 +43,8 @@ class USDMDb():
   def to_html(self, highlight=False):
     try:
       study = self._wrapper.study
-      html = Document("XXXXXXX", study, self._dir_path).to_html(highlight)
+      doc = Document("XXXXXXX", study)
+      html = doc.to_html(highlight)
     except Exception as e:
       message = self._format_exception("Failed to generate HTML output", e)
       html = f"<p>{message}</p>"
@@ -53,7 +52,9 @@ class USDMDb():
 
   def to_pdf(self, test=True):
     try:
-      bytes = Document("XXXXXXX", self.study, self._dir_path).to_pdf(test)
+      study = self._wrapper.study
+      doc = Document("XXXXXXX", study)
+      bytes = doc.to_pdf(test)
     except Exception as e:
       message = self._format_exception("Failed to generate PDF output", e)
       bytes = bytearray()
@@ -61,7 +62,7 @@ class USDMDb():
     return bytes
 
   def to_neo4j_dict(self):
-    return Neo4jDict(self._wrapper.study).to_html()
+    return Neo4jDict(self._wrapper.study).to_dict()
 
   def to_timeline(self, level=FULL_HTML):
     return Timeline(self._wrapper.study).to_html(level)

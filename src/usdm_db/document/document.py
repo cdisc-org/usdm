@@ -13,12 +13,11 @@ class Document():
   class LogicError(Exception):
     pass
 
-  def __init__(self, doc_title: str, study: Study, filepath: str):
+  def __init__(self, doc_title: str, study: Study):
     self.errors = Errors()
     self.study = study
     self._logger = logging.getLogger(__name__)
     self._cross_ref = CrossReference(study, self.errors)
-    self.filepath = filepath
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
