@@ -10,8 +10,8 @@ class CrossReference():
     self._logger = logging.getLogger(__name__)
     self._process_node(self._study)
 
-  def clear(self):
-    self._references = {}
+  # def clear(self):
+  #   self._references = {}
   
   def get(self, klass, id):
     key = self._key(klass, id)
@@ -20,8 +20,8 @@ class CrossReference():
     else:
       return None
 
-  def dump(self):
-    print(f"\n\n\nREFERENCES\n\n{self._references.keys()}")
+  # def dump(self):
+  #   print(f"\n\n\nREFERENCES\n\n{self._references.keys()}")
 
   def _process_node(self, node):
     #print(f"PN = {type(node)}")
