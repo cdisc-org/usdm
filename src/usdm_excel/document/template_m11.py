@@ -1,15 +1,14 @@
 import re
 from yattag import Doc
 #from .elements import Elements
-from usdm_db.document.template_base import TemplateBase
-from usdm_model.study import Study
-from usdm_db.cross_reference import CrossReference
-from usdm_db.errors.errors import Errors
+from .template_base import TemplateBase
+#from usdm_excel.cross_ref import cross_references
+from usdm_excel.base_sheet import BaseSheet
 
 class TemplateM11(TemplateBase):
 
-  def __init__(self, study: Study, errors: Errors):
-    super().__init__(study, errors)
+  def __init__(self, parent: BaseSheet, study):
+    super().__init__(parent, study)
 
   def title_page(self):
     doc = Doc()

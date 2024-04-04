@@ -1,16 +1,15 @@
 import traceback
 from yattag import Doc
+#from .elements import Elements
 from .template_base import TemplateBase
 from .soa import SoA
-from usdm_model.study import Study
-#from usdm_db.cross_reference import CrossReference
-from usdm_db.errors.errors import Errors
-from usdm_db.document.utility import log_exception
+#from usdm_excel.cross_ref import cross_references
+from usdm_excel.base_sheet import BaseSheet
 
 class TemplatePlain(TemplateBase):
 
-  def __init__(self, study: Study, errors: Errors):
-    super().__init__(study, errors)
+  def __init__(self, parent: BaseSheet, study):
+    super().__init__(parent, study)
 
   def title_page(self):
     doc = Doc()
@@ -85,8 +84,8 @@ class TemplatePlain(TemplateBase):
                     with doc.tag('p', klass="soa-footnote-text"):
                       doc.asis(item['text'])
     except Exception as e:
-      log_exception(f"Error generating SoA content", e)
-      self._errors.add(f"Exception '{e}' raised generating SoA content", Errors.ERROR)
+      self.parent._traceback(f"Exception '{e}' raised generating SoA content.\n{traceback.format_exc()}")
+      self.parent._general_error(f"Exception '{e}' raised generating SoA content")
     return doc.getvalue()
   
   def _criteria(self, type):

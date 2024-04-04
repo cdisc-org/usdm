@@ -1,28 +1,24 @@
 import os
 import base64
 import traceback
-import logging
-from document.template_m11 import TemplateM11
-from document.template_plain import TemplatePlain
-from document.elements import Elements
-from usdm_db.cross_reference import CrossReference
-from document.utility import get_soup, log_exception
-from usdm_model.study import Study 
-from usdm_db.errors.errors import Errors
+from .template_m11 import TemplateM11
+from .template_plain import TemplatePlain
+from .elements import Elements
+from usdm_excel.cross_ref import cross_references
+from usdm_excel.base_sheet import BaseSheet
+from .utility import get_soup
 
 class Macros():
 
-  def __init__(self, study: Study, errors: Errors, cross_ref: CrossReference):
-    self._logger = logging.getLogger(__name__)
-    self._errors = errors
-    self._cross_ref = cross_ref
+  def __init__(self, parent: BaseSheet, study):
+    self.parent = parent
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
-    self.elements = Elements(self.study, self._errors)
-    self.m11 = TemplateM11(self.study)
-    self.plain = TemplatePlain(self.study)
+    self.elements = Elements(parent, self.study)
+    self.m11 = TemplateM11(parent, self.study)
+    self.plain = TemplatePlain(parent, self.study)
     self.template_map = {'m11': self.m11, 'plain': self.plain}
   
   def resolve(self, content_text: str) -> str:
@@ -34,16 +30,16 @@ class Macros():
         if self._valid_method(method):
           result = getattr(self, method)(attributes, soup, ref)
         else:
-          self._errors.add(f"Failed to resolve document macro '{attributes}', invalid method name {method}")
+          self.parent._general_error(f"Failed to resolve document macro '{attributes}', invalid method name {method}")
           ref.replace_with('Missing content: invalid method name')
       except Exception as e:
-        log_exception(self._logger, f"Failed to resolve document macro '{attributes}'", e)
-        self._errors.add(f"Exception '{e} while attempting to translate document macro '{attributes}'")
+        self.parent._traceback(f"Failed to resolve document macro '{attributes}'\n{traceback.format_exc()}")
+        self.parent._general_error(f"Exception '{e} while attempting to translate document macro '{attributes}'")
         ref.replace_with('Missing content: exception')
     return str(soup)
 
   def _xref(self, attributes, soup, ref) -> None:
-    instance, attribute = self._cross_ref.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
+    instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
     ref_tag = soup.new_tag("usdm:ref")
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)
@@ -64,7 +60,7 @@ class Macros():
       text = getattr(self.elements, method)()
       ref.replace_with(get_soup(text, self.parent))
     else:
-      self._errors.add(f"Failed to translate element method name '{method}' in '{attributes}', invalid method")
+      self.parent._general_error(f"Failed to translate element method name '{method}' in '{attributes}', invalid method")
       ref.replace_with('Missing content: invalid method name')
 
   def _section(self, attributes, soup, ref) -> None:
@@ -75,7 +71,7 @@ class Macros():
       text = getattr(instance, method)()
       ref.replace_with(get_soup(text, self.parent))
     else:
-      self._errors.add(f"Failed to translate section method name '{method}' in '{attributes}', invalid method")
+      self.parent._general_error(f"Failed to translate section method name '{method}' in '{attributes}', invalid method")
       ref.replace_with('Missing content: invalid method name')       
 
   def _note(self, attributes, soup, ref) -> None:
@@ -94,7 +90,7 @@ class Macros():
     try:
       return self.template_map[template.lower()]
     except:
-      self._errors.add(f"Failed to resolve template '{template}', using plain template")
+      self.parent._general_error(f"Failed to map template '{template}', using plain template")
       return self.plain
 
   def _encode_image(self, filename) -> bytes:
@@ -103,6 +99,6 @@ class Macros():
         data = base64.b64encode(image_file.read())
       return data
     except:
-      self._errors.add(f"Failed to open image file '{filename}', ignored")
+      self.parent._general_error(f"Failed to open image file '{filename}', ignored")
       return None
       

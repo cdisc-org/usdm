@@ -3,10 +3,10 @@ import logging
 import traceback
 import docraptor
 from yattag import Doc
-from usdm_db.cross_reference import CrossReference
 from usdm_model.study import Study
+from usdm_db.cross_reference import CrossReference
 from usdm_db.errors.errors import Errors
-from .utility import get_soup, log_exception
+from usdm_db.document.utility import get_soup, log_exception
 
 class Document():
 
@@ -203,7 +203,7 @@ class Document():
 
   def _get_dictionary(self, instance):
     try:
-      return cross_references.get_by_id('SyntaxTemplateDictionary', instance.dictionaryId)
+      return self._cross_ref.get('SyntaxTemplateDictionary', instance.dictionaryId)
     except:
       return None  
 

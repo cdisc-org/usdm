@@ -1,13 +1,10 @@
-import logging
-from document.utility import get_soup, log_exception
-from usdm_model.study import Study 
-from usdm_db.errors.errors import Errors
+from usdm_excel.base_sheet import BaseSheet
 
 class Elements():
 
-  def __init__(self, study: Study, errors: Errors):
-    self._logger = logging.getLogger(__name__)
-    self._errors = errors
+  def __init__(self, parent: BaseSheet, study):
+    super().__init__()
+    self.parent = parent
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
