@@ -3,9 +3,6 @@ from datetime import date
 
 class CrossReference():
 
-  class LogicError(Exception):
-    pass
-  
   def __init__(self, study, errors):
     self._errors = errors
     self._study = study
