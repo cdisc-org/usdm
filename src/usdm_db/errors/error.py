@@ -9,7 +9,7 @@ class Error():
   INFO = logging.INFO
   LABEL = { CRITICAL: "critical", ERROR: "error", WARNING: "warning", DEBUG: "debug", INFO: "info" }
 
-  def __init__(self, sheet: str, row: int, column: int, message: str, level: int=ERROR):
+  def __init__(self, message: str, level: int=ERROR):
     self.message = message
     self.level = level
 

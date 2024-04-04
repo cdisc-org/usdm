@@ -8,7 +8,7 @@ from usdm_db.document.document import Document
 from usdm_db.neo4j_dict import Neo4jDict
 from usdm_db.timeline import Timeline
 
-class USDME2J():
+class USDMDb():
 
   SYSTEM_NAME = "CDISC E2J"
 
@@ -18,16 +18,21 @@ class USDME2J():
   def __init__(self):
     self._wrapper = None
     self._excel = None
-
-  def from_excel(self, file_path):
-    self._dir_path, self._filename = os.path.split(file_path)
-    self._excel = USDMExcel(file_path)
+    self._dir_path = None
 
   def wrapper(self):
     return self._wrapper
   
   def excel(self):
     return self._excel
+
+  def from_json(self, data):
+    self._wrapper = Wrapper.model_validate(data)
+
+  def from_excel(self, file_path):
+    self._dir_path, self._filename = os.path.split(file_path)
+    self._excel = USDMExcel(file_path)
+    self._wrapper = self._excel.wrapper
 
   def to_json(self):
     try:
@@ -40,7 +45,7 @@ class USDME2J():
   def to_html(self, highlight=False):
     try:
       study = self._wrapper.study
-      html = Document(self, study.brief_title.text, study, self._dir_path).to_html(highlight)
+      html = Document("XXXXXXX", study, self._dir_path).to_html(highlight)
     except Exception as e:
       message = self._format_exception("Failed to generate HTML output", e)
       html = f"<p>{message}</p>"
@@ -48,7 +53,7 @@ class USDME2J():
 
   def to_pdf(self, test=True):
     try:
-      bytes = Document(self, self.brief_title.text, self.study, self._dir_path).to_pdf(test)
+      bytes = Document("XXXXXXX", self.study, self._dir_path).to_pdf(test)
     except Exception as e:
       message = self._format_exception("Failed to generate PDF output", e)
       bytes = bytearray()

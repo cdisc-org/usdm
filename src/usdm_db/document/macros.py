@@ -5,17 +5,17 @@ import logging
 from document.template_m11 import TemplateM11
 from document.template_plain import TemplatePlain
 from document.elements import Elements
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.base_sheet import BaseSheet
+from usdm_db.cross_reference import CrossReference
 from document.utility import get_soup, log_exception
 from usdm_model.study import Study 
 from usdm_db.errors.errors import Errors
 
 class Macros():
 
-  def __init__(self, study: Study, errors: Errors):
+  def __init__(self, study: Study, errors: Errors, cross_ref: CrossReference):
     self._logger = logging.getLogger(__name__)
     self._errors = errors
+    self._cross_ref = cross_ref
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
@@ -43,7 +43,7 @@ class Macros():
     return str(soup)
 
   def _xref(self, attributes, soup, ref) -> None:
-    instance, attribute = cross_references.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
+    instance, attribute = self._cross_ref.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
     ref_tag = soup.new_tag("usdm:ref")
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)

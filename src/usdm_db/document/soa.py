@@ -1,7 +1,6 @@
+import logging
 from .utility import usdm_reference
-from usdm_excel.cross_ref import cross_references
-from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.study_sheet.study_sheet import Study
+from usdm_db.cross_reference import CrossReference
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.activity import Activity
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
@@ -10,7 +9,10 @@ from usdm_db.errors.errors import Errors
 
 class SoA():
 
-  def __init__(self, study_design: StudyDesign, timeline: ScheduleTimeline, errors: Errors):
+  def __init__(self, study_design: StudyDesign, timeline: ScheduleTimeline, errors: Errors, cross_ref: CrossReference):
+    self._logger = logging.getLogger(__name__)
+    self._errors = errors
+    self._cross_ref = cross_ref
     self.study_design = study_design
     self.timeline = timeline
 
