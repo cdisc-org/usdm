@@ -6,11 +6,11 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.activity import Activity
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.study_design import StudyDesign
+from usdm_db.errors.errors import Errors
 
 class SoA():
 
-  def __init__(self, parent: BaseSheet, study_design: StudyDesign, timeline: ScheduleTimeline):
-    self.parent = parent
+  def __init__(self, study_design: StudyDesign, timeline: ScheduleTimeline, errors: Errors):
     self.study_design = study_design
     self.timeline = timeline
 

@@ -32,17 +32,15 @@ from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
 from usdm_model.governance_date import GovernanceDate
 from usdm_model.geographic_scope import GeographicScope
-from usdm_excel.document.document import Document
+#from usdm_excel.document.document import Document
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_model.study_title import StudyTitle
-from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
+#from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
 import traceback
 import datetime
 
 class StudySheet(BaseSheet):
-
-  SYSTEM_NAME = "CDISC E2J"
 
   NAME_TITLE = 'name'
   TITLE_TITLE = 'studyTitle'
@@ -207,17 +205,17 @@ class StudySheet(BaseSheet):
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
-  def the_study(self):
-    return self.study
+  # def the_study(self):
+  #   return self.study
   
-  def api_root(self):
-    return Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
+  # def api_root(self):
+  #   return Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
 
-  def to_html(self, highlight=False):
-    return Document(self, self.brief_title.text, self.study, self.dir_path).to_html(highlight)
+  # def to_html(self, highlight=False):
+  #   return Document(self, self.brief_title.text, self.study, self.dir_path).to_html(highlight)
 
-  def to_pdf(self, test=True):
-    return Document(self, self.brief_title.text, self.study, self.dir_path).to_pdf(test)
+  # def to_pdf(self, test=True):
+  #   return Document(self, self.brief_title.text, self.study, self.dir_path).to_pdf(test)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

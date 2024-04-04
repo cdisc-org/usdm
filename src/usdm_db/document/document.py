@@ -1,20 +1,23 @@
 import os
+import logging
 import traceback
 import docraptor
 from yattag import Doc
-from usdm_excel.cross_ref import cross_references
-from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.study_sheet.study_sheet import Study
-from .utility import get_soup
+#from usdm_excel.cross_ref import cross_references
+from usdm_model.study import Study
+from usdm_db.errors.errors import Errors
+from .utility import get_soup, log_exception
 
 class Document():
 
   class LogicError(Exception):
     pass
 
-  def __init__(self, parent: BaseSheet, doc_title: str, study: Study, filepath: str):
-    self.parent = parent
+  def __init__(self, doc_title: str, study: Study, filepath: str, errors: Errors):
+    #self.parent = parent
+    self._logger = logging.getLogger(__name__)
     self.filepath = filepath
+    self._errors = errors
     self.study = study
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
@@ -23,7 +26,6 @@ class Document():
     self.chapters = []
     self.modal_count = 1
     if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
-      self.parent._general_error(f"Failed to initialise NarrativeContent for document creation, ids did not match")
       raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
 
   def to_pdf(self, test=True):
@@ -46,11 +48,13 @@ class Document():
       binary_formatted_response = bytearray(response)
       return binary_formatted_response
     except docraptor.rest.ApiException as e:
-      self.parent._traceback(f"Failed to create PDF document {e.status} {e.reason} {e.body}\n{traceback.format_exc()}")
-      self.parent._general_error(f"Something went wrong '{e.reason}' creating the PDF document")
+      self._errors.add(f"Exception raised generating PDF content. See logs for more details", Errors.CRITICAL)
+      log_exception(self._logger, f"Failed to create PDF document {e.status} {e.reason} {e.body}", e)
+      return None
     except Exception as e:
-      self.parent._general_error(f"Exception '{e}' raised generating PDF content.\n{traceback.format_exc()}")
-      self.parent._general_error(f"Exception '{e}' raised generating PDF content")
+      self._errors.add(f"Exception raised generating PDF content. See logs for more details", Errors.CRITICAL)
+      log_exception(self._logger, f"Failed to create PDF document", e)
+      return None
 
   def to_html(self, highlight=False):
     try:
@@ -116,8 +120,9 @@ class Document():
               self._content_to_html(content, doc, highlight)
       return doc.getvalue()
     except Exception as e:
-      self.parent._traceback(f"Exception '{e}' raised generating HTML content.\n{traceback.format_exc()}")
-      self.parent._general_error(f"Exception '{e}' raised generating HTML content")
+      self._errors.add(f"Exception raised generating HTML content. See logs for more details", Errors.CRITICAL)
+      log_exception(self._logger, f"Failed to create PDF document", e)
+      return None
 
   def _content_to_html(self, content, doc, highlight=False):
     level = self._get_level(content.sectionNumber)
@@ -172,8 +177,8 @@ class Document():
         self._replace_and_highlight(soup, ref, translated_text, highlight)
         #ref.replace_with(translated_text)
       except Exception as e:
-        self.parent._traceback(f"Failed to translate reference '{attributes}'\n{traceback.format_exc()}")
-        self.parent._general_error(f"Exception '{e} while attempting to translate reference '{attributes}' while generating the HTML document")
+        log_exception(self._logger, f"Failed to translate reference '{attributes}'", e)
+        self._errors.add(f"Exception raised while attempting to translate reference '{attributes}' while generating the HTML document, see the logs for more info", Errors.ERROR)
         self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
         #ref.replace_with('Missing content: exception')
     self.parent._general_debug(f"Translate references from {content_text} => {get_soup(str(soup), self.parent)}")
@@ -190,11 +195,11 @@ class Document():
           entry = next((item for item in dictionary.parameterMaps if item.tag == attributes['name']), None)
           self._replace_and_highlight(soup, ref, get_soup(entry.reference, self.parent), highlight)
         else:
-          self.parent._general_error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document")
+          self._errors.add(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document", Errors.ERROR)
           self._replace_and_highlight(soup, ref, 'Missing content: missing dictionary', highlight)
       except Exception as e:
-        self.parent._traceback(f"Failed to resolve reference '{attributes}'\n{traceback.format_exc()}")
-        self.parent._general_error(f"Exception '{e} while attempting to resolve reference '{attributes}' while generating the HTML document")
+        log_exception(f"Failed to resolve reference '{attributes}", e)
+        self._errors.add(f"Exception raised while attempting to resolve reference '{attributes}' while generating the HTML document", Errors.ERROR)
         self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
     return str(soup)
 

@@ -2,7 +2,7 @@ import stringcase
 import json
 from uuid import uuid4
 
-class ExportAsNeo4jDict():
+class Neo4jDict():
 
   class LogicError(Exception):
     pass
@@ -14,7 +14,7 @@ class ExportAsNeo4jDict():
     self.add_edges = []
     self.node_id_to_uuid_map = {}
       
-  def export(self):
+  def to_dict(self):
     node = json.loads(self.study.to_json_with_type())
     self._process_node(node)
     for edge in self.add_edges:

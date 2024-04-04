@@ -7,7 +7,7 @@ from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
 import traceback
 
-class ExportAsTimeline():
+class Timeline():
 
   FULL = "full"
   BODY = "body"
@@ -15,7 +15,7 @@ class ExportAsTimeline():
   def __init__(self, study):
     self.study = study
 
-  def export(self, level=FULL):
+  def to_html(self, level=FULL):
     try:
       doc = Doc()
       study_design = self.study.versions[0].studyDesigns[0]
