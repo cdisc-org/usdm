@@ -265,7 +265,7 @@ class BaseSheet():
     code = None
     value = self.read_cell(row_index, col_index)
     if value:
-      code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute(klass, attribute, value)
+      code = CDISCCT(self.managers).code_for_attribute(klass, attribute, value)
       if not code:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
     elif not allow_empty:
@@ -284,7 +284,7 @@ class BaseSheet():
       self._error(row_index, col_index, "Empty cell detected where multiple CDISC CT values expected.")
       return result
     for item in self._state_split(value):
-      code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute(klass, attribute, item.strip())
+      code = CDISCCT(self.managers).code_for_attribute(klass, attribute, item.strip())
       if code is not None:
         result.append(code)
       else:
@@ -343,8 +343,8 @@ class BaseSheet():
       system = outer_parts[0].strip()
       inner_parts = outer_parts[1].strip().split("=")
       if len(inner_parts) == 2:
-        version = ct_version_manager.get(system)
-        return OtherCT().code(code=inner_parts[0].strip(), system=system, version=version, decode=inner_parts[1].strip())
+        version = self.managers.ct_version_manager.get(system)
+        return OtherCT(self.managers).code(code=inner_parts[0].strip(), system=system, version=version, decode=inner_parts[1].strip())
       else:
         self._error(row_index, col_index, "Failed to decode code data '%s', no '=' detected" % (value))
     else:

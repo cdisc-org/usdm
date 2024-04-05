@@ -42,6 +42,6 @@ class Factory():
     return self.cdisc_code("C12345", "decode")
 
   def _build_code(self, code, system, version, decode):
-    id = self._id_manager.build_id(Code)
+    id = self._managers.id_manager.build_id(Code)
     instance = Code(id=id, code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
     return instance

@@ -16,8 +16,6 @@ class CDISCCTLibrary():
     self._missing_ct = yaml.load(f, Loader=yaml.FullLoader)
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'cdisc_ct_config.yaml'))
     self._cdisc_ct_config = yaml.load(f, Loader=yaml.FullLoader)
-    print(f"CONFIG: {self._cdisc_ct_config}")
-    #self.api_key = os.getenv('CDISC_API_KEY')
     self._by_code_list = {}
     self._by_term = {}
     self._by_submission = {}

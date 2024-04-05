@@ -4,30 +4,11 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.managers import Managers
 from usdm_model.code import Code
 from tests.test_factory import Factory
 
-# def test_sheet_cell_value(mocker):
-#   mocked_open = mocker.mock_open(read_data="File")
-#   mocker.patch("builtins.open", mocked_open)
-#   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', 'd']}
-#   mock_read = mocker.patch("openpyxl.load_workbook")
-#   mock_read.return_value = pd.DataFrame.from_dict(data)
-#   test_data = [
-#     ({'row': 0, 'column': 0, 'value': 4}, False),
-#     ({'row': 0, 'column': 1, 'value': 'e'}, False),
-#     ({'row': 0, 'column': 0, 'value': 3}, True),
-#     ({'row': 0, 'column': 1, 'value': 'a'}, True),
-#   ]
-#   for test in test_data:
-#     base = BaseSheet("", "sheet", require=test[0])
-#     if not test[1]:
-#       assert(base) == None
-#     else:
-#       assert(base) != None
-
 factory = Factory()
+managers = factory.managers()
 
 def test_cell_empty(mocker):
   factory.clear()
@@ -298,7 +279,7 @@ def test_read_range_cell_by_name(mocker):
     (8,'Range', True,      True,        False,  True,  0.0,  0.0,   '',       ""),
   ]
   for test in test_data:
-    self.managers.errors.clear()
+    managers.errors.clear()
     #print(f"INDEX: {test[0]}")
     range = base.read_range_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
@@ -307,12 +288,12 @@ def test_read_range_cell_by_name(mocker):
       if test[2]:
         assert(range.unit.code) == test[8]
       assert(range.isApproximate) == False
-      assert(len(self.managers.errors.items)) == 0
+      assert(len(managers.errors.items)) == 0
     elif test[5]:
       assert(range) == None
     else:
       assert(range) == None
-      assert(self.managers.errors.items[0].to_log()) == test[9]
+      assert(managers.errors.items[0].to_log()) == test[9]
 
 # def test_read_description_by_name(mocker):
 #   mock_option = mocker.patch("usdm_excel.om.get")
@@ -479,9 +460,9 @@ def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
 def test__decode_other_cell(mocker):
   factory.clear()
   expected = Code(id='Code_1', code='c', codeSystem='a', codeSystemVersion='3', decode="d")
-  mock_version = mocker.patch("usdm_excel.ct_version_manager.get")
+  mock_version = mocker.patch("usdm_excel.ct_version_manager.CTVersionManager.get")
   mock_version.side_effect=['3']
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1']
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
