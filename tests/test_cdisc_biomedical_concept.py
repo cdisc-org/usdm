@@ -43,7 +43,7 @@ def test__get_package_items(self):
   assert 0
   
 def test__url():
-  item = CDISCBCLibrary(managers.errors, managers.logger, managers.cdisc_ct_library)
+  item = CDISCBCLibrary(managers.errors, managers.logger, managers.cdisc_ct_library, managers.id_manager)
   assert (item._url('something')) == f"{CDISCBCLibrary.API_ROOT}something"
 
 @xfail
