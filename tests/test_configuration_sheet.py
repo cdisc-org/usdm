@@ -2,8 +2,8 @@ import pandas as pd
 
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
-from usdm_excel import ct_version_manager as ctvm
-from usdm_excel import om
+#from usdm_excel import ct_version_manager as ctvm
+#from usdm_excel import om
 
 def test_defaults(mocker):
   mocked_open = mocker.mock_open(read_data="File")

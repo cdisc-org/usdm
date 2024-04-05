@@ -1,5 +1,5 @@
 from .utility import usdm_reference
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 #from usdm_excel.study_sheet.study_sheet import Study
 from usdm_model.schedule_timeline import ScheduleTimeline

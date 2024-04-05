@@ -2,7 +2,7 @@
 from yattag import Doc
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.narrative_content import NarrativeContent
-from usdm_excel.document.document import Document
+#from usdm_excel.document.document import Document
 
 from tests.test_factory import Factory
 from tests.test_data_factory import MinimalStudy

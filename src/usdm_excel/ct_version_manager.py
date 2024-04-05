@@ -15,5 +15,4 @@ class CTVersionManager():
     else:
       return "None set"
     
-ct_version_manager = CTVersionManager()
 

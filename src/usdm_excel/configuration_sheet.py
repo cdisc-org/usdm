@@ -1,6 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.ct_version_manager import ct_version_manager
-from usdm_excel.option_manager import * 
+#from usdm_excel.ct_version_manager import ct_version_manager
+from usdm_excel.option_manager import Options, EmptyNoneOption
 import traceback
 import pandas as pd
 
@@ -22,8 +22,8 @@ class ConfigurationSheet(BaseSheet):
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
 
-  def om(self):
-    return option_manager
+  # def om(self):
+  #   return option_manager
   
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
@@ -32,7 +32,7 @@ class ConfigurationSheet(BaseSheet):
       if name == 'CT VERSION':
         parts = value.split('=')
         if len(parts) == 2:
-          ct_version_manager.add(parts[0].strip(), parts[1].strip())
+          self.managers.ct_version_manager.add(parts[0].strip(), parts[1].strip())
       elif name == 'EMPTY NONE':
         if value.strip().upper() == 'EMPTY':
           self.managers.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)

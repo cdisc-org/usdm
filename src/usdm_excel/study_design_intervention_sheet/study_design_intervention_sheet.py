@@ -1,7 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.alias import Alias
-from usdm_excel.cross_ref import cross_references
-from usdm_excel.id_manager import id_manager
+#from usdm_excel.cross_ref import cross_references
+#from usdm_excel.id_manager import id_manager
 import traceback
 
 from usdm_model.study_intervention import StudyIntervention

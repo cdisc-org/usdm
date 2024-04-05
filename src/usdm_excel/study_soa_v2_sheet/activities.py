@@ -1,4 +1,4 @@
-from usdm_excel.id_manager import id_manager
+#from usdm_excel.id_manager import id_manager
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_v2_sheet.activity import Activity
 import pandas as pd

@@ -1,6 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.id_manager import id_manager
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.id_manager import id_manager
+#from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_v2_sheet.activities import Activities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance

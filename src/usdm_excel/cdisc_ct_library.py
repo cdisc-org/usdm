@@ -2,16 +2,19 @@ import os
 import yaml
 import traceback
 import requests
-#from usdm_excel.id_manager import id_manager
+##from usdm_excel.id_manager import id_manager
 #from usdm_model.code import Code
-from usdm_excel.logger import package_logger
+#from usdm_excel.logger import self._logger
+from usdm_excel.utility import log_exception, log_error
 
 class CDISCCTLibrary():
 
   API_ROOT = 'https://api.library.cdisc.org/api'  
   HEADERS = { "Content-Type":"application/json", "api-key": os.getenv('CDISC_API_KEY') }
     
-  def __init__(self):
+  def __init__(self, errors, logger):
+    self._logger = logger
+    self._errors = errors
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'missing_ct.yaml'))
     self.missing_ct = yaml.load(f, Loader=yaml.FullLoader)
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'cdisc_ct_config.yaml'))
@@ -72,8 +75,7 @@ class CDISCCTLibrary():
       code_list = self._by_code_list[concept_id]
       return self._get_item(code_list, value)
     except Exception as e: 
-      package_logger.error(f"Failed to find '{value}' for klass '{klass}' attribute '{attribute}'")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      log_exception(self._logger, f"Failed to find '{value}' for klass '{klass}' attribute '{attribute}'", e)
       return None
 
   def unit(self, value):
@@ -81,8 +83,8 @@ class CDISCCTLibrary():
       code_list = self._by_code_list['C71620']
       return self._get_item(code_list, value)
     except Exception as e: 
-      package_logger.error(f"Failed to find unit '{value}'") 
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._logger.error(f"Failed to find unit '{value}'") 
+      self._logger.debug(f"{e}\n{traceback.format_exc()}")
       return None
 
   def _get_item(self, code_list, value):
@@ -93,8 +95,7 @@ class CDISCCTLibrary():
           return result
       return None
     except Exception as e:
-      package_logger.error(f"Failed to find CDSIC CT for '{value}' in code ist '{code_list}'") 
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      log_exception(self._logger, f"Failed to find CDSIC CT for '{value}' in code ist '{code_list}'", e)
       return None
 
   def _get_ct(self):
@@ -129,7 +130,7 @@ class CDISCCTLibrary():
     for package in self.cdisc_ct_config['packages']:
       package_full_name = "%sct-%s" % (package, self.version)
       api_url = self._url('/mdr/ct/packages/%s/codelists/%s' % (package_full_name, c_code))
-      package_logger.info(f"CDISC CT Library: {api_url}")
+      self._logger.info(f"CDISC CT Library: {api_url}")
       raw = requests.get(api_url, headers=self.__class__.HEADERS)
       if raw.status_code == 200:
         response = raw.json()
@@ -141,7 +142,7 @@ class CDISCCTLibrary():
           self._check_in_and_add(self._by_pt, item['preferredTerm'], response['conceptId'])
         return
     # If none found in all of the packages, then log error.
-    package_logger.error(f"Failed to find CDSIC CT for C code '{c_code}'")
+    log_error(self._logger, f"Failed to find CDSIC CT for C code '{c_code}'")
 
   def _url(self, relative_url):
     return f"{self.__class__.API_ROOT}{relative_url}"
@@ -157,8 +158,7 @@ class CDISCCTLibrary():
         with open(self._ct_filename(), 'w') as f:
           yaml.dump(data, f, indent=2, sort_keys=True)
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to save CDSIC CT file")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      log_exception(self._logger, "Failed to save CDSIC CT file", e)
 
   def _read_code_lists(self):
     try:
@@ -166,11 +166,10 @@ class CDISCCTLibrary():
         with open(self._ct_filename()) as f:
           return yaml.load(f, Loader=yaml.FullLoader)
       else:
-        package_logger.error(f"Failed to read CDSIC CT file, does not exist")
+        self._logger.error(f"Failed to read CDSIC CT file, does not exist")
         return None
     except Exception as e:
-      package_logger.error(f"Exception '{e}', failed to read CDSIC CT file")
-      package_logger.debug(f"{e}\n{traceback.format_exc()}")
+      log_exception(self._logger, "Failed to read CDSIC CT file", e)
 
   def _code_lists_exist(self):
     return os.path.isfile(self._ct_filename()) 
@@ -178,4 +177,3 @@ class CDISCCTLibrary():
   def _ct_filename(self):
     return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_ct_{self.cdisc_ct_config['version']}.yaml")
 
-cdisc_ct_library = CDISCCTLibrary()

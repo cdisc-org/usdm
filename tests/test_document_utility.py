@@ -1,5 +1,5 @@
 from usdm_excel.document.utility import get_soup
-from usdm_excel.errors.errors import error_manager
+#from usdm_excel.errors.errors import error_manager
 
 from tests.test_factory import Factory
 

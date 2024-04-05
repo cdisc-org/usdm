@@ -4,7 +4,7 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.errors.errors import error_manager
+#from usdm_excel.errors.errors import error_manager
 from usdm_model.code import Code
 
 # def test_sheet_cell_value(mocker):

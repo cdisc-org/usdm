@@ -1,5 +1,5 @@
 from yattag import Doc
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_excel.logger import package_logger
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance, ScheduledInstance

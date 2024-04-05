@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):

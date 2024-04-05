@@ -1,12 +1,14 @@
-from usdm_excel.id_manager import id_manager
-from usdm_excel.cross_ref import cross_references
+from usdm_excel.managers import Managers
 from usdm_model.code import Code
 
 class CodeBase():
 
+  def __init__(self, managers: Managers):
+    self._managers = managers
+
   def _build(self, code, system, version, decode):
-    id = self.managers.id_manager.build_id(Code)
+    id = self._managers.id_manager.build_id(Code)
     instance = Code(id=id, code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
-    self.managers.cross_references.add(instance.id, instance)
+    self._managers.cross_references.add(instance.id, instance)
     return instance
  

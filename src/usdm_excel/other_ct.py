@@ -1,4 +1,3 @@
-from usdm_excel.cdisc_ct_library import cdisc_ct_library
 from usdm_excel.code_base import CodeBase
 
 class OtherCT(CodeBase):

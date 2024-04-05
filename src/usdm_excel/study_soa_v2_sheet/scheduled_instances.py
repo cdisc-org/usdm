@@ -1,7 +1,7 @@
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_v2_sheet.scheduled_instance import ScheduledInstance
-from usdm_excel.cross_ref import cross_references
-from usdm_excel.id_manager import id_manager
+#from usdm_excel.cross_ref import cross_references
+#from usdm_excel.id_manager import id_manager
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 from usdm_model.scheduled_instance import ConditionAssignment
 

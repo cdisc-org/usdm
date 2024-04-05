@@ -1,11 +1,12 @@
 import json
 import os
-from usdm_excel.id_manager import id_manager
+from usdm_excel.managers import Managers
 from usdm_excel.code_base import CodeBase
 
 class ISO3166(CodeBase):
 
-  def __init__(self):
+  def __init__(self, managers: Managers):
+    super().__init__(managers)
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'iso_3166.json'))
     self.db = json.load(f)
 

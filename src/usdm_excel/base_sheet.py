@@ -1,15 +1,16 @@
 import os
+import logging
 import traceback
 import pandas as pd
 from openpyxl import load_workbook
-from usdm_excel.id_manager import id_manager
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
-from usdm_excel.ct_version_manager import ct_version_manager
-from usdm_excel.errors.errors import error_manager
-from usdm_excel.logger import package_logger
-from usdm_excel.option_manager import *
-from usdm_excel.cross_ref import cross_references
+##from usdm_excel.id_manager import id_manager
+#from usdm_excel.ct_version_manager import ct_version_manager
+#from usdm_excel.errors.errors import error_manager
+#from usdm_excel.logger import package_logger
+##from usdm_excel.cross_ref import cross_references
+from usdm_excel.option_manager import Options
 from usdm_excel.quantity_type import QuantityType
 from usdm_excel.range_type import RangeType
 from usdm_excel.iso_3166 import ISO3166
@@ -26,7 +27,7 @@ class BaseSheet():
   class FormatError(Exception):
     pass
 
-  def __init__(self, file_path, manager, managers, sheet_name, header=0, optional=False, converters={}, require={}):
+  def __init__(self, file_path, managers, sheet_name, header=0, optional=False, converters={}, require={}):
     self.file_path = file_path
     self.managers = managers
     self.dir_path, self.filename = os.path.split(file_path)
@@ -363,10 +364,10 @@ class BaseSheet():
     return self.sheet.columns.get_loc(column_name)
 
   def _info(self, row, column, message):
-     package_logger.info(self._format(row + 1, column + 1, message))
+     self.managers.logger.info(self._format(row + 1, column + 1, message))
      
   def _general_info(self, message):
-     package_logger.info(self._format(None, None, message))
+     self.managers.logger.info(self._format(None, None, message))
      
   def _error(self, row, column, message):
     try:
@@ -390,7 +391,7 @@ class BaseSheet():
     self.managers.errors.add(self.sheet_name, None, None, message, self.managers.errors.DEBUG)
 
   def _traceback(self, message):
-    package_logger.error(message)
+    self.managers.logger.error(message)
 
   def _format(self, row, column, message):
     if self.sheet_name == None:

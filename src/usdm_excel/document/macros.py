@@ -4,7 +4,7 @@ import traceback
 from .template_m11 import TemplateM11
 from .template_plain import TemplatePlain
 from .elements import Elements
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 from .utility import get_soup
 

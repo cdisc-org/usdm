@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup   
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.document.soa import SoA

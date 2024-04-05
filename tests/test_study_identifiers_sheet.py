@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):

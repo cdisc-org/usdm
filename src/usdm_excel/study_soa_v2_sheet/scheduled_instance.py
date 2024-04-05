@@ -1,8 +1,8 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_v2_sheet.conditons import Conditons
-from usdm_excel.id_manager import id_manager
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.id_manager import id_manager
+#from usdm_excel.cross_ref import cross_references
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.encounter import Encounter
 from usdm_model.study_epoch import StudyEpoch

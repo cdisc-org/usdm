@@ -4,7 +4,7 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
-from usdm_excel.cross_ref import cross_references
+#from usdm_excel.cross_ref import cross_references
 from usdm_model.api_base_model import ApiBaseModelWithId
 
 def test_create(mocker):

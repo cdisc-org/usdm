@@ -1,4 +1,4 @@
-from usdm_excel.id_manager import id_manager
+#from usdm_excel.id_manager import id_manager
 from usdm_model.code import Code
 
 class NCIt():

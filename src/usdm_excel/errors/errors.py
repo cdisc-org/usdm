@@ -1,5 +1,5 @@
+import logging
 from .error import Error
-from usdm_excel.logger import package_logger
 
 class Errors():
 
@@ -8,7 +8,8 @@ class Errors():
   DEBUG = Error.DEBUG
   INFO = Error.INFO
 
-  def __init__(self):
+  def __init__(self, logger: logging):
+    self._logger = logger
     self.items = []
 
   def clear(self):
@@ -17,7 +18,7 @@ class Errors():
   def add(self, sheet: str, row: int, column: int, message: str, level: int=Error.ERROR) -> None:
     error = Error(sheet, row, column, message, level)
     self.items.append(error)      
-    package_logger.log(level, error.to_log())
+    self._logger.log(level, error.to_log())
 
   def count(self) -> int:
     return len(self.items)
@@ -29,4 +30,3 @@ class Errors():
         result.append(item.to_dict())
     return result
 
-error_manager = Errors()
