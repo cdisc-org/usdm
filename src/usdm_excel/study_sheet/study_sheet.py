@@ -183,7 +183,7 @@ class StudySheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias.code(code, [])})
+            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias.code(code, [])})
       return result
 
   def _set_title(self, rindex, cindex, title_type):

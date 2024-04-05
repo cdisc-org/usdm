@@ -100,7 +100,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     #print(f"ENROL1: {value}")
     if value.strip() == "":
       self._error(row_index, col_index, "Empty cell detected where geographic enrollment values expected")
-      return [{'type': CDISCCT(self.managers.cdisc_ct_lbrary).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
+      return [{'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
     else:
       for item in self._state_split(value):
         #print(f"ENROL2: {item}")
@@ -110,7 +110,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
           parts = text.split(":")
           if len(parts) == 2:
             quantity = self._get_quantitiy(parts[1].strip())
-            return [{'type': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': quantity}]
+            return [{'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': quantity}]
           else:
             self._error(row_index, col_index, f"Failed to decode enrollment data {item}, no '=' detected")
           return 
@@ -140,7 +140,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic enrollment data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias.code(code, []), 'quantity': quantity})
+            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias.code(code, []), 'quantity': quantity})
       return result
 
   def _get_quantitiy(self, text):
@@ -176,11 +176,11 @@ class StudyDesignAmendmentSheet(BaseSheet):
       text = value.strip()
       parts = text.split("=")
       if len(parts) == 2:
-        return {'code': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('StudyAmendmentReason', 'code', 'Other'), 'other': parts[1].strip()}
+        return {'code': CDISCCT(self.managers).code_for_attribute('StudyAmendmentReason', 'code', 'Other'), 'other': parts[1].strip()}
       else:
         self._error(row_index, col_index, f"Failed to decode reason data {text}, no '=' detected")
     else:
-      code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('StudyAmendmentReason', 'code', value)
+      code = CDISCCT(self.managers).code_for_attribute('StudyAmendmentReason', 'code', value)
       if code is None:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
       return {'code': code, 'other': None}

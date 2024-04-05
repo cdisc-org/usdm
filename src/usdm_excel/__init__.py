@@ -173,9 +173,9 @@ class USDMExcel():
   def _process_soa(self):
     tls = []
     for timeline in self.study_design.other_timelines:
-      tl = StudySoAV2Sheet(self._file_path, timeline, False)
+      tl = StudySoAV2Sheet(self._file_path, self._managers, timeline, False)
       tls.append(tl)
-      self.timelines[timeline] = tl
+      self.study.timelines[timeline] = tl
       self._managers.cross_references.add(timeline, tl.timeline)
     self.soa = StudySoAV2Sheet(self._file_path, self._managers, self.study_design.main_timeline, True)
     tls.append(self.soa)

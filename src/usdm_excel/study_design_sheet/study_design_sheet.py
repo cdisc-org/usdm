@@ -214,7 +214,7 @@ class StudyDesignSheet(BaseSheet):
         text = self.read_cell(rindex, cindex)
         parts = text.split('=')
         if len(parts) == 2: 
-          code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('Masking', 'role', parts[0].strip())
+          code = CDISCCT(self.managers).code_for_attribute('Masking', 'role', parts[0].strip())
           if code:
             mask = Masking(id=self.managers.id_manager.build_id(Masking), description=parts[1].strip(), role=code)
             self.masks.append(mask)
