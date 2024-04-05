@@ -1,18 +1,19 @@
-from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.id_manager import id_manager
 import traceback
-import pandas as pd
+from usdm_excel.base_sheet import BaseSheet
 from usdm_model.organization import ResearchOrganization
 from usdm_model.study_site import StudySite
+from usdm_excel.utility import general_sheet_exception
+from usdm_excel.managers import Managers
 
 class StudyDesignSitesSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignSites'
+  
+  def __init__(self, file_path: str, managers: Managers):
     try:
       self.organizations = []
       self.sites = []
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignSites', optional=True)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         current_org = None
         for index, row in self.sheet.iterrows():
@@ -40,6 +41,5 @@ class StudyDesignSitesSheet(BaseSheet):
           else:
             current_org.manages.append(site)
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 

@@ -1,15 +1,16 @@
-from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.id_manager import id_manager
-#from usdm_excel.cross_ref import cross_references
 import traceback
+from usdm_excel.base_sheet import BaseSheet
 from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
-from usdm_model.range import Range
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignPopulationSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignPopulations'
+  
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignPopulations')
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
       self.population = None
       cohorts = []
       for index, row in self.sheet.iterrows():
@@ -32,9 +33,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       else:
         self._general_error(f"Not main study population detected")
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet")
-      #print(f"{traceback.format_exc()}")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _build_codes(self, row, index):
     code = self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants", allow_empty=True)

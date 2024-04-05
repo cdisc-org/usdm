@@ -1,15 +1,9 @@
 import os
-import logging
 import traceback
 import pandas as pd
 from openpyxl import load_workbook
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
-##from usdm_excel.id_manager import id_manager
-#from usdm_excel.ct_version_manager import ct_version_manager
-#from usdm_excel.errors.errors import error_manager
-#from usdm_excel.logger import package_logger
-##from usdm_excel.cross_ref import cross_references
 from usdm_excel.option_manager import Options
 from usdm_excel.quantity_type import QuantityType
 from usdm_excel.range_type import RangeType

@@ -2,8 +2,10 @@ import pandas as pd
 
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
-#from usdm_excel import ct_version_manager as ctvm
-#from usdm_excel import om
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
 
 def test_defaults(mocker):
   mocked_open = mocker.mock_open(read_data="File")
@@ -11,8 +13,8 @@ def test_defaults(mocker):
   data = {'col_1': ['Option X', 'Option 2', 'Option 3'], 'col_2': ['maybe', 'True', '']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  configuration = ConfigurationSheet("")
-  assert om.get(Options.EMPTY_NONE) == EmptyNoneOption.NONE.value
+  configuration = ConfigurationSheet("", managers)
+  assert managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.NONE.value
 
 def test_sdr_deprecated(mocker):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -21,7 +23,7 @@ def test_sdr_deprecated(mocker):
   data = {'col_1': ['sdr DESCRIPTION'], 'col_2': ['']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  configuration = ConfigurationSheet("")
+  configuration = ConfigurationSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "configuration"
   assert mock_error.call_args[0][1] == None
@@ -35,7 +37,7 @@ def test_sdr_root_deprecated(mocker):
   data = {'col_1': ['SDR root'], 'col_2': ['']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  configuration = ConfigurationSheet("")
+  configuration = ConfigurationSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "configuration"
   assert mock_error.call_args[0][1] == None
@@ -49,7 +51,7 @@ def test_set_prev_next_deprecated(mocker):
   data = {'col_1': ['SDR prev next'], 'col_2': ['']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  configuration = ConfigurationSheet("")
+  configuration = ConfigurationSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "configuration"
   assert mock_error.call_args[0][1] == None

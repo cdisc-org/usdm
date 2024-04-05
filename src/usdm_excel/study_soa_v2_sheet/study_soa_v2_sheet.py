@@ -1,12 +1,11 @@
+import traceback
 from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.id_manager import id_manager
-#from usdm_excel.cross_ref import cross_references
 from usdm_excel.study_soa_v2_sheet.activities import Activities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.schedule_timeline import ScheduleTimeline
-
-import traceback
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudySoAV2Sheet(BaseSheet):
 
@@ -15,9 +14,9 @@ class StudySoAV2Sheet(BaseSheet):
   CONDITION_ROW = 2
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, manager, sheet_name, main=False, require={}):
+  def __init__(self, file_path: str, managers: Managers, sheet_name: str, main: bool=False, require: dict={}):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name=sheet_name, header=None, require=require)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=sheet_name, header=None, require=require)
       self.name = ""
       self.description = ""
       self.condition = ""
@@ -43,8 +42,7 @@ class StudySoAV2Sheet(BaseSheet):
       self.timeline = self._add_timeline(self.name, self.description, self.condition, self._raw_instances.instances, self._raw_instances.exits)
 
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(sheet_name, e)
 
   def check_timing_references(self, timings, timing_check):
     timing_set = []

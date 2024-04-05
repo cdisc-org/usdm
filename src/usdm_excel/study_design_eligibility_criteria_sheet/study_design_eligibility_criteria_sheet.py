@@ -1,17 +1,18 @@
+import re
+import traceback
 from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.id_manager import id_manager
-#from usdm_excel.cross_ref import cross_references
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
-
-import traceback
-import re
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignEligibilityCriteriaSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignEligibilityCriteria'
+  
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignEligibilityCriteria', optional=True)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -28,8 +29,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
             self.items.append(criteria)
         
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
     try:

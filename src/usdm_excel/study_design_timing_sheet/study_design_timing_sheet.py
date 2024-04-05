@@ -1,18 +1,20 @@
+import re
+import traceback
 from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.id_manager import id_manager
 from usdm_excel.iso_8601_duration import ISO8601Duration
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.timing import Timing
-import traceback
-import re
+from usdm_excel.utility import general_sheet_exception
+from usdm_excel.managers import Managers
 
 class StudyDesignTimingSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignTiming'
+
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignTiming', optional=True)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -51,8 +53,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self.managers.cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _set_text_and_encoded(self, duration):
     the_duration = duration.strip()

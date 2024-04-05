@@ -1,15 +1,17 @@
-from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.id_manager import id_manager
-#from usdm_excel.document.macros import Macros
-from usdm_model.narrative_content import NarrativeContent
 import traceback
+from usdm_excel.base_sheet import BaseSheet
+from usdm_model.narrative_content import NarrativeContent
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignContentSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignContent'
+
+  def __init__(self, file_path: str, managers: Managers):
     try:
       self.items = []
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignContent', optional=True, converters={"sectionName": str})
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True, converters={"sectionName": str})
       if self.success:
         current_level = 0
         new_level = 0
@@ -67,8 +69,7 @@ class StudyDesignContentSheet(BaseSheet):
             previous_item = item
           self.double_link(self.items, 'previousId', 'nextId')
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def resolve(self, study):
     macros = Macros(self, study)

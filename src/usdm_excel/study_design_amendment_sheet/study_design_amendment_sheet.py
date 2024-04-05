@@ -1,6 +1,5 @@
+import traceback
 from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.id_manager import id_manager
-#from usdm_excel.cross_ref import cross_references
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
 from usdm_model.geographic_scope import SubjectEnrollment
@@ -9,14 +8,16 @@ from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
 from usdm_excel.quantity_type import QuantityType
-
-import traceback
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignAmendmentSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyAmendments'
+  
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyAmendments', optional=True)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -56,8 +57,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
         self.previous_link(self.items, 'previousId')
         
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _enrollments(self, enrollments):
     results = []

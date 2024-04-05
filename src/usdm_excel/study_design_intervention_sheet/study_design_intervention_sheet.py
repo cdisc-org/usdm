@@ -1,18 +1,19 @@
+import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.alias import Alias
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.id_manager import id_manager
-import traceback
-
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.agent_administration import AgentAdministration
 from usdm_model.administration_duration import AdministrationDuration
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignInterventionSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignInterventions'
+
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignInterventions')
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
       self.items = []
       self.current_name = None
       self.current_intervention = None
@@ -23,8 +24,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         # Read intervention in present
         self._create_intervention(index, agent_admin)
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _create_intervention(self, index, agent_admin):
     name = self.read_cell_by_name(index, 'name')

@@ -7,12 +7,16 @@ from usdm_model.analysis_population import AnalysisPopulation
 from usdm_model.estimand import Estimand
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.endpoint import Endpoint
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignEstimandsSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignEstimands'
+  
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignEstimands')
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
       self.estimands = []
       current = None
       current_ice_name = None
@@ -59,8 +63,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
 
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _get_treatment(self, name):
     return self._get_cross_reference(StudyIntervention, name, 'study intervention')

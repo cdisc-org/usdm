@@ -1,20 +1,22 @@
+import traceback
 from usdm_model.organization import Organization
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
-##from usdm_excel.id_manager import id_manager
-##from usdm_excel.cross_ref import cross_references
-import traceback
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
+
 
 class StudyIdentifiersSheet(BaseSheet):
 
-  def __init__(self, file_path, manager: str):
+  SHEET_NAME = 'studyIdentifiers'
+  
+  def __init__(self, file_path, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyIdentifiers')
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
       self.identifiers = []
       self.process_sheet()
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
       
   def process_sheet(self):
     self.identifiers = []

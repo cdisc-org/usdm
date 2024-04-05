@@ -1,13 +1,16 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.cross_ref import cross_references
 from usdm_model.condition import Condition
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignConditionSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignConditions'
+
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignConditions', optional=True)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -25,8 +28,7 @@ class StudyDesignConditionSheet(BaseSheet):
             self.items.append(item)
             self.managers.cross_references.add(name, item)     
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _process_context_references(self, references_list, index):
     return self._process_references(references_list, ['ScheduledActivityInstance', 'Activity'], index, 'context', False)

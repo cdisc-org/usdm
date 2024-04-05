@@ -8,9 +8,13 @@ from usdm_excel.alias import Alias
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.option_manager import Options
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudySheet(BaseSheet):
 
+  SHEET_NAME = 'study'
+  
   NAME_TITLE = 'name'
   TITLE_TITLE = 'studyTitle'
   VERSION_TITLE = 'studyVersion'
@@ -35,9 +39,9 @@ class StudySheet(BaseSheet):
   STUDY_VERSION_DATE = 'study_version'
   PROTOCOL_VERSION_DATE = 'protocol_document'
 
-  def __init__(self, file_path, manager):
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='study', header=None)
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, header=None)
       self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE]
       self.phase = None
       self.version = None
@@ -63,8 +67,7 @@ class StudySheet(BaseSheet):
         self.dates[category] = []
       self._process_sheet()
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

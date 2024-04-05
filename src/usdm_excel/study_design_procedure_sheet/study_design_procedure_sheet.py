@@ -1,15 +1,17 @@
-from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
+from usdm_excel.base_sheet import BaseSheet
 from usdm_model.procedure import Procedure
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignProcedureSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignProcedures'
+  
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignProcedures')
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
       self.procedures = []
       for index, row in self.sheet.iterrows():
         xref = self.read_cell_by_name(index, "xref", default="", must_be_present=False)
@@ -18,8 +20,6 @@ class StudyDesignProcedureSheet(BaseSheet):
         label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
         type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, ['procedureCode', 'code'])
-        #conditional = self.read_boolean_cell_by_name(index, 'procedureIsConditional')
-        #reason = self.read_cell_by_name(index, 'procedureIsConditionalReason')
         try:
           item = Procedure(id=self.managers.id_manager.build_id(Procedure),
             name=name,
@@ -27,8 +27,6 @@ class StudyDesignProcedureSheet(BaseSheet):
             label=label,
             procedureType=type, 
             code=code 
-            #isConditional=conditional, 
-            #isConditionalReason=reason
           )
         except Exception as e:
           self._general_error(f"Failed to create Procedure object, exception {e}")
@@ -38,5 +36,4 @@ class StudyDesignProcedureSheet(BaseSheet):
           cross_ref = xref if xref else name
           self.managers.cross_references.add(cross_ref, item)        
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)

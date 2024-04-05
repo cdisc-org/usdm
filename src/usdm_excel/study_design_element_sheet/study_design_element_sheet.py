@@ -1,16 +1,18 @@
-from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.id_manager import id_manager
 import traceback
 import pandas as pd
+from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_element import StudyElement
 from usdm_model.transition_rule import TransitionRule
+from usdm_excel.managers import Managers
+from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignElementSheet(BaseSheet):
 
-  def __init__(self, file_path, manager):
+  SHEET_NAME = 'studyDesignElements'
+
+  def __init__(self, file_path: str, managers: Managers):
     try:
-      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignElements')
+      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
       self.items = []
       for index, row in self.sheet.iterrows():
         start_rule = None
@@ -42,6 +44,5 @@ class StudyDesignElementSheet(BaseSheet):
           cross_ref = xref if xref else name
           self.managers.cross_references.add(cross_ref, item)     
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      general_sheet_exception(self.SHEET_NAME, e)
 
