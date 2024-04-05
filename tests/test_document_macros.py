@@ -3,7 +3,6 @@ from usdm_excel.document.macros import Macros
 
 from tests.test_factory import Factory
 from tests.test_data_factory import MinimalStudy
-from tests.test_utility import clear as tu_clear
 
 factory = Factory()
 
@@ -23,7 +22,7 @@ def create_criteria():
   return results
 
 def test_create(mocker):
-  tu_clear()
+  factory.clear()
   minimal = MinimalStudy()
   minimal.population.criteria = create_criteria()
   bs = factory.base_sheet(mocker)

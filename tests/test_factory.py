@@ -17,7 +17,7 @@ class Factory():
     return self._managers
   
   def item(self, cls, params):
-    params['id'] = params['id'] if 'id' in params else self.managers.id_manager.build_id(cls)
+    params['id'] = params['id'] if 'id' in params else self._managers.id_manager.build_id(cls)
     params['instanceType'] = cls.__name__
     return cls(**params)
 
@@ -33,7 +33,7 @@ class Factory():
     data = []
     mock_read = mocker.patch("pandas.read_excel")
     mock_read.return_value = pd.DataFrame(data, columns=[])
-    return BaseSheet("", "")
+    return BaseSheet("", self._managers, "")
 
   def cdisc_code(self, code, decode):
     return self._build_code(code=code, system="xxx", version="1", decode=decode)
