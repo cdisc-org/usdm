@@ -1,5 +1,5 @@
 import pytest
-from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
+from usdm_excel.cdisc_bc_library import CDISCBCLibrary
 
 xfail = pytest.mark.xfail
 
@@ -39,8 +39,8 @@ def test__get_package_items(self):
   assert 0
   
 def test__url():
-  item = CDISCBiomedicalConcepts()
-  assert (item._url('something')) == f"{CDISCBiomedicalConcepts.API_ROOT}something"
+  item = CDISCBCLibrary()
+  assert (item._url('something')) == f"{CDISCBCLibrary.API_ROOT}something"
 
 @xfail
 def test__bc_as_usdm(mocker):

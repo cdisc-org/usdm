@@ -1,26 +1,25 @@
-from usdm_excel.cdisc_ct import CDISCCT
-#from usdm_excel.cdisc_ct_library import cdisc_ct_library
-from usdm_excel.ncit import NCIt
-#from usdm_excel.id_manager import id_manager
-from usdm_excel.alias import Alias
-from usdm_model.biomedical_concept import BiomedicalConcept
-from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
-from usdm_model.response_code import ResponseCode
-#from usdm_model.alias_code import AliasCode
-#from usdm_excel.logger import package_logger
-
 import os
 import yaml
 import requests
+import logging
 import traceback
+from usdm_excel.cdisc_ct import CDISCCT
+from usdm_excel.alias import Alias
+from usdm_excel.errors.errors import Errors
+from usdm_model.biomedical_concept import BiomedicalConcept
+from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
+from usdm_model.response_code import ResponseCode
 
 class CDISCBCLibrary():
 
   API_ROOT = 'https://api.library.cdisc.org/api/cosmos/v2'    
   
-  def __init__(self):
-    self.api_key = os.getenv('CDISC_API_KEY')
-    self.headers =  {"Content-Type":"application/json", "api-key": self.api_key}
+  def __init__(self, errors: Errors, logger: logging, ct_library):
+    self._errors = errors
+    self._logger = logger
+    self._ct_library = ct_library
+    self._api_key = os.getenv('CDISC_API_KEY')
+    self._headers =  {"Content-Type":"application/json", "api-key": self._api_key}
     self._package_metadata = {}
     self._package_items = {}
     self._bc_responses = {}
@@ -89,13 +88,13 @@ class CDISCBCLibrary():
     for url_type, url in urls.items():
       try:
         api_url = self._url(url)
-        package_logger.info(f"CDISC BC Library: {url_type}: {url}")
-        raw = requests.get(api_url, headers=self.headers)
+        self._logger.info(f"CDISC BC Library: {url_type}: {url}")
+        raw = requests.get(api_url, headers=self._headers)
         response = raw.json()
         self._package_metadata[url_type] = response['_links']['packages']
       except Exception as e:
         self._exception(f"Exception '{e}', failed to retrieve CDISC BC package metadata from '{api_url}'", e)
-    package_logger.debug(f"PACKAGES: {self._package_metadata}")
+    self._logger.debug(f"PACKAGES: {self._package_metadata}")
         
   def _get_package_items(self) -> dict:
     #self._package_items, self._map
@@ -108,17 +107,17 @@ class CDISCBCLibrary():
     try:
       response_field = {'sdtm': 'datasetSpecializations', 'generic': 'biomedicalConcepts'}
       api_url = self._url(package['href']) if 'href' in package else 'not set'
-      package_logger.info(f"CDISC BC Library: {package_type}, {api_url}")
-      raw = requests.get(api_url, headers=self.headers)
+      self._logger.info(f"CDISC BC Library: {package_type}, {api_url}")
+      raw = requests.get(api_url, headers=self._headers)
       response = raw.json()
       for item in response['_links'][response_field[package_type]]:
-        package_logger.debug(f"ITEM: {item}")
+        self._logger.debug(f"ITEM: {item}")
         key = item['title'].upper()
         if package_type == 'sdtm':
           self._package_items[package_type][key] = item
           #map[item['href']] = key
         elif package_type == 'generic' and not key in self._package_items:
-          package_logger.info(f"GENERIC: Detected generic only BC {key}")
+          self._logger.info(f"GENERIC: Detected generic only BC {key}")
           self._package_items[package_type][key] = item
           self._map[item['href']] = key
     except Exception as e:
@@ -146,7 +145,7 @@ class CDISCBCLibrary():
             #print(f"POP: {href}")
             self._map.pop(generic['_links']['self']['href'])
           else:
-            package_logger.error(f"Missing reference when popping {href}")
+            self._logger.error(f"Missing reference when popping {href}")
     #print(f"REMAINING: {self._map}")
 
   def _get_generic_bcs(self) -> BiomedicalConcept:
@@ -165,18 +164,18 @@ class CDISCBCLibrary():
         self._bcs[name] = bc
 
   def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
-    concept_code = CDISCCT(self.managers.cdisc_ct_library).code(api_bc['conceptId'], api_bc['shortName'])
+    concept_code = CDISCCT(self._ct_library).code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, api_bc['_links']['self']['href'], concept_code)
 
   def _generic_bc_property_as_usdm(self, property) -> BiomedicalConceptProperty:
-    concept_code = CDISCCT(self.managers.cdisc_ct_library).code(property['conceptId'], property['shortName'])
+    concept_code = CDISCCT(self._ct_library).code(property['conceptId'], property['shortName'])
     responses = []
     if 'exampleSet' in property:
       for example in property['exampleSet']:
-        term = cdisc_ct_library.preferred_term(example)
+        term = self._ct_library.preferred_term(example)
         if term != None:
-          code = CDISCCT(self.managers.cdisc_ct_library).code(term['conceptId'], term['preferredTerm'])
+          code = CDISCCT(self._ct_library).code(term['conceptId'], term['preferredTerm'])
           code.id = "tbd"
           responses.append(ResponseCode(id="tbd", isEnabled=True, code=code))
     return self._biomedical_concept_property_object(property['shortName'], property['shortName'], property['dataType'], responses, concept_code)
@@ -184,21 +183,21 @@ class CDISCBCLibrary():
   def _sdtm_bc_as_usdm(self, sdtm, generic) -> BiomedicalConcept:
     try:
       if self._process_sdtm_bc(sdtm['shortName']):
-        package_logger.debug(f"BC: {sdtm}\n\n{generic}")
+        self._logger.debug(f"BC: {sdtm}\n\n{generic}")
         role_variable = self._get_role_variable(sdtm)
         if role_variable:
           if 'assignedTerm' in role_variable:
             if 'conceptId' in role_variable['assignedTerm'] and 'value' in role_variable['assignedTerm']:
-              concept_code = CDISCCT(self.managers.cdisc_ct_library).code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+              concept_code = CDISCCT(self._ct_library).code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
             else:
-              package_logger.error(f"Failed to set BC concept 1, {sdtm['shortName']}")
-              concept_code = CDISCCT(self.managers.cdisc_ct_library).code('No Concept Code', role_variable['assignedTerm']['value'])
+              self._logger.error(f"Failed to set BC concept 1, {sdtm['shortName']}")
+              concept_code = CDISCCT(self._ct_library).code('No Concept Code', role_variable['assignedTerm']['value'])
           else:
-            package_logger.error(f"Failed to set BC concept 2, {sdtm['shortName']}")
-            concept_code = CDISCCT(self.managers.cdisc_ct_library).code(generic['conceptId'], generic['shortName'])
+            self._logger.error(f"Failed to set BC concept 2, {sdtm['shortName']}")
+            concept_code = CDISCCT(self._ct_library).code(generic['conceptId'], generic['shortName'])
         else:
-          package_logger.error(f"Failed to set BC concept {sdtm['shortName']}")
-          concept_code = CDISCCT(self.managers.cdisc_ct_library).code(generic['conceptId'], generic['shortName'])
+          self._logger.error(f"Failed to set BC concept {sdtm['shortName']}")
+          concept_code = CDISCCT(self._ct_library).code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
         return self._biomedical_concept_object(sdtm['shortName'], sdtm['shortName'], synonyms, sdtm['_links']['self']['href'], concept_code)
@@ -210,44 +209,44 @@ class CDISCBCLibrary():
 
   def _sdtm_bc_property_as_usdm(self, sdtm_property, generic) -> BiomedicalConceptProperty:
     try:
-      package_logger.debug(f"NAME: {sdtm_property['name']}, {sdtm_property['name'][2:]}")
+      self._logger.debug(f"NAME: {sdtm_property['name']}, {sdtm_property['name'][2:]}")
       if self._process_property(sdtm_property['name']):
-        package_logger.debug(f"PROPERTY: {sdtm_property}")
+        self._logger.debug(f"PROPERTY: {sdtm_property}")
         if 'dataElementConceptId' in sdtm_property:
           generic_match = self._get_dec_match(generic, sdtm_property['dataElementConceptId'])
           if generic_match:
-            concept_code = CDISCCT(self.managers.cdisc_ct_library).code(generic_match['conceptId'], generic_match['shortName'])
+            concept_code = CDISCCT(self._ct_library).code(generic_match['conceptId'], generic_match['shortName'])
           else:
             if 'assignedTerm' in sdtm_property and 'conceptId' in sdtm_property['assignedTerm'] and 'value' in sdtm_property['assignedTerm']:
-              concept_code = CDISCCT(self.managers.cdisc_ct_library).code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+              concept_code = CDISCCT(self._ct_library).code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
             else:
-              package_logger.error(f"Failed to set property concept 1, {sdtm_property}")
-              concept_code = CDISCCT(self.managers.cdisc_ct_library).code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+              self._logger.error(f"Failed to set property concept 1, {sdtm_property}")
+              concept_code = CDISCCT(self._ct_library).code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
         else:
           if 'assignedTerm' in sdtm_property:
-            concept_code = CDISCCT(self.managers.cdisc_ct_library).code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
+            concept_code = CDISCCT(self._ct_library).code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
           else:
-            package_logger.error(f"Failed to set property concept 2, {sdtm_property}")
-            concept_code = CDISCCT(self.managers.cdisc_ct_library).code('No Concept Code', sdtm_property['name'])
+            self._logger.error(f"Failed to set property concept 2, {sdtm_property}")
+            concept_code = CDISCCT(self._ct_library).code('No Concept Code', sdtm_property['name'])
         responses = []
         codes = []
         if 'valueList' in sdtm_property:
           codelist = sdtm_property['codelist']['conceptId'] if 'codelist' in sdtm_property else None
           for value in sdtm_property['valueList']:
-            term = cdisc_ct_library.preferred_term(value, codelist)
+            term = self._ct_library.preferred_term(value, codelist)
             if term:
-              code = CDISCCT(self.managers.cdisc_ct_library).code(term['conceptId'], term['preferredTerm'])
+              code = CDISCCT(self._ct_library).code(term['conceptId'], term['preferredTerm'])
               code.id = "tbd"
               codes.append(code)
             else:
-              term = cdisc_ct_library.submission(value, codelist)
+              term = self._ct_library.submission(value, codelist)
               if term:
-                code = CDISCCT(self.managers.cdisc_ct_library).code(term['conceptId'], term['preferredTerm'])
+                code = CDISCCT(self._ct_library).code(term['conceptId'], term['preferredTerm'])
                 code.id = "tbd"
                 codes.append(code)
               else:
                 cl = f", code list {sdtm_property['codelist']['conceptId'] if 'codelist' in sdtm_property else '<not defined>'}"
-                package_logger.error(f"Failed to find submission or preferred term '{value}' {cl}")
+                self._logger.error(f"Failed to find submission or preferred term '{value}' {cl}")
         for code in codes:
          response_code = ResponseCode(id="tbd", isEnabled=True, code=code)
          responses.append(response_code)
@@ -335,7 +334,7 @@ class CDISCBCLibrary():
 
   def _get_from_url_all(self, name, details) -> dict:
     try:
-      package_logger.debug(f"DETAILS: {details}")
+      self._logger.debug(f"DETAILS: {details}")
       sdtm_response = self._get_from_url(details['href'])
       generic = sdtm_response["_links"]["parentBiomedicalConcept"]
       generic_response = self._get_from_url(generic['href'])
@@ -346,8 +345,8 @@ class CDISCBCLibrary():
 
   def _get_from_url(self, url):
     api_url = self._url(url)
-    package_logger.info("CDISC BC Library: %s" % api_url)
-    raw = requests.get(api_url, headers=self.headers)
+    self._logger.info("CDISC BC Library: %s" % api_url)
+    raw = requests.get(api_url, headers=self._headers)
     result = raw.json()
     return result
 
@@ -367,7 +366,7 @@ class CDISCBCLibrary():
         with open(self._bcs_filename()) as f:
           return yaml.load(f, Loader=yaml.FullLoader)
       else:
-        package_logger.error(f"Failed to read CDSIC BC file, does not exist")
+        self._logger.error(f"Failed to read CDSIC BC file, does not exist")
         return None
     except Exception as e:
       self._exception(f"Exception '{e}', failed to read CDSIC CT file", e)
@@ -379,5 +378,5 @@ class CDISCBCLibrary():
     return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bcs.yaml")
 
   def _exception(self, message, e):
-    package_logger.error(message)
-    package_logger.error(f"{e}\n{traceback.format_exc()}")
+    self._logger.error(message)
+    self._logger.error(f"{e}\n{traceback.format_exc()}")
