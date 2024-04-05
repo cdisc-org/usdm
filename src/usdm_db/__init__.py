@@ -26,10 +26,9 @@ class USDMDb():
   def from_json(self, data):
     self._wrapper = Wrapper.model_validate(data)
     
-
   def from_excel(self, file_path):
     self._excel = USDMExcel(file_path)
-    self._wrapper = self._excel.wrapper
+    self._wrapper = self._excel.execute()
     return self._excel.errors()
 
   def to_json(self):

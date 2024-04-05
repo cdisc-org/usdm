@@ -1,3 +1,4 @@
+import logging
 from usdm_excel.errors.errors import Errors
 
 class CrossRef():
@@ -5,8 +6,9 @@ class CrossRef():
   class PathError(Exception):
     pass
 
-  def __init__(self, errors: Errors):
+  def __init__(self, errors: Errors, logger: logging):
     self._errors = errors
+    self._logger = logger
     self._references = {}
     self._identifiers = {}
 

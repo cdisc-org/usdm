@@ -1,6 +1,7 @@
 import yaml
 import csv
 from usdm_excel import USDMExcel
+from usdm_db import USDMDb
 from uuid import UUID
 
 SAVE_ALL = False
@@ -21,9 +22,10 @@ def read_error_csv(file):
 
 def run_test(filename, mocker, save=False):
   fake_uuids = (UUID(f'00000000-0000-4000-8000-{i:012}', version=4) for i in range(10000))
-  mocker.patch("usdm_excel.export_as_neo4j_dict.uuid4", side_effect=fake_uuids)
-  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result = excel.to_neo4j_dict()
+  mocker.patch("usdm_db.neo4j_dict.uuid4", side_effect=fake_uuids)
+  usdm = USDMDb()
+  usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result = usdm.to_neo4j_dict()
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:

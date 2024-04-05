@@ -1,14 +1,16 @@
 import pytest
 import pandas as pd
+from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
+from usdm_model.code import Code
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
 
 xfail = pytest.mark.xfail
 
-from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
-#from usdm_excel.cross_ref import cross_references
-from usdm_model.code import Code
-
 def test_create(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -24,7 +26,7 @@ def test_create(mocker):
   data = [['Arm 1', 'Arm One', 'C12345', 'Subject', 'C99999'], ['Arm 2', 'Arm Two', 'C12345', 'BYOD', 'C99999'], ['Arm 3', 'Arm Three', 'C12345', 'ePRO', 'C99999']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription', 'studyArmType', 'studyArmDataOriginDescription', 'studyArmDataOriginType'])
-  arms = StudyDesignArmSheet("")
+  arms = StudyDesignArmSheet("", managers)
   assert len(arms.items) == 3
   assert arms.items[0].id == 'ArmId_1'
   assert arms.items[0].name == 'Arm 1'
@@ -38,7 +40,7 @@ def test_create(mocker):
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_with_name_and_label(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -54,7 +56,7 @@ def test_create_with_name_and_label(mocker):
   data = [['Arm 1', 'Arm One', 'Arm 1', 'C12345', 'Subject', 'C99999'], ['Arm 2', 'Arm Two', 'Arm 2', 'C12345', 'BYOD', 'C99999'], ['Arm 3', 'Arm Three', 'Arm Tre', 'C12345', 'ePRO', 'C99999']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'type', 'studyArmDataOriginDescription', 'dataOriginType'])
-  arms = StudyDesignArmSheet("")
+  arms = StudyDesignArmSheet("", managers)
   assert len(arms.items) == 3
   assert arms.items[0].id == 'ArmId_1'
   assert arms.items[0].name == 'Arm 1'
@@ -69,27 +71,27 @@ def test_create_with_name_and_label(mocker):
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_empty(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription', 'studyArmType'])
-  arms = StudyDesignArmSheet("")
+  arms = StudyDesignArmSheet("", managers)
   assert len(arms.items) == 0
 
 def test_read_cell_by_name_error(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['Arm 1', 'Arm One']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription'])
-  arms = StudyDesignArmSheet("")
+  arms = StudyDesignArmSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignArms"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'studyArmType, type' in sheet' raised reading sheet."
+  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'studyArmType, type' in sheet' raised reading sheet 'studyDesignArms'"
   

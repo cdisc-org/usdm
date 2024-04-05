@@ -1,10 +1,13 @@
 import pytest
 import pandas as pd
-
-xfail = pytest.mark.xfail
-
 from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDesignEpochSheet
 from usdm_model.code import Code
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
+
+xfail = pytest.mark.xfail
 
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -19,7 +22,7 @@ def test_create(mocker):
   data = [['Epoch 1', 'Epoch One', 'C12345'], ['Epoch 2', 'Epoch Two', 'C12345'], ['Epoch 3', 'Epoch Three', 'C12345']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription', 'studyEpochType'])
-  epochs = StudyDesignEpochSheet("")
+  epochs = StudyDesignEpochSheet("", managers)
   assert len(epochs.items) == 3
   assert epochs.items[0].id == 'EpochId_1'
   assert epochs.items[0].name == 'Epoch 1'
@@ -41,7 +44,7 @@ def test_create_with_label(mocker):
   data = [['Epoch 1', 'Epoch One', '1', 'C12345'], ['Epoch 2', 'Epoch Two', '2', 'C12345'], ['Epoch 3', 'Epoch Three', '', 'C12345']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'studyEpochType'])
-  epochs = StudyDesignEpochSheet("")
+  epochs = StudyDesignEpochSheet("", managers)
   assert len(epochs.items) == 3
   assert epochs.items[0].id == 'EpochId_1'
   assert epochs.items[0].name == 'Epoch 1'
@@ -58,7 +61,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription', 'studyEpochType'])
-  epochs = StudyDesignEpochSheet("")
+  epochs = StudyDesignEpochSheet("", managers)
   assert len(epochs.items) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -68,10 +71,10 @@ def test_read_cell_by_name_error(mocker):
   data = [['Epoch 1', 'Epoch One']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription'])
-  epochs = StudyDesignEpochSheet("")
+  epochs = StudyDesignEpochSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignEpochs"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'studyEpochType, type' in sheet' raised reading sheet."
+  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'studyEpochType, type' in sheet' raised reading sheet 'studyDesignEpochs'"
   

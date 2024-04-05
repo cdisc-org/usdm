@@ -1,10 +1,13 @@
 import pytest
 import pandas as pd
-
-xfail = pytest.mark.xfail
-
 from usdm_excel.study_design_encounter_sheet.study_design_encounter_sheet import StudyDesignEncounterSheet
 from usdm_model.code import Code
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
+
+xfail = pytest.mark.xfail
 
 def test_create(mocker):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -23,7 +26,7 @@ def test_create(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['xref', 'encounterName', 'encounterDescription', 'encounterType', 'encounterEnvironmentalSetting', 'encounterContactModes', 'transitionStartRule',	'transitionEndRule'])
-  encounters = StudyDesignEncounterSheet("")
+  encounters = StudyDesignEncounterSheet("", managers)
   assert len(encounters.items) == 3
   assert encounters.items[0].id == 'EncounterId_1'
   assert encounters.items[0].name == 'Encounter 1'
@@ -49,7 +52,7 @@ def test_create_with_label(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['xref', 'name', 'description', 'label', 'type', 'encounterEnvironmentalSetting', 'encounterContactModes', 'transitionStartRule',	'transitionEndRule'])
-  encounters = StudyDesignEncounterSheet("")
+  encounters = StudyDesignEncounterSheet("", managers)
   assert len(encounters.items) == 3
   assert encounters.items[0].id == 'EncounterId_1'
   assert encounters.items[0].name == 'Encounter 1'
@@ -66,7 +69,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['xref', 'encounterName', 'encounterDescription', 'encounterType', 'encounterEnvironmentalSetting', 'encounterContactModes', 'transitionStartRule',	'transitionEndRule'])
-  encounters = StudyDesignEncounterSheet("")
+  encounters = StudyDesignEncounterSheet("", managers)
   assert len(encounters.items) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -76,10 +79,10 @@ def test_read_cell_by_name_error(mocker):
   data = [['E1', 'Encounter 1', 'Encounter One', 'CLINIC', 'in Person', 'start rule', '' ]]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['xref', 'encounterName', 'encounterDescription', 'encounterEnvironmentalSetting', 'encounterContactModes', 'transitionStartRule',	'transitionEndRule'])
-  encounters = StudyDesignEncounterSheet("")
+  encounters = StudyDesignEncounterSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignEncounters"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'encounterType, type' in sheet' raised reading sheet."
+  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'encounterType, type' in sheet' raised reading sheet 'studyDesignEncounters'"
   

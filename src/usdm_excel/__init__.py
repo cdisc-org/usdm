@@ -44,37 +44,37 @@ class USDMExcel():
     self._file_path = file_path
 
   def execute(self):
-    self._process()
+    return self._process()
 
   def errors(self):
     return self._managers.errors.dump(Errors.WARNING)
   
-  def _process(self, file_path):
+  def _process(self):
     try:
     
       # Process all the sheets
       self.study = StudySheet(self._file_path, self._managers)
-      self.timings = StudyDesignTimingSheet(self._file_path, self.manager)
-      self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self.manager)
-      self.study_identifiers = StudyIdentifiersSheet(self._file_path, self.manager)
-      self.procedures = StudyDesignProcedureSheet(self._file_path, self.manager)
-      self.encounters = StudyDesignEncounterSheet(self._file_path, self.manager)
-      self.elements = StudyDesignElementSheet(self._file_path, self.manager)
-      self.arms = StudyDesignArmSheet(self._file_path, self.manager)
-      self.epochs = StudyDesignEpochSheet(self._file_path, self.manager)
-      self.activities = StudyDesignActivitySheet(self._file_path, self.manager)
-      self.study_design = StudyDesignSheet(self._file_path, self.manager)
-      self._process_soa(file_path)
-      self.indications = StudyDesignIndicationSheet(self._file_path, self.manager)
-      self.interventions = StudyDesignInterventionSheet(self._file_path, self.manager)
-      self.study_population = StudyDesignPopulationSheet(self._file_path, self.manager)
-      self.contents = StudyDesignContentSheet(self._file_path, self.manager)
-      self.dictionaries = StudyDesignDictionarySheet(self._file_path, self.manager)
-      self.oe = StudyDesignObjectiveEndpointSheet(self._file_path, self.manager)
-      self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(self._file_path, self.manager)
-      self.estimands = StudyDesignEstimandsSheet(self._file_path, self.manager)
-      self.sites = StudyDesignSitesSheet(self._file_path, self.manager)
-      self.conditions = StudyDesignConditionSheet(self._file_path, self.manager)
+      self.timings = StudyDesignTimingSheet(self._file_path, self._managers)
+      self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._managers)
+      self.study_identifiers = StudyIdentifiersSheet(self._file_path, self._managers)
+      self.procedures = StudyDesignProcedureSheet(self._file_path, self._managers)
+      self.encounters = StudyDesignEncounterSheet(self._file_path, self._managers)
+      self.elements = StudyDesignElementSheet(self._file_path, self._managers)
+      self.arms = StudyDesignArmSheet(self._file_path, self._managers)
+      self.epochs = StudyDesignEpochSheet(self._file_path, self._managers)
+      self.activities = StudyDesignActivitySheet(self._file_path, self._managers)
+      self.study_design = StudyDesignSheet(self._file_path, self._managers)
+      self._process_soa()
+      self.indications = StudyDesignIndicationSheet(self._file_path, self._managers)
+      self.interventions = StudyDesignInterventionSheet(self._file_path, self._managers)
+      self.study_population = StudyDesignPopulationSheet(self._file_path, self._managers)
+      self.contents = StudyDesignContentSheet(self._file_path, self._managers)
+      self.dictionaries = StudyDesignDictionarySheet(self._file_path, self._managers)
+      self.oe = StudyDesignObjectiveEndpointSheet(self._file_path, self._managers)
+      self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(self._file_path, self._managers)
+      self.estimands = StudyDesignEstimandsSheet(self._file_path, self._managers)
+      self.sites = StudyDesignSitesSheet(self._file_path, self._managers)
+      self.conditions = StudyDesignConditionSheet(self._file_path, self._managers)
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
@@ -159,20 +159,21 @@ class USDMExcel():
         self._general_error(f"Failed to create Study object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
 
-      self.wrapper = Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
+      return Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
  
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      self._managers.errors.add(None, None, None, f"Exception '{e}' raised durng processing of excel workbook", self._managers.errors.ERROR)
+      self._managers.logger.error(f"Exception '{e}' raised reading workbook\n{traceback.format_exc()}")
+      return None
 
-  def _process_soa(self, file_path):
+  def _process_soa(self):
     tls = []
     for timeline in self.study_design.other_timelines:
       tl = StudySoAV2Sheet(self._file_path, timeline, False)
       tls.append(tl)
       self.timelines[timeline] = tl
       self._managers.cross_references.add(timeline, tl.timeline)
-    self.soa = StudySoAV2Sheet(self._file_path, self.study_design.main_timeline, True)
+    self.soa = StudySoAV2Sheet(self._file_path, self._managers, self.study_design.main_timeline, True)
     tls.append(self.soa)
     self._set_timing_references(tls)
     self._check_timing_references(tls)

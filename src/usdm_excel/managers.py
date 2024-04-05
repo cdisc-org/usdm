@@ -5,6 +5,7 @@ from usdm_excel.ct_version_manager import CTVersionManager
 from usdm_excel.errors.errors import Errors
 from usdm_excel.option_manager import OptionManager
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
+from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
 
 class Managers():
 
@@ -15,7 +16,8 @@ class Managers():
     self.id_manager = IdManager(self.logger)
     self.ct_version_manager = CTVersionManager(self.logger)
     self.option_manager = OptionManager(self.logger)
-    self.cross_references = CrossRef(self.logger)
+    self.cross_references = CrossRef(self.errors, self.logger)
     self.cdisc_ct_library = CDISCCTLibrary(self.errors, self.logger)
+    cdisc_bc_library = CDISCBiomedicalConcepts(self.errors, self.logger)
 
 

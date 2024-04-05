@@ -162,7 +162,7 @@ class StudySheet(BaseSheet):
       for item in self._state_split(value):
         if item.upper().strip() == "GLOBAL":
           # If we ever find global just return the one code
-          return [{'type': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
+          return [{'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
         else: 
           code = None
           if item.strip():
@@ -193,7 +193,7 @@ class StudySheet(BaseSheet):
       try:
         text = self.read_cell(rindex, cindex)
         if text:
-          code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('StudyVersion', 'titles', title_type)
+          code = CDISCCT(self.managers).code_for_attribute('StudyVersion', 'titles', title_type)
           title = StudyTitle(id=self.managers.id_manager.build_id(StudyTitle), text=text, type=code)
           self.titles.append(title)
           self.managers.cross_references.add(title.id, title)

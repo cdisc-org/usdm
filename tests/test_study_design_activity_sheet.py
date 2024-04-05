@@ -1,11 +1,13 @@
 import pytest
 import pandas as pd
+from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
+from usdm_model.code import Code
+from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 
-from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
-#from usdm_excel.cross_ref import cross_references
-from usdm_model.code import Code
+factory = Factory()
+managers = factory.managers()
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -17,19 +19,14 @@ def test_create(mocker):
   data = [['Activity 1', 'Activity One', '', ''], ['Activity 2', 'Activity Two', 'T', 'Condition 2'], ['Activity 3', 'Activity Three', 'F', '']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription', 'activityIsConditional', 'activityIsConditionalReason'])
-  activities = StudyDesignActivitySheet("")
+  activities = StudyDesignActivitySheet("", managers)
   assert len(activities.items) == 3
   assert activities.items[0].id == 'ActivityId_1'
   assert activities.items[0].name == 'Activity 1'
   assert activities.items[0].description == 'Activity One'
-#  assert activities.items[0].isConditional == False
-#  assert activities.items[0].isConditionalReason == ''
   assert activities.items[1].id == 'ActivityId_2'
   assert activities.items[1].description == 'Activity Two'
-#  assert activities.items[1].isConditional == True
-#  assert activities.items[1].isConditionalReason == 'Condition 2'
   assert activities.items[2].id == 'ActivityId_3'
-#  assert activities.items[2].isConditional == False
   
 def test_create_empty(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -39,7 +36,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyActivityName', 'studyActivityDescription', 'studyActivityType'])
-  activities = StudyDesignActivitySheet("")
+  activities = StudyDesignActivitySheet("", managers)
   assert len(activities.items) == 0
 
   

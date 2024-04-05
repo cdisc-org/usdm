@@ -14,7 +14,7 @@ import yaml
 import requests
 import traceback
 
-class CDISCBiomedicalConcepts():
+class CDISCBCLibrary():
 
   API_ROOT = 'https://api.library.cdisc.org/api/cosmos/v2'    
   
@@ -381,5 +381,3 @@ class CDISCBiomedicalConcepts():
   def _exception(self, message, e):
     package_logger.error(message)
     package_logger.error(f"{e}\n{traceback.format_exc()}")
-
-cdisc_bc_library = CDISCBiomedicalConcepts()
