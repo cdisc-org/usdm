@@ -3,7 +3,6 @@ from usdm_model.organization import Organization
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 
 class StudyIdentifiersSheet(BaseSheet):
@@ -16,7 +15,7 @@ class StudyIdentifiersSheet(BaseSheet):
       self.identifiers = []
       self.process_sheet()
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
       
   def process_sheet(self):
     self.identifiers = []

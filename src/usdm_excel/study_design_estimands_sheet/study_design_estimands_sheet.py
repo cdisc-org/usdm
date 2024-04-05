@@ -8,7 +8,6 @@ from usdm_model.estimand import Estimand
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.endpoint import Endpoint
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignEstimandsSheet(BaseSheet):
 
@@ -63,7 +62,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
 
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _get_treatment(self, name):
     return self._get_cross_reference(StudyIntervention, name, 'study intervention')

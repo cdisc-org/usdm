@@ -14,7 +14,7 @@ def test_create(mocker):
   ]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['DictionaryId_1', 'MapId_1', 'MapId_2', 'DictionaryId_2', 'MapId_3', 'DictionaryId_3', 'MapId_4', 'MapId_5', 'MapId_6']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

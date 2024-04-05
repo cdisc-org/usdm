@@ -2,15 +2,8 @@ import logging
 from enum import Enum
 
 class Options(Enum):
-#  PREVIOUS_NEXT = 'previous'
-#  ROOT = 'root'
-#  DESCRIPTION = 'description'
   EMPTY_NONE = 'empty_none'
   USDM_VERSION = 'usdm_version'
-
-# class PrevNextOption(Enum):
-#   NULL_STRING = 'null_string'
-#   NONE = 'none'
 
 class EmptyNoneOption(Enum):
   EMPTY = 'empty_string'
@@ -43,5 +36,4 @@ class OptionManager():
     else:
       return str(item)
     
-#option_manager = OptionManager()
 

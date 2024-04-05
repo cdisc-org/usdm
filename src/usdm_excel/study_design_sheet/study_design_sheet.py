@@ -10,7 +10,6 @@ from usdm_excel.alias import Alias
 from usdm_excel.option_manager import *
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignSheet(BaseSheet):
 
@@ -58,7 +57,7 @@ class StudyDesignSheet(BaseSheet):
       self.masks = []
       self.process_sheet()
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def process_sheet(self):
     general_params = True

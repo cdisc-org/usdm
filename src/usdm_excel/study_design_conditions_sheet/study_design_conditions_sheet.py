@@ -2,7 +2,6 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.condition import Condition
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignConditionSheet(BaseSheet):
 
@@ -28,7 +27,7 @@ class StudyDesignConditionSheet(BaseSheet):
             self.items.append(item)
             self.managers.cross_references.add(name, item)     
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _process_context_references(self, references_list, index):
     return self._process_references(references_list, ['ScheduledActivityInstance', 'Activity'], index, 'context', False)

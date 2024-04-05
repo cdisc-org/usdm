@@ -9,7 +9,7 @@ def test_create(mocker):
   self.managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Site_1', 'Org_1', 'Addr_1', 'Id_1', 'Site_2', 'Org_2', 'Addr_2', 'Id_2', 'Site_3', 'Org_3', 'Addr_3', 'Id_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

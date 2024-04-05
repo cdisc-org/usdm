@@ -2,7 +2,6 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.organization import ResearchOrganization
 from usdm_model.study_site import StudySite
-from usdm_excel.utility import general_sheet_exception
 from usdm_excel.managers import Managers
 
 class StudyDesignSitesSheet(BaseSheet):
@@ -41,5 +40,5 @@ class StudyDesignSitesSheet(BaseSheet):
           else:
             current_org.manages.append(site)
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 

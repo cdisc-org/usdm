@@ -11,7 +11,7 @@ def test_create(mocker):
   #mock_cross_ref.side_effect=[ApiBaseModelWithId(id="1"), ApiBaseModelWithId(id="2"), ApiBaseModelWithId(id="3"), ApiBaseModelWithId(id="4"), ApiBaseModelWithId(id="5")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=[
     'Code_1', 'Code_2', 'ObjId_1', 'EndId_1', 'Code_3', 'EndId_2', 
     'Code_4', 'Code_5', 'ObjId_2', 'EndId_3', 

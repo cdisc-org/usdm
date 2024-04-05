@@ -7,7 +7,7 @@ from usdm_excel.study_design_encounter_sheet.study_design_encounter_sheet import
 from usdm_model.code import Code
 
 def test_create(mocker):
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['RuleId_1', 'EncounterId_1', 'RuleId_2', 'EncounterId_2', 'EncounterId_3']
   codes = []
   for index in range(1,10):
@@ -33,7 +33,7 @@ def test_create(mocker):
   assert encounters.items[2].type == codes[6]
   
 def test_create_with_label(mocker):
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['RuleId_1', 'EncounterId_1', 'RuleId_2', 'EncounterId_2', 'EncounterId_3']
   codes = []
   for index in range(1,10):

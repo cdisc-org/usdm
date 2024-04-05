@@ -9,7 +9,6 @@ from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
 from usdm_excel.quantity_type import QuantityType
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignAmendmentSheet(BaseSheet):
 
@@ -57,7 +56,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
         self.previous_link(self.items, 'previousId')
         
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _enrollments(self, enrollments):
     results = []

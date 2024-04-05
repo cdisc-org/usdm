@@ -5,7 +5,6 @@ from usdm_excel.iso_8601_duration import ISO8601Duration
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.timing import Timing
-from usdm_excel.utility import general_sheet_exception
 from usdm_excel.managers import Managers
 
 class StudyDesignTimingSheet(BaseSheet):
@@ -53,7 +52,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self.managers.cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _set_text_and_encoded(self, duration):
     the_duration = duration.strip()

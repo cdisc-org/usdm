@@ -2,7 +2,6 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignPopulationSheet(BaseSheet):
 
@@ -33,7 +32,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       else:
         self._general_error(f"Not main study population detected")
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _build_codes(self, row, index):
     code = self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants", allow_empty=True)

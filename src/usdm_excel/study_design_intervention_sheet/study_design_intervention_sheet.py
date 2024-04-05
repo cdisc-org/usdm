@@ -5,7 +5,6 @@ from usdm_model.study_intervention import StudyIntervention
 from usdm_model.agent_administration import AgentAdministration
 from usdm_model.administration_duration import AdministrationDuration
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignInterventionSheet(BaseSheet):
 
@@ -24,7 +23,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         # Read intervention in present
         self._create_intervention(index, agent_admin)
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _create_intervention(self, index, agent_admin):
     name = self.read_cell_by_name(index, 'name')

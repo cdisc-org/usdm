@@ -7,7 +7,7 @@ from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDe
 from usdm_model.code import Code
 
 def test_create(mocker):
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['EpochId_1', 'EpochId_2', 'EpochId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
   expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
@@ -29,7 +29,7 @@ def test_create(mocker):
   assert epochs.items[2].type == expected_3
   
 def test_create_with_label(mocker):
-  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['EpochId_1', 'EpochId_2', 'EpochId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
   expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")

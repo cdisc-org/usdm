@@ -5,7 +5,6 @@ from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudySoAV2Sheet(BaseSheet):
 

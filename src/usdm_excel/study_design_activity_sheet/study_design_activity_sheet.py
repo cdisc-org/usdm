@@ -2,8 +2,6 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.activity import Activity
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignActivitySheet(BaseSheet):
 
@@ -33,5 +31,5 @@ class StudyDesignActivitySheet(BaseSheet):
             self.managers.cross_references.add(name, item)     
         self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 

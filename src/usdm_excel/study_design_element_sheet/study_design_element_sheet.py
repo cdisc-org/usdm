@@ -4,7 +4,6 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_element import StudyElement
 from usdm_model.transition_rule import TransitionRule
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignElementSheet(BaseSheet):
 
@@ -44,5 +43,5 @@ class StudyDesignElementSheet(BaseSheet):
           cross_ref = xref if xref else name
           self.managers.cross_references.add(cross_ref, item)     
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 

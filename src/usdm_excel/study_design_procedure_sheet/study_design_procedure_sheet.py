@@ -3,7 +3,6 @@ import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.procedure import Procedure
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignProcedureSheet(BaseSheet):
 
@@ -36,4 +35,4 @@ class StudyDesignProcedureSheet(BaseSheet):
           cross_ref = xref if xref else name
           self.managers.cross_references.add(cross_ref, item)        
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)

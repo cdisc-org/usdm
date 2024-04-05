@@ -5,7 +5,6 @@ from usdm_model.objective import Objective
 from usdm_model.endpoint import Endpoint
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
@@ -73,7 +72,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           self._general_error("Failed to add Endpoint, no Objective set")
 
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _validate_references(self, row, column_name, text, dictionary_name):
     if dictionary_name:

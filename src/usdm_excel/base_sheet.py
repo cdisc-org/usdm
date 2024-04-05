@@ -12,6 +12,7 @@ from usdm_model.quantity import Quantity
 from usdm_model.range import Range
 from usdm_model.address import Address
 from usdm_excel.alias import Alias
+from usdm_excel.option_manager import EmptyNoneOption
 
 class BaseSheet():
 
@@ -384,6 +385,10 @@ class BaseSheet():
 
   def _general_debug(self, message):
     self.managers.errors.add(self.sheet_name, None, None, message, self.managers.errors.DEBUG)
+
+  def _general_sheet_exception(self, e):
+    self.managers.errors.add(self.sheet_name, None, None, f"Exception '{e}' raised reading sheet '{self.sheet_name}'", self.managers.errors.ERROR)
+    self.managers.logger.error(f"Exception '{e}' raised reading sheet '{self.sheet_name}'\n{traceback.format_exc()}")
 
   def _traceback(self, message):
     self.managers.logger.error(message)

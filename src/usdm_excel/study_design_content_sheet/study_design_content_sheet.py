@@ -2,7 +2,6 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.narrative_content import NarrativeContent
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignContentSheet(BaseSheet):
 
@@ -69,7 +68,7 @@ class StudyDesignContentSheet(BaseSheet):
             previous_item = item
           self.double_link(self.items, 'previousId', 'nextId')
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def resolve(self, study):
     macros = Macros(self, study)

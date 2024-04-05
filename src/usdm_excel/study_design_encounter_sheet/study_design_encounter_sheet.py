@@ -5,7 +5,6 @@ from usdm_model.encounter import Encounter
 from usdm_model.transition_rule import TransitionRule
 from usdm_model.timing import Timing
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignEncounterSheet(BaseSheet):
 
@@ -59,5 +58,5 @@ class StudyDesignEncounterSheet(BaseSheet):
           self.managers.cross_references.add(cross_ref, item)     
       self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 

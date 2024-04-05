@@ -9,7 +9,6 @@ from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.option_manager import Options
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudySheet(BaseSheet):
 
@@ -67,7 +66,7 @@ class StudySheet(BaseSheet):
         self.dates[category] = []
       self._process_sheet()
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

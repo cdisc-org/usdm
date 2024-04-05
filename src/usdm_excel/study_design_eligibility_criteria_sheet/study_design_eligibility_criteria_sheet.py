@@ -4,7 +4,6 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignEligibilityCriteriaSheet(BaseSheet):
 
@@ -29,7 +28,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
             self.items.append(criteria)
         
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
     try:

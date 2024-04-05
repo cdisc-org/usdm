@@ -2,7 +2,6 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary, ParameterMap
 from usdm_excel.managers import Managers
-from usdm_excel.utility import general_sheet_exception
 
 class StudyDesignDictionarySheet(BaseSheet):
 
@@ -52,7 +51,7 @@ class StudyDesignDictionarySheet(BaseSheet):
           current_dictionary.parameterMaps = current_map
         
     except Exception as e:
-      general_sheet_exception(self.SHEET_NAME, e)
+      self._general_sheet_exception(e)
 
   def _dictionary(self, name, description, label):
     try:
