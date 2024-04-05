@@ -195,7 +195,7 @@ class USDMExcel():
       tl.timeline.timings = tl_items
     for timing in self.timings.items:
       if not timing_check[timing.name]:
-        self._general_warning(f"Timing with name '{timing.name}' not referenced")
+        self._managers.errors.add(None, None, None, f"Timing with name '{timing.name}' not referenced", self._managers.errors.WARNING)
 
   def _set_timing_references(self, tls):
     for timing in self.timings.items:
@@ -214,9 +214,9 @@ class USDMExcel():
             timing.relativeToScheduledInstanceId = item.id
             found['to'] = True
       if not found['from']:
-        self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
+        self._managers.errors.add(None, None, None, f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}", self._managers.errors.ERROR)
       if not found['to']:
-        self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
+        self._managers.errors.add(None, None, None, f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}", self._managers.errors.ERROR)
 
   def _double_link(self, items, prev, next):
     try: 
