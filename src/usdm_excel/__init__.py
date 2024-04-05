@@ -118,8 +118,9 @@ class USDMExcel():
         self.protocol_document_version.contents = self.contents.items
         self._managers.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
       except Exception as e:
-        self._general_error(f"Failed to create StudyProtocolDocumentVersion object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        message = f"Exception '{e}' raised creating StudyProtocolDocumentVersion object"
+        self._managers.errors.add(None, None, None, message, self._managers.errors.ERROR)
+        self._managers.logger.error(f"{message}\n{traceback.format_exc()}")
 
       try:
         study_protocol_document = StudyProtocolDocument(
@@ -127,8 +128,9 @@ class USDMExcel():
           name=f"Protocol_Document_{self.study.name}", 
           versions=[self.protocol_document_version])
       except Exception as e:
-        self._general_error(f"Failed to create StudyProtocolDocument object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        message = f"Exception '{e}' raised creating StudyProtocolDocument object"
+        self._managers.errors.add(None, None, None, message, self._managers.errors.ERROR)
+        self._managers.logger.error(f"{message}\n{traceback.format_exc()}")
 
       try:
         self.study_version = StudyVersion(
@@ -147,8 +149,9 @@ class USDMExcel():
         )
         self._managers.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
-        self._general_error(f"Failed to create StudyVersion object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        message = f"Exception '{e}' raised creating StudyVersion object"
+        self._managers.errors.add(None, None, None, message, self._managers.errors.ERROR)
+        self._managers.logger.error(f"{message}\n{traceback.format_exc()}")
 
       try:
         self.study = Study(
@@ -160,8 +163,9 @@ class USDMExcel():
         self._managers.cross_references.add("STUDY", self.study)
         self.contents.resolve(self.study) # Now we have full study, resolve references in the content
       except Exception as e:
-        self._general_error(f"Failed to create Study object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        message = f"Exception '{e}' raised creating Study object"
+        self._managers.errors.add(None, None, None, message, self._managers.errors.ERROR)
+        self._managers.logger.error(f"{message}\n{traceback.format_exc()}")
 
       return Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
  

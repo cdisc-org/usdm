@@ -1,11 +1,10 @@
 import logging
-from usdm_db.utility import log_exception
 from yattag import Doc
-#from usdm_model.schedule_timeline import ScheduleTimeline
+from usdm_db.utility import log_exception
+from usdm_db.cross_reference import CrossReference
+from usdm_db.errors.errors import Errors
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance, ScheduledInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
-
-import traceback
 
 class Timeline():
 
@@ -13,8 +12,10 @@ class Timeline():
   BODY = "body"
 
   def __init__(self, study):
+    self._errors = Errors()
     self._study = study
     self._logger = logging.getLogger(__name__)
+    self._cross_ref = CrossReference(study, self._errors)
 
   def to_html(self, level=FULL):
     try:
@@ -26,7 +27,7 @@ class Timeline():
         self._full(doc, study_design)
       return doc.getvalue()
     except Exception as e:
-      log_exception(self._logger, f"Failed generating HTML page at level '{level}'")
+      log_exception(self._logger, f"Failed generating HTML page at level '{level}'", e)
 
   def _full(self, doc, study_design):
     doc.asis('<!DOCTYPE html>')
@@ -44,14 +45,14 @@ class Timeline():
       with doc.tag('pre', klass='mermaid'):
         doc.asis('\ngraph LR\n')
         doc.asis(f'{timeline.id}([{timeline.entryCondition}])\n')
-        instance = self.managers.cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
+        instance = self._cross_ref.get(ScheduledActivityInstance, timeline.entryId)
         if instance.instanceType == ScheduledActivityInstance.__name__: 
           doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
         else:
           doc.asis(f'{instance.id}{{{{ScheduledDecisionInstance}}}}\n')
         doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
         prev_instance = instance
-        instance = self.managers.cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
+        instance = self._cross_ref.get(ScheduledActivityInstance, instance.defaultConditionId)
         while instance:
           if instance.instanceType == ScheduledActivityInstance.__name__: 
             doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
@@ -62,7 +63,7 @@ class Timeline():
           doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
           prev_instance = instance
           instance = self._get_cross_reference(prev_instance.defaultConditionId)
-        exit = self.managers.cross_references.get_by_id(ScheduleTimelineExit, prev_instance.timelineExitId)
+        exit = self._cross_ref.get(ScheduleTimelineExit, prev_instance.timelineExitId)
         doc.asis(f'{exit.id}([Exit])\n')
         doc.asis(f'{prev_instance.id} -->|exit| {exit.id}\n')      
         for timing in timings:
@@ -75,7 +76,7 @@ class Timeline():
 
   def _get_cross_reference(self, id):
     for klass in [ScheduledActivityInstance, ScheduledDecisionInstance]:
-      instance = self.managers.cross_references.get_by_id(klass, id)
+      instance = self._cross_ref.get(klass, id)
       if instance:
         return instance 
     return None
