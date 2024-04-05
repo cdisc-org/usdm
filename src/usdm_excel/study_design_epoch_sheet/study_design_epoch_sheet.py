@@ -6,9 +6,9 @@ import traceback
 
 class StudyDesignEpochSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignEpochs')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignEpochs')
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, ['studyEpochName', 'name'])
@@ -17,7 +17,7 @@ class StudyDesignEpochSheet(BaseSheet):
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, ['studyEpochType', 'type'])
         try:
           item = StudyEpoch(
-            id=id_manager.build_id(StudyEpoch), 
+            id=self.managers.id_manager.build_id(StudyEpoch), 
             name=name, 
             description=description,
             label=label,
@@ -28,7 +28,7 @@ class StudyDesignEpochSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
-          cross_references.add(name, item)     
+          self.managers.cross_references.add(name, item)     
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

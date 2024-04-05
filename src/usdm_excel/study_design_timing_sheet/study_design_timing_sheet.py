@@ -10,9 +10,9 @@ import re
 
 class StudyDesignTimingSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignTiming', optional=True)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignTiming', optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -30,7 +30,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self._add_errors(window.errors, index, self._get_column_index('window'))
           try:
             item = Timing(
-              id=id_manager.build_id(Timing),
+              id=self.managers.id_manager.build_id(Timing),
               type=type,
               value=timing_value,
               valueLabel=timing_label,
@@ -48,7 +48,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self._general_error(f"Failed to create Timing object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
           else:
-            cross_references.add(name, item)
+            self.managers.cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")

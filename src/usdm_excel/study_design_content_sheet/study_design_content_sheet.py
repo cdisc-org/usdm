@@ -6,16 +6,16 @@ import traceback
 
 class StudyDesignContentSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
       self.items = []
-      super().__init__(file_path=file_path, sheet_name='studyDesignContent', optional=True, converters={"sectionName": str})
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignContent', optional=True, converters={"sectionName": str})
       if self.success:
         current_level = 0
         new_level = 0
         current_parent = []
         previous_item = NarrativeContent(
-          id=id_manager.build_id(NarrativeContent), 
+          id=self.managers.id_manager.build_id(NarrativeContent), 
           name="ROOT",
           sectionNumber="0",
           sectionTitle="Root",
@@ -32,7 +32,7 @@ class StudyDesignContentSheet(BaseSheet):
           name = f"SECTION {section_number}" if not name else name
           try:
             item = NarrativeContent(
-              id=id_manager.build_id(NarrativeContent), 
+              id=self.managers.id_manager.build_id(NarrativeContent), 
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,

@@ -15,7 +15,7 @@ def test_create(mocker):
   ]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Cond_1', 'Cond_2', 'Cond_3', 'Cond_4', 'Cond_5']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -59,7 +59,7 @@ def test_missing_reference(mocker):
     call_parameters.append((sheet, row, column, message, level))
     return None
 
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -86,7 +86,7 @@ def test_read_cell_by_name_error(mocker):
     call_parameters.append((sheet, row, column, message, level))
     return None
 
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

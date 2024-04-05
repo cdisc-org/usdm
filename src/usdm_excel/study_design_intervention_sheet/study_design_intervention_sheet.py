@@ -10,9 +10,9 @@ from usdm_model.administration_duration import AdministrationDuration
 
 class StudyDesignInterventionSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignInterventions')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignInterventions')
       self.items = []
       self.current_name = None
       self.current_intervention = None
@@ -45,7 +45,7 @@ class StudyDesignInterventionSheet(BaseSheet):
   def _intervention(self, name, description, label, role, codes, type, pharm_class, product_designation, minimum_duration, agent_administration):
     try:
       item = StudyIntervention(
-        id=id_manager.build_id(StudyIntervention), 
+        id=self.managers.id_manager.build_id(StudyIntervention), 
         name=name, 
         description=description, 
         label=label,
@@ -62,7 +62,7 @@ class StudyDesignInterventionSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
     else:
       self.items.append(item)
-      cross_references.add(name, item)
+      self.managers.cross_references.add(name, item)
       return item    
 
   def _create_agent_administration(self, index, admin_duration):
@@ -77,7 +77,7 @@ class StudyDesignInterventionSheet(BaseSheet):
   def _agent_administration(self, name, description, label, route, dose, frequency, admin_duration):
     try:
       item = AgentAdministration(
-        id=id_manager.build_id(AgentAdministration), 
+        id=self.managers.id_manager.build_id(AgentAdministration), 
         name=name, 
         description=description, 
         label=label,
@@ -90,7 +90,7 @@ class StudyDesignInterventionSheet(BaseSheet):
       self._general_error(f"Failed to create AgentAdministration object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
     else:
-      cross_references.add(name, item)
+      self.managers.cross_references.add(name, item)
       return item
 
   def _create_administration_duration(self, index):
@@ -103,7 +103,7 @@ class StudyDesignInterventionSheet(BaseSheet):
   def _administration_duration(self, description, will_vary, will_vary_reason, quantity):
     try:
       item = AdministrationDuration(
-        id=id_manager.build_id(AdministrationDuration), 
+        id=self.managers.id_manager.build_id(AdministrationDuration), 
         description=description,
         durationWillVary=will_vary,
         reasonDurationWillVary=will_vary_reason,

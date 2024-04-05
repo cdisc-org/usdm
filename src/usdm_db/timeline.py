@@ -44,14 +44,14 @@ class Timeline():
       with doc.tag('pre', klass='mermaid'):
         doc.asis('\ngraph LR\n')
         doc.asis(f'{timeline.id}([{timeline.entryCondition}])\n')
-        instance = cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
+        instance = self.managers.cross_references.get_by_id(ScheduledActivityInstance, timeline.entryId)
         if instance.instanceType == ScheduledActivityInstance.__name__: 
           doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
         else:
           doc.asis(f'{instance.id}{{{{ScheduledDecisionInstance}}}}\n')
         doc.asis(f'{timeline.id} -->|first| {instance.id}\n')
         prev_instance = instance
-        instance = cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
+        instance = self.managers.cross_references.get_by_id(ScheduledActivityInstance, instance.defaultConditionId)
         while instance:
           if instance.instanceType == ScheduledActivityInstance.__name__: 
             doc.asis(f'{instance.id}(ScheduledActivityInstance)\n')
@@ -62,7 +62,7 @@ class Timeline():
           doc.asis(f'{prev_instance.id} -->|default| {instance.id}\n')      
           prev_instance = instance
           instance = self._get_cross_reference(prev_instance.defaultConditionId)
-        exit = cross_references.get_by_id(ScheduleTimelineExit, prev_instance.timelineExitId)
+        exit = self.managers.cross_references.get_by_id(ScheduleTimelineExit, prev_instance.timelineExitId)
         doc.asis(f'{exit.id}([Exit])\n')
         doc.asis(f'{prev_instance.id} -->|exit| {exit.id}\n')      
         for timing in timings:
@@ -75,7 +75,7 @@ class Timeline():
 
   def _get_cross_reference(self, id):
     for klass in [ScheduledActivityInstance, ScheduledDecisionInstance]:
-      instance = cross_references.get_by_id(klass, id)
+      instance = self.managers.cross_references.get_by_id(klass, id)
       if instance:
         return instance 
     return None

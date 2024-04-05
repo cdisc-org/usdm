@@ -25,7 +25,7 @@ def dump_json(data):
 def test_create(mocker):
   clear()
   expected = read_json(f"tests/integration_test_files/intervention/create.json")
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=[f"Id_{x}" for x in range(100)]
 
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")

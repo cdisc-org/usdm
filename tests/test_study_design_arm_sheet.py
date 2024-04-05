@@ -8,8 +8,8 @@ from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):
-  cross_references.clear()
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  self.managers.cross_references.clear()
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
   expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
@@ -38,8 +38,8 @@ def test_create(mocker):
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_with_name_and_label(mocker):
-  cross_references.clear()
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  self.managers.cross_references.clear()
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
   expected_2 = Code(id='Code2', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label2")
@@ -69,7 +69,7 @@ def test_create_with_name_and_label(mocker):
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_empty(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -79,7 +79,7 @@ def test_create_empty(mocker):
   assert len(arms.items) == 0
 
 def test_read_cell_by_name_error(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

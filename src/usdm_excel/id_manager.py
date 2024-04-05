@@ -69,5 +69,5 @@ class IdManager():
     self.id_index[klass_name] += 1
     return "%s_%s" % (klass_name, self.id_index[klass_name])
 
-id_manager = IdManager()
+#id_manager = IdManager()
 

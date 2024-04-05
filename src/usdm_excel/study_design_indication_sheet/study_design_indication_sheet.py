@@ -7,9 +7,9 @@ import traceback
 
 class StudyDesignIndicationSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignIndications')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignIndications')
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, "name")
@@ -20,7 +20,7 @@ class StudyDesignIndicationSheet(BaseSheet):
         item = self.create_object(Indication, {'name': name, 'description': description, 'label': label, 'isRareDisease': rare, 'codes': codes})
         if item:
           self.items.append(item)
-          cross_references.add(name, item)
+          self.managers.cross_references.add(name, item)
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

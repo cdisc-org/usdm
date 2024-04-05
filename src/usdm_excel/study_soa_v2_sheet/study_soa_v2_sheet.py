@@ -15,9 +15,9 @@ class StudySoAV2Sheet(BaseSheet):
   CONDITION_ROW = 2
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path, sheet_name, main=False, require={}):
+  def __init__(self, file_path, manager, sheet_name, main=False, require={}):
     try:
-      super().__init__(file_path=file_path, sheet_name=sheet_name, header=None, require=require)
+      super().__init__(file_path=file_path, manager=manager, sheet_name=sheet_name, header=None, require=require)
       self.name = ""
       self.description = ""
       self.condition = ""
@@ -88,7 +88,7 @@ class StudySoAV2Sheet(BaseSheet):
   def _add_timeline(self, name, description, condition, instances, exit):
     try:
       timeline = ScheduleTimeline(
-        id=id_manager.build_id(ScheduleTimeline),
+        id=self.managers.id_manager.build_id(ScheduleTimeline),
         mainTimeline=self.main_timeline,
         name=name,
         description=description,
@@ -98,7 +98,7 @@ class StudySoAV2Sheet(BaseSheet):
         exits=exit,
         instances=instances
       )
-      cross_references.add(timeline.name, timeline)
+      self.managers.cross_references.add(timeline.name, timeline)
       return timeline
     except Exception as e:
       self._general_error(f"Failed to create ScheduleTimeline object, exception {e}")

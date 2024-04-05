@@ -7,9 +7,9 @@ import traceback
 
 class StudyDesignDictionarySheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='dictionaries', optional=True)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='dictionaries', optional=True)
       self.items = []
       if self.success:
         current_name = None
@@ -33,7 +33,7 @@ class StudyDesignDictionarySheet(BaseSheet):
           value = self.read_cell_by_name(index, 'value', default="", must_be_present=False)
           if klass:
             try:
-              instance, attribute = cross_references.get_by_path(klass, xref_name, attribute_path)
+              instance, attribute = self.managers.cross_references.get_by_path(klass, xref_name, attribute_path)
             except Exception as e:
               instance = None
               col = self.column_present(['attribute', 'path'])
@@ -57,7 +57,7 @@ class StudyDesignDictionarySheet(BaseSheet):
   def _dictionary(self, name, description, label):
     try:
       item = SyntaxTemplateDictionary(
-        id=id_manager.build_id(SyntaxTemplateDictionary), 
+        id=self.managers.id_manager.build_id(SyntaxTemplateDictionary), 
         name=name,
         description=description,
         label=label,
@@ -69,5 +69,5 @@ class StudyDesignDictionarySheet(BaseSheet):
       return None
     else:
       self.items.append(item)
-      cross_references.add(name, item)
+      self.managers.cross_references.add(name, item)
       return item

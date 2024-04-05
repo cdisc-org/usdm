@@ -26,8 +26,9 @@ class BaseSheet():
   class FormatError(Exception):
     pass
 
-  def __init__(self, file_path, sheet_name, header=0, optional=False, converters={}, require={}):
+  def __init__(self, file_path, manager, managers, sheet_name, header=0, optional=False, converters={}, require={}):
     self.file_path = file_path
+    self.managers = managers
     self.dir_path, self.filename = os.path.split(file_path)
     self.sheet_name = sheet_name
     self.sheet = None
@@ -62,12 +63,12 @@ class BaseSheet():
       return self.read_cell(row_index, col_index)
     except Exception as e:
       if not must_be_present:
-        return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+        return "" #if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
       elif default:
         return default
       else:
         self._error(row_index, -2, f"Error '{e}' reading cell '{field_name}'")
-        return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+        return "" #if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
 
   def read_cell(self, row_index, col_index, default=None):
     try:
@@ -75,7 +76,7 @@ class BaseSheet():
         if default:
           return default
         else:
-          return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+          return "" #if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
@@ -84,7 +85,7 @@ class BaseSheet():
       if default:
         return default
       else:
-        return "" #if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+        return "" #if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
 
   # Deprecate this method
   def read_cell_empty_legacy(self, row_index, col_index):
@@ -149,7 +150,7 @@ class BaseSheet():
       quantity = QuantityType(text, allow_missing_units, allow_empty)
       if not quantity.errors:
         unit = Alias.code(quantity.units_code, [])
-        return None if quantity.empty else Quantity(id=id_manager.build_id(Quantity), value=float(quantity.value), unit=unit)
+        return None if quantity.empty else Quantity(id=self.managers.id_manager.build_id(Quantity), value=float(quantity.value), unit=unit)
       else:
         self._add_errors(quantity.errors, row_index, col_index)
         return None
@@ -168,7 +169,7 @@ class BaseSheet():
       range = RangeType(text, require_units, allow_empty)
       if not range.errors:
         #print(f"RANGE: {range.lower} {range.upper} {range.units} {range.units_code} {range.empty} ")
-        return None if range.empty else Range(id=id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
+        return None if range.empty else Range(id=self.managers.id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
       else:
         self._add_errors(range.errors, row_index, col_index)
         return None
@@ -192,7 +193,7 @@ class BaseSheet():
       parts = self._state_split(raw_address)
     if len(parts) == 6:
       result = self._to_address(
-          id_manager.build_id(Address),
+          self.managers.id_manager.build_id(Address),
           line=parts[0].strip(), 
           district=parts[1].strip(), 
           city=parts[2].strip(), 
@@ -221,7 +222,7 @@ class BaseSheet():
 
   def create_object(self, cls, params):
     try:
-      params['id'] = id_manager.build_id(cls)
+      params['id'] = self.managers.id_manager.build_id(cls)
       return cls(**params)
     except Exception as e:
       self._general_error(f"Failed to create {cls.__name__} object, exception {e}")
@@ -289,7 +290,7 @@ class BaseSheet():
     return result
 
   def _get_cross_reference(self, klass, name, error_klass_name):
-    item = cross_references.get(klass, name)
+    item = self.managers.cross_references.get(klass, name)
     if item:
       return item.id
     else:
@@ -300,7 +301,7 @@ class BaseSheet():
     try: 
       for idx, item in enumerate(items):
         if idx == 0:
-          if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
+          if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
             setattr(item, prev, "")
           else:
             setattr(item, prev, None)
@@ -308,7 +309,7 @@ class BaseSheet():
           the_id = getattr(items[idx-1], 'id')
           setattr(item, prev, the_id)
         if idx == len(items)-1:  
-          if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
+          if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
             setattr(item, next, "")
           else:
             setattr(item, next, None)
@@ -322,7 +323,7 @@ class BaseSheet():
     try: 
       for idx, item in enumerate(items):
         if idx == 0:
-          if option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
+          if self.managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
             setattr(item, prev, "")
           else:
             setattr(item, prev, None)
@@ -369,24 +370,24 @@ class BaseSheet():
      
   def _error(self, row, column, message):
     try:
-      error_manager.add(self.sheet_name, row + 1, column + 1, message)
+      self.managers.errors.add(self.sheet_name, row + 1, column + 1, message)
     except Exception as e:
-      error_manager.add(self.sheet_name, None, None, f"{e}\n{traceback.format_exc()}", error_manager.WARNING)
+      self.managers.errors.add(self.sheet_name, None, None, f"{e}\n{traceback.format_exc()}", self.managers.errors.WARNING)
 
   def _general_error(self, message):
-    error_manager.add(self.sheet_name, None, None, message)
+    self.managers.errors.add(self.sheet_name, None, None, message)
 
   def _warning(self, row, column, message):
-    error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.WARNING)
+    self.managers.errors.add(self.sheet_name, row + 1, column + 1, message, self.managers.errors.WARNING)
 
   def _general_warning(self, message):
-    error_manager.add(self.sheet_name, None, None, message, error_manager.WARNING)
+    self.managers.errors.add(self.sheet_name, None, None, message, self.managers.errors.WARNING)
 
   def _debug(self, row, column, message):
-    error_manager.add(self.sheet_name, row + 1, column + 1, message, error_manager.DEBUG)
+    self.managers.errors.add(self.sheet_name, row + 1, column + 1, message, self.managers.errors.DEBUG)
 
   def _general_debug(self, message):
-    error_manager.add(self.sheet_name, None, None, message, error_manager.DEBUG)
+    self.managers.errors.add(self.sheet_name, None, None, message, self.managers.errors.DEBUG)
 
   def _traceback(self, message):
     package_logger.error(message)

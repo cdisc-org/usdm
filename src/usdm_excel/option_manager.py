@@ -41,5 +41,5 @@ class OptionManager():
     else:
       return str(item)
     
-option_manager = OptionManager()
+#option_manager = OptionManager()
 

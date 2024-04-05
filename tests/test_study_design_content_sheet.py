@@ -10,7 +10,7 @@ from usdm_excel.study_design_content_sheet.study_design_content_sheet import Stu
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -53,7 +53,7 @@ def test_create(mocker):
 def test_create_training_dot(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -88,7 +88,7 @@ def test_create_training_dot(mocker):
 def test_create_4_levels(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -122,7 +122,7 @@ def test_create_4_levels(mocker):
 def test_create_standard_section(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -148,7 +148,7 @@ def test_create_invalid_levels(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

@@ -7,9 +7,9 @@ import traceback
 
 class StudyIdentifiersSheet(BaseSheet):
 
-  def __init__(self, file_path: str):
+  def __init__(self, file_path, manager: str):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyIdentifiers')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyIdentifiers')
       self.identifiers = []
       self.process_sheet()
     except Exception as e:
@@ -26,10 +26,10 @@ class StudyIdentifiersSheet(BaseSheet):
       org_label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
       org_address = self.read_address_cell_by_name(index, 'organisationAddress')
       if org_address:
-        cross_references.add(org_address.id, org_address)   
+        self.managers.cross_references.add(org_address.id, org_address)   
       try:
         organisation = Organization(
-          id=id_manager.build_id(Organization),
+          id=self.managers.id_manager.build_id(Organization),
           identifierScheme=org_id_scheme, 
           identifier=org_identifier,
           name=org_name,
@@ -41,10 +41,10 @@ class StudyIdentifiersSheet(BaseSheet):
         self._general_error(f"Failed to create Organization object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
       else:
-        cross_references.add(organisation.id, organisation)   
+        self.managers.cross_references.add(organisation.id, organisation)   
         try:
           item = StudyIdentifier(
-            id=id_manager.build_id(StudyIdentifier),
+            id=self.managers.id_manager.build_id(StudyIdentifier),
             studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
             studyIdentifierScope=organisation
           )
@@ -53,4 +53,4 @@ class StudyIdentifiersSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.identifiers.append(item)
-          cross_references.add(item.studyIdentifier, item)         
+          self.managers.cross_references.add(item.studyIdentifier, item)         

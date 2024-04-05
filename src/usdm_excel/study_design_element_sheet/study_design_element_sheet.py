@@ -8,9 +8,9 @@ from usdm_model.transition_rule import TransitionRule
 
 class StudyDesignElementSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignElements')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignElements')
       self.items = []
       for index, row in self.sheet.iterrows():
         start_rule = None
@@ -22,12 +22,12 @@ class StudyDesignElementSheet(BaseSheet):
         start_rule_text = self.read_cell_by_name(index, 'transitionStartRule')
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         if start_rule_text:
-          start_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ELEMENT_START_RULE_{index + 1}", text=start_rule_text)
+          start_rule = TransitionRule(id=self.managers.id_manager.build_id(TransitionRule), name=f"ELEMENT_START_RULE_{index + 1}", text=start_rule_text)
         if end_rule_text:
-          end_rule = TransitionRule(id=id_manager.build_id(TransitionRule), name=f"ELEMENT_END_RULE_{index + 1}", text=end_rule_text)
+          end_rule = TransitionRule(id=self.managers.id_manager.build_id(TransitionRule), name=f"ELEMENT_END_RULE_{index + 1}", text=end_rule_text)
         try:
           item = StudyElement(
-            id=id_manager.build_id(StudyElement), 
+            id=self.managers.id_manager.build_id(StudyElement), 
             name=name,
             description=description,
             label=label,
@@ -40,7 +40,7 @@ class StudyDesignElementSheet(BaseSheet):
         else:
           self.items.append(item)
           cross_ref = xref if xref else name
-          cross_references.add(cross_ref, item)     
+          self.managers.cross_references.add(cross_ref, item)     
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")

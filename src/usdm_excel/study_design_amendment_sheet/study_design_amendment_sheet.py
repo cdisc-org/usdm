@@ -14,9 +14,9 @@ import traceback
 
 class StudyDesignAmendmentSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyAmendments', optional=True)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyAmendments', optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -38,7 +38,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
           #print(f"ENROLLMENT: {enrollment}")
           try:
             item = StudyAmendment(
-              id=id_manager.build_id(StudyAmendment), 
+              id=self.managers.id_manager.build_id(StudyAmendment), 
               number=number,
               summary=summary,
               substantialImpact=substantial,
@@ -51,7 +51,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
-            cross_references.add(item.number, item)
+            self.managers.cross_references.add(item.number, item)
         self.items.sort(key=lambda d: int(d.number))
         self.previous_link(self.items, 'previousId')
         
@@ -65,7 +65,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
       try:
         #print(f"ENROLL: {enrollment}")
         item = SubjectEnrollment(
-          id=id_manager.build_id(SubjectEnrollment),
+          id=self.managers.id_manager.build_id(SubjectEnrollment),
           type=enrollment['type'],
           code=enrollment['code'],
           quantity=enrollment['quantity']
@@ -82,14 +82,14 @@ class StudyDesignAmendmentSheet(BaseSheet):
     #print(f"AR1: {reason}")
     try:
       item = StudyAmendmentReason(
-        id=id_manager.build_id(StudyAmendmentReason), 
+        id=self.managers.id_manager.build_id(StudyAmendmentReason), 
         code=reason['code'],
         otherReason=reason['other']
       )
     except Exception as e:
       self._general_error(f"Failed to create StudyAmendmentReason object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
-      print(f"AR2: {traceback.format_exc()}")
+      #print(f"AR2: {traceback.format_exc()}")
       return None
     else:
       return item

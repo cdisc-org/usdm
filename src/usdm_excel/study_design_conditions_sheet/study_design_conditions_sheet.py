@@ -5,9 +5,9 @@ from usdm_model.condition import Condition
 
 class StudyDesignConditionSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignConditions', optional=True)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignConditions', optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -23,7 +23,7 @@ class StudyDesignConditionSheet(BaseSheet):
           item = self.create_object(Condition, params)
           if item:
             self.items.append(item)
-            cross_references.add(name, item)     
+            self.managers.cross_references.add(name, item)     
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
@@ -41,7 +41,7 @@ class StudyDesignConditionSheet(BaseSheet):
       if reference:
         found = False
         for klass in klasses:
-          xref = cross_references.get(klass, reference)
+          xref = self.managers.cross_references.get(klass, reference)
           if xref:
             results.append(xref.id)
             found = True

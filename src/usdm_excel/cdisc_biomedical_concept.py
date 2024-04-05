@@ -55,7 +55,7 @@ class CDISCBiomedicalConcepts():
   def _set_ids(self, parent):
     if isinstance(parent, str) or isinstance(parent, bool):
       return
-    parent['id'] = id_manager.build_id(parent['instanceType'])
+    parent['id'] = self.managers.id_manager.build_id(parent['instanceType'])
     for name, value in parent.items():
       if isinstance(value, list):
         for child in value:

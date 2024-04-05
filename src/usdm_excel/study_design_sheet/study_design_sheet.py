@@ -32,9 +32,9 @@ class StudyDesignSheet(BaseSheet):
   PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesign', header=None)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesign', header=None)
       self.name = "TEST"
       self.description = "An Microsoft Excel test study design"
       self.label=""
@@ -134,7 +134,7 @@ class StudyDesignSheet(BaseSheet):
     self.study_designs.append(study_design)
 
   def _add_arm(self, name):
-    arm = cross_references.get(StudyArm, name)
+    arm = self.managers.cross_references.get(StudyArm, name)
     if arm is not None:
       if name not in self.arm_names:
         self.arm_names[name] = True
@@ -145,7 +145,7 @@ class StudyDesignSheet(BaseSheet):
       return None
 
   def _add_epoch(self, name):
-    epoch = cross_references.get(StudyEpoch, name)
+    epoch = self.managers.cross_references.get(StudyEpoch, name)
     if epoch is not None:
       if name not in self.epoch_names:
         self.epoch_names[name] = True
@@ -156,7 +156,7 @@ class StudyDesignSheet(BaseSheet):
       return None
   
   def _add_element(self, name):
-    element = cross_references.get(StudyElement, name)
+    element = self.managers.cross_references.get(StudyElement, name)
     if element is not None:
       if name not in self.elements:
         self.elements[name] = element
@@ -168,7 +168,7 @@ class StudyDesignSheet(BaseSheet):
   def _add_cell(self, arm, epoch, elements):
     try:
       return StudyCell(
-        id=id_manager.build_id(StudyCell), 
+        id=self.managers.id_manager.build_id(StudyCell), 
         armId=arm,
         epochId=epoch,
         elementIds=elements
@@ -181,7 +181,7 @@ class StudyDesignSheet(BaseSheet):
   def _create_design(self):
     try:
       result = StudyDesign(
-        id=id_manager.build_id(StudyDesign), 
+        id=self.managers.id_manager.build_id(StudyDesign), 
         name=self.name,
         description=self.description,
         label=self.label,
@@ -208,7 +208,7 @@ class StudyDesignSheet(BaseSheet):
   
 
   def _set_masking(self, rindex, cindex):
-    if option_manager.get(Options.USDM_VERSION) == '2':
+    if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
       return None
     else:
       try:
@@ -217,9 +217,9 @@ class StudyDesignSheet(BaseSheet):
         if len(parts) == 2: 
           code = CDISCCT().code_for_attribute('Masking', 'role', parts[0].strip())
           if code:
-            mask = Masking(id=id_manager.build_id(Masking), description=parts[1].strip(), role=code)
+            mask = Masking(id=self.managers.id_manager.build_id(Masking), description=parts[1].strip(), role=code)
             self.masks.append(mask)
-            cross_references.add(mask.id, mask)
+            self.managers.cross_references.add(mask.id, mask)
             return mask
           else:
             self._error(rindex, cindex, f"Failed to decode masking role data '{text}', must be a valid role code '{parts[0]}'")

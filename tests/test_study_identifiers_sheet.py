@@ -6,8 +6,8 @@ from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):
-  cross_references.clear()
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  self.managers.cross_references.clear()
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1', 'Code_2', 'Org_2', 'Addr_2', 'Id_2', 'Code_3', 'Org_3', 'Addr_3', 'Id_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -39,8 +39,8 @@ def test_create(mocker):
   assert ids.identifiers[2].studyIdentifier == 'NCT123456710'
   
 def test_create_new_columns(mocker):
-  cross_references.clear()
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  self.managers.cross_references.clear()
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1', 'Code_2', 'Org_2', 'Addr_2', 'Id_2', 'Code_3', 'Org_3', 'Addr_3', 'Id_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -74,7 +74,7 @@ def test_create_new_columns(mocker):
   assert ids.identifiers[2].studyIdentifier == 'NCT123456710'
   
 def test_create_empty(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -84,7 +84,7 @@ def test_create_empty(mocker):
   assert len(ids.identifiers) == 0
 
 def test_read_cell_by_name_error(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -99,9 +99,9 @@ def test_read_cell_by_name_error(mocker):
   assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'organisationType, type' in sheet' raised reading sheet."
   
 def test_address_error(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

@@ -33,7 +33,7 @@ def translate_reference(text):
   soup = BeautifulSoup(str(text), 'html.parser')
   for ref in soup(['usdm:ref']):
     attributes = ref.attrs
-    instance = cross_references.get_by_id(attributes['klass'], attributes['id'])
+    instance = self.managers.cross_references.get_by_id(attributes['klass'], attributes['id'])
     value = str(getattr(instance, attributes['attribute']))
     ref.replace_with(value)
   return str(soup)
@@ -53,7 +53,7 @@ def double_link(items, prev, next):
 
 def add_cross_ref(collection):
   for item in collection:
-    cross_references.add(item.id, item)
+    self.managers.cross_references.add(item.id, item)
 
 def create_conditions():
   item_list = [

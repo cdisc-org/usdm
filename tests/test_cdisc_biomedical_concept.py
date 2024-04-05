@@ -4,7 +4,7 @@ from usdm_excel.cdisc_biomedical_concept import CDISCBiomedicalConcepts
 xfail = pytest.mark.xfail
 
 # def test_code(mocker):
-#     mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+#     mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
 #     mock_id.side_effect=['Code_1']
 #     item = NCIt()
 #     code = item.code(code="CODE", decode="DECODE")

@@ -85,7 +85,7 @@ class SoA():
     row = self._template_copy(row_template)    
     for index, sai in enumerate(sai_order):
       if sai.epochId:
-        item = cross_references.get_by_id("StudyEpoch", sai.epochId)
+        item = self.managers.cross_references.get_by_id("StudyEpoch", sai.epochId)
         row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
     if self._has_non_empty(row):
       results.append(row)
@@ -93,7 +93,7 @@ class SoA():
     row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
-        item = cross_references.get_by_id("Encounter", sai.encounterId)
+        item = self.managers.cross_references.get_by_id("Encounter", sai.encounterId)
         row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
     if self._has_non_empty(row):
       results.append(row)

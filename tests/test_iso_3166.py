@@ -1,7 +1,7 @@
 from usdm_excel.iso_3166 import ISO3166
 
 def test_code(mocker):
-    mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+    mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3']
     item = ISO3166()
     code = item.code("GB")
@@ -24,7 +24,7 @@ def test_code(mocker):
     assert code.decode == "Denmark"
 
 def test_region_code(mocker):
-    mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+    mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3', 'Code_4']
     item = ISO3166()
     code = item.region_code("Americas")

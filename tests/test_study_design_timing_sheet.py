@@ -5,10 +5,10 @@ from usdm_excel.study_design_timing_sheet.window_type import WindowType
 from usdm_excel.errors.errors import error_manager 
 
 def test_create(mocker):
-  error_manager.clear()
+  self.managers.errors.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Range1', 'Code1', 'Code2', 'TimingId_1', 'Code3', 'Code4', 'TimingId_2', 'Code5', 'Code6', 'TimingId_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -21,9 +21,9 @@ def test_create(mocker):
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'type', 'from', 'to', 'timingValue', 'toFrom', 'window'])
 
   items = StudyDesignTimingSheet("")
-  #print(f"ERRORS: {[item.to_dict() for item in error_manager.items]}")
+  #print(f"ERRORS: {[item.to_dict() for item in self.managers.errors.items]}")
   #print(f"ITEMS: {items.items}")
-  assert len( error_manager.items) == 0
+  assert len( self.managers.errors.items) == 0
   assert len(items.items) == 3
   assert items.items[0].id == 'TimingId_1'
   assert items.items[0].name == 'Timing 1'
@@ -88,7 +88,7 @@ def test_window_type(mocker):
     (None, None, None, ''),
   ]
   for index, test in enumerate(test_data):
-    error_manager.clear()
+    self.managers.errors.clear()
     item = WindowType(test[0])
     assert(item.lower) == test[1]
     assert(item.upper) == test[2]
@@ -103,6 +103,6 @@ def test_window_type_error(mocker):
     (' .. 1 Weeks',"Could not decode the range value '.. 1 Weeks'")
   ]
   for index, test in enumerate(test_data):
-    error_manager.clear()
+    self.managers.errors.clear()
     item = WindowType(test[0])
     assert item.errors == [test[1]]

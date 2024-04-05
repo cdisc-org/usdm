@@ -5,9 +5,9 @@ from usdm_excel.cross_ref import cross_references
 from usdm_excel.errors.errors import error_manager
 
 def clear():
-  option_manager.clear()
+  self.managers.option_manager.clear()
   ct_version_manager.clear()
   id_manager.clear()
-  cross_references.clear()
+  self.managers.cross_references.clear()
   ct_version_manager.clear()
-  error_manager.clear()
+  self.managers.errors.clear()

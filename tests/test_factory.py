@@ -9,7 +9,7 @@ class Factory():
     self.cdisc_ct = CDISCCT()
   
   def item(self, cls, params):
-    params['id'] = params['id'] if 'id' in params else id_manager.build_id(cls)
+    params['id'] = params['id'] if 'id' in params else self.managers.id_manager.build_id(cls)
     params['instanceType'] = cls.__name__
     return cls(**params)
 

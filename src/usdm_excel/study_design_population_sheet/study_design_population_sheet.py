@@ -7,9 +7,9 @@ from usdm_model.range import Range
 
 class StudyDesignPopulationSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignPopulations')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignPopulations')
       self.population = None
       cohorts = []
       for index, row in self.sheet.iterrows():
@@ -42,7 +42,7 @@ class StudyDesignPopulationSheet(BaseSheet):
 
   def _study_population(self, name, description, label, recruit_number, required_number, planned_age, healthy, codes):    
     try:
-      item = StudyDesignPopulation(id=id_manager.build_id(StudyDesignPopulation),
+      item = StudyDesignPopulation(id=self.managers.id_manager.build_id(StudyDesignPopulation),
         name=name,
         description=description,
         label=label,
@@ -57,12 +57,12 @@ class StudyDesignPopulationSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
-      cross_references.add(name, item)
+      self.managers.cross_references.add(name, item)
       return item
 
   def _study_cohort(self, name, description, label, recruit_number, required_number, planned_age, healthy, codes):    
     try:
-      item = StudyCohort(id=id_manager.build_id(StudyCohort),
+      item = StudyCohort(id=self.managers.id_manager.build_id(StudyCohort),
         name=name,
         description=description,
         label=label,
@@ -79,5 +79,5 @@ class StudyDesignPopulationSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
-      cross_references.add(name, item)
+      self.managers.cross_references.add(name, item)
       return item

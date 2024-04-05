@@ -245,19 +245,19 @@ def test_read_quantity_cell_by_name(mocker):
     (5,'Quantity', False,               True,        False,  True,   0.0,    '',       ""),
   ]
   for test in test_data:
-    error_manager.clear()
+    self.managers.errors.clear()
     #print(f"INDEX: {test[0]}")
     item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
       assert(item.value) == test[6]
       if not test[2]:
         assert(item.unit.standardCode.code) == test[7]
-      assert(len(error_manager.items)) == 0
+      assert(len(self.managers.errors.items)) == 0
     elif test[5]:
       assert(item) == None
     else:
       assert(item) == None
-      assert(error_manager.items[0].to_log()) == test[8]
+      assert(self.managers.errors.items[0].to_log()) == test[8]
 
 def test_read_range_cell_by_name(mocker):
   mocked_open = mocker.mock_open(read_data="File")
@@ -279,7 +279,7 @@ def test_read_range_cell_by_name(mocker):
     (8,'Range', True,      True,        False,  True,  0.0,  0.0,   '',       ""),
   ]
   for test in test_data:
-    error_manager.clear()
+    self.managers.errors.clear()
     #print(f"INDEX: {test[0]}")
     range = base.read_range_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
@@ -288,12 +288,12 @@ def test_read_range_cell_by_name(mocker):
       if test[2]:
         assert(range.unit.code) == test[8]
       assert(range.isApproximate) == False
-      assert(len(error_manager.items)) == 0
+      assert(len(self.managers.errors.items)) == 0
     elif test[5]:
       assert(range) == None
     else:
       assert(range) == None
-      assert(error_manager.items[0].to_log()) == test[9]
+      assert(self.managers.errors.items[0].to_log()) == test[9]
 
 # def test_read_description_by_name(mocker):
 #   mock_option = mocker.patch("usdm_excel.om.get")
@@ -456,7 +456,7 @@ def test__decode_other_cell(mocker):
   expected = Code(id='Code_1', code='c', codeSystem='a', codeSystemVersion='3', decode="d")
   mock_version = mocker.patch("usdm_excel.ct_version_manager.get")
   mock_version.side_effect=['3']
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Code_1']
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")

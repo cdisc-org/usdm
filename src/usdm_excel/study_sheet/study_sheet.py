@@ -66,9 +66,9 @@ class StudySheet(BaseSheet):
   STUDY_VERSION_DATE = 'study_version'
   PROTOCOL_VERSION_DATE = 'protocol_document'
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='study', header=None)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='study', header=None)
       self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE]
       #self.soa_version = None
       self.phase = None
@@ -96,27 +96,27 @@ class StudySheet(BaseSheet):
 
       # Process all the sheets
       self._process_sheet()
-      self.timings = StudyDesignTimingSheet(file_path)
-      self.study_amendments = StudyDesignAmendmentSheet(file_path)
-      self.study_identifiers = StudyIdentifiersSheet(file_path)
-      self.procedures = StudyDesignProcedureSheet(file_path)
-      self.encounters = StudyDesignEncounterSheet(file_path)
-      self.elements = StudyDesignElementSheet(file_path)
-      self.arms = StudyDesignArmSheet(file_path)
-      self.epochs = StudyDesignEpochSheet(file_path)
-      self.activities = StudyDesignActivitySheet(file_path)
-      self.study_design = StudyDesignSheet(file_path)
+      self.timings = StudyDesignTimingSheet(file_path, self.manager)
+      self.study_amendments = StudyDesignAmendmentSheet(file_path, self.manager)
+      self.study_identifiers = StudyIdentifiersSheet(file_path, self.manager)
+      self.procedures = StudyDesignProcedureSheet(file_path, self.manager)
+      self.encounters = StudyDesignEncounterSheet(file_path, self.manager)
+      self.elements = StudyDesignElementSheet(file_path, self.manager)
+      self.arms = StudyDesignArmSheet(file_path, self.manager)
+      self.epochs = StudyDesignEpochSheet(file_path, self.manager)
+      self.activities = StudyDesignActivitySheet(file_path, self.manager)
+      self.study_design = StudyDesignSheet(file_path, self.manager)
       self._process_soa(file_path)
-      self.indications = StudyDesignIndicationSheet(file_path)
-      self.interventions = StudyDesignInterventionSheet(file_path)
-      self.study_population = StudyDesignPopulationSheet(file_path)
-      self.contents = StudyDesignContentSheet(file_path)
-      self.dictionaries = StudyDesignDictionarySheet(file_path)
-      self.oe = StudyDesignObjectiveEndpointSheet(file_path)
-      self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path)
-      self.estimands = StudyDesignEstimandsSheet(file_path)
-      self.sites = StudyDesignSitesSheet(file_path)
-      self.conditions = StudyDesignConditionSheet(file_path)
+      self.indications = StudyDesignIndicationSheet(file_path, self.manager)
+      self.interventions = StudyDesignInterventionSheet(file_path, self.manager)
+      self.study_population = StudyDesignPopulationSheet(file_path, self.manager)
+      self.contents = StudyDesignContentSheet(file_path, self.manager)
+      self.dictionaries = StudyDesignDictionarySheet(file_path, self.manager)
+      self.oe = StudyDesignObjectiveEndpointSheet(file_path, self.manager)
+      self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path, self.manager)
+      self.estimands = StudyDesignEstimandsSheet(file_path, self.manager)
+      self.sites = StudyDesignSitesSheet(file_path, self.manager)
+      self.conditions = StudyDesignConditionSheet(file_path, self.manager)
 
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
@@ -148,20 +148,20 @@ class StudySheet(BaseSheet):
       # Final assembly
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(
-          id=id_manager.build_id(StudyProtocolDocumentVersion), 
+          id=self.managers.id_manager.build_id(StudyProtocolDocumentVersion), 
           protocolVersion=self.protocol_version,
           protocolStatus=self.protocol_status,
           dateValues=self.dates[self.PROTOCOL_VERSION_DATE]
           )
         self.protocol_document_version.contents = self.contents.items
-        cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
+        self.managers.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
       except Exception as e:
         self._general_error(f"Failed to create StudyProtocolDocumentVersion object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
 
       try:
         study_protocol_document = StudyProtocolDocument(
-          id=id_manager.build_id(StudyProtocolDocument), 
+          id=self.managers.id_manager.build_id(StudyProtocolDocument), 
           name=f"Protocol_Document_{self.name}", 
           versions=[self.protocol_document_version])
       except Exception as e:
@@ -170,7 +170,7 @@ class StudySheet(BaseSheet):
 
       try:
         self.study_version = StudyVersion(
-          id=id_manager.build_id(StudyVersion),
+          id=self.managers.id_manager.build_id(StudyVersion),
           versionIdentifier=self.version,
           studyType=self.type,
           studyPhase=self.phase,
@@ -183,7 +183,7 @@ class StudySheet(BaseSheet):
           amendments=self.study_amendments.items,
           titles=self.titles
         )
-        cross_references.add(self.study_version.id, self.study_version)
+        self.managers.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
         self._general_error(f"Failed to create StudyVersion object, exception {e}")
         self._traceback(f"{traceback.format_exc()}")
@@ -195,7 +195,7 @@ class StudySheet(BaseSheet):
           versions=[self.study_version],
           documentedBy=study_protocol_document
         )
-        cross_references.add("STUDY", self.study)
+        self.managers.cross_references.add("STUDY", self.study)
         self.contents.resolve(self.study) # Now we have full study, resolve references in the content
       except Exception as e:
         self._general_error(f"Failed to create Study object, exception {e}")
@@ -224,7 +224,7 @@ class StudySheet(BaseSheet):
       if field_name == self.NAME_TITLE:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.TITLE_TITLE:
-        if option_manager.get(Options.USDM_VERSION) == '2':
+        if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
           self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.VERSION_TITLE:
         self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
@@ -277,7 +277,7 @@ class StudySheet(BaseSheet):
           scopes = []
           for scope in record['scopes']:
             scope = GeographicScope(
-              id=id_manager.build_id(GeographicScope), 
+              id=self.managers.id_manager.build_id(GeographicScope), 
               type=scope['type'], 
               code=scope['code']
             )
@@ -287,7 +287,7 @@ class StudySheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         try:
           date = GovernanceDate(
-            id=id_manager.build_id(GovernanceDate),
+            id=self.managers.id_manager.build_id(GovernanceDate),
             name=record['name'],
             label=record['label'],
             description=record['description'],
@@ -296,7 +296,7 @@ class StudySheet(BaseSheet):
             geographicScopes=scopes
           )
           self.dates[category].append(date)
-          cross_references.add(record['name'], date)
+          self.managers.cross_references.add(record['name'], date)
         except Exception as e:
           self._general_error(f"Failed to create GovernanceDate object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
@@ -307,7 +307,7 @@ class StudySheet(BaseSheet):
       tl = StudySoAV2Sheet(file_path, timeline, False)
       tls.append(tl)
       self.timelines[timeline] = tl
-      cross_references.add(timeline, tl.timeline)
+      self.managers.cross_references.add(timeline, tl.timeline)
     self.soa = StudySoAV2Sheet(file_path, self.study_design.main_timeline, True)
     tls.append(self.soa)
     self._set_timing_references(tls)
@@ -380,16 +380,16 @@ class StudySheet(BaseSheet):
       return result
 
   def _set_title(self, rindex, cindex, title_type):
-    if option_manager.get(Options.USDM_VERSION) == '2':
+    if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
       return self.read_cell(rindex, cindex)
     else:
       try:
         text = self.read_cell(rindex, cindex)
         if text:
           code = CDISCCT().code_for_attribute('StudyVersion', 'titles', title_type)
-          title = StudyTitle(id=id_manager.build_id(StudyTitle), text=text, type=code)
+          title = StudyTitle(id=self.managers.id_manager.build_id(StudyTitle), text=text, type=code)
           self.titles.append(title)
-          cross_references.add(title.id, title)
+          self.managers.cross_references.add(title.id, title)
           return title
         else:
           return None

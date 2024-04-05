@@ -6,10 +6,10 @@ from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
 
 def test_create(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_id = mocker.patch("usdm_excel.id_manager.build_id")
+  mock_id = mocker.patch("usdm_excel.self.managers.id_manager.build_id")
   mock_id.side_effect=['Site_1', 'Org_1', 'Addr_1', 'Id_1', 'Site_2', 'Org_2', 'Addr_2', 'Id_2', 'Site_3', 'Org_3', 'Addr_3', 'Id_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -45,7 +45,7 @@ def test_create(mocker):
   assert sites.organizations[2].manages[0].id == 'Site_3'
   
 def test_create_empty(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -57,7 +57,7 @@ def test_create_empty(mocker):
   assert len(sites.organizations) == 0
 
 def test_read_cell_by_name_error(mocker):
-  cross_references.clear()
+  self.managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")

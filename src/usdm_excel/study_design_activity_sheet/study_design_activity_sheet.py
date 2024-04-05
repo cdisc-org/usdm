@@ -7,9 +7,9 @@ from usdm_model.activity import Activity
 
 class StudyDesignActivitySheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignActivities', optional=True)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignActivities', optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -18,7 +18,7 @@ class StudyDesignActivitySheet(BaseSheet):
           label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
           try:
             item = Activity(
-              id=id_manager.build_id(Activity), 
+              id=self.managers.id_manager.build_id(Activity), 
               name=name,
               description=description,
               label=label
@@ -28,7 +28,7 @@ class StudyDesignActivitySheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
-            cross_references.add(name, item)     
+            self.managers.cross_references.add(name, item)     
         self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")

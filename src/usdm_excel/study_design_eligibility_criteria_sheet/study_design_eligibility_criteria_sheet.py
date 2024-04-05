@@ -9,9 +9,9 @@ import re
 
 class StudyDesignEligibilityCriteriaSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignEligibilityCriteria', optional=True)
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignEligibilityCriteria', optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -35,7 +35,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
     try:
       dictionary_id = self._get_dictionary_id(dictionary_name)
       item = EligibilityCriterion(
-        id=id_manager.build_id(EligibilityCriterion),
+        id=self.managers.id_manager.build_id(EligibilityCriterion),
         name=name,
         description=description,
         label=label,
@@ -49,13 +49,13 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
-      cross_references.add(item.id, item)
+      self.managers.cross_references.add(item.id, item)
       return item
 
   def _validate_references(self, row, column_name, text, dictionary_name):
     if dictionary_name:
       column = self.column_present(column_name)
-      dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      dictionary = self.managers.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if not dictionary:
         self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
         return
@@ -68,7 +68,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
   
   def _get_dictionary_id(self, dictionary_name):
     if dictionary_name:
-      dictionary = cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      dictionary = self.managers.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if dictionary:
         return dictionary.id
       else:

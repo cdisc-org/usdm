@@ -6,9 +6,9 @@ import traceback
 
 class StudyDesignArmSheet(BaseSheet):
 
-  def __init__(self, file_path):
+  def __init__(self, file_path, manager):
     try:
-      super().__init__(file_path=file_path, sheet_name='studyDesignArms')
+      super().__init__(file_path=file_path, manager=manager, sheet_name='studyDesignArms')
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, ['studyArmName', 'name'])
@@ -19,7 +19,7 @@ class StudyDesignArmSheet(BaseSheet):
         arm_origin_type = self.read_cdisc_klass_attribute_cell_by_name('StudyArm', 'studyArmDataOriginType', index, ['studyArmDataOriginType', 'dataOriginType'])
         try:
           item = StudyArm(
-            id=id_manager.build_id(StudyArm), 
+            id=self.managers.id_manager.build_id(StudyArm), 
             name=name,
             description=description,
             label=label,
@@ -32,7 +32,7 @@ class StudyDesignArmSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
-          cross_references.add(name, item)     
+          self.managers.cross_references.add(name, item)     
     except Exception as e:
       self._general_error(f"Exception '{e}' raised reading sheet.")
       self._traceback(f"{traceback.format_exc()}")
