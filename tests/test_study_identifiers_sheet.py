@@ -1,5 +1,4 @@
 import pandas as pd
-
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_model.code import Code
 from tests.test_factory import Factory

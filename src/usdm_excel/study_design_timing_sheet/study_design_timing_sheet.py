@@ -26,7 +26,7 @@ class StudyDesignTimingSheet(BaseSheet):
           timing_label = self.read_cell_by_name(index, 'timingValue')
           timing_value = self._set_text_and_encoded(self.read_cell_by_name(index, 'timingValue'))
           to_from_type = self._set_to_from_type(self.read_cell_by_name(index, 'toFrom'))
-          window = WindowType(self.read_cell_by_name(index, 'window'))
+          window = WindowType(self.read_cell_by_name(index, 'window'), self.managers)
           if window.errors:
             self._add_errors(window.errors, index, self._get_column_index('window'))
           try:
@@ -77,7 +77,7 @@ class StudyDesignTimingSheet(BaseSheet):
       "BEFORE": {'c_code': 'C201357', 'pt': 'Before'}
     }   
     key = text.strip().upper()
-    return CDISCCT(self.managers.cdisc_ct_library).code(type_code[key]['c_code'], type_code[key]['pt'])
+    return CDISCCT(self.managers).code(type_code[key]['c_code'], type_code[key]['pt'])
 
   def _set_to_from_type(self, text):
     type_code = {
@@ -87,4 +87,4 @@ class StudyDesignTimingSheet(BaseSheet):
       "E2E": {'c_code': 'C201352', 'pt': 'End to End'},
     }    
     key = "S2S" if not text else text.strip().upper()
-    return CDISCCT(self.managers.cdisc_ct_library).code(type_code[key]['c_code'], type_code[key]['pt'])
+    return CDISCCT(self.managers).code(type_code[key]['c_code'], type_code[key]['pt'])

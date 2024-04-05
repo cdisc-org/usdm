@@ -1,16 +1,16 @@
-import re
 from usdm_excel.iso_8601_duration import ISO8601Duration
 from usdm_excel.range_type import RangeType
+from usdm_excel.managers import Managers
 
 class WindowType():
 
-  def __init__(self, timing_info):
+  def __init__(self, timing_info: str, managers: Managers):
     self.upper = None
     self.lower = None
     self.errors = []
     self.label = timing_info.strip() if timing_info else ""
     if self.label:
-      range = RangeType(self.label)
+      range = RangeType(self.label, managers)
       if not range.errors:
         self.lower = self._set_encoded(range.lower, range.units)
         self.upper = self._set_encoded(range.upper, range.units)     
