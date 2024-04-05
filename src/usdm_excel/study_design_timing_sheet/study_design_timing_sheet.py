@@ -77,7 +77,7 @@ class StudyDesignTimingSheet(BaseSheet):
       "BEFORE": {'c_code': 'C201357', 'pt': 'Before'}
     }   
     key = text.strip().upper()
-    return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])
+    return CDISCCT(self.managers.cdisc_ct_library).code(type_code[key]['c_code'], type_code[key]['pt'])
 
   def _set_to_from_type(self, text):
     type_code = {
@@ -87,4 +87,4 @@ class StudyDesignTimingSheet(BaseSheet):
       "E2E": {'c_code': 'C201352', 'pt': 'End to End'},
     }    
     key = "S2S" if not text else text.strip().upper()
-    return CDISCCT().code(type_code[key]['c_code'], type_code[key]['pt'])
+    return CDISCCT(self.managers.cdisc_ct_library).code(type_code[key]['c_code'], type_code[key]['pt'])

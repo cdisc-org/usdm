@@ -6,6 +6,5 @@ class Alias():
   def __init__(self, managers: Managers):
     self._managers = managers
 
-  @classmethod
   def code(self, standard_code, aliases):
     return AliasCode(id=self._managers.id_manager.build_id(AliasCode), standardCode=standard_code, standardCodeAliases=aliases) if standard_code else None

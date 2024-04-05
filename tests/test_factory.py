@@ -1,12 +1,20 @@
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.id_manager import IdManager
+from usdm_excel.managers import Managers
 from usdm_model.code import Code
 
 class Factory():
 
   def __init__(self):
-    self._id_manager = IdManager()
+    self._managers = Managers()
+  
+  def clear(self):
+    self._managers.id_manager.clear()
+    self._managers.cross_references.clear()
+    self._managers.errors.clear()
+
+  def managers(self):
+    return self._managers
   
   def item(self, cls, params):
     params['id'] = params['id'] if 'id' in params else self.managers.id_manager.build_id(cls)

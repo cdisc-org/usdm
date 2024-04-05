@@ -148,14 +148,15 @@ class BaseSheet():
   def read_quantity_cell(self, row_index, col_index, allow_missing_units=True, allow_empty=True):
     try:
       text = self.read_cell(row_index, col_index)
-      quantity = QuantityType(text, allow_missing_units, allow_empty)
+      quantity = QuantityType(text, self.managers, allow_missing_units, allow_empty)
       if not quantity.errors:
-        unit = Alias.code(quantity.units_code, [])
+        unit = Alias(self.managers).code(quantity.units_code, [])
         return None if quantity.empty else Quantity(id=self.managers.id_manager.build_id(Quantity), value=float(quantity.value), unit=unit)
       else:
         self._add_errors(quantity.errors, row_index, col_index)
         return None
     except Exception as e:
+      print("5")
       self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
       self._traceback(f"{e}\n{traceback.format_exc()}")
       return None
@@ -167,7 +168,7 @@ class BaseSheet():
   def read_range_cell(self, row_index, col_index, require_units=True, allow_empty=True):
     try:
       text = self.read_cell(row_index, col_index)
-      range = RangeType(text, require_units, allow_empty)
+      range = RangeType(text, self.managers, require_units, allow_empty)
       if not range.errors:
         #print(f"RANGE: {range.lower} {range.upper} {range.units} {range.units_code} {range.empty} ")
         return None if range.empty else Range(id=self.managers.id_manager.build_id(Range), minValue=float(range.lower), maxValue=float(range.upper), unit=range.units_code, isApproximate=False)
@@ -264,7 +265,7 @@ class BaseSheet():
     code = None
     value = self.read_cell(row_index, col_index)
     if value:
-      code = CDISCCT().code_for_attribute(klass, attribute, value)
+      code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute(klass, attribute, value)
       if not code:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
     elif not allow_empty:
@@ -283,7 +284,7 @@ class BaseSheet():
       self._error(row_index, col_index, "Empty cell detected where multiple CDISC CT values expected.")
       return result
     for item in self._state_split(value):
-      code = CDISCCT().code_for_attribute(klass, attribute, item.strip())
+      code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute(klass, attribute, item.strip())
       if code is not None:
         result.append(code)
       else:

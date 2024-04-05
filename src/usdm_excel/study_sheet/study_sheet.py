@@ -81,7 +81,7 @@ class StudySheet(BaseSheet):
         self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
       elif field_name == self.PHASE_TITLE:
         phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
-        self.phase = Alias.code(phase, [])
+        self.phase = Alias(self.managers).code(phase, [])
       elif field_name == self.ACRONYM_TITLE:
         self.acronym = self._set_title(rindex, self.PARAMS_DATA_COL, "Study Acronym")
       elif field_name == self.RATIONALE_TITLE:
@@ -160,7 +160,7 @@ class StudySheet(BaseSheet):
       for item in self._state_split(value):
         if item.upper().strip() == "GLOBAL":
           # If we ever find global just return the one code
-          return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
+          return [{'type': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
         else: 
           code = None
           if item.strip():
@@ -181,7 +181,7 @@ class StudySheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias.code(code, [])})
+            result.append({'type': CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias.code(code, [])})
       return result
 
   def _set_title(self, rindex, cindex, title_type):
@@ -191,7 +191,7 @@ class StudySheet(BaseSheet):
       try:
         text = self.read_cell(rindex, cindex)
         if text:
-          code = CDISCCT().code_for_attribute('StudyVersion', 'titles', title_type)
+          code = CDISCCT(self.managers.cdisc_ct_library).code_for_attribute('StudyVersion', 'titles', title_type)
           title = StudyTitle(id=self.managers.id_manager.build_id(StudyTitle), text=text, type=code)
           self.titles.append(title)
           self.managers.cross_references.add(title.id, title)

@@ -1,9 +1,10 @@
 import re
+from usdm_excel.managers import Managers
 from usdm_excel.cdisc_ct import CDISCCT
 
 class RangeType():
 
-  def __init__(self, range_info, units_reqd=True, allow_empty=True):
+  def __init__(self, range_info: str, managers: Managers, units_reqd: bool=True, allow_empty: bool=True):
     try:
       self.upper = None
       self.lower = None
@@ -24,7 +25,7 @@ class RangeType():
           if units_reqd:
             if parts['units']:
               self.units = parts['units'].strip()
-              self.units_code = CDISCCT().code_for_unit(self.units)
+              self.units_code = CDISCCT(managers).code_for_unit(self.units)
               if not self.units_code:        
                 self.errors.append(f"Unable to set the units code for the range '{range_info}'")
             else:

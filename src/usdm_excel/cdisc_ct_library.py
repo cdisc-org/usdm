@@ -2,9 +2,6 @@ import os
 import yaml
 import traceback
 import requests
-##from usdm_excel.id_manager import id_manager
-#from usdm_model.code import Code
-#from usdm_excel.logger import self._logger
 from usdm_excel.utility import log_exception, log_error
 
 class CDISCCTLibrary():
@@ -16,12 +13,11 @@ class CDISCCTLibrary():
     self._logger = logger
     self._errors = errors
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'missing_ct.yaml'))
-    self.missing_ct = yaml.load(f, Loader=yaml.FullLoader)
+    self._missing_ct = yaml.load(f, Loader=yaml.FullLoader)
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'cdisc_ct_config.yaml'))
-    self.cdisc_ct_config = yaml.load(f, Loader=yaml.FullLoader)
-    self.version = self.cdisc_ct_config['version']
-    self.system = "http://www.cdisc.org"
-    self.api_key = os.getenv('CDISC_API_KEY')
+    self._cdisc_ct_config = yaml.load(f, Loader=yaml.FullLoader)
+    print(f"CONFIG: {self._cdisc_ct_config}")
+    #self.api_key = os.getenv('CDISC_API_KEY')
     self._by_code_list = {}
     self._by_term = {}
     self._by_submission = {}
@@ -34,6 +30,9 @@ class CDISCCTLibrary():
       self._save_code_lists(self._by_code_list)
     self._get_missing_ct()
     self._get_klass_attribute()
+    # Visible properties
+    self.version = self._cdisc_ct_config['version']
+    self.system = "http://www.cdisc.org"
 
   def submission(self, value, cl=None):
     if value in list(self._by_submission.keys()):
@@ -99,7 +98,7 @@ class CDISCCTLibrary():
       return None
 
   def _get_ct(self):
-    for item in self.cdisc_ct_config['required']:
+    for item in self._cdisc_ct_config['required']:
       self._get_code_list(item)
 
   def _load_ct(self):
@@ -111,7 +110,7 @@ class CDISCCTLibrary():
         self._check_in_and_add(self._by_pt, item['preferredTerm'], c_code)
  
   def _get_missing_ct(self):
-    for response in self.missing_ct:
+    for response in self._missing_ct:
       self._by_code_list[response['conceptId']] = response
       for item in response['terms']:
         self._check_in_and_add(self._by_term, item['conceptId'], response['conceptId'])
@@ -119,7 +118,7 @@ class CDISCCTLibrary():
         self._check_in_and_add(self._by_pt, item['preferredTerm'], response['conceptId'])
 
   def _get_klass_attribute(self):
-    for klass, info in self.cdisc_ct_config['klass'].items():
+    for klass, info in self._cdisc_ct_config['klass'].items():
       if not klass in self._by_klass_attribute:
         self._by_klass_attribute[klass] = {}
       for attribute, cl in info.items():
@@ -127,7 +126,7 @@ class CDISCCTLibrary():
           self._by_klass_attribute[klass][attribute] = cl
 
   def _get_code_list(self, c_code):
-    for package in self.cdisc_ct_config['packages']:
+    for package in self._cdisc_ct_config['packages']:
       package_full_name = "%sct-%s" % (package, self.version)
       api_url = self._url('/mdr/ct/packages/%s/codelists/%s' % (package_full_name, c_code))
       self._logger.info(f"CDISC CT Library: {api_url}")
@@ -175,5 +174,5 @@ class CDISCCTLibrary():
     return os.path.isfile(self._ct_filename()) 
 
   def _ct_filename(self):
-    return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_ct_{self.cdisc_ct_config['version']}.yaml")
+    return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_ct_{self._cdisc_ct_config['version']}.yaml")
 

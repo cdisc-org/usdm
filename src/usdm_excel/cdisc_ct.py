@@ -1,13 +1,14 @@
-from usdm_excel.cdisc_ct_library import CDISCCTLibrary
+from usdm_excel.managers import Managers
 from usdm_excel.code_base import CodeBase
 
 class CDISCCT(CodeBase):
 
-  API_ROOT = 'https://api.library.cdisc.org/api'  
+  #API_ROOT = 'https://api.library.cdisc.org/api'  
 
-  def __init__(self, library: CDISCCTLibrary):
-    self._library = library
-
+  def __init__(self, managers: Managers):
+    super().__init__(managers)
+    self._library = self._managers.cdisc_ct_library
+    
   def code(self, code, decode):
     return self._build(code=code, system=self._library.system, version=self._library.version, decode=decode)
  
