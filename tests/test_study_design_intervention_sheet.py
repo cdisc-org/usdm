@@ -5,7 +5,6 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
-from tests.test_utility import clear
 from usdm_model.code import Code
 
 SAVE = True

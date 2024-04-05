@@ -4,7 +4,6 @@ from usdm_excel.document.template_plain import TemplatePlain
 
 from tests.test_factory import Factory
 from tests.test_data_factory import MinimalStudy
-from tests.test_utility import clear as tu_clear
 
 factory = Factory()
 

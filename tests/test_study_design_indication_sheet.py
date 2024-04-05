@@ -4,7 +4,6 @@ import pandas as pd
 xfail = pytest.mark.xfail
 
 from usdm_excel.study_design_indication_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
-from tests.test_utility import clear
 from usdm_model.code import Code
 
 def test_create(mocker):

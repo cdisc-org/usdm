@@ -1,10 +1,8 @@
 from .utility import usdm_reference
-#from usdm_excel.cross_ref import cross_references
 from usdm_excel.base_sheet import BaseSheet
-#from usdm_excel.study_sheet.study_sheet import Study
 from usdm_model.schedule_timeline import ScheduleTimeline
-from usdm_model.activity import Activity
-from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+#from usdm_model.activity import Activity
+#from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.study_design import StudyDesign
 
 class SoA():
@@ -85,7 +83,7 @@ class SoA():
     row = self._template_copy(row_template)    
     for index, sai in enumerate(sai_order):
       if sai.epochId:
-        item = self.managers.cross_references.get_by_id("StudyEpoch", sai.epochId)
+        item = self.parent.managers.cross_references.get_by_id("StudyEpoch", sai.epochId)
         row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
     if self._has_non_empty(row):
       results.append(row)
@@ -93,7 +91,7 @@ class SoA():
     row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
       if sai.encounterId:
-        item = self.managers.cross_references.get_by_id("Encounter", sai.encounterId)
+        item = self.parent.managers.cross_references.get_by_id("Encounter", sai.encounterId)
         row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
     if self._has_non_empty(row):
       results.append(row)

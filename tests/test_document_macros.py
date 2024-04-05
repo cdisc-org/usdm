@@ -1,6 +1,5 @@
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_excel.document.macros import Macros
-
 from tests.test_factory import Factory
 from tests.test_data_factory import MinimalStudy
 

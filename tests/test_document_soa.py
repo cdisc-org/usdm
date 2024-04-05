@@ -1,7 +1,4 @@
 from bs4 import BeautifulSoup   
-#from usdm_excel.cross_ref import cross_references
-from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.document.soa import SoA
 from usdm_model.activity import Activity
 from usdm_model.study_epoch import StudyEpoch
@@ -14,11 +11,10 @@ from usdm_model.scheduled_instance import ScheduledActivityInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 from usdm_model.timing import Timing
 from usdm_model.condition import Condition
-
 from tests.test_factory import Factory
-from tests.test_utility import clear as tu_clear
 
 factory = Factory()
+managers = factory.managers()
 
 FIXED = factory.cdisc_code('C201358', 'Fixed Reference')
 BEFORE = factory.cdisc_code('C201356', 'After')
@@ -33,7 +29,7 @@ def translate_reference(text):
   soup = BeautifulSoup(str(text), 'html.parser')
   for ref in soup(['usdm:ref']):
     attributes = ref.attrs
-    instance = self.managers.cross_references.get_by_id(attributes['klass'], attributes['id'])
+    instance = managers.cross_references.get_by_id(attributes['klass'], attributes['id'])
     value = str(getattr(instance, attributes['attribute']))
     ref.replace_with(value)
   return str(soup)
@@ -53,7 +49,7 @@ def double_link(items, prev, next):
 
 def add_cross_ref(collection):
   for item in collection:
-    self.managers.cross_references.add(item.id, item)
+    managers.cross_references.add(item.id, item)
 
 def create_conditions():
   item_list = [
@@ -161,7 +157,6 @@ def scenario_1():
   return study_design, timeline
 
 def test_create(mocker):
-  tu_clear()
   bs = factory.base_sheet(mocker)
   study_design, timeline = scenario_1()
   soa = SoA(bs, study_design, timeline)
