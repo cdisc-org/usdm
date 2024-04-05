@@ -3,12 +3,12 @@ import yaml
 import requests
 import logging
 import traceback
-from usdm_excel.cdisc_ct import CDISCCT
-from usdm_excel.alias import Alias
 from usdm_excel.errors.errors import Errors
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
 from usdm_model.response_code import ResponseCode
+from usdm_model.code import Code
+from usdm_model.alias_code import AliasCode
 
 class CDISCBCLibrary():
 
@@ -164,18 +164,18 @@ class CDISCBCLibrary():
         self._bcs[name] = bc
 
   def _generic_bc_as_usdm(self, api_bc) -> BiomedicalConcept:
-    concept_code = CDISCCT(self._ct_library).code(api_bc['conceptId'], api_bc['shortName'])
+    concept_code = self._cdisc_code(api_bc['conceptId'], api_bc['shortName'])
     synonyms = api_bc['synonyms'] if 'synonyms' in api_bc else []
     return self._biomedical_concept_object(api_bc['shortName'], api_bc['shortName'], synonyms, api_bc['_links']['self']['href'], concept_code)
 
   def _generic_bc_property_as_usdm(self, property) -> BiomedicalConceptProperty:
-    concept_code = CDISCCT(self._ct_library).code(property['conceptId'], property['shortName'])
+    concept_code = self._cdisc_code(property['conceptId'], property['shortName'])
     responses = []
     if 'exampleSet' in property:
       for example in property['exampleSet']:
         term = self._ct_library.preferred_term(example)
         if term != None:
-          code = CDISCCT(self._ct_library).code(term['conceptId'], term['preferredTerm'])
+          code = self._cdisc_code(term['conceptId'], term['preferredTerm'])
           code.id = "tbd"
           responses.append(ResponseCode(id="tbd", isEnabled=True, code=code))
     return self._biomedical_concept_property_object(property['shortName'], property['shortName'], property['dataType'], responses, concept_code)
@@ -188,16 +188,16 @@ class CDISCBCLibrary():
         if role_variable:
           if 'assignedTerm' in role_variable:
             if 'conceptId' in role_variable['assignedTerm'] and 'value' in role_variable['assignedTerm']:
-              concept_code = CDISCCT(self._ct_library).code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
+              concept_code = self._cdisc_code(role_variable['assignedTerm']['conceptId'], role_variable['assignedTerm']['value'])
             else:
               self._logger.error(f"Failed to set BC concept 1, {sdtm['shortName']}")
-              concept_code = CDISCCT(self._ct_library).code('No Concept Code', role_variable['assignedTerm']['value'])
+              concept_code = self._cdisc_code('No Concept Code', role_variable['assignedTerm']['value'])
           else:
             self._logger.error(f"Failed to set BC concept 2, {sdtm['shortName']}")
-            concept_code = CDISCCT(self._ct_library).code(generic['conceptId'], generic['shortName'])
+            concept_code = self._cdisc_code(generic['conceptId'], generic['shortName'])
         else:
           self._logger.error(f"Failed to set BC concept {sdtm['shortName']}")
-          concept_code = CDISCCT(self._ct_library).code(generic['conceptId'], generic['shortName'])
+          concept_code = self._cdisc_code(generic['conceptId'], generic['shortName'])
         synonyms = generic['synonyms'] if 'synonyms' in generic else []
         synonyms.append(generic['shortName'])
         return self._biomedical_concept_object(sdtm['shortName'], sdtm['shortName'], synonyms, sdtm['_links']['self']['href'], concept_code)
@@ -215,19 +215,19 @@ class CDISCBCLibrary():
         if 'dataElementConceptId' in sdtm_property:
           generic_match = self._get_dec_match(generic, sdtm_property['dataElementConceptId'])
           if generic_match:
-            concept_code = CDISCCT(self._ct_library).code(generic_match['conceptId'], generic_match['shortName'])
+            concept_code = self._cdisc_code(generic_match['conceptId'], generic_match['shortName'])
           else:
             if 'assignedTerm' in sdtm_property and 'conceptId' in sdtm_property['assignedTerm'] and 'value' in sdtm_property['assignedTerm']:
-              concept_code = CDISCCT(self._ct_library).code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+              concept_code = self._cdisc_code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
             else:
               self._logger.error(f"Failed to set property concept 1, {sdtm_property}")
-              concept_code = CDISCCT(self._ct_library).code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
+              concept_code = self._cdisc_code(sdtm_property['dataElementConceptId'], sdtm_property['name'])
         else:
           if 'assignedTerm' in sdtm_property:
-            concept_code = CDISCCT(self._ct_library).code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
+            concept_code = self._cdisc_code(sdtm_property['assignedTerm']['conceptId'], sdtm_property['assignedTerm']['value'])
           else:
             self._logger.error(f"Failed to set property concept 2, {sdtm_property}")
-            concept_code = CDISCCT(self._ct_library).code('No Concept Code', sdtm_property['name'])
+            concept_code = self._cdisc_code('No Concept Code', sdtm_property['name'])
         responses = []
         codes = []
         if 'valueList' in sdtm_property:
@@ -235,13 +235,13 @@ class CDISCBCLibrary():
           for value in sdtm_property['valueList']:
             term = self._ct_library.preferred_term(value, codelist)
             if term:
-              code = CDISCCT(self._ct_library).code(term['conceptId'], term['preferredTerm'])
+              code = self._cdisc_code(term['conceptId'], term['preferredTerm'])
               code.id = "tbd"
               codes.append(code)
             else:
               term = self._ct_library.submission(value, codelist)
               if term:
-                code = CDISCCT(self._ct_library).code(term['conceptId'], term['preferredTerm'])
+                code = self._cdisc_code(term['conceptId'], term['preferredTerm'])
                 code.id = "tbd"
                 codes.append(code)
               else:
@@ -377,6 +377,16 @@ class CDISCBCLibrary():
   def _bcs_filename(self):
     return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_bcs.yaml")
 
+  def _cdisc_code(self, code, decode):
+    id = self._id_manager.build_id(Code)
+    instance = Code(id=id, code=code, codeSystem=self._library.system, codeSystemVersion=self._library.version, decode=decode)
+    self._cross_references.add(instance.id, instance)
+    return instance
+
+  def _alias_code(self, standard_code, aliases):
+    return AliasCode(id=self._id_manager.build_id(AliasCode), standardCode=standard_code, standardCodeAliases=aliases) if standard_code else None  
+  
   def _exception(self, message, e):
     self._logger.error(message)
     self._logger.error(f"{e}\n{traceback.format_exc()}")
+

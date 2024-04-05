@@ -30,7 +30,7 @@ class CRTest3():
     self.value = "VALUE"
 
 def test_create():
-  object = CrossRef(managers.errors)
+  object = CrossRef(managers.errors, managers.logger)
   assert len(object._references.keys()) == 0
   assert object._references == {}
 

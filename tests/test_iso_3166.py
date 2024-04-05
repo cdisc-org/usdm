@@ -1,9 +1,13 @@
 from usdm_excel.iso_3166 import ISO3166
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
 
 def test_code(mocker):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3']
-    item = ISO3166()
+    item = ISO3166(managers)
     code = item.code("GB")
     assert code.id == "Code_1"
     assert code.code == "GBR"
@@ -26,7 +30,7 @@ def test_code(mocker):
 def test_region_code(mocker):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3', 'Code_4']
-    item = ISO3166()
+    item = ISO3166(managers)
     code = item.region_code("Americas")
     assert code.id == "Code_1"
     assert code.code == "019"

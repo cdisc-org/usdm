@@ -1,11 +1,12 @@
-#from usdm_excel.id_manager import id_manager
+from usdm_excel.managers import Managers
 from usdm_model.code import Code
+from usdm_excel.code_base import CodeBase
 
-class NCIt():
+class NCIt(CodeBase):
 
-  def __init__(self):
-    self.id_manager = id_manager
+  def __init__(self, managers: Managers):
+    super().__init__(managers)
 
   def code(self, code, decode):
-    return Code(id=self.managers.id_manager.build_id(Code), code=code, codeSystem='NCI Thesaurus', codeSystemVersion='24.01e', decode=decode)
+    return Code(id=self._id_manager.build_id(Code), code=code, codeSystem='NCI Thesaurus', codeSystemVersion='24.01e', decode=decode)
 

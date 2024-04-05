@@ -175,7 +175,7 @@ class StudySheet(BaseSheet):
                 code = ISO3166().region_code(value)
               elif system.upper() == "COUNTRY":
                 pt = 'Country'
-                code = ISO3166().code(value)
+                code = ISO3166(self.managers).code(value)
               else:
                 self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
             else:
