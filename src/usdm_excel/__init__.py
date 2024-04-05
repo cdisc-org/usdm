@@ -1,82 +1,345 @@
-import json
 import traceback
-#from usdm_excel.id_manager import id_manager
+
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
-# from usdm_excel.export_as_yworks_dict import ExportAsYworksDict
-# from usdm_excel.export_as_neo4j_dict import ExportAsNeo4jDict
-# from usdm_excel.export_as_timeline import ExportAsTimeline
-#from usdm_excel.cross_ref import cross_references
-#from usdm_excel.ct_version_manager import ct_version_manager
-#from usdm_excel.errors.errors import error_manager, Errors
-#from usdm_excel.option_manager import option_manager as om # Using 'om' as a name clash in pytest
-#from usdm_excel.cdisc_biomedical_concept import cdisc_bc_library
+from usdm_excel.errors.errors import Errors
 from usdm_excel.managers import Managers
 from usdm_model.wrapper import Wrapper
 from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
 
+from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
+from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
+from usdm_excel.study_design_indication_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
+from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
+from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
+from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
+from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
+from usdm_excel.study_design_procedure_sheet.study_design_procedure_sheet import StudyDesignProcedureSheet
+from usdm_excel.study_design_encounter_sheet.study_design_encounter_sheet import StudyDesignEncounterSheet
+from usdm_excel.study_design_element_sheet.study_design_element_sheet import StudyDesignElementSheet
+from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesignArmSheet
+from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDesignEpochSheet
+from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
+from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
+from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
+from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
+from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
+from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
+from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
+from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
+
+from usdm_model.study import Study
+from usdm_model.study_version import StudyVersion
+from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
+from usdm_model.study_protocol_document import StudyProtocolDocument
+from usdm_model.wrapper import Wrapper
+
 class USDMExcel():
 
-  def __init__(self, file_path, manager):
-    # id_manager.clear()
-    # self.managers.cross_references.clear()
-    # ct_version_manager.clear()
-    # self.managers.errors.clear()
-    # om.clear()
-    # #self.configuration = ConfigurationSheet(file_path, self.manager)
-    self.managers = Managers()
-    self.study = StudySheet(file_path, self.managers)
-    self.wrapper = Wrapper(study=self._excel.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
+  SYSTEM_NAME = "CDISC USDM E2J"
 
-  # def identifier(self):
-  #   study = self.study.the_study()
-  #   if study == None:
-  #     return None
-  #   else:
-  #     return study.study_identifier()
-
-  # def the_study(self):
-  #   return self.study.the_study()
-  
-  # def to_json(self):
-  #   try:
-  #     raw_json = self.study.api_root().to_json()
-  #   except Exception as e:
-  #     message = f"Failed to generate JSON output, exception {e}\n{traceback.format_exc()}"
-  #     self.managers.errors.add(None, None, None, message)
-  #     raw_json = json.dumps({'error': message}, indent = 2)
-  #   return raw_json
-
-  # def to_html(self, highlight=False):
-  #   try:
-  #     html = self.study.to_html(highlight)
-  #   except Exception as e:
-  #     message = f"Failed to generate HTML output, exception {e}"
-  #     self.managers.errors.add(None, None, None, message)
-  #     html = f"<p>{message}</p>"
-  #   return html
-
-  # def to_pdf(self, test=True):
-  #   try:
-  #     bytes = self.study.to_pdf(test)
-  #   except Exception as e:
-  #     message = f"Failed to generate PDF output, exception {e}"
-  #     self.managers.errors.add(None, None, None, message)
-  #     bytes = bytearray()
-  #     bytes.extend(map(ord, message))    
-  #   return bytes
-
-  # def to_nodes_and_edges(self, view=FULL_VIEW):
-  #   return ExportAsYworksDict(self.study.the_study(), view).export()
-
-  # def to_yworks_dict(self, view=FULL_VIEW):
-  #   return ExportAsYworksDict(self.study.the_study(), view).export()
-
-  # def to_neo4j_dict(self):
-  #   return ExportAsNeo4jDict(self.study.the_study()).export()
-
-  # def to_timeline(self, level=FULL_HTML):
-  #   return ExportAsTimeline(self.study.the_study()).export(level)
+  def __init__(self, file_path):
+    self._managers = Managers()
+    self._process(file_path, self._managers)
 
   def errors(self):
-    return self.managers.errors.dump(Errors.WARNING)
+    return self._managers.errors.dump(Errors.WARNING)
+  
+  def _process(self, file_path):
+    try:
+    
+      # Process all the sheets
+      self.study = StudySheet(file_path, self.managers)
+      self.timings = StudyDesignTimingSheet(file_path, self.manager)
+      self.study_amendments = StudyDesignAmendmentSheet(file_path, self.manager)
+      self.study_identifiers = StudyIdentifiersSheet(file_path, self.manager)
+      self.procedures = StudyDesignProcedureSheet(file_path, self.manager)
+      self.encounters = StudyDesignEncounterSheet(file_path, self.manager)
+      self.elements = StudyDesignElementSheet(file_path, self.manager)
+      self.arms = StudyDesignArmSheet(file_path, self.manager)
+      self.epochs = StudyDesignEpochSheet(file_path, self.manager)
+      self.activities = StudyDesignActivitySheet(file_path, self.manager)
+      self.study_design = StudyDesignSheet(file_path, self.manager)
+      self._process_soa(file_path)
+      self.indications = StudyDesignIndicationSheet(file_path, self.manager)
+      self.interventions = StudyDesignInterventionSheet(file_path, self.manager)
+      self.study_population = StudyDesignPopulationSheet(file_path, self.manager)
+      self.contents = StudyDesignContentSheet(file_path, self.manager)
+      self.dictionaries = StudyDesignDictionarySheet(file_path, self.manager)
+      self.oe = StudyDesignObjectiveEndpointSheet(file_path, self.manager)
+      self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(file_path, self.manager)
+      self.estimands = StudyDesignEstimandsSheet(file_path, self.manager)
+      self.sites = StudyDesignSitesSheet(file_path, self.manager)
+      self.conditions = StudyDesignConditionSheet(file_path, self.manager)
+
+      # Study Design assembly
+      study_design = self.study_design.study_designs[0]
+      study_design.scheduleTimelines.append(self.soa.timeline)
+      study_design.encounters = self.encounters.items
+      study_design.activities = self.soa.activities
+      activity_ids = [item.id for item in study_design.activities]
+      study_design.biomedicalConcepts = self.soa.biomedical_concepts
+      study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
+      for key, tl in self.timelines.items():
+        study_design.scheduleTimelines.append(tl.timeline)
+        for activity in tl.activities:
+          if activity.id not in activity_ids:
+            study_design.activities.append(activity)
+            activity_ids.append(activity.id)
+        study_design.biomedicalConcepts += tl.biomedical_concepts
+        study_design.bcSurrogates += tl.biomedical_concept_surrogates
+      self.double_link(study_design.activities, 'previousId', 'nextId')
+      study_design.indications = self.indications.items
+      study_design.studyInterventions = self.interventions.items
+      study_design.population = self.study_population.population
+      study_design.objectives = self.oe.objectives
+      study_design.estimands = self.estimands.estimands
+      study_design.population.criteria = self.eligibility_criteria.items
+      study_design.dictionaries = self.dictionaries.items
+      study_design.organizations = self.sites.organizations
+      study_design.conditions = self.conditions.items
+
+      # Final assembly
+      try:
+        self.protocol_document_version = StudyProtocolDocumentVersion(
+          id=self.managers.id_manager.build_id(StudyProtocolDocumentVersion), 
+          protocolVersion=self.protocol_version,
+          protocolStatus=self.protocol_status,
+          dateValues=self.dates[self.PROTOCOL_VERSION_DATE]
+          )
+        self.protocol_document_version.contents = self.contents.items
+        self.managers.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
+      except Exception as e:
+        self._general_error(f"Failed to create StudyProtocolDocumentVersion object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
+      try:
+        study_protocol_document = StudyProtocolDocument(
+          id=self.managers.id_manager.build_id(StudyProtocolDocument), 
+          name=f"Protocol_Document_{self.name}", 
+          versions=[self.protocol_document_version])
+      except Exception as e:
+        self._general_error(f"Failed to create StudyProtocolDocument object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
+      try:
+        self.study_version = StudyVersion(
+          id=self.managers.id_manager.build_id(StudyVersion),
+          versionIdentifier=self.version,
+          studyType=self.type,
+          studyPhase=self.phase,
+          businessTherapeuticAreas=self.therapeutic_areas,
+          rationale=self.rationale,
+          studyIdentifiers=self.study_identifiers.identifiers,
+          documentVersionId=self.protocol_document_version.id,
+          studyDesigns=self.study_design.study_designs,
+          dateValues=self.dates[self.STUDY_VERSION_DATE],
+          amendments=self.study_amendments.items,
+          titles=self.titles
+        )
+        self.managers.cross_references.add(self.study_version.id, self.study_version)
+      except Exception as e:
+        self._general_error(f"Failed to create StudyVersion object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
+      try:
+        self.study = Study(
+          id=None, # No Id, will be allocated a UUID
+          name=f"Study_{self.name}", 
+          versions=[self.study_version],
+          documentedBy=study_protocol_document
+        )
+        self.managers.cross_references.add("STUDY", self.study)
+        self.contents.resolve(self.study) # Now we have full study, resolve references in the content
+      except Exception as e:
+        self._general_error(f"Failed to create Study object, exception {e}")
+        self._traceback(f"{traceback.format_exc()}")
+
+      self.wrapper = Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
+ 
+    except Exception as e:
+      self._general_error(f"Exception '{e}' raised reading sheet.")
+      self._traceback(f"{traceback.format_exc()}")
+
+
+  # def _process_sheet(self):
+  #   fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    
+  #   for rindex, row in self.sheet.iterrows():
+  #     field_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
+  #     if field_name == self.NAME_TITLE:
+  #       self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.TITLE_TITLE:
+  #       if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
+  #         self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.VERSION_TITLE:
+  #       self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.TYPE_TITLE:
+  #       self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.PHASE_TITLE:
+  #       phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
+  #       self.phase = Alias.code(phase, [])
+  #     elif field_name == self.ACRONYM_TITLE:
+  #       self.acronym = self._set_title(rindex, self.PARAMS_DATA_COL, "Study Acronym")
+  #     elif field_name == self.RATIONALE_TITLE:
+  #       self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.TA_TITLE:
+  #       self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.BRIEF_TITLE_TITLE:
+  #       self.brief_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Brief Study Title")
+  #     elif field_name == self.OFFICAL_TITLE_TITLE:
+  #       self.official_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Official Study Title")
+  #     elif field_name == self.PUBLIC_TITLE_TITLE:
+  #       self.public_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Public Study Title")
+  #     elif field_name == self.SCIENTIFIC_TITLE_TITLE:
+  #       self.scientific_title = self._set_title(rindex, self.PARAMS_DATA_COL, "Scientific Study Title")
+  #     elif field_name == self.PROTOCOL_VERSION_TITLE:
+  #       self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
+  #     elif field_name == self.PROTOCOL_STATUS_TITLE:
+  #       self.protocol_status = self.read_cdisc_klass_attribute_cell('StudyProtocolVersion', 'protocolStatus', rindex, self.PARAMS_DATA_COL) 
+  #     elif rindex >= self.DATES_DATA_ROW:
+  #       record = {}
+  #       for cindex in range(0, len(self.sheet.columns)):
+  #         field = fields[cindex]
+  #         if field == 'category':
+  #           cell = self.read_cell(rindex, cindex)
+  #           if cell.lower() in self.date_categories:
+  #             category = cell.lower()
+  #           else:
+  #             categories = ', '.join(f'"{w}"' for w in self.date_categories)
+  #             self._error(rindex, cindex, f"Date category not recognized, should be one of {categories}, defaults to '{self.date_categories[0]}'")
+  #             category = self.date_categories[0]
+  #         elif field == 'type':
+  #           record[field] = self.read_cdisc_klass_attribute_cell('GovernanceDate', 'type', rindex, cindex)
+  #         elif field == 'date':
+  #           cell = self.read_cell(rindex, cindex)
+  #           record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
+  #         elif field == 'scopes':
+  #           record[field] = self._read_scope_cell(rindex, cindex)
+  #         else:
+  #           cell = self.read_cell(rindex, cindex)
+  #           record[field] = cell
+  #       try:
+  #         scopes = []
+  #         for scope in record['scopes']:
+  #           scope = GeographicScope(
+  #             id=self.managers.id_manager.build_id(GeographicScope), 
+  #             type=scope['type'], 
+  #             code=scope['code']
+  #           )
+  #           scopes.append(scope)
+  #       except Exception as e:
+  #         self._general_error(f"Failed to create GeographicScope object, exception {e}")
+  #         self._traceback(f"{traceback.format_exc()}")
+  #       try:
+  #         date = GovernanceDate(
+  #           id=self.managers.id_manager.build_id(GovernanceDate),
+  #           name=record['name'],
+  #           label=record['label'],
+  #           description=record['description'],
+  #           type=record['type'],
+  #           dateValue=record['date'],
+  #           geographicScopes=scopes
+  #         )
+  #         self.dates[category].append(date)
+  #         self.managers.cross_references.add(record['name'], date)
+  #       except Exception as e:
+  #         self._general_error(f"Failed to create GovernanceDate object, exception {e}")
+  #         self._traceback(f"{traceback.format_exc()}")
+
+  def _process_soa(self, file_path):
+    tls = []
+    for timeline in self.study_design.other_timelines:
+      tl = StudySoAV2Sheet(file_path, timeline, False)
+      tls.append(tl)
+      self.timelines[timeline] = tl
+      self.managers.cross_references.add(timeline, tl.timeline)
+    self.soa = StudySoAV2Sheet(file_path, self.study_design.main_timeline, True)
+    tls.append(self.soa)
+    self._set_timing_references(tls)
+    self._check_timing_references(tls)
+
+  def _check_timing_references(self, tls):
+    timing_check = {}
+    for timing in self.timings.items:
+      timing_check[timing.name] = None
+    for tl in tls:
+      tl_items = tl.check_timing_references(self.timings.items, timing_check)
+      tl.timeline.timings = tl_items
+    for timing in self.timings.items:
+      if not timing_check[timing.name]:
+        self._general_warning(f"Timing with name '{timing.name}' not referenced")
+
+  def _set_timing_references(self, tls):
+    for timing in self.timings.items:
+      found = {'from': False, 'to': False}
+      for tl in tls:
+        if not found['from']:
+          instance = tl.timing_match(timing.relativeFromScheduledInstanceId)
+          if instance:
+            item = instance.item
+            timing.relativeFromScheduledInstanceId = item.id
+            found['from'] = True
+        if not found['to']:
+          instance = tl.timing_match(timing.relativeToScheduledInstanceId)
+          if instance:
+            item = instance.item
+            timing.relativeToScheduledInstanceId = item.id
+            found['to'] = True
+      if not found['from']:
+        self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
+      if not found['to']:
+        self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
+
+  # def _read_scope_cell(self, row_index, col_index):
+  #   result = []
+  #   value = self.read_cell(row_index, col_index)
+  #   if value.strip() == "":
+  #     self._error(row_index, col_index, "Empty cell detected where multiple geographic scope CT values expected")
+  #     return result
+  #   else:
+  #     for item in self._state_split(value):
+  #       if item.upper().strip() == "GLOBAL":
+  #         # If we ever find global just return the one code
+  #         return [{'type': CDISCCT().code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
+  #       else: 
+  #         code = None
+  #         if item.strip():
+  #           outer_parts = item.split(":")
+  #           if len(outer_parts) == 2:
+  #             system = outer_parts[0].strip()
+  #             value = outer_parts[1].strip()
+  #             if system.upper() == "REGION":
+  #               pt = 'Region'
+  #               code = ISO3166().region_code(value)
+  #             elif system.upper() == "COUNTRY":
+  #               pt = 'Country'
+  #               code = ISO3166().code(value)
+  #             else:
+  #               self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
+  #           else:
+  #             self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no ':' detected")
+  #         else:
+  #           self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
+  #         if code:
+  #           result.append({'type': CDISCCT().code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias.code(code, [])})
+  #     return result
+
+  # def _set_title(self, rindex, cindex, title_type):
+  #   if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
+  #     return self.read_cell(rindex, cindex)
+  #   else:
+  #     try:
+  #       text = self.read_cell(rindex, cindex)
+  #       if text:
+  #         code = CDISCCT().code_for_attribute('StudyVersion', 'titles', title_type)
+  #         title = StudyTitle(id=self.managers.id_manager.build_id(StudyTitle), text=text, type=code)
+  #         self.titles.append(title)
+  #         self.managers.cross_references.add(title.id, title)
+  #         return title
+  #       else:
+  #         return None
+  #     except Exception as e:
+  #       self._error(rindex, cindex, "Failed to create StudyTitle object, exception {e}")
+  #       self._traceback(f"{traceback.format_exc()}")
+        
