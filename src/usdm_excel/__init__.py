@@ -56,6 +56,7 @@ class USDMExcel():
     try:
     
       # Process all the sheets
+      self.configuration = ConfigurationSheet(self._file_path, self._managers)
       self.study = StudySheet(self._file_path, self._managers)
       self.timings = StudyDesignTimingSheet(self._file_path, self._managers)
       self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._managers)
