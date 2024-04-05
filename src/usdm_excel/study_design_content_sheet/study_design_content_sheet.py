@@ -2,6 +2,7 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.narrative_content import NarrativeContent
 from usdm_excel.managers import Managers
+from usdm_excel.document.macros import Macros
 
 class StudyDesignContentSheet(BaseSheet):
 

@@ -82,8 +82,8 @@ class StudyDesignInterventionSheet(BaseSheet):
         label=label,
         duration=admin_duration,
         dose=dose,
-        route=Alias.code(route, []),
-        frequency=Alias.code(frequency, [])
+        route=Alias(self.managers).code(route, []),
+        frequency=Alias(self.managers).code(frequency, [])
       )
     except Exception as e:
       self._general_error(f"Failed to create AgentAdministration object, exception {e}")

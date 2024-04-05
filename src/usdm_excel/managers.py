@@ -18,6 +18,6 @@ class Managers():
     self.option_manager = OptionManager(self.logger)
     self.cross_references = CrossRef(self.errors, self.logger)
     self.cdisc_ct_library = CDISCCTLibrary(self.errors, self.logger)
-    self.cdisc_bc_library = CDISCBCLibrary(self.errors, self.logger, self.cdisc_ct_library)
+    self.cdisc_bc_library = CDISCBCLibrary(self.errors, self.logger, self.cdisc_ct_library, self.id_manager)
 
 

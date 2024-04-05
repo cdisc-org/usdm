@@ -27,13 +27,13 @@ class ScheduledInstance():
     self.default_name = self.parent.read_cell(SoAColumnRows.DEFAULT_ROW, col_index)
     self.conditions = Conditons(self.parent.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index))
     if encounter_name:
-      encounter = self.managers.cross_references.get(Encounter, encounter_name)
+      encounter = self.parent.managers.cross_references.get(Encounter, encounter_name)
       if encounter:
         encounter_id = encounter.id
       else:
         self.parent._general_warning(f"Failed to find encounter with name '{encounter_name}'")
     if epoch_name:
-      epoch = self.managers.cross_references.get(StudyEpoch, epoch_name)
+      epoch = self.parent.managers.cross_references.get(StudyEpoch, epoch_name)
       if epoch:
         epoch_id = epoch.id
       else:
@@ -41,7 +41,7 @@ class ScheduledInstance():
     try:
       if type.upper() == "ACTIVITY":
         self.item = ScheduledActivityInstance(
-          id=self.managers.id_manager.build_id(ScheduledActivityInstance),
+          id=self.parent.managers.id_manager.build_id(ScheduledActivityInstance),
           name=name,
           description=description,
           label=label,
@@ -52,11 +52,11 @@ class ScheduledInstance():
           epochId=epoch_id,
           activityIds=self._add_activities()
         )
-        self.managers.cross_references.add(self.item.id, self.item)
-        self.managers.cross_references.add(self.name, self.item)
+        self.parent.managers.cross_references.add(self.item.id, self.item)
+        self.parent.managers.cross_references.add(self.name, self.item)
       elif type.upper() == "DECISION":
         self.item = ScheduledDecisionInstance(
-          id=self.managers.id_manager.build_id(ScheduledDecisionInstance),
+          id=self.parent.managers.id_manager.build_id(ScheduledDecisionInstance),
           name=name,
           description=description,
           label=label,
@@ -65,8 +65,8 @@ class ScheduledInstance():
           defaultConditionId=None,
           conditionAssignments=[]
         )
-        self.managers.cross_references.add(self.item.id, self.item)
-        self.managers.cross_references.add(self.name, self.item)
+        self.parent.managers.cross_references.add(self.item.id, self.item)
+        self.parent.managers.cross_references.add(self.name, self.item)
       else:
         self.parent._general_warning(f"Unrecognized ScheduledInstance type: '{type}'")
     except Exception as e:
@@ -81,7 +81,7 @@ class ScheduledInstance():
       if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity_name = self.parent.read_cell(row, SoAColumnRows.CHILD_ACTIVITY_COL)
         if str(cell).upper() == "X":
-          activity = self.managers.cross_references.get(Activity, activity_name)
+          activity = self.parent.managers.cross_references.get(Activity, activity_name)
           if activity:
             activities.append(activity.id)
           else:

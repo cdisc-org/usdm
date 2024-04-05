@@ -4,9 +4,6 @@ from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.errors.errors import Errors
 from usdm_excel.managers import Managers
-from usdm_model.wrapper import Wrapper
-from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
-
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
@@ -28,16 +25,22 @@ from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet impo
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
 from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
+from usdm_excel.option_manager import Options, EmptyNoneOption
 
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
 from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
+from usdm_model.wrapper import Wrapper
+
+from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
 
 class USDMExcel():
 
   SYSTEM_NAME = "CDISC USDM E2J"
+  STUDY_VERSION_DATE = 'study_version'
+  PROTOCOL_VERSION_DATE = 'protocol_document'
 
   def __init__(self, file_path):
     self._managers = Managers()
@@ -84,7 +87,7 @@ class USDMExcel():
       activity_ids = [item.id for item in study_design.activities]
       study_design.biomedicalConcepts = self.soa.biomedical_concepts
       study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
-      for key, tl in self.timelines.items():
+      for key, tl in self.study.timelines.items():
         study_design.scheduleTimelines.append(tl.timeline)
         for activity in tl.activities:
           if activity.id not in activity_ids:
@@ -92,7 +95,7 @@ class USDMExcel():
             activity_ids.append(activity.id)
         study_design.biomedicalConcepts += tl.biomedical_concepts
         study_design.bcSurrogates += tl.biomedical_concept_surrogates
-      self.double_link(study_design.activities, 'previousId', 'nextId')
+      self._double_link(study_design.activities, 'previousId', 'nextId')
       study_design.indications = self.indications.items
       study_design.studyInterventions = self.interventions.items
       study_design.population = self.study_population.population
@@ -107,9 +110,9 @@ class USDMExcel():
       try:
         self.protocol_document_version = StudyProtocolDocumentVersion(
           id=self._managers.id_manager.build_id(StudyProtocolDocumentVersion), 
-          protocolVersion=self.protocol_version,
-          protocolStatus=self.protocol_status,
-          dateValues=self.dates[self.PROTOCOL_VERSION_DATE]
+          protocolVersion=self.study.protocol_version,
+          protocolStatus=self.study.protocol_status,
+          dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE]
           )
         self.protocol_document_version.contents = self.contents.items
         self._managers.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
@@ -120,7 +123,7 @@ class USDMExcel():
       try:
         study_protocol_document = StudyProtocolDocument(
           id=self._managers.id_manager.build_id(StudyProtocolDocument), 
-          name=f"Protocol_Document_{self.name}", 
+          name=f"Protocol_Document_{self.study.name}", 
           versions=[self.protocol_document_version])
       except Exception as e:
         self._general_error(f"Failed to create StudyProtocolDocument object, exception {e}")
@@ -129,17 +132,17 @@ class USDMExcel():
       try:
         self.study_version = StudyVersion(
           id=self._managers.id_manager.build_id(StudyVersion),
-          versionIdentifier=self.version,
-          studyType=self.type,
-          studyPhase=self.phase,
-          businessTherapeuticAreas=self.therapeutic_areas,
-          rationale=self.rationale,
+          versionIdentifier=self.study.version,
+          studyType=self.study.type,
+          studyPhase=self.study.phase,
+          businessTherapeuticAreas=self.study.therapeutic_areas,
+          rationale=self.study.rationale,
           studyIdentifiers=self.study_identifiers.identifiers,
           documentVersionId=self.protocol_document_version.id,
           studyDesigns=self.study_design.study_designs,
-          dateValues=self.dates[self.STUDY_VERSION_DATE],
+          dateValues=self.study.dates[self.STUDY_VERSION_DATE],
           amendments=self.study_amendments.items,
-          titles=self.titles
+          titles=self.study.titles
         )
         self._managers.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
@@ -149,7 +152,7 @@ class USDMExcel():
       try:
         self.study = Study(
           id=None, # No Id, will be allocated a UUID
-          name=f"Study_{self.name}", 
+          name=f"Study_{self.study.name}", 
           versions=[self.study_version],
           documentedBy=study_protocol_document
         )
@@ -209,3 +212,25 @@ class USDMExcel():
         self._general_error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
       if not found['to']:
         self._general_error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
+
+  def _double_link(self, items, prev, next):
+    try: 
+      for idx, item in enumerate(items):
+        if idx == 0:
+          if self._managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
+            setattr(item, prev, "")
+          else:
+            setattr(item, prev, None)
+        else:
+          the_id = getattr(items[idx-1], 'id')
+          setattr(item, prev, the_id)
+        if idx == len(items)-1:  
+          if self._managers.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value:
+            setattr(item, next, "")
+          else:
+            setattr(item, next, None)
+        else:
+          the_id = getattr(items[idx+1], 'id')
+          setattr(item, next, the_id)
+    except Exception as e:
+      self._general_error(f"Exception '{e}' in double_link: {items}")

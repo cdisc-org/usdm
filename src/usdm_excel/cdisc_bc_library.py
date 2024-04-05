@@ -4,6 +4,8 @@ import requests
 import logging
 import traceback
 from usdm_excel.errors.errors import Errors
+from usdm_excel.cdisc_ct_library import CDISCCTLibrary
+from usdm_excel.id_manager import IdManager
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
 from usdm_model.response_code import ResponseCode
@@ -14,10 +16,11 @@ class CDISCBCLibrary():
 
   API_ROOT = 'https://api.library.cdisc.org/api/cosmos/v2'    
   
-  def __init__(self, errors: Errors, logger: logging, ct_library):
+  def __init__(self, errors: Errors, logger: logging, ct_library: CDISCCTLibrary, id_manager: IdManager):
     self._errors = errors
     self._logger = logger
     self._ct_library = ct_library
+    self._id_manager = id_manager
     self._api_key = os.getenv('CDISC_API_KEY')
     self._headers =  {"Content-Type":"application/json", "api-key": self._api_key}
     self._package_metadata = {}
@@ -54,7 +57,7 @@ class CDISCBCLibrary():
   def _set_ids(self, parent):
     if isinstance(parent, str) or isinstance(parent, bool):
       return
-    parent['id'] = self.managers.id_manager.build_id(parent['instanceType'])
+    parent['id'] = self._id_manager.build_id(parent['instanceType'])
     for name, value in parent.items():
       if isinstance(value, list):
         for child in value:
@@ -260,7 +263,7 @@ class CDISCBCLibrary():
 
   def _biomedical_concept_object(self, name, label, synonyms, reference, code) -> BiomedicalConcept:
     code.id = "tbd"
-    alias_code=Alias.code(code, [])
+    alias_code=self._alias_code(code, [])
     alias_code.id = "tbd"
     return BiomedicalConcept(
       id="tbd",
@@ -274,7 +277,7 @@ class CDISCBCLibrary():
 
   def _biomedical_concept_property_object(self, name, label, datatype, responses, code):
     code.id = "tbd"
-    alias_code=Alias.code(code, [])
+    alias_code=self._alias_code(code, [])
     alias_code.id = "tbd"
     return BiomedicalConceptProperty(
       id="tbd",
