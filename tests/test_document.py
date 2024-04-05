@@ -24,13 +24,11 @@ def create_criteria():
   results = factory.set(EligibilityCriterion, item_list)
   return results
 
-
 def test_create(mocker):
   minimal = MinimalStudy()
   minimal.population.criteria = create_criteria()
-  bs = factory.base_sheet(mocker)
   doc = Doc()
-  document = Document(bs, "xxx", minimal.study, "")
+  document = Document("xxx", minimal.study)
   content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'sectionTitle': 'Section Title', 'text': '<usdm:macro id="section" name="inclusion"/>', 'childIds': []})
   document._content_to_html(content, doc)
   result = doc.getvalue()
