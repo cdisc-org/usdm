@@ -649,10 +649,15 @@ There are some prefined macros that can be used to generate content. These are p
 Examples of macros are:
 
 ```<usdm:macro id="xref" klass="Objective" name="OBJ1" attribute="text"/>```
+
 ```<usdm:macro id="xref" klass="StudyDesignPopulation" name="STUDY_POP" attribute="@plannedCompletionNumber/Range/maxValue"/>```
+
 ```<usdm:macro id="element" name="study_identifier"/>```
+
 ```<usdm:macro id="image" file="design.png" type="png"/>```
+
 ```<usdm:macro id="section" name="inclusion" template="plain"/>```
+
 ```<usdm:macro id="note" text="A note here please"/>```
 
 ### Study Design Sites sheet
