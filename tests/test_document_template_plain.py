@@ -6,6 +6,7 @@ from tests.test_factory import Factory
 from tests.test_data_factory import MinimalStudy
 
 factory = Factory()
+managers = factory.managers()
 
 INCLUSION = factory.cdisc_code('C25532', 'Inc')
 EXCLUSION = factory.cdisc_code('C25370', 'Exc')
@@ -23,7 +24,6 @@ def create_criteria():
   return results
 
 def test_create(mocker):
-  tu_clear()
   minimal = MinimalStudy()
   minimal.population.criteria = create_criteria()
   bs = factory.base_sheet(mocker)
