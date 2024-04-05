@@ -196,7 +196,7 @@ class BaseSheet():
           city=parts[2].strip(), 
           state=parts[3].strip(), 
           postal_code=parts[4].strip(), 
-          country=ISO3166().code(parts[5].strip())
+          country=ISO3166(self.managers).code(parts[5].strip())
         )
       return result
     elif allow_empty:
