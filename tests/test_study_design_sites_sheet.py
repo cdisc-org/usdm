@@ -1,12 +1,13 @@
-import pytest
 import pandas as pd
-
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
-#from usdm_excel.cross_ref import cross_references
 from usdm_model.code import Code
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
 
 def test_create(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -27,7 +28,7 @@ def test_create(mocker):
   expected_3 = Code(id='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1, expected_2, expected_3]
-  sites = StudyDesignSitesSheet("")
+  sites = StudyDesignSitesSheet("", managers)
   assert len(sites.organizations) == 3
   assert len(sites.sites) == 3
   assert sites.organizations[0].id == 'Id_1'
@@ -45,7 +46,7 @@ def test_create(mocker):
   assert sites.organizations[2].manages[0].id == 'Site_3'
   
 def test_create_empty(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -53,11 +54,11 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyIdentifierName', 'studyIdentifierDescription', 'studyIdentifierType'])
-  sites = StudyDesignSitesSheet("")
+  sites = StudyDesignSitesSheet("", managers)
   assert len(sites.organizations) == 0
 
 def test_read_cell_by_name_error(mocker):
-  self.managers.cross_references.clear()
+  managers.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -68,9 +69,9 @@ def test_read_cell_by_name_error(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'label', 'identifierScheme', 'identifier', 'address', 'siteName', 'siteLabel', 'siteDescription'])
-  sites = StudyDesignSitesSheet("")
+  sites = StudyDesignSitesSheet("", managers)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignSites"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'type' in sheet' raised reading sheet."
+  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'type' in sheet' raised reading sheet 'studyDesignSites'"
