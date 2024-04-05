@@ -184,13 +184,13 @@ class Document():
   def _resolve_instance(self, instance, attribute, highlight=False):
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
-    soup = get_soup(value, self.parent)
+    soup = get_soup(value, self.errors, self._logger)
     for ref in soup(['usdm:tag']):
       try:
         attributes = ref.attrs
         if dictionary:
           entry = next((item for item in dictionary.parameterMaps if item.tag == attributes['name']), None)
-          self._replace_and_highlight(soup, ref, get_soup(entry.reference, self.parent), highlight)
+          self._replace_and_highlight(soup, ref, get_soup(entry.reference, self.errors, self._logger), highlight)
         else:
           self.errors.add(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document", Errors.ERROR)
           self._replace_and_highlight(soup, ref, 'Missing content: missing dictionary', highlight)
@@ -215,10 +215,10 @@ class Document():
   def _wrap_in_span_and_modal(self, soup, ref, text):
     id = f"usdmContent{self.modal_count}"
     span = soup.new_tag('span', attrs={'class': "usdm-highlight"})
-    span.append(get_soup(self._link(id), self.parent))
+    span.append(get_soup(self._link(id), self.errors, self._logger))
     span.append(text)
     ref.replace_with(span)
-    span.append(get_soup(self._modal(ref, id), self.parent))
+    span.append(get_soup(self._modal(ref, id), self.errors, self._logger))
     self.modal_count += 1
 
   def _link(self, id):
