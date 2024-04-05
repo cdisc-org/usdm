@@ -1,6 +1,7 @@
 import json
 import csv
 from usdm_excel import USDMExcel
+from usdm_db import USDMDb
 from bs4 import BeautifulSoup
 
 SAVE_ALL =False
@@ -72,9 +73,10 @@ def run_test_html(filename, save=False, highlight=False):
     expected = read_error_csv(f)
   assert prep_errors_for_csv_compare(errors) == expected
 
-def run_test_timeline(filename, level=USDMExcel.FULL_HTML, save=False):
-  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result = excel.to_timeline(level)
+def run_test_timeline(filename, level=USDMDb.FULL_HTML, save=False):
+  usdm = USDMDb()
+  usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result = usdm.to_timeline(level)
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
@@ -87,8 +89,9 @@ def run_test_timeline(filename, level=USDMExcel.FULL_HTML, save=False):
 
 def run_test_ne(filename, save=False):
   result = {}
-  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result['n'], result['e'] = excel.to_nodes_and_edges()
+  usdm = USDMDb()
+  usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result['n'], result['e'] = usdm.to_nodes_and_edges()
   for type in ['n', 'e']:
 
     # Useful if you want to see the results.

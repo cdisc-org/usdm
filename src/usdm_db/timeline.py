@@ -1,7 +1,7 @@
+import logging
+from usdm_db.utility import log_exception
 from yattag import Doc
-#from usdm_excel.cross_ref import cross_references
-from usdm_excel.logger import package_logger
-from usdm_model.schedule_timeline import ScheduleTimeline
+#from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance, ScheduledInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
@@ -13,20 +13,20 @@ class Timeline():
   BODY = "body"
 
   def __init__(self, study):
-    self.study = study
+    self._study = study
+    self._logger = logging.getLogger(__name__)
 
   def to_html(self, level=FULL):
     try:
       doc = Doc()
-      study_design = self.study.versions[0].studyDesigns[0]
+      study_design = self._study.versions[0].studyDesigns[0]
       if level == self.BODY:
         self._body(doc, study_design)
       else:
         self._full(doc, study_design)
       return doc.getvalue()
     except Exception as e:
-      package_logger.error(f"Exception '{e}' raised generating HTML page {level}.")
-      package_logger.debug(f"{traceback.format_exc()}")
+      log_exception(self._logger, f"Failed generating HTML page at level '{level}'")
 
   def _full(self, doc, study_design):
     doc.asis('<!DOCTYPE html>')

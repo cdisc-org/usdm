@@ -1,12 +1,12 @@
 import pandas as pd
-#from usdm_excel.id_manager import id_manager
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.cdisc_ct import CDISCCT
+from usdm_excel.id_manager import IdManager
+from usdm_model.code import Code
 
 class Factory():
 
   def __init__(self):
-    self.cdisc_ct = CDISCCT()
+    self._id_manager = IdManager()
   
   def item(self, cls, params):
     params['id'] = params['id'] if 'id' in params else self.managers.id_manager.build_id(cls)
@@ -28,7 +28,12 @@ class Factory():
     return BaseSheet("", "")
 
   def cdisc_code(self, code, decode):
-    return self.cdisc_ct.code(code, decode)
+    return self._build_code(code=code, system="xxx", version="1", decode=decode)
   
   def cdisc_dummy(self):
-    return self.cdisc_ct.code("C12345", "decode")
+    return self.cdisc_code("C12345", "decode")
+
+  def _build_code(self, code, system, version, decode):
+    id = self._id_manager.build_id(Code)
+    instance = Code(id=id, code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
+    return instance
