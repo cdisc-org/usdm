@@ -127,10 +127,10 @@ class StudyDesignAmendmentSheet(BaseSheet):
                 quantity = self._get_quantitiy(name_value[1].strip())
                 if system.upper() == "REGION":
                   pt = 'Region'
-                  code = ISO3166().region_code(value)
+                  code = ISO3166(self.managers).region_code(value)
                 elif system.upper() == "COUNTRY":
                   pt = 'Country'
-                  code = ISO3166().code(value)
+                  code = ISO3166(self.managers).code(value)
                 else:
                   self._error(row_index, col_index, f"Failed to decode geographic enrollment data {name_value}, must be either Region or Country using ISO3166 codes")
               else:
@@ -140,14 +140,14 @@ class StudyDesignAmendmentSheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic enrollment data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias.code(code, []), 'quantity': quantity})
+            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias(self.managers).code(code, []), 'quantity': quantity})
       return result
 
   def _get_quantitiy(self, text):
     #print(f"QUANTITY1: {text}")
-    quantity = QuantityType(text, True, False)
+    quantity = QuantityType(text, self.managers, True, False)
     unit = Alias(self.managers).code(quantity.units_code, [])
-    #print(f"QUANTITY2: {quantity_details}")
+    #print(f"QUANTITY2: {quantity} {quantity.units_code}")
     return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
 
   def _read_secondary_reason_cell(self, row_index):

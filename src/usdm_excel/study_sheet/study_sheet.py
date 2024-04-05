@@ -172,7 +172,7 @@ class StudySheet(BaseSheet):
               value = outer_parts[1].strip()
               if system.upper() == "REGION":
                 pt = 'Region'
-                code = ISO3166().region_code(value)
+                code = ISO3166(self.managers).region_code(value)
               elif system.upper() == "COUNTRY":
                 pt = 'Country'
                 code = ISO3166(self.managers).code(value)
@@ -183,7 +183,7 @@ class StudySheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias.code(code, [])})
+            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias(self.managers).code(code, [])})
       return result
 
   def _set_title(self, rindex, cindex, title_type):
