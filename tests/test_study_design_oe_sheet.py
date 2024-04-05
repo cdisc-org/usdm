@@ -1,10 +1,13 @@
 import pytest
 import pandas as pd
-
-xfail = pytest.mark.xfail
-
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_model.api_base_model import ApiBaseModelWithId
+from tests.test_factory import Factory
+
+factory = Factory()
+managers = factory.managers()
+
+xfail = pytest.mark.xfail
 
 def test_create(mocker):
   #mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
@@ -31,7 +34,7 @@ def test_create(mocker):
     'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
     'objectiveLevel', 'endpointName', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
   )
-  items = StudyDesignObjectiveEndpointSheet("")
+  items = StudyDesignObjectiveEndpointSheet("", managers)
   assert len(items.objectives) == 3
   assert items.objectives[0].id == 'ObjId_1'
   assert items.objectives[0].name == 'Obj 1'
@@ -58,7 +61,7 @@ def test_create_empty(mocker):
     'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
     'objectiveLevel', 'endpointName', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
   )
-  items = StudyDesignObjectiveEndpointSheet("")
+  items = StudyDesignObjectiveEndpointSheet("", managers)
   assert len(items.objectives) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -82,7 +85,7 @@ def test_read_cell_by_name_error(mocker):
     'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
     'objectiveLevel', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
   )
-  items = StudyDesignObjectiveEndpointSheet("")
+  items = StudyDesignObjectiveEndpointSheet("", managers)
   mock_error.assert_called()
   assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error 'Failed to detect column(s) 'endpointXref, endpointName' in sheet' reading cell '['endpointXref', 'endpointName']'", 10)
   
