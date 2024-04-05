@@ -11,11 +11,11 @@ class Managers():
   def __init__(self):
     self.logger = logging.getLogger(__name__)
     self.logger.addHandler(logging.NullHandler())
-    self.errors = Errors()
-    self.id_manager = IdManager()
-    self.ct_version_manager = CTVersionManager()
-    self.option_manager = OptionManager()
-    self.cross_references = CrossRef()
+    self.errors = Errors(self.logger)
+    self.id_manager = IdManager(self.logger)
+    self.ct_version_manager = CTVersionManager(self.logger)
+    self.option_manager = OptionManager(self.logger)
+    self.cross_references = CrossRef(self.logger)
     self.cdisc_ct_library = CDISCCTLibrary(self.errors, self.logger)
 
 

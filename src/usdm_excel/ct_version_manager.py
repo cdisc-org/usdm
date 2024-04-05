@@ -1,17 +1,20 @@
+import logging
+
 class CTVersionManager():
 
-  def __init__(self):
-    self.versions = {}
+  def __init__(self, logger: logging):
+    self._versions = {}
+    self._logger = logger
 
   def clear(self):
-    self.versions = {}
+    self._versions = {}
 
   def add(self, name, value):
-    self.versions[name] = value
+    self._versions[name] = value
 
   def get(self, name):
-    if name in self.versions:
-      return self.versions[name]
+    if name in self._versions:
+      return self._versions[name]
     else:
       return "None set"
     

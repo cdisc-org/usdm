@@ -1,11 +1,14 @@
+import logging
+
 class IdManager():
 
-  def __init__(self):
-    self.id_index = {}
+  def __init__(self, logger: logging):
+    self._logger = logger
+    self._id_index = {}
     self.clear()
 
   def clear(self):
-    self.id_index = {
+    self._id_index = {
       'Address': 0,
       'Code': 0,
       'AliasCode': 0,
@@ -66,8 +69,7 @@ class IdManager():
 
   def build_id(self, klass):
     klass_name = klass if isinstance(klass, str) else str(klass.__name__)
-    self.id_index[klass_name] += 1
-    return "%s_%s" % (klass_name, self.id_index[klass_name])
+    self._id_index[klass_name] += 1
+    return f"{klass_name}_{self._id_index[klass_name]}"
 
-#id_manager = IdManager()
 
