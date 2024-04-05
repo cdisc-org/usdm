@@ -4,7 +4,7 @@ from usdm_excel import USDMExcel
 from usdm_db import USDMDb
 from bs4 import BeautifulSoup
 
-SAVE_ALL =False
+SAVE_ALL = False
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])
@@ -35,9 +35,10 @@ def format_html(result):
   return soup.prettify()
 
 def run_test(filename, save=False):
-  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result = excel.to_json()
-  errors = excel.errors()
+  usdm = USDMDb()
+  errors = usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result = usdm.to_json()
+  #errors = excel.errors()
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
