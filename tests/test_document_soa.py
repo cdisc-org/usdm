@@ -14,7 +14,7 @@ from usdm_model.condition import Condition
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 FIXED = factory.cdisc_code('C201358', 'Fixed Reference')
 BEFORE = factory.cdisc_code('C201356', 'After')
@@ -29,7 +29,7 @@ def translate_reference(text):
   soup = BeautifulSoup(str(text), 'html.parser')
   for ref in soup(['usdm:ref']):
     attributes = ref.attrs
-    instance = managers.cross_references.get_by_id(attributes['klass'], attributes['id'])
+    instance = globals.cross_references.get_by_id(attributes['klass'], attributes['id'])
     value = str(getattr(instance, attributes['attribute']))
     ref.replace_with(value)
   return str(soup)
@@ -49,7 +49,7 @@ def double_link(items, prev, next):
 
 def add_cross_ref(collection):
   for item in collection:
-    managers.cross_references.add(item.id, item)
+    globals.cross_references.add(item.id, item)
 
 def create_conditions():
   item_list = [

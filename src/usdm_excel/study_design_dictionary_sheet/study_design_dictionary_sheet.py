@@ -1,15 +1,15 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary, ParameterMap
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignDictionarySheet(BaseSheet):
 
   SHEET_NAME = 'dictionaries'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         current_name = None
@@ -33,7 +33,7 @@ class StudyDesignDictionarySheet(BaseSheet):
           value = self.read_cell_by_name(index, 'value', default="", must_be_present=False)
           if klass:
             try:
-              instance, attribute = self.managers.cross_references.get_by_path(klass, xref_name, attribute_path)
+              instance, attribute = self.globals.cross_references.get_by_path(klass, xref_name, attribute_path)
             except Exception as e:
               instance = None
               col = self.column_present(['attribute', 'path'])
@@ -56,7 +56,7 @@ class StudyDesignDictionarySheet(BaseSheet):
   def _dictionary(self, name, description, label):
     try:
       item = SyntaxTemplateDictionary(
-        id=self.managers.id_manager.build_id(SyntaxTemplateDictionary), 
+        id=self.globals.id_manager.build_id(SyntaxTemplateDictionary), 
         name=name,
         description=description,
         label=label,
@@ -68,5 +68,5 @@ class StudyDesignDictionarySheet(BaseSheet):
       return None
     else:
       self.items.append(item)
-      self.managers.cross_references.add(name, item)
+      self.globals.cross_references.add(name, item)
       return item

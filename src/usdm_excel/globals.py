@@ -7,7 +7,7 @@ from usdm_excel.option_manager import OptionManager
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.cdisc_bc_library import CDISCBCLibrary
 
-class Managers():
+class Globals():
 
   def __init__(self):
     self.logger = logging.getLogger(__name__)

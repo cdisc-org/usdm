@@ -4,15 +4,15 @@ from usdm_excel.alias import Alias
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.agent_administration import AgentAdministration
 from usdm_model.administration_duration import AdministrationDuration
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignInterventionSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignInterventions'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.items = []
       self.current_name = None
       self.current_intervention = None
@@ -44,7 +44,7 @@ class StudyDesignInterventionSheet(BaseSheet):
   def _intervention(self, name, description, label, role, codes, type, pharm_class, product_designation, minimum_duration, agent_administration):
     try:
       item = StudyIntervention(
-        id=self.managers.id_manager.build_id(StudyIntervention), 
+        id=self.globals.id_manager.build_id(StudyIntervention), 
         name=name, 
         description=description, 
         label=label,
@@ -61,7 +61,7 @@ class StudyDesignInterventionSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
     else:
       self.items.append(item)
-      self.managers.cross_references.add(name, item)
+      self.globals.cross_references.add(name, item)
       return item    
 
   def _create_agent_administration(self, index, admin_duration):
@@ -76,20 +76,20 @@ class StudyDesignInterventionSheet(BaseSheet):
   def _agent_administration(self, name, description, label, route, dose, frequency, admin_duration):
     try:
       item = AgentAdministration(
-        id=self.managers.id_manager.build_id(AgentAdministration), 
+        id=self.globals.id_manager.build_id(AgentAdministration), 
         name=name, 
         description=description, 
         label=label,
         duration=admin_duration,
         dose=dose,
-        route=Alias(self.managers).code(route, []),
-        frequency=Alias(self.managers).code(frequency, [])
+        route=Alias(self.globals).code(route, []),
+        frequency=Alias(self.globals).code(frequency, [])
       )
     except Exception as e:
       self._general_error(f"Failed to create AgentAdministration object, exception {e}")
       self._traceback(f"{traceback.format_exc()}")
     else:
-      self.managers.cross_references.add(name, item)
+      self.globals.cross_references.add(name, item)
       return item
 
   def _create_administration_duration(self, index):
@@ -102,7 +102,7 @@ class StudyDesignInterventionSheet(BaseSheet):
   def _administration_duration(self, description, will_vary, will_vary_reason, quantity):
     try:
       item = AdministrationDuration(
-        id=self.managers.id_manager.build_id(AdministrationDuration), 
+        id=self.globals.id_manager.build_id(AdministrationDuration), 
         description=description,
         durationWillVary=will_vary,
         reasonDurationWillVary=will_vary_reason,

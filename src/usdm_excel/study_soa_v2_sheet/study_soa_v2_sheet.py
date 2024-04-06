@@ -4,7 +4,7 @@ from usdm_excel.study_soa_v2_sheet.activities import Activities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.schedule_timeline import ScheduleTimeline
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudySoAV2Sheet(BaseSheet):
 
@@ -13,9 +13,9 @@ class StudySoAV2Sheet(BaseSheet):
   CONDITION_ROW = 2
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path: str, managers: Managers, sheet_name: str, main: bool=False, require: dict={}):
+  def __init__(self, file_path: str, globals: Globals, sheet_name: str, main: bool=False, require: dict={}):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=sheet_name, header=None, require=require)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, header=None, require=require)
       self.name = ""
       self.description = ""
       self.condition = ""
@@ -85,7 +85,7 @@ class StudySoAV2Sheet(BaseSheet):
   def _add_timeline(self, name, description, condition, instances, exit):
     try:
       timeline = ScheduleTimeline(
-        id=self.managers.id_manager.build_id(ScheduleTimeline),
+        id=self.globals.id_manager.build_id(ScheduleTimeline),
         mainTimeline=self.main_timeline,
         name=name,
         description=description,
@@ -95,7 +95,7 @@ class StudySoAV2Sheet(BaseSheet):
         exits=exit,
         instances=instances
       )
-      self.managers.cross_references.add(timeline.name, timeline)
+      self.globals.cross_references.add(timeline.name, timeline)
       return timeline
     except Exception as e:
       self._general_error(f"Failed to create ScheduleTimeline object, exception {e}")

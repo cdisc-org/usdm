@@ -41,8 +41,8 @@ class ScheduledInstances():
         self.parent._general_error(f"Default reference from {instance.name} to {instance.default_name} cannot be made, not found on the same timeline")
 
   def _add_exit(self):
-    exit = ScheduleTimelineExit(id=self.parent.managers.id_manager.build_id(ScheduleTimelineExit))
-    self.parent.managers.cross_references.add(exit.id, exit)
+    exit = ScheduleTimelineExit(id=self.parent.globals.id_manager.build_id(ScheduleTimelineExit))
+    self.parent.globals.cross_references.add(exit.id, exit)
     return exit
 
   def _set_condition_references(self):

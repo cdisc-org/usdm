@@ -1,10 +1,10 @@
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 def test_create():
-  managers = Managers()
-  assert managers.errors  is not None
-  assert managers.id_manager  is not None
-  assert managers.ct_version_manager  is not None
-  assert managers.option_manager  is not None
-  assert managers.cross_references  is not None
-  assert managers.cdisc_ct_library  is not None
+  globals = Globals()
+  assert globals.errors  is not None
+  assert globals.id_manager  is not None
+  assert globals.ct_version_manager  is not None
+  assert globals.option_manager  is not None
+  assert globals.cross_references  is not None
+  assert globals.cdisc_ct_library  is not None

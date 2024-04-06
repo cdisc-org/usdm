@@ -22,8 +22,8 @@ class Activity():
     full_bc_items = []
     procedures = []
     for bc in self._bcs:
-      if self.parent.managers.cdisc_bc_library.exists(bc):
-        full_bc = self.parent.managers.cdisc_bc_library.usdm(bc)
+      if self.parent.globals.cdisc_bc_library.exists(bc):
+        full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
         full_bc_items.append(full_bc.id)
         self.usdm_biomedical_concepts.append(full_bc)
       else:
@@ -32,23 +32,23 @@ class Activity():
         self.usdm_biomedical_concept_surrogates.append(surrogate)
     timelineId = ""
     if len(self._tls) > 0:
-      timeline = self.parent.managers.cross_references.get(ScheduleTimeline, self._tls[0])
+      timeline = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
       if timeline:
         timelineId = timeline.id
       else:
         timelineId = None
         self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
     for procedure in self._prs:
-      ref = self.parent.managers.cross_references.get(Procedure, procedure)
+      ref = self.parent.globals.cross_references.get(Procedure, procedure)
       if ref is not None:
         procedures.append(ref)
       else:
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
-    activity = self.parent.managers.cross_references.get(Activity, self.name)
+    activity = self.parent.globals.cross_references.get(Activity, self.name)
     if activity is None:
       try:
         activity = USDMActivity(
-          id=self.parent.managers.id_manager.build_id(Activity),
+          id=self.parent.globals.id_manager.build_id(Activity),
           name=self.name,
           description=self.name,
           definedProcedures=procedures,
@@ -59,7 +59,7 @@ class Activity():
           bcSurrogateIds=surrogate_bc_items,
           timelineId=timelineId
         )
-        self.parent.managers.cross_references.add(self.name, activity)     
+        self.parent.globals.cross_references.add(self.name, activity)     
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
       except Exception as e:
         #print(f"NAME: {self.row_index}, {self.name}")
@@ -74,7 +74,7 @@ class Activity():
   
   def _to_bc_surrogates(self, name):
     return BiomedicalConceptSurrogate(
-      id=self.parent.managers.id_manager.build_id(BiomedicalConceptSurrogate),
+      id=self.parent.globals.id_manager.build_id(BiomedicalConceptSurrogate),
       name=name,
       description=name,
       label=name,

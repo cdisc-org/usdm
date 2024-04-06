@@ -5,7 +5,7 @@ from usdm_model.api_base_model import ApiBaseModelWithId
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -34,7 +34,7 @@ def test_create(mocker):
     'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
     'objectiveLevel', 'endpointName', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
   )
-  items = StudyDesignObjectiveEndpointSheet("", managers)
+  items = StudyDesignObjectiveEndpointSheet("", globals)
   assert len(items.objectives) == 3
   assert items.objectives[0].id == 'ObjId_1'
   assert items.objectives[0].name == 'Obj 1'
@@ -61,7 +61,7 @@ def test_create_empty(mocker):
     'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
     'objectiveLevel', 'endpointName', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
   )
-  items = StudyDesignObjectiveEndpointSheet("", managers)
+  items = StudyDesignObjectiveEndpointSheet("", globals)
   assert len(items.objectives) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -85,7 +85,7 @@ def test_read_cell_by_name_error(mocker):
     'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
     'objectiveLevel', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
   )
-  items = StudyDesignObjectiveEndpointSheet("", managers)
+  items = StudyDesignObjectiveEndpointSheet("", globals)
   mock_error.assert_called()
   assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error 'Failed to detect column(s) 'endpointXref, endpointName' in sheet' reading cell '['endpointXref', 'endpointName']'", 10)
   

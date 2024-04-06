@@ -5,7 +5,7 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -25,7 +25,7 @@ def test_create(mocker):
           ['Indication 3', 'Indication Three', '', 'SPONSOR: WWW=1234, SPONSOR: EEE=3456']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'codes'])
-  Indications = StudyDesignIndicationSheet("", managers)
+  Indications = StudyDesignIndicationSheet("", globals)
   assert len(Indications.items) == 3
   assert Indications.items[0].id == 'IndicationId_1'
   assert Indications.items[0].name == 'Indication 1'
@@ -41,7 +41,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyIndicationName', 'studyIndicationDescription', 'studyIndicationType'])
-  Indications = StudyDesignIndicationSheet("", managers)
+  Indications = StudyDesignIndicationSheet("", globals)
   assert len(Indications.items) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -51,7 +51,7 @@ def test_read_cell_by_name_error(mocker):
   data = [['Indication 1', 'Indication One']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description'])
-  Indications = StudyDesignIndicationSheet("", managers)
+  Indications = StudyDesignIndicationSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignIndications"
   assert mock_error.call_args[0][1] == None

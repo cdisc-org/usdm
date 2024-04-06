@@ -1,11 +1,11 @@
 import traceback
 import re
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class QuantityType():
 
-  def __init__(self, quantity_info: str, managers: Managers, allow_missing_units: bool=True, allow_empty: bool=True):
+  def __init__(self, quantity_info: str, globals: Globals, allow_missing_units: bool=True, allow_empty: bool=True):
     try:
       self.value = None
       self.units = None
@@ -21,7 +21,7 @@ class QuantityType():
           self.value = parts['value'].strip()
           if parts['units']:
             self.units = parts['units'].strip()
-            self.units_code = CDISCCT(managers).code_for_unit(self.units)
+            self.units_code = CDISCCT(globals).code_for_unit(self.units)
             if not self.units_code:        
               self.errors.append(f"Unable to set the units code for the quantity '{quantity_info}'")
           elif allow_missing_units:

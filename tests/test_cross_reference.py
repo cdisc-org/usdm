@@ -3,8 +3,8 @@ from usdm_excel.cross_ref import *
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
-cross_references = managers.cross_references
+globals = factory.globals
+cross_references = globals.cross_references
 
 class CRTest():
 
@@ -30,7 +30,7 @@ class CRTest3():
     self.value = "VALUE"
 
 def test_create():
-  object = CrossRef(managers.errors, managers.logger)
+  object = CrossRef(globals.errors, globals.logger)
   assert len(object._references.keys()) == 0
   assert object._references == {}
 

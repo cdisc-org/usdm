@@ -1,12 +1,12 @@
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.code_base import CodeBase
 
 class CDISCCT(CodeBase):
 
-  def __init__(self, managers: Managers):
-    super().__init__(managers)
-    self._library = self._managers.cdisc_ct_library
+  def __init__(self, globals: Globals):
+    super().__init__(globals)
+    self._library = self._globals.cdisc_ct_library
     
   def code(self, code, decode):
     return self._build(code=code, system=self._library.system, version=self._library.version, decode=decode)

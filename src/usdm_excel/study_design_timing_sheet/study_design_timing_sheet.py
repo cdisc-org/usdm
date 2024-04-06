@@ -5,15 +5,15 @@ from usdm_excel.iso_8601_duration import ISO8601Duration
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_model.timing import Timing
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignTimingSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignTiming'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -26,12 +26,12 @@ class StudyDesignTimingSheet(BaseSheet):
           timing_label = self.read_cell_by_name(index, 'timingValue')
           timing_value = self._set_text_and_encoded(self.read_cell_by_name(index, 'timingValue'))
           to_from_type = self._set_to_from_type(self.read_cell_by_name(index, 'toFrom'))
-          window = WindowType(self.read_cell_by_name(index, 'window'), self.managers)
+          window = WindowType(self.read_cell_by_name(index, 'window'), self.globals)
           if window.errors:
             self._add_errors(window.errors, index, self._get_column_index('window'))
           try:
             item = Timing(
-              id=self.managers.id_manager.build_id(Timing),
+              id=self.globals.id_manager.build_id(Timing),
               type=type,
               value=timing_value,
               valueLabel=timing_label,
@@ -49,7 +49,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self._general_error(f"Failed to create Timing object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
           else:
-            self.managers.cross_references.add(name, item)
+            self.globals.cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
       self._general_sheet_exception(e)
@@ -77,7 +77,7 @@ class StudyDesignTimingSheet(BaseSheet):
       "BEFORE": {'c_code': 'C201357', 'pt': 'Before'}
     }   
     key = text.strip().upper()
-    return CDISCCT(self.managers).code(type_code[key]['c_code'], type_code[key]['pt'])
+    return CDISCCT(self.globals).code(type_code[key]['c_code'], type_code[key]['pt'])
 
   def _set_to_from_type(self, text):
     type_code = {
@@ -87,4 +87,4 @@ class StudyDesignTimingSheet(BaseSheet):
       "E2E": {'c_code': 'C201352', 'pt': 'End to End'},
     }    
     key = "S2S" if not text else text.strip().upper()
-    return CDISCCT(self.managers).code(type_code[key]['c_code'], type_code[key]['pt'])
+    return CDISCCT(self.globals).code(type_code[key]['c_code'], type_code[key]['pt'])

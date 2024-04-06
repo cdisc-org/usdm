@@ -7,7 +7,7 @@ from tests.test_factory import Factory
 xfail = pytest.mark.xfail
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -19,7 +19,7 @@ def test_create(mocker):
   data = [['Activity 1', 'Activity One', '', ''], ['Activity 2', 'Activity Two', 'T', 'Condition 2'], ['Activity 3', 'Activity Three', 'F', '']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['activityName', 'activityDescription', 'activityIsConditional', 'activityIsConditionalReason'])
-  activities = StudyDesignActivitySheet("", managers)
+  activities = StudyDesignActivitySheet("", globals)
   assert len(activities.items) == 3
   assert activities.items[0].id == 'ActivityId_1'
   assert activities.items[0].name == 'Activity 1'
@@ -36,7 +36,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyActivityName', 'studyActivityDescription', 'studyActivityType'])
-  activities = StudyDesignActivitySheet("", managers)
+  activities = StudyDesignActivitySheet("", globals)
   assert len(activities.items) == 0
 
   

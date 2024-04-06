@@ -5,12 +5,12 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
 def test_create(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -26,7 +26,7 @@ def test_create(mocker):
   data = [['Arm 1', 'Arm One', 'C12345', 'Subject', 'C99999'], ['Arm 2', 'Arm Two', 'C12345', 'BYOD', 'C99999'], ['Arm 3', 'Arm Three', 'C12345', 'ePRO', 'C99999']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription', 'studyArmType', 'studyArmDataOriginDescription', 'studyArmDataOriginType'])
-  arms = StudyDesignArmSheet("", managers)
+  arms = StudyDesignArmSheet("", globals)
   assert len(arms.items) == 3
   assert arms.items[0].id == 'ArmId_1'
   assert arms.items[0].name == 'Arm 1'
@@ -40,7 +40,7 @@ def test_create(mocker):
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_with_name_and_label(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -56,7 +56,7 @@ def test_create_with_name_and_label(mocker):
   data = [['Arm 1', 'Arm One', 'Arm 1', 'C12345', 'Subject', 'C99999'], ['Arm 2', 'Arm Two', 'Arm 2', 'C12345', 'BYOD', 'C99999'], ['Arm 3', 'Arm Three', 'Arm Tre', 'C12345', 'ePRO', 'C99999']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'type', 'studyArmDataOriginDescription', 'dataOriginType'])
-  arms = StudyDesignArmSheet("", managers)
+  arms = StudyDesignArmSheet("", globals)
   assert len(arms.items) == 3
   assert arms.items[0].id == 'ArmId_1'
   assert arms.items[0].name == 'Arm 1'
@@ -71,24 +71,24 @@ def test_create_with_name_and_label(mocker):
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
 def test_create_empty(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription', 'studyArmType'])
-  arms = StudyDesignArmSheet("", managers)
+  arms = StudyDesignArmSheet("", globals)
   assert len(arms.items) == 0
 
 def test_read_cell_by_name_error(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['Arm 1', 'Arm One']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyArmName', 'studyArmDescription'])
-  arms = StudyDesignArmSheet("", managers)
+  arms = StudyDesignArmSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignArms"
   assert mock_error.call_args[0][1] == None

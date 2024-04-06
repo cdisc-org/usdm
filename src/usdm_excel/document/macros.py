@@ -39,7 +39,7 @@ class Macros():
     return str(soup)
 
   def _xref(self, attributes, soup, ref) -> None:
-    instance, attribute = self.parent.managers.cross_references.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
+    instance, attribute = self.parent.globals.cross_references.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
     ref_tag = soup.new_tag("usdm:ref")
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)

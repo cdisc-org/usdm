@@ -1,15 +1,15 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.activity import Activity
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignActivitySheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignActivities'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -18,7 +18,7 @@ class StudyDesignActivitySheet(BaseSheet):
           label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
           try:
             item = Activity(
-              id=self.managers.id_manager.build_id(Activity), 
+              id=self.globals.id_manager.build_id(Activity), 
               name=name,
               description=description,
               label=label
@@ -28,7 +28,7 @@ class StudyDesignActivitySheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
-            self.managers.cross_references.add(name, item)     
+            self.globals.cross_references.add(name, item)     
         self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._general_sheet_exception(e)

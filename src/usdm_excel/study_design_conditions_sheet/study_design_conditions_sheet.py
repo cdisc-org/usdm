@@ -1,15 +1,15 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.condition import Condition
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignConditionSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignConditions'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -25,7 +25,7 @@ class StudyDesignConditionSheet(BaseSheet):
           item = self.create_object(Condition, params)
           if item:
             self.items.append(item)
-            self.managers.cross_references.add(name, item)     
+            self.globals.cross_references.add(name, item)     
     except Exception as e:
       self._general_sheet_exception(e)
 
@@ -42,7 +42,7 @@ class StudyDesignConditionSheet(BaseSheet):
       if reference:
         found = False
         for klass in klasses:
-          xref = self.managers.cross_references.get(klass, reference)
+          xref = self.globals.cross_references.get(klass, reference)
           if xref:
             results.append(xref.id)
             found = True

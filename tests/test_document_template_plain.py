@@ -6,7 +6,7 @@ from tests.test_factory import Factory
 from tests.test_data_factory import MinimalStudy
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 INCLUSION = factory.cdisc_code('C25532', 'Inc')
 EXCLUSION = factory.cdisc_code('C25370', 'Exc')

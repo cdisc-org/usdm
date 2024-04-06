@@ -1,12 +1,12 @@
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 from usdm_model.code import Code
 
 class CodeBase():
 
-  def __init__(self, managers: Managers):
-    self._managers = managers
-    self._id_manager = managers.id_manager
-    self._cross_references = managers.cross_references
+  def __init__(self, globals: Globals):
+    self._globals = globals
+    self._id_manager = globals.id_manager
+    self._cross_references = globals.cross_references
 
   def _build(self, code, system, version, decode):
     id = self._id_manager.build_id(Code)

@@ -8,8 +8,8 @@ from tests.test_factory import Factory
 xfail = pytest.mark.xfail
 
 factory = Factory()
-managers = factory.managers()
-managers.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
+globals = factory.globals
+globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
 
 def test_create(mocker):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -29,7 +29,7 @@ def test_create(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  content = StudyDesignContentSheet("", managers)
+  content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 8
   assert content.items[0].name == 'ROOT'
   assert content.items[0].previousId == ''
@@ -72,7 +72,7 @@ def test_create_training_dot(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  content = StudyDesignContentSheet("", managers)
+  content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 8
   assert content.items[0].name == 'ROOT'
   assert content.items[1].id == 'Content_2'
@@ -107,7 +107,7 @@ def test_create_4_levels(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  content = StudyDesignContentSheet("", managers)
+  content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 8
   assert content.items[0].name == 'ROOT'
   assert content.items[4].id == 'Content_5'
@@ -139,7 +139,7 @@ def test_create_standard_section(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  content = StudyDesignContentSheet("", managers)
+  content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 6
   assert content.items[0].text == ''
   assert content.items[1].text == '<div>Text 1</div>'
@@ -167,7 +167,7 @@ def test_create_invalid_levels(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  StudyDesignContentSheet("", managers)
+  StudyDesignContentSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignContent"
   assert mock_error.call_args[0][1] == None
@@ -182,7 +182,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  content = StudyDesignContentSheet("", managers)
+  content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 1
 
 def test_read_cell_by_name_error(mocker):
@@ -201,7 +201,7 @@ def test_read_cell_by_name_error(mocker):
   data = [['1', 'Section 1', 'Text 1']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'text'])
-  content = StudyDesignContentSheet("", managers)
+  content = StudyDesignContentSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
     ('studyDesignContent', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 10)

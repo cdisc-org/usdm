@@ -4,15 +4,15 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.encounter import Encounter
 from usdm_model.transition_rule import TransitionRule
 from usdm_model.timing import Timing
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignEncounterSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignEncounters'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.items = []
       for index, row in self.sheet.iterrows():
         start_rule = None
@@ -28,17 +28,17 @@ class StudyDesignEncounterSheet(BaseSheet):
         end_rule_text = self.read_cell_by_name(index, 'transitionEndRule')
         timing_xref = self.read_cell_by_name(index, 'window', must_be_present=False)
         if start_rule_text:
-          start_rule = TransitionRule(id=self.managers.id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=start_rule_text)
+          start_rule = TransitionRule(id=self.globals.id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=start_rule_text)
         if end_rule_text:
-          end_rule = TransitionRule(id=self.managers.id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=end_rule_text)
+          end_rule = TransitionRule(id=self.globals.id_manager.build_id(TransitionRule), name=f"ENCOUNTER_START_RULE_{index + 1}", text=end_rule_text)
         if timing_xref:
-          timing = self.managers.cross_references.get(Timing, timing_xref)
+          timing = self.globals.cross_references.get(Timing, timing_xref)
           timing_id = timing.id if timing else None
         else:
           timing_id = None
         try:
           item = Encounter(
-            id=self.managers.id_manager.build_id(Encounter), 
+            id=self.globals.id_manager.build_id(Encounter), 
             name=name,
             description=description,
             label=label,
@@ -55,7 +55,7 @@ class StudyDesignEncounterSheet(BaseSheet):
         else:
           self.items.append(item)
           cross_ref = xref if xref else name
-          self.managers.cross_references.add(cross_ref, item)     
+          self.globals.cross_references.add(cross_ref, item)     
       self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._general_sheet_exception(e)

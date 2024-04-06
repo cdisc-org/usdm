@@ -8,15 +8,15 @@ from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
 from usdm_excel.quantity_type import QuantityType
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignAmendmentSheet(BaseSheet):
 
   SHEET_NAME = 'studyAmendments'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -38,7 +38,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
           #print(f"ENROLLMENT: {enrollment}")
           try:
             item = StudyAmendment(
-              id=self.managers.id_manager.build_id(StudyAmendment), 
+              id=self.globals.id_manager.build_id(StudyAmendment), 
               number=number,
               summary=summary,
               substantialImpact=substantial,
@@ -51,7 +51,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.items.append(item)
-            self.managers.cross_references.add(item.number, item)
+            self.globals.cross_references.add(item.number, item)
         self.items.sort(key=lambda d: int(d.number))
         self.previous_link(self.items, 'previousId')
         
@@ -64,7 +64,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
       try:
         #print(f"ENROLL: {enrollment}")
         item = SubjectEnrollment(
-          id=self.managers.id_manager.build_id(SubjectEnrollment),
+          id=self.globals.id_manager.build_id(SubjectEnrollment),
           type=enrollment['type'],
           code=enrollment['code'],
           quantity=enrollment['quantity']
@@ -81,7 +81,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     #print(f"AR1: {reason}")
     try:
       item = StudyAmendmentReason(
-        id=self.managers.id_manager.build_id(StudyAmendmentReason), 
+        id=self.globals.id_manager.build_id(StudyAmendmentReason), 
         code=reason['code'],
         otherReason=reason['other']
       )
@@ -100,7 +100,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
     #print(f"ENROL1: {value}")
     if value.strip() == "":
       self._error(row_index, col_index, "Empty cell detected where geographic enrollment values expected")
-      return [{'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
+      return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
     else:
       for item in self._state_split(value):
         #print(f"ENROL2: {item}")
@@ -110,7 +110,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
           parts = text.split(":")
           if len(parts) == 2:
             quantity = self._get_quantitiy(parts[1].strip())
-            return [{'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': quantity}]
+            return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': quantity}]
           else:
             self._error(row_index, col_index, f"Failed to decode enrollment data {item}, no '=' detected")
           return 
@@ -127,10 +127,10 @@ class StudyDesignAmendmentSheet(BaseSheet):
                 quantity = self._get_quantitiy(name_value[1].strip())
                 if system.upper() == "REGION":
                   pt = 'Region'
-                  code = ISO3166(self.managers).region_code(value)
+                  code = ISO3166(self.globals).region_code(value)
                 elif system.upper() == "COUNTRY":
                   pt = 'Country'
-                  code = ISO3166(self.managers).code(value)
+                  code = ISO3166(self.globals).code(value)
                 else:
                   self._error(row_index, col_index, f"Failed to decode geographic enrollment data {name_value}, must be either Region or Country using ISO3166 codes")
               else:
@@ -140,13 +140,13 @@ class StudyDesignAmendmentSheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic enrollment data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias(self.managers).code(code, []), 'quantity': quantity})
+            result.append({'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias(self.globals).code(code, []), 'quantity': quantity})
       return result
 
   def _get_quantitiy(self, text):
     #print(f"QUANTITY1: {text}")
-    quantity = QuantityType(text, self.managers, True, False)
-    unit = Alias(self.managers).code(quantity.units_code, [])
+    quantity = QuantityType(text, self.globals, True, False)
+    unit = Alias(self.globals).code(quantity.units_code, [])
     #print(f"QUANTITY2: {quantity} {quantity.units_code}")
     return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
 
@@ -176,11 +176,11 @@ class StudyDesignAmendmentSheet(BaseSheet):
       text = value.strip()
       parts = text.split("=")
       if len(parts) == 2:
-        return {'code': CDISCCT(self.managers).code_for_attribute('StudyAmendmentReason', 'code', 'Other'), 'other': parts[1].strip()}
+        return {'code': CDISCCT(self.globals).code_for_attribute('StudyAmendmentReason', 'code', 'Other'), 'other': parts[1].strip()}
       else:
         self._error(row_index, col_index, f"Failed to decode reason data {text}, no '=' detected")
     else:
-      code = CDISCCT(self.managers).code_for_attribute('StudyAmendmentReason', 'code', value)
+      code = CDISCCT(self.globals).code_for_attribute('StudyAmendmentReason', 'code', value)
       if code is None:
         self._error(row_index, col_index, f"CDISC CT not found for value '{value}'.")
       return {'code': code, 'other': None}

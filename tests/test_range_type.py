@@ -2,7 +2,7 @@ from tests.test_factory import Factory
 from usdm_excel.range_type import RangeType
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 def test_range_type(mocker):
   test_data = [
@@ -11,7 +11,7 @@ def test_range_type(mocker):
     ('5 .. 10 weeks ', "5", "10", '5 .. 10 weeks', 'weeks', 'C29844'),
   ]
   for index, test in enumerate(test_data):
-    item = RangeType(test[0], managers)
+    item = RangeType(test[0], globals)
     assert(item.lower) == test[1]
     assert(item.upper) == test[2]
     assert(item.label) == test[3]
@@ -28,5 +28,5 @@ def test_range_type_error(mocker):
     ('1 .. 10 slugs',"Unable to set the units code for the range '1 .. 10 slugs'")
   ]
   for index, test in enumerate(test_data):
-    item = RangeType(test[0], managers)
+    item = RangeType(test[0], globals)
     assert item.errors == [test[1]]

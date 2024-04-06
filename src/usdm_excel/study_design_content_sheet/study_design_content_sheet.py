@@ -1,23 +1,23 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.narrative_content import NarrativeContent
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 from usdm_excel.document.macros import Macros
 
 class StudyDesignContentSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignContent'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
       self.items = []
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True, converters={"sectionName": str})
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True, converters={"sectionName": str})
       if self.success:
         current_level = 0
         new_level = 0
         current_parent = []
         previous_item = NarrativeContent(
-          id=self.managers.id_manager.build_id(NarrativeContent), 
+          id=self.globals.id_manager.build_id(NarrativeContent), 
           name="ROOT",
           sectionNumber="0",
           sectionTitle="Root",
@@ -34,7 +34,7 @@ class StudyDesignContentSheet(BaseSheet):
           name = f"SECTION {section_number}" if not name else name
           try:
             item = NarrativeContent(
-              id=self.managers.id_manager.build_id(NarrativeContent), 
+              id=self.globals.id_manager.build_id(NarrativeContent), 
               name=name,
               sectionNumber=section_number,
               sectionTitle=title,

@@ -1,15 +1,15 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignPopulationSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignPopulations'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.population = None
       cohorts = []
       for index, row in self.sheet.iterrows():
@@ -40,7 +40,7 @@ class StudyDesignPopulationSheet(BaseSheet):
 
   def _study_population(self, name, description, label, recruit_number, required_number, planned_age, healthy, codes):    
     try:
-      item = StudyDesignPopulation(id=self.managers.id_manager.build_id(StudyDesignPopulation),
+      item = StudyDesignPopulation(id=self.globals.id_manager.build_id(StudyDesignPopulation),
         name=name,
         description=description,
         label=label,
@@ -55,12 +55,12 @@ class StudyDesignPopulationSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
-      self.managers.cross_references.add(name, item)
+      self.globals.cross_references.add(name, item)
       return item
 
   def _study_cohort(self, name, description, label, recruit_number, required_number, planned_age, healthy, codes):    
     try:
-      item = StudyCohort(id=self.managers.id_manager.build_id(StudyCohort),
+      item = StudyCohort(id=self.globals.id_manager.build_id(StudyCohort),
         name=name,
         description=description,
         label=label,
@@ -77,5 +77,5 @@ class StudyDesignPopulationSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
-      self.managers.cross_references.add(name, item)
+      self.globals.cross_references.add(name, item)
       return item

@@ -3,7 +3,7 @@ from usdm_excel.cdisc_bc_library import CDISCBCLibrary
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -43,7 +43,7 @@ def test__get_package_items(self):
   assert 0
   
 def test__url():
-  item = CDISCBCLibrary(managers.errors, managers.logger, managers.cdisc_ct_library, managers.id_manager)
+  item = CDISCBCLibrary(globals.errors, globals.logger, globals.cdisc_ct_library, globals.id_manager)
   assert (item._url('something')) == f"{CDISCBCLibrary.API_ROOT}something"
 
 @xfail

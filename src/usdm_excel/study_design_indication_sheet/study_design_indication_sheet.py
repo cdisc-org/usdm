@@ -1,15 +1,15 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.indication import Indication
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignIndicationSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignIndications'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME )
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME )
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, "name")
@@ -20,7 +20,7 @@ class StudyDesignIndicationSheet(BaseSheet):
         item = self.create_object(Indication, {'name': name, 'description': description, 'label': label, 'isRareDisease': rare, 'codes': codes})
         if item:
           self.items.append(item)
-          self.managers.cross_references.add(name, item)
+          self.globals.cross_references.add(name, item)
     except Exception as e:
       self._general_sheet_exception(e)
 

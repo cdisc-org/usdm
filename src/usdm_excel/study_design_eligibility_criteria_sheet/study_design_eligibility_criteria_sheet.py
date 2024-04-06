@@ -3,15 +3,15 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignEligibilityCriteriaSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignEligibilityCriteria'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, optional=True)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -34,7 +34,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
     try:
       dictionary_id = self._get_dictionary_id(dictionary_name)
       item = EligibilityCriterion(
-        id=self.managers.id_manager.build_id(EligibilityCriterion),
+        id=self.globals.id_manager.build_id(EligibilityCriterion),
         name=name,
         description=description,
         label=label,
@@ -48,13 +48,13 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
       self._traceback(f"{traceback.format_exc()}")
       return None
     else:
-      self.managers.cross_references.add(item.id, item)
+      self.globals.cross_references.add(item.id, item)
       return item
 
   def _validate_references(self, row, column_name, text, dictionary_name):
     if dictionary_name:
       column = self.column_present(column_name)
-      dictionary = self.managers.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      dictionary = self.globals.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if not dictionary:
         self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
         return
@@ -67,7 +67,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
   
   def _get_dictionary_id(self, dictionary_name):
     if dictionary_name:
-      dictionary = self.managers.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      dictionary = self.globals.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if dictionary:
         return dictionary.id
       else:

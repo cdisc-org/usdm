@@ -5,7 +5,7 @@ from usdm_model.api_base_model import ApiBaseModelWithId
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -30,7 +30,7 @@ def test_create(mocker):
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute', 'value'])
-  dictionaries = StudyDesignDictionarySheet("", managers)
+  dictionaries = StudyDesignDictionarySheet("", globals)
   assert len(dictionaries.items) == 3
   assert dictionaries.items[0].id == 'DictionaryId_1'
   assert dictionaries.items[0].name == 'Dictionary 1'
@@ -50,7 +50,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'xref', 'attribute'])
-  dictionaries = StudyDesignDictionarySheet("", managers)
+  dictionaries = StudyDesignDictionarySheet("", globals)
   assert len(dictionaries.items) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -61,7 +61,7 @@ def test_read_cell_by_name_error(mocker):
     call_parameters.append((sheet, row, column, message, level))
     return None
 
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
@@ -72,7 +72,7 @@ def test_read_cell_by_name_error(mocker):
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'key', 'class', 'attribute'])
-  dictionaries = StudyDesignDictionarySheet("", managers)
+  dictionaries = StudyDesignDictionarySheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
     ("dictionaries", 1, -1, "Error 'Failed to detect column(s) 'xref' in sheet' reading cell 'xref'", 10),

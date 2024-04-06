@@ -8,7 +8,7 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 def test_cell_empty(mocker):
   factory.clear()
@@ -17,7 +17,7 @@ def test_cell_empty(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': [None, 'b', 'c', None]}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,0,False),
     (3,0,False),
@@ -34,7 +34,7 @@ def test_cell_empty_legacy(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': [None, 'b', '-', None]}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,0,'3',False),
     (3,0,'0',False),
@@ -54,7 +54,7 @@ def test_read_cell_empty(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': [None, 'b', '-', None]}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,0,'3','3'),
     (3,0,'0','0'),
@@ -73,7 +73,7 @@ def test_read_cell(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', '']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,0,'3'),
     (3,0,'0'),
@@ -90,7 +90,7 @@ def test_read_cell_default(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', None]}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (3,1,'100s','100s')
   ]
@@ -105,7 +105,7 @@ def test_read_cell_error(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', '']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   assert(base.read_cell(6,8)) == ""
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "sheet"
@@ -120,7 +120,7 @@ def test_read_cell_by_name(mocker):
   data = [['tom', 10], ['nick', 15], ['juli', 14], ['fred', '']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,'Name','tom'),
     (2,'Name','juli'),
@@ -138,7 +138,7 @@ def test_read_cell_by_name_default(mocker):
   data = [['tom', 10], ['nick', 15], ['juli', 14], ['fred', '']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   assert(base.read_cell_by_name(0, 'NameX', 'Default')) == 'Default'
   assert(base.read_cell_by_name(0, 'Name', 'Default')) == 'tom'
   assert(base.read_cell_by_name(0, ['NameX', 'XXX'], 'Default')) == 'Default'
@@ -153,7 +153,7 @@ def test_read_cell_by_name_error(mocker):
   data = [['tom', 10], ['nick', 15], ['juli', 14]]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   assert(base.read_cell_by_name(1,'Not There')) == ""
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "sheet"
@@ -169,7 +169,7 @@ def test_read_cell_by_name_present(mocker):
   data = [['tom', 10], ['nick', 15], ['juli', 14]]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Age'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   assert(base.read_cell_by_name(1,'Not There',must_be_present=False)) == ""
   mock_error.assert_not_called()
 
@@ -187,7 +187,7 @@ def test_read_cell_multiple(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,1,[]),
     (2,1,['Fred', 'Dick', 'Harry']),
@@ -208,7 +208,7 @@ def test_read_boolean_cell_by_name(mocker):
   data = [[0, 'a'], [1, 'y'], [2, 'Y'], [3, 'true'], [4, 'True'], [5, 'yes'], [6, 1,], [7, '1'], [8, ''], [9, 'T']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0,'Children',False),
     (1,'Children',True),
@@ -231,7 +231,7 @@ def test_read_quantity_cell_by_name(mocker):
   data = [[''], ['1 days'], [' 1 weeks'], ['14 Hours'], ['14'], ['']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Quantity'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     #  Name,       Allow Missing Units, Allow Empty, Errors, Empty,  Value,  Unit,     Error 
     (0,'Quantity', False,               False,       True,   False,  0.0,    '',       "Error in sheet sheet at [1,1]: Could not decode the quantity value, appears to be empty ''"),
@@ -242,7 +242,7 @@ def test_read_quantity_cell_by_name(mocker):
     (5,'Quantity', False,               True,        False,  True,   0.0,    '',       ""),
   ]
   for test in test_data:
-    errors = factory.managers().errors
+    errors = factory.globals.errors
     errors.clear()
     #print(f"INDEX: {test[0]}")
     item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 
@@ -265,7 +265,7 @@ def test_read_range_cell_by_name(mocker):
   data = [[''], ['1..2 days'], [' 1 .. 3 weeks'], [' .. 3 weeks'], ['1 ..  weeks'], ['1 . 4 weeks'], ['14 Hours'], ['14'], ['']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Range'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     #  Name,    Req Units, Allow Empty, Errors, Empty, Min,  Max,   Unit,     Error 
     (0,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [1,1]: Could not decode the range value, appears to be empty ''"),
@@ -279,7 +279,7 @@ def test_read_range_cell_by_name(mocker):
     (8,'Range', True,      True,        False,  True,  0.0,  0.0,   '',       ""),
   ]
   for test in test_data:
-    managers.errors.clear()
+    globals.errors.clear()
     #print(f"INDEX: {test[0]}")
     range = base.read_range_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
@@ -288,12 +288,12 @@ def test_read_range_cell_by_name(mocker):
       if test[2]:
         assert(range.unit.code) == test[8]
       assert(range.isApproximate) == False
-      assert(len(managers.errors.items)) == 0
+      assert(len(globals.errors.items)) == 0
     elif test[5]:
       assert(range) == None
     else:
       assert(range) == None
-      assert(managers.errors.items[0].to_log()) == test[9]
+      assert(globals.errors.items[0].to_log()) == test[9]
 
 # def test_read_description_by_name(mocker):
 #   mock_option = mocker.patch("usdm_excel.om.get")
@@ -303,7 +303,7 @@ def test_read_range_cell_by_name(mocker):
 #   data = [[0, ''], [1, 'something'], [2, '  ']]
 #   mock_read = mocker.patch("pandas.read_excel")
 #   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
-#   base = BaseSheet("", factory.managers(), "sheet")
+#   base = BaseSheet("", factory.globals, "sheet")
 #   test_data = [
 #     (0,'Children','xxx'),
 #     (1,'Children','something'),
@@ -339,7 +339,7 @@ def test_column_present(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   assert(base.column_present("Name")) == 0
   assert(base.column_present(["Name"])) == 0
   assert(base.column_present(["Children"])) == 1
@@ -358,7 +358,7 @@ def test_read_cdisc_klass_attribute_cell_by_name(mocker):
   data = [[0, 'a'], [1, ''], [2, 'c']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0, 'Children', expected, ""),
     (1, 'Children', None, "sheet", 2, 2, "Empty cell detected where CDISC CT value expected."),
@@ -384,7 +384,7 @@ def test_read_cdisc_klass_attribute_cell(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', '', 'c', '']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0, 1, expected, ""),
     (1, 1, None, "sheet", 2, 2, "Empty cell detected where CDISC CT value expected."),
@@ -415,7 +415,7 @@ def test_read_cdisc_klass_attribute_cell_multiple(mocker):
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a,b', '', 'c', '']}
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0, 1, [expected_1, expected_2], ""),
     (1, 1, [], "sheet", 2, 2, "Empty cell detected where multiple CDISC CT values expected."),
@@ -442,7 +442,7 @@ def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker):
   data = [[0, 'a,b'], [1, ''], [2, 'c']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     (0, 'Children', [expected_1, expected_2], ""),
     (1, 'Children', [], "sheet", 2, 2, "Empty cell detected where multiple CDISC CT values expected."),
@@ -470,7 +470,7 @@ def test__decode_other_cell(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     ("", 0, 0, None, ""),
     ("xxx", 1, 1, None, "sheet", 2, 2, "Failed to decode code data 'xxx', no ':' detected"),
@@ -494,7 +494,7 @@ def test__state_split(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   test_data = [
     ('111', ['111']),
     ('111,    ', ['111']),
@@ -515,6 +515,6 @@ def test__to_int(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data)
-  base = BaseSheet("", factory.managers(), "sheet")
+  base = BaseSheet("", factory.globals, "sheet")
   assert(base._to_int("4")) == 4
   assert(base._to_int("dd")) == None

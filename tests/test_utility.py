@@ -6,9 +6,9 @@
 
 def clear():
   pass
-  # self.managers.option_manager.clear()
+  # self.globals.option_manager.clear()
   # ct_version_manager.clear()
   # id_manager.clear()
-  # self.managers.cross_references.clear()
+  # self.globals.cross_references.clear()
   # ct_version_manager.clear()
-  # self.managers.errors.clear()
+  # self.globals.errors.clear()

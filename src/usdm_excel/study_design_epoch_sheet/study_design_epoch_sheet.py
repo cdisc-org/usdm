@@ -1,15 +1,15 @@
 import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_epoch import StudyEpoch
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignEpochSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignEpochs'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.items = []
       for index, row in self.sheet.iterrows():
         name = self.read_cell_by_name(index, ['studyEpochName', 'name'])
@@ -18,7 +18,7 @@ class StudyDesignEpochSheet(BaseSheet):
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, ['studyEpochType', 'type'])
         try:
           item = StudyEpoch(
-            id=self.managers.id_manager.build_id(StudyEpoch), 
+            id=self.globals.id_manager.build_id(StudyEpoch), 
             name=name, 
             description=description,
             label=label,
@@ -29,6 +29,6 @@ class StudyDesignEpochSheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         else:
           self.items.append(item)
-          self.managers.cross_references.add(name, item)     
+          self.globals.cross_references.add(name, item)     
     except Exception as e:
       self._general_sheet_exception(e)

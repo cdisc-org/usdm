@@ -5,7 +5,7 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 def test_create(mocker):
@@ -22,7 +22,7 @@ def test_create(mocker):
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'name', 'description', 'label', 'text', 'dictionary'])
-  items = StudyDesignEligibilityCriteriaSheet("", managers)
+  items = StudyDesignEligibilityCriteriaSheet("", globals)
   assert len(items.items) == 3
   assert items.items[0].id == 'EligibilityId_1'
   assert items.items[0].category.decode == 'Inclusion Criteria'
@@ -42,11 +42,11 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'name', 'description', 'label', 'text', 'dictionary'])
-  items = StudyDesignEligibilityCriteriaSheet("", managers)
+  items = StudyDesignEligibilityCriteriaSheet("", globals)
   assert len(items.items) == 0
 
 def test_read_cell_by_name_error(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   call_parameters = []
   
   def my_add(sheet, row, column, message, level=10):
@@ -63,7 +63,7 @@ def test_read_cell_by_name_error(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['category', 'identifier', 'name', 'label', 'text', 'dictionary'])
-  items = StudyDesignEligibilityCriteriaSheet("", managers)
+  items = StudyDesignEligibilityCriteriaSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
     ('studyDesignEligibilityCriteria', 1, -1, "Error 'Failed to detect column(s) 'description' in sheet' reading cell 'description'", 10),

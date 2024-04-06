@@ -9,7 +9,7 @@ from usdm_model.masking import Masking
 from usdm_excel.alias import Alias
 from usdm_excel.option_manager import *
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignSheet(BaseSheet):
 
@@ -32,9 +32,9 @@ class StudyDesignSheet(BaseSheet):
   PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, header=None)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
       self.name = "TEST"
       self.description = "An Microsoft Excel test study design"
       self.label=""
@@ -78,7 +78,7 @@ class StudyDesignSheet(BaseSheet):
         elif key in self.RATIONALE_LABEL:
           self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.BLINDING_LABEL:
-          self.blinding = Alias(self.managers).code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
+          self.blinding = Alias(self.globals).code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
         elif key in self.INTENT_LABEL:
           self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
         elif key in self.CHARACTERISTICS_LABEL:
@@ -133,7 +133,7 @@ class StudyDesignSheet(BaseSheet):
     self.study_designs.append(study_design)
 
   def _add_arm(self, name):
-    arm = self.managers.cross_references.get(StudyArm, name)
+    arm = self.globals.cross_references.get(StudyArm, name)
     if arm is not None:
       if name not in self.arm_names:
         self.arm_names[name] = True
@@ -144,7 +144,7 @@ class StudyDesignSheet(BaseSheet):
       return None
 
   def _add_epoch(self, name):
-    epoch = self.managers.cross_references.get(StudyEpoch, name)
+    epoch = self.globals.cross_references.get(StudyEpoch, name)
     if epoch is not None:
       if name not in self.epoch_names:
         self.epoch_names[name] = True
@@ -155,7 +155,7 @@ class StudyDesignSheet(BaseSheet):
       return None
   
   def _add_element(self, name):
-    element = self.managers.cross_references.get(StudyElement, name)
+    element = self.globals.cross_references.get(StudyElement, name)
     if element is not None:
       if name not in self.elements:
         self.elements[name] = element
@@ -167,7 +167,7 @@ class StudyDesignSheet(BaseSheet):
   def _add_cell(self, arm, epoch, elements):
     try:
       return StudyCell(
-        id=self.managers.id_manager.build_id(StudyCell), 
+        id=self.globals.id_manager.build_id(StudyCell), 
         armId=arm,
         epochId=epoch,
         elementIds=elements
@@ -180,7 +180,7 @@ class StudyDesignSheet(BaseSheet):
   def _create_design(self):
     try:
       result = StudyDesign(
-        id=self.managers.id_manager.build_id(StudyDesign), 
+        id=self.globals.id_manager.build_id(StudyDesign), 
         name=self.name,
         description=self.description,
         label=self.label,
@@ -207,18 +207,18 @@ class StudyDesignSheet(BaseSheet):
   
 
   def _set_masking(self, rindex, cindex):
-    if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
+    if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
       return None
     else:
       try:
         text = self.read_cell(rindex, cindex)
         parts = text.split('=')
         if len(parts) == 2: 
-          code = CDISCCT(self.managers).code_for_attribute('Masking', 'role', parts[0].strip())
+          code = CDISCCT(self.globals).code_for_attribute('Masking', 'role', parts[0].strip())
           if code:
-            mask = Masking(id=self.managers.id_manager.build_id(Masking), description=parts[1].strip(), role=code)
+            mask = Masking(id=self.globals.id_manager.build_id(Masking), description=parts[1].strip(), role=code)
             self.masks.append(mask)
-            self.managers.cross_references.add(mask.id, mask)
+            self.globals.cross_references.add(mask.id, mask)
             return mask
           else:
             self._error(rindex, cindex, f"Failed to decode masking role data '{text}', must be a valid role code '{parts[0]}'")

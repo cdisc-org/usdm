@@ -5,7 +5,7 @@ from usdm_model.api_base_model import ApiBaseModelWithId
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -30,7 +30,7 @@ def test_create(mocker):
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'text', 'context', 'appliesTo'])
-  items = StudyDesignConditionSheet("", managers)
+  items = StudyDesignConditionSheet("", globals)
   assert len(items.items) == 5
   assert items.items[0].id == 'Cond_1'
   assert items.items[0].name == 'Id 1'
@@ -50,7 +50,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'text', 'context', 'appliesTo'])
-  items = StudyDesignConditionSheet("", managers)
+  items = StudyDesignConditionSheet("", globals)
   assert len(items.items) == 0
 
 def test_missing_reference(mocker):
@@ -61,7 +61,7 @@ def test_missing_reference(mocker):
     call_parameters.append((sheet, row, column, message, level))
     return None
 
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -74,7 +74,7 @@ def test_missing_reference(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'text', 'context', 'appliesTo'])
-  items = StudyDesignConditionSheet("", managers)
+  items = StudyDesignConditionSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
     ("studyDesignConditions", 1, 6, "No condition references found for '', at least one required", 10)
@@ -88,7 +88,7 @@ def test_read_cell_by_name_error(mocker):
     call_parameters.append((sheet, row, column, message, level))
     return None
 
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -101,7 +101,7 @@ def test_read_cell_by_name_error(mocker):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'context', 'appliesTo'])
-  items = StudyDesignConditionSheet("", managers)
+  items = StudyDesignConditionSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
     ("studyDesignConditions", 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 10)

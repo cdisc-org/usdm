@@ -5,7 +5,7 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -22,7 +22,7 @@ def test_create(mocker):
   data = [['Epoch 1', 'Epoch One', 'C12345'], ['Epoch 2', 'Epoch Two', 'C12345'], ['Epoch 3', 'Epoch Three', 'C12345']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription', 'studyEpochType'])
-  epochs = StudyDesignEpochSheet("", managers)
+  epochs = StudyDesignEpochSheet("", globals)
   assert len(epochs.items) == 3
   assert epochs.items[0].id == 'EpochId_1'
   assert epochs.items[0].name == 'Epoch 1'
@@ -44,7 +44,7 @@ def test_create_with_label(mocker):
   data = [['Epoch 1', 'Epoch One', '1', 'C12345'], ['Epoch 2', 'Epoch Two', '2', 'C12345'], ['Epoch 3', 'Epoch Three', '', 'C12345']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'studyEpochType'])
-  epochs = StudyDesignEpochSheet("", managers)
+  epochs = StudyDesignEpochSheet("", globals)
   assert len(epochs.items) == 3
   assert epochs.items[0].id == 'EpochId_1'
   assert epochs.items[0].name == 'Epoch 1'
@@ -61,7 +61,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription', 'studyEpochType'])
-  epochs = StudyDesignEpochSheet("", managers)
+  epochs = StudyDesignEpochSheet("", globals)
   assert len(epochs.items) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -71,7 +71,7 @@ def test_read_cell_by_name_error(mocker):
   data = [['Epoch 1', 'Epoch One']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyEpochName', 'studyEpochDescription'])
-  epochs = StudyDesignEpochSheet("", managers)
+  epochs = StudyDesignEpochSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignEpochs"
   assert mock_error.call_args[0][1] == None

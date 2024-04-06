@@ -2,15 +2,15 @@ import traceback
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.procedure import Procedure
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignProcedureSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignProcedures'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.procedures = []
       for index, row in self.sheet.iterrows():
         xref = self.read_cell_by_name(index, "xref", default="", must_be_present=False)
@@ -20,7 +20,7 @@ class StudyDesignProcedureSheet(BaseSheet):
         type = self.read_cell_by_name(index, "procedureType")
         code = self.read_other_code_cell_by_name(index, ['procedureCode', 'code'])
         try:
-          item = Procedure(id=self.managers.id_manager.build_id(Procedure),
+          item = Procedure(id=self.globals.id_manager.build_id(Procedure),
             name=name,
             description=description,
             label=label,
@@ -33,6 +33,6 @@ class StudyDesignProcedureSheet(BaseSheet):
         else:
           self.procedures.append(item)
           cross_ref = xref if xref else name
-          self.managers.cross_references.add(cross_ref, item)        
+          self.globals.cross_references.add(cross_ref, item)        
     except Exception as e:
       self._general_sheet_exception(e)

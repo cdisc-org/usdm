@@ -8,7 +8,7 @@ from usdm_excel.alias import Alias
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.option_manager import Options
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudySheet(BaseSheet):
 
@@ -38,9 +38,9 @@ class StudySheet(BaseSheet):
   STUDY_VERSION_DATE = 'study_version'
   PROTOCOL_VERSION_DATE = 'protocol_document'
 
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME, header=None)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
       self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE]
       self.phase = None
       self.version = None
@@ -75,7 +75,7 @@ class StudySheet(BaseSheet):
       if field_name == self.NAME_TITLE:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.TITLE_TITLE:
-        if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
+        if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
           self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.VERSION_TITLE:
         self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
@@ -83,7 +83,7 @@ class StudySheet(BaseSheet):
         self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
       elif field_name == self.PHASE_TITLE:
         phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
-        self.phase = Alias(self.managers).code(phase, [])
+        self.phase = Alias(self.globals).code(phase, [])
       elif field_name == self.ACRONYM_TITLE:
         self.acronym = self._set_title(rindex, self.PARAMS_DATA_COL, "Study Acronym")
       elif field_name == self.RATIONALE_TITLE:
@@ -128,7 +128,7 @@ class StudySheet(BaseSheet):
           scopes = []
           for scope in record['scopes']:
             scope = GeographicScope(
-              id=self.managers.id_manager.build_id(GeographicScope), 
+              id=self.globals.id_manager.build_id(GeographicScope), 
               type=scope['type'], 
               code=scope['code']
             )
@@ -138,7 +138,7 @@ class StudySheet(BaseSheet):
           self._traceback(f"{traceback.format_exc()}")
         try:
           date = GovernanceDate(
-            id=self.managers.id_manager.build_id(GovernanceDate),
+            id=self.globals.id_manager.build_id(GovernanceDate),
             name=record['name'],
             label=record['label'],
             description=record['description'],
@@ -147,7 +147,7 @@ class StudySheet(BaseSheet):
             geographicScopes=scopes
           )
           self.dates[category].append(date)
-          self.managers.cross_references.add(record['name'], date)
+          self.globals.cross_references.add(record['name'], date)
         except Exception as e:
           self._general_error(f"Failed to create GovernanceDate object, exception {e}")
           self._traceback(f"{traceback.format_exc()}")
@@ -162,7 +162,7 @@ class StudySheet(BaseSheet):
       for item in self._state_split(value):
         if item.upper().strip() == "GLOBAL":
           # If we ever find global just return the one code
-          return [{'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
+          return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
         else: 
           code = None
           if item.strip():
@@ -172,10 +172,10 @@ class StudySheet(BaseSheet):
               value = outer_parts[1].strip()
               if system.upper() == "REGION":
                 pt = 'Region'
-                code = ISO3166(self.managers).region_code(value)
+                code = ISO3166(self.globals).region_code(value)
               elif system.upper() == "COUNTRY":
                 pt = 'Country'
-                code = ISO3166(self.managers).code(value)
+                code = ISO3166(self.globals).code(value)
               else:
                 self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
             else:
@@ -183,20 +183,20 @@ class StudySheet(BaseSheet):
           else:
             self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
           if code:
-            result.append({'type': CDISCCT(self.managers).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias(self.managers).code(code, [])})
+            result.append({'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias(self.globals).code(code, [])})
       return result
 
   def _set_title(self, rindex, cindex, title_type):
-    if self.managers.option_manager.get(Options.USDM_VERSION) == '2':
+    if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
       return self.read_cell(rindex, cindex)
     else:
       try:
         text = self.read_cell(rindex, cindex)
         if text:
-          code = CDISCCT(self.managers).code_for_attribute('StudyVersion', 'titles', title_type)
-          title = StudyTitle(id=self.managers.id_manager.build_id(StudyTitle), text=text, type=code)
+          code = CDISCCT(self.globals).code_for_attribute('StudyVersion', 'titles', title_type)
+          title = StudyTitle(id=self.globals.id_manager.build_id(StudyTitle), text=text, type=code)
           self.titles.append(title)
-          self.managers.cross_references.add(title.id, title)
+          self.globals.cross_references.add(title.id, title)
           return title
         else:
           return None

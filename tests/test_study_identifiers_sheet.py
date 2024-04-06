@@ -4,10 +4,10 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 def test_create(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1', 'Code_2', 'Org_2', 'Addr_2', 'Id_2', 'Code_3', 'Org_3', 'Addr_3', 'Id_3']
   mocked_open = mocker.mock_open(read_data="File")
@@ -26,7 +26,7 @@ def test_create(mocker):
   expected_3 = Code(id='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1, expected_2, expected_3]
-  ids = StudyIdentifiersSheet("", managers)
+  ids = StudyIdentifiersSheet("", globals)
   assert len(ids.identifiers) == 3
   assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].studyIdentifier == 'NCT12345678'
@@ -40,7 +40,7 @@ def test_create(mocker):
   assert ids.identifiers[2].studyIdentifier == 'NCT123456710'
   
 def test_create_new_columns(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1', 'Code_2', 'Org_2', 'Addr_2', 'Id_2', 'Code_3', 'Org_3', 'Addr_3', 'Id_3']
   mocked_open = mocker.mock_open(read_data="File")
@@ -59,7 +59,7 @@ def test_create_new_columns(mocker):
   expected_3 = Code(id='Code3', code='code', codeSystem='codesys', codeSystemVersion='3', decode="FRA")
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1, expected_2, expected_3]
-  ids = StudyIdentifiersSheet("", managers)
+  ids = StudyIdentifiersSheet("", globals)
   assert len(ids.identifiers) == 3
   assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].studyIdentifier == 'NCT12345678'
@@ -75,24 +75,24 @@ def test_create_new_columns(mocker):
   assert ids.identifiers[2].studyIdentifier == 'NCT123456710'
   
 def test_create_empty(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyIdentifierName', 'studyIdentifierDescription', 'studyIdentifierType'])
-  ids = StudyIdentifiersSheet("", managers)
+  ids = StudyIdentifiersSheet("", globals)
   assert len(ids.identifiers) == 0
 
 def test_read_cell_by_name_error(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['Id 1', 'Id One']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['studyIdentifierName', 'studyIdentifierDescription'])
-  ids = StudyIdentifiersSheet("", managers)
+  ids = StudyIdentifiersSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyIdentifiers"
   assert mock_error.call_args[0][1] == None
@@ -100,7 +100,7 @@ def test_read_cell_by_name_error(mocker):
   assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'organisationType, type' in sheet' raised reading sheet 'studyIdentifiers'"
   
 def test_address_error(mocker):
-  managers.cross_references.clear()
+  globals.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1']
@@ -116,7 +116,7 @@ def test_address_error(mocker):
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="GBR")
   mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
   mock_code.side_effect=[expected_1]
-  ids = StudyIdentifiersSheet("", managers)
+  ids = StudyIdentifiersSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyIdentifiers"
   assert mock_error.call_args[0][1] == 1

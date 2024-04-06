@@ -1,23 +1,23 @@
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 from usdm_model.code import Code
 
 class Factory():
 
   def __init__(self):
-    self._managers = Managers()
+    self.globals = Globals()
   
   def clear(self):
-    self._managers.id_manager.clear()
-    self._managers.cross_references.clear()
-    self._managers.errors.clear()
+    self.globals.id_manager.clear()
+    self.globals.cross_references.clear()
+    self.globals.errors.clear()
 
-  def managers(self):
-    return self._managers
+  def globals(self):
+    return self.globals
   
   def item(self, cls, params):
-    params['id'] = params['id'] if 'id' in params else self._managers.id_manager.build_id(cls)
+    params['id'] = params['id'] if 'id' in params else self.globals.id_manager.build_id(cls)
     params['instanceType'] = cls.__name__
     return cls(**params)
 
@@ -33,7 +33,7 @@ class Factory():
     data = []
     mock_read = mocker.patch("pandas.read_excel")
     mock_read.return_value = pd.DataFrame(data, columns=[])
-    return BaseSheet("", self._managers, "")
+    return BaseSheet("", self.globals, "")
 
   def cdisc_code(self, code, decode):
     return self._build_code(code=code, system="xxx", version="1", decode=decode)
@@ -42,6 +42,6 @@ class Factory():
     return self.cdisc_code("C12345", "decode")
 
   def _build_code(self, code, system, version, decode):
-    id = self._managers.id_manager.build_id(Code)
+    id = self.globals.id_manager.build_id(Code)
     instance = Code(id=id, code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
     return instance

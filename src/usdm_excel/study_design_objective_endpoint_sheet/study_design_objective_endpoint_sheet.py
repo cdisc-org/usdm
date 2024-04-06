@@ -4,15 +4,15 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.objective import Objective
 from usdm_model.endpoint import Endpoint
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignOE'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.objectives = []
       current = None
       for index, row in self.sheet.iterrows():
@@ -35,7 +35,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           self._validate_references(index, 'objectiveText', o_text, o_dictionary_name)
           try:
             dictionary_id = self._get_dictionary_id(o_dictionary_name)
-            current = Objective(id=self.managers.id_manager.build_id(Objective),
+            current = Objective(id=self.globals.id_manager.build_id(Objective),
               name=o_name,
               description=o_description, 
               label=o_label,
@@ -49,11 +49,11 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             self.objectives.append(current)
-            self.managers.cross_references.add(o_name, current)
+            self.globals.cross_references.add(o_name, current)
         if current is not None:
           try:
             dictionary_id = self._get_dictionary_id(ep_dictionary_name)
-            ep = Endpoint(id=self.managers.id_manager.build_id(Endpoint),
+            ep = Endpoint(id=self.globals.id_manager.build_id(Endpoint),
               name=ep_name,
               description=ep_description,
               label=ep_label,
@@ -67,7 +67,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
             self._traceback(f"{traceback.format_exc()}")
           else:
             current.endpoints.append(ep)
-            self.managers.cross_references.add(ep_name, ep)
+            self.globals.cross_references.add(ep_name, ep)
         else:
           self._general_error("Failed to add Endpoint, no Objective set")
 
@@ -77,7 +77,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
   def _validate_references(self, row, column_name, text, dictionary_name):
     if dictionary_name:
       column = self.column_present(column_name)
-      dictionary = self.managers.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      dictionary = self.globals.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if not dictionary:
         self._warning(row, column, f"Dictionary '{dictionary_name}' not found")
         return
@@ -89,7 +89,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
 
   def _get_dictionary_id(self, dictionary_name):
     if dictionary_name:
-      dictionary = self.managers.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
+      dictionary = self.globals.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if dictionary:
         return dictionary.id
       else:

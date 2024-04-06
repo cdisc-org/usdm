@@ -6,7 +6,7 @@ from usdm_model.code import Code
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 xfail = pytest.mark.xfail
 
@@ -45,7 +45,7 @@ def test_create(mocker):
 
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)
-  interventions = StudyDesignInterventionSheet("", managers)
+  interventions = StudyDesignInterventionSheet("", globals)
   #dump_json({'items': [json.loads(x.to_json()) for x in interventions.items]})
   for index, item in enumerate(interventions.items):
     result = json.loads(item.to_json())
@@ -57,7 +57,7 @@ def test_create_empty(mocker):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=COLUMNS)
-  interventions = StudyDesignInterventionSheet("", managers)
+  interventions = StudyDesignInterventionSheet("", globals)
   assert len(interventions.items) == 0
 
 def test_read_cell_by_name_error(mocker):
@@ -69,7 +69,7 @@ def test_read_cell_by_name_error(mocker):
   columns = COLUMNS
   columns = columns[0:-1]
   mock_read.return_value = pd.DataFrame(data, columns=columns)
-  interventions = StudyDesignInterventionSheet("", managers)
+  interventions = StudyDesignInterventionSheet("", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignInterventions"
   assert mock_error.call_args[0][1] == None

@@ -7,15 +7,15 @@ from usdm_model.analysis_population import AnalysisPopulation
 from usdm_model.estimand import Estimand
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.endpoint import Endpoint
-from usdm_excel.managers import Managers
+from usdm_excel.globals import Globals
 
 class StudyDesignEstimandsSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesignEstimands'
   
-  def __init__(self, file_path: str, managers: Managers):
+  def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, managers=managers, sheet_name=self.SHEET_NAME)
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.estimands = []
       current = None
       current_ice_name = None
@@ -31,7 +31,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
         if not e_summary == "":
           try:
-            ap = AnalysisPopulation(id=self.managers.id_manager.build_id(AnalysisPopulation), name=f"AP_{index+1}", text=ap_description) 
+            ap = AnalysisPopulation(id=self.globals.id_manager.build_id(AnalysisPopulation), name=f"AP_{index+1}", text=ap_description) 
           except Exception as e:
             self._general_error(f"Failed to create AnalysisPopulation object, exception {e}")
             self._traceback(f"{traceback.format_exc()}")
@@ -39,7 +39,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
             try:
               treatment_id = self._get_treatment(treatment_xref)
               endpoint_id = self._get_endpoint(endpoint_xref)
-              current = Estimand(id=self.managers.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
+              current = Estimand(id=self.globals.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
             except Exception as e:
               self._general_error(f"Failed to create Estimand object, exception {e}")
               self._traceback(f"{traceback.format_exc()}")
@@ -49,7 +49,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           try:
             ice_name = current_ice_name if ice_name == "" else ice_name
             ice_description = current_ice_description if ice_description == "" else ice_description
-            ice = IntercurrentEvent(id=self.managers.id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, label=ice_label, strategy=ice_strategy)
+            ice = IntercurrentEvent(id=self.globals.id_manager.build_id(IntercurrentEvent), name=ice_name, description=ice_description, label=ice_label, strategy=ice_strategy)
             current_ice_name = ice_name
             current_ice_description = ice_description
           except Exception as e:

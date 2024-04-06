@@ -4,10 +4,10 @@ from usdm_excel.study_design_timing_sheet.window_type import WindowType
 from tests.test_factory import Factory
 
 factory = Factory()
-managers = factory.managers()
+globals = factory.globals
 
 def test_create(mocker):
-  managers.errors.clear()
+  globals.errors.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -22,10 +22,10 @@ def test_create(mocker):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'type', 'from', 'to', 'timingValue', 'toFrom', 'window'])
 
-  items = StudyDesignTimingSheet("", managers)
-  #print(f"ERRORS: {[item.to_dict() for item in managers.errors.items]}")
+  items = StudyDesignTimingSheet("", globals)
+  #print(f"ERRORS: {[item.to_dict() for item in globals.errors.items]}")
   #print(f"ITEMS: {items.items}")
-  assert len( managers.errors.items) == 0
+  assert len( globals.errors.items) == 0
   assert len(items.items) == 3
   assert items.items[0].id == 'TimingId_1'
   assert items.items[0].name == 'Timing 1'
@@ -90,8 +90,8 @@ def test_window_type(mocker):
     (None, None, None, ''),
   ]
   for index, test in enumerate(test_data):
-    managers.errors.clear()
-    item = WindowType(test[0], managers)
+    globals.errors.clear()
+    item = WindowType(test[0], globals)
     assert(item.lower) == test[1]
     assert(item.upper) == test[2]
     assert(item.label) == test[3]
@@ -105,6 +105,6 @@ def test_window_type_error(mocker):
     (' .. 1 Weeks',"Could not decode the range value '.. 1 Weeks'")
   ]
   for index, test in enumerate(test_data):
-    managers.errors.clear()
-    item = WindowType(test[0], managers)
+    globals.errors.clear()
+    item = WindowType(test[0], globals)
     assert item.errors == [test[1]]
