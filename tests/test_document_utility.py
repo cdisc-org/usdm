@@ -1,17 +1,17 @@
 from usdm_excel.document.utility import get_soup
 
-
-
-def test_normal(mocker, globals):
-  bs = factory.base_sheet(mocker, globals)
+def test_normal(mocker, globals, factory):
+  globals.errors.clear()
+  bs = factory.base_sheet(mocker)
   assert globals.errors.count() == 0
   result = get_soup("<p>Hello</p>", bs)
   expected = '<p>Hello</p>'
   assert str(result) == expected
   assert globals.errors.count() == 0
 
-def test_warning(mocker, globals):
-  bs = factory.base_sheet(mocker, globals)
+def test_warning(mocker, globals, factory):
+  globals.errors.clear()
+  bs = factory.base_sheet(mocker)
   assert globals.errors.count() == 0
   result = get_soup("input/output", bs)
   expected = 'input/output'

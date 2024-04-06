@@ -17,6 +17,7 @@ def create_criteria(factory):
   return results
 
 def test_create(mocker, globals, minimal, factory):
+  globals.id_manager.clear()
   minimal.population.criteria = create_criteria(factory)
   bs = factory.base_sheet(mocker)
   template = TemplatePlain(bs, minimal.study)
