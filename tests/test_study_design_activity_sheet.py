@@ -9,7 +9,7 @@ xfail = pytest.mark.xfail
 factory = Factory()
 globals = factory.globals
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -28,7 +28,7 @@ def test_create(mocker):
   assert activities.items[1].description == 'Activity Two'
   assert activities.items[2].id == 'ActivityId_3'
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")

@@ -8,7 +8,7 @@ factory = Factory()
 globals = factory.globals
 
 xfail = pytest.mark.xfail
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -34,7 +34,7 @@ def test_create(mocker):
   assert items.items[1].category.decode == 'Inclusion Criteria'
   assert items.items[2].category.decode == 'Exclusion Criteria'
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -45,7 +45,7 @@ def test_create_empty(mocker):
   items = StudyDesignEligibilityCriteriaSheet("", globals)
   assert len(items.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   globals.cross_references.clear()
   call_parameters = []
   

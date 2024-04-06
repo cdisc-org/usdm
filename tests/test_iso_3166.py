@@ -4,7 +4,7 @@ from tests.test_factory import Factory
 factory = Factory()
 globals = factory.globals
 
-def test_code(mocker):
+def test_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3']
     item = ISO3166(globals)
@@ -27,7 +27,7 @@ def test_code(mocker):
     assert code.codeSystemVersion == "2020-08"
     assert code.decode == "Denmark"
 
-def test_region_code(mocker):
+def test_region_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3', 'Code_4']
     item = ISO3166(globals)

@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['RuleId_1', 'EncounterId_1', 'RuleId_2', 'EncounterId_2', 'EncounterId_3']
   codes = []
@@ -35,7 +35,7 @@ def test_create(mocker):
   assert encounters.items[2].id == 'EncounterId_3'
   assert encounters.items[2].type == codes[6]
   
-def test_create_with_label(mocker):
+def test_create_with_label(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['RuleId_1', 'EncounterId_1', 'RuleId_2', 'EncounterId_2', 'EncounterId_3']
   codes = []
@@ -63,7 +63,7 @@ def test_create_with_label(mocker):
   assert encounters.items[2].type == codes[6]
   assert encounters.items[2].label == 'Label 3'
 
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -72,7 +72,7 @@ def test_create_empty(mocker):
   encounters = StudyDesignEncounterSheet("", globals)
   assert len(encounters.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

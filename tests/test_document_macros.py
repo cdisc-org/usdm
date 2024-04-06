@@ -20,11 +20,11 @@ def create_criteria():
   results = factory.set(EligibilityCriterion, item_list)
   return results
 
-def test_create(mocker):
+def test_create(mocker, globals):
   factory.clear()
   minimal = MinimalStudy()
   minimal.population.criteria = create_criteria()
-  bs = factory.base_sheet(mocker)
+  bs = factory.base_sheet(mocker, globals)
   macro = Macros(bs, minimal.study)
   result = macro.resolve('<usdm:macro id="section" name="inclusion"/>')
   expected = '<table class="table"><tr><td>01</td><td><usdm:ref attribute="text" '\

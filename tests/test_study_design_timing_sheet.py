@@ -6,7 +6,7 @@ from tests.test_factory import Factory
 factory = Factory()
 globals = factory.globals
 
-def test_create(mocker):
+def test_create(mocker, globals):
   globals.errors.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
@@ -37,7 +37,7 @@ def test_create(mocker):
   assert items.items[2].id == 'TimingId_3'
   assert items.items[2].type.decode == 'Fixed Reference'
 
-# def test_timepoint_type(mocker):
+# def test_timepoint_type(mocker, globals):
 #   mocked_open = mocker.mock_open(read_data="File")
 #   mocker.patch("builtins.open", mocked_open)
 #   mock_read = mocker.patch("pandas.read_excel")
@@ -60,7 +60,7 @@ def test_create(mocker):
 #     assert(item.description) == test[4]
 #     assert(item.value) == test[5]
 
-# def test_timepoint_type_error(mocker):
+# def test_timepoint_type_error(mocker, globals):
 #   mocked_open = mocker.mock_open(read_data="File")
 #   mocker.patch("builtins.open", mocked_open)
 #   mock_read = mocker.patch("pandas.read_excel")
@@ -82,7 +82,7 @@ def test_create(mocker):
 #     assert mock_error.call_args[0][2] == test[1] + 1
 #     assert mock_error.call_args[0][3] == test[2]
 
-def test_window_type(mocker):
+def test_window_type(mocker, globals):
   test_data = [
     ('1..1 Days', "P1D", "P1D", '1..1 Days'),
     (' -1..1 days', "P1D", "P1D", '-1..1 days'),
@@ -97,7 +97,7 @@ def test_window_type(mocker):
     assert(item.label) == test[3]
     assert(item.errors) == [] 
 
-def test_window_type_error(mocker):
+def test_window_type_error(mocker, globals):
   test_data = [
     ('1.. Days',"Could not decode the range value, possible typographical errors '1.. Days'"),
     ('-1.1 days',"Could not decode the range value, possible typographical errors '-1.1 days'"),

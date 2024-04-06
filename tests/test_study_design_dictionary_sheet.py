@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[
     ApiBaseModelWithId(id="1"), ApiBaseModelWithId(id="2"), ApiBaseModelWithId(id="3"), ApiBaseModelWithId(id="4"), ApiBaseModelWithId(id="5")
@@ -42,7 +42,7 @@ def test_create(mocker):
   assert [x.tag for x in dictionaries.items[2].parameterMaps] == ['Key 4', 'Key 5', 'Key 6']
   assert dictionaries.items[2].parameterMaps[2].reference == "<div>Hello!</div>"
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -53,7 +53,7 @@ def test_create_empty(mocker):
   dictionaries = StudyDesignDictionarySheet("", globals)
   assert len(dictionaries.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   
   call_parameters = []
   

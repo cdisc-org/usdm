@@ -5,16 +5,16 @@ from tests.test_factory import Factory
 factory = Factory()
 globals = factory.globals
 
-def test_normal(mocker):
-  bs = factory.base_sheet(mocker)
+def test_normal(mocker, globals):
+  bs = factory.base_sheet(mocker, globals)
   assert globals.errors.count() == 0
   result = get_soup("<p>Hello</p>", bs)
   expected = '<p>Hello</p>'
   assert str(result) == expected
   assert globals.errors.count() == 0
 
-def test_warning(mocker):
-  bs = factory.base_sheet(mocker)
+def test_warning(mocker, globals):
+  bs = factory.base_sheet(mocker, globals)
   assert globals.errors.count() == 0
   result = get_soup("input/output", bs)
   expected = 'input/output'

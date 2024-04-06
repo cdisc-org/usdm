@@ -1,7 +1,7 @@
 import pytest
 from usdm_excel.iso_8601_duration import ISO8601Duration
 
-def test_encode(mocker):
+def test_encode(mocker, globals):
   item = ISO8601Duration()
   assert item.encode("1", "y") == "P1Y"
   assert item.encode("2", "yeaR") == "P2Y"

@@ -6,12 +6,15 @@ from usdm_model.code import Code
 class Factory():
 
   def __init__(self):
-    self.globals = Globals()
+    pass
+    #self.globals = Globals()
+    #self.globals.create()
   
   def clear(self):
-    self.globals.id_manager.clear()
-    self.globals.cross_references.clear()
-    self.globals.errors.clear()
+    pass
+    #self.globals.id_manager.clear()
+    #self.globals.cross_references.clear()
+    #self.globals.errors.clear()
 
   def globals(self):
     return self.globals

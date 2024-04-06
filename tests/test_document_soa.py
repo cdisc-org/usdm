@@ -156,8 +156,8 @@ def scenario_1():
     'conditions': conditions})
   return study_design, timeline
 
-def test_create(mocker):
-  bs = factory.base_sheet(mocker)
+def test_create(mocker, globals):
+  bs = factory.base_sheet(mocker, globals)
   study_design, timeline = scenario_1()
   soa = SoA(bs, study_design, timeline)
   result = soa.generate()

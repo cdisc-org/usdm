@@ -7,7 +7,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-# def test_code(mocker):
+# def test_code(mocker, globals):
 #     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
 #     mock_id.side_effect=['Code_1']
 #     item = NCIt()
@@ -42,12 +42,12 @@ def test__get_package_metadata():
 def test__get_package_items(self):
   assert 0
   
-def test__url():
+def test__url(globals):
   item = CDISCBCLibrary(globals.errors, globals.logger, globals.cdisc_ct_library, globals.id_manager)
   assert (item._url('something')) == f"{CDISCBCLibrary.API_ROOT}something"
 
 @xfail
-def test__bc_as_usdm(mocker):
+def test__bc_as_usdm(mocker, globals):
   assert 0
 
 @xfail

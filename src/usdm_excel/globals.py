@@ -10,6 +10,16 @@ from usdm_excel.cdisc_bc_library import CDISCBCLibrary
 class Globals():
 
   def __init__(self):
+    self.logger = None
+    self.errors = None
+    self.id_manager = None
+    self.ct_version_manager = None
+    self.option_manager = None
+    self.cross_references = None
+    self.cdisc_ct_library = None
+    self.cdisc_bc_library = None
+
+  def create(self):
     self.logger = logging.getLogger(__name__)
     self.logger.addHandler(logging.NullHandler())
     self.errors = Errors(self.logger)
@@ -19,5 +29,4 @@ class Globals():
     self.cross_references = CrossRef(self.errors, self.logger)
     self.cdisc_ct_library = CDISCCTLibrary(self.errors, self.logger)
     self.cdisc_bc_library = CDISCBCLibrary(self.errors, self.logger, self.cdisc_ct_library, self.id_manager)
-
 

@@ -4,7 +4,7 @@ from usdm_excel.range_type import RangeType
 factory = Factory()
 globals = factory.globals
 
-def test_range_type(mocker):
+def test_range_type(mocker, globals):
   test_data = [
     ('1..1 Days', "1", "1", '1..1 Days', 'Days', 'C25301'),
     (' -1..1 days', "-1", "1", '-1..1 days', 'days', 'C25301'),
@@ -19,7 +19,7 @@ def test_range_type(mocker):
     assert(item.units_code.code) == test[5]
     assert(item.errors) == [] 
 
-def test_range_type_error(mocker):
+def test_range_type_error(mocker, globals):
   test_data = [
     ('1.. Days',"Could not decode the range value, possible typographical errors '1.. Days'"),
     ('-1.1 days',"Could not decode the range value, possible typographical errors '-1.1 days'"),

@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   #mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   #mock_cross_ref.side_effect=[ApiBaseModelWithId(id="1"), ApiBaseModelWithId(id="2"), ApiBaseModelWithId(id="3"), ApiBaseModelWithId(id="4"), ApiBaseModelWithId(id="5")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -50,7 +50,7 @@ def test_create(mocker):
   assert items.objectives[2].endpoints[0].name == 'End 4'
   assert items.objectives[2].endpoints[1].name == 'End 5'
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -64,7 +64,7 @@ def test_create_empty(mocker):
   items = StudyDesignObjectiveEndpointSheet("", globals)
   assert len(items.objectives) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   
   call_parameters = []
   

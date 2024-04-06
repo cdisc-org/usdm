@@ -7,7 +7,7 @@ from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.base_sheet import BaseSheet
 
 @xfail
-def test_create(mocker):
+def test_create(mocker, globals):
   assert 0
   # mocked_open = mocker.mock_open(read_data="File")
   # mocker.patch("builtins.open", mocked_open)

@@ -6,7 +6,7 @@ from tests.test_factory import Factory
 factory = Factory()
 globals = factory.globals
 
-def test_create(mocker):
+def test_create(mocker, globals):
   globals.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
@@ -45,7 +45,7 @@ def test_create(mocker):
   assert sites.organizations[2].identifier == '333333333'
   assert sites.organizations[2].manages[0].id == 'Site_3'
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   globals.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
@@ -57,7 +57,7 @@ def test_create_empty(mocker):
   sites = StudyDesignSitesSheet("", globals)
   assert len(sites.organizations) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   globals.cross_references.clear()
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]

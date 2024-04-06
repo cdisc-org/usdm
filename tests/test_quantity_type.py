@@ -4,7 +4,7 @@ from usdm_excel.quantity_type import QuantityType
 factory = Factory()
 globals = factory.globals
 
-def test_quantity_type(mocker):
+def test_quantity_type(mocker, globals):
   test_data = [
     ('15 days', "15", 'days', 'C25301', '15 days'),
     ('1%', "1", '%', 'C25613', '1%'),
@@ -19,7 +19,7 @@ def test_quantity_type(mocker):
     assert(item.empty) == False
     assert(item.label) == test[4]
 
-def test_quantity_type_empty(mocker):
+def test_quantity_type_empty(mocker, globals):
   test_data = [
     ('15 days', "15", 'days', 'C25301', False, '15 days'),
     ('', None, None, None, True, ''),
@@ -36,7 +36,7 @@ def test_quantity_type_empty(mocker):
     assert(item.empty) == test[4]
     assert(item.label) == test[5]
 
-def test_quantity_type_no_units(mocker):
+def test_quantity_type_no_units(mocker, globals):
   test_data = [
     (' 15 ', "15", None, None, False, '15'),
     (' 15 C ', "15", 'C', 'C42559', False, '15 C')
@@ -54,7 +54,7 @@ def test_quantity_type_no_units(mocker):
     assert(item.empty) == test[4]
     assert(item.label) == test[5]
 
-def test_range_type_error(mocker):
+def test_range_type_error(mocker, globals):
   test_data = [
     (' Days', False, False, "Could not decode the quantity value ' Days'"),
     ('1', False, False, "Could not decode the quantity value, possible typographical errors '1'"),

@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[
     ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2"), ApiBaseModelWithId(id="X3"), ApiBaseModelWithId(id="X4"), ApiBaseModelWithId(id="X5"),
@@ -42,7 +42,7 @@ def test_create(mocker):
   assert items.items[4].contextIds == []
   assert items.items[4].appliesToIds == ['X10']
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -53,7 +53,7 @@ def test_create_empty(mocker):
   items = StudyDesignConditionSheet("", globals)
   assert len(items.items) == 0
 
-def test_missing_reference(mocker):
+def test_missing_reference(mocker, globals):
   
   call_parameters = []
   
@@ -80,7 +80,7 @@ def test_missing_reference(mocker):
     ("studyDesignConditions", 1, 6, "No condition references found for '', at least one required", 10)
   ]
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   
   call_parameters = []
   

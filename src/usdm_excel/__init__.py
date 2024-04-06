@@ -1,5 +1,4 @@
 import traceback
-
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.errors.errors import Errors
@@ -26,14 +25,12 @@ from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
 from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
-
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
 from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
 from usdm_model.wrapper import Wrapper
-
 from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
 
 class USDMExcel():
@@ -47,6 +44,7 @@ class USDMExcel():
     self._file_path = file_path
 
   def execute(self):
+    self._globals.create()
     return self._process()
 
   def errors(self):

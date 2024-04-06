@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'IndicationId_1', 'Code_2', 'IndicationId_2', 'Code_3', 'Code_4', 'IndicationId_3']
   expected_1 = Code(id='Code_1', code='X', codeSystem='SPONSOR', codeSystemVersion='None set', decode="Y")
@@ -35,7 +35,7 @@ def test_create(mocker):
   assert Indications.items[2].id == 'IndicationId_3'
   assert Indications.items[2].codes == [expected_3, expected_4]
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -44,7 +44,7 @@ def test_create_empty(mocker):
   Indications = StudyDesignIndicationSheet("", globals)
   assert len(Indications.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

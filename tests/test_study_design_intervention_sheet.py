@@ -24,7 +24,7 @@ def read_json(filename):
 def dump_json(data):
   print(f"\n{json.dumps(data, indent=2)}")
 
-def test_create(mocker):
+def test_create(mocker, globals):
   expected = read_json(f"tests/integration_test_files/intervention/create.json")
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=[f"Id_{x}" for x in range(100)]
@@ -51,7 +51,7 @@ def test_create(mocker):
     result = json.loads(item.to_json())
     assert result == expected["items"][index]
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -60,7 +60,7 @@ def test_create_empty(mocker):
   interventions = StudyDesignInterventionSheet("", globals)
   assert len(interventions.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)

@@ -11,7 +11,7 @@ factory = Factory()
 globals = factory.globals
 globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -54,7 +54,7 @@ def test_create(mocker):
   assert content.items[7].id == 'Content_8'
   assert content.items[7].name == 'SECTION 3'
 
-def test_create_training_dot(mocker):
+def test_create_training_dot(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -89,7 +89,7 @@ def test_create_training_dot(mocker):
   assert content.items[7].id == 'Content_8'
   assert content.items[7].name == 'SECTION 3'
 
-def test_create_4_levels(mocker):
+def test_create_4_levels(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -123,7 +123,7 @@ def test_create_4_levels(mocker):
   assert content.items[5].text == '<div>Text 1.2.1.1</div>'
   assert content.items[5].childIds == []
 
-def test_create_standard_section(mocker):
+def test_create_standard_section(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -148,7 +148,7 @@ def test_create_standard_section(mocker):
   assert content.items[4].text == '<div><usdm:section name="m11-title"></div>'
   assert content.items[5].text == '<div>Text 2</div>'
 
-def test_create_invalid_levels(mocker):
+def test_create_invalid_levels(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
@@ -174,7 +174,7 @@ def test_create_invalid_levels(mocker):
   assert mock_error.call_args[0][2] == None
   assert mock_error.call_args[0][3] == "Exception '' raised reading sheet 'studyDesignContent'"
 
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mocked_open = mocker.mock_open(read_data="File")
@@ -185,7 +185,7 @@ def test_create_empty(mocker):
   content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 1
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   
   call_parameters = []
   

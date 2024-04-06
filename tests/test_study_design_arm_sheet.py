@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
@@ -39,7 +39,7 @@ def test_create(mocker):
   assert arms.items[2].type == expected_5
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
-def test_create_with_name_and_label(mocker):
+def test_create_with_name_and_label(mocker, globals):
   globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['ArmId_1', 'ArmId_2', 'ArmId_3']
@@ -70,7 +70,7 @@ def test_create_with_name_and_label(mocker):
   assert arms.items[2].type == expected_5
   assert arms.items[2].dataOriginDescription == 'ePRO'
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   globals.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
@@ -80,7 +80,7 @@ def test_create_empty(mocker):
   arms = StudyDesignArmSheet("", globals)
   assert len(arms.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   globals.cross_references.clear()
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")

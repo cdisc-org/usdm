@@ -4,7 +4,7 @@ from tests.test_factory import Factory
 factory = Factory()
 globals = factory.globals
 
-def test_load(mocker):
+def test_load(mocker, globals):
     item = CDISCCTLibrary(globals.errors, globals.logger)
     assert(item.submission('E-MAIL'))['conceptId'] == 'C25170' 
     assert(item.preferred_term('E-mail'))['conceptId'] == 'C25170' 

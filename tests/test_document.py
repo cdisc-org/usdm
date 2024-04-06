@@ -24,7 +24,7 @@ def create_criteria():
   results = factory.set(EligibilityCriterion, item_list)
   return results
 
-def test_create(mocker):
+def test_create(mocker, globals):
   minimal = MinimalStudy()
   minimal.population.criteria = create_criteria()
   doc = Doc()

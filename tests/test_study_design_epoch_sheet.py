@@ -9,7 +9,7 @@ globals = factory.globals
 
 xfail = pytest.mark.xfail
 
-def test_create(mocker):
+def test_create(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['EpochId_1', 'EpochId_2', 'EpochId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -31,7 +31,7 @@ def test_create(mocker):
   assert epochs.items[2].id == 'EpochId_3'
   assert epochs.items[2].type == expected_3
   
-def test_create_with_label(mocker):
+def test_create_with_label(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['EpochId_1', 'EpochId_2', 'EpochId_3']
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label1")
@@ -55,7 +55,7 @@ def test_create_with_label(mocker):
   assert epochs.items[2].type == expected_3
   assert epochs.items[2].label == ''
   
-def test_create_empty(mocker):
+def test_create_empty(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -64,7 +64,7 @@ def test_create_empty(mocker):
   epochs = StudyDesignEpochSheet("", globals)
   assert len(epochs.items) == 0
 
-def test_read_cell_by_name_error(mocker):
+def test_read_cell_by_name_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
