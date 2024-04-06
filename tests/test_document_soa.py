@@ -11,21 +11,8 @@ from usdm_model.scheduled_instance import ScheduledActivityInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 from usdm_model.timing import Timing
 from usdm_model.condition import Condition
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
-
-FIXED = factory.cdisc_code('C201358', 'Fixed Reference')
-BEFORE = factory.cdisc_code('C201356', 'After')
-AFTER = factory.cdisc_code('C201357', 'Before')
-
-E2E = factory.cdisc_code('C201352', 'End to End')
-E2S = factory.cdisc_code('C201353', 'End to Start')
-S2E = factory.cdisc_code('C201354', 'Start to End')
-S2S = factory.cdisc_code('C201355', 'Start to Start')
-
-def translate_reference(text):
+def translate_reference(text, globals):
   soup = BeautifulSoup(str(text), 'html.parser')
   for ref in soup(['usdm:ref']):
     attributes = ref.attrs
@@ -47,30 +34,39 @@ def double_link(items, prev, next):
       the_id = getattr(items[idx+1], 'id')
       setattr(item, next, the_id)
 
-def add_cross_ref(collection):
+def add_cross_ref(collection, globals):
   for item in collection:
     globals.cross_references.add(item.id, item)
 
-def create_conditions():
+def create_conditions(factory, globals):
   item_list = [
     {'name': 'COND1', 'label': '', 'description': '', 'text': 'Only perform at baseline', 'appliesToIds': [], 'contextIds': []},
     {'name': 'COND2', 'label': '', 'description': '', 'text': 'Only perform on males', 'appliesToIds': [], 'contextIds': []},
   ]
   results = factory.set(Condition, item_list)
-  add_cross_ref(results)
+  add_cross_ref(results, globals)
   return results
 
-def create_timings():
+def create_timings(factory, globals):
+  FIXED = factory.cdisc_code('C201358', 'Fixed Reference')
+  BEFORE = factory.cdisc_code('C201356', 'After')
+  AFTER = factory.cdisc_code('C201357', 'Before')
+
+  E2E = factory.cdisc_code('C201352', 'End to End')
+  E2S = factory.cdisc_code('C201353', 'End to Start')
+  S2E = factory.cdisc_code('C201354', 'Start to End')
+  S2S = factory.cdisc_code('C201355', 'Start to Start')
+
   item_list = [
     {'name': 'T1', 'label': '-2 Days', 'description': '', 'type': BEFORE, 'value': '', 'valueLabel': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'windowLabel': ''},
     {'name': 'T2', 'label': 'Dose',    'description': '', 'type': FIXED,  'value': '', 'valueLabel': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'windowLabel': ''},
     {'name': 'T3', 'label': '7 Days',  'description': '', 'type': AFTER,  'value': '', 'valueLabel': '', 'relativeToFrom': S2S, 'relativeFromScheduledInstanceId': '', 'relativeToScheduledInstanceId': '', 'windowLower': '', 'windowUpper': '', 'windowLabel': '1..1 Days'}
   ]
   results = factory.set(Timing, item_list)
-  add_cross_ref(results)
+  add_cross_ref(results, globals)
   return results
 
-def create_activities():
+def create_activities(factory, globals):
   item_list = [
     {'name': 'A1', 'label': 'Activity 1', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
     {'name': 'A2', 'label': 'Activity 2', 'description': '', 'definedProcedures': [], 'biomedicalConceptIds': [], 'bcCategoryIds': [], 'bcSurrogateIds': [], 'timelineId': None},
@@ -80,10 +76,10 @@ def create_activities():
   ]
   results = factory.set(Activity, item_list)
   double_link(results, 'previousId', 'nextId')
-  add_cross_ref(results)
+  add_cross_ref(results, globals)
   return results
 
-def create_epochs():
+def create_epochs(factory, globals):
   item_list = [
     {'name': 'EP1', 'label': 'Epoch A', 'description': '', 'type': factory.cdisc_dummy()},
     {'name': 'EP2', 'label': 'Epoch B', 'description': '', 'type': factory.cdisc_dummy()},
@@ -91,10 +87,10 @@ def create_epochs():
   ]
   results = factory.set(StudyEpoch, item_list)
   double_link(results, 'previousId', 'nextId')
-  add_cross_ref(results)
+  add_cross_ref(results, globals)
   return results
 
-def create_encounters():
+def create_encounters(factory, globals):
   item_list = [
     {'name': 'E1', 'label': 'Screening', 'description': '', 'type': factory.cdisc_dummy(), 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
     {'name': 'E2', 'label': 'Dose', 'description': '', 'type': factory.cdisc_dummy(), 'environmentalSetting': [], 'contactModes': [], 'transitionStartRule': None, 'transitionEndRule': None, 'scheduledAtId': None},
@@ -102,10 +98,10 @@ def create_encounters():
   ]
   results = factory.set(Encounter, item_list)
   double_link(results, 'previousId', 'nextId')
-  add_cross_ref(results)
+  add_cross_ref(results, globals)
   return results
 
-def create_activity_instances():
+def create_activity_instances(factory, globals):
   item_list = [
     {'name': 'SAI_1', 'description': '', 'label': '', 'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []},
     {'name': 'SAI_2', 'description': '', 'label': '', 'timelineExitId': None, 'encounterId': None, 'scheduledInstanceTimelineId': None, 'defaultConditionId': None, 'epochId': None, 'activityIds': []},
@@ -114,18 +110,18 @@ def create_activity_instances():
   results = factory.set(ScheduledActivityInstance, item_list)
   results[0].defaultConditionId = results[1].id
   results[1].defaultConditionId = results[2].id
-  add_cross_ref(results)
+  add_cross_ref(results, globals)
   return results
 
-def scenario_1():
+def scenario_1(factory, globals):
   dummy_cell = factory.item(StudyCell, {'armId': "X", 'epochId': "Y"})
   dummy_arm = factory.item(StudyArm, {'name': "Arm1", 'type': factory.cdisc_dummy(), 'dataOriginDescription': 'xxx', 'dataOriginType': factory.cdisc_dummy()})
-  activities = create_activities()
-  epochs = create_epochs()
-  encounters = create_encounters()
-  activity_instances = create_activity_instances()
-  timings = create_timings()
-  conditions = create_conditions()
+  activities = create_activities(factory, globals)
+  epochs = create_epochs(factory, globals)
+  encounters = create_encounters(factory, globals)
+  activity_instances = create_activity_instances(factory, globals)
+  timings = create_timings(factory, globals)
+  conditions = create_conditions(factory, globals)
 
   activity_instances[0].activityIds = [activities[0].id, activities[1].id]
   activity_instances[0].encounterId = encounters[0].id
@@ -156,12 +152,12 @@ def scenario_1():
     'conditions': conditions})
   return study_design, timeline
 
-def test_create(mocker, globals):
-  bs = factory.base_sheet(mocker, globals)
-  study_design, timeline = scenario_1()
+def test_create(mocker, globals, factory):
+  bs = factory.base_sheet(mocker)
+  study_design, timeline = scenario_1(factory, globals)
   soa = SoA(bs, study_design, timeline)
   result = soa.generate()
-  print(f"RESULT: {result}")
+  #print(f"RESULT: {result}")
   labels = []
   for row in range(len(result)):
     labels.append([])
@@ -169,7 +165,7 @@ def test_create(mocker, globals):
       if 'set' in result[row][col].keys():
         label = 'X' if result[row][col]['set'] else ''
       else:
-        label = translate_reference(result[row][col]['label'])
+        label = translate_reference(result[row][col]['label'], globals)
       if 'condition' in result[row][col].keys():
         label = f"{label} [c]"
       labels[row].append(label)

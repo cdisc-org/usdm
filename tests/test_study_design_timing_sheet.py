@@ -1,10 +1,7 @@
 import pandas as pd
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_create(mocker, globals):
   globals.errors.clear()

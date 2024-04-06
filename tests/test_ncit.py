@@ -1,8 +1,5 @@
 from usdm_excel.ncit import NCIt
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")

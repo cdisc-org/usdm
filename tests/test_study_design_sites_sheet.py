@@ -1,10 +1,7 @@
 import pandas as pd
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
 from usdm_model.code import Code
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_create(mocker, globals):
   globals.cross_references.clear()

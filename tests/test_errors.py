@@ -1,8 +1,5 @@
 from usdm_excel.errors.errors import Errors
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_create():
   errors = Errors(globals.logger)

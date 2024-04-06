@@ -1,8 +1,5 @@
 from usdm_excel.iso_3166 import ISO3166
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")

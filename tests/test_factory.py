@@ -1,24 +1,12 @@
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.globals import Globals
 from usdm_model.code import Code
 
 class Factory():
 
-  def __init__(self):
-    pass
-    #self.globals = Globals()
-    #self.globals.create()
-  
-  def clear(self):
-    pass
-    #self.globals.id_manager.clear()
-    #self.globals.cross_references.clear()
-    #self.globals.errors.clear()
+  def __init__(self, globals):
+    self.globals = globals
 
-  def globals(self):
-    return self.globals
-  
   def item(self, cls, params):
     params['id'] = params['id'] if 'id' in params else self.globals.id_manager.build_id(cls)
     params['instanceType'] = cls.__name__

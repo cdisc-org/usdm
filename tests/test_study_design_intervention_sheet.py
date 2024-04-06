@@ -3,10 +3,7 @@ import json
 import pandas as pd
 from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
 from usdm_model.code import Code
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 xfail = pytest.mark.xfail
 

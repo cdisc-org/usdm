@@ -1,10 +1,5 @@
 import pytest
 from usdm_excel.cross_ref import *
-from tests.test_factory import Factory
-
-factory = Factory()
-globals = factory.globals
-cross_references = globals.cross_references
 
 class CRTest():
 
@@ -29,12 +24,13 @@ class CRTest3():
     self.child = instance
     self.value = "VALUE"
 
-def test_create():
+def test_create(globals):
   object = CrossRef(globals.errors, globals.logger)
   assert len(object._references.keys()) == 0
   assert object._references == {}
 
-def test_clear():
+def test_clear(globals):
+  cross_references = globals.cross_references
   item = CRTest(id="1234", name="name")
   cross_references._references = {}
   cross_references._identifiers = {}
@@ -46,7 +42,8 @@ def test_clear():
   assert len(cross_references._references.keys()) == 0
   assert len(cross_references._identifiers.keys()) == 0
 
-def test_add():
+def test_add(globals):
+  cross_references = globals.cross_references
   item = CRTest(id="1234", name="name")
   cross_references.clear()
   assert len(cross_references._references.keys()) == 0
@@ -57,7 +54,8 @@ def test_add():
   assert len(cross_references._identifiers.keys()) == 1
   assert cross_references._identifiers["CRTest.1234"] == item
 
-def test_get():
+def test_get(globals):
+  cross_references = globals.cross_references
   item = CRTest(id="1234", name="name")
   cross_references.clear()
   assert len(cross_references._references.keys()) == 0
@@ -65,7 +63,8 @@ def test_get():
   cross_references._references["CRTest.name"] = item
   assert cross_references.get(CRTest, "name") == item
 
-def test_get_by_id():
+def test_get_by_id(globals):
+  cross_references = globals.cross_references
   item = CRTest(id="1234", name="name")
   cross_references.clear()
   assert len(cross_references._references.keys()) == 0
@@ -74,7 +73,8 @@ def test_get_by_id():
   assert cross_references.get_by_id(CRTest, "1234") == item
   assert cross_references.get_by_id("CRTest", "1234") == item
 
-def test_get_by_path():
+def test_get_by_path(globals):
+  cross_references = globals.cross_references
   item1 = CRTest(id="1234", name="name1")
   item2 = CRTest2(id="1235", name="name2", instance=item1)
   item3 = CRTest3(id="1236", name="name3", instance=item2)
@@ -91,7 +91,8 @@ def test_get_by_path():
   assert instance.id == "1234"
   assert attribute == "value"
 
-def test_get_by_path_errors():
+def test_get_by_path_errors(globals):
+  cross_references = globals.cross_references
   item1 = CRTest(id="1234", name="name1")
   item2 = CRTest2(id="1235", name="name2", instance=item1)
   item3 = CRTest3(id="1236", name="name3", instance=item2)

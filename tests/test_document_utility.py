@@ -1,9 +1,6 @@
 from usdm_excel.document.utility import get_soup
 
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_normal(mocker, globals):
   bs = factory.base_sheet(mocker, globals)

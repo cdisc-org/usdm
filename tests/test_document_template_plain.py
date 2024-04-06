@@ -3,9 +3,6 @@ from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_excel.document.template_plain import TemplatePlain
 
 from tests.test_factory import Factory
-from tests.test_data_factory import MinimalStudy
-
-factory = Factory()
 globals = factory.globals
 
 INCLUSION = factory.cdisc_code('C25532', 'Inc')

@@ -1,9 +1,5 @@
 import pytest
 from usdm_excel.cdisc_bc_library import CDISCBCLibrary
-from tests.test_factory import Factory
-
-factory = Factory()
-globals = factory.globals
 
 xfail = pytest.mark.xfail
 

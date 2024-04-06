@@ -8,13 +8,12 @@ from usdm_model.study_version import StudyVersion
 from usdm_model.study_title import StudyTitle
 from usdm_model.study_protocol_document import StudyProtocolDocument
 from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
-
 from tests.test_factory import Factory
 
 class MinimalStudy():
 
-  def __init__(self):
-    factory = Factory()
+  def __init__(self, globals):
+    factory = Factory(globals)
     self.population = factory.item(StudyDesignPopulation, {'name': 'POP1', 'label': '', 'description': '', 'includesHealthySubjects': True, 'criteria': []})
     cell = factory.item(StudyCell, {'armId': "X", 'epochId': "Y"})
     arm = factory.item(StudyArm, {'name': "Arm1", 'type': factory.cdisc_dummy(), 'dataOriginDescription': 'xxx', 'dataOriginType': factory.cdisc_dummy()})

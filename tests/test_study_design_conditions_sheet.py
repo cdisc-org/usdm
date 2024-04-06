@@ -2,10 +2,7 @@ import pytest
 import pandas as pd
 from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
 from usdm_model.api_base_model import ApiBaseModelWithId
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 xfail = pytest.mark.xfail
 

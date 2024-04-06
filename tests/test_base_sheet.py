@@ -2,7 +2,6 @@ import pytest
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.code import Code
-from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 

@@ -2,10 +2,7 @@ import pandas as pd
 
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_defaults(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")

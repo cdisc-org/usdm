@@ -1,8 +1,5 @@
 from usdm_excel.option_manager import *
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_create():
   object = OptionManager(globals)

@@ -2,10 +2,7 @@ import pytest
 import pandas as pd
 from usdm_excel.study_design_encounter_sheet.study_design_encounter_sheet import StudyDesignEncounterSheet
 from usdm_model.code import Code
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 xfail = pytest.mark.xfail
 

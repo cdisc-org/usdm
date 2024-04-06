@@ -1,8 +1,5 @@
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
-from tests.test_factory import Factory
 
-factory = Factory()
-globals = factory.globals
 
 def test_load(mocker, globals):
     item = CDISCCTLibrary(globals.errors, globals.logger)

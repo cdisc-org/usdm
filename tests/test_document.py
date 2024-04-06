@@ -3,11 +3,7 @@ from yattag import Doc
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.narrative_content import NarrativeContent
 from usdm_db.document.document import Document
-
 from tests.test_factory import Factory
-from tests.test_data_factory import MinimalStudy
-
-factory = Factory()
 
 INCLUSION = factory.cdisc_code('C25532', 'Inc')
 EXCLUSION = factory.cdisc_code('C25370', 'Exc')
