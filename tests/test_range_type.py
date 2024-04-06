@@ -1,9 +1,6 @@
 from tests.test_factory import Factory
 from usdm_excel.range_type import RangeType
 
-factory = Factory()
-globals = factory.globals
-
 def test_range_type(mocker, globals):
   test_data = [
     ('1..1 Days', "1", "1", '1..1 Days', 'Days', 'C25301'),

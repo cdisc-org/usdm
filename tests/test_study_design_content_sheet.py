@@ -7,11 +7,9 @@ from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 
-factory = Factory()
-globals = factory.globals
-globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
-
 def test_create(mocker, globals):
+  globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
+
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")

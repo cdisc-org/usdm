@@ -6,9 +6,6 @@ from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 
-factory = Factory()
-globals = factory.globals
-
 def test_create(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]

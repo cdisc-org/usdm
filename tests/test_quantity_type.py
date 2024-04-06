@@ -1,9 +1,6 @@
 from tests.test_factory import Factory
 from usdm_excel.quantity_type import QuantityType
 
-factory = Factory()
-globals = factory.globals
-
 def test_quantity_type(mocker, globals):
   test_data = [
     ('15 days', "15", 'days', 'C25301', '15 days'),
