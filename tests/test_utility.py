@@ -11,4 +11,4 @@ def clear():
   # id_manager.clear()
   # self.globals.cross_references.clear()
   # ct_version_manager.clear()
-  # self.globals.errors.clear()
+  # self.globals.errors_and_logging.errors().clear()

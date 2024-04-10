@@ -100,7 +100,7 @@ def test_read_cell_error(mocker, globals):
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 7
   assert mock_error.call_args[0][2] == 9
-  assert mock_error.call_args[0][3] == "Error 'index 8 is out of bounds for axis 0 with size 2' reading cell"
+  assert mock_error.call_args[0][3] == "Exception. Error reading cell. See log for additional details."
   
 def test_read_cell_by_name(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
@@ -260,7 +260,7 @@ def test_read_range_cell_by_name(mocker, globals):
     (8,'Range', True,      True,        False,  True,  0.0,  0.0,   '',       ""),
   ]
   for test in test_data:
-    globals.errors.clear()
+    globals.errors_and_logging.errors().clear()
     #print(f"INDEX: {test[0]}")
     range = base.read_range_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
@@ -269,12 +269,12 @@ def test_read_range_cell_by_name(mocker, globals):
       if test[2]:
         assert(range.unit.code) == test[8]
       assert(range.isApproximate) == False
-      assert(len(globals.errors.items)) == 0
+      assert(len(globals.errors_and_logging.errors().items)) == 0
     elif test[5]:
       assert(range) == None
     else:
       assert(range) == None
-      assert(globals.errors.items[0].to_log()) == test[9]
+      assert(globals.errors_and_logging.errors().items[0].to_log()) == test[9]
 
 # def test_read_description_by_name(mocker, globals):
 #   mock_option = mocker.patch("usdm_excel.om.get")

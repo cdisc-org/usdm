@@ -94,7 +94,7 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][0] == "studyIdentifiers"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'organisationType, type' in sheet' raised reading sheet 'studyIdentifiers'"
+  assert mock_error.call_args[0][3] == "Exception. Error [Failed to detect column(s) 'organisationType, type' in sheet] while reading sheet 'studyIdentifiers'. See log for additional details."
   
 def test_address_error(mocker, globals):
   globals.cross_references.clear()

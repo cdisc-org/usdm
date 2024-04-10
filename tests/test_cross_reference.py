@@ -25,7 +25,7 @@ class CRTest3():
     self.value = "VALUE"
 
 def test_create(globals):
-  object = CrossRef(globals.errors, globals.logger)
+  object = CrossRef(globals.errors_and_logging)
   assert len(object._references.keys()) == 0
   assert object._references == {}
 

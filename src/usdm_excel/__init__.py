@@ -1,6 +1,6 @@
-import traceback
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
+#from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.errors_and_logging.errors import Errors
 from usdm_excel.globals import Globals
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
@@ -48,7 +48,7 @@ class USDMExcel():
     return self._process()
 
   def errors(self):
-    return self._globals.errors_and_logging.errors()
+    return self._globals.errors_and_logging.errors().dump(Errors.WARNING)
   
   def _process(self):
     try:

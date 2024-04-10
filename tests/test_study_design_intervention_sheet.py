@@ -71,5 +71,5 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][0] == "studyDesignInterventions"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'administrationDurationQuantity' in sheet' raised reading sheet 'studyDesignInterventions'"
+  assert mock_error.call_args[0][3] == "Exception. Error [Failed to detect column(s) 'administrationDurationQuantity' in sheet] while reading sheet 'studyDesignInterventions'. See log for additional details."
   

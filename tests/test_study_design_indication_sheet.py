@@ -53,5 +53,5 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][0] == "studyDesignIndications"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception ''codes'' raised reading sheet 'studyDesignIndications'"
+  assert mock_error.call_args[0][3] == "Exception. Error ['codes'] while reading sheet 'studyDesignIndications'. See log for additional details."
   

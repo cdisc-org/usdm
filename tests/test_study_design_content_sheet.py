@@ -170,7 +170,7 @@ def test_create_invalid_levels(mocker, globals):
   assert mock_error.call_args[0][0] == "studyDesignContent"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception '' raised reading sheet 'studyDesignContent'"
+  assert mock_error.call_args[0][3] == "Exception. Error [] while reading sheet 'studyDesignContent'. See log for additional details."
 
 def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -193,7 +193,7 @@ def test_read_cell_by_name_error(mocker, globals):
 
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add", side_effect=my_add)
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['1', 'Section 1', 'Text 1']]
@@ -202,6 +202,6 @@ def test_read_cell_by_name_error(mocker, globals):
   content = StudyDesignContentSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
-    ('studyDesignContent', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 10)
+    ('studyDesignContent', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 40)
   ]
   

@@ -71,4 +71,4 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][0] == "studyDesignSites"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Exception 'Failed to detect column(s) 'type' in sheet' raised reading sheet 'studyDesignSites'"
+  assert mock_error.call_args[0][3] == "Exception. Error [Failed to detect column(s) 'type' in sheet] while reading sheet 'studyDesignSites'. See log for additional details."

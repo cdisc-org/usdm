@@ -15,7 +15,7 @@ class ErrorsAndLogging():
     self._errors = Errors()
 
   def errors(self):
-    return self._errors.dump(self.WARNING)
+    return self._errors
   
   def debug(self, message: str, sheet: str=None, row: int=None, column: int=None):
     self._logger.debug(self._format(message, sheet, row, column))
@@ -24,7 +24,7 @@ class ErrorsAndLogging():
     self._logger.info(self._format(message, sheet, row, column))
 
   def exception(self, message: str, e: Exception, sheet: str=None, row: int=None, column: int=None):
-    self._errors.add(sheet, row, column, f"Exception. {message}. See log for additional details.")
+    self._errors.add(sheet, row, column, f"Exception. {message}. See log for additional details.", self._errors.ERROR)
     self._logger.error(f"Exception '{e}' raised\n\n{self._format(message, sheet, row, column)}\n\n{traceback.format_exc()}")
 
   def warning(self, message: str, sheet: str=None, row: int=None, column: int=None):

@@ -63,7 +63,7 @@ def test_missing_reference(mocker, globals):
   mock_cross_ref.side_effect=[ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add", side_effect=my_add)
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
@@ -74,7 +74,7 @@ def test_missing_reference(mocker, globals):
   items = StudyDesignConditionSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
-    ("studyDesignConditions", 1, 6, "No condition references found for '', at least one required", 10)
+    ("studyDesignConditions", 1, 6, "No condition references found for '', at least one required", 40)
   ]
 
 def test_read_cell_by_name_error(mocker, globals):
@@ -90,7 +90,7 @@ def test_read_cell_by_name_error(mocker, globals):
   mock_cross_ref.side_effect=[ApiBaseModelWithId(id="X1"), ApiBaseModelWithId(id="X2")]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add", side_effect=my_add)
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
@@ -101,6 +101,6 @@ def test_read_cell_by_name_error(mocker, globals):
   items = StudyDesignConditionSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
-    ("studyDesignConditions", 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 10)
+    ("studyDesignConditions", 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 40)
   ]
   

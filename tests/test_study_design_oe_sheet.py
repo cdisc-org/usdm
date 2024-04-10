@@ -71,7 +71,7 @@ def test_read_cell_by_name_error(mocker, globals):
 
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add", side_effect=my_add)
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add", side_effect=my_add)
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
@@ -84,5 +84,5 @@ def test_read_cell_by_name_error(mocker, globals):
   )
   items = StudyDesignObjectiveEndpointSheet("", globals)
   mock_error.assert_called()
-  assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error 'Failed to detect column(s) 'endpointXref, endpointName' in sheet' reading cell '['endpointXref', 'endpointName']'", 10)
+  assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error 'Failed to detect column(s) 'endpointXref, endpointName' in sheet' reading cell '['endpointXref', 'endpointName']'", 40)
   
