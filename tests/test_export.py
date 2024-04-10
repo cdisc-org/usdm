@@ -36,14 +36,14 @@ def run_test(filename, mocker, save=False):
     expected = yaml.safe_load(f) 
   assert result == expected
 
-def test_simple_1(mocker):
+def test_simple_1(mocker, globals):
   run_test('simple_1', mocker)
 
-def test_full_1(mocker):
+def test_full_1(mocker, globals):
   run_test('full_1', mocker)
 
-def test_full_2(mocker):
+def test_full_2(mocker, globals):
   run_test('full_2', mocker)
 
-def test_full_3(mocker):
+def test_full_3(mocker, globals):
   run_test('full_3', mocker)

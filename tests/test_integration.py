@@ -56,9 +56,9 @@ def run_test(filename, save=False):
 
 def run_test_html(filename, save=False, highlight=False):
   suffix = "_highlight" if highlight else ""
-  excel = USDMExcel(f"tests/integration_test_files/{filename}.xlsx")
-  result = excel.to_html(highlight)
-  errors = excel.errors()
+  usdm = USDMDb()
+  errors = usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result = usdm.to_html(highlight)
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
@@ -88,22 +88,6 @@ def run_test_timeline(filename, level=USDMDb.FULL_HTML, save=False):
     expected = f.read()
   assert result == expected
 
-def run_test_ne(filename, save=False):
-  result = {}
-  usdm = USDMDb()
-  usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
-  result['n'], result['e'] = usdm.to_nodes_and_edges()
-  for type in ['n', 'e']:
-
-    # Useful if you want to see the results.
-    if save or SAVE_ALL:
-      with open(f"tests/integration_test_files/{filename}_{type}.json", 'w', encoding='utf-8') as f:
-        f.write(json.dumps(result[type], indent=2))
-    
-    with open(f"tests/integration_test_files/{filename}_{type}.json", 'r') as f:
-      expected = json.load(f)
-    assert result[type] == expected
-
 def test_full_1():
   run_test('full_1')
 
@@ -111,13 +95,10 @@ def test_full_1_timeline():
   run_test_timeline('full_1')
 
 def test_full_1_timeline_body():
-  run_test_timeline('full_1', USDMExcel.BODY_HTML)
+  run_test_timeline('full_1', USDMDb.BODY_HTML)
 
 def test_full_1_html():
   run_test_html('full_1')
-
-def test_full_1_ne():
-  run_test_ne('full_1')
 
 def test_full_2():
   run_test('full_2')
@@ -146,9 +127,6 @@ def test_amendment_1():
 def test_eligibility_criteria_1():
   run_test('eligibility_criteria_1')
 
-def test_simple_1_ne():
-  run_test_ne('simple_1')
-
 def test_simple_1_html():
   run_test_html('simple_1')
 
@@ -167,20 +145,11 @@ def test_address_comma():
 def test_complex_1():
   run_test('complex_1')
 
-def test_complex_1_ne():
-  run_test_ne('complex_1')
-
 def test_arms_epochs_1():
   run_test('arms_epochs')
 
-def test_arms_epochs_1_ne():
-  run_test_ne('arms_epochs')
-
 def test_cycles_1():
   run_test('cycles_1')
-
-def test_cycles_1_ne():
-  run_test_ne('cycles_1')
 
 def test_multiple_column_names():
   run_test('multiple_column_names')
