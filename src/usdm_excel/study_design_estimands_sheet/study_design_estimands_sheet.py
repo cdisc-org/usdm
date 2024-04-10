@@ -33,16 +33,14 @@ class StudyDesignEstimandsSheet(BaseSheet):
           try:
             ap = AnalysisPopulation(id=self.globals.id_manager.build_id(AnalysisPopulation), name=f"AP_{index+1}", text=ap_description) 
           except Exception as e:
-            self._general_error(f"Failed to create AnalysisPopulation object, exception {e}")
-            self._traceback(f"{traceback.format_exc()}")
+            self._general_error(f"Failed to create AnalysisPopulation object", e)
           else:
             try:
               treatment_id = self._get_treatment(treatment_xref)
               endpoint_id = self._get_endpoint(endpoint_xref)
               current = Estimand(id=self.globals.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
             except Exception as e:
-              self._general_error(f"Failed to create Estimand object, exception {e}")
-              self._traceback(f"{traceback.format_exc()}")
+              self._general_error(f"Failed to create Estimand object", e)
             else:
               self.estimands.append(current)  
         if current is not None:
@@ -53,13 +51,11 @@ class StudyDesignEstimandsSheet(BaseSheet):
             current_ice_name = ice_name
             current_ice_description = ice_description
           except Exception as e:
-            self._general_error(f"Failed to create IntercurrentEvent object, exception {e}")
-            self._traceback(f"{traceback.format_exc()}")
+            self._general_error(f"Failed to create IntercurrentEvent object", e)
           else:
             current.intercurrentEvents.append(ice)
         else:
           self._general_error("Failed to add IntercurrentEvent, no Estimand set")
-          self._traceback(f"{traceback.format_exc()}")
 
     except Exception as e:
       self._general_sheet_exception(e)

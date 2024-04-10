@@ -28,8 +28,7 @@ class StudyDesignProcedureSheet(BaseSheet):
             code=code 
           )
         except Exception as e:
-          self._general_error(f"Failed to create Procedure object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+          self._general_exception(f"Failed to create Procedure object", e)
         else:
           self.procedures.append(item)
           cross_ref = xref if xref else name

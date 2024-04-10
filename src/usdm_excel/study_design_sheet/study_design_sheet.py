@@ -173,8 +173,7 @@ class StudyDesignSheet(BaseSheet):
         elementIds=elements
       )
     except Exception as e:
-      self._general_error("Failed to create StudyCell object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_error("Failed to create StudyCell object", e)
       return None
 
   def _create_design(self):
@@ -201,8 +200,7 @@ class StudyDesignSheet(BaseSheet):
       #print(f"SD: {result.characteristics}")
       return result
     except Exception as e:
-      self._general_error("Failed to create StudyDesign object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_error("Failed to create StudyDesign object", e)
       return None
   
 
@@ -227,6 +225,5 @@ class StudyDesignSheet(BaseSheet):
           self._error(rindex, cindex, f"Failed to decode masking role data '{text}', no '=' detected")
           return None
       except Exception as e:
-        self._error(rindex, cindex, "Failed to create Masking object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        self._error(rindex, cindex, "Failed to create Masking object", e)
         return None

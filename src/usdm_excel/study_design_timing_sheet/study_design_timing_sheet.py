@@ -46,8 +46,7 @@ class StudyDesignTimingSheet(BaseSheet):
               relativeToScheduledInstanceId=to_name
             )
           except Exception as e:
-            self._general_error(f"Failed to create Timing object, exception {e}")
-            self._traceback(f"{traceback.format_exc()}")
+            self._general_error(f"Failed to create Timing object", e)
           else:
             self.globals.cross_references.add(name, item)
             self.items.append(item)

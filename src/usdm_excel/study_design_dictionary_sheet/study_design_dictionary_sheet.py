@@ -63,8 +63,7 @@ class StudyDesignDictionarySheet(BaseSheet):
         parameterMaps=[]
       )
     except Exception as e:
-      self._general_error(f"Failed to create SyntaxTemplateDictionary object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_exception(f"Failed to create SyntaxTemplateDictionary object", e)
       return None
     else:
       self.items.append(item)

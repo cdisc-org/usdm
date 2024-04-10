@@ -29,8 +29,7 @@ class StudyDesignArmSheet(BaseSheet):
             dataOriginType=arm_origin_type
           )
         except Exception as e:
-          self._general_error(f"Failed to create StudyArm object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+          self._general_exception(f"Failed to create StudyArm object", e)
         else:
           self.items.append(item)
           self.globals.cross_references.add(name, item)     

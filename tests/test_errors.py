@@ -1,4 +1,4 @@
-from usdm_excel.errors.errors import Errors
+from usdm_excel.errors_and_logging.errors import Errors
 
 
 def test_create(globals):

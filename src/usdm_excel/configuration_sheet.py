@@ -17,8 +17,7 @@ class ConfigurationSheet(BaseSheet):
       self.globals.option_manager.set(Options.USDM_VERSION, 3)
       self._process_sheet()
     except Exception as e:
-      self._general_error(f"Exception '{e}' raised reading sheet.")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_sheet_exception(self, e)
 
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():

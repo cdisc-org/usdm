@@ -134,8 +134,7 @@ class StudySheet(BaseSheet):
             )
             scopes.append(scope)
         except Exception as e:
-          self._general_error(f"Failed to create GeographicScope object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+          self._general_exception(f"Failed to create GeographicScope object", e)
         try:
           date = GovernanceDate(
             id=self.globals.id_manager.build_id(GovernanceDate),
@@ -149,8 +148,7 @@ class StudySheet(BaseSheet):
           self.dates[category].append(date)
           self.globals.cross_references.add(record['name'], date)
         except Exception as e:
-          self._general_error(f"Failed to create GovernanceDate object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+          self._general_exception(f"Failed to create GovernanceDate object", e)
 
   def _read_scope_cell(self, row_index, col_index):
     result = []
@@ -201,6 +199,5 @@ class StudySheet(BaseSheet):
         else:
           return None
       except Exception as e:
-        self._error(rindex, cindex, "Failed to create StudyTitle object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        self._exception(rindex, cindex, "Failed to create StudyTitle object", e)
         

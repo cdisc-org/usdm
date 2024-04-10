@@ -1,9 +1,7 @@
 import os
 import yaml
 import requests
-import logging
-import traceback
-from usdm_excel.errors.errors import Errors
+from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.id_manager import IdManager
 from usdm_model.biomedical_concept import BiomedicalConcept
@@ -16,9 +14,8 @@ class CDISCBCLibrary():
 
   API_ROOT = 'https://api.library.cdisc.org/api/cosmos/v2'    
   
-  def __init__(self, errors: Errors, logger: logging, ct_library: CDISCCTLibrary, id_manager: IdManager):
-    self._errors = errors
-    self._logger = logger
+  def __init__(self, errors_and_logging: ErrorsAndLogging, ct_library: CDISCCTLibrary, id_manager: IdManager):
+    self._errors_and_logging = errors_and_logging
     self._ct_library = ct_library
     self._id_manager = id_manager
     self._api_key = os.getenv('CDISC_API_KEY')

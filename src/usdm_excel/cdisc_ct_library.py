@@ -2,16 +2,15 @@ import os
 import yaml
 import traceback
 import requests
-from usdm_excel.utility import log_exception, log_error
+from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class CDISCCTLibrary():
 
   API_ROOT = 'https://api.library.cdisc.org/api'  
   HEADERS = { "Content-Type":"application/json", "api-key": os.getenv('CDISC_API_KEY') }
     
-  def __init__(self, errors, logger):
-    self._logger = logger
-    self._errors = errors
+  def __init__(self, errors_and_logging: ErrorsAndLogging):
+    self._errors_and_logging = errors_and_logging
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'missing_ct.yaml'))
     self._missing_ct = yaml.load(f, Loader=yaml.FullLoader)
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'cdisc_ct_config.yaml'))

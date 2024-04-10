@@ -47,8 +47,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
               enrollments=enrollments
             )
           except Exception as e:
-            self._general_error(f"Failed to create StudyAmendment object, exception {e}")
-            self._traceback(f"{traceback.format_exc()}")
+            self._general_exception(f"Failed to create StudyAmendment object", e)
           else:
             self.items.append(item)
             self.globals.cross_references.add(item.number, item)
@@ -70,8 +69,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
           quantity=enrollment['quantity']
         )
       except Exception as e:
-        self._general_error(f"Failed to create SubjectEnrollment object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        self._general_exception(f"Failed to create SubjectEnrollment object", e)
         return None
       else:
         results.append(item)
@@ -86,9 +84,7 @@ class StudyDesignAmendmentSheet(BaseSheet):
         otherReason=reason['other']
       )
     except Exception as e:
-      self._general_error(f"Failed to create StudyAmendmentReason object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
-      #print(f"AR2: {traceback.format_exc()}")
+      self._general_exception(f"Failed to create StudyAmendmentReason object", e)
       return None
     else:
       return item

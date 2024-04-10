@@ -50,8 +50,7 @@ class StudyDesignEncounterSheet(BaseSheet):
             scheduledAtId=timing_id
           )
         except Exception as e:
-          self._general_error(f"Failed to create Encounter object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+          self._general_exception(f"Failed to create Encounter object", e)
         else:
           self.items.append(item)
           cross_ref = xref if xref else name

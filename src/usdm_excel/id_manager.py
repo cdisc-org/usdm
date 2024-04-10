@@ -1,9 +1,9 @@
-import logging
+from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class IdManager():
 
-  def __init__(self, logger: logging):
-    self._logger = logger
+  def __init__(self, errors_and_logging: ErrorsAndLogging):
+    self._errors_and_logging = errors_and_logging
     self._id_index = {}
     self.clear()
 

@@ -39,8 +39,7 @@ class StudyIdentifiersSheet(BaseSheet):
           legalAddress=org_address
         )
       except Exception as e:
-        self._general_error(f"Failed to create Organization object, exception {e}")
-        self._traceback(f"{traceback.format_exc()}")
+        self._general_exception(f"Failed to create Organization object", e)
       else:
         self.globals.cross_references.add(organisation.id, organisation)   
         try:
@@ -50,8 +49,7 @@ class StudyIdentifiersSheet(BaseSheet):
             studyIdentifierScope=organisation
           )
         except Exception as e:
-          self._general_error(f"Failed to create StudyIdentifier object, exception {e}")
-          self._traceback(f"{traceback.format_exc()}")
+          self._general_exception(f"Failed to create StudyIdentifier object", e)
         else:
           self.identifiers.append(item)
           self.globals.cross_references.add(item.studyIdentifier, item)         

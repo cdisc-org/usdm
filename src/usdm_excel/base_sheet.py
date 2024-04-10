@@ -1,5 +1,4 @@
 import os
-import traceback
 import pandas as pd
 from openpyxl import load_workbook
 from usdm_excel.cdisc_ct import CDISCCT
@@ -13,6 +12,7 @@ from usdm_model.range import Range
 from usdm_model.address import Address
 from usdm_excel.alias import Alias
 from usdm_excel.option_manager import EmptyNoneOption
+from usdm_excel.globals import Globals
 
 class BaseSheet():
 
@@ -22,7 +22,7 @@ class BaseSheet():
   class FormatError(Exception):
     pass
 
-  def __init__(self, file_path, globals, sheet_name, header=0, optional=False, converters={}, require={}):
+  def __init__(self, file_path: str, globals: Globals, sheet_name: str, header: int=0, optional: bool=False, converters: dict={}, require: dict={}):
     self.file_path = file_path
     self.globals = globals
     self.dir_path, self.filename = os.path.split(file_path)
@@ -76,8 +76,7 @@ class BaseSheet():
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
-      self._error(row_index, col_index, f"Error '{e}' reading cell")
-      self._traceback(f"{e}\n{traceback.format_exc()}")
+      self.globals.errors_and_logging.exception('Error reading cell', e, self.sheet, row_index, col_index)
       if default:
         return default
       else:
@@ -151,9 +150,7 @@ class BaseSheet():
         self._add_errors(quantity.errors, row_index, col_index)
         return None
     except Exception as e:
-      print("5")
-      self._error(row_index, col_index, f"Failed to decode quantity data '{text}'")
-      self._traceback(f"{e}\n{traceback.format_exc()}")
+      self.globals.errors_and_logging.exception(f"Failed to decode quantity data '{text}'", e, self.sheet, row_index, col_index)
       return None
 
   def read_range_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):
@@ -171,9 +168,7 @@ class BaseSheet():
         self._add_errors(range.errors, row_index, col_index)
         return None
     except Exception as e:
-      self._error(row_index, col_index, f"Failed to decode range data '{text}'")
-      #print(f"{e}\n{traceback.format_exc()}")
-      self._traceback(f"{e}\n{traceback.format_exc()}")
+      self.globals.errors_and_logging.exception(f"Failed to decode range data '{text}'", e, self.sheet, row_index, col_index)
       return None
 
   def read_address_cell_by_name(self, row_index, field_name, allow_empty=False):
@@ -212,8 +207,7 @@ class BaseSheet():
     try:
       result = Address(id=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
     except Exception as e:
-      self._general_error(f"Failed to create Address object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self.globals.errors_and_logging.exception(f"Failed to create Address object", e, self.sheet)
       result = None
     return result
 
@@ -222,12 +216,10 @@ class BaseSheet():
       params['id'] = self.globals.id_manager.build_id(cls)
       return cls(**params)
     except Exception as e:
-      self._general_error(f"Failed to create {cls.__name__} object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self.globals.errors_and_logging.exception(f"Failed to create {cls.__name__} object", e, self.sheet)
       return None
 
   def read_other_code_cell_by_name(self, row_index, field_name):
-    #col_index = self.sheet.columns.get_loc(field_name)
     col_index = self.column_present(field_name)
     return self.read_other_code_cell(row_index, col_index)
 
@@ -268,7 +260,6 @@ class BaseSheet():
     return code
 
   def read_cdisc_klass_attribute_cell_multiple_by_name(self, klass, attribute, row_index, field_name):
-    #col_index = self.sheet.columns.get_loc(field_name)
     col_index = self.column_present(field_name)
     return self.read_cdisc_klass_attribute_cell_multiple(klass, attribute, row_index, col_index)
 
@@ -314,7 +305,7 @@ class BaseSheet():
           the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
     except Exception as e:
-      self._general_error(f"Exception '{e}' in double_link: {items}")
+      self.globals.errors_and_logging.exception(f"Error while doubly linking lists", e, self.sheet)
 
   def previous_link(self, items, prev):
     try: 
@@ -328,7 +319,7 @@ class BaseSheet():
           the_id = getattr(items[idx-1], 'id')
           setattr(item, prev, the_id)
     except Exception as e:
-      self._general_error(f"Exception '{e}' in previous_link: {items}")
+      self.globals.errors_and_logging.exception(f"Error in previous link link {items}", e, self.sheet)
 
   def _decode_other_code(self, value, row_index, col_index):
     if value.strip() == "":
@@ -352,54 +343,60 @@ class BaseSheet():
     except:
       return None
 
+  def _get_column_index(self, column_name):
+    return self.sheet.columns.get_loc(column_name)
+
   def _add_errors(self, errors, row, column):
     for error in errors:
       self._error(row, column, error)
       
-  def _get_column_index(self, column_name):
-    return self.sheet.columns.get_loc(column_name)
-
   def _info(self, row, column, message):
-     self.globals.logger.info(self._format(row + 1, column + 1, message))
+    self.globals.errors_and_logging.info(message, self.sheet, row + 1, column + 1)
      
   def _general_info(self, message):
-     self.globals.logger.info(self._format(None, None, message))
+    self.globals.errors_and_logging.info(message, self.sheet)
      
   def _error(self, row, column, message):
     try:
-      self.globals.errors.add(self.sheet_name, row + 1, column + 1, message)
+      self.globals.errors_and_logging.error(message, self.sheet, row + 1, column + 1)
     except Exception as e:
-      self.globals.errors.add(self.sheet_name, None, None, f"{e}\n{traceback.format_exc()}", self.globals.errors.WARNING)
+      # Exception will tend to come from the row / column being in error
+      self.globals.errors_and_logging.exception(message, e, self.sheet)
 
   def _general_error(self, message):
-    self.globals.errors.add(self.sheet_name, None, None, message)
+    self.globals.errors_and_logging.error(message, self.sheet)
 
   def _warning(self, row, column, message):
-    self.globals.errors.add(self.sheet_name, row + 1, column + 1, message, self.globals.errors.WARNING)
+    self.globals.errors_and_logging.warning(message, self.sheet, row + 1, column + 1)
 
   def _general_warning(self, message):
-    self.globals.errors.add(self.sheet_name, None, None, message, self.globals.errors.WARNING)
+    self.globals.errors_and_logging.warning(message, self.sheet)
 
   def _debug(self, row, column, message):
-    self.globals.errors.add(self.sheet_name, row + 1, column + 1, message, self.globals.errors.DEBUG)
+    self.globals.errors_and_logging.debug(message, self.sheet, row + 1, column + 1)
 
   def _general_debug(self, message):
-    self.globals.errors.add(self.sheet_name, None, None, message, self.globals.errors.DEBUG)
+    self.globals.errors_and_logging.debug(message, self.sheet)
+
+  def _general_exception(self, message, e):
+    self.globals.errors_and_logging.exception(message, e, self.sheet)
+
+  def _exception(self, row, column, message, e):
+    self.globals.errors_and_logging.exception(message, e, self.sheet, row + 1, column + 1)
 
   def _general_sheet_exception(self, e):
-    self.globals.errors.add(self.sheet_name, None, None, f"Exception '{e}' raised reading sheet '{self.sheet_name}'", self.globals.errors.ERROR)
-    self.globals.logger.error(f"Exception '{e}' raised reading sheet '{self.sheet_name}'\n{traceback.format_exc()}")
+    self.globals.errors_and_logging.exception(f"Error reading sheet '{self.sheet_name}'", e, self.sheet)
 
-  def _traceback(self, message):
-    self.globals.logger.error(message)
+  # def _traceback(self, message):
+  #   self.globals.logger.error(message)
 
-  def _format(self, row, column, message):
-    if self.sheet_name == None:
-      return f"{self.message}"
-    elif row == None:
-      return f"In sheet {self.sheet_name}: {message}"
-    else:
-      return f"In sheet {self.sheet_name} at [{row},{column}]: {message}"
+  # def _format(self, row, column, message):
+  #   if self.sheet_name == None:
+  #     return f"{self.message}"
+  #   elif row == None:
+  #     return f"In sheet {self.sheet_name}: {message}"
+  #   else:
+  #     return f"In sheet {self.sheet_name} at [{row},{column}]: {message}"
 
   def _get_sheet_names(self, file_path):
     wb = load_workbook(file_path, read_only=True, keep_links=False)

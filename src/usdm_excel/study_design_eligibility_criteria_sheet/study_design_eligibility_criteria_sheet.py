@@ -44,8 +44,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
         dictionaryId=dictionary_id
       )
     except Exception as e:
-      self._general_error(f"Failed to create EligibilityCriteria object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_error(f"Failed to create EligibilityCriteria object", e)
       return None
     else:
       self.globals.cross_references.add(item.id, item)

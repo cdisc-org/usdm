@@ -1,4 +1,4 @@
-import logging
+from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from enum import Enum
 
 class Options(Enum):
@@ -11,9 +11,9 @@ class EmptyNoneOption(Enum):
 
 class OptionManager():
 
-  def __init__(self, logger: logging):
+  def __init__(self, errors_and_logging: ErrorsAndLogging):
+    self._errors_and_logging = errors_and_logging
     self._items = {}
-    self._logger = logger
 
   def clear(self):
     self._items = {}

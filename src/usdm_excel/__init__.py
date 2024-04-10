@@ -1,7 +1,7 @@
 import traceback
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
-from usdm_excel.errors.errors import Errors
+from usdm_excel.errors_and_logging.errors import Errors
 from usdm_excel.globals import Globals
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet

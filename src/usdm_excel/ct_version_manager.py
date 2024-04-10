@@ -1,10 +1,11 @@
-import logging
+from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class CTVersionManager():
 
-  def __init__(self, logger: logging):
+  def __init__(self, errors_and_logging: ErrorsAndLogging):
+    self._errors_and_logging = errors_and_logging
     self._versions = {}
-    self._logger = logger
+
 
   def clear(self):
     self._versions = {}

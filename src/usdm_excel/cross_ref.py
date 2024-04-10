@@ -1,14 +1,12 @@
-import logging
-from usdm_excel.errors.errors import Errors
+from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class CrossRef():
 
   class PathError(Exception):
     pass
 
-  def __init__(self, errors: Errors, logger: logging):
-    self._errors = errors
-    self._logger = logger
+  def __init__(self, errors_and_logging: ErrorsAndLogging):
+    self._errors_and_logging = errors_and_logging
     self._references = {}
     self._identifiers = {}
 
@@ -24,9 +22,9 @@ class CrossRef():
         self._references[key] = object
         self._identifiers[id_key] = object
       else:
-        self._errors.add(None, None, None, f"Duplicate cross reference detected, class '{self._klass_name(klass)}' with name '{name}'")
+        self._errors_and_logging.error(None, None, None, f"Duplicate cross reference detected, class '{self._klass_name(klass)}' with name '{name}'")
     except Exception as e:
-      self._errors.add(None, None, None, f"Failed to add cross reference detected, class '{self._klass_name(klass)}' with name '{name}'. Exception {e}")
+      self._errors_and_logging.error(None, None, None, f"Failed to add cross reference detected, class '{self._klass_name(klass)}' with name '{name}'. Exception {e}")
 
   def get(self, klass, name):
     key, id_key = self._key(klass, name, "")
@@ -75,5 +73,3 @@ class CrossRef():
 
   def _klass_name(self, klass):
     return klass if isinstance(klass, str) else klass.__name__
-
-#cross_references = CrossRef()

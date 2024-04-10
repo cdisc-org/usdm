@@ -57,8 +57,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         administrations=[agent_administration]
       )
     except Exception as e:
-      self._general_error(f"Failed to create StudyIntervention object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_error(f"Failed to create StudyIntervention object", e)
     else:
       self.items.append(item)
       self.globals.cross_references.add(name, item)
@@ -86,8 +85,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         frequency=Alias(self.globals).code(frequency, [])
       )
     except Exception as e:
-      self._general_error(f"Failed to create AgentAdministration object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_error(f"Failed to create AgentAdministration object", e)
     else:
       self.globals.cross_references.add(name, item)
       return item
@@ -109,7 +107,6 @@ class StudyDesignInterventionSheet(BaseSheet):
         quantity=quantity
       )
     except Exception as e:
-      self._general_error(f"Failed to create AdministrationDuration object, exception {e}")
-      self._traceback(f"{traceback.format_exc()}")
+      self._general_error(f"Failed to create AdministrationDuration object", e)
     else:
       return item

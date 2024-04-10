@@ -8,8 +8,7 @@ class Errors():
   DEBUG = Error.DEBUG
   INFO = Error.INFO
 
-  def __init__(self, logger: logging):
-    self._logger = logger
+  def __init__(self):
     self.items = []
 
   def clear(self):
@@ -18,7 +17,6 @@ class Errors():
   def add(self, sheet: str, row: int, column: int, message: str, level: int=Error.ERROR) -> None:
     error = Error(sheet, row, column, message, level)
     self.items.append(error)      
-    self._logger.log(level, error.to_log())
 
   def count(self) -> int:
     return len(self.items)
