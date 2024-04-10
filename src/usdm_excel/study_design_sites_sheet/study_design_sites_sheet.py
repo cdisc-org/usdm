@@ -40,5 +40,5 @@ class StudyDesignSitesSheet(BaseSheet):
           else:
             current_org.manages.append(site)
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 

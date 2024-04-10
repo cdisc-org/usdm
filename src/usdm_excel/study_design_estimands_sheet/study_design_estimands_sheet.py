@@ -58,7 +58,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
           self._general_error("Failed to add IntercurrentEvent, no Estimand set")
 
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _get_treatment(self, name):
     return self._get_cross_reference(StudyIntervention, name, 'study intervention')

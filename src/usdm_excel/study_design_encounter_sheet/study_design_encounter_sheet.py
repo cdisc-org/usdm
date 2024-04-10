@@ -57,5 +57,5 @@ class StudyDesignEncounterSheet(BaseSheet):
           self.globals.cross_references.add(cross_ref, item)     
       self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 

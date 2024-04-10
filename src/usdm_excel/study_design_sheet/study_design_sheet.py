@@ -57,7 +57,7 @@ class StudyDesignSheet(BaseSheet):
       self.masks = []
       self.process_sheet()
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def process_sheet(self):
     general_params = True

@@ -32,7 +32,7 @@ class StudyDesignPopulationSheet(BaseSheet):
       else:
         self._general_error(f"Not main study population detected")
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _build_codes(self, row, index):
     code = self.read_cdisc_klass_attribute_cell_by_name('StudyDesignPopulation', "plannedSexOfParticipants", index, "plannedSexOfParticipants", allow_empty=True)

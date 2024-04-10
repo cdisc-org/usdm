@@ -70,7 +70,7 @@ class StudyDesignObjectiveEndpointSheet(BaseSheet):
           self._general_error("Failed to add Endpoint, no Objective set")
 
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _validate_references(self, row, column_name, text, dictionary_name):
     if dictionary_name:

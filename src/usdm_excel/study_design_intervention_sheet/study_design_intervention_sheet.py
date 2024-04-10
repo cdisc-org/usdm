@@ -23,7 +23,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         # Read intervention in present
         self._create_intervention(index, agent_admin)
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _create_intervention(self, index, agent_admin):
     name = self.read_cell_by_name(index, 'name')

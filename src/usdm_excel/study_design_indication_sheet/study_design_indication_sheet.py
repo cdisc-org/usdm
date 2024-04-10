@@ -22,5 +22,5 @@ class StudyDesignIndicationSheet(BaseSheet):
           self.items.append(item)
           self.globals.cross_references.add(name, item)
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 

@@ -51,7 +51,7 @@ class StudyDesignTimingSheet(BaseSheet):
             self.globals.cross_references.add(name, item)
             self.items.append(item)
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _set_text_and_encoded(self, duration):
     the_duration = duration.strip()

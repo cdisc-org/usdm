@@ -34,4 +34,4 @@ class StudyDesignProcedureSheet(BaseSheet):
           cross_ref = xref if xref else name
           self.globals.cross_references.add(cross_ref, item)        
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)

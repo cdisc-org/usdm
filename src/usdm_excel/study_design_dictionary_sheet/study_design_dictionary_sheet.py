@@ -51,7 +51,7 @@ class StudyDesignDictionarySheet(BaseSheet):
           current_dictionary.parameterMaps = current_map
         
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _dictionary(self, name, description, label):
     try:

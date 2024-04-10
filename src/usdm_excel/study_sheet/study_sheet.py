@@ -66,7 +66,7 @@ class StudySheet(BaseSheet):
         self.dates[category] = []
       self._process_sheet()
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _process_sheet(self):
     fields = ['category', 'name', 'description', 'label', 'type', 'date', 'scopes']    

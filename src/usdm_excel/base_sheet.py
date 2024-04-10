@@ -351,40 +351,41 @@ class BaseSheet():
       self._error(row, column, error)
       
   def _info(self, row, column, message):
-    self.globals.errors_and_logging.info(message, self.sheet, row + 1, column + 1)
+    self.globals.errors_and_logging.info(message, self.sheet_name, row + 1, column + 1)
      
   def _general_info(self, message):
-    self.globals.errors_and_logging.info(message, self.sheet)
+    self.globals.errors_and_logging.info(message, self.sheet_name)
      
   def _error(self, row, column, message):
     try:
-      self.globals.errors_and_logging.error(message, self.sheet, row + 1, column + 1)
+      self.globals.errors_and_logging.error(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
-      # Exception will tend to come from the row / column being in error
-      self.globals.errors_and_logging.exception(message, e, self.sheet)
+      # Exception will tend to come from the row / column being none etc. Just a last 
+      # attempt to catch it
+      self.globals.errors_and_logging.exception(message, e, self.sheet_name)
 
   def _general_error(self, message):
-    self.globals.errors_and_logging.error(message, self.sheet)
+    self.globals.errors_and_logging.error(message, self.sheet_name)
 
   def _warning(self, row, column, message):
-    self.globals.errors_and_logging.warning(message, self.sheet, row + 1, column + 1)
+    self.globals.errors_and_logging.warning(message, self.sheet_name, row + 1, column + 1)
 
   def _general_warning(self, message):
-    self.globals.errors_and_logging.warning(message, self.sheet)
+    self.globals.errors_and_logging.warning(message, self.sheet_name)
 
   def _debug(self, row, column, message):
-    self.globals.errors_and_logging.debug(message, self.sheet, row + 1, column + 1)
+    self.globals.errors_and_logging.debug(message, self.sheet_name, row + 1, column + 1)
 
   def _general_debug(self, message):
-    self.globals.errors_and_logging.debug(message, self.sheet)
+    self.globals.errors_and_logging.debug(message, self.sheet_name)
 
   def _general_exception(self, message, e):
-    self.globals.errors_and_logging.exception(message, e, self.sheet)
+    self.globals.errors_and_logging.exception(message, e, self.sheet_name)
 
   def _exception(self, row, column, message, e):
-    self.globals.errors_and_logging.exception(message, e, self.sheet, row + 1, column + 1)
+    self.globals.errors_and_logging.exception(message, e, self.sheet_name, row + 1, column + 1)
 
-  def _general_sheet_exception(self, e):
+  def _sheet_exception(self, e):
     self.globals.errors_and_logging.exception(f"Error reading sheet '{self.sheet_name}'", e, self.sheet)
 
   # def _traceback(self, message):

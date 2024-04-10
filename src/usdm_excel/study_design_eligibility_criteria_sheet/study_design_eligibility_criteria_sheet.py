@@ -28,7 +28,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
             self.items.append(criteria)
         
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
     try:

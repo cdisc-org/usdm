@@ -68,7 +68,7 @@ class StudyDesignContentSheet(BaseSheet):
             previous_item = item
           self.double_link(self.items, 'previousId', 'nextId')
     except Exception as e:
-      self._general_sheet_exception(e)
+      self._sheet_exception(e)
 
   def resolve(self, study):
     macros = Macros(self, study)

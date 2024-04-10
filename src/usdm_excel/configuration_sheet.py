@@ -17,7 +17,7 @@ class ConfigurationSheet(BaseSheet):
       self.globals.option_manager.set(Options.USDM_VERSION, 3)
       self._process_sheet()
     except Exception as e:
-      self._general_sheet_exception(self, e)
+      self._sheet_exception(self, e)
 
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
