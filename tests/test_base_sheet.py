@@ -224,7 +224,7 @@ def test_read_quantity_cell_by_name(mocker, globals):
     (5,'Quantity', False,               True,        False,  True,   0.0,    '',       ""),
   ]
   for test in test_data:
-    errors = globals.errors
+    errors = globals.errors_and_logging._errors
     errors.clear()
     #print(f"INDEX: {test[0]}")
     item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 

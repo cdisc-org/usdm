@@ -389,7 +389,7 @@ class BaseSheet():
     self.globals.errors_and_logging.exception(message, e, self.sheet_name, row + 1, column + 1)
 
   def _sheet_exception(self, e):
-    self.globals.errors_and_logging.exception(f"Error reading sheet '{self.sheet_name}'", e, self.sheet)
+    self.globals.errors_and_logging.exception(f"Error reading sheet '{self.sheet_name}'", e, self.sheet_name)
 
   # def _traceback(self, message):
   #   self.globals.logger.error(message)

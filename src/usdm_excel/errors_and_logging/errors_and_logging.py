@@ -4,11 +4,19 @@ from usdm_excel.errors_and_logging.errors import Errors
 
 class ErrorsAndLogging():
 
+  WARNING = Errors.WARNING
+  ERROR = Errors.ERROR
+  DEBUG = Errors.DEBUG
+  INFO = Errors.INFO
+
   def __init__(self):
     self._logger = logging.getLogger(__name__)
     self._logger.addHandler(logging.NullHandler())
     self._errors = Errors()
 
+  def errors(self):
+    return self._errors.dump(self.WARNING)
+  
   def debug(self, message: str, sheet: str=None, row: int=None, column: int=None):
     self._logger.debug(self._format(message, sheet, row, column))
 

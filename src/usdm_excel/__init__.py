@@ -48,7 +48,7 @@ class USDMExcel():
     return self._process()
 
   def errors(self):
-    return self._globals.errors.dump(Errors.WARNING)
+    return self._globals.errors_and_logging.errors()
   
   def _process(self):
     try:
@@ -116,9 +116,7 @@ class USDMExcel():
         self.protocol_document_version.contents = self.contents.items
         self._globals.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
       except Exception as e:
-        message = f"Exception '{e}' raised creating StudyProtocolDocumentVersion object"
-        self._globals.errors.add(None, None, None, message, self._globals.errors.ERROR)
-        self._globals.logger.error(f"{message}\n{traceback.format_exc()}")
+        self._globals.errors_and_logging.exception(f"Error creating StudyProtocolDocumentVersion object", e)
 
       try:
         study_protocol_document = StudyProtocolDocument(
@@ -126,9 +124,7 @@ class USDMExcel():
           name=f"Protocol_Document_{self.study.name}", 
           versions=[self.protocol_document_version])
       except Exception as e:
-        message = f"Exception '{e}' raised creating StudyProtocolDocument object"
-        self._globals.errors.add(None, None, None, message, self._globals.errors.ERROR)
-        self._globals.logger.error(f"{message}\n{traceback.format_exc()}")
+        self._globals.errors_and_logging.exception(f"Error creating StudyProtocolDocument object", e)
 
       try:
         self.study_version = StudyVersion(
@@ -147,9 +143,7 @@ class USDMExcel():
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
-        message = f"Exception '{e}' raised creating StudyVersion object"
-        self._globals.errors.add(None, None, None, message, self._globals.errors.ERROR)
-        self._globals.logger.error(f"{message}\n{traceback.format_exc()}")
+        self._globals.errors_and_logging.exception(f"Error creating StudyVersion object", e)
 
       try:
         self.study = Study(
@@ -161,15 +155,12 @@ class USDMExcel():
         self._globals.cross_references.add("STUDY", self.study)
         self.contents.resolve(self.study) # Now we have full study, resolve references in the content
       except Exception as e:
-        message = f"Exception '{e}' raised creating Study object"
-        self._globals.errors.add(None, None, None, message, self._globals.errors.ERROR)
-        self._globals.logger.error(f"{message}\n{traceback.format_exc()}")
+        self._globals.errors_and_logging.exception(f"Error creating Study object", e)
 
       return Wrapper(study=self.study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
  
     except Exception as e:
-      self._globals.errors.add(None, None, None, f"Exception '{e}' raised durng processing of excel workbook", self._globals.errors.ERROR)
-      self._globals.logger.error(f"Exception '{e}' raised reading workbook\n{traceback.format_exc()}")
+      self._globals.errors_and_logging.exception(f"Error processing Excel workbook", e)
       return None
 
   def _process_soa(self):
@@ -193,7 +184,7 @@ class USDMExcel():
       tl.timeline.timings = tl_items
     for timing in self.timings.items:
       if not timing_check[timing.name]:
-        self._globals.errors.add(None, None, None, f"Timing with name '{timing.name}' not referenced", self._globals.errors.WARNING)
+        self._globals.errors_and_logging.error(f"Timing with name '{timing.name}' not referenced")
 
   def _set_timing_references(self, tls):
     for timing in self.timings.items:
@@ -212,9 +203,9 @@ class USDMExcel():
             timing.relativeToScheduledInstanceId = item.id
             found['to'] = True
       if not found['from']:
-        self._globals.errors.add(None, None, None, f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}", self._globals.errors.ERROR)
+        self._globals.errors_and_logging.error(f"Unable to find timing 'from' reference with name {timing.relativeFromScheduledInstanceId}")
       if not found['to']:
-        self._globals.errors.add(None, None, None, f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}", self._globals.errors.ERROR)
+        self._globals.errors_and_logging.error(f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}")
 
   def _double_link(self, items, prev, next):
     try: 
@@ -236,4 +227,4 @@ class USDMExcel():
           the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
     except Exception as e:
-      self._general_error(f"Exception '{e}' in double_link: {items}")
+      self._globals.errors_and_logging.exception(f"Error in double_link: {items}", e)
