@@ -71,7 +71,7 @@ def test_create(mocker, globals):
 #     (3,0,"Could not decode the duration value '2 decades'"),
 #   ]
 #   for index, test in enumerate(test_data):
-#     mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+#     mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
 #     item = TimepointType(parent, test[0], test[1])
 #     mock_error.assert_called()
 #     assert mock_error.call_args[0][0] == "Sheet X"

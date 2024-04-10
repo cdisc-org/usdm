@@ -70,7 +70,7 @@ def test_create_empty(mocker, globals):
   assert len(encounters.items) == 0
 
 def test_read_cell_by_name_error(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['E1', 'Encounter 1', 'Encounter One', 'CLINIC', 'in Person', 'start rule', '' ]]

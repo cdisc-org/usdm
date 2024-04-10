@@ -79,7 +79,7 @@ def test_create_empty(mocker, globals):
 
 def test_read_cell_by_name_error(mocker, globals):
   globals.cross_references.clear()
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['Arm 1', 'Arm One']]

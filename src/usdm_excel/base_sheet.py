@@ -76,7 +76,8 @@ class BaseSheet():
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
-      self.globals.errors_and_logging.exception('Error reading cell', e, self.sheet, row_index, col_index)
+      print(f"ROW / COL: {row_index}, {col_index}")
+      self._exception(row_index, col_index, 'Error reading cell', e)
       if default:
         return default
       else:
@@ -207,7 +208,7 @@ class BaseSheet():
     try:
       result = Address(id=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Failed to create Address object", e, self.sheet)
+      self._general_exception(f"Failed to create Address object", e)
       result = None
     return result
 
@@ -216,7 +217,7 @@ class BaseSheet():
       params['id'] = self.globals.id_manager.build_id(cls)
       return cls(**params)
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Failed to create {cls.__name__} object", e, self.sheet)
+      self._general_exception(f"Failed to create {cls.__name__} object", e)
       return None
 
   def read_other_code_cell_by_name(self, row_index, field_name):
@@ -305,7 +306,7 @@ class BaseSheet():
           the_id = getattr(items[idx+1], 'id')
           setattr(item, next, the_id)
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Error while doubly linking lists", e, self.sheet)
+      self._general_exception(f"Error while doubly linking lists", e)
 
   def previous_link(self, items, prev):
     try: 
@@ -319,7 +320,7 @@ class BaseSheet():
           the_id = getattr(items[idx-1], 'id')
           setattr(item, prev, the_id)
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Error in previous link link {items}", e, self.sheet)
+      self._general_exception(f"Error in previous link link {items}", e)
 
   def _decode_other_code(self, value, row_index, col_index):
     if value.strip() == "":
@@ -357,6 +358,7 @@ class BaseSheet():
     self.globals.errors_and_logging.info(message, self.sheet_name)
      
   def _error(self, row, column, message):
+    print(f"ROW / COL: {row}, {column}")
     try:
       self.globals.errors_and_logging.error(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
@@ -383,6 +385,7 @@ class BaseSheet():
     self.globals.errors_and_logging.exception(message, e, self.sheet_name)
 
   def _exception(self, row, column, message, e):
+    print(f"ROW / COL: {row}, {column}")
     self.globals.errors_and_logging.exception(message, e, self.sheet_name, row + 1, column + 1)
 
   def _sheet_exception(self, e):

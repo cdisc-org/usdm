@@ -88,7 +88,7 @@ def test_read_cell_default(mocker, globals):
     assert(base.read_cell(test[0],test[1], default=test[2])) == test[3]
 
 def test_read_cell_error(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', '']}
@@ -133,7 +133,7 @@ def test_read_cell_by_name_default(mocker, globals):
   assert(base.read_cell_by_name(3, 'Age', default='100')) == ''
 
 def test_read_cell_by_name_error(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['tom', 10], ['nick', 15], ['juli', 14]]
@@ -148,7 +148,7 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][3] == "Error 'Failed to detect column(s) 'Not There' in sheet' reading cell 'Not There'"
 
 def test_read_cell_by_name_present(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['tom', 10], ['nick', 15], ['juli', 14]]
@@ -331,7 +331,7 @@ def test_read_cdisc_klass_attribute_cell_by_name(mocker, globals):
   expected = Code(id='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected, None]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [[0, 'a'], [1, ''], [2, 'c']]
@@ -356,7 +356,7 @@ def test_read_cdisc_klass_attribute_cell(mocker, globals):
   expected = Code(id='CodeX', code='code', codeSystem='codesys', codeSystemVersion='3', decode="label")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected, None]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a', '', 'c', '']}
@@ -386,7 +386,7 @@ def test_read_cdisc_klass_attribute_cell_multiple(mocker, globals):
   expected_2 = Code(id='CodeX2', code='code2', codeSystem='codesys', codeSystemVersion='3', decode="label2")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, None]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': [3, 2, 1, 0], 'col_2': ['a,b', '', 'c', '']}
@@ -412,7 +412,7 @@ def test_read_cdisc_klass_attribute_cell_multiple_by_name(mocker, globals):
   expected_2 = Code(id='CodeX2', code='code2', codeSystem='codesys', codeSystemVersion='3', decode="label2")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, None]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [[0, 'a,b'], [1, ''], [2, 'c']]
@@ -439,7 +439,7 @@ def test__decode_other_cell(mocker, globals):
   mock_version.side_effect=['3']
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1']
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []

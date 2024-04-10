@@ -83,7 +83,7 @@ def test_create_empty(mocker, globals):
 
 def test_read_cell_by_name_error(mocker, globals):
   globals.cross_references.clear()
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [['Id 1', 'Id One']]
@@ -98,7 +98,7 @@ def test_read_cell_by_name_error(mocker, globals):
   
 def test_address_error(mocker, globals):
   globals.cross_references.clear()
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1']
   mocked_open = mocker.mock_open(read_data="File")

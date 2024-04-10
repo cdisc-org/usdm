@@ -149,7 +149,7 @@ def test_create_standard_section(mocker, globals):
 def test_create_invalid_levels(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Content_1', 'Content_2', 'Content_3', 'Content_4', 'Content_5', 'Content_6', 'Content_7', 'Content_8']
   mocked_open = mocker.mock_open(read_data="File")

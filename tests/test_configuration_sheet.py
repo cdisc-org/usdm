@@ -14,7 +14,7 @@ def test_defaults(mocker, globals):
   assert globals.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.NONE.value
 
 def test_sdr_deprecated(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': ['sdr DESCRIPTION'], 'col_2': ['']}
@@ -28,7 +28,7 @@ def test_sdr_deprecated(mocker, globals):
   assert mock_error.call_args[0][3] == "The SDR DESCRIPTION option is now deprecated and will be ignored."
 
 def test_sdr_root_deprecated(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': ['SDR root'], 'col_2': ['']}
@@ -42,7 +42,7 @@ def test_sdr_root_deprecated(mocker, globals):
   assert mock_error.call_args[0][3] == "The SDR ROOT option is now deprecated and will be ignored."
 
 def test_set_prev_next_deprecated(mocker, globals):
-  mock_error = mocker.patch("usdm_excel.errors.errors.Errors.add")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {'col_1': ['SDR prev next'], 'col_2': ['']}
