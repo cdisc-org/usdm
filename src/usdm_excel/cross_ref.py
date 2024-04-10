@@ -22,9 +22,9 @@ class CrossRef():
         self._references[key] = object
         self._identifiers[id_key] = object
       else:
-        self._errors_and_logging.error(None, None, None, f"Duplicate cross reference detected, class '{self._klass_name(klass)}' with name '{name}'")
+        self._error(f"Duplicate cross reference detected, class '{self._klass_name(klass)}' with name '{name}'")
     except Exception as e:
-      self._errors_and_logging.error(None, None, None, f"Failed to add cross reference detected, class '{self._klass_name(klass)}' with name '{name}'. Exception {e}")
+      self._exception(f"Failed to add cross reference detected, class '{self._klass_name(klass)}' with name '{name}'.", e)
 
   def get(self, klass, name):
     key, id_key = self._key(klass, name, "")
@@ -73,3 +73,9 @@ class CrossRef():
 
   def _klass_name(self, klass):
     return klass if isinstance(klass, str) else klass.__name__
+
+  def _error(self, message):
+    self._errors_and_logging.error(message)
+
+  def _exception(self, message, e):
+    self._errors_and_logging.exception(message, e)
