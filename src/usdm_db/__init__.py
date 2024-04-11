@@ -3,6 +3,7 @@ import traceback
 from usdm_excel import USDMExcel
 from usdm_model.wrapper import Wrapper
 from usdm_db.document.document import Document
+from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.neo4j_dict import Neo4jDict
 from usdm_db.timeline import Timeline
 
@@ -16,7 +17,11 @@ class USDMDb():
   def __init__(self):
     self._wrapper = None
     self._excel = None
+    self._errors_and_logging = ErrorsAndLogging()
 
+  def errors(self):
+    return self._errors_and_logging.errors().dump()
+  
   def wrapper(self):
     return self._wrapper
   
@@ -43,7 +48,7 @@ class USDMDb():
     try:
       study = self._wrapper.study
       title = self._get_title()
-      doc = Document(title, study)
+      doc = Document(title, study, self._errors_and_logging)
       html = doc.to_html(highlight)
     except Exception as e:
       message = self._format_exception("Failed to generate HTML output", e)
@@ -54,7 +59,7 @@ class USDMDb():
     try:
       study = self._wrapper.study
       title = self._get_title()
-      doc = Document(title, study)
+      doc = Document(title, study, self._errors_and_logging)
       bytes = doc.to_pdf(test)
     except Exception as e:
       message = self._format_exception("Failed to generate PDF output", e)

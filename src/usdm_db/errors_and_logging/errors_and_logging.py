@@ -17,28 +17,20 @@ class ErrorsAndLogging():
   def errors(self):
     return self._errors
   
-  def debug(self, message: str, sheet: str=None, row: int=None, column: int=None):
-    self._logger.debug(self._format(message, sheet, row, column))
+  def debug(self, message: str):
+    self._logger.debug(message)
 
-  def info(self, message: str, sheet: str=None, row: int=None, column: int=None):
-    self._logger.info(self._format(message, sheet, row, column))
+  def info(self, message: str):
+    self._logger.info(message)
 
-  def exception(self, message: str, e: Exception, sheet: str=None, row: int=None, column: int=None):
-    self._errors.add(sheet, row, column, f"Exception. {message}. See log for additional details.", self._errors.ERROR)
-    self._logger.error(f"Exception '{e}' raised\n\n{self._format(message, sheet, row, column)}\n\n{traceback.format_exc()}")
+  def exception(self, message: str, e: Exception):
+    self._errors.add(f"Exception. {message}. See log for additional details.", self._errors.ERROR)
+    self._logger.error(f"Exception '{e}' raised\n\n{message}\n\n{traceback.format_exc()}")
 
-  def warning(self, message: str, sheet: str=None, row: int=None, column: int=None):
-    self._errors.add(sheet, row, column, message, self._errors.WARNING)
-    self._logger.warning(self._format(message, sheet, row, column))
+  def warning(self, message: str):
+    self._errors.add(message, self._errors.WARNING)
+    self._logger.warning(message)
 
-  def error(self, message: str, sheet: str=None, row: int=None, column: int=None):
-    self._errors.add(sheet, row, column, message, self._errors.ERROR)
-    self._logger.error(self._format(message, sheet, row, column))
-
-  def _format(self, message, sheet, row, column):
-    if sheet == None:
-      return f"{message}"
-    elif row == None:
-      return f"In sheet {sheet}: {message}"
-    else:
-      return f"In sheet {sheet} at [{row},{column}]: {message}"
+  def error(self, message: str):
+    self._errors.add(message, self._errors.ERROR)
+    self._logger.error(message)
