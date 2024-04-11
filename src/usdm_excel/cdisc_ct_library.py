@@ -67,11 +67,17 @@ class CDISCCTLibrary():
 
   def klass_and_attribute(self, klass, attribute, value):
     try:
+      #if value == "Protocol Treatment Arm":
+      #  print(f"Klass: {klass}, attribute: {attribute}, value: {value}")
       concept_id = self._by_klass_attribute[klass][attribute]
+      #if value == "Protocol Treatment Arm":
+      #  print(f"Concept: {concept_id}")
       code_list = self._by_code_list[concept_id]
+      #if value == "Protocol Treatment Arm":
+      #  print(f"Concept: {code_list}")
       return self._get_item(code_list, value)
     except Exception as e: 
-      log_exception(self._logger, f"Failed to find '{value}' for klass '{klass}' attribute '{attribute}'", e)
+      self._errors_and_logging.exception(f"Failed to find '{value}' for klass '{klass}' attribute '{attribute}'", e)
       return None
 
   def unit(self, value):
@@ -79,19 +85,20 @@ class CDISCCTLibrary():
       code_list = self._by_code_list['C71620']
       return self._get_item(code_list, value)
     except Exception as e: 
-      self._logger.error(f"Failed to find unit '{value}'") 
-      self._logger.debug(f"{e}\n{traceback.format_exc()}")
+      self._errors_and_logging.exception(f"Failed to find unit '{value}'") 
       return None
 
   def _get_item(self, code_list, value):
     try:
       for field in [ 'conceptId', 'preferredTerm', 'submissionValue']:
+        #if value == "Protocol Treatment Arm":
+        #  print(f"GET: {field}")
         result = next((item for item in code_list['terms'] if item[field].upper() == value.upper()), None)
         if result:
           return result
       return None
     except Exception as e:
-      log_exception(self._logger, f"Failed to find CDSIC CT for '{value}' in code ist '{code_list}'", e)
+      self._errors_and_logging.exception(f"Failed to find CDSIC CT for '{value}' in code ist '{code_list}'", e)
       return None
 
   def _get_ct(self):
@@ -138,7 +145,7 @@ class CDISCCTLibrary():
           self._check_in_and_add(self._by_pt, item['preferredTerm'], response['conceptId'])
         return
     # If none found in all of the packages, then log error.
-    log_error(self._logger, f"Failed to find CDSIC CT for C code '{c_code}'")
+    self._errors_and_logging.exception(f"Failed to find CDSIC CT for C code '{c_code}'")
 
   def _url(self, relative_url):
     return f"{self.__class__.API_ROOT}{relative_url}"
@@ -154,22 +161,21 @@ class CDISCCTLibrary():
         with open(self._ct_filename(), 'w') as f:
           yaml.dump(data, f, indent=2, sort_keys=True)
     except Exception as e:
-      log_exception(self._logger, "Failed to save CDSIC CT file", e)
+      self._errors_and_logging.exception("Failed to save CDSIC CT file", e)
 
   def _read_code_lists(self):
     try:
       if self._code_lists_exist():
         with open(self._ct_filename()) as f:
-          return yaml.load(f, Loader=yaml.FullLoader)
+          return yaml.safe_load(f)
       else:
-        self._logger.error(f"Failed to read CDSIC CT file, does not exist")
+        self._errors_and_logging.error(f"Failed to read CDSIC CT file, does not exist")
         return None
     except Exception as e:
-      log_exception(self._logger, "Failed to read CDSIC CT file", e)
+      self._errors_and_logging.exception("Failed to read CDSIC CT file", e)
 
   def _code_lists_exist(self):
     return os.path.isfile(self._ct_filename()) 
 
   def _ct_filename(self):
     return os.path.join(os.path.dirname(__file__), 'data', f"cdisc_ct_{self._cdisc_ct_config['version']}.yaml")
-
