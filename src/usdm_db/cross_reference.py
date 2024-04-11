@@ -1,10 +1,11 @@
 import logging
 from datetime import date
+from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class CrossReference():
 
-  def __init__(self, study, errors):
-    self._errors = errors
+  def __init__(self, study, errors_and_logging: ErrorsAndLogging):
+    self._errors_and_logging = errors_and_logging
     self._study = study
     self._references = {}
     self._logger = logging.getLogger(__name__)
@@ -24,7 +25,6 @@ class CrossReference():
   #   print(f"\n\n\nREFERENCES\n\n{self._references.keys()}")
 
   def _process_node(self, node):
-    #print(f"PN = {type(node)}")
     if type(node) == list:
       if node:
         for item in node:

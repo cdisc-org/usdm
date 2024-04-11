@@ -22,7 +22,7 @@ def create_criteria(factory):
 def test_create(mocker, globals, minimal, factory):
   minimal.population.criteria = create_criteria(factory)
   doc = Doc()
-  document = Document("xxx", minimal.study)
+  document = Document("xxx", minimal.study, globals.errors_and_logging)
   content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'sectionTitle': 'Section Title', 'text': '<usdm:macro id="section" name="inclusion"/>', 'childIds': []})
   document._content_to_html(content, doc)
   result = doc.getvalue()

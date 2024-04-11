@@ -1,8 +1,7 @@
 import logging
 from yattag import Doc
-from usdm_db.utility import log_exception
 from usdm_db.cross_reference import CrossReference
-from usdm_db.errors.errors import Errors
+from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance, ScheduledInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
@@ -12,10 +11,9 @@ class Timeline():
   BODY = "body"
 
   def __init__(self, study):
-    self._errors = Errors()
+    self._errors_and_logging = ErrorsAndLogging()
     self._study = study
-    self._logger = logging.getLogger(__name__)
-    self._cross_ref = CrossReference(study, self._errors)
+    self._cross_ref = CrossReference(study, self._errors_and_logging)
 
   def to_html(self, level=FULL):
     try:
@@ -27,7 +25,7 @@ class Timeline():
         self._full(doc, study_design)
       return doc.getvalue()
     except Exception as e:
-      log_exception(self._logger, f"Failed generating HTML page at level '{level}'", e)
+      self._errors_and_logging.exception(f"Failed generating HTML page at level '{level}'", e)
 
   def _full(self, doc, study_design):
     doc.asis('<!DOCTYPE html>')

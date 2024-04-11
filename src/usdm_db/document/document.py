@@ -1,23 +1,20 @@
 import os
-import logging
-import traceback
 import docraptor
 from yattag import Doc
 from usdm_model.study import Study
 from usdm_db.cross_reference import CrossReference
-from usdm_db.errors.errors import Errors
-from usdm_db.document.utility import get_soup, log_exception
+from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
+from usdm_db.document.utility import get_soup
 
 class Document():
 
   class LogicError(Exception):
     pass
 
-  def __init__(self, doc_title: str, study: Study):
-    self.errors = Errors()
+  def __init__(self, doc_title: str, study: Study, errors_and_logging: ErrorsAndLogging):
     self.study = study
-    self._logger = logging.getLogger(__name__)
-    self._cross_ref = CrossReference(study, self.errors)
+    self._errors_and_logging = ErrorsAndLogging()
+    self._cross_ref = CrossReference(study, self._errors_and_logging)
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
@@ -47,12 +44,10 @@ class Document():
       binary_formatted_response = bytearray(response)
       return binary_formatted_response
     except docraptor.rest.ApiException as e:
-      self.errors.add(f"Exception raised generating PDF content. See logs for more details", Errors.CRITICAL)
-      log_exception(self._logger, f"Failed to create PDF document {e.status} {e.reason} {e.body}", e)
+      self._errors_and_logging.exception(f"Exception raised generating PDF content. See logs for more details", e)
       return None
     except Exception as e:
-      self.errors.add(f"Exception raised generating PDF content. See logs for more details", Errors.CRITICAL)
-      log_exception(self._logger, f"Failed to create PDF document", e)
+      self._errors_and_logging.exception(f"Exception raised generating PDF content. See logs for more details", e)
       return None
 
   def to_html(self, highlight=False):
@@ -119,8 +114,7 @@ class Document():
               self._content_to_html(content, doc, highlight)
       return doc.getvalue()
     except Exception as e:
-      self.errors.add(f"Exception raised generating HTML content. See logs for more details", Errors.CRITICAL)
-      log_exception(self._logger, f"Failed to create PDF document", e)
+      self._errors_and_logging.exception(f"Exception raised generating HTML content. See logs for more details", e)
       return None
 
   def _content_to_html(self, content, doc, highlight=False):
@@ -166,7 +160,7 @@ class Document():
       return False
 
   def _translate_references(self, content_text, highlight=False):
-    soup = get_soup(content_text, self.errors, self._logger)
+    soup = get_soup(content_text, self._errors_and_logging)
     for ref in soup(['usdm:ref']):
       try:
         attributes = ref.attrs
@@ -175,28 +169,26 @@ class Document():
         translated_text = self._translate_references(value, highlight)
         self._replace_and_highlight(soup, ref, translated_text, highlight)
       except Exception as e:
-        log_exception(self._logger, f"Failed to translate reference '{attributes}'", e)
-        self.errors.add(f"Exception raised while attempting to translate reference '{attributes}' while generating the HTML document, see the logs for more info", Errors.ERROR)
+        self._errors_and_logging.exception(f"Exception raised while attempting to translate reference '{attributes}' while generating the HTML document, see the logs for more info", e)
         self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
-    self._logger.debug(f"Translate references from {content_text} => {get_soup(str(soup), self.errors, self._logger)}")
-    return get_soup(str(soup), self.errors, self._logger)
+    self._errors_and_logging.debug(f"Translate references from {content_text} => {get_soup(str(soup), self._errors_and_logging)}")
+    return get_soup(str(soup), self._errors_and_logging)
 
   def _resolve_instance(self, instance, attribute, highlight=False):
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
-    soup = get_soup(value, self.errors, self._logger)
+    soup = get_soup(value, self._errors_and_logging)
     for ref in soup(['usdm:tag']):
       try:
         attributes = ref.attrs
         if dictionary:
           entry = next((item for item in dictionary.parameterMaps if item.tag == attributes['name']), None)
-          self._replace_and_highlight(soup, ref, get_soup(entry.reference, self.errors, self._logger), highlight)
+          self._replace_and_highlight(soup, ref, get_soup(entry.reference, self._errors_and_logging), highlight)
         else:
-          self.errors.add(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document", Errors.ERROR)
+          self._errors_and_logging.error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document")
           self._replace_and_highlight(soup, ref, 'Missing content: missing dictionary', highlight)
       except Exception as e:
-        log_exception(f"Failed to resolve reference '{attributes}", e)
-        self.errors.add(f"Exception raised while attempting to resolve reference '{attributes}' while generating the HTML document", Errors.ERROR)
+        self._errors_and_logging.exception(f"Failed to resolve reference '{attributes} while generating the HTML document", e)
         self._replace_and_highlight(soup, ref, 'Missing content: exception', highlight)
     return str(soup)
 
@@ -215,10 +207,10 @@ class Document():
   def _wrap_in_span_and_modal(self, soup, ref, text):
     id = f"usdmContent{self.modal_count}"
     span = soup.new_tag('span', attrs={'class': "usdm-highlight"})
-    span.append(get_soup(self._link(id), self.errors, self._logger))
+    span.append(get_soup(self._link(id), self._errors_and_logging))
     span.append(text)
     ref.replace_with(span)
-    span.append(get_soup(self._modal(ref, id), self.errors, self._logger))
+    span.append(get_soup(self._modal(ref, id), self._errors_and_logging))
     self.modal_count += 1
 
   def _link(self, id):

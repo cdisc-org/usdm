@@ -1,25 +1,19 @@
-import logging
 import warnings
-import traceback
 from bs4 import BeautifulSoup
-from usdm_db.errors.errors import Errors
+from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 def usdm_reference(item, attribute):
   return f'<usdm:ref klass="{item.__class__.__name__}" id="{item.id}" attribute="{attribute}"></usdm:ref>'
 
-def get_soup(text, errors, logger):
+def get_soup(text: str, errors_and_logging: ErrorsAndLogging):
   try:
     with warnings.catch_warnings(record=True) as warning_list:
       result =  BeautifulSoup(text, 'html.parser')
     if warning_list:
       for item in warning_list:
-        errors.add(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'", Errors.WARNING)
+        errors_and_logging.error(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
     return result
   except Exception as e:
-    log_exception(logger, f"Parsing '{text}' with soup")
-    errors.add(f"Exception raised parsing '{text}'. Ignoring value", Errors.ERROR)
+    errors_and_logging.exception(f"Parsing '{text}' with soup", e)
     return ""
-
-def log_exception(logger: logging, message, e):
-  logger.exception(f"Exception '{e}' raised.\n\n{message}\n\n{traceback.format_exc()}")
   

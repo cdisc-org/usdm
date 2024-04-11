@@ -1,5 +1,5 @@
-import stringcase
 import json
+import stringcase
 from uuid import uuid4
 
 class Neo4jDict():
