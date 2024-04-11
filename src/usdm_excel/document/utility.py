@@ -14,7 +14,6 @@ def get_soup(text, parent):
         parent._general_warning(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
     return result
   except Exception as e:
-    parent._traceback(f"Exception '{e}' raised parsing '{text}'\n{traceback.format_exc()}")
-    parent._general_error(f"Exception raised parsing '{text}'. Ignoring value")
+    parent._exception(f"Eerror raised parsing '{text}'", e)
     return ""
   

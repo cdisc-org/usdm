@@ -63,8 +63,7 @@ class Activity():
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
       except Exception as e:
         #print(f"NAME: {self.row_index}, {self.name}")
-        self.parent._general_error(f"Failed to create Activity object", e)
-        self.parent._traceback(f"{traceback.format_exc()}")  
+        self.parent._general_exception(f"Failed to create Activity object", e)
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items

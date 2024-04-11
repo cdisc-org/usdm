@@ -84,8 +84,7 @@ class TemplatePlain(TemplateBase):
                     with doc.tag('p', klass="soa-footnote-text"):
                       doc.asis(item['text'])
     except Exception as e:
-      self.parent._traceback(f"Exception '{e}' raised generating SoA content.\n{traceback.format_exc()}")
-      self.parent._general_error(f"Exception '{e}' raised generating SoA content")
+      self.parent._general_exception(f"Error raised generating SoA content", e)
     return doc.getvalue()
   
   def _criteria(self, type):

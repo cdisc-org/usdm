@@ -33,8 +33,7 @@ class Macros():
           self.parent._general_error(f"Failed to resolve document macro '{attributes}', invalid method name {method}")
           ref.replace_with('Missing content: invalid method name')
       except Exception as e:
-        self.parent._traceback(f"Failed to resolve document macro '{attributes}'\n{traceback.format_exc()}")
-        self.parent._general_error(f"Exception '{e} while attempting to translate document macro '{attributes}'")
+        self.parent._general_exception(f"Failed to resolve document macro '{attributes}'", e)
         ref.replace_with('Missing content: exception')
     return str(soup)
 

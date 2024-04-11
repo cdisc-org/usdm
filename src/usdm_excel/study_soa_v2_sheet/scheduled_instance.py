@@ -70,8 +70,7 @@ class ScheduledInstance():
       else:
         self.parent._general_warning(f"Unrecognized ScheduledInstance type: '{type}'")
     except Exception as e:
-      self.parent._general_error(f"Exception '{e}' raised reading sheet")
-      self.parent._traceback(f"{traceback.format_exc()}")
+      parent._sheet_exception(f"Error raised reading sheet", e)
 
   def _add_activities(self):
     activities = []
