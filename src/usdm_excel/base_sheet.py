@@ -76,7 +76,7 @@ class BaseSheet():
       else:
         return str(self.sheet.iloc[row_index, col_index]).strip()
     except Exception as e:
-      print(f"ROW / COL: {row_index}, {col_index}")
+      #print(f"ROW / COL: {row_index}, {col_index}")
       self._exception(row_index, col_index, 'Error reading cell', e)
       if default:
         return default
@@ -358,7 +358,7 @@ class BaseSheet():
     self.globals.errors_and_logging.info(message, self.sheet_name)
      
   def _error(self, row, column, message):
-    print(f"ROW / COL: {row}, {column}")
+    #print(f"ROW / COL: {row}, {column}")
     try:
       self.globals.errors_and_logging.error(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
@@ -385,7 +385,7 @@ class BaseSheet():
     self.globals.errors_and_logging.exception(message, e, self.sheet_name)
 
   def _exception(self, row, column, message, e):
-    print(f"ROW / COL: {row}, {column}")
+    #print(f"ROW / COL: {row}, {column}")
     self.globals.errors_and_logging.exception(message, e, self.sheet_name, row + 1, column + 1)
 
   def _sheet_exception(self, e):
