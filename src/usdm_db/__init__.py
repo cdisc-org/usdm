@@ -42,7 +42,8 @@ class USDMDb():
   def to_html(self, highlight=False):
     try:
       study = self._wrapper.study
-      doc = Document("XXXXXXX", study)
+      title = self._get_title()
+      doc = Document(title, study)
       html = doc.to_html(highlight)
     except Exception as e:
       message = self._format_exception("Failed to generate HTML output", e)
@@ -52,7 +53,8 @@ class USDMDb():
   def to_pdf(self, test=True):
     try:
       study = self._wrapper.study
-      doc = Document("XXXXXXX", study)
+      title = self._get_title()
+      doc = Document(title, study)
       bytes = doc.to_pdf(test)
     except Exception as e:
       message = self._format_exception("Failed to generate PDF output", e)
@@ -68,3 +70,12 @@ class USDMDb():
 
   def _format_exception(self, message, e):
     return f"{message}, exception {e}\n{traceback.format_exc()}"
+  
+  def _get_title(self):
+    study = self._wrapper.study
+    study_version = study.versions[0]
+    title_type = 'Official Study Title'
+    for title in study_version.titles:
+      if title.type.decode == title_type:
+        return title.text
+    return None
