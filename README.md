@@ -182,13 +182,13 @@ A header row in row 1 followed by repeating rows from row 2, each containing a s
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | organisationIdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
-| B | organisationIdentifier | Organisation identifier | Text string |
+| A | organisationIdentifierScheme, organizationIdentifierScheme or IdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
+| B | organisationIdentifier or identifier | Organisation identifier | Text string |
 | C | organisationName or name | Organisation name | Text string |
 | D (optional) | label | Display label | Text string, can be empty. Default value is '' |
-| E | organisationType or type | Organisation type | CDISC code reference |
+| E | organisationType, organizationType or type | Organisation type | CDISC code reference |
 | F | studyIdentifier | The identifier for the study | Text string |
-| G | organisationAddress | The organisation address | Address |
+| G | organisationAddress, organizationAddress or address | The organisation address | Address |
 
 
 ### Study Amendments	Sheet

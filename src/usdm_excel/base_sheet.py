@@ -198,8 +198,8 @@ class BaseSheet():
     elif allow_empty:
       pass
     else:
-      col_index = self.sheet.columns.get_loc(field_name)
-      self._error(row_index, col_index, f"Address does not contain the required fields (line, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
+      col_index = self.column_present(field_name)
+      self._error(row_index, col_index, f"Address '{raw_address}' does not contain the required fields (first line, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
       return None
 
   def _to_address(self, id, line, city, district, state, postal_code, country):
@@ -231,7 +231,7 @@ class BaseSheet():
     return self._decode_other_code(value, row_index, col_index)
 
   def read_other_code_cell_multiple_by_name(self, row_index, field_name):
-    col_index = self.sheet.columns.get_loc(field_name)
+    col_index = self.column_present(field_name)
     return self.read_other_code_cell_mutiple(row_index, col_index)
 
   def read_other_code_cell_mutiple(self, row_index, col_index):
@@ -418,9 +418,12 @@ class BaseSheet():
     current = []
     exit = ""
     for c in s:
+      #print(f"STATE: s: {state}, c: {c}")
       if state == OUT:
         current = []
-        if c in ['"', "'"]:
+        if c == ',':
+          result.append("")
+        elif c in ['"', "'"]:
           state = IN_QUOTED
           exit = c
         elif c.isspace():

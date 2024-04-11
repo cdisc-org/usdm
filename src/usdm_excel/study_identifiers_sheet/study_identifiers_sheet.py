@@ -20,12 +20,12 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      org_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, ['organisationType', 'type'])     
-      org_id_scheme = self.read_cell_by_name(index, 'organisationIdentifierScheme')
-      org_identifier = self.read_cell_by_name(index, 'organisationIdentifier')
-      org_name = self.read_cell_by_name(index, ['organisationName', 'name'])
+      org_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, ['organisationType', 'organizationType', 'type'])     
+      org_id_scheme = self.read_cell_by_name(index, ['organisationIdentifierScheme', 'organizationIdentifierScheme', 'identifierScheme'])
+      org_identifier = self.read_cell_by_name(index, ['organisationIdentifier', 'organizationIdentifier'])
+      org_name = self.read_cell_by_name(index, ['organisationName', 'organizationName', 'name'])
       org_label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
-      org_address = self.read_address_cell_by_name(index, 'organisationAddress')
+      org_address = self.read_address_cell_by_name(index, ['organisationAddress', 'organizationAddress', 'address'])
       if org_address:
         self.globals.cross_references.add(org_address.id, org_address)   
       try:
