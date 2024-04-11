@@ -28,28 +28,10 @@ class StudyIdentifiersSheet(BaseSheet):
       org_address = self.read_address_cell_by_name(index, ['organisationAddress', 'organizationAddress', 'address'])
       if org_address:
         self.globals.cross_references.add(org_address.id, org_address)   
-      try:
-        organisation = Organization(
-          id=self.globals.id_manager.build_id(Organization),
-          identifierScheme=org_id_scheme, 
-          identifier=org_identifier,
-          name=org_name,
-          label=org_label,
-          organizationType=org_type,
-          legalAddress=org_address
-        )
-      except Exception as e:
-        self._general_exception(f"Failed to create Organization object", e)
-      else:
+      organisation = self.create_object(Organization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'organizationType': org_type, 'legalAddress': org_address})
+      if organisation:
         self.globals.cross_references.add(organisation.id, organisation)   
-        try:
-          item = StudyIdentifier(
-            id=self.globals.id_manager.build_id(StudyIdentifier),
-            studyIdentifier=self.read_cell_by_name(index, 'studyIdentifier'), 
-            studyIdentifierScope=organisation
-          )
-        except Exception as e:
-          self._general_exception(f"Failed to create StudyIdentifier object", e)
-        else:
+        item = self.create_object(StudyIdentifier, {'studyIdentifier': self.read_cell_by_name(index, 'studyIdentifier'), 'studyIdentifierScope': organisation})
+        if item:
           self.identifiers.append(item)
           self.globals.cross_references.add(item.studyIdentifier, item)         
