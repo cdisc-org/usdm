@@ -391,17 +391,6 @@ class BaseSheet():
   def _sheet_exception(self, e):
     self.globals.errors_and_logging.exception(f"Error [{e}] while reading sheet '{self.sheet_name}'", e, self.sheet_name)
 
-  # def _traceback(self, message):
-  #   self.globals.logger.error(message)
-
-  # def _format(self, row, column, message):
-  #   if self.sheet_name == None:
-  #     return f"{self.message}"
-  #   elif row == None:
-  #     return f"In sheet {self.sheet_name}: {message}"
-  #   else:
-  #     return f"In sheet {self.sheet_name} at [{row},{column}]: {message}"
-
   def _get_sheet_names(self, file_path):
     wb = load_workbook(file_path, read_only=True, keep_links=False)
     return wb.sheetnames
