@@ -36,7 +36,8 @@ class StudyDesignConditionSheet(BaseSheet):
     return self._process_references(references_list, ['Procedure', 'Activity', 'BiomedicalConcept', 'BiomedicalConceotCategory', 'BiomedicalConceptSurrogate'], index, 'appliesTo')
   
   def _process_references(self, references_list, klasses, index, column_name, references_required=True):
-    references = [x.strip() for x in references_list.split(',')]
+    references = [x.strip() for x in self._state_split(references_list)]
+    #references = [x.strip() for x in references_list.split(',')]
     results = []
     for reference in references:
       if reference:
