@@ -41,13 +41,13 @@ class TemplateM11(TemplateBase):
     #print(f"DOC: {result}")
     return result
 
-  def inclusion(self):  
+  def inclusion(self, attributes):  
     return self._criteria("C25532")
   
-  def exclusion(self):  
+  def exclusion(self, attributes):  
     return self._criteria("C25370")
 
-  def objective_endpoints(self):
+  def objective_endpoints(self, attributes):
     #print(f"M11 TP:")
     doc = Doc()
     with doc.tag('table'):

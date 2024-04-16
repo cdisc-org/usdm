@@ -1,17 +1,15 @@
-import traceback
 from yattag import Doc
-#from .elements import Elements
-from .template_base import TemplateBase
-from .soa import SoA
-##from usdm_excel.cross_ref import cross_references
+from usdm_excel.document.template_base import TemplateBase
+from usdm_excel.document.soa import SoA
 from usdm_excel.base_sheet import BaseSheet
+from usdm_model.schedule_timeline import ScheduleTimeline
 
 class TemplatePlain(TemplateBase):
 
   def __init__(self, parent: BaseSheet, study):
     super().__init__(parent, study)
 
-  def title_page(self):
+  def title_page(self, attributes):
     doc = Doc()
     with doc.tag('table'):
       self._title_page_entry(doc, 'Full Title:', f'{self.elements.study_full_title()}')
@@ -29,64 +27,82 @@ class TemplatePlain(TemplateBase):
     result = doc.getvalue()
     return result
 
-  def inclusion(self):  
+  def inclusion(self, attributes: dict):  
     return self._criteria("C25532")
   
-  def exclusion(self):  
+  def exclusion(self, attributes: dict):  
     return self._criteria("C25370")
 
-  def objective_endpoints(self):
+  def objective_endpoints(self, attributes: dict):
     doc = Doc()
     with doc.tag('table', klass='table'):
       for item in self._objective_endpoints_list():
         self._objective_endpoints_entry(doc, item['objective'], item['endpoints'])
     return doc.getvalue()
 
-  def soa(self):
+  def soa(self, attributes: dict):
     try:
       doc = Doc()
       for timeline in self.study_design.scheduleTimelines:      
-        footnote = 1
-        footnotes = []
-        soa = SoA(self.parent, self.study_design, timeline)
-        result = soa.generate()
-        with doc.tag('div', klass="page soa-page table-responsive"):
-          with doc.tag('p'):
-            with doc.tag('b'):
-              doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
-          with doc.tag('table', klass='table table-bordered table-sm', style="width:100%"):
-            for row in range(len(result)):
-              with doc.tag('tr'):
-                for col in range(len(result[row])):
-                  if 'set' in result[row][col].keys():
-                    label = 'X' if result[row][col]['set'] else ''
-                  else:
-                    label = result[row][col]['label']
-                  with doc.tag('td'):
-                    klass = 'soa-activity-text' if col == 0 else 'soa-body-text'
-                    with doc.tag('p', klass=klass):
-                      doc.asis(label)
-                      if 'condition' in result[row][col].keys():
-                        with doc.tag('sup'):
-                          footnote_str = str(footnote)
-                          doc.text(footnote_str)
-                        footnotes.append({'number': footnote_str, 'text': result[row][col]['condition'].text})
-                        footnote += 1
-          if footnotes:
-            with doc.tag('table', klass='table table-borderless table-sm'):
-              for item in footnotes:
-                with doc.tag('tr'):
-                  with doc.tag('td'):
-                    with doc.tag('p', klass="soa-footnote-text"):
-                      with doc.tag('sup'):
-                        doc.text(item['number'])
-                  with doc.tag('td'):
-                    with doc.tag('p', klass="soa-footnote-text"):
-                      doc.asis(item['text'])
+        doc.asis(self.timeline({'timeline': timeline}))
     except Exception as e:
-      self.parent._general_exception(f"Error raised generating SoA content", e)
+      self.parent._general_exception(f"Error raised generating SoA", e)
     return doc.getvalue()
-  
+
+  def timeline(self, attributes: dict):
+    try:
+      doc = Doc()
+      timeline = self._resolve_timeline(attributes)
+      footnote = 1
+      footnotes = []
+      soa = SoA(self.parent, self.study_design, timeline)
+      result = soa.generate()
+      with doc.tag('div', klass="page soa-page table-responsive"):
+        with doc.tag('p'):
+          with doc.tag('b'):
+            doc.asis(f"Timeline: {timeline.label}, {timeline.entryCondition}")
+        with doc.tag('table', klass='table table-bordered table-sm', style="width:100%"):
+          for row in range(len(result)):
+            with doc.tag('tr'):
+              for col in range(len(result[row])):
+                if 'set' in result[row][col].keys():
+                  label = 'X' if result[row][col]['set'] else ''
+                else:
+                  label = result[row][col]['label']
+                with doc.tag('td'):
+                  klass = 'soa-activity-text' if col == 0 else 'soa-body-text'
+                  with doc.tag('p', klass=klass):
+                    doc.asis(label)
+                    if 'condition' in result[row][col].keys():
+                      with doc.tag('sup'):
+                        footnote_str = str(footnote)
+                        doc.text(footnote_str)
+                      footnotes.append({'number': footnote_str, 'text': result[row][col]['condition'].text})
+                      footnote += 1
+        if footnotes:
+          with doc.tag('table', klass='table table-borderless table-sm'):
+            for item in footnotes:
+              with doc.tag('tr'):
+                with doc.tag('td'):
+                  with doc.tag('p', klass="soa-footnote-text"):
+                    with doc.tag('sup'):
+                      doc.text(item['number'])
+                with doc.tag('td'):
+                  with doc.tag('p', klass="soa-footnote-text"):
+                    doc.asis(item['text'])
+    except Exception as e:
+      if timeline:
+        self.parent._general_exception(f"Error raised generating timeline '{timeline.name}'", e)
+        return "Error encountered creating timeline {timeline.name}"  
+      else:  
+        self.parent._general_exception(f"Error raised generating timeline, name not available", e)
+        return "Error encountered creating timeline"  
+    return doc.getvalue()
+
+  def _resolve_timeline(self, attributes):
+    return attributes['timeline'] if isinstance(ScheduleTimeline, attributes['timeline']) else self.parent.globals.cross_references.get(ScheduleTimeline, attributes['timeline'])
+
+
   def _criteria(self, type):
     doc = Doc()
     with doc.tag('table', klass='table'):
