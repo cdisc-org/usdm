@@ -11,7 +11,7 @@ def get_soup(text: str, errors_and_logging: ErrorsAndLogging):
       result =  BeautifulSoup(text, 'html.parser')
     if warning_list:
       for item in warning_list:
-        errors_and_logging.error(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
+        errors_and_logging.debug(f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'")
     return result
   except Exception as e:
     errors_and_logging.exception(f"Parsing '{text}' with soup", e)
