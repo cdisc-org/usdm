@@ -112,6 +112,9 @@ def test_full_3():
 def test_full_3_html():
   run_test_html('full_3')
 
+def test_full_4():
+  run_test('full_4')
+
 def test_encounter_1():
   run_test('encounter_1')
 
