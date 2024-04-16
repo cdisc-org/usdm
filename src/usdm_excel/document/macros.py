@@ -67,7 +67,7 @@ class Macros():
     template = attributes['template'] if 'template' in attributes else 'plain' 
     instance = self._resolve_template(template)
     if instance.valid_method(method):
-      text = getattr(instance, method)()
+      text = getattr(instance, method)(attributes)
       ref.replace_with(get_soup(text, self.parent))
     else:
       self.parent._general_error(f"Failed to translate section method name '{method}' in '{attributes}', invalid method")

@@ -21,7 +21,7 @@ def test_create(mocker, globals, minimal, factory):
   minimal.population.criteria = create_criteria(factory)
   bs = factory.base_sheet(mocker)
   template = TemplatePlain(bs, minimal.study)
-  result = template.inclusion()
+  result = template.inclusion({})
   expected = '<table class="table"><tr><td>01</td><td><usdm:ref klass="EligibilityCriterion" '\
     'id="EligibilityCriterion_1" attribute="text"></usdm:ref></td></tr><tr><td>02</td><td>'\
     '<usdm:ref klass="EligibilityCriterion" id="EligibilityCriterion_2" attribute="text"></usdm:ref>'\
