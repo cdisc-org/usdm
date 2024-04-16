@@ -52,6 +52,7 @@ class TemplatePlain(TemplateBase):
   def timeline(self, attributes: dict):
     try:
       doc = Doc()
+      timeline = None
       timeline = self._resolve_timeline(attributes)
       footnote = 1
       footnotes = []
@@ -100,7 +101,7 @@ class TemplatePlain(TemplateBase):
     return doc.getvalue()
 
   def _resolve_timeline(self, attributes):
-    return attributes['timeline'] if isinstance(ScheduleTimeline, attributes['timeline']) else self.parent.globals.cross_references.get(ScheduleTimeline, attributes['timeline'])
+    return attributes['timeline'] if isinstance(attributes['timeline'], ScheduleTimeline) else self.parent.globals.cross_references.get(ScheduleTimeline, attributes['timeline'])
 
 
   def _criteria(self, type):

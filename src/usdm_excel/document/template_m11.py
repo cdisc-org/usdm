@@ -10,7 +10,7 @@ class TemplateM11(TemplateBase):
   def __init__(self, parent: BaseSheet, study):
     super().__init__(parent, study)
 
-  def title_page(self):
+  def title_page(self, attributes):
     doc = Doc()
     with doc.tag('table'):
       self._title_page_entry(doc, 'Sponsor Confidentiality Statement:', '')
