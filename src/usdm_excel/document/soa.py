@@ -45,9 +45,10 @@ class SoA():
     more = True
     while more:
       sai_order.append(item)
-      for id in item.activityIds:
-        if id not in required_activities:
-          required_activities.append(id)
+      if hasattr(item, 'activityIds'):
+        for id in item.activityIds:
+          if id not in required_activities:
+            required_activities.append(id)
       more = False if not item.defaultConditionId else True
       item = self._find(self.timeline.instances, item.defaultConditionId)
     #print(f"SAI ORDER: {sai_order}\n\n")
@@ -90,9 +91,10 @@ class SoA():
 
     row = self._template_copy(row_template)
     for index, sai in enumerate(sai_order):
-      if sai.encounterId:
-        item = self.parent.globals.cross_references.get_by_id("Encounter", sai.encounterId)
-        row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
+      if hasattr(sai, 'encounterId'):
+        if sai.encounterId:
+          item = self.parent.globals.cross_references.get_by_id("Encounter", sai.encounterId)
+          row[index + sai_start_index]['label'] = usdm_reference(item, 'label') if item else "???"
     if self._has_non_empty(row):
       results.append(row)
 
@@ -120,11 +122,12 @@ class SoA():
         row[0]['condition'] = condition
       for index, sai in enumerate(sai_order):
         row[index + sai_start_index]['set'] = False
-        if activity.id in sai.activityIds:
-          row[index + sai_start_index]['set'] = True
-          condition = self._condition_with_context(self.study_design.conditions, activity, sai)
-          if condition:
-            row[index + sai_start_index]['condition'] = condition
+        if hasattr(sai, 'activityIds'):
+          if activity.id in sai.activityIds:
+            row[index + sai_start_index]['set'] = True
+            condition = self._condition_with_context(self.study_design.conditions, activity, sai)
+            if condition:
+              row[index + sai_start_index]['condition'] = condition
       results.append(row)
 
     return results
