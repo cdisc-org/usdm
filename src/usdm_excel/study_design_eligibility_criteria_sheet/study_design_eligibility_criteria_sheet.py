@@ -1,6 +1,7 @@
 import re
 import traceback
 from usdm_excel.base_sheet import BaseSheet
+from usdm_model.code import Code
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 from usdm_excel.globals import Globals
@@ -23,34 +24,19 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
           text = self.read_cell_by_name(index, 'text')
           dictionary_name = self.read_cell_by_name(index, 'dictionary')
           self._validate_references(index, 'text', text, dictionary_name)
-          criteria = self._criteria(name, description, label, text, category, identifier, dictionary_name)
-          if criteria:
-            self.items.append(criteria)
-        
+          item = self._criteria(name, description, label, text, category, identifier, dictionary_name)
+          if item:
+            self.globals.cross_references.add(item.name, item)
+            self.items.append(item)
     except Exception as e:
       self._sheet_exception(e)
 
-  def _criteria(self, name, description, label, text, category, identifier, dictionary_name):
-    try:
-      dictionary_id = self._get_dictionary_id(dictionary_name)
-      item = EligibilityCriterion(
-        id=self.globals.id_manager.build_id(EligibilityCriterion),
-        name=name,
-        description=description,
-        label=label,
-        text=text,
-        category=category,
-        identifier=identifier,
-        dictionaryId=dictionary_id
-      )
-    except Exception as e:
-      self._general_error(f"Failed to create EligibilityCriteria object", e)
-      return None
-    else:
-      self.globals.cross_references.add(item.id, item)
-      return item
+  def _criteria(self, name: str, description: str, label: str, text: str, category: Code, identifier: str, dictionary_name: str) -> EligibilityCriterion:
+    dictionary_id = self._get_dictionary_id(dictionary_name)
+    params = {'name': name, 'description': description, 'label': label, 'text': text, 'category': category, 'identifier': identifier, 'dictionaryId': dictionary_id}
+    return self.create_object(EligibilityCriterion, params)
 
-  def _validate_references(self, row, column_name, text, dictionary_name):
+  def _validate_references(self, row: int, column_name: str, text: str, dictionary_name: str) -> None:
     if dictionary_name:
       column = self.column_present(column_name)
       dictionary = self.globals.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
@@ -64,7 +50,7 @@ class StudyDesignEligibilityCriteriaSheet(BaseSheet):
         #if not tag in dictionary.parameterMap:
           self._warning(row, column, f"Failed to find '{tag}' in dictionary '{dictionary_name}'")
   
-  def _get_dictionary_id(self, dictionary_name):
+  def _get_dictionary_id(self, dictionary_name: str) -> str:
     if dictionary_name:
       dictionary = self.globals.cross_references.get(SyntaxTemplateDictionary, dictionary_name)
       if dictionary:
