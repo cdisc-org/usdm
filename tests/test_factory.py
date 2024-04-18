@@ -26,6 +26,9 @@ class Factory():
     mock_read.return_value = pd.DataFrame(data, columns=[])
     return BaseSheet("", self.globals, "")
 
+  def code(self, code, decode):
+    return self._build_code(code=code, system="yyy", version="2", decode=decode)
+
   def cdisc_code(self, code, decode):
     return self._build_code(code=code, system="xxx", version="1", decode=decode)
   

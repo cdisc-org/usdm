@@ -80,6 +80,20 @@ class Elements():
     ]
     return self._set_of_references(results)
 
+  def organization_address(self):
+    identifier = self._sponsor_identifier()
+    results = [
+      {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
+    ]
+    return self._set_of_references(results)
+
+  def organization_name(self):
+    identifier = self._sponsor_identifier()
+    results = [
+      {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
+    ]
+    return self._set_of_references(results)
+
   def amendment(self):
     amendments = self.study_version.amendments
     results = [{'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number'}]
