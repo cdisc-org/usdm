@@ -51,7 +51,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         plannedSex=codes
       )
     except Exception as e:
-      self._general_error(f"Failed to create StudyDesignPopulation object", e)
+      self._general_exception(f"Failed to create StudyDesignPopulation object", e)
       return None
     else:
       self.globals.cross_references.add(name, item)
@@ -71,7 +71,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         characteristics=[]
       )
     except Exception as e:
-      self._general_error(f"Failed to create StudyCohort object", e)
+      self._general_exception(f"Failed to create StudyCohort object", e)
       return None
     else:
       self.globals.cross_references.add(name, item)
