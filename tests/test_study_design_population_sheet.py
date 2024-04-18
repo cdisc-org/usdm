@@ -1,11 +1,16 @@
 import pytest
 import pandas as pd
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
-from usdm_model.code import Code
-
+from usdm_model.characteristic import Characteristic
 
 xfail = pytest.mark.xfail
 def test_create(mocker, globals):
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[
+    Characteristic(id="CH_1", name="CHAR_1", text='Something', instanceType='Characteristic'), 
+    Characteristic(id="CH_2", name="CHAR_2", text='Something', instanceType='Characteristic'), 
+    Characteristic(id="CH_3", name="CHAR_3", text='Something', instanceType='Characteristic')
+  ]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -31,8 +36,11 @@ def test_create(mocker, globals):
   assert item.population.plannedAge.id == 'R_4'
   assert item.population.cohorts[0].id == 'CohortId_1'
   assert item.population.cohorts[0].name == 'POP02'
+  assert item.population.cohorts[0].characteristics[0].id == 'CH_1'
+  assert item.population.cohorts[0].characteristics[1].id == 'CH_2'
   assert item.population.cohorts[1].id == 'CohortId_2'
   assert item.population.cohorts[1].name == 'POP03'
+  assert item.population.cohorts[1].characteristics[0].id == 'CH_3'
   
 def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
