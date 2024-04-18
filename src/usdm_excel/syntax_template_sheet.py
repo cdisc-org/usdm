@@ -3,7 +3,7 @@ from usdm_excel.globals import Globals
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 
-class StudyDesignSyntaxTemplateSheet(BaseSheet):
+class SyntaxTemplateSheet(BaseSheet):
 
   def __init__(self, file_path: str, globals: Globals, sheet_name: str, optional: bool=True):
     try:

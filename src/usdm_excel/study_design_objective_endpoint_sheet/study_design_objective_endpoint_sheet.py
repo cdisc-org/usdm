@@ -1,11 +1,11 @@
 from usdm_excel.globals import Globals
-from usdm_excel.study_design_syntax_template_sheet import StudyDesignSyntaxTemplateSheet
+from usdm_excel.syntax_template_sheet import SyntaxTemplateSheet
 from usdm_model.objective import Objective
 from usdm_model.endpoint import Endpoint
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
 from usdm_excel.globals import Globals
 
-class StudyDesignObjectiveEndpointSheet(StudyDesignSyntaxTemplateSheet):
+class StudyDesignObjectiveEndpointSheet(SyntaxTemplateSheet):
 
   SHEET_NAME = 'studyDesignOE'
   

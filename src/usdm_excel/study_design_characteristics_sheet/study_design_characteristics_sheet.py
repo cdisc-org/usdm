@@ -1,8 +1,8 @@
 from usdm_excel.globals import Globals
-from usdm_excel.study_design_syntax_template_sheet import StudyDesignSyntaxTemplateSheet
+from usdm_excel.syntax_template_sheet import SyntaxTemplateSheet
 from usdm_model.characteristic import Characteristic
 
-class StudyDesignCharacteristicSheet(StudyDesignSyntaxTemplateSheet):
+class StudyDesignCharacteristicSheet(SyntaxTemplateSheet):
 
   SHEET_NAME = 'studyDesignCharacteristics'
   
