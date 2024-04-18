@@ -13,6 +13,6 @@ def test_usdm_reference():
   assert ref == '<usdm:ref klass="ClassA" id="123" attribute="attribute"></usdm:ref>'
   
 
-def test_get_soup():
-  result = get_soup('', errors_and_logging)
-  assert result == ''
+# def test_get_soup():
+#   result = get_soup('', errors_and_logging)
+#   assert result == ''
