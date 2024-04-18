@@ -100,6 +100,17 @@ class BaseSheet():
     value = "" if (value == empty_character) or (value == None) else value
     return value
 
+  def read_cell_multiple_by_name(self, row_index, field_name, must_be_present=True):
+    try:
+      col_index = self.column_present(field_name)
+      return self.read_cell_multiple(row_index, col_index)
+    except Exception as e:
+      if not must_be_present:
+        return []
+      else:
+        self._error(row_index, -2, f"Error '{e}' reading cell multiple '{field_name}'")
+        return []
+
   def read_cell_multiple(self, rindex, cindex):
     try:
       results = []
@@ -111,9 +122,11 @@ class BaseSheet():
       return results
     except BaseSheet.StateError as e:
       self._error(rindex, cindex, f"Internal state error '{e}' reading cell")
+      return []
     except BaseSheet.FormatError as e:
       self._error(rindex, cindex, "Format error reading cell, check the format of the cell")
-
+      return []
+    
   def read_cell_with_previous(self, row_index, col_index, first_col_index):
     try:
       i = col_index

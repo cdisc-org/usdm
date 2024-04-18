@@ -182,6 +182,35 @@ def test_read_cell_multiple(mocker, globals):
   for test in test_data:
     assert(base.read_cell_multiple(test[0],test[1])) == test[2]
 
+def test_read_cell_multiple_by_name(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = [
+    ['tom', ''], 
+    ['nick', 'Sam'], 
+    ['juli', ' Fred, Dick,   Harry  '], 
+    ['andy', 'John  , Jane'], 
+    ['andy', '"John, & Fred", Jane'],
+    ['andy', '"John, \\" & Fred", Jane']
+  ]
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data, columns=['Name', 'Children'])
+  base = BaseSheet("", globals, "sheet")
+  test_data = [
+    (0,[],                         True,  ""),
+    (2,['Fred', 'Dick', 'Harry'],  True,  ""),
+    (3,['John', 'Jane'],           True,  ""),
+    (4,['John, & Fred', 'Jane'],   True,  ""),
+    (5,['John, " & Fred', 'Jane'], True,  ""),
+    (6,[],                         False, "")
+  ]
+  for test in test_data:
+    errors = globals.errors_and_logging._errors
+    errors.clear()
+    assert(base.read_cell_multiple_by_name(test[0],'Children')) == test[1]
+    
+    #assert(errors.items[0].to_log()) == test[3]
+
 # read_cell_with_previous
 
 def test_read_boolean_cell_by_name(mocker, globals):
@@ -237,7 +266,6 @@ def test_read_quantity_cell_by_name(mocker, globals):
       assert(item) == None
     else:
       assert(item) == None
-      print(f"ERR: {errors.items}")
       assert(errors.items[0].to_log()) == test[8]
 
 def test_read_range_cell_by_name(mocker, globals):
@@ -250,8 +278,8 @@ def test_read_range_cell_by_name(mocker, globals):
   test_data = [
     #  Name,    Req Units, Allow Empty, Errors, Empty, Min,  Max,   Unit,     Error 
     (0,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [1,1]: Could not decode the range value, appears to be empty ''"),
-    (1,'Range', True,      False,       False,  False,  1.0,  2.0,   'C25301', ''),
-    (2,'Range', True,      False,       False,  False,  1.0,  3.0,   'C29844', ''),
+    (1,'Range', True,      False,       False,  False, 1.0,  2.0,   'C25301', ''),
+    (2,'Range', True,      False,       False,  False, 1.0,  3.0,   'C29844', ''),
     (3,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [4,1]: Could not decode the range value '.. 3 weeks'"),
     (4,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [5,1]: Unable to set the units code for the range '1 ..  weeks'"),
     (5,'Range', True,      False,       True,   False, 0.0,  0.0,   '',       "Error in sheet sheet at [6,1]: Unable to set the units code for the range '1 . 4 weeks'"),
