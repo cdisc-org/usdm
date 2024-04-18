@@ -24,6 +24,7 @@ from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet impo
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
 from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
+from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_sheet import StudyDesignCharacteristicSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
@@ -69,6 +70,7 @@ class USDMExcel():
       self._process_soa()
       self.indications = StudyDesignIndicationSheet(self._file_path, self._globals)
       self.interventions = StudyDesignInterventionSheet(self._file_path, self._globals)
+      self.study_characteristics = StudyDesignCharacteristicSheet(self._file_path, self._globals)
       self.study_population = StudyDesignPopulationSheet(self._file_path, self._globals)
       self.contents = StudyDesignContentSheet(self._file_path, self._globals)
       self.dictionaries = StudyDesignDictionarySheet(self._file_path, self._globals)

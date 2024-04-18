@@ -79,7 +79,7 @@ class StudyDesignPopulationSheet(BaseSheet):
     for name in names:
       object = self.globals.cross_references.get(Characteristic, name)
       if object:
-        results.append(object.id)
+        results.append(object)
       else:
         self._general_warning(f"Characterisitc '{name}' not found")
     return results

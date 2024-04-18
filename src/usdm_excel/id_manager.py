@@ -64,7 +64,8 @@ class IdManager():
       'StudySite': 0,
       'Condition': 0,
       'ParameterMap': 0,
-      'ConditionAssignment': 0
+      'ConditionAssignment': 0,
+      'Characteristic': 0
     }
 
   def build_id(self, klass):
