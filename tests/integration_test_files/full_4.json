@@ -8863,7 +8863,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_524",
+                  "id": "Code_525",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -8881,7 +8881,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_523",
+                      "id": "Code_524",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -8899,7 +8899,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_525",
+                      "id": "Code_526",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -8918,7 +8918,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_527",
+                  "id": "Code_528",
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -8936,7 +8936,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_526",
+                      "id": "Code_527",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -8954,7 +8954,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_528",
+                      "id": "Code_529",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -8972,7 +8972,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_529",
+                      "id": "Code_530",
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -8991,7 +8991,7 @@
                 "dictionaryId": null,
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_531",
+                  "id": "Code_532",
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2023-12-15",
@@ -9009,7 +9009,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_530",
+                      "id": "Code_531",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -9027,7 +9027,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_532",
+                      "id": "Code_533",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -9045,7 +9045,7 @@
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_533",
+                      "id": "Code_534",
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -9078,16 +9078,7 @@
                 "isApproximate": false,
                 "instanceType": "Range"
               },
-              "plannedSex": [
-                {
-                  "id": "Code_522",
-                  "code": "C49636",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Both",
-                  "instanceType": "Code"
-                }
-              ],
+              "plannedSex": [],
               "criteria": [
                 {
                   "id": "EligibilityCriterion_1",
@@ -9098,7 +9089,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriterion",
                   "category": {
-                    "id": "Code_534",
+                    "id": "Code_535",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -9119,7 +9110,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_1",
                   "instanceType": "EligibilityCriterion",
                   "category": {
-                    "id": "Code_535",
+                    "id": "Code_536",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -9140,7 +9131,7 @@
                   "dictionaryId": "SyntaxTemplateDictionary_2",
                   "instanceType": "EligibilityCriterion",
                   "category": {
-                    "id": "Code_536",
+                    "id": "Code_537",
                     "code": "C25532",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -9161,7 +9152,7 @@
                   "dictionaryId": null,
                   "instanceType": "EligibilityCriterion",
                   "category": {
-                    "id": "Code_537",
+                    "id": "Code_538",
                     "code": "C25370",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -9190,7 +9181,54 @@
                 "instanceType": "Range"
               },
               "instanceType": "StudyDesignPopulation",
-              "cohorts": []
+              "cohorts": [
+                {
+                  "id": "StudyCohort_1",
+                  "name": "POP2",
+                  "label": "",
+                  "description": "Patients with Probable Mild to Moderate Alzheimer's Disease",
+                  "includesHealthySubjects": false,
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedSex": [
+                    {
+                      "id": "Code_522",
+                      "code": "C20197",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Male",
+                      "instanceType": "Code"
+                    }
+                  ],
+                  "criteria": [],
+                  "plannedAge": null,
+                  "instanceType": "StudyCohort",
+                  "characteristics": []
+                },
+                {
+                  "id": "StudyCohort_2",
+                  "name": "POP3",
+                  "label": "",
+                  "description": "Patients with Probable Mild to Moderate Alzheimer's Disease",
+                  "includesHealthySubjects": false,
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedSex": [
+                    {
+                      "id": "Code_523",
+                      "code": "C16576",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Female",
+                      "instanceType": "Code"
+                    }
+                  ],
+                  "criteria": [],
+                  "plannedAge": null,
+                  "instanceType": "StudyCohort",
+                  "characteristics": []
+                }
+              ]
             },
             "scheduleTimelines": [
               {
