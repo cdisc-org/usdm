@@ -1,6 +1,7 @@
 import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.code import Code
+from usdm_model.alias_code import AliasCode
 
 class Factory():
 
@@ -35,7 +36,8 @@ class Factory():
   def cdisc_dummy(self):
     return self.cdisc_code("C12345", "decode")
 
+  def alias_code(self, standard_code, alias_codes=[]):
+    return self.item(AliasCode, {'standardCode': standard_code, 'standardCodeAliases': alias_codes})
+
   def _build_code(self, code, system, version, decode):
-    id = self.globals.id_manager.build_id(Code)
-    instance = Code(id=id, code=code, codeSystem=system, codeSystemVersion=version, decode=decode)
-    return instance
+    return self.item(Code, {'code': code, 'codeSystem': system, 'codeSystemVersion': version, 'decode': decode})

@@ -46,21 +46,29 @@ class Macros():
     ref.replace_with(ref_tag)
       
   def _bc(self, attributes, soup, ref) -> None:
-    bc_name = attributes['name']
-    activity_name = attributes['activity']
+    bc_name = attributes['name'].upper().strip()
+    activity_name = attributes['activity'].strip()
     activity = self.parent.globals.cross_references.get(Activity, activity_name)
-    for collection in [{'klass': BiomedicalConcept, 'ids': activity.biomedicalConceptIds}, {'klass': BiomedicalConceptSurrogate, 'ids': activity.bcSurrogateIds}]:
-      for id in collection['ids']:
-        bc = self.parent.globals.cross_references.get_by_id(collection['klass'], id)
-        if bc.name == bc_name:
-          break
-    if bc:      
-      ref_tag = soup.new_tag("usdm:ref")
-      ref_tag.attrs = {'klass': bc.__class__.__name__, 'id': bc.id, 'attribute': 'label'}
-      ref.replace_with(ref_tag)
+    if activity:
+      bc = None
+      for collection in [{'klass': BiomedicalConcept, 'ids': activity.biomedicalConceptIds, 'synonyms': True}, 
+                         {'klass': BiomedicalConceptSurrogate, 'ids': activity.bcSurrogateIds, 'synonyms': False}]:
+        for id in collection['ids']:
+          next_bc = self.parent.globals.cross_references.get_by_id(collection['klass'], id)
+          if next_bc:
+            if bc_name == next_bc.name.upper() or bc_name in [x.upper() for x in next_bc.synonyms]:
+              bc = next_bc
+              break
+      if bc:      
+        ref_tag = soup.new_tag("usdm:ref")
+        ref_tag.attrs = {'klass': bc.__class__.__name__, 'id': bc.id, 'attribute': 'label'}
+        ref.replace_with(ref_tag)
+      else:
+        self.parent._general_error(f"Failed to find BC name '{bc_name}' in activity '{activity_name}'")
+        ref.replace_with('Missing BC: failed to find BC in activity')
     else:
-      self.parent._general_error(f"Failed to find BC name '{bc_name}' in activity '{activity_name}'")
-      ref.replace_with('Missing BC: failed to find in activity')
+      self.parent._general_error(f"Failed to find  activity '{activity_name}'")
+      ref.replace_with('Missing activity: failed to find activity')
 
   def _image(self, attributes, soup, ref) -> None:
     type = {attributes['type']}
