@@ -118,7 +118,7 @@ So ```3 Y```, ```3 YRS```, ```3 YR```, ```3 YEARS```, ```3 YEAR``` are all equiv
 
 ### Templated Text
 
-Some entries can include "tags" that allow the text to reference structured content from elsewhere in the model. An example is an eligibility criterion. These sections of text are formatted as `<usdm:tag name="...tag_name..."/>` within the text. The `...tag_name...` refers to an entry within a dictionary (see the dictionaries sheet)
+Some entries can include "tags" that allow the text to reference structured content from elsewhere in the model. An example is an eligibility criterion referring to population definitions or an activity name. These sections of text are formatted as `<usdm:tag name="...tag_name..."/>` within the text. The `...tag_name...` refers to an entry within a dictionary (see the dictionaries sheet)
 
 An example of Templated Text is `Subjects shall be between <usdm:tag name="min_age"/> and <usdm:tag name="max_age"/>` where the min and max ages will be inserted using the dictionary entries that refer to particular attribute values from within the structured parts of the model.
 
