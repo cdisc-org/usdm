@@ -61,6 +61,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Indications sheet
 - Study Design Interventions sheet
 - Study Design Populations sheet
+- Study Design Characteristcis sheet
 - Study Design Objectives and Endpoints sheet
 - Study Design Eligibility Criteria sheet
 - Study Design Estimands sheet
@@ -117,9 +118,9 @@ So ```3 Y```, ```3 YRS```, ```3 YR```, ```3 YEARS```, ```3 YEAR``` are all equiv
 
 ### Templated Text
 
-Some entries can include "tags" that allow the text to reference structured content from elsewhere in the model. An example is an activity name. These sections of text are formatted as `[tag_name]` within the text. The `tag_name` refers to an entry within a dictionary (see the dictionaries sheet)
+Some entries can include "tags" that allow the text to reference structured content from elsewhere in the model. An example is an eligibility criterion. These sections of text are formatted as `<usdm:tag name="...tag_name..."/>` within the text. The `...tag_name...` refers to an entry within a dictionary (see the dictionaries sheet)
 
-An example of Templated Text is `Subjects shall be between [min_age] and [max_age]` where the min and max ages will be inserted using the dictionary entries that refer to particular attribute values from within the structured parts of the model.
+An example of Templated Text is `Subjects shall be between <usdm:tag name="min_age"/> and <usdm:tag name="max_age"/>` where the min and max ages will be inserted using the dictionary entries that refer to particular attribute values from within the structured parts of the model.
 
 ### Sheet Descriptions
 
@@ -475,7 +476,7 @@ A header row in row 1 followed by repeating rows from row 2, containing an inter
 
 #### Sheet Contents
 
-A header row in row 1 followed by repeating rows from row 2 containing population or sub-population definitions. Note that not every entry in columns E through I need to be filled in, just enough to define  either the whole population of the sub-populations. Sub-population need not be specificed.
+A header row in row 1 followed by repeating rows from row 2 containing population or sub-population definitions. Note that not every entry in columns E through I need to be filled in, just enough to define  either the whole population of the sub-populations. Sub-populations need not be specificed.
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
@@ -488,6 +489,25 @@ A header row in row 1 followed by repeating rows from row 2 containing populatio
 | G | plannedAge	| Age range of participants | Range |
 | H | plannedSexOfParticipants | Sex of participants | CDISC code reference |
 | I | includesHealthSubjects | Healthy subjects flag | Boolean |
+| I | characterisitcs | List of characteristics for the cohort (ignored for main population) | Comma separated list of charcateristics name references |
+
+### Study Design Characteristics sheet
+
+#### Sheet Name
+
+`studyDesignCharacteristics`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2 containing characteristics for cohorts.
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name	| Identifier | Text string | 
+| B | description| Description | Text string, can be empty | 
+| C | label | Display label | Text string, can be empty |
+| D | text	| Criteria text | Templated text |
+| E | dictionary| Dictionary cross reference | The dictionary from which the templated text tags are taken. If no tags are used can be empty |
 
 ### Study Design Objectives and Endpoints sheet
 
