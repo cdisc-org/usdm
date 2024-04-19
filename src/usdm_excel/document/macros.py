@@ -1,16 +1,18 @@
 import os
 import base64
-import traceback
-from .template_m11 import TemplateM11
-from .template_plain import TemplatePlain
-from .elements import Elements
-#from usdm_excel.cross_ref import cross_references
+from usdm_excel.document.template_m11 import TemplateM11
+from usdm_excel.document.template_plain import TemplatePlain
+from usdm_excel.document.elements import Elements
 from usdm_excel.base_sheet import BaseSheet
-from .utility import get_soup
+from usdm_model.study import Study
+from usdm_model.activity import Activity
+from usdm_model.biomedical_concept import BiomedicalConcept
+from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
+from usdm_excel.document.utility import get_soup
 
 class Macros():
 
-  def __init__(self, parent: BaseSheet, study):
+  def __init__(self, parent: BaseSheet, study: Study):
     self.parent = parent
     self.study = study
     self.study_version = study.versions[0]
@@ -42,6 +44,23 @@ class Macros():
     ref_tag = soup.new_tag("usdm:ref")
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)
+      
+  def _bc(self, attributes, soup, ref) -> None:
+    bc_name = attributes['name']
+    activity_name = attributes['activity']
+    activity = self.parent.globals.cross_references.get(Activity, activity_name)
+    for collection in [{'klass': BiomedicalConcept, 'ids': activity.biomedicalConceptIds}, {'klass': BiomedicalConceptSurrogate, 'ids': activity.bcSurrogateIds}]:
+      for id in collection['ids']:
+        bc = self.parent.globals.cross_references.get_by_id(collection['klass'], id)
+        if bc.name == bc_name:
+          break
+    if bc:      
+      ref_tag = soup.new_tag("usdm:ref")
+      ref_tag.attrs = {'klass': bc.__class__.__name__, 'id': bc.id, 'attribute': 'label'}
+      ref.replace_with(ref_tag)
+    else:
+      self.parent._general_error(f"Failed to find BC name '{bc_name}' in activity '{activity_name}'")
+      ref.replace_with('Missing BC: failed to find in activity')
 
   def _image(self, attributes, soup, ref) -> None:
     type = {attributes['type']}
@@ -83,7 +102,7 @@ class Macros():
     ref.replace_with(get_soup(text, self.parent))
 
   def _valid_method(self, name):
-    return name in ['_xref', '_image', '_element', '_section', '_note']
+    return name in ['_xref', '_image', '_element', '_section', '_note', '_bc']
   
   def _resolve_template(self, template) -> object:
     try:

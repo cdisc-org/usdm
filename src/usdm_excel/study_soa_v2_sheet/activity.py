@@ -1,4 +1,4 @@
-import traceback
+from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.activity import Activity as USDMActivity
 from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
@@ -7,7 +7,7 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 
 class Activity():
   
-  def __init__(self, parent, row_index):
+  def __init__(self, parent: BaseSheet, row_index: int):
     self.parent = parent
     self.row_index = row_index
     self.usdm_biomedical_concept_surrogates = []
@@ -26,10 +26,12 @@ class Activity():
         full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
         full_bc_items.append(full_bc.id)
         self.usdm_biomedical_concepts.append(full_bc)
+        self.parent.globals.cross_references.add(full_bc.id, full_bc)
       else:
         surrogate = self._to_bc_surrogates(bc)
         surrogate_bc_items.append(surrogate.id)
         self.usdm_biomedical_concept_surrogates.append(surrogate)
+        self.parent.globals.cross_references.add(surrogate.id, surrogate)
     timelineId = ""
     if len(self._tls) > 0:
       timeline = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
