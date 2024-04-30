@@ -28,12 +28,15 @@ class FHIR():
 
   def to_fhir(self, uuid: uuid4):
     try:
+      sections = []
       root = self.protocol_document_version.contents[0]
       for id in root.childIds:
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-        self._content_to_section(content)
+        sections.append(self._content_to_section(content))
+      type_code = CodeableConcept(text=f"EvidenceReport")
+      composition = Composition(title=self.doc_title, type=type_code, section=sections)
       identifier = Identifier(system='urn:ietf:rfc:3986', value=f'urn:uuid:{uuid}')
-      bundle = Bundle(id=None, entry=[], type="document", identifier=identifier)
+      bundle = Bundle(id=None, entry=[composition], type="document", identifier=identifier)
       return bundle.json()
     except Exception as e:
       self._errors_and_logging.exception(f"Exception raised generating FHIR content. See logs for more details", e)
@@ -44,7 +47,8 @@ class FHIR():
     narrative = Narrative(status='generated', div=str(div))
     title = self._format_section_title(content.sectionTitle)
     code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
-    section = CompositionSection(title=content.sectionTitle, code=code, text=narrative)
+    print(f"COMPOSITION: {code.text}, {title}, {narrative}, {div}")
+    section = CompositionSection(title=content.sectionTitle, code=code, text=narrative, section=[])
     for id in content.childIds:
       content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
       child = self._content_to_section(content)
@@ -57,32 +61,6 @@ class FHIR():
   def _clean_section_number(self, section_number: str) -> str:
     return section_number[:-1] if section_number.endswith('.') else section_number
   
-  # def _get_level(self, section_number):
-  #   if section_number.lower().startswith("appendix"):
-  #     result = 1
-  #   else:
-  #     text = section_number[:-1] if section_number.endswith('.') else section_number
-  #     result = len(text.split('.'))
-  #   return result
-      
-  # def _is_doc_section(self, section_number):
-  #   try:
-  #     sn = int(section_number)
-  #     return True if sn > 0 else False
-  #   except:
-  #     return True
-
-  # def _is_level_1_doc_section(self, section_number):
-  #   level = self._get_level(section_number)
-  #   return level == 1 and self._is_doc_section(section_number)
-  
-  # def _is_first_section(self, section_number):
-  #   try:
-  #     sn = int(section_number)
-  #     return True if sn == 1 else False
-  #   except:
-  #     return False
-
   def _translate_references(self, content_text: str):
     soup = get_soup(content_text, self._errors_and_logging)
     for ref in soup(['usdm:ref']):

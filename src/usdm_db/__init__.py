@@ -1,8 +1,10 @@
 import json
 import traceback
+from uuid import uuid4
 from usdm_excel import USDMExcel
 from usdm_model.wrapper import Wrapper
 from usdm_db.document.document import Document
+from usdm_db.fhir.fhir import FHIR
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.neo4j_dict import Neo4jDict
 from usdm_db.timeline import Timeline
@@ -41,6 +43,17 @@ class USDMDb():
       raw_json = self._wrapper.to_json()
     except Exception as e:
       message = self._format_exception("Failed to generate JSON output", e)
+      raw_json = json.dumps({'error': message}, indent = 2)
+    return raw_json
+
+  def to_fhir(self):
+    try:
+      study = self._wrapper.study
+      title = self._get_title()
+      fhir = FHIR(title, study, self._errors_and_logging)
+      raw_json = fhir.to_fhir(uuid4())
+    except Exception as e:
+      message = self._format_exception("Failed to generate FHIR output", e)
       raw_json = json.dumps({'error': message}, indent = 2)
     return raw_json
 
