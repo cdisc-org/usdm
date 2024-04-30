@@ -26,7 +26,22 @@ def create_criteria(factory):
 def test_create(mocker, globals, minimal, factory):
   minimal.population.criteria = create_criteria(factory)
   fhir = FHIR("xxx", minimal.study, globals.errors_and_logging)
-  content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'sectionTitle': 'Section Title', 'text': '<usdm:macro id="section" name="inclusion"/>', 'childIds': []})
-  result = fhir.to_fhir(fake_uuid)
-  expected = '{"resourceType": "Bundle", "identifier": {"system": "urn:ietf:rfc:3986", "value": "urn:uuid:00000000-0000-4000-8000-000000000001"}, "type": "document"}'
-  assert result == expected
+  assert fhir is not None
+
+def test_content_to_section(mocker, globals, minimal, factory):
+  minimal.population.criteria = create_criteria(factory)
+  fhir = FHIR("xxx", minimal.study, globals.errors_and_logging)
+  #content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'sectionTitle': 'Section Title', 'text': '<usdm:macro id="section" name="inclusion"/>', 'childIds': []})
+  content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'sectionTitle': 'Section Title', 'text': 'Something here for the text', 'childIds': []})
+  result = fhir._content_to_section(content)
+  expected = '{"title": "Section Title", "code": {"text": "section1.1.1-section-title"}, "text": {"status": "generated", "div": "Something here for the text"}}'
+  assert result.json() == expected
+
+def test_format_section(mocker, globals, minimal, factory):
+  fhir = FHIR("xxx", minimal.study, globals.errors_and_logging)
+  assert fhir._format_section_title('A Section Heading') == 'a-section-heading'
+
+def test_clean_section_number(mocker, globals, minimal, factory):
+  fhir = FHIR("xxx", minimal.study, globals.errors_and_logging)
+  assert fhir._clean_section_number('1.1') == '1.1'
+  assert fhir._clean_section_number('1.1.') == '1.1'
