@@ -664,6 +664,7 @@ There are some prefined macros that can be used to generate content. These are p
 | image | Insert an mage into the document | 'file' and 'type'. The file attribute specifies the name of a file in the same directory as the Excel workbook. |
 | element | Refer to a predefined element | 'name' of the element. Supported element names are 'study_phase', 'study_short_title', 'study_full_title', 'study_acronym', 'study_rationale', 'study_version_identifier', 'study_identifier', 'study_regulatory_identifiers', 'study_date', 'approval_date', 'organization_name_and_address', 'amendment' and 'amendment_scope' |
 | section | Add a pre defined section into the document | 'name' and 'template'. Supported section are 'title_page', 'inclusion', 'exclusion' and 'objective_endpoints'. Supported templates are 'm11' and 'plain' |
+| bc | Add in a reference to a BC | 'name' and 'activity' where the name is the name of the BC as used in the SoA and activity is the name of the activity it is referenced from (in case several activities reference the same BC). This macro is needed as the BCs are not explicitly defined and thus named, they are read from the CDISC library and can appear multiple times. |
 | note | Insert a note into the document | 'text' |
 
 Examples of macros are:
@@ -677,6 +678,8 @@ Examples of macros are:
 ```<usdm:macro id="image" file="design.png" type="png"/>```
 
 ```<usdm:macro id="section" name="inclusion" template="plain"/>```
+
+```<usdm:macro id="bc" name="Body temperature" activity="Vital signs / Temperature">```
 
 ```<usdm:macro id="note" text="A note here please"/>```
 
