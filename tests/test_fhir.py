@@ -1,0 +1,32 @@
+
+from yattag import Doc
+from usdm_model.eligibility_criterion import EligibilityCriterion
+from usdm_model.narrative_content import NarrativeContent
+from usdm_db.fhir.fhir import FHIR
+from tests.test_factory import Factory
+from uuid import UUID
+
+fake_uuid = UUID(f'00000000-0000-4000-8000-{1:012}', version=4)
+#mocker.patch("usdm_db.neo4j_dict.uuid4", side_effect=fake_uuids)
+  
+def create_criteria(factory):
+  INCLUSION = factory.cdisc_code('C25532', 'Inc')
+  EXCLUSION = factory.cdisc_code('C25370', 'Exc')
+  item_list = [
+    {'name': 'IE1', 'label': '', 'description': '', 'text': 'Only perform at baseline', 
+     'dictionaryId': None, 'category': INCLUSION, 'identifier': '01', 'nextId': None, 'previousId': None, 'contextId': None
+    },
+    {'name': 'IE2', 'label': '', 'description': '', 'text': '<p>Only perform on males</p>', 
+    'dictionaryId': None, 'category': INCLUSION, 'identifier': '02', 'nextId': None, 'previousId': None, 'contextId': None
+    },
+  ]
+  results = factory.set(EligibilityCriterion, item_list)
+  return results
+
+def test_create(mocker, globals, minimal, factory):
+  minimal.population.criteria = create_criteria(factory)
+  fhir = FHIR("xxx", minimal.study, globals.errors_and_logging)
+  content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'sectionTitle': 'Section Title', 'text': '<usdm:macro id="section" name="inclusion"/>', 'childIds': []})
+  result = fhir.to_fhir(fake_uuid)
+  expected = '{"resourceType": "Bundle", "identifier": {"system": "urn:ietf:rfc:3986", "value": "urn:uuid:00000000-0000-4000-8000-000000000001"}, "type": "document"}'
+  assert result == expected
