@@ -1,17 +1,16 @@
-
 from usdm_model.study import Study
 from usdm_model.narrative_content import NarrativeContent
 from usdm_db.cross_reference import CrossReference
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.document.utility import get_soup
-
-from fhir.resources.bundle import Bundle
+from fhir.resources.bundle import Bundle, BundleEntry
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition, CompositionSection
 from fhir.resources.narrative import Narrative
 from fhir.resources.codeableconcept import CodeableConcept
+from fhir.resources.reference import Reference
 from uuid import uuid4
-
+import datetime
 class FHIR():
 
   class LogicError(Exception):
@@ -34,9 +33,12 @@ class FHIR():
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         sections.append(self._content_to_section(content))
       type_code = CodeableConcept(text=f"EvidenceReport")
-      composition = Composition(title=self.doc_title, type=type_code, section=sections)
+      date = datetime.datetime.now().isoformat()
+      author = Reference(display="USDM")
+      composition = Composition(title=self.doc_title, type=type_code, section=sections, date=date, status="preliminary", author=[author])
       identifier = Identifier(system='urn:ietf:rfc:3986', value=f'urn:uuid:{uuid}')
-      bundle = Bundle(id=None, entry=[composition], type="document", identifier=identifier)
+      bundle_entry = BundleEntry(resource=composition, fullUrl="https://www.example.com/Composition/1234")
+      bundle = Bundle(id=None, entry=[bundle_entry], type="document", identifier=identifier)
       return bundle.json()
     except Exception as e:
       self._errors_and_logging.exception(f"Exception raised generating FHIR content. See logs for more details", e)
