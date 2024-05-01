@@ -9,10 +9,10 @@ xfail = pytest.mark.xfail
 def test_create(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'IndicationId_1', 'Code_2', 'IndicationId_2', 'Code_3', 'Code_4', 'IndicationId_3']
-  expected_1 = Code(id='Code_1', code='X', codeSystem='SPONSOR', codeSystemVersion='None set', decode="Y")
-  expected_2 = Code(id='Code_2', code='AAA', codeSystem='SPONSOR', codeSystemVersion='None set', decode="BBB")
-  expected_3 = Code(id='Code_3', code='WWW', codeSystem='SPONSOR', codeSystemVersion='None set', decode="1234")
-  expected_4 = Code(id='Code_4', code='EEE', codeSystem='SPONSOR', codeSystemVersion='None set', decode="3456")
+  expected_1 = Code(id='Code_1', code='X', codeSystem='SPONSOR', codeSystemVersion='', decode="Y")
+  expected_2 = Code(id='Code_2', code='AAA', codeSystem='SPONSOR', codeSystemVersion='', decode="BBB")
+  expected_3 = Code(id='Code_3', code='WWW', codeSystem='SPONSOR', codeSystemVersion='', decode="1234")
+  expected_4 = Code(id='Code_4', code='EEE', codeSystem='SPONSOR', codeSystemVersion='', decode="3456")
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
   mock_code.side_effect=[expected_1, expected_2, expected_3, expected_4]
   mocked_open = mocker.mock_open(read_data="File")

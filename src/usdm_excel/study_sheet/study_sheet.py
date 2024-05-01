@@ -74,9 +74,9 @@ class StudySheet(BaseSheet):
       field_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
       if field_name == self.NAME_TITLE:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      elif field_name == self.TITLE_TITLE:
-        if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
-          self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      #elif field_name == self.TITLE_TITLE:
+      #  if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
+      #    self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.VERSION_TITLE:
         self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.TYPE_TITLE:
@@ -185,19 +185,19 @@ class StudySheet(BaseSheet):
       return result
 
   def _set_title(self, rindex, cindex, title_type):
-    if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
-      return self.read_cell(rindex, cindex)
-    else:
-      try:
-        text = self.read_cell(rindex, cindex)
-        if text:
-          code = CDISCCT(self.globals).code_for_attribute('StudyVersion', 'titles', title_type)
-          title = StudyTitle(id=self.globals.id_manager.build_id(StudyTitle), text=text, type=code)
-          self.titles.append(title)
-          self.globals.cross_references.add(title.id, title)
-          return title
-        else:
-          return None
-      except Exception as e:
-        self._exception(rindex, cindex, "Failed to create StudyTitle object", e)
+    # if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
+    #   return self.read_cell(rindex, cindex)
+    # else:
+    try:
+      text = self.read_cell(rindex, cindex)
+      if text:
+        code = CDISCCT(self.globals).code_for_attribute('StudyVersion', 'titles', title_type)
+        title = StudyTitle(id=self.globals.id_manager.build_id(StudyTitle), text=text, type=code)
+        self.titles.append(title)
+        self.globals.cross_references.add(title.id, title)
+        return title
+      else:
+        return None
+    except Exception as e:
+      self._exception(rindex, cindex, "Failed to create StudyTitle object", e)
         
