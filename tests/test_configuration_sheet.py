@@ -15,6 +15,24 @@ def test_defaults(mocker, globals):
   assert globals.option_manager.get(Options.USE_TEMPLATE) == 'SPONSOR'
   assert globals.template_manager.get('sponsor') == 'studyDesignContent'
 
+def test_template(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': ['template'], 'col_2': ['xxx =    yyy']}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data)
+  configuration = ConfigurationSheet("", globals)
+  assert globals.template_manager.get('Xxx') == 'yyy'
+
+def test_use_template(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'col_1': ['USE template'], 'col_2': ['   zzzz   ']}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame(data)
+  configuration = ConfigurationSheet("", globals)
+  assert globals.option_manager.get(Options.USE_TEMPLATE) == 'ZZZZ'
+
 def test_usdm_version_deprecated(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")

@@ -38,10 +38,12 @@ class ConfigurationSheet(BaseSheet):
         parts = value.split('=')
         if len(parts) == 2:
           self.globals.template_manager.add(parts[0].strip(), parts[1].strip())
+          self._general_info(f"Mapped template '{parts[0].strip()}' to '{parts[1].strip()}'")
         else:
           self._error(rindex, 2, "Badly formatted TEMPLATE, should be of the form <type> = <sheet name>")
       elif name == 'USE TEMPLATE':
-        self.globals.option_manager.set(Options.USE_TEMPLATE, parts[1].strip().upper())
+        self.globals.option_manager.set(Options.USE_TEMPLATE, value.strip().upper())
+        self._general_info(f"Using template '{self.globals.option_manager.get(Options.USE_TEMPLATE)}'")
       elif name == 'USDM VERSION':
         self._general_warning("The USDM VERSION option is now deprecated and will be ignored.")
       elif name == 'SDR PREV NEXT':
