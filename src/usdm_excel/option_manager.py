@@ -3,7 +3,7 @@ from enum import Enum
 
 class Options(Enum):
   EMPTY_NONE = 'empty_none'
-  USDM_VERSION = 'usdm_version'
+  USE_TEMPLATE = 'use_template'
 
 class EmptyNoneOption(Enum):
   EMPTY = 'empty_string'
@@ -25,15 +25,9 @@ class OptionManager():
 
   def get(self, name):
     name = self._to_string(name)
-    if name in self._items:
-      return self._items[name]
-    else:
-      return ""
+    return self._items[name] if name in self._items else ''
   
   def _to_string(self, item):
-    if isinstance(item, Enum):
-      return item.value
-    else:
-      return str(item)
+    return item.value if isinstance(item, Enum) else str(item)
     
 

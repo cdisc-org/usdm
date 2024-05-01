@@ -1,4 +1,4 @@
 from usdm_excel.base_manager import BaseManager
 
-class CTVersionManager(BaseManager):
+class TemplateManager(BaseManager):
   pass

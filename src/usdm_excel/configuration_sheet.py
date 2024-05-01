@@ -14,29 +14,41 @@ class ConfigurationSheet(BaseSheet):
     try:
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
       self.globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE)
-      self.globals.option_manager.set(Options.USDM_VERSION, 3)
+      self.globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
+      self.globals.template_manager.add('SPONSOR', 'studyDesignContent')
       self._process_sheet()
     except Exception as e:
       self._sheet_exception(e)
 
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
-      name = self.read_cell(rindex, self.PARAMS_NAME_COL).strip().upper()
+      raw_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
+      name = raw_name.strip().upper()
       value = self.read_cell(rindex, self.PARAMS_VALUE_COL)
       if name == 'CT VERSION':
         parts = value.split('=')
         if len(parts) == 2:
           self.globals.ct_version_manager.add(parts[0].strip(), parts[1].strip())
+        else:
+          self._error(rindex, 2, "Badly formatted CT VERSION, should be of the form <CT name> = <version>")
       elif name == 'EMPTY NONE':
         if value.strip().upper() == 'EMPTY':
           self.globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
+      elif name == 'TEMPLATE':
+        parts = value.split('=')
+        if len(parts) == 2:
+          self.globals.template_manager.add(parts[0].strip(), parts[1].strip())
+        else:
+          self._error(rindex, 2, "Badly formatted TEMPLATE, should be of the form <type> = <sheet name>")
+      elif name == 'USE TEMPLATE':
+        self.globals.option_manager.set(Options.USE_TEMPLATE, parts[1].strip().upper())
       elif name == 'USDM VERSION':
-        text = value.strip().upper()
-        if text in ['2', '3']:
-          self.globals.option_manager.set(Options.USDM_VERSION, int(text))
+        self._general_warning("The USDM VERSION option is now deprecated and will be ignored.")
       elif name == 'SDR PREV NEXT':
         self._general_warning("The SDR PREV NEXT option is now deprecated and will be ignored.")
       elif name == 'SDR ROOT':
         self._general_warning("The SDR ROOT option is now deprecated and will be ignored.")
       elif name == 'SDR DESCRIPTION':
         self._general_warning("The SDR DESCRIPTION option is now deprecated and will be ignored.")
+      else:
+        self._error(rindex, 1, "Unrecognized configuration keyword '{raw_name}")

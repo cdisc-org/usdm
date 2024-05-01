@@ -9,6 +9,7 @@ xfail = pytest.mark.xfail
 
 def test_create(mocker, globals):
   globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
+  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
 
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
@@ -147,6 +148,8 @@ def test_create_standard_section(mocker, globals):
   assert content.items[5].text == '<div>Text 2</div>'
 
 def test_create_invalid_levels(mocker, globals):
+  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
+  globals.template_manager.add('sponsor', 'studyDesignContent')
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
@@ -184,7 +187,8 @@ def test_create_empty(mocker, globals):
   assert len(content.items) == 1
 
 def test_read_cell_by_name_error(mocker, globals):
-  
+  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
+  globals.template_manager.add('sponsor', 'studyDesignContent')
   call_parameters = []
   
   def my_add(sheet, row, column, message, level=10):

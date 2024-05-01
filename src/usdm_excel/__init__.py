@@ -51,6 +51,9 @@ class USDMExcel():
   def errors(self):
     return self._globals.errors_and_logging.errors().dump(Errors.WARNING)
   
+  def was_m11(self):
+    return self._globals.option_manager.get(Options.USE_TEMPLATE) == "M11"
+  
   def _process(self):
     try:
     

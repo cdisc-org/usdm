@@ -49,7 +49,7 @@ class FHIR():
     narrative = Narrative(status='generated', div=str(div))
     title = self._format_section_title(content.sectionTitle)
     code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
-    print(f"COMPOSITION: {code.text}, {title}, {narrative}, {div}")
+    #print(f"COMPOSITION: {code.text}, {title}, {narrative}, {div}")
     section = CompositionSection(title=content.sectionTitle, code=code, text=narrative, section=[])
     for id in content.childIds:
       content = next((x for x in self.protocol_document_version.contents if x.id == id), None)

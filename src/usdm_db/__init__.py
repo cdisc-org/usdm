@@ -38,6 +38,9 @@ class USDMDb():
     self._wrapper = self._excel.execute()
     return self._excel.errors()
 
+  def was_m11(self) -> bool:
+    return self._excel.was_m11()
+  
   def to_json(self):
     try:
       raw_json = self._wrapper.to_json()
