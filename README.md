@@ -641,7 +641,9 @@ A header row in row 1 followed by repeating rows from row 2, containing element 
 
 #### Sheet Name
 
-`studyDesignContent`
+default name: `studyDesignContent`
+
+Several content sheets can be included within the workbook and named as desired. Typical use might be the inclusion of a sponsor protocol format and the new M11 format
 
 #### Sheet Contents
 
@@ -763,11 +765,27 @@ A set of rows consisting of configuration parameters. The first column is the ty
 
 | Parameter | Description | Format and Values |
 | :--- | :--- | :--- |
-| CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form CT name = Version value, For example `SNOMED = 21st June 2012`|
+| CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form ctName = Version, for example `SNOMED = 21st June 2012`|
 | Empty None | Allows for string fields to be set to '' rather than null/none values so as to accomodate the SDR validation checks | Set to 'EMPTY' to use ''. Any other value will permit  null values to be used |
+| Template | Configures a protocol template and the associated studyDesignContent sheet | Entries take the form of templateName = sheetName, for example `Sponsor = sponsorContent`. The template name and the sheet name are simple strings. Template names are at the user's discretion but the string `m11` or `M11` is reserved as the template name for the M11 Template format. The sheet name must match a sheet within the workbook that must be structured as per the studyDesignContent sheet format. |
+| Use Template | Indicates which template is to be used | The value should match one of the names defined using the Template configuration parameter |
+| USDM Version | Deprecated | Deprecated |
 | SDR Prev Next | Deprecated | Deprecated |
 | SDR Root | Deprecated | Deprecated |
 | SDR Description | Deprecated | Deprecated |
+
+An example configuration is
+
+| First Column | Second Column |
+| :--- | :--- | 
+| CT Version | SNOMED=January 31, 2018 |
+| CT Version | SPONSOR =   12 |
+| CT Version | ICD-10=1 |
+| Template | lilly=lillyFormat |
+| Template | m11=m11Format |
+| Use Template | m11 |
+
+This sets up three CT versions and two templates. The M11 template will be used.
 
 # Issues
 
