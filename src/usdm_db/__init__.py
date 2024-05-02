@@ -33,9 +33,9 @@ class USDMDb():
   def from_json(self, data):
     self._wrapper = Wrapper.model_validate(data)
     
-  def from_excel(self, file_path):
+  def from_excel(self, file_path, override_template: str = None):
     self._excel = USDMExcel(file_path)
-    self._wrapper = self._excel.execute()
+    self._wrapper = self._excel.execute(override_template)
     return self._excel.errors()
 
   def was_m11(self) -> bool:

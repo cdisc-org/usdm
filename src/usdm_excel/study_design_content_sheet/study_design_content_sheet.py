@@ -14,8 +14,6 @@ class StudyDesignContentSheet(BaseSheet):
       template = globals.option_manager.get(Options.USE_TEMPLATE)
       sheet_name = globals.template_manager.get(template)
       globals.errors_and_logging.info(f"About to read content sheet '{sheet_name}' based on template '{template}'")  
-      print(f"TEMPLATE: {template}")
-      print(f"SHEET NAME: {template}")
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, optional=True, converters={"sectionName": str})
       if self.success:
         current_level = 0

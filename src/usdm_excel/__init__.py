@@ -44,9 +44,9 @@ class USDMExcel():
     self._globals = Globals()
     self._file_path = file_path
 
-  def execute(self):
+  def execute(self, template_override: str = None):
     self._globals.create()
-    return self._process()
+    return self._process(template_override)
 
   def errors(self):
     return self._globals.errors_and_logging.errors().dump(Errors.WARNING)
@@ -54,11 +54,18 @@ class USDMExcel():
   def was_m11(self):
     return self._globals.option_manager.get(Options.USE_TEMPLATE) == "M11"
   
-  def _process(self):
+  def _process(self, template_override: str = None):
     try:
     
-      # Process all the sheets
+      # Read the configuration. Override the template if requested and present, otherwise leave as configured
       self.configuration = ConfigurationSheet(self._file_path, self._globals)
+      if template_override:
+        sheet_name = self._globals.template_manager.get(template_override)
+        if sheet_name:
+          self._globals.option_manager.set(Options.USE_TEMPLATE, template_override.upper())
+          self._globals.errors_and_logging.info(f"Template overridden. Using template '{template_override}' and sheet '{sheet_name}'")
+
+      # Process all the remaining sheets
       self.study = StudySheet(self._file_path, self._globals)
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
       self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._globals)
