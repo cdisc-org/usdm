@@ -10,7 +10,8 @@ def test_from_fhir_1(mocker, globals, minimal, factory):
   with open(f"tests/integration_test_files/full_1_fhir.json", 'r') as f:
     data = f.read()
   fhir = FromFHIR(globals.id_manager, globals.errors_and_logging)
-  fhir.from_fhir(data)
+  wrapper = fhir.from_fhir(data)
+  print(wrapper.to_json())
 
 # def test_content_to_section(mocker, globals, minimal, factory):
 #   minimal.population.criteria = create_criteria(factory)

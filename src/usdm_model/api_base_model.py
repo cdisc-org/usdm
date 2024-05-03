@@ -3,6 +3,7 @@ from typing import Union
 import json
 import enum
 import datetime
+from uuid import UUID
 
 # Example, see https://stackoverflow.com/questions/10252010/serializing-class-instance-to-json
 def _serialize_as_json(obj):
@@ -10,6 +11,8 @@ def _serialize_as_json(obj):
     return obj.value
   elif isinstance(obj, datetime.date):
     return obj.isoformat()
+  elif isinstance(obj, UUID):
+    return str(obj)
   else:
     return obj.__dict__
 
@@ -18,6 +21,8 @@ def _serialize_as_json_with_type(obj):
     return obj.value
   elif isinstance(obj, datetime.date):
     return obj.isoformat()
+  elif isinstance(obj, UUID):
+    return str(obj)
   else:
     result = obj.__dict__
     result['_type'] = obj.__class__.__name__
