@@ -12,7 +12,7 @@ from fhir.resources.reference import Reference
 from uuid import uuid4
 import datetime
 
-class FHIR():
+class ToFHIR():
 
   class LogicError(Exception):
     pass
