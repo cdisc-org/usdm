@@ -1,5 +1,6 @@
 import logging
 from datetime import date
+from uuid import UUID
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class CrossReference():
@@ -11,18 +12,12 @@ class CrossReference():
     self._logger = logging.getLogger(__name__)
     self._process_node(self._study)
 
-  # def clear(self):
-  #   self._references = {}
-  
   def get(self, klass, id):
     key = self._key(klass, id)
     if key in self._references:
       return self._references[key]
     else:
       return None
-
-  # def dump(self):
-  #   print(f"\n\n\nREFERENCES\n\n{self._references.keys()}")
 
   def _process_node(self, node):
     if type(node) == list:
@@ -36,6 +31,8 @@ class CrossReference():
     elif type(node) == date:
       pass
     elif type(node) == bool:
+      pass
+    elif type(node) == UUID:
       pass
     elif node is None:
       pass

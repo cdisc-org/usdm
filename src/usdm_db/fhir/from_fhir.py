@@ -33,8 +33,11 @@ class FromFHIR():
       bundle = Bundle.parse_raw(data)
       study = self._study(bundle.entry[0].resource.title)
       doc_version = self._document_version(study)
+      root = self._model_instance(NarrativeContent, {'name': 'ROOT', 'sectionNumber': '0', 'sectionTitle': 'Root', 'text': '', 'childIds': [], 'previousId': None, 'nextId': None})
+      doc_version.contents.append(root)
       for item in bundle.entry[0].resource.section:
-        self._section(item, doc_version)
+        nc_item = self._section(item, doc_version)
+        root.childIds.append(nc_item.id)
       self._double_link(doc_version.contents, 'previousId', 'nextId')
       return Wrapper(study=study, usdmVersion=usdm_version, systemName=self.SYSTEM_NAME, systemVersion=system_version)
     except Exception as e:

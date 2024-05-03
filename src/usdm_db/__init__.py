@@ -5,7 +5,9 @@ from usdm_excel import USDMExcel
 from usdm_model.wrapper import Wrapper
 from usdm_db.document.document import Document
 from usdm_db.fhir.to_fhir import ToFHIR
+from usdm_db.fhir.from_fhir import FromFHIR
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
+from usdm_excel.id_manager import IdManager
 from usdm_db.neo4j_dict import Neo4jDict
 from usdm_db.timeline import Timeline
 
@@ -38,6 +40,12 @@ class USDMDb():
     self._wrapper = self._excel.execute(override_template)
     return self._excel.errors()
 
+  def from_fhir(self, data: str):
+    id_manager = IdManager(self._errors_and_logging)
+    fhir = FromFHIR(id_manager, self._errors_and_logging)
+    self._wrapper = fhir.from_fhir(data)
+    return True
+  
   def was_m11(self) -> bool:
     return self._excel.was_m11()
   

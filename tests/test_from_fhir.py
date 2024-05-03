@@ -1,6 +1,7 @@
 
 from usdm_model.narrative_content import NarrativeContent
 from usdm_db.fhir.from_fhir import FromFHIR
+from usdm_db import USDMDb
 
 def test_create(mocker, globals, minimal, factory):
   fhir = FromFHIR(globals.id_manager, globals.errors_and_logging)
@@ -11,7 +12,15 @@ def test_from_fhir_1(mocker, globals, minimal, factory):
     data = f.read()
   fhir = FromFHIR(globals.id_manager, globals.errors_and_logging)
   wrapper = fhir.from_fhir(data)
-  print(wrapper.to_json())
+  assert wrapper is not None
+
+def test_from_fhir_1(mocker, globals, minimal, factory):
+  with open(f"tests/integration_test_files/full_1_fhir.json", 'r') as f:
+    data = f.read()
+  usdm = USDMDb()
+  fhir = usdm.from_fhir(data)
+  html = usdm.to_html()
+  print(html)
 
 # def test_content_to_section(mocker, globals, minimal, factory):
 #   minimal.population.criteria = create_criteria(factory)
