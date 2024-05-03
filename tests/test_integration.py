@@ -1,8 +1,9 @@
 import json
 import csv
-from usdm_excel import USDMExcel
+import yaml
 from usdm_db import USDMDb
 from bs4 import BeautifulSoup
+from uuid import UUID
 
 SAVE_ALL = False
 
@@ -87,6 +88,39 @@ def run_test_timeline(filename, level=USDMDb.FULL_HTML, save=False):
   with open(f"tests/integration_test_files/{filename}_timeline_{level}.html", 'r') as f:
     expected = f.read()
   assert result == expected
+
+def run_test_neo4j(filename, mocker, save=False):
+  fake_uuids = (UUID(f'00000000-0000-4000-8000-{i:012}', version=4) for i in range(10000))
+  mocker.patch("usdm_db.neo4j_dict.uuid4", side_effect=fake_uuids)
+  usdm = USDMDb()
+  usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result = usdm.to_neo4j_dict()
+
+  # Useful if you want to see the results.
+  if save or SAVE_ALL:
+    with open(f"tests/integration_test_files/{filename}_neo4j_dict.yaml", 'w') as f:
+      f.write(yaml.dump(result))
+  
+  with open(f"tests/integration_test_files/{filename}_neo4j_dict.yaml", 'r') as f:
+    expected = yaml.safe_load(f) 
+  assert result == expected
+
+def run_test_fhir(filename, mocker, save=False):
+  fake_uuids = (UUID(f'00000000-0000-4000-8000-{i:012}', version=4) for i in range(1,10))
+  mocker.patch("usdm_db.uuid4", side_effect=fake_uuids)
+  usdm = USDMDb()
+  usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
+  result = usdm.to_fhir()
+
+  if save or SAVE_ALL:
+    with open(f"tests/integration_test_files/{filename}_fhir.json", 'w', encoding='utf-8') as f:
+      f.write(json.dumps(json.loads(result), indent=2))
+  
+  with open(f"tests/integration_test_files/{filename}_fhir.json", 'r') as f:
+    expected = json.load(f)
+  result_dict = json.loads(result)
+  result_dict["entry"][0]["resource"]["date"] = expected["entry"][0]["resource"]["date"] # Date is dynamic, bit of a fiddle but datetime mocking is a pain.
+  json.dumps(result_dict) == json.dumps(expected)
 
 def test_full_1():
   run_test('full_1')
@@ -198,3 +232,18 @@ def test_references_html():
 
 def test_references_html_highlight():
   run_test_html('references', highlight=True)
+
+def test_simple_neo4j_1(mocker):
+  run_test_neo4j('simple_1', mocker)
+
+def test_full_neo4j_1(mocker):
+  run_test_neo4j('full_1', mocker)
+
+def test_full_neo4j_2(mocker):
+  run_test_neo4j('full_2', mocker)
+
+def test_full_neo4j_3(mocker):
+  run_test_neo4j('full_3', mocker)
+
+def test_full_fhir_1(mocker):
+  run_test_fhir('full_1', mocker)
