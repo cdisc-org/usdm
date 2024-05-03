@@ -11,6 +11,7 @@ from fhir.resources.codeableconcept import CodeableConcept
 from fhir.resources.reference import Reference
 from uuid import uuid4
 import datetime
+
 class FHIR():
 
   class LogicError(Exception):
@@ -87,7 +88,11 @@ class FHIR():
         attributes = ref.attrs
         if dictionary:
           entry = next((item for item in dictionary.parameterMaps if item.tag == attributes['name']), None)
-          self._replace_and_highlight(ref, get_soup(entry.reference, self._errors_and_logging))
+          if entry:
+            self._replace_and_highlight(ref, get_soup(entry.reference, self._errors_and_logging))
+          else:
+            self._errors_and_logging.error(f"Missing dictionary entry while attempting to resolve reference '{attributes}' while generating the FHIR message")
+            self._replace_and_highlight(ref, 'Missing content: missing dictionary entry')
         else:
           self._errors_and_logging.error(f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the FHIR message")
           self._replace_and_highlight(ref, 'Missing content: missing dictionary')
