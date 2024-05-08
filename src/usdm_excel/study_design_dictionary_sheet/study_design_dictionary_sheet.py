@@ -43,7 +43,7 @@ class StudyDesignDictionarySheet(BaseSheet):
               if map:
                 current_map.append(map)
           else:
-            map = self.create_object(ParameterMap, {'tag': key, 'reference': f"<div>{value}</div>"})
+            map = self.create_object(ParameterMap, {'tag': key, 'reference': f'{value}'})
             if map:
               current_map.append(map)
         # Clean up last dictionary if present

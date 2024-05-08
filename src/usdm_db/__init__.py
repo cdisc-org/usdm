@@ -7,7 +7,6 @@ from usdm_db.document.document import Document
 from usdm_db.fhir.to_fhir import ToFHIR
 from usdm_db.fhir.from_fhir import FromFHIR
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
-from usdm_excel.id_manager import IdManager
 from usdm_db.neo4j_dict import Neo4jDict
 from usdm_db.timeline import Timeline
 
@@ -41,8 +40,7 @@ class USDMDb():
     return self._excel.errors()
 
   def from_fhir(self, data: str):
-    id_manager = IdManager(self._errors_and_logging)
-    fhir = FromFHIR(id_manager, self._errors_and_logging)
+    fhir = FromFHIR(self._errors_and_logging)
     self._wrapper = fhir.from_fhir(data)
     return True
   

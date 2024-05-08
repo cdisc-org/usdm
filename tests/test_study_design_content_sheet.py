@@ -37,7 +37,7 @@ def test_create(mocker, globals):
   assert content.items[1].name == 'SECTION 1'
   assert content.items[1].sectionNumber == '1'
   assert content.items[1].sectionTitle == 'Section 1'
-  assert content.items[1].text == '<div>Text 1</div>'
+  assert content.items[1].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1</div>'
   assert content.items[1].childIds == ['Content_3', 'Content_4']
   assert content.items[1].previousId == 'Content_1'
   assert content.items[1].nextId == 'Content_3'  
@@ -78,7 +78,7 @@ def test_create_training_dot(mocker, globals):
   assert content.items[1].name == 'SECTION 1'
   assert content.items[1].sectionNumber == '1'
   assert content.items[1].sectionTitle == 'Section 1'
-  assert content.items[1].text == '<div>Text 1</div>'
+  assert content.items[1].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1</div>'
   assert content.items[1].childIds == ['Content_3', 'Content_4']
   assert content.items[2].name == 'SET NAME'
   assert content.items[3].name == 'SECTION 1.2'
@@ -113,13 +113,13 @@ def test_create_4_levels(mocker, globals):
   assert content.items[4].name == 'SECTION 1.2.1'
   assert content.items[4].sectionNumber == '1.2.1'
   assert content.items[4].sectionTitle == 'Section 1.2.1'
-  assert content.items[4].text == '<div>Text 1.2.1</div>'
+  assert content.items[4].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1.2.1</div>'
   assert content.items[4].childIds == ['Content_6']
   assert content.items[5].id == 'Content_6'
   assert content.items[5].name == 'SECTION 1.2.1.1'
   assert content.items[5].sectionNumber == '1.2.1.1'
   assert content.items[5].sectionTitle == 'Section 1.2.1.1'
-  assert content.items[5].text == '<div>Text 1.2.1.1</div>'
+  assert content.items[5].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1.2.1.1</div>'
   assert content.items[5].childIds == []
 
 def test_create_standard_section(mocker, globals):
@@ -141,11 +141,11 @@ def test_create_standard_section(mocker, globals):
   content = StudyDesignContentSheet("", globals)
   assert len(content.items) == 6
   assert content.items[0].text == ''
-  assert content.items[1].text == '<div>Text 1</div>'
-  assert content.items[2].text == '<div>Text 1.1</div>'
-  assert content.items[3].text == '<div><usdm:section name="m11-title"></div>'
-  assert content.items[4].text == '<div><usdm:section name="m11-title"></div>'
-  assert content.items[5].text == '<div>Text 2</div>'
+  assert content.items[1].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1</div>'
+  assert content.items[2].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1.1</div>'
+  assert content.items[3].text == '<div xmlns="http://www.w3.org/1999/xhtml"><usdm:section name="m11-title"></div>'
+  assert content.items[4].text == '<div xmlns="http://www.w3.org/1999/xhtml"><usdm:section name="m11-title"></div>'
+  assert content.items[5].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 2</div>'
 
 def test_create_invalid_levels(mocker, globals):
   globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')

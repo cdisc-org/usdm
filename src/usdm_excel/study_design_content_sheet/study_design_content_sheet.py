@@ -7,6 +7,9 @@ from usdm_excel.document.macros import Macros
 class StudyDesignContentSheet(BaseSheet):
 
   #SHEET_NAME = 'studyDesignContent'
+  DIV_OPEN_NS = '<div xmlns="http://www.w3.org/1999/xhtml">'
+  DIV_OPEN = '<div>'
+  DIV_CLOSE = '</div>'
 
   def __init__(self, file_path: str, globals: Globals):
     try:
@@ -84,5 +87,10 @@ class StudyDesignContentSheet(BaseSheet):
     return len(parts)
 
   def _wrap_div(self, text):
-    return text if text.startswith("<div>") else f"<div>{text}</div>"
+    if text.startswith(self.DIV_OPEN_NS):
+      return text
+    elif text.startswith(self.DIV_OPEN):
+      return text.replace(self.DIV_OPEN, self.DIV_OPEN_NS)
+    else:
+      return f'{self.DIV_OPEN_NS}{text}{self.DIV_CLOSE}'
   

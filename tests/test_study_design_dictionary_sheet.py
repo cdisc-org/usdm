@@ -37,7 +37,7 @@ def test_create(mocker, globals):
   assert dictionaries.items[0].parameterMaps[1].reference == '<usdm:ref klass="ApiBaseModelWithId" id="2" attribute="Attribute 2"></usdm:ref>'
   assert [x.tag for x in dictionaries.items[1].parameterMaps] == ['Key 3']
   assert [x.tag for x in dictionaries.items[2].parameterMaps] == ['Key 4', 'Key 5', 'Key 6']
-  assert dictionaries.items[2].parameterMaps[2].reference == "<div>Hello!</div>"
+  assert dictionaries.items[2].parameterMaps[2].reference == "Hello!"
   
 def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
