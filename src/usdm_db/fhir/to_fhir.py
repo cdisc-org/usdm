@@ -34,12 +34,13 @@ class ToFHIR():
         content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
         sections.append(self._content_to_section(content))
       type_code = CodeableConcept(text=f"EvidenceReport")
-      date = datetime.datetime.now().isoformat()
+      #date = datetime.datetime.now().isoformat()
+      date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
       author = Reference(display="USDM")
       composition = Composition(title=self.doc_title, type=type_code, section=sections, date=date, status="preliminary", author=[author])
       identifier = Identifier(system='urn:ietf:rfc:3986', value=f'urn:uuid:{uuid}')
       bundle_entry = BundleEntry(resource=composition, fullUrl="https://www.example.com/Composition/1234")
-      bundle = Bundle(id=None, entry=[bundle_entry], type="document", identifier=identifier)
+      bundle = Bundle(id=None, entry=[bundle_entry], type="document", identifier=identifier, timestamp=date)
       return bundle.json()
     except Exception as e:
       self._errors_and_logging.exception(f"Exception raised generating FHIR content. See logs for more details", e)
@@ -47,7 +48,7 @@ class ToFHIR():
 
   def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
     div = self._translate_references(content.text)
-    narrative = Narrative(status='generated', div=str(div))
+    narrative = Narrative(status='generated', div=self._add_section_heading(content, div))
     title = self._format_section_title(content.sectionTitle)
     code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
     #print(f"COMPOSITION: {code.text}, {title}, {narrative}, {div}")
@@ -109,3 +110,9 @@ class ToFHIR():
       return self._cross_ref.get('SyntaxTemplateDictionary', instance.dictionaryId)
     except:
       return None  
+
+  def _add_section_heading(self, content, div):
+    DIV_OPEN_NS = '<div xmlns="http://www.w3.org/1999/xhtml">'
+    text = str(div)
+    text = text.replace(DIV_OPEN_NS, f"{DIV_OPEN_NS}<p>{content.sectionNumber} {content.sectionTitle}</p>")
+    return text
