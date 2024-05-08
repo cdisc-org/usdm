@@ -48,7 +48,9 @@ class ToFHIR():
 
   def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
     div = self._translate_references(content.text)
-    narrative = Narrative(status='generated', div=self._add_section_heading(content, div))
+    text = self._add_section_heading(content, div)
+    text = self._remove_line_feeds(text)
+    narrative = Narrative(status='generated', div=text)
     title = self._format_section_title(content.sectionTitle)
     code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
     #print(f"COMPOSITION: {code.text}, {title}, {narrative}, {div}")
@@ -111,8 +113,14 @@ class ToFHIR():
     except:
       return None  
 
-  def _add_section_heading(self, content, div):
+  def _add_section_heading(self, content: NarrativeContent, div) -> str:
     DIV_OPEN_NS = '<div xmlns="http://www.w3.org/1999/xhtml">'
     text = str(div)
     text = text.replace(DIV_OPEN_NS, f"{DIV_OPEN_NS}<p>{content.sectionNumber} {content.sectionTitle}</p>")
+    return text
+
+  def _remove_line_feeds(self, div: str) -> str:
+    print(f"LB: {len(div)}")
+    text = div.replace('\n', '')
+    print(f"LA: {len(text)}")
     return text
