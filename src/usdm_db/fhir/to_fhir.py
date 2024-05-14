@@ -120,7 +120,7 @@ class ToFHIR():
     return text
 
   def _remove_line_feeds(self, div: str) -> str:
-    print(f"LB: {len(div)}")
+    #print(f"LB: {len(div)}")
     text = div.replace('\n', '')
-    print(f"LA: {len(text)}")
+    #print(f"LA: {len(text)}")
     return text
