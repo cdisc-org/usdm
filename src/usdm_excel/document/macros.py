@@ -71,11 +71,12 @@ class Macros():
       ref.replace_with('Missing activity: failed to find activity')
 
   def _image(self, attributes, soup, ref) -> None:
-    type = {attributes['type']}
+    type = attributes['type']
     data = self._encode_image(attributes['file'])
     if data:
       img_tag = soup.new_tag("img")
       img_tag.attrs['src'] = f"data:image/{type};base64,{data.decode('ascii')}"
+      img_tag.attrs['alt'] = "Alt text"
       ref.replace_with(img_tag)
     else:
       self._note({'text': f"Failed to insert image '{attributes['file']}', ignoring!"}, soup, ref)
