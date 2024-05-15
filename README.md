@@ -803,6 +803,7 @@ See the [github issues](https://github.com/data4knowledge/usdm/issues)
 Then
 
 1. Build and upload
+1. Write release note
 
 ## Build steps for deployment to pypi.org
 
