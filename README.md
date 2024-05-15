@@ -793,6 +793,18 @@ See the [github issues](https://github.com/data4knowledge/usdm/issues)
 
 # Build Notes
 
-Build with `python3 -m build --sdist --wheel`
+## Checklist
 
-Upload to pypi using `twine upload dist/* `
+1. Everything on main branch?
+1. Readme updated with any necessary changes?
+1. Version updated?
+1. All tests passing?
+
+Then
+
+1. Build and upload
+
+## Build steps for deployment to pypi.org
+
+- Build with `python3 -m build --sdist --wheel`
+- Upload to pypi.org using `twine upload dist/* `
