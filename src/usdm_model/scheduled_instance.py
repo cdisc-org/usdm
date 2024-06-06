@@ -7,13 +7,13 @@ class ConditionAssignment(ApiBaseModelWithId):
   instanceType: Literal['ConditionAssignment']
 
 class ScheduledInstance(ApiBaseModelWithIdNameLabelAndDesc):
-  timelineId: Union[str, None] = None
-  timelineExitId: Union[str, None] = None
   defaultConditionId: Union[str, None] = None
   epochId: Union[str, None] = None
   instanceType: Literal['ScheduledInstance']
 
 class ScheduledActivityInstance(ScheduledInstance):
+  timelineId: Union[str, None] = None
+  timelineExitId: Union[str, None] = None
   activityIds: List[str] = []
   encounterId: Union[str, None] = None
   instanceType: Literal['ScheduledActivityInstance']

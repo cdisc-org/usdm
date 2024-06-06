@@ -7,5 +7,4 @@ class EligibilityCriterion(SyntaxTemplate):
   identifier: str
   nextId: Union[str, None] = None
   previousId: Union[str, None] = None
-  contextId: Union[str, None] = None
   instanceType: Literal['EligibilityCriterion']

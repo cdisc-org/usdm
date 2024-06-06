@@ -8,6 +8,7 @@ from .study_design import *
 from .governance_date import GovernanceDate
 from .study_amendment import StudyAmendment
 from .study_title import StudyTitle
+from .eligibility_criterion import EligibilityCriterion
 
 class StudyVersion(ApiBaseModelWithId):
   versionIdentifier: str
@@ -21,4 +22,5 @@ class StudyVersion(ApiBaseModelWithId):
   studyIdentifiers: List[StudyIdentifier] = []
   studyDesigns: List[StudyDesign] = []
   titles: List[StudyTitle]
+  criteria: List[EligibilityCriterion]
   instanceType: Literal['StudyVersion']
