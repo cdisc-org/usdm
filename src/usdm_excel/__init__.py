@@ -151,7 +151,8 @@ class USDMExcel():
           studyDesigns=self.study_design.study_designs,
           dateValues=self.study.dates[self.STUDY_VERSION_DATE],
           amendments=self.study_amendments.items,
-          titles=self.study.titles
+          titles=self.study.titles,
+          criteria=self.eligibility_criteria.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
