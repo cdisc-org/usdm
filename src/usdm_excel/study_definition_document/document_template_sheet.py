@@ -21,21 +21,21 @@ class DocumentTemplateSheet(BaseSheet):
         current_parent = []
         previous_item = None
         for index, row in self.sheet.iterrows():
+          name = self.read_cell_by_name(index, 'name')
+          name = f"SECTION {section_number}" if not name else name
           section_number = self.read_cell_by_name(index, 'sectionNumber')
           new_level = self._get_level(section_number)
           title = self.read_cell_by_name(index, 'sectionTitle')
           display_section_number = self.read_boolean_cell_by_name(index, 'displaySectionNumber')
           display_section_title = self.read_boolean_cell_by_name(index, 'displaySectionTitle')
-          name = self.read_cell_by_name(index, 'name')
-          name = f"SECTION {section_number}" if not name else name
-          content_name = self.read_cell_by_name(index, 'contentRef')
+          content_name = self.read_cell_by_name(index, 'content')
           params = {
             'name': name, 
             'sectionNumber': section_number, 
             'displaySectionNumber': display_section_number, 
             'sectionTitle': title, 
             'displaySectionTitle': display_section_title, 
-            'contentItem': self.globals.cross_references.get(NarrativeContentItem, content_name)
+            'contentItemId': self.globals.cross_references.get(NarrativeContentItem, content_name).id
           }
           item = self.create_object(NarrativeContent, params)
           if item:

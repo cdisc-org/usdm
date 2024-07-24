@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 from usdm_excel.study_definition_document.document_template_sheet import DocumentTemplateSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
-from tests.test_factory import Factory
+from usdm_model.api_base_model import ApiBaseModelWithIdAndName
 
 xfail = pytest.mark.xfail
 
@@ -10,6 +10,19 @@ def test_create(mocker, globals):
   globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
   globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
 
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[
+    ApiBaseModelWithIdAndName(id="X1",  name='ITEM1'), 
+    ApiBaseModelWithIdAndName(id="X2",  name='ITEM2'), 
+    ApiBaseModelWithIdAndName(id="X3",  name='ITEM3'), 
+    ApiBaseModelWithIdAndName(id="X4",  name='ITEM4'), 
+    ApiBaseModelWithIdAndName(id="X5",  name='ITEM5'),
+    ApiBaseModelWithIdAndName(id="X6",  name='ITEM6'), 
+    ApiBaseModelWithIdAndName(id="X7",  name='ITEM7'), 
+    ApiBaseModelWithIdAndName(id="X8",  name='ITEM8'), 
+    ApiBaseModelWithIdAndName(id="X9",  name='ITEM9'), 
+    ApiBaseModelWithIdAndName(id="X10", name='ITEM10')
+  ]
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -17,36 +30,37 @@ def test_create(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['1',     '',         'Section 1',     'Text 1'], 
-    ['1.1',   'SET NAME', 'Section 1.1',   'Text 1.1'], 
-    ['1.2',   '',         'Section 1.2',   'Text 1.2'], 
-    ['1.2.1', '',         'Section 1.2.1', 'Text 1.2.1'], 
-    ['2',     '',         'Section 2',     'Text 2'], 
-    ['2.1',   '',         'Section 2.1',   'Text 2.1'], 
-    ['3',     '',         'Section 3',     'Text 3'], 
+    ['CONTENT1', '1',     True, 'Section 1',     True, 'ITEM1'], 
+    ['CONTENT2', '1.1',   True, 'Section 1.1',   True, 'ITEM2'], 
+    ['CONTENT3', '1.2',   True, 'Section 1.2',   True, 'ITEM3'], 
+    ['CONTENT4', '1.2.1', True, 'Section 1.2.1', True, 'ITEM4'], 
+    ['CONTENT5', '2',     True, 'Section 2',     True, 'ITEM5'], 
+    ['CONTENT6', '2.1',   True, 'Section 2.1',   True, 'ITEM6'], 
+    ['CONTENT7', '3',     True, 'Section 3',     True, 'ITEM7']
   ]
   mock_read = mocker.patch("pandas.read_excel")
-  mock_read.return_value = pd.DataFrame(data, columns=['sectionNumber', 'name', 'sectionTitle', 'text'])
-  content = DocumentTemplateSheet("", globals)
+  mock_read.return_value = pd.DataFrame(data, columns=['name', 'sectionNumber', 'displaySectionNumber', 'sectionTitle', 'displaySectionTitle', 'content'])
+  content = DocumentTemplateSheet("", "", globals)
   assert len(content.items) == 8
-  assert content.items[0].name == 'ROOT'
+  assert content.items[0].name == 'CONTENT1'
   assert content.items[0].previousId == ''
   assert content.items[0].nextId == 'Content_2'  
+  assert content.items[0].nextId == 'Content_2'  
   assert content.items[1].id == 'Content_2'
-  assert content.items[1].name == 'SECTION 1'
+  assert content.items[1].name == 'CONTENT2'
   assert content.items[1].sectionNumber == '1'
   assert content.items[1].sectionTitle == 'Section 1'
   assert content.items[1].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 1</div>'
   assert content.items[1].childIds == ['Content_3', 'Content_4']
   assert content.items[1].previousId == 'Content_1'
   assert content.items[1].nextId == 'Content_3'  
-  assert content.items[2].name == 'SET NAME'
+  assert content.items[2].name == 'CONTENT3'
   assert content.items[2].previousId == 'Content_2'
   assert content.items[2].nextId == 'Content_4'  
-  assert content.items[3].name == 'SECTION 1.2'
+  assert content.items[3].name == 'CONTENT4'
   assert content.items[3].previousId == 'Content_3'
   assert content.items[3].nextId == 'Content_5'  
-  assert content.items[4].name == 'SECTION 1.2.1'
+  assert content.items[4].name == 'CONTENT5'
   assert content.items[5].name == 'SECTION 2'
   assert content.items[6].name == 'SECTION 2.1'
   assert content.items[7].id == 'Content_8'

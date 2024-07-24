@@ -13,5 +13,5 @@ class NarrativeContent(ApiBaseModelWithIdAndName):
   childIds: List[str] = []
   previousId: Union[str, None] = None
   nextId: Union[str, None] = None
-  contentItem: Union[NarrativeContentItem, None] = None
+  contentItemId: Union[str, None] = None
   instanceType: Literal['NarrativeContent']
