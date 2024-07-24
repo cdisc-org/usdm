@@ -28,8 +28,8 @@ from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
-from usdm_model.study_definition_document_version import StudyProtocolDocumentVersion
-from usdm_model.study_definition_document import StudyProtocolDocument
+from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
+from usdm_model.study_definition_document import StudyDefinitionDocument
 from usdm_model.wrapper import Wrapper
 from usdm_model.wrapper import Wrapper
 from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
@@ -119,8 +119,8 @@ class USDMExcel():
 
       # Final assembly
       try:
-        self.protocol_document_version = StudyProtocolDocumentVersion(
-          id=self._globals.id_manager.build_id(StudyProtocolDocumentVersion), 
+        self.protocol_document_version = StudyDefinitionDocumentVersion(
+          id=self._globals.id_manager.build_id(StudyDefinitionDocumentVersion), 
           protocolVersion=self.study.protocol_version,
           protocolStatus=self.study.protocol_status,
           dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE]
@@ -128,15 +128,15 @@ class USDMExcel():
         self.protocol_document_version.contents = self.contents.items
         self._globals.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
       except Exception as e:
-        self._globals.errors_and_logging.exception(f"Error creating StudyProtocolDocumentVersion object", e)
+        self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocumentVersion object", e)
 
       try:
-        study_protocol_document = StudyProtocolDocument(
-          id=self._globals.id_manager.build_id(StudyProtocolDocument), 
+        study_protocol_document = StudyDefinitionDocument(
+          id=self._globals.id_manager.build_id(StudyDefinitionDocument), 
           name=f"Protocol_Document_{self.study.name}", 
           versions=[self.protocol_document_version])
       except Exception as e:
-        self._globals.errors_and_logging.exception(f"Error creating StudyProtocolDocument object", e)
+        self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocument object", e)
 
       try:
         self.study_version = StudyVersion(

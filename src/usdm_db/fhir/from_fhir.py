@@ -3,8 +3,8 @@ from usdm_model.study import Study
 from usdm_model.study_design import StudyDesign
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_title import StudyTitle
-from usdm_model.study_definition_document import StudyProtocolDocument
-from usdm_model.study_definition_document_version import StudyProtocolDocumentVersion
+from usdm_model.study_definition_document import StudyDefinitionDocument
+from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.code import Code
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_model.organization import Organization
@@ -63,8 +63,8 @@ class FromFHIR():
     country_code = self._iso_country_code('DNK', 'Denmark')
     sponsor_code = self._cdisc_ct_code("C70793", '"Clinical Study Sponsor')
     study_title = self._model_instance(StudyTitle, {'text': title, 'type': sponsor_title_code})
-    protocl_document_version = self._model_instance(StudyProtocolDocumentVersion, {'protocolVersion': '1', 'protocolStatus': protocl_status_code})
-    protocl_document = self._model_instance(StudyProtocolDocument, {'name': 'PROTOCOL V1', 'label': '', 'description': '', 'versions': [protocl_document_version]})
+    protocl_document_version = self._model_instance(StudyDefinitionDocumentVersion, {'protocolVersion': '1', 'protocolStatus': protocl_status_code})
+    protocl_document = self._model_instance(StudyDefinitionDocument, {'name': 'PROTOCOL V1', 'label': '', 'description': '', 'versions': [protocl_document_version]})
     study_design = self._model_instance(StudyDesign, {'name': 'Study Design', 'label': '', 'description': '', 
       'rationale': 'XXX', 'interventionModel': intervention_model_code, 'arms': [], 'studyCells': [], 
       'epochs': [], 'population': None})
