@@ -14,6 +14,11 @@ def test_add(globals):
   assert len(globals.template_manager._items.keys()) == 2
   assert globals.template_manager._items['SID1'] == 'value'
 
+def test_all(globals):
+  globals.template_manager._items = {'FRED': 'value1', 'SID1': 'value2'}
+  assert len(globals.template_manager._items.keys()) == 2
+  assert globals.template_manager.all() == ['value1', 'value2']
+
 def test_get(globals):
   globals.template_manager._items = {}
   globals.template_manager._items['FRED'] = 'value'

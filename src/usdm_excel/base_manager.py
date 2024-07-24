@@ -15,3 +15,6 @@ class BaseManager():
   def get(self, name):
     u_name = name.upper()
     return self._items[u_name] if u_name in self._items else ''
+  
+  def all(self):
+    return list(self._items.values())

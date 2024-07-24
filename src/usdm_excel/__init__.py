@@ -18,7 +18,7 @@ from usdm_excel.study_design_arm_sheet.study_design_arm_sheet import StudyDesign
 from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDesignEpochSheet
 from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
-from usdm_excel.study_design_content_sheet.study_design_content_sheet import StudyDesignContentSheet
+from usdm_excel.study_definition_document.document_content_sheet import DocumentContentSheet
 from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
@@ -82,7 +82,7 @@ class USDMExcel():
       self.interventions = StudyDesignInterventionSheet(self._file_path, self._globals)
       self.study_characteristics = StudyDesignCharacteristicSheet(self._file_path, self._globals)
       self.study_population = StudyDesignPopulationSheet(self._file_path, self._globals)
-      self.contents = StudyDesignContentSheet(self._file_path, self._globals)
+      self.contents = DocumentContentSheet(self._file_path, self._globals)
       self.dictionaries = StudyDesignDictionarySheet(self._file_path, self._globals)
       self.oe = StudyDesignObjectiveEndpointSheet(self._file_path, self._globals)
       self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(self._file_path, self._globals)
