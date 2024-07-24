@@ -11,8 +11,8 @@ class StudyDesignObjectiveEndpointSheet(SyntaxTemplateSheet):
   
   def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.objectives = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       current = None
       for index, row in self.sheet.iterrows():
         o_text = self.read_cell_by_name(index, 'objectiveText') 

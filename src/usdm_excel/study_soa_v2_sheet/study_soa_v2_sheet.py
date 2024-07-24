@@ -15,7 +15,6 @@ class StudySoAV2Sheet(BaseSheet):
 
   def __init__(self, file_path: str, globals: Globals, sheet_name: str, main: bool=False, require: dict={}):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, header=None, require=require)
       self.name = ""
       self.description = ""
       self.condition = ""
@@ -26,6 +25,7 @@ class StudySoAV2Sheet(BaseSheet):
       self.timelines = []
       self.biomedical_concept_surrogates = []
       self.biomedical_concepts = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, header=None, require=require)
       self._process_sheet()
       self._raw_activities = Activities(self) # Order important, activities then instances
       self._raw_instances = ScheduledInstances(self)

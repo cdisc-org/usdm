@@ -9,8 +9,8 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
   
   def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
           category = self.read_cdisc_klass_attribute_cell_by_name('EligibilityCriteria', 'category', index, 'category')

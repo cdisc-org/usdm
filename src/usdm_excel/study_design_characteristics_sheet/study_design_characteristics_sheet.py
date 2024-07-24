@@ -8,8 +8,8 @@ class StudyDesignCharacteristicSheet(SyntaxTemplateSheet):
   
   def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       self.items = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
           name = self.read_cell_by_name(index, 'name')

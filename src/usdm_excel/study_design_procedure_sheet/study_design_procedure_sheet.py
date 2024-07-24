@@ -10,8 +10,8 @@ class StudyDesignProcedureSheet(BaseSheet):
   
   def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.procedures = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       for index, row in self.sheet.iterrows():
         xref = self.read_cell_by_name(index, "xref", default="", must_be_present=False)
         name = self.read_cell_by_name(index, ["procedureName", 'name'])

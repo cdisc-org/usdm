@@ -10,9 +10,9 @@ class StudyDesignPopulationSheet(BaseSheet):
   
   def __init__(self, file_path: str, globals: Globals):
     try:
+      self._cohorts = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.population = None
-      self._cohorts = []
       for index, row in self.sheet.iterrows():
         level = self.read_cell_by_name(index, 'level')
         name = self.read_cell_by_name(index, 'name')

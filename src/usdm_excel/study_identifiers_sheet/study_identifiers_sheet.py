@@ -11,8 +11,8 @@ class StudyIdentifiersSheet(BaseSheet):
   
   def __init__(self, file_path, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.identifiers = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.process_sheet()
     except Exception as e:
       self._sheet_exception(e)

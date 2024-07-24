@@ -11,8 +11,8 @@ class StudyDesignElementSheet(BaseSheet):
 
   def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.items = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       for index, row in self.sheet.iterrows():
         start_rule = None
         end_rule = None
