@@ -3,11 +3,13 @@ from .api_base_model import ApiBaseModelWithId
 from .code import Code
 from .governance_date import GovernanceDate
 from .narrative_content import NarrativeContent
+from .comment_annotation import CommentAnnotation
 
-class StudyProtocolDocumentVersion(ApiBaseModelWithId):
-  protocolVersion: str
-  protocolStatus: Code
+class StudyDefinitionDocumentVersion(ApiBaseModelWithId):
+  version: str
+  status: Code
   dateValues: List[GovernanceDate] = []
   contents: List[NarrativeContent] = []
   childIds: List[str] = []
-  instanceType: Literal['StudyProtocolDocumentVersion']
+  notes: List[CommentAnnotation] = []
+  instanceType: Literal['StudyDefinitionDocumentVersion']

@@ -21,6 +21,7 @@ from .syntax_template_dictionary import SyntaxTemplateDictionary
 from .masking import Masking
 from .condition import Condition
 from .organization import ResearchOrganization
+from .comment_annotation import CommentAnnotation
 
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   trialIntentTypes: List[Code] = []
@@ -50,6 +51,7 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   dictionaries: List[SyntaxTemplateDictionary] = []
   conditions: List[Condition] = []
   organizations: List[ResearchOrganization] = []
+  notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyDesign']
 
   def main_timeline(self):

@@ -6,6 +6,7 @@ from .comment_annotation import CommentAnnotation
 class Activity(ApiBaseModelWithIdNameLabelAndDesc):
   previousId: Union[str, None] = None
   nextId: Union[str, None] = None
+  childIds: List[str] = []
   definedProcedures: List[Procedure] = []
   biomedicalConceptIds: List[str] = []
   bcCategoryIds: List[str] = []

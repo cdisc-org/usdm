@@ -3,14 +3,16 @@ from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 from .range import Range
 from .characteristic import Characteristic
+from .comment_annotation import CommentAnnotation
 
 class PopulationDefinition(ApiBaseModelWithIdNameLabelAndDesc):
   includesHealthySubjects: bool
   plannedEnrollmentNumber: Union[Range, None] = None
   plannedCompletionNumber: Union[Range, None] = None
   plannedSex: List[Code] = []
-  criteriaIds: List[str] = []
+  criterionIds: List[str] = []
   plannedAge: Union[Range, None] = None
+  notes: List[CommentAnnotation] = []
   instanceType: Literal['PopulationDefinition']
 
 class StudyCohort(PopulationDefinition):

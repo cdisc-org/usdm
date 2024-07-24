@@ -7,7 +7,7 @@ class Timing(ApiBaseModelWithIdNameLabelAndDesc):
   value: str
   valueLabel: str
   relativeToFrom: Code
-  relativeFromScheduledInstanceId: Union[str, None] = None
+  relativeFromScheduledInstanceId: str
   relativeToScheduledInstanceId: Union[str, None] = None
   windowLower: Union[str, None] = None
   windowUpper: Union[str, None] = None

@@ -1,9 +1,7 @@
-from typing import List, Literal, Union
-from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
+from typing import List, Literal
+from .syntax_template import SyntaxTemplate
 
-class Condition(ApiBaseModelWithIdNameLabelAndDesc):
-  text: str
-  dictionaryId: Union[str, None] = None
+class Condition(SyntaxTemplate):
   contextIds: List[str] = []
   appliesToIds: List[str] = []
   instanceType: Literal['Condition']
