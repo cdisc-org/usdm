@@ -6,8 +6,8 @@ from usdm_model.population_definition import *
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_title import StudyTitle
-from usdm_model.study_protocol_document import StudyProtocolDocument
-from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
+from usdm_model.study_definition_document import StudyProtocolDocument
+from usdm_model.study_definition_document_version import StudyProtocolDocumentVersion
 from usdm_model.study_identifier import StudyIdentifier
 from usdm_model.organization import Organization
 from usdm_model.address import Address

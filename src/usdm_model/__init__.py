@@ -40,8 +40,8 @@ from .study_element import *
 from .study_epoch import *
 from .study_identifier import *
 from .study_intervention import *
-from .study_protocol_document_version import *
-from .study_protocol_document import *
+from .study_definition_document_version import *
+from .study_definition_document import *
 from .study_site import *
 from .study_title import *
 from .study_version import *

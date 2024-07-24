@@ -28,8 +28,8 @@ from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
-from usdm_model.study_protocol_document_version import StudyProtocolDocumentVersion
-from usdm_model.study_protocol_document import StudyProtocolDocument
+from usdm_model.study_definition_document_version import StudyProtocolDocumentVersion
+from usdm_model.study_definition_document import StudyProtocolDocument
 from usdm_model.wrapper import Wrapper
 from usdm_model.wrapper import Wrapper
 from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
