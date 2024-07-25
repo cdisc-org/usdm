@@ -237,6 +237,7 @@ def test_read_boolean_cell_by_name(mocker, globals):
     assert(base.read_boolean_cell_by_name(test[0],test[1])) == test[2]
 
 def test_read_quantity_cell_by_name(mocker, globals):
+  globals.cross_references.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [[''], ['1 days'], [' 1 weeks'], ['14 Hours'], ['14'], ['']]
@@ -255,7 +256,6 @@ def test_read_quantity_cell_by_name(mocker, globals):
   for test in test_data:
     errors = globals.errors_and_logging._errors
     errors.clear()
-    #print(f"INDEX: {test[0]}")
     item = base.read_quantity_cell_by_name(test[0],test[1],test[2],test[3]) 
     if not test[4] and not test[5]:
       assert(item.value) == test[6]

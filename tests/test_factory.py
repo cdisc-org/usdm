@@ -32,7 +32,10 @@ class Factory():
 
   def cdisc_code(self, code, decode):
     return self._build_code(code=code, system="xxx", version="1", decode=decode)
-  
+
+  def english(self):
+    return self._build_code(code="en", system="ISO639", version="2007", decode="English")
+
   def cdisc_dummy(self):
     return self.cdisc_code("C12345", "decode")
 

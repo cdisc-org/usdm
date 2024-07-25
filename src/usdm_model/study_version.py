@@ -25,7 +25,7 @@ class StudyVersion(ApiBaseModelWithId):
   studyIdentifiers: List[StudyIdentifier] = []
   studyDesigns: List[StudyDesign] = []
   titles: List[StudyTitle]
-  criteria: List[EligibilityCriterion]
+  criteria: List[EligibilityCriterion] = [] # Not in API
   narrativeContentItems: List[NarrativeContentItem] = []
   abbreviations: List[Abbreviation] = []
   notes: List[CommentAnnotation] = []
