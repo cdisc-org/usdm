@@ -26,7 +26,7 @@ class StudyVersion(ApiBaseModelWithId):
   studyDesigns: List[StudyDesign] = []
   titles: List[StudyTitle]
   criteria: List[EligibilityCriterion]
-  narrativeContentItem: List[NarrativeContentItem] = []
+  narrativeContentItems: List[NarrativeContentItem] = []
   abbreviations: List[Abbreviation] = []
   notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyVersion']
