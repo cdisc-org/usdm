@@ -48,6 +48,33 @@ def test_read_procedure(mocker, globals):
   assert usdm_activity.definedProcedures == [procedures[0]]
   assert usdm_activity.timelineId == ''
 
+def test_read_procedure_error(mocker, globals):
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[None, activities[0], None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 1)
+  assert item._bcs == []
+  assert item._prs == ['Procedure']
+  assert item._tls == []
+  assert item.name == "Activity 2"
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Activity 1"
+  assert usdm_activity.label == 'Activity One'
+  assert usdm_activity.description == None
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == ''
+  mock_error.assert_called()
+  assert mock_error.call_args[0][0] == "sheet"
+  assert mock_error.call_args[0][1] == 2
+  assert mock_error.call_args[0][2] == 3
+  assert mock_error.call_args[0][3] == "Cross reference error for procedure Procedure, not found"
+
+
 def test_read_timeline(mocker, globals):
   bcs, procedures, timelines, activities = _data(globals)
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
@@ -57,35 +84,61 @@ def test_read_timeline(mocker, globals):
   assert item._bcs == []
   assert item._prs == []
   assert item._tls == ['Timeline']
-  assert item.name == "Activity 2"
+  assert item.name == "Activity 3"
   usdm_activity = item.usdm_activity
-  assert usdm_activity.name == "Activity 2"
+  assert usdm_activity.name == "Activity 3"
   assert usdm_activity.label == None # @TODO Fix this
-  assert usdm_activity.description == "Activity 2"
+  assert usdm_activity.description == "Activity 3"
   assert usdm_activity.biomedicalConceptIds == []
   assert usdm_activity.bcCategoryIds == []
   assert usdm_activity.bcSurrogateIds == []
   assert usdm_activity.definedProcedures == []
   assert usdm_activity.timelineId == 'ScheduleTimeline_1'
 
+def test_read_timeline_error(mocker, globals):
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[None, activities[0], None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 2)
+  assert item._bcs == []
+  assert item._prs == []
+  assert item._tls == ['Timeline']
+  assert item.name == "Activity 3"
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Activity 1"
+  assert usdm_activity.label == 'Activity One'
+  assert usdm_activity.description == None
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == None
+  mock_error.assert_called()
+  assert mock_error.call_args[0][0] == "sheet"
+  assert mock_error.call_args[0][1] == None
+  assert mock_error.call_args[0][2] == None
+  assert mock_error.call_args[0][3] == "Unable to find timeline with name 'Timeline'"
+
 def test_read_all(mocker, globals):
   bcs, procedures, timelines, activities = _data(globals)
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
-  mock_cross_ref.side_effect=[timelines[0], None, None]
+  mock_cross_ref.side_effect=[timelines[0], procedures[0], None]
   base_sheet = _setup(mocker, globals)
   item = SoAActivity(base_sheet, 3)
   assert item._bcs == ['BC1']
   assert item._prs == ['Procedure']
   assert item._tls == ['Timeline']
-  assert item.name == "Activity 2"
+  assert item.name == "Activity 4"
   usdm_activity = item.usdm_activity
-  assert usdm_activity.name == "Activity 2"
+  assert usdm_activity.name == "Activity 4"
   assert usdm_activity.label == None # @TODO Fix this
-  assert usdm_activity.description == "Activity 2"
+  assert usdm_activity.description == "Activity 4"
   assert usdm_activity.biomedicalConceptIds == []
   assert usdm_activity.bcCategoryIds == []
-  assert usdm_activity.bcSurrogateIds == []
-  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.bcSurrogateIds == ['BiomedicalConceptSurrogate_1']
+  assert usdm_activity.definedProcedures == [procedures[0]]
   assert usdm_activity.timelineId == 'ScheduleTimeline_1'
 
 def _setup(mocker, globals: Globals):
@@ -93,7 +146,7 @@ def _setup(mocker, globals: Globals):
   mocker.patch("builtins.open", mocked_open)
   data = {
     'col_1': ['', '', '', ''],
-    'col_2': ['Activity 1', 'Activity 2', 'Activity 2', 'Activity 3'],
+    'col_2': ['Activity 1', 'Activity 2', 'Activity 3', 'Activity 4'],
     'col_3': ['BC: BC1', 'PR: Procedure', 'TL: Timeline', 'BC: BC1, PR: Procedure, TL: Timeline']
   }
   mock_read = mocker.patch("pandas.read_excel")
