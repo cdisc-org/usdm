@@ -1,11 +1,11 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
-from usdm_model.activity import Activity as USDMActivity
+from usdm_model.activity import Activity
 from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from usdm_model.procedure import Procedure
 from usdm_model.schedule_timeline import ScheduleTimeline
 
-class Activity():
+class SoAActivity():
   
   def __init__(self, parent: BaseSheet, row_index: int):
     self.parent = parent
@@ -17,7 +17,7 @@ class Activity():
     self.parent._debug(row_index, SoAColumnRows.BC_COL, f"Activity {self.name} read. BC: {self._bcs}, PR: {self._prs}, TL: {self._tls}")
     self.usdm_activity = self._as_usdm()
     
-  def _as_usdm(self):
+  def _as_usdm(self) -> Activity:
     surrogate_bc_items = []
     full_bc_items = []
     procedures = []
@@ -47,9 +47,10 @@ class Activity():
       else:
         self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
     activity = self.parent.globals.cross_references.get(Activity, self.name)
+    print(f"ACTIVITY: {self.name} {activity}")
     if activity is None:
       try:
-        activity = USDMActivity(
+        activity = Activity(
           id=self.parent.globals.id_manager.build_id(Activity),
           name=self.name,
           description=self.name,
@@ -73,7 +74,7 @@ class Activity():
       activity.timelineId = timelineId
     return activity
   
-  def _to_bc_surrogates(self, name):
+  def _to_bc_surrogates(self, name: str) -> BiomedicalConceptSurrogate:
     return BiomedicalConceptSurrogate(
       id=self.parent.globals.id_manager.build_id(BiomedicalConceptSurrogate),
       name=name,
@@ -82,7 +83,7 @@ class Activity():
       reference='None set'
     )
   
-  def _get_observation_cell(self, row_index, col_index):
+  def _get_observation_cell(self, row_index: int, col_index: int) -> tuple[list, list, list]:
     bcs = []
     prs = []
     tls = []

@@ -1,5 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.study_soa_v2_sheet.activities import Activities
+from usdm_excel.study_soa_v2_sheet.soa_activities import SoAActivities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.schedule_timeline import ScheduleTimeline
@@ -26,10 +26,10 @@ class StudySoAV2Sheet(BaseSheet):
       self.biomedical_concepts = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, header=None, require=require)
       self._process_sheet()
-      self._raw_activities = Activities(self) # Order important, activities then instances
+      self._raw_activities = SoAActivities(self) # Order important, activities then instances
       self._raw_instances = ScheduledInstances(self)
 
-      # @TODO Move block to Activities class
+      # @TODO Move block to SoAActivities class
       for item in self._raw_activities.items:
         activity = item.usdm_activity
         self.activities.append(activity)

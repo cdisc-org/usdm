@@ -1,0 +1,131 @@
+import pandas as pd
+from tests.test_factory import Factory
+from usdm_excel.globals import Globals
+from usdm_model.procedure import Procedure
+from usdm_model.biomedical_concept import BiomedicalConcept
+from usdm_model.schedule_timeline import ScheduleTimeline
+from usdm_model.activity import Activity
+from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.study_soa_v2_sheet.soa_activity import SoAActivity
+
+def test_read_bc(mocker, globals):
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[activities[0], bcs[0], None, None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 0)
+  assert item._bcs == ['BC1']
+  assert item._prs == []
+  assert item._tls == []
+  assert item.name == "Activity 1"
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Activity 1"
+  assert usdm_activity.label == 'Activity One'
+  assert usdm_activity.description == None
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == ['BiomedicalConceptSurrogate_1']
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == ''
+
+def test_read_procedure(mocker, globals):
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[procedures[0], None, None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 1)
+  assert item._bcs == []
+  assert item._prs == ['Procedure']
+  assert item._tls == []
+  assert item.name == "Activity 2"
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Activity 2"
+  assert usdm_activity.label == None # @TODO Fix this
+  assert usdm_activity.description == "Activity 2"
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == [procedures[0]]
+  assert usdm_activity.timelineId == ''
+
+def test_read_timeline(mocker, globals):
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[timelines[0], None, None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 2)
+  assert item._bcs == []
+  assert item._prs == []
+  assert item._tls == ['Timeline']
+  assert item.name == "Activity 2"
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Activity 2"
+  assert usdm_activity.label == None # @TODO Fix this
+  assert usdm_activity.description == "Activity 2"
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == 'ScheduleTimeline_1'
+
+def test_read_all(mocker, globals):
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[timelines[0], None, None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 3)
+  assert item._bcs == ['BC1']
+  assert item._prs == ['Procedure']
+  assert item._tls == ['Timeline']
+  assert item.name == "Activity 2"
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Activity 2"
+  assert usdm_activity.label == None # @TODO Fix this
+  assert usdm_activity.description == "Activity 2"
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == 'ScheduleTimeline_1'
+
+def _setup(mocker, globals: Globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {
+    'col_1': ['', '', '', ''],
+    'col_2': ['Activity 1', 'Activity 2', 'Activity 2', 'Activity 3'],
+    'col_3': ['BC: BC1', 'PR: Procedure', 'TL: Timeline', 'BC: BC1, PR: Procedure, TL: Timeline']
+  }
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  return BaseSheet("", globals, "sheet")
+
+def _data(globals: Globals):
+  globals.id_manager.clear()
+  factory = Factory(globals)
+  item_list = [
+    {'name': 'PR1', 'label': 'Procedure 1', 'description': 'Procedure One', 'procedureType': 'PR1', 'code': factory.cdisc_dummy()},
+    {'name': 'PR2', 'label': 'Procedure 2', 'description': 'Procedure Two', 'procedureType': 'PR2', 'code': factory.cdisc_dummy()}
+  ]
+  procedures = factory.set(Procedure, item_list)
+
+  item_list = [
+    {'name': 'TL1', 'label': 'Timeline 1', 'description': 'Timeline One', 'mainTimeline': False, 'entryCondition': '', 'entryId': '', 'procedureType': 'PR1', 'code': factory.cdisc_dummy()},
+    {'name': 'TL2', 'label': 'Timeline 2', 'description': 'Timeline Two', 'mainTimeline': False, 'entryCondition': '', 'entryId': '', 'procedureType': 'PR2', 'code': factory.cdisc_dummy()}
+  ]
+  timelines = factory.set(ScheduleTimeline, item_list)
+
+  item_list = [
+    {'name': 'BC1', 'label': 'Biomedicall Concept 1', 'reference': 'BC REF 1', 'code': factory.alias_code(factory.cdisc_dummy())},
+    {'name': 'BC2', 'label': 'Biomedicall Concept 2', 'reference': 'BC REF 2', 'code': factory.alias_code(factory.cdisc_dummy())}
+  ]
+  bcs = factory.set(BiomedicalConcept, item_list)
+
+  item_list = [
+    {'name': 'Activity 1', 'label': 'Activity One'},
+    {'name': 'Activity 2', 'label': 'Activity Two'}
+  ]
+  activities = factory.set(Activity, item_list)
+
+  return bcs, procedures, timelines, activities
+  
