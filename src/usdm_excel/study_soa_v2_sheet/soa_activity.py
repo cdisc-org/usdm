@@ -12,6 +12,7 @@ class SoAActivity():
     self.row_index = row_index
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
+    self.parent_activity = parent.read_cell(row_index, SoAColumnRows.ACTIVITY_COL)
     self.name = parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
     self._bcs, self._prs, self._tls = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
     self.parent._debug(row_index, SoAColumnRows.BC_COL, f"Activity {self.name} read. BC: {self._bcs}, PR: {self._prs}, TL: {self._tls}")
@@ -20,7 +21,6 @@ class SoAActivity():
   def _as_usdm(self) -> Activity:
     surrogate_bc_items = []
     full_bc_items = []
-    procedures = []
     for bc in self._bcs:
       if self.parent.globals.cdisc_bc_library.exists(bc):
         full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
@@ -34,26 +34,27 @@ class SoAActivity():
           surrogate_bc_items.append(item.id)
           self.usdm_biomedical_concept_surrogates.append(item)
           self.parent.globals.cross_references.add(item.id, item)
-    timelineId = ""
-    if len(self._tls) > 0:
-      timeline = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
-      if timeline:
-        timelineId = timeline.id
-      else:
-        timelineId = None
-        self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
-    for procedure in self._prs:
-      ref = self.parent.globals.cross_references.get(Procedure, procedure)
-      if ref is not None:
-        procedures.append(ref)
-      else:
-        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
+    timeline = self._set_timeline()
+    # if len(self._tls) > 0:
+    #   timeline = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
+    #   if timeline:
+    #     timelineId = timeline.id
+    #   else:
+    #     timelineId = None
+    #     self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
+    procedures = self._set_procedures()
+    # for procedure in self._prs:
+    #   ref = self.parent.globals.cross_references.get(Procedure, procedure)
+    #   if ref:
+    #     procedures.append(ref)
+    #   else:
+    #     self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
     activity = self.parent.globals.cross_references.get(Activity, self.name)
     if activity is None:
       params = {'name': self.name, 'description': self.name, 
-                #'label': self.name, 
-                'definedProcedures': procedures, 'biomedicalConceptIds': full_bc_items, 'bcCategoryIds': [], 
-                'bcSurrogateIds': surrogate_bc_items, 'timelineId': timelineId}
+                'label': self.name, 'definedProcedures': procedures, 
+                'biomedicalConceptIds': full_bc_items, 'bcCategoryIds': [], 
+                'bcSurrogateIds': surrogate_bc_items, 'timelineId': timeline.id if timeline else None}
       activity = self.parent.create_object(Activity, params)
       if activity:
         self.parent.globals.cross_references.add(self.name, activity)     
@@ -62,9 +63,27 @@ class SoAActivity():
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items
       activity.bcSurrogateIds = surrogate_bc_items
-      activity.timelineId = timelineId
+      activity.timelineId = timeline.id if timeline else None
     return activity
   
+  def _set_procedures(self):
+    results = []
+    for procedure in self._prs:
+      ref = self.parent.globals.cross_references.get(Procedure, procedure)
+      if ref:
+        results.append(ref)
+      else:
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
+    return results
+  
+  def _set_timeline(self):
+    result = None
+    if self._tls:
+      result = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
+      if not result:
+        self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
+    return result
+
   def _get_observation_cell(self, row_index: int, col_index: int) -> tuple[list, list, list]:
     bcs = []
     prs = []

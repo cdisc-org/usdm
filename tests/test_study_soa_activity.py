@@ -26,7 +26,7 @@ def test_read_bc(mocker, globals):
   assert usdm_activity.bcCategoryIds == []
   assert usdm_activity.bcSurrogateIds == ['BiomedicalConceptSurrogate_1']
   assert usdm_activity.definedProcedures == []
-  assert usdm_activity.timelineId == ''
+  assert usdm_activity.timelineId == None
 
 def test_read_procedure(mocker, globals):
   bcs, procedures, timelines, activities = _data(globals)
@@ -40,13 +40,13 @@ def test_read_procedure(mocker, globals):
   assert item.name == "Activity 2"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 2"
-  assert usdm_activity.label == None # @TODO Fix this
+  assert usdm_activity.label == "Activity 2"
   assert usdm_activity.description == "Activity 2"
   assert usdm_activity.biomedicalConceptIds == []
   assert usdm_activity.bcCategoryIds == []
   assert usdm_activity.bcSurrogateIds == []
   assert usdm_activity.definedProcedures == [procedures[0]]
-  assert usdm_activity.timelineId == ''
+  assert usdm_activity.timelineId == None
 
 def test_read_procedure_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
@@ -67,7 +67,7 @@ def test_read_procedure_error(mocker, globals):
   assert usdm_activity.bcCategoryIds == []
   assert usdm_activity.bcSurrogateIds == []
   assert usdm_activity.definedProcedures == []
-  assert usdm_activity.timelineId == ''
+  assert usdm_activity.timelineId == None
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 2
@@ -87,7 +87,7 @@ def test_read_timeline(mocker, globals):
   assert item.name == "Activity 3"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 3"
-  assert usdm_activity.label == None # @TODO Fix this
+  assert usdm_activity.label == "Activity 3"
   assert usdm_activity.description == "Activity 3"
   assert usdm_activity.biomedicalConceptIds == []
   assert usdm_activity.bcCategoryIds == []
@@ -133,7 +133,7 @@ def test_read_all(mocker, globals):
   assert item.name == "Activity 4"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 4"
-  assert usdm_activity.label == None # @TODO Fix this
+  assert usdm_activity.label == "Activity 4"
   assert usdm_activity.description == "Activity 4"
   assert usdm_activity.biomedicalConceptIds == []
   assert usdm_activity.bcCategoryIds == []
