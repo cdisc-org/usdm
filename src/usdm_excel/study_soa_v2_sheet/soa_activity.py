@@ -20,21 +20,11 @@ class SoAActivity():
     
   def _as_usdm(self) -> Activity:
     full_bc_items, surrogate_bc_items = self._set_biomedical_concepts()
-    # for bc in self._bcs:
-    #   if self.parent.globals.cdisc_bc_library.exists(bc):
-    #     full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
-    #     full_bc_items.append(full_bc.id)
-    #     self.usdm_biomedical_concepts.append(full_bc)
-    #     self.parent.globals.cross_references.add(full_bc.id, full_bc)
-    #   else:
-    #     params = {'name': bc, 'description': bc, 'label': bc, 'reference': 'None set'}
-    #     item = self.parent.create_object(BiomedicalConceptSurrogate, params)
-    #     if item:
-    #       surrogate_bc_items.append(item.id)
-    #       self.usdm_biomedical_concept_surrogates.append(item)
-    #       self.parent.globals.cross_references.add(item.id, item)
     timeline = self._set_timeline()
     procedures = self._set_procedures()
+    return self._set_activity(full_bc_items, surrogate_bc_items, procedures, timeline)
+
+  def _set_activity(self, full_bc_items, surrogate_bc_items, procedures, timeline):
     activity = self.parent.globals.cross_references.get(Activity, self.name)
     if activity is None:
       params = {'name': self.name, 'description': self.name, 
