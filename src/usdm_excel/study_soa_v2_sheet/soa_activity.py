@@ -19,36 +19,22 @@ class SoAActivity():
     self.usdm_activity = self._as_usdm()
     
   def _as_usdm(self) -> Activity:
-    surrogate_bc_items = []
-    full_bc_items = []
-    for bc in self._bcs:
-      if self.parent.globals.cdisc_bc_library.exists(bc):
-        full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
-        full_bc_items.append(full_bc.id)
-        self.usdm_biomedical_concepts.append(full_bc)
-        self.parent.globals.cross_references.add(full_bc.id, full_bc)
-      else:
-        params = {'name': bc, 'description': bc, 'label': bc, 'reference': 'None set'}
-        item = self.parent.create_object(BiomedicalConceptSurrogate, params)
-        if item:
-          surrogate_bc_items.append(item.id)
-          self.usdm_biomedical_concept_surrogates.append(item)
-          self.parent.globals.cross_references.add(item.id, item)
+    full_bc_items, surrogate_bc_items = self._set_biomedical_concepts()
+    # for bc in self._bcs:
+    #   if self.parent.globals.cdisc_bc_library.exists(bc):
+    #     full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
+    #     full_bc_items.append(full_bc.id)
+    #     self.usdm_biomedical_concepts.append(full_bc)
+    #     self.parent.globals.cross_references.add(full_bc.id, full_bc)
+    #   else:
+    #     params = {'name': bc, 'description': bc, 'label': bc, 'reference': 'None set'}
+    #     item = self.parent.create_object(BiomedicalConceptSurrogate, params)
+    #     if item:
+    #       surrogate_bc_items.append(item.id)
+    #       self.usdm_biomedical_concept_surrogates.append(item)
+    #       self.parent.globals.cross_references.add(item.id, item)
     timeline = self._set_timeline()
-    # if len(self._tls) > 0:
-    #   timeline = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
-    #   if timeline:
-    #     timelineId = timeline.id
-    #   else:
-    #     timelineId = None
-    #     self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
     procedures = self._set_procedures()
-    # for procedure in self._prs:
-    #   ref = self.parent.globals.cross_references.get(Procedure, procedure)
-    #   if ref:
-    #     procedures.append(ref)
-    #   else:
-    #     self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
     activity = self.parent.globals.cross_references.get(Activity, self.name)
     if activity is None:
       params = {'name': self.name, 'description': self.name, 
@@ -65,6 +51,24 @@ class SoAActivity():
       activity.bcSurrogateIds = surrogate_bc_items
       activity.timelineId = timeline.id if timeline else None
     return activity
+  
+  def _set_biomedical_concepts(self):
+    full_bc_items = []
+    surrogate_bc_items = []
+    for bc in self._bcs:
+      if self.parent.globals.cdisc_bc_library.exists(bc):
+        full_bc = self.parent.globals.cdisc_bc_library.usdm(bc)
+        full_bc_items.append(full_bc.id)
+        self.usdm_biomedical_concepts.append(full_bc)
+        self.parent.globals.cross_references.add(full_bc.id, full_bc)
+      else:
+        params = {'name': bc, 'description': bc, 'label': bc, 'reference': 'None set'}
+        item = self.parent.create_object(BiomedicalConceptSurrogate, params)
+        if item:
+          surrogate_bc_items.append(item.id)
+          self.usdm_biomedical_concept_surrogates.append(item)
+          self.parent.globals.cross_references.add(item.id, item)
+    return full_bc_items, surrogate_bc_items
   
   def _set_procedures(self):
     results = []
