@@ -18,7 +18,7 @@ class DocumentTemplateSheet(BaseSheet):
       if self.success:
         current_level = 0
         new_level = 0
-        current_parent = []
+        self._parent_stack = []
         previous_item = None
         for index, row in self.sheet.iterrows():
           name = self.read_cell_by_name(index, 'name')
@@ -43,23 +43,20 @@ class DocumentTemplateSheet(BaseSheet):
             self.globals.cross_references.add(name, item)     
             if new_level == current_level:
               # Same level
-              parent = current_parent[-1]
-              parent.childIds.append(item.id)
+              self._add_child_to_parent(item)
             elif new_level > current_level:
               # Down
               if (new_level - current_level) > 1:
                 self._error(index, self._get_column_index('sectionNumber'), f"Error with section number incresing by more than one level, section '{section_number}'.")
                 raise BaseSheet.FormatError
-              current_parent.append(previous_item)
+              if previous_item:
+                self._push_parent(previous_item)
+              self._add_child_to_parent(item)
               current_level = new_level
-              parent = current_parent[-1]
-              parent.childIds.append(item.id)
             else:
               # Up
-              for p_count in range(new_level, current_level):
-                popped = current_parent.pop()
-              parent = current_parent[-1]
-              parent.childIds.append(item.id)
+              self._pop_parent(current_level, new_level)
+              self._add_child_to_parent(item)
               current_level = new_level
             previous_item = item
           self.double_link(self.items, 'previousId', 'nextId')
@@ -70,3 +67,15 @@ class DocumentTemplateSheet(BaseSheet):
     sn = section_number[:-1] if section_number.endswith('.') else section_number
     parts = sn.split('.')
     return len(parts)
+
+  def _push_parent(self, parent):
+    self._parent_stack.append(parent)
+
+  def _pop_parent(self, current_level, new_level):
+    for p_count in range(new_level, current_level):
+      popped = self._parent_stack.pop()
+  
+  def _add_child_to_parent(self, child):
+    if self._parent_stack:
+      parent = self._parent_stack[-1]
+      parent.childIds.append(child.id)
