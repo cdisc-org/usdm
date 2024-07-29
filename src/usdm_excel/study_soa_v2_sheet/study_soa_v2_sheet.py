@@ -1,4 +1,3 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.activities import Activities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
