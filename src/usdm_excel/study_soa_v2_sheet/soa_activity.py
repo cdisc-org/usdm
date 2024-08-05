@@ -12,29 +12,34 @@ class SoAActivity():
     self.row_index = row_index
     self.usdm_biomedical_concept_surrogates = []
     self.usdm_biomedical_concepts = []
-    self.parent_activity = parent.read_cell(row_index, SoAColumnRows.ACTIVITY_COL)
-    self.name = parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
+    self._parent_name = parent.read_cell(row_index, SoAColumnRows.ACTIVITY_COL)
+    self._child_name = parent.read_cell(row_index, SoAColumnRows.CHILD_ACTIVITY_COL)
     self._bcs, self._prs, self._tls = self._get_observation_cell(row_index, SoAColumnRows.BC_COL)
-    self.parent._debug(row_index, SoAColumnRows.BC_COL, f"Activity {self.name} read. BC: {self._bcs}, PR: {self._prs}, TL: {self._tls}")
+    self.parent._debug(row_index, SoAColumnRows.BC_COL, f"Activity {self._parent_name}, {self._child_name} read. BC: {self._bcs}, PR: {self._prs}, TL: {self._tls}")
     self.usdm_activity = self._as_usdm()
     
   def _as_usdm(self) -> Activity:
-    full_bc_items, surrogate_bc_items = self._set_biomedical_concepts()
-    timeline = self._set_timeline()
-    procedures = self._set_procedures()
-    return self._set_activity(full_bc_items, surrogate_bc_items, procedures, timeline)
+    if self._parent_name:
+      if self._child_name:
+        print(f"CHILD SET")
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Both parent '{self._parent_name}' and child activity '{self._child_name}' found, child has been ignored")
+      return self._set_activity(self._parent_name, [], [], [], None)
+    else:
+      full_bc_items, surrogate_bc_items = self._set_biomedical_concepts()
+      timeline = self._set_timeline()
+      procedures = self._set_procedures()
+      return self._set_activity(self._child_name, full_bc_items, surrogate_bc_items, procedures, timeline)
 
-  def _set_activity(self, full_bc_items, surrogate_bc_items, procedures, timeline):
-    activity = self.parent.globals.cross_references.get(Activity, self.name)
+  def _set_activity(self, name, full_bc_items, surrogate_bc_items, procedures, timeline):
+    activity = self.parent.globals.cross_references.get(Activity, name)
     if activity is None:
-      params = {'name': self.name, 'description': self.name, 
-                'label': self.name, 'definedProcedures': procedures, 
+      params = {'name': name, 'description': name, 'label': name, 'definedProcedures': procedures, 
                 'biomedicalConceptIds': full_bc_items, 'bcCategoryIds': [], 
                 'bcSurrogateIds': surrogate_bc_items, 'timelineId': timeline.id if timeline else None}
       activity = self.parent.create_object(Activity, params)
       if activity:
-        self.parent.globals.cross_references.add(self.name, activity)     
-        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity '{self.name}' found, so one has been created")
+        self.parent.globals.cross_references.add(name, activity)     
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity '{name}' found, so one has been created")
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items

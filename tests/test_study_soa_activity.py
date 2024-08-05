@@ -17,7 +17,8 @@ def test_read_bc(mocker, globals):
   assert item._bcs == ['BC1']
   assert item._prs == []
   assert item._tls == []
-  assert item.name == "Activity 1"
+  assert item._parent_name == ''
+  assert item._child_name == "Activity 1"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 1"
   assert usdm_activity.label == 'Activity One'
@@ -37,7 +38,8 @@ def test_read_procedure(mocker, globals):
   assert item._bcs == []
   assert item._prs == ['Procedure']
   assert item._tls == []
-  assert item.name == "Activity 2"
+  assert item._parent_name == ''
+  assert item._child_name == "Activity 2"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 2"
   assert usdm_activity.label == "Activity 2"
@@ -58,7 +60,8 @@ def test_read_procedure_error(mocker, globals):
   assert item._bcs == []
   assert item._prs == ['Procedure']
   assert item._tls == []
-  assert item.name == "Activity 2"
+  assert item._parent_name == ''
+  assert item._child_name == "Activity 2"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 1"
   assert usdm_activity.label == 'Activity One'
@@ -84,7 +87,8 @@ def test_read_timeline(mocker, globals):
   assert item._bcs == []
   assert item._prs == []
   assert item._tls == ['Timeline']
-  assert item.name == "Activity 3"
+  assert item._parent_name == ''
+  assert item._child_name == "Activity 3"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 3"
   assert usdm_activity.label == "Activity 3"
@@ -105,7 +109,8 @@ def test_read_timeline_error(mocker, globals):
   assert item._bcs == []
   assert item._prs == []
   assert item._tls == ['Timeline']
-  assert item.name == "Activity 3"
+  assert item._parent_name == ''
+  assert item._child_name == "Activity 3"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 1"
   assert usdm_activity.label == 'Activity One'
@@ -130,7 +135,8 @@ def test_read_all(mocker, globals):
   assert item._bcs == ['BC1']
   assert item._prs == ['Procedure']
   assert item._tls == ['Timeline']
-  assert item.name == "Activity 4"
+  assert item._parent_name == ''
+  assert item._child_name == "Activity 4"
   usdm_activity = item.usdm_activity
   assert usdm_activity.name == "Activity 4"
   assert usdm_activity.label == "Activity 4"
@@ -141,13 +147,59 @@ def test_read_all(mocker, globals):
   assert usdm_activity.definedProcedures == [procedures[0]]
   assert usdm_activity.timelineId == 'ScheduleTimeline_1'
 
+def test_read_parent(mocker, globals):
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[activities[2], None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 4)
+  assert item._bcs == ['BC1']
+  assert item._prs == ['Procedure']
+  assert item._tls == ['Timeline']
+  assert item._parent_name == 'Parent 1'
+  assert item._child_name == ''
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Parent 1"
+  assert usdm_activity.label == "Parent One"
+  assert usdm_activity.description == None
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == None
+
+def test_read_parent_ignore_child(mocker, globals):
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[None, None]
+  base_sheet = _setup(mocker, globals)
+  item = SoAActivity(base_sheet, 5)
+  assert item._bcs == []
+  assert item._prs == []
+  assert item._tls == []
+  assert item._parent_name == 'Parent 2'
+  assert item._child_name == 'Activity 5'
+  usdm_activity = item.usdm_activity
+  assert usdm_activity.name == "Parent 2"
+  assert usdm_activity.label == "Parent 2"
+  assert usdm_activity.description == "Parent 2"
+  assert usdm_activity.biomedicalConceptIds == []
+  assert usdm_activity.bcCategoryIds == []
+  assert usdm_activity.bcSurrogateIds == []
+  assert usdm_activity.definedProcedures == []
+  assert usdm_activity.timelineId == None
+  assert mock_error.call_count == 2
+  mock_error.assert_has_calls([mocker.call('sheet', 6, 3, "Both parent 'Parent 2' and child activity 'Activity 5' found, child has been ignored", 30), 
+                               mocker.call("sheet", 6, 3, "No activity 'Parent 2' found, so one has been created", 30)])
+
 def _setup(mocker, globals: Globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = {
-    'col_1': ['', '', '', ''],
-    'col_2': ['Activity 1', 'Activity 2', 'Activity 3', 'Activity 4'],
-    'col_3': ['BC: BC1', 'PR: Procedure', 'TL: Timeline', 'BC: BC1, PR: Procedure, TL: Timeline']
+    'col_1': ['', '', '', '', 'Parent 1', 'Parent 2'],
+    'col_2': ['Activity 1', 'Activity 2', 'Activity 3', 'Activity 4', '', 'Activity 5'],
+    'col_3': ['BC: BC1', 'PR: Procedure', 'TL: Timeline', 'BC: BC1, PR: Procedure, TL: Timeline', 'BC: BC1, PR: Procedure, TL: Timeline', '']
   }
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
@@ -176,7 +228,8 @@ def _data(globals: Globals):
 
   item_list = [
     {'name': 'Activity 1', 'label': 'Activity One'},
-    {'name': 'Activity 2', 'label': 'Activity Two'}
+    {'name': 'Activity 2', 'label': 'Activity Two'},
+    {'name': 'Parent 1', 'label': 'Parent One'}
   ]
   activities = factory.set(Activity, item_list)
 
