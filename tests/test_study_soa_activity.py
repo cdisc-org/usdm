@@ -72,7 +72,7 @@ def test_read_procedure_error(mocker, globals):
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 2
   assert mock_error.call_args[0][2] == 3
-  assert mock_error.call_args[0][3] == "Cross reference error for procedure Procedure, not found"
+  assert mock_error.call_args[0][3] == "No procedure 'Procedure' found, missing cross reference"
 
 
 def test_read_timeline(mocker, globals):
@@ -117,9 +117,9 @@ def test_read_timeline_error(mocker, globals):
   assert usdm_activity.timelineId == None
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "sheet"
-  assert mock_error.call_args[0][1] == None
-  assert mock_error.call_args[0][2] == None
-  assert mock_error.call_args[0][3] == "Unable to find timeline with name 'Timeline'"
+  assert mock_error.call_args[0][1] == 3
+  assert mock_error.call_args[0][2] == 3
+  assert mock_error.call_args[0][3] == "No timeline 'Timeline' found, missing cross reference"
 
 def test_read_all(mocker, globals):
   bcs, procedures, timelines, activities = _data(globals)

@@ -34,7 +34,7 @@ class SoAActivity():
       activity = self.parent.create_object(Activity, params)
       if activity:
         self.parent.globals.cross_references.add(self.name, activity)     
-        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity {self.name} found, so one has been created")
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No activity '{self.name}' found, so one has been created")
     else:
       activity.definedProcedures = procedures
       activity.biomedicalConceptIds = full_bc_items
@@ -67,7 +67,7 @@ class SoAActivity():
       if ref:
         results.append(ref)
       else:
-        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"Cross reference error for procedure {procedure}, not found")
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No procedure '{procedure}' found, missing cross reference")
     return results
   
   def _set_timeline(self):
@@ -75,7 +75,7 @@ class SoAActivity():
     if self._tls:
       result = self.parent.globals.cross_references.get(ScheduleTimeline, self._tls[0])
       if not result:
-        self.parent._general_error(f"Unable to find timeline with name '{self._tls[0]}'")
+        self.parent._warning(self.row_index, SoAColumnRows.BC_COL, f"No timeline '{self._tls[0]}' found, missing cross reference")
     return result
 
   def _get_observation_cell(self, row_index: int, col_index: int) -> tuple[list, list, list]:
