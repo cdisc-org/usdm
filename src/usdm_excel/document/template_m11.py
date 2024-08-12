@@ -2,11 +2,12 @@ import re
 from yattag import Doc
 from .template_base import TemplateBase
 from usdm_excel.base_sheet import BaseSheet
+from usdm_model.study import Study
 
 class TemplateM11(TemplateBase):
 
-  def __init__(self, parent: BaseSheet, study):
-    super().__init__(parent, study)
+  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
+    super().__init__(parent, study, template_name)
 
   def title_page(self, attributes):
     doc = Doc()
