@@ -30,6 +30,9 @@ class Factory():
   def code(self, code, decode):
     return self._build_code(code=code, system="yyy", version="2", decode=decode)
 
+  def geo_code(self, code, decode):
+    return self._build_code(code=code, system="ISO 3166 1 alpha3", version="2020-08", decode=decode)
+
   def cdisc_code(self, code, decode):
     return self._build_code(code=code, system="xxx", version="1", decode=decode)
 

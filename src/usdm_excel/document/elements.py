@@ -1,57 +1,58 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_model.study import Study
 
 class Elements():
 
-  def __init__(self, parent: BaseSheet, study, template_name: str):
+  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
     super().__init__()
     self._parent = parent
     self._study = study
     # self._study_version = study.versions[0]
     # self.study_design = self._study_version.studyDesigns[0]
     # self._document_version = self.study.documentedBy.versions[0]
-    # self.methods = [func for func in dir(self.__class__) if callable(getattr(self.__class__, func)) and not func.startswith("_")]
     self._study_version = self._study.versions[0]
     self._study_design = self._study_version.studyDesigns[0]
     self._document = self._study.document_by_template_name(template_name)
     self._document_version = self._document.versions[0]
+    self._methods = [func for func in dir(self.__class__) if callable(getattr(self.__class__, func)) and not func.startswith("_")]
 
-  def valid_method(self, name):
-    return name in self.methods
+  def valid_method(self, name: str) -> bool:
+    return name in self._methods
 
-  def study_phase(self):
+  def study_phase(self) -> str:
     phase = self._study_version.phase()
     results = [{'instance': phase, 'klass': 'Code', 'attribute': 'decode'}]
     return self._set_of_references(results)
 
-  def study_short_title(self):
+  def study_short_title(self) -> str:
     title = self._study_version.get_title('Brief Study Title')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text'}] if title else []
     return self._set_of_references(results)
 
-  def study_full_title(self):
+  def study_full_title(self) -> str:
     title = self._study_version.get_title('Official Study Title')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text'}] if title else []
     return self._set_of_references(results)
 
-  def study_acronym(self):
+  def study_acronym(self) -> str:
     title = self._study_version.get_title('Study Acronym')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text'}] if title else []
     return self._set_of_references(results)
 
-  def study_rationale(self):
+  def study_rationale(self) -> str:
     results = [{'instance': self._study_version, 'klass': 'StudyVersion', 'attribute': 'rationale'}]
     return self._set_of_references(results)
 
-  def study_version_identifier(self):
+  def study_version_identifier(self) -> str:
     results = [{'instance': self._study_version, 'klass': 'StudyVersion', 'attribute': 'versionIdentifier'}]
     return self._set_of_references(results)
 
-  def study_identifier(self):
+  def study_identifier(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier'}]
     return self._set_of_references(results)
 
-  def study_regulatory_identifiers(self):
+  def study_regulatory_identifiers(self) -> str:
     results = []
     identifiers = self._study_version.studyIdentifiers
     for identifier in identifiers:
@@ -60,23 +61,23 @@ class Elements():
         results.append(item)
     return self._set_of_references(results)
 
-  def study_date(self):
+  def study_date(self) -> str:
     dates = self._document_version.dateValues
     for date in dates:
       if date.type.code == 'C99903x1':
         results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue'}]
         return self._set_of_references(results)
-    return []
+    return ''
   
-  def approval_date(self):
+  def approval_date(self) -> str:
     dates = self._study_version.dateValues
     for date in dates:
       if date.type.code == 'C132352':
         results = [{'instance': date, 'klass': 'GovernanceDate', 'attribute': 'dateValue'}]
         return self._set_of_references(results)
-    return []
+    return ''
 
-  def organization_name_and_address(self):
+  def organization_name_and_address(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
@@ -84,55 +85,49 @@ class Elements():
     ]
     return self._set_of_references(results)
 
-  def organization_address(self):
+  def organization_address(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
     ]
     return self._set_of_references(results)
 
-  def organization_name(self):
+  def organization_name(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
     ]
     return self._set_of_references(results)
 
-  def amendment(self):
+  def amendment(self) -> str:
     amendments = self._study_version.amendments
-    results = [{'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number'}]
-    return self._set_of_references(results)
+    if amendments:
+      results = [{'instance': amendments[-1], 'klass': 'StudyAmendment', 'attribute': 'number'}]
+      return self._set_of_references(results)
+    else:
+      return ''
 
-  def amendment_scopes(self):
+  def amendment_scopes(self) -> str:
     results = []
-    amendment = self._study_version.amendments[-1]
-    for item in amendment.enrollments:
-      if item.type.code == "C68846":
-        results = [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode'}]
-        return self._set_of_references(results)
-      else:
-        entry = {'instance': item.code.standardCode, 'klass': 'Code', 'attribute': 'decode'}
-        results.append(entry)
-    return self._set_of_references(results)
-
+    amendments = self._study_version.amendments
+    if amendments:
+      amendment = self._study_version.amendments[-1]
+      for item in amendment.enrollments:
+        if item.type.code == "C68846":
+          results = [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode'}]
+          return self._set_of_references(results)
+        else:
+          entry = {'instance': item.code.standardCode, 'klass': 'Code', 'attribute': 'decode'}
+          results.append(entry)
+      return self._set_of_references(results)
+    else:
+      return ''
+    
   def no_value_for_test(self):
     return ""
 
-  # def _sponsor_identifier(self):
-  #   identifiers = self._study_version.studyIdentifiers
-  #   for identifier in identifiers:
-  #     if identifier.studyIdentifierScope.organizationType.code == 'C70793':
-  #       return identifier
-  #   return None
-  
   def _set_of_references(self, items):
     if items:
       return ", ".join([f'<usdm:ref klass="{item["klass"]}" id="{item["instance"].id}" attribute="{item["attribute"]}"/>' for item in items])
     else:
       return ""
-
-  # def _get_title(self, title_type):
-  #   for title in self._study_version.titles:
-  #     if title.type.decode == title_type:
-  #       return title
-  #   return None
