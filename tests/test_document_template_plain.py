@@ -2,7 +2,7 @@ import pandas as pd
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_excel.document.template_plain import TemplatePlain
 
-def create_criteria(factory):
+def create_criteria(factory, minimal):
   INCLUSION = factory.cdisc_code('C25532', 'Inc')
   EXCLUSION = factory.cdisc_code('C25370', 'Exc')
   item_list = [
@@ -14,13 +14,17 @@ def create_criteria(factory):
     },
   ]
   results = factory.set(EligibilityCriterion, item_list)
+  #print(f"RESULTS: {results}")
+  for criterion in results:
+    minimal.population.criterionIds.append(criterion.id)
+  minimal.study.versions[0].criteria = results
   return results
 
 def test_create(mocker, globals, minimal, factory):
   globals.id_manager.clear()
-  minimal.population.criteria = create_criteria(factory)
+  criteria = create_criteria(factory, minimal)
   bs = factory.base_sheet(mocker)
-  template = TemplatePlain(bs, minimal.study)
+  template = TemplatePlain(bs, minimal.study, 'sponsor')
   result = template.inclusion({})
   expected = '<table class="table"><tr><td>01</td><td><usdm:ref klass="EligibilityCriterion" '\
     'id="EligibilityCriterion_1" attribute="text"></usdm:ref></td></tr><tr><td>02</td><td>'\

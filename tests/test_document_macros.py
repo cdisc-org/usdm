@@ -6,7 +6,7 @@ from usdm_excel.document.macros import Macros
 from usdm_excel.globals import Globals
 from tests.test_factory import Factory
 
-def create_criteria(factory):
+def create_criteria(factory, minimal):
   INCLUSION = factory.cdisc_code('C25532', 'Inc')
   EXCLUSION = factory.cdisc_code('C25370', 'Exc')
   item_list = [
@@ -18,6 +18,10 @@ def create_criteria(factory):
     },
   ]
   results = factory.set(EligibilityCriterion, item_list)
+  #print(f"RESULTS: {results}")
+  for criterion in results:
+    minimal.population.criterionIds.append(criterion.id)
+  minimal.study.versions[0].criteria = results
   return results
 
 def create_bc(factory: Factory, globals: Globals):
@@ -30,9 +34,9 @@ def create_bc(factory: Factory, globals: Globals):
 
 def get_instance(mocker, globals, factory, minimal):
   globals.id_manager.clear()
-  minimal.population.criteria = create_criteria(factory)
+  criteria = create_criteria(factory, minimal)
   bs = factory.base_sheet(mocker)
-  macro = Macros(bs, minimal.study)
+  macro = Macros(bs, minimal.study, 'Sponsor')
   return macro
 
 def test_create(mocker, globals, factory, minimal):

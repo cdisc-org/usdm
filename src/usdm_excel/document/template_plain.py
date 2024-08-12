@@ -3,11 +3,12 @@ from usdm_excel.document.template_base import TemplateBase
 from usdm_excel.document.soa import SoA
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.schedule_timeline import ScheduleTimeline
+from usdm_model.study import Study
 
 class TemplatePlain(TemplateBase):
 
-  def __init__(self, parent: BaseSheet, study):
-    super().__init__(parent, study)
+  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
+    super().__init__(parent, study, template_name)
 
   def title_page(self, attributes):
     doc = Doc()
@@ -135,7 +136,8 @@ class TemplatePlain(TemplateBase):
 
   def _criteria_list(self, type):
     results = []
-    items = [c for c in self.study_design.population.criteria if c.category.code == type ]
+    criteria = {x.id:x for x in self._study_version.criteria}
+    items = [criteria[c] for c in self._study_design.population.criterionIds if criteria[c].category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
       result = {'identifier': item.identifier, 'text': self._reference(item, 'text')}
