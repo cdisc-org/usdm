@@ -24,17 +24,17 @@ class MinimalStudy():
     arm = factory.item(StudyArm, {'name': "Arm1", 'type': factory.cdisc_dummy(), 'dataOriginDescription': 'xxx', 'dataOriginType': factory.cdisc_dummy()})
     epoch = factory.item(StudyEpoch, {'name': 'EP1', 'label': 'Epoch A', 'description': '', 'type': factory.cdisc_dummy()})
     study_title = factory.item (StudyTitle, {'text': 'Title', 'type': factory.cdisc_dummy()})
-    self.protocl_document_version = factory.item(StudyDefinitionDocumentVersion, {'version': '1', 'status': factory.cdisc_dummy()})
-    self.protocl_document = factory.item(StudyDefinitionDocument, {'name': 'PD1', 'label': 'Protocol Document', 'description': '', 
-      'language': factory.english(), 'type': factory.cdisc_code('C70817', 'Protocol'), 'templateName': "Sponosr", 
-      'versions': [self.protocl_document_version]})
+    self.study_definition_document_version = factory.item(StudyDefinitionDocumentVersion, {'version': '1', 'status': factory.cdisc_dummy()})
+    self.study_definition_document = factory.item(StudyDefinitionDocument, {'name': 'PD1', 'label': 'Protocol Document', 'description': '', 
+      'language': factory.english(), 'type': factory.cdisc_code('C70817', 'Protocol'), 'templateName': "Sponsor", 
+      'versions': [self.study_definition_document_version]})
     self.study_design = factory.item(StudyDesign, {'name': 'Study Design', 'label': '', 'description': '', 
-      'rationale': 'XXX', 'interventionModel': factory.cdisc_dummy(), 'arms': [arm], 'studyCells': [cell], 
+      'rationale': 'Study Design Rationale', 'interventionModel': factory.cdisc_dummy(), 'arms': [arm], 'studyCells': [cell], 
       'epochs': [epoch], 'population': self.population})
     address = factory.item(Address, {'line': 'line 1', 'city': 'City', 'district': 'District', 'state': 'State', 'postalCode': '12345', 'country': factory.code("UKK", "UKK_decode")})
     organization = factory.item(Organization, {'name': 'Sponsor', 'organizationType': factory.cdisc_code("C70793", "sponsor"), 'identifier': "123456789", 'identifierScheme': "DUNS", 'legalAddress': address}) 
     identifier = factory.item(StudyIdentifier, {'studyIdentifier': 'SPONSOR-1234', 'studyIdentifierScope': organization})
     self.study_version = factory.item(StudyVersion, {'versionIdentifier': '1', 'rationale': 'XXX', 'titles': [study_title], 'studyDesigns': [self.study_design], 
-                                                     'documentVersionId': self.protocl_document_version.id, 'studyIdentifiers': [identifier]}) 
-    self.study = factory.item(Study, {'id': None, 'name': 'Study', 'label': '', 'description': '', 'versions': [self.study_version], 'documentedBy': [self.protocl_document]}) 
-
+                                                     'documentVersionId': self.study_definition_document_version.id, 'studyIdentifiers': [identifier]}) 
+    self.study = factory.item(Study, {'id': None, 'name': 'Study', 'label': '', 'description': '', 'versions': [self.study_version], 'documentedBy': [self.study_definition_document]}) 
+    #print(f"MINIMAL: {self.study.to_json()}")

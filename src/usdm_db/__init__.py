@@ -58,30 +58,27 @@ class USDMDb():
   def to_fhir(self):
     try:
       study = self._wrapper.study
-      title = self._get_title()
-      fhir = ToFHIR(title, study, self._errors_and_logging)
+      fhir = ToFHIR(study, self._errors_and_logging)
       raw_json = fhir.to_fhir(uuid4())
     except Exception as e:
       message = self._format_exception("Failed to generate FHIR output", e)
       raw_json = json.dumps({'error': message}, indent = 2)
     return raw_json
 
-  def to_html(self, highlight=False):
+  def to_html(self, template_name: str, highlight: bool=False):
     try:
       study = self._wrapper.study
-      title = self._get_title()
-      doc = Document(title, study, self._errors_and_logging)
+      doc = Document(study, template_name, self._errors_and_logging)
       html = doc.to_html(highlight)
     except Exception as e:
       message = self._format_exception("Failed to generate HTML output", e)
       html = f"<p>{message}</p>"
     return html
 
-  def to_pdf(self, test=True):
+  def to_pdf(self, template_name: str, test: bool=True):
     try:
       study = self._wrapper.study
-      title = self._get_title()
-      doc = Document(title, study, self._errors_and_logging)
+      doc = Document(study, template_name, self._errors_and_logging)
       bytes = doc.to_pdf(test)
     except Exception as e:
       message = self._format_exception("Failed to generate PDF output", e)
@@ -97,12 +94,3 @@ class USDMDb():
 
   def _format_exception(self, message, e):
     return f"{message}, exception {e}\n{traceback.format_exc()}"
-  
-  def _get_title(self):
-    study = self._wrapper.study
-    study_version = study.versions[0]
-    title_type = 'Official Study Title'
-    for title in study_version.titles:
-      if title.type.decode == title_type:
-        return title.text
-    return None

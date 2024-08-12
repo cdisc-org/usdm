@@ -15,22 +15,22 @@ class Elements():
     return name in self.methods
 
   def study_phase(self):
-    phase = self.study_version.studyPhase.standardCode
+    phase = self.study_version.phase()
     results = [{'instance': phase, 'klass': 'Code', 'attribute': 'decode'}]
     return self._set_of_references(results)
 
   def study_short_title(self):
-    title = self._get_title('Brief Study Title')
+    title = self.study_version.get_title('Brief Study Title')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text'}] if title else []
     return self._set_of_references(results)
 
   def study_full_title(self):
-    title = self._get_title('Official Study Title')
+    title = self.study_version.get_title('Official Study Title')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text'}] if title else []
     return self._set_of_references(results)
 
   def study_acronym(self):
-    title = self._get_title('Study Acronym')
+    title = self.study_version.get_title('Study Acronym')
     results = [{'instance': title, 'klass': 'StudyTitle', 'attribute': 'text'}] if title else []
     return self._set_of_references(results)
 
@@ -43,7 +43,7 @@ class Elements():
     return self._set_of_references(results)
 
   def study_identifier(self):
-    identifier = self._sponsor_identifier()
+    identifier = self.study_version.sponsor_identifier()
     results = [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier'}]
     return self._set_of_references(results)
 
@@ -73,7 +73,7 @@ class Elements():
     return []
 
   def organization_name_and_address(self):
-    identifier = self._sponsor_identifier()
+    identifier = self.study_version.sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
       {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
@@ -81,14 +81,14 @@ class Elements():
     return self._set_of_references(results)
 
   def organization_address(self):
-    identifier = self._sponsor_identifier()
+    identifier = self.study_version.sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
     ]
     return self._set_of_references(results)
 
   def organization_name(self):
-    identifier = self._sponsor_identifier()
+    identifier = self.study_version.sponsor_identifier()
     results = [
       {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
     ]
@@ -114,12 +114,12 @@ class Elements():
   def no_value_for_test(self):
     return ""
 
-  def _sponsor_identifier(self):
-    identifiers = self.study_version.studyIdentifiers
-    for identifier in identifiers:
-      if identifier.studyIdentifierScope.organizationType.code == 'C70793':
-        return identifier
-    return None
+  # def _sponsor_identifier(self):
+  #   identifiers = self.study_version.studyIdentifiers
+  #   for identifier in identifiers:
+  #     if identifier.studyIdentifierScope.organizationType.code == 'C70793':
+  #       return identifier
+  #   return None
   
   def _set_of_references(self, items):
     if items:
@@ -127,8 +127,8 @@ class Elements():
     else:
       return ""
 
-  def _get_title(self, title_type):
-    for title in self.study_version.titles:
-      if title.type.decode == title_type:
-        return title
-    return None
+  # def _get_title(self, title_type):
+  #   for title in self.study_version.titles:
+  #     if title.type.decode == title_type:
+  #       return title
+  #   return None

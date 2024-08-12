@@ -17,14 +17,14 @@ class ToFHIR():
   class LogicError(Exception):
     pass
 
-  def __init__(self, doc_title: str, study: Study, errors_and_logging: ErrorsAndLogging):
+  def __init__(self, study: Study, errors_and_logging: ErrorsAndLogging):
     self.study = study
     self._errors_and_logging = ErrorsAndLogging()
     self._cross_ref = CrossReference(study, self._errors_and_logging)
     self.study_version = study.versions[0]
     self.study_design = self.study_version.studyDesigns[0]
     self.protocol_document_version = self.study.documentedBy.versions[0]
-    self.doc_title = doc_title
+    self.doc_title = self.study_version.get_title('Official Study Title')
 
   def to_fhir(self, uuid: uuid4):
     try:

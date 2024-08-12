@@ -2,6 +2,7 @@ import os
 import docraptor
 from yattag import Doc
 from usdm_model.study import Study
+from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
 from usdm_db.cross_reference import CrossReference
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.document.utility import get_soup
@@ -11,18 +12,20 @@ class Document():
   class LogicError(Exception):
     pass
 
-  def __init__(self, doc_title: str, study: Study, errors_and_logging: ErrorsAndLogging):
-    self.study = study
-    self._errors_and_logging = ErrorsAndLogging()
+  def __init__(self, study: Study, template_name: str, errors_and_logging: ErrorsAndLogging):
+    self._study = study
+    self._errors_and_logging = errors_and_logging
     self._cross_ref = CrossReference(study, self._errors_and_logging)
-    self.study_version = study.versions[0]
-    self.study_design = self.study_version.studyDesigns[0]
-    self.protocol_document_version = self.study.documentedBy.versions[0]
-    self.doc_title = doc_title
-    self.chapters = []
-    self.modal_count = 1
-    if self.protocol_document_version.id != self.study.versions[0].documentVersionId:
-      raise self.LogicError(f"Failed to initialise NarrativeContent for document creation, ids did not match")
+    try:
+      self._study_version = self._study.versions[0]
+      self._study_design = self._study_version.studyDesigns[0]
+      self._document = self._study.document_by_template_name(template_name)
+      self._document_version = self._document.versions[0]
+      self._doc_title = self._study_version.get_title('Official Study Title')
+      self._chapters = []
+      self._modal_count = 1
+    except Exception as e:
+      self._errors_and_logging.exception(f"Failed to initialise for document creation", e)
 
   def to_pdf(self, test=True):
     doc_api = docraptor.DocApi()
@@ -52,13 +55,13 @@ class Document():
 
   def to_html(self, highlight=False):
     try:
-      self.modal_count = 1
+      self._modal_count = 1
       self.chapters = []
-      root = self.protocol_document_version.contents[0]
+      root = self._document_version.contents[0]
       doc = Doc()
       doc.asis('<!DOCTYPE html>')
       for id in root.childIds:
-        content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
+        content = next((x for x in self._document_version.contents if x.id == id), None)
         if self._is_level_1_doc_section(content.sectionNumber):
           self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
       with doc.tag('html'):
@@ -109,7 +112,7 @@ class Document():
         with doc.tag('body'):
           doc.asis(self._title_page())    
           for id in root.childIds:
-            content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
+            content = next((x for x in self._document_version.contents if x.id == id), None)
             if content:
               self._content_to_html(content, doc, highlight)
       return doc.getvalue()
@@ -117,7 +120,7 @@ class Document():
       self._errors_and_logging.exception(f"Exception raised generating HTML content. See logs for more details", e)
       return None
 
-  def _content_to_html(self, content, doc, highlight=False):
+  def _content_to_html(self, content: NarrativeContent, doc, highlight: bool=False) -> None:
     level = self._get_level(content.sectionNumber)
     klass = "page" if level == 1 else ""
     heading_id = f"section-{content.sectionNumber}"
@@ -128,9 +131,13 @@ class Document():
       if (self._is_level_1_doc_section(content.sectionNumber)) or (level > 1):
         with doc.tag(f'h{level}', id=heading_id):
           doc.asis(f"{content.sectionNumber} {content.sectionTitle}")
-      doc.asis(str(self._translate_references(content.text, highlight)))
+      content_item = self._cross_ref.get(NarrativeContentItem, content.contentItemId)
+      if content_item:
+        doc.asis(str(self._translate_references(content_item.text, highlight)))
+      else:
+        self._errors_and_logging.error(f"Missing content item while processing content for section '{content.sectionNumber}', '{content.sectionTitle}' while generating the HTML document")
       for id in content.childIds:
-        content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
+        content = next((x for x in self._document_version.contents if x.id == id), None)
         self._content_to_html(content, doc, highlight)
 
   def _get_level(self, section_number):
@@ -160,12 +167,14 @@ class Document():
       return False
 
   def _translate_references(self, content_text, highlight=False):
+    #print(f"HIGHLIGHT TR: {highlight}")
     soup = get_soup(content_text, self._errors_and_logging)
     for ref in soup(['usdm:ref']):
       try:
         attributes = ref.attrs
         instance = self._cross_ref.get(attributes['klass'], attributes['id'])
-        value = self._resolve_instance(instance, attributes['attribute'])
+        print(f"REF: {instance}")
+        value = self._resolve_instance(instance, attributes['attribute'], highlight)
         translated_text = self._translate_references(value, highlight)
         self._replace_and_highlight(soup, ref, translated_text, highlight)
       except Exception as e:
@@ -175,6 +184,7 @@ class Document():
     return get_soup(str(soup), self._errors_and_logging)
 
   def _resolve_instance(self, instance, attribute, highlight=False):
+    print(f"RI: {instance}, {attribute} {highlight}")
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
     soup = get_soup(value, self._errors_and_logging)
@@ -205,13 +215,13 @@ class Document():
       ref.replace_with(text)
 
   def _wrap_in_span_and_modal(self, soup, ref, text):
-    id = f"usdmContent{self.modal_count}"
+    id = f"usdmContent{self._modal_count}"
     span = soup.new_tag('span', attrs={'class': "usdm-highlight"})
     span.append(get_soup(self._link(id), self._errors_and_logging))
     span.append(text)
-    ref.replace_with(span)
+    x = ref.replace_with(span)
     span.append(get_soup(self._modal(ref, id), self._errors_and_logging))
-    self.modal_count += 1
+    self._modal_count += 1
 
   def _link(self, id):
     return f"""

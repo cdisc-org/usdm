@@ -30,3 +30,18 @@ class StudyVersion(ApiBaseModelWithId):
   abbreviations: List[Abbreviation] = []
   notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyVersion']
+
+  def get_title(self, title_type):
+    for title in self.titles:
+      if title.type.decode == title_type:
+        return title
+    return None
+
+  def sponsor_identifier(self):
+    for identifier in self.studyIdentifiers:
+      if identifier.studyIdentifierScope.organizationType.code == 'C70793':
+        return identifier
+    return None
+
+  def phase(self):
+    return self.studyPhase.standardCode

@@ -94,9 +94,6 @@ def test_read_cell_by_name_error(mocker, globals):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name'])
   content = DocumentContentSheet("", globals)
-  mock_error.assert_called()
-  assert call_parameters == [
-    ('documentContent', 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 40),
-    ('documentContent', None, None, 'Exception. Failed to create NarrativeContentItem object. See log for additional details.', 40)
-  ]
+  assert mock_error.call_count == 1
+  mock_error.assert_has_calls([mocker.call('documentContent', 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 40)])
   

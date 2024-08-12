@@ -13,3 +13,6 @@ class Study(ApiBaseModel):
   versions: List[StudyVersion] = []
   documentedBy: List[StudyDefinitionDocument] = []
   instanceType: Literal['Study']
+
+  def document_by_template_name(self, name: str) -> StudyDefinitionDocument:
+    return next((x for x in self.documentedBy if x.templateName.upper() == name.upper()), None)

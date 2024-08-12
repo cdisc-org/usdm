@@ -46,6 +46,7 @@ class IdManager():
       'TransitionRule': 0,
       'StudyElement': 0,
       'NarrativeContent': 0,
+      'NarrativeContentItem': 0,
       'GovernanceDate': 0,
       'GeographicScope': 0,
       'StudyAmendment': 0,
