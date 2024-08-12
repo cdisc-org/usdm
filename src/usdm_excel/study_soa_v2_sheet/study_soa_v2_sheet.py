@@ -22,8 +22,8 @@ class StudySoAV2Sheet(BaseSheet):
       #self.encounters = []
       self.activities = []
       #self.timelines = []
-      #self.biomedical_concept_surrogates = []
-      #self.biomedical_concepts = []
+      self.biomedical_concept_surrogates = []
+      self.biomedical_concepts = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, header=None, require=require)
       self._process_sheet()
       self._raw_activities = SoAActivities(self) # Order important, activities then instances

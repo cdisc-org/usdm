@@ -26,6 +26,8 @@ from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDe
 from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
 from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_sheet import StudyDesignCharacteristicSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
+from usdm_excel.cdisc_ct import CDISCCT
+from usdm_excel.other_ct import OtherCT
 from usdm_model.study import Study
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
@@ -112,29 +114,33 @@ class USDMExcel():
       study_design.population = self.study_population.population
       study_design.objectives = self.oe.objectives
       study_design.estimands = self.estimands.estimands
-      study_design.population.criteria = self.eligibility_criteria.items
+      study_design.population.criterionIds = [x.id for x in self.eligibility_criteria.items]
       study_design.dictionaries = self.dictionaries.items
       study_design.organizations = self.sites.organizations
       study_design.conditions = self.conditions.items
 
       # Final assembly
       try:
-        self.protocol_document_version = StudyDefinitionDocumentVersion(
+        self.definition_document_version = StudyDefinitionDocumentVersion(
           id=self._globals.id_manager.build_id(StudyDefinitionDocumentVersion), 
-          protocolVersion=self.study.protocol_version,
-          protocolStatus=self.study.protocol_status,
+          version=self.study.protocol_version,
+          status=self.study.protocol_status,
           dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE]
           )
-        self.protocol_document_version.contents = self.contents.items
-        self._globals.cross_references.add(self.protocol_document_version.id, self.protocol_document_version)
+        self.definition_document_version.contents = self.contents.items
+        self._globals.cross_references.add(self.definition_document_version.id, self.definition_document_version)
       except Exception as e:
-        self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocumentVersion object", e)
+       self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocumentVersion object", e)
 
       try:
-        study_protocol_document = StudyDefinitionDocument(
+        definition_document = StudyDefinitionDocument(
           id=self._globals.id_manager.build_id(StudyDefinitionDocument), 
           name=f"Protocol_Document_{self.study.name}", 
-          versions=[self.protocol_document_version])
+          versions=[self.definition_document_version],
+          language=OtherCT(self._globals).code("en", "ISO", '1', "English"),
+          type=CDISCCT(self._globals).code("C12345", "Decode"),
+          templateName='template'
+        )
       except Exception as e:
         self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocument object", e)
 
@@ -147,7 +153,7 @@ class USDMExcel():
           businessTherapeuticAreas=self.study.therapeutic_areas,
           rationale=self.study.rationale,
           studyIdentifiers=self.study_identifiers.identifiers,
-          documentVersionId=self.protocol_document_version.id,
+          documentVersionId=self.definition_document_version.id,
           studyDesigns=self.study_design.study_designs,
           dateValues=self.study.dates[self.STUDY_VERSION_DATE],
           amendments=self.study_amendments.items,
@@ -163,7 +169,7 @@ class USDMExcel():
           id=None, # No Id, will be allocated a UUID
           name=f"Study_{self.study.name}", 
           versions=[self.study_version],
-          documentedBy=study_protocol_document
+          documentedBy=[definition_document]
         )
         self._globals.cross_references.add("STUDY", self.study)
         self.contents.resolve(self.study) # Now we have full study, resolve references in the content

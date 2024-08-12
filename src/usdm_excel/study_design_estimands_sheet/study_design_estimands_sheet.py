@@ -21,9 +21,10 @@ class StudyDesignEstimandsSheet(BaseSheet):
       current_ice_name = None
       current_ice_description = None
       for index, row in self.sheet.iterrows():
+        e_name = self.read_cell_by_name(index, ['name'])
         e_summary = self.read_cell_by_name(index, "summaryMeasure")
         ap_description = self.read_cell_by_name(index, 'populationDescription')
-        ice_name = self.read_cell_by_name(index, ['intercurrentEventName', 'name'])
+        ice_name = self.read_cell_by_name(index, ['intercurrentEventName'])
         ice_description = self.read_cell_by_name(index, ['intercurrentEventDescription', 'description'])
         ice_label = self.read_cell_by_name(index, 'label', must_be_present=False)
         ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
@@ -38,7 +39,16 @@ class StudyDesignEstimandsSheet(BaseSheet):
             try:
               treatment_id = self._get_treatment(treatment_xref)
               endpoint_id = self._get_endpoint(endpoint_xref)
-              current = Estimand(id=self.globals.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
+              params = {'name': e_name,
+                        'description': '',
+                        'label': e_name,
+                        'summaryMeasure': e_summary, 
+                        'analysisPopulation': ap, 
+                        'interventionId': treatment_id, 
+                        'variableOfInterestId': endpoint_id, 
+                        'intercurrentEvents': []}
+              current = self.create_object(Estimand, params)
+              #current = Estimand(id=self.globals.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
             except Exception as e:
               self._general_error(f"Failed to create Estimand object", e)
             else:
