@@ -19,6 +19,7 @@ from usdm_excel.study_design_epoch_sheet.study_design_epoch_sheet import StudyDe
 from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import StudyDesignActivitySheet
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_definition_document.document_content_sheet import DocumentContentSheet
+from usdm_excel.study_definition_document.document_template_sheet import DocumentTemplates, DocumentTemplateSheet
 from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
@@ -46,9 +47,9 @@ class USDMExcel():
     self._globals = Globals()
     self._file_path = file_path
 
-  def execute(self, template_override: str = None):
+  def execute(self):
     self._globals.create()
-    return self._process(template_override)
+    return self._process()
 
   def errors(self):
     return self._globals.errors_and_logging.errors().dump(Errors.WARNING)
@@ -56,16 +57,16 @@ class USDMExcel():
   def was_m11(self):
     return self._globals.option_manager.get(Options.USE_TEMPLATE) == "M11"
   
-  def _process(self, template_override: str = None):
+  def _process(self):
     try:
     
       # Read the configuration. Override the template if requested and present, otherwise leave as configured
       self.configuration = ConfigurationSheet(self._file_path, self._globals)
-      if template_override:
-        sheet_name = self._globals.template_manager.get(template_override)
-        if sheet_name:
-          self._globals.option_manager.set(Options.USE_TEMPLATE, template_override.upper())
-          self._globals.errors_and_logging.info(f"Template overridden. Using template '{template_override}' and sheet '{sheet_name}'")
+      # if template_override:
+      #   sheet_name = self._globals.template_manager.get(template_override)
+      #   if sheet_name:
+      #     self._globals.option_manager.set(Options.USE_TEMPLATE, template_override.upper())
+      #     self._globals.errors_and_logging.info(f"Template overridden. Using template '{template_override}' and sheet '{sheet_name}'")
 
       # Process all the remaining sheets
       self.study = StudySheet(self._file_path, self._globals)
@@ -84,7 +85,10 @@ class USDMExcel():
       self.interventions = StudyDesignInterventionSheet(self._file_path, self._globals)
       self.study_characteristics = StudyDesignCharacteristicSheet(self._file_path, self._globals)
       self.study_population = StudyDesignPopulationSheet(self._file_path, self._globals)
+
       self.contents = DocumentContentSheet(self._file_path, self._globals)
+      self.templates = DocumentTemplates(self._file_path, self._globals)
+
       self.dictionaries = StudyDesignDictionarySheet(self._file_path, self._globals)
       self.oe = StudyDesignObjectiveEndpointSheet(self._file_path, self._globals)
       self.eligibility_criteria = StudyDesignEligibilityCriteriaSheet(self._file_path, self._globals)
@@ -119,30 +123,35 @@ class USDMExcel():
       study_design.organizations = self.sites.organizations
       study_design.conditions = self.conditions.items
 
-      # Final assembly
-      try:
-        self.definition_document_version = StudyDefinitionDocumentVersion(
-          id=self._globals.id_manager.build_id(StudyDefinitionDocumentVersion), 
-          version=self.study.protocol_version,
-          status=self.study.protocol_status,
-          dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE]
-          )
-        self.definition_document_version.contents = self.contents.items
-        self._globals.cross_references.add(self.definition_document_version.id, self.definition_document_version)
-      except Exception as e:
-       self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocumentVersion object", e)
+      self.definition_documents = []
+      self.definition_document_version_ids = []
+      for template in self.templates.items:
+        # Final assembly
+        try:
+          definition_document_version = StudyDefinitionDocumentVersion(
+            id=self._globals.id_manager.build_id(StudyDefinitionDocumentVersion), 
+            version=self.study.protocol_version,
+            status=self.study.protocol_status,
+            dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE],
+            contents=template.items
+            )
+          self.definition_document_version_ids.append(definition_document_version.id)
+          self._globals.cross_references.add(self.definition_document_version.id, self.definition_document_version)
+        except Exception as e:
+         self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocumentVersion object", e)
 
-      try:
-        definition_document = StudyDefinitionDocument(
-          id=self._globals.id_manager.build_id(StudyDefinitionDocument), 
-          name=f"Protocol_Document_{self.study.name}", 
-          versions=[self.definition_document_version],
-          language=OtherCT(self._globals).code("en", "ISO", '1', "English"),
-          type=CDISCCT(self._globals).code("C12345", "Decode"),
-          templateName='template'
-        )
-      except Exception as e:
-        self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocument object", e)
+        try:
+          definition_document = StudyDefinitionDocument(
+            id=self._globals.id_manager.build_id(StudyDefinitionDocument), 
+            name=f"Protocol_Document_{self.study.name}", 
+            versions=[definition_document_version],
+            language=OtherCT(self._globals).code("en", "ISO", '1', "English"),
+            type=CDISCCT(self._globals).code("C12345", "Decode"),
+            templateName=template.name
+          )
+          self.definition_documents.append(definition_document)
+        except Exception as e:
+          self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocument object", e)
 
       try:
         self.study_version = StudyVersion(
@@ -153,12 +162,13 @@ class USDMExcel():
           businessTherapeuticAreas=self.study.therapeutic_areas,
           rationale=self.study.rationale,
           studyIdentifiers=self.study_identifiers.identifiers,
-          documentVersionId=self.definition_document_version.id,
+          documentVersionIds=self.definition_document_version_ids,
           studyDesigns=self.study_design.study_designs,
           dateValues=self.study.dates[self.STUDY_VERSION_DATE],
           amendments=self.study_amendments.items,
           titles=self.study.titles,
-          criteria=self.eligibility_criteria.items
+          criteria=self.eligibility_criteria.items,
+          narrativeContentItems=self.contents.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
@@ -169,7 +179,7 @@ class USDMExcel():
           id=None, # No Id, will be allocated a UUID
           name=f"Study_{self.study.name}", 
           versions=[self.study_version],
-          documentedBy=[definition_document]
+          documentedBy=self.definition_documents
         )
         self._globals.cross_references.add("STUDY", self.study)
         self.contents.resolve(self.study_version, self.definition_document_version) # Now we have full study, resolve references in the content

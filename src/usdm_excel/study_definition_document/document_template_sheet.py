@@ -7,23 +7,31 @@ class DocumentTemplates():
   def __init__(self, file_path: str, globals: Globals):
     self.items = []
     for sheet_name in globals.template_manager.all():
-      self.items.append(DocumentTemplateSheet(file_path, sheet_name, globals))
+      globals.errors_and_logging.info(f"Reading document template '{sheet_name}")
+      print(f"Reading document template '{sheet_name}'")
+      document = DocumentTemplateSheet(file_path, sheet_name, globals)
+      self.items.append(document)
 
 class DocumentTemplateSheet(BaseSheet):
 
   def __init__(self, file_path: str, sheet_name: str, globals: Globals):
     try:
       self.items = []
+      self.name = sheet_name
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, optional=True, converters={"sectionName": str})
       if self.success:
+        print(f"TEMPLATE: SUCCESS1")
         current_level = 0
         new_level = 0
+        print(f"TEMPLATE: SUCCESS2")
         self._parent_stack = []
         previous_item = None
+        print(f"TEMPLATE: SUCCESS3")
         for index, row in self.sheet.iterrows():
+          print(f"TEMPLATE: SUCCESS4")
           name = self.read_cell_by_name(index, 'name')
-          name = f"SECTION {section_number}" if not name else name
           section_number = self.read_cell_by_name(index, 'sectionNumber')
+          name = f"SECTION {section_number}" if not name else name
           new_level = self._get_level(section_number)
           title = self.read_cell_by_name(index, 'sectionTitle')
           display_section_number = self.read_boolean_cell_by_name(index, 'displaySectionNumber')
@@ -37,6 +45,7 @@ class DocumentTemplateSheet(BaseSheet):
             'displaySectionTitle': display_section_title, 
             'contentItemId': self.globals.cross_references.get(NarrativeContentItem, content_name).id
           }
+          print(f"PARAMS: {params}")
           item = self.create_object(NarrativeContent, params)
           if item:
             self.items.append(item)
