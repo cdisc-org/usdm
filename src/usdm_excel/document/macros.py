@@ -4,7 +4,8 @@ from usdm_excel.document.template_m11 import TemplateM11
 from usdm_excel.document.template_plain import TemplatePlain
 from usdm_excel.document.elements import Elements
 from usdm_excel.base_sheet import BaseSheet
-from usdm_model.study import Study
+from usdm_model.study_version import StudyVersion
+from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.activity import Activity
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.biomedical_concept_surrogate import BiomedicalConceptSurrogate
@@ -12,20 +13,15 @@ from usdm_excel.document.utility import get_soup
 
 class Macros():
 
-  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
+  def __init__(self, parent: BaseSheet, study_version: StudyVersion, document_version: StudyDefinitionDocumentVersion):
     self._parent = parent
-    self._study = study
-    self._study_version = self._study.versions[0]
+    self._study_version = study_version
     self._study_design = self._study_version.studyDesigns[0]
-    self._document = self._study.document_by_template_name(template_name)
-    self._document_version = self._document.versions[0]
+    self._document_version = document_version
 
-    # self.study_version = study.versions[0]
-    # self.study_design = self._study_version.studyDesigns[0]
-    # self.protocol_document_version = self._study.documentedBy.versions[0]
-    self._elements = Elements(parent, self._study, template_name)
-    self._m11 = TemplateM11(parent, self._study, template_name)
-    self._plain = TemplatePlain(parent, self._study, template_name)
+    self._elements = Elements(parent, study_version, document_version)
+    self._m11 = TemplateM11(parent, study_version, document_version)
+    self._plain = TemplatePlain(parent, study_version, document_version)
     self._template_map = {'m11': self._m11, 'plain': self._plain}
   
   def resolve(self, content_text: str) -> str:
@@ -44,13 +40,13 @@ class Macros():
         ref.replace_with('Missing content: exception')
     return str(soup)
 
-  def _xref(self, attributes, soup, ref) -> None:
+  def _xref(self, attributes: dict, soup, ref) -> None:
     instance, attribute = self._parent.globals.cross_references.get_by_path(attributes['klass'], attributes['name'], attributes['attribute'])
     ref_tag = soup.new_tag("usdm:ref")
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)
       
-  def _bc(self, attributes, soup, ref) -> None:
+  def _bc(self, attributes: dict, soup, ref) -> None:
     bc_name = attributes['name'].upper().strip()
     activity_name = attributes['activity'].strip()
     activity = self._parent.globals.cross_references.get(Activity, activity_name)
@@ -75,7 +71,7 @@ class Macros():
       self._parent._general_error(f"Failed to find  activity '{activity_name}'")
       ref.replace_with('Missing activity: failed to find activity')
 
-  def _image(self, attributes, soup, ref) -> None:
+  def _image(self, attributes: dict, soup, ref) -> None:
     type = attributes['type']
     data = self._encode_image(attributes['file'])
     if data:
@@ -118,14 +114,14 @@ class Macros():
   def _valid_method(self, name):
     return name in ['_xref', '_image', '_element', '_section', '_note', '_bc']
   
-  def _resolve_template(self, template) -> object:
+  def _resolve_template(self, template: str) -> object:
     try:
       return self._template_map[template.lower()]
     except:
       self._parent._general_error(f"Failed to map template '{template}', using plain template")
       return self._plain
 
-  def _encode_image(self, filename) -> bytes:
+  def _encode_image(self, filename: str) -> bytes:
     try:
       with open(os.path.join(self._parent.dir_path, filename), "rb") as image_file:
         data = base64.b64encode(image_file.read())

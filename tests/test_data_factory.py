@@ -33,10 +33,10 @@ class MinimalStudy():
     global_scope = factory.item(GeographicScope, {'type': factory.cdisc_code("C68846", "Global")})
     europe_code = factory.alias_code(factory.geo_code('150', 'Europe'), [])
     europe_scope = factory.item(GeographicScope, {'type': factory.cdisc_code("C41129", "Region"), "code": europe_code})
-    approval_date = factory.item(GovernanceDate, {"name": "D_APPROVE", "label": "Design Approval", "description": "Design approval date", 
+    study_approval_date = factory.item(GovernanceDate, {"name": "D_APPROVE", "label": "Design Approval", "description": "Design approval date", 
                                                   "type": factory.cdisc_code("C132352", "Sponsor Approval Date"), "dateValue": "2006-06-01", "geographicScopes": [global_scope]})
-    doc_date = factory.item(GovernanceDate, {"name": "D_APPROVE", "label": "Design Approval", "description": "Design approval date", 
-                                             "type": factory.cdisc_code("C132352", "Sponsor Approval Date"), "dateValue": "2006-06-01", "geographicScopes": [europe_scope]})
+    doc_approval_date = factory.item(GovernanceDate, {"name": "D_APPROVE", "label": "Design Approval", "description": "Design approval date", 
+                                             "type": factory.cdisc_code("C99903x1", "Sponsor Approval Date"), "dateValue": "2006-06-01", "geographicScopes": [europe_scope]})
     phase_code = factory.cdisc_code('C12345', 'Phase Code')
     alias_phase = factory.alias_code(phase_code, [])
     self.population = factory.item(StudyDesignPopulation, {'name': 'POP1', 'label': '', 'description': '', 'includesHealthySubjects': True, 'criteria': []})
@@ -46,7 +46,7 @@ class MinimalStudy():
     study_title = factory.item(StudyTitle, {'text': 'Title', 'type': factory.cdisc_code('C44444', 'Official Study Title')})
     study_short_title = factory.item(StudyTitle, {'text': 'Short Title', 'type': factory.cdisc_code('C33333', 'Brief Study Title')})
     study_acronym = factory.item(StudyTitle, {'text': 'ACRONYM', 'type': factory.cdisc_code('C33333', 'Study Acronym')})
-    self.study_definition_document_version = factory.item(StudyDefinitionDocumentVersion, {'version': '1', 'status': factory.cdisc_dummy(), 'dateValues': [doc_date]})
+    self.study_definition_document_version = factory.item(StudyDefinitionDocumentVersion, {'version': '1', 'status': factory.cdisc_dummy(), 'dateValues': [doc_approval_date]})
     self.study_definition_document = factory.item(StudyDefinitionDocument, {'name': 'PD1', 'label': 'Protocol Document', 'description': '', 
       'language': factory.english(), 'type': factory.cdisc_code('C70817', 'Protocol'), 'templateName': "Sponsor", 
       'versions': [self.study_definition_document_version]})
@@ -66,6 +66,6 @@ class MinimalStudy():
     self.study_version = factory.item(StudyVersion, {'versionIdentifier': '1', 'rationale': 'Study version rationale', 'titles': [study_title, study_short_title, study_acronym], 
                                                      'studyDesigns': [self.study_design], 
                                                      'documentVersionId': self.study_definition_document_version.id, 'studyIdentifiers': [identifier, reg_1_identifier, reg_2_identifier], 
-                                                     'studyPhase': alias_phase, 'dateValues': [approval_date], 'amendments': [amendment]})
+                                                     'studyPhase': alias_phase, 'dateValues': [study_approval_date], 'amendments': [amendment]})
     self.study = factory.item(Study, {'id': None, 'name': 'Study', 'label': '', 'description': '', 'versions': [self.study_version], 'documentedBy': [self.study_definition_document]}) 
     #print(f"MINIMAL: {self.study.to_json()}")

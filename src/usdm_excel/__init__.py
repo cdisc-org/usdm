@@ -172,7 +172,7 @@ class USDMExcel():
           documentedBy=[definition_document]
         )
         self._globals.cross_references.add("STUDY", self.study)
-        self.contents.resolve(self.study) # Now we have full study, resolve references in the content
+        self.contents.resolve(self.study_version, self.definition_document_version) # Now we have full study, resolve references in the content
       except Exception as e:
         self._globals.errors_and_logging.exception(f"Error creating Study object", e)
 

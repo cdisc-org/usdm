@@ -1,4 +1,5 @@
 import pytest
+from tests.test_data_factory import MinimalStudy
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.activity import Activity
@@ -6,7 +7,7 @@ from usdm_excel.document.macros import Macros
 from usdm_excel.globals import Globals
 from tests.test_factory import Factory
 
-def create_criteria(factory, minimal):
+def create_criteria(factory: Factory, minimal: MinimalStudy):
   INCLUSION = factory.cdisc_code('C25532', 'Inc')
   EXCLUSION = factory.cdisc_code('C25370', 'Exc')
   item_list = [
@@ -32,11 +33,11 @@ def create_bc(factory: Factory, globals: Globals):
   globals.cross_references.add(bc.id, bc)
   globals.cross_references.add(activity.name, activity)
 
-def get_instance(mocker, globals, factory, minimal):
+def get_instance(mocker, globals: Globals, factory: Factory, minimal: MinimalStudy):
   globals.id_manager.clear()
   criteria = create_criteria(factory, minimal)
   bs = factory.base_sheet(mocker)
-  macro = Macros(bs, minimal.study, 'Sponsor')
+  macro = Macros(bs, minimal.study_version, minimal.study_definition_document_version)
   return macro
 
 def test_create(mocker, globals, factory, minimal):

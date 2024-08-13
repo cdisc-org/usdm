@@ -1,21 +1,17 @@
 from .utility import usdm_reference
-from usdm_model.study import Study
+from usdm_model.study_version import StudyVersion
+from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.document.elements import Elements
 
 class TemplateBase():
 
-  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
+  def __init__(self, parent: BaseSheet, study_version: StudyVersion, document_version: StudyDefinitionDocumentVersion):
     self.parent = parent
-    self._study = study
-    self._study_version = self._study.versions[0]
+    self._study_version = study_version
     self._study_design = self._study_version.studyDesigns[0]
-    self._document = self._study.document_by_template_name(template_name)
-    self._document_version = self._document.versions[0]
-    # self.study = study
-    # self.study_version = study.versions[0]
-    # self.study_design = self.study_version.studyDesigns[0]
-    # self.protocol_document_version = self.study.documentedBy.versions[0]
-    #self._elements = Elements(parent, study)
+    self._document_version = document_version
+    self._elements = Elements(parent, study_version, document_version)
     self._methods = [func for func in dir(self.__class__) if callable(getattr(self.__class__, func)) and not func.startswith("_")]
 
   def valid_method(self, name):

@@ -1,10 +1,13 @@
 import pytest
+from src.usdm_excel.globals import Globals as GlobalsClass
+from tests.test_factory import Factory as FactoryClass
+from tests.test_data_factory import MinimalStudy
 from usdm_excel.document.elements import Elements
 
 @pytest.fixture
-def elements(mocker, globals, factory, minimal):
+def elements(mocker, factory: FactoryClass, minimal: MinimalStudy) -> Elements:
   sheet = factory.base_sheet(mocker)
-  return Elements(sheet, minimal.study, 'sponsor')
+  return Elements(sheet, minimal.study_version, minimal.study_definition_document_version)
 
 def test_phase(elements):
   assert elements.study_phase() == '<usdm:ref klass="Code" id="Code_9" attribute="decode"/>'
@@ -30,11 +33,11 @@ def test_identifier(elements):
 def test_regulatory_identifiers(elements):
   assert elements.study_regulatory_identifiers() == '<usdm:ref klass="StudyIdentifier" id="StudyIdentifier_2" attribute="studyIdentifier"/>, <usdm:ref klass="StudyIdentifier" id="StudyIdentifier_3" attribute="studyIdentifier"/>'
 
-def test_study_date(elements):
-  assert elements.study_date() == '<usdm:ref klass="GovernanceDate" id="GovernanceDate_1" attribute="dateValue"/>'
+def test_document_date(elements):
+  assert elements.document_approval_date() == '<usdm:ref klass="GovernanceDate" id="GovernanceDate_2" attribute="dateValue"/>'
 
-def test_approval_date(elements):
-  assert elements.approval_date() == '<usdm:ref klass="GovernanceDate" id="GovernanceDate_1" attribute="dateValue"/>'
+def test_study_date(elements):
+  assert elements.study_approval_date() == '<usdm:ref klass="GovernanceDate" id="GovernanceDate_1" attribute="dateValue"/>'
 
 def test_organization_name_and_address(elements):
   assert elements.organization_name_and_address() == '<usdm:ref klass="Organization" id="Organization_1" attribute="name"/>, <usdm:ref klass="Address" id="Address_1" attribute="text"/>'

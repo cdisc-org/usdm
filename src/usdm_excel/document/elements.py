@@ -1,19 +1,15 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_model.study import Study
+from usdm_model.study_version import StudyVersion
+from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 
 class Elements():
 
-  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
+  def __init__(self, parent: BaseSheet, study_version: StudyVersion, document_version: StudyDefinitionDocumentVersion):
     super().__init__()
     self._parent = parent
-    self._study = study
-    # self._study_version = study.versions[0]
-    # self.study_design = self._study_version.studyDesigns[0]
-    # self._document_version = self.study.documentedBy.versions[0]
-    self._study_version = self._study.versions[0]
+    self._study_version = study_version
     self._study_design = self._study_version.studyDesigns[0]
-    self._document = self._study.document_by_template_name(template_name)
-    self._document_version = self._document.versions[0]
+    self._document_version = document_version
     self._methods = [func for func in dir(self.__class__) if callable(getattr(self.__class__, func)) and not func.startswith("_")]
 
   def valid_method(self, name: str) -> bool:
@@ -61,7 +57,7 @@ class Elements():
         results.append(item)
     return self._set_of_references(results)
 
-  def study_date(self) -> str:
+  def document_approval_date(self) -> str:
     dates = self._document_version.dateValues
     for date in dates:
       if date.type.code == 'C99903x1':
@@ -69,7 +65,7 @@ class Elements():
         return self._set_of_references(results)
     return ''
   
-  def approval_date(self) -> str:
+  def study_approval_date(self) -> str:
     dates = self._study_version.dateValues
     for date in dates:
       if date.type.code == 'C132352':

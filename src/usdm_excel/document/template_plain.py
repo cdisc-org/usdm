@@ -7,24 +7,24 @@ from usdm_model.study import Study
 
 class TemplatePlain(TemplateBase):
 
-  def __init__(self, parent: BaseSheet, study: Study, template_name: str):
-    super().__init__(parent, study, template_name)
+  # def __init__(self, parent: BaseSheet, study: Study):
+  #   super().__init__(parent, study)
 
   def title_page(self, attributes):
     doc = Doc()
     with doc.tag('table'):
-      self._title_page_entry(doc, 'Full Title:', f'{self.elements.study_full_title()}')
-      self._title_page_entry(doc, 'Trial Acronym:', f'{self.elements.study_acronym()}')
-      self._title_page_entry(doc, 'Protocol Identifier:', f'{self.elements.study_identifier()}')
-      self._title_page_entry(doc, 'Version Number:', f'{self.elements.study_version_identifier()}')
-      self._title_page_entry(doc, 'Version Date:', f'{self.elements.study_date()}')
-      self._title_page_entry(doc, 'Amendment Identifier:', f'{self.elements.amendment()}')
-      self._title_page_entry(doc, 'Amendment Scope:', f'{self.elements.amendment_scopes()}')
-      self._title_page_entry(doc, 'Trial Phase:', f'{self.elements.study_phase()}')
-      self._title_page_entry(doc, 'Short Title:', f'{self.elements.study_short_title()}')
-      self._title_page_entry(doc, 'Sponsor Name and Address:', f'{self.elements.organization_name_and_address()}')
-      self._title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self.elements.study_regulatory_identifiers()}')
-      self._title_page_entry(doc, 'Spondor Approval Date:', f'{self.elements.approval_date()}')
+      self._title_page_entry(doc, 'Full Title:', f'{self._elements.study_full_title()}')
+      self._title_page_entry(doc, 'Trial Acronym:', f'{self._elements.study_acronym()}')
+      self._title_page_entry(doc, 'Protocol Identifier:', f'{self._elements.study_identifier()}')
+      self._title_page_entry(doc, 'Version Number:', f'{self._elements.study_version_identifier()}')
+      self._title_page_entry(doc, 'Version Date:', f'{self._elements.study_date()}')
+      self._title_page_entry(doc, 'Amendment Identifier:', f'{self._elements.amendment()}')
+      self._title_page_entry(doc, 'Amendment Scope:', f'{self._elements.amendment_scopes()}')
+      self._title_page_entry(doc, 'Trial Phase:', f'{self._elements.study_phase()}')
+      self._title_page_entry(doc, 'Short Title:', f'{self._elements.study_short_title()}')
+      self._title_page_entry(doc, 'Sponsor Name and Address:', f'{self._elements.organization_name_and_address()}')
+      self._title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self._elements.study_regulatory_identifiers()}')
+      self._title_page_entry(doc, 'Spondor Approval Date:', f'{self._elements.approval_date()}')
     result = doc.getvalue()
     return result
 
