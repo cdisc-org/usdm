@@ -59,7 +59,7 @@ def run_test_html(filename, save=False, highlight=False):
   suffix = "_highlight" if highlight else ""
   usdm = USDMDb()
   errors = usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
-  result = usdm.to_html(highlight)
+  result = usdm.to_html("document", highlight)
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
