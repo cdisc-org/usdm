@@ -13,7 +13,7 @@ def test_defaults(mocker, globals):
   configuration = ConfigurationSheet("", globals)
   assert globals.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.NONE.value
   assert globals.option_manager.get(Options.USE_TEMPLATE) == 'SPONSOR'
-  assert globals.template_manager.get('sponsor') == 'studyDesignContent'
+  assert globals.template_manager.get('sponsor') == 'document'
 
 def test_template(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")

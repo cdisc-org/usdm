@@ -145,7 +145,7 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][0] == "sheet"
   assert mock_error.call_args[0][1] == 2
   assert mock_error.call_args[0][2] == -1
-  assert mock_error.call_args[0][3] == "Error 'Failed to detect column(s) 'Not There' in sheet' reading cell 'Not There'"
+  assert mock_error.call_args[0][3] == "Error attempting to read cell 'Not There'. Exception: Failed to detect column(s) 'Not There' in sheet"
 
 def test_read_cell_by_name_present(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")

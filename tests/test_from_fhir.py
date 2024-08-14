@@ -19,7 +19,7 @@ def test_from_fhir_1(mocker, globals, minimal, factory):
     data = f.read()
   usdm = USDMDb()
   fhir = usdm.from_fhir(data)
-  html = usdm.to_html()
+  html = usdm.to_html('document')
   print(html)
 
 # def test_content_to_section(mocker, globals, minimal, factory):

@@ -257,6 +257,6 @@ def test_read_cell_by_name_error(mocker, globals):
   content = DocumentTemplateSheet("", "XXX", globals)
   mock_error.assert_called()
   assert call_parameters == [
-    ('XXX', 1, -1, "Error 'Failed to detect column(s) 'sectionTitle' in sheet' reading cell 'sectionTitle'", 40)
+    ('XXX', 1, -1, "Error attempting to read cell 'sectionTitle'. Exception: Failed to detect column(s) 'sectionTitle' in sheet", 40)
   ]
   

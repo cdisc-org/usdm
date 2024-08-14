@@ -95,5 +95,5 @@ def test_read_cell_by_name_error(mocker, globals):
   mock_read.return_value = pd.DataFrame(data, columns=['name'])
   content = DocumentContentSheet("", globals)
   assert mock_error.call_count == 1
-  mock_error.assert_has_calls([mocker.call('documentContent', 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 40)])
+  mock_error.assert_has_calls([mocker.call('documentContent', 1, -1, "Error attempting to read cell 'text'. Exception: Failed to detect column(s) 'text' in sheet", 40)])
   
