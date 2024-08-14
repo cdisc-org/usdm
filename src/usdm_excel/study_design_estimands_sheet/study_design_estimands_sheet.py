@@ -21,7 +21,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
       current_ice_name = None
       current_ice_description = None
       for index, row in self.sheet.iterrows():
-        e_name = self.read_cell_by_name(index, ['name'])
+        e_name = self.read_cell_by_name(index, ['name', 'xref'])
         e_summary = self.read_cell_by_name(index, "summaryMeasure")
         ap_description = self.read_cell_by_name(index, 'populationDescription')
         ice_name = self.read_cell_by_name(index, ['intercurrentEventName'])
