@@ -51,7 +51,8 @@ class BaseSheet():
         return col_index
       except:
         pass
-    raise BaseSheet.FormatError(f"Failed to detect column(s) '{', '.join(fields)}' in sheet")
+    columns = ', '.join(fields)
+    raise BaseSheet.FormatError(f"Failed to detect column(s) '{columns}' in sheet")
 
   def read_cell_by_name(self, row_index, field_name, default=None, must_be_present=True):
     try:
@@ -63,7 +64,7 @@ class BaseSheet():
       elif default:
         return default
       else:
-        self._error(row_index, -2, f"Error '{e}' reading cell '{field_name}'")
+        self._error(row_index, -2, f"Error attempting to read cell '{field_name}'. Exception: {e}")
         return "" #if self.globals.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
 
   def read_cell(self, row_index, col_index, default=None):

@@ -15,7 +15,7 @@ class ConfigurationSheet(BaseSheet):
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
       self.globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE)
       self.globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
-      self.globals.template_manager.add('SPONSOR', 'studyDesignContent')
+      self.globals.template_manager.add('SPONSOR', 'document')
       self._process_sheet()
     except Exception as e:
       self._sheet_exception(e)
