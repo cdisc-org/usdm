@@ -33,7 +33,7 @@ class DocumentTemplateSheet(BaseSheet):
           display_section_number = self.read_boolean_cell_by_name(index, 'displaySectionNumber')
           display_section_title = self.read_boolean_cell_by_name(index, 'displaySectionTitle')
           content_name = self.read_cell_by_name(index, 'content')
-          print(f"TEMPLATE: '{content_name}'")
+          #print(f"TEMPLATE: '{content_name}'")
           if content_name:
             content = self.globals.cross_references.get(NarrativeContentItem, content_name)
             if not content:
