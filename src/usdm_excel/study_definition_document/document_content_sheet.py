@@ -29,11 +29,13 @@ class DocumentContentSheet(BaseSheet):
     except Exception as e:
       self._sheet_exception(e)
 
+  # @todo: This code should probably be elsewhere
   def resolve(self, study_version: StudyVersion, document_version: StudyDefinitionDocumentVersion):
     macros = Macros(self, study_version, document_version)
     for nc in document_version.contents:
-      nci = self._map[nc.contentItemId]
-      nci.text = macros.resolve(nci.text)
+      if nc.contentItemId:
+        nci = self._map[nc.contentItemId]
+        nci.text = macros.resolve(nci.text)
 
   def _wrap_div(self, text):
     if text.startswith(self.DIV_OPEN_NS):

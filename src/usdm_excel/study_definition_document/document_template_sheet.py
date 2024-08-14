@@ -20,32 +20,35 @@ class DocumentTemplateSheet(BaseSheet):
       self.name = sheet_name
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, optional=True, converters={"sectionName": str})
       if self.success:
-        print(f"TEMPLATE: SUCCESS1")
         current_level = 0
         new_level = 0
-        print(f"TEMPLATE: SUCCESS2")
         self._parent_stack = []
         previous_item = None
-        print(f"TEMPLATE: SUCCESS3")
         for index, row in self.sheet.iterrows():
-          print(f"TEMPLATE: SUCCESS4")
           name = self.read_cell_by_name(index, 'name')
           section_number = self.read_cell_by_name(index, 'sectionNumber')
           name = f"SECTION {section_number}" if not name else name
           new_level = self._get_level(section_number)
-          title = self.read_cell_by_name(index, 'sectionTitle')
+          section_title = self.read_cell_by_name(index, 'sectionTitle')
           display_section_number = self.read_boolean_cell_by_name(index, 'displaySectionNumber')
           display_section_title = self.read_boolean_cell_by_name(index, 'displaySectionTitle')
           content_name = self.read_cell_by_name(index, 'content')
+          print(f"TEMPLATE: '{content_name}'")
+          if content_name:
+            content = self.globals.cross_references.get(NarrativeContentItem, content_name)
+            if not content:
+              self._general_warning(f"Unable to find content item with name '{content_name}'")
+          else:
+            self._general_warning(f"No content item specified for section '{section_number}', '{section_title}'")
+            content = None
           params = {
             'name': name, 
             'sectionNumber': section_number, 
             'displaySectionNumber': display_section_number, 
-            'sectionTitle': title, 
+            'sectionTitle': section_title, 
             'displaySectionTitle': display_section_title, 
-            'contentItemId': self.globals.cross_references.get(NarrativeContentItem, content_name).id
+            'contentItemId': content.id if content else None
           }
-          print(f"PARAMS: {params}")
           item = self.create_object(NarrativeContent, params)
           if item:
             self.items.append(item)

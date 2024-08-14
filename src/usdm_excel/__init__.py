@@ -125,6 +125,7 @@ class USDMExcel():
 
       self.definition_documents = []
       self.definition_document_version_ids = []
+      self.definition_document_version = []
       for template in self.templates.items:
         # Final assembly
         try:
@@ -135,8 +136,9 @@ class USDMExcel():
             dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE],
             contents=template.items
             )
+          self.definition_document_version.append(definition_document_version)
           self.definition_document_version_ids.append(definition_document_version.id)
-          self._globals.cross_references.add(self.definition_document_version.id, self.definition_document_version)
+          self._globals.cross_references.add(definition_document_version.id, definition_document_version)
         except Exception as e:
          self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocumentVersion object", e)
 
@@ -182,7 +184,8 @@ class USDMExcel():
           documentedBy=self.definition_documents
         )
         self._globals.cross_references.add("STUDY", self.study)
-        self.contents.resolve(self.study_version, self.definition_document_version) # Now we have full study, resolve references in the content
+        for document in self.definition_document_version:
+          self.contents.resolve(self.study_version, document) # Now we have full study, resolve references in the content
       except Exception as e:
         self._globals.errors_and_logging.exception(f"Error creating Study object", e)
 

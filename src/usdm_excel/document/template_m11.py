@@ -9,7 +9,7 @@ class TemplateM11(TemplateBase):
   # def __init__(self, parent: BaseSheet, study: Study):
   #   super().__init__(parent, study)
 
-  def title_page(self):
+  def title_page(self, attributes):
     doc = Doc()
     with doc.tag('table'):
       self._title_page_entry(doc, 'Sponsor Confidentiality Statement:', '')
@@ -18,7 +18,7 @@ class TemplateM11(TemplateBase):
       self._title_page_entry(doc, 'Protocol Identifier:', f'{self._elements.study_identifier()}')
       self._title_page_entry(doc, 'Original Protocol:', '')
       self._title_page_entry(doc, 'Version Number:', f'{self._elements.study_version_identifier()}')
-      self._title_page_entry(doc, 'Version Date:', f'{self._elements.study_date()}')
+      self._title_page_entry(doc, 'Version Date:', f'{self._elements.study_approval_date()}')
       self._title_page_entry(doc, 'Amendment Identifier:', f'{self._elements.amendment()}')
       self._title_page_entry(doc, 'Amendment Scope:', f'{self._elements.amendment_scopes()}')
       self._title_page_entry(doc, 'Compound Codes(s):', '')
@@ -27,7 +27,7 @@ class TemplateM11(TemplateBase):
       self._title_page_entry(doc, 'Short Title:', f'{self._elements.study_short_title()}')
       self._title_page_entry(doc, 'Sponsor Name and Address:', f'{self._elements.organization_name_and_address()}')
       self._title_page_entry(doc, 'Regulatory Agency Identifier Number(s):', f'{self._elements.study_regulatory_identifiers()}')
-      self._title_page_entry(doc, 'Spondor Approval Date:', f'{self._elements.approval_date()}')
+      self._title_page_entry(doc, 'Spondor Approval Date:', f'{self._elements.document_approval_date()}')
 
       # Enter Nonproprietary Name(s)
       # Enter Proprietary Name(s)
@@ -98,7 +98,8 @@ class TemplateM11(TemplateBase):
 
   def _criteria_list(self, type):
     results = []
-    items = [c for c in self._study_design.population.criteria if c.category.code == type ]
+    criteria = {x.id:x for x in self._study_version.criteria}
+    items = [criteria[c] for c in self._study_design.population.criterionIds if criteria[c].category.code == type ]
     items.sort(key=lambda d: d.identifier)
     for item in items:
       result = {'identifier': item.identifier, 'text': self._reference(item, 'text')}

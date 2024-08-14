@@ -17,7 +17,7 @@ class TemplatePlain(TemplateBase):
       self._title_page_entry(doc, 'Trial Acronym:', f'{self._elements.study_acronym()}')
       self._title_page_entry(doc, 'Protocol Identifier:', f'{self._elements.study_identifier()}')
       self._title_page_entry(doc, 'Version Number:', f'{self._elements.study_version_identifier()}')
-      self._title_page_entry(doc, 'Version Date:', f'{self._elements.study_date()}')
+      self._title_page_entry(doc, 'Version Date:', f'{self._elements.study_approval_date()}')
       self._title_page_entry(doc, 'Amendment Identifier:', f'{self._elements.amendment()}')
       self._title_page_entry(doc, 'Amendment Scope:', f'{self._elements.amendment_scopes()}')
       self._title_page_entry(doc, 'Trial Phase:', f'{self._elements.study_phase()}')
