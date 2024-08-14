@@ -57,7 +57,7 @@ def test_read_cell_by_name_error(mocker, globals):
   items = StudyDesignCharacteristicSheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
-    ('studyDesignCharacteristics', 1, -1, "Error 'Failed to detect column(s) 'text' in sheet' reading cell 'text'", 40),
+    ('studyDesignCharacteristics', 1, -1, "Error attempting to read cell 'text'. Exception: Failed to detect column(s) 'text' in sheet", 40),
     ('studyDesignCharacteristics', None, None, "Exception. Error [Failed to detect column(s) 'text' in sheet] while reading sheet 'studyDesignCharacteristics'. See log for additional details.", 40),
   ]
   
