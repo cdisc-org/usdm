@@ -44,7 +44,7 @@ class TemplatePlain(TemplateBase):
   def soa(self, attributes: dict):
     try:
       doc = Doc()
-      for timeline in self.study_design.scheduleTimelines:      
+      for timeline in self._study_design.scheduleTimelines:      
         doc.asis(self.timeline({'timeline': timeline}))
     except Exception as e:
       self.parent._general_exception(f"Error raised generating SoA", e)
@@ -57,7 +57,7 @@ class TemplatePlain(TemplateBase):
       timeline = self._resolve_timeline(attributes)
       footnote = 1
       footnotes = []
-      soa = SoA(self.parent, self.study_design, timeline)
+      soa = SoA(self.parent, self._study_design, timeline)
       result = soa.generate()
       with doc.tag('div', klass="page soa-page table-responsive"):
         with doc.tag('p'):
@@ -146,7 +146,7 @@ class TemplatePlain(TemplateBase):
 
   def _objective_endpoints_list(self):
     results = []
-    for item in self.study_design.objectives:
+    for item in self._study_design.objectives:
       result = {'objective': self._reference(item, 'text'), 'endpoints': []}
       for endpoint in item.endpoints:
         result['endpoints'].append(self._reference(endpoint, 'text'))

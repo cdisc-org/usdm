@@ -1,5 +1,5 @@
 from usdm_model.study import Study
-from usdm_model.narrative_content import NarrativeContent
+from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
 from usdm_db.cross_reference import CrossReference
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.document.utility import get_soup
@@ -17,27 +17,33 @@ class ToFHIR():
   class LogicError(Exception):
     pass
 
-  def __init__(self, study: Study, errors_and_logging: ErrorsAndLogging):
-    self.study = study
+  def __init__(self, study: Study):
+    self._study = study
     self._errors_and_logging = ErrorsAndLogging()
     self._cross_ref = CrossReference(study, self._errors_and_logging)
-    self.study_version = study.versions[0]
-    self.study_design = self.study_version.studyDesigns[0]
-    self.protocol_document_version = self.study.documentedBy.versions[0]
-    self.doc_title = self.study_version.get_title('Official Study Title')
+    self._study_version = self._study.versions[0]
+    self._study_design = self._study_version.studyDesigns[0]
+    self._document = self._study.document_by_template_name('document')
+    self._document_version = self._document.versions[0]
+    self._doc_title = self._study_version.get_title('Official Study Title')
+    self._doc_title = self._doc_title.text if self._doc_title else '[Missing Doc Title]'
+    self._map = {x.id:x for x in self._study_version.narrativeContentItems}
 
   def to_fhir(self, uuid: uuid4):
     try:
       sections = []
-      root = self.protocol_document_version.contents[0]
-      for id in root.childIds:
-        content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-        sections.append(self._content_to_section(content))
+      narrative_content = self._document_version.first_narrative_content()
+      while narrative_content:
+        if narrative_content.contentItemId:
+          narrative_content_item = self._map[narrative_content.contentItemId]
+          sections.append(self._content_to_section(narrative_content, narrative_content_item))
+        narrative_content = next((x for x in self._document_version.contents if x.id == narrative_content.nextId), None)
       type_code = CodeableConcept(text=f"EvidenceReport")
       #date = datetime.datetime.now().isoformat()
       date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
       author = Reference(display="USDM")
-      composition = Composition(title=self.doc_title, type=type_code, section=sections, date=date, status="preliminary", author=[author])
+      print(f"TITLE: {self._doc_title}")
+      composition = Composition(title=self._doc_title, type=type_code, section=sections, date=date, status="preliminary", author=[author])
       identifier = Identifier(system='urn:ietf:rfc:3986', value=f'urn:uuid:{uuid}')
       bundle_entry = BundleEntry(resource=composition, fullUrl="https://www.example.com/Composition/1234")
       bundle = Bundle(id=None, entry=[bundle_entry], type="document", identifier=identifier, timestamp=date)
@@ -46,19 +52,14 @@ class ToFHIR():
       self._errors_and_logging.exception(f"Exception raised generating FHIR content. See logs for more details", e)
       return None
 
-  def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
-    div = self._translate_references(content.text)
+  def _content_to_section(self, content: NarrativeContent, item: NarrativeContentItem) -> CompositionSection:
+    div = self._translate_references(item.text)
     text = self._add_section_heading(content, div)
     text = self._remove_line_feeds(text)
     narrative = Narrative(status='generated', div=text)
     title = self._format_section_title(content.sectionTitle)
     code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
-    #print(f"COMPOSITION: {code.text}, {title}, {narrative}, {div}")
     section = CompositionSection(title=content.sectionTitle, code=code, text=narrative, section=[])
-    for id in content.childIds:
-      content = next((x for x in self.protocol_document_version.contents if x.id == id), None)
-      child = self._content_to_section(content)
-      section.section.append(child)
     return section
 
   def _format_section_title(self, title: str) -> str:

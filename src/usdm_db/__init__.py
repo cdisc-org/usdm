@@ -58,7 +58,7 @@ class USDMDb():
   def to_fhir(self):
     try:
       study = self._wrapper.study
-      fhir = ToFHIR(study, self._errors_and_logging)
+      fhir = ToFHIR(study)
       raw_json = fhir.to_fhir(uuid4())
     except Exception as e:
       message = self._format_exception("Failed to generate FHIR output", e)

@@ -13,3 +13,6 @@ class StudyDefinitionDocumentVersion(ApiBaseModelWithId):
   childIds: List[str] = []
   notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyDefinitionDocumentVersion']
+
+  def first_narrative_content(self):
+    return next((x for x in self.contents if not x.previousId and x.nextId), None)

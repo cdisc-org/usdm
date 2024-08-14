@@ -271,7 +271,7 @@ class Document():
         <div class="container">
           <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
-              <h1>{self.doc_title}</h1>
+              <h1>{self._doc_title}</h1>
             </div>
           </div>
           <div class="row mt-5">

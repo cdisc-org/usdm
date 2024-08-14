@@ -17,7 +17,7 @@ class CrossReference():
     if key in self._references:
       return self._references[key]
     else:
-      print(f"REFERENCES: {list(self._references.keys())}")
+      #print(f"REFERENCES: {list(self._references.keys())}")
       return None
 
   def _process_node(self, node):

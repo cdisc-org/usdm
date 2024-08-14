@@ -567,7 +567,7 @@ A header row in row 1 followed by repeating rows from row 2, containing estimand
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | xref or name	| Identifier | Text string |
+| A | xref or name | Identifier | Text string |
 | B | summaryMeasure	| The summary measure | Text string |
 | C | populationDescription	| Description | Text string, can be empty |
 | D (optional) | label | Display label | Text string, can be empty. Default value is '' |
@@ -637,11 +637,11 @@ A header row in row 1 followed by repeating rows from row 2, containing element 
 | E | transitionStartRule | Start rule | Text string |	
 | F | transitionEndRule | End rule | Text string |
 
-### Study Design Content sheet
+### Document Template Sheets
 
 #### Sheet Name
 
-default name: `studyDesignContent`
+default name: `document`
 
 Several content sheets can be included within the workbook and named as desired. Typical use might be the inclusion of a sponsor protocol format and the new M11 format
 
@@ -651,10 +651,29 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | sectionNumber | The section number | Text string with section numbers separated by '.' characters. Section numbers from row to row can only increase by a single level down, e.g. '1.2' to '1.2.1' and not '1.2.1.1'. The section numbers will be used to create parent child relationships in the data created. | 
-| B | name | Name of the section. | Text string. Can be left blank in which case a default value will be used based on the section number |
-| C | sectionTitle | The section title | Text String |
-| D | sectionText | The section text | HTML formatted text String |
+| A | name | Name of the section. | Text string. Can be left blank in which case a default value will be used based on the section number |
+| B | sectionNumber | The section number | Text string with section numbers separated by '.' characters. Section numbers from row to row can only increase by a single level down, e.g. '1.2' to '1.2.1' and not '1.2.1.1'. The section numbers will be used to create parent child relationships in the data created. | 
+| C | displaySectionNumber | Display Section Number | Boolean value indicating if the section number should be displayed within the document | 
+| D | sectionTitle | Section Title | Text String |
+| E | displaySectionTitle | Display Section Title | Boolean value indicating if the section title should be displayed within the document | 
+| F | content | The content reference | The name of item include |
+
+### Document Content sheet
+
+#### Sheet Name
+
+default name: `documentContent`
+
+Several content sheets can be included within the workbook and named as desired. Typical use might be the inclusion of a sponsor protocol format and the new M11 format
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing the narrative content: 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Name of the content | Text string. Can be left blank in which case a default value will be used based on the section number |
+| B | text | The content text | HTML formatted text String |
 
 There are some prefined macros that can be used to generate content. These are pre processed when the content sheet is read and transated into the appropriate USDM references ```usdm:ref``` or ```usdm:tag```. These macros use a similar syntax to the USDM references: 
 
