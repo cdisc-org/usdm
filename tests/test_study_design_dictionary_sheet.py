@@ -72,7 +72,7 @@ def test_read_cell_by_name_error(mocker, globals):
   dictionaries = StudyDesignDictionarySheet("", globals)
   mock_error.assert_called()
   assert call_parameters == [
-    ("dictionaries", 1, -1, "Error 'Failed to detect column(s) 'xref' in sheet' reading cell 'xref'", 40),
+    ("dictionaries", 1, -1, "Error attempting to read cell 'xref'. Exception: Failed to detect column(s) 'xref' in sheet", 40),
     ('dictionaries', 1, 6, "Failed to translate reference path 'Attribute 1', could not find start instance 'Klass 1', ''", 40)
   ]
   

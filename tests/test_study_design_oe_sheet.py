@@ -75,14 +75,15 @@ def test_read_cell_by_name_error(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['Obj 1','Obj Desc 1', 'Obj Label 1', 'Obj Text 1', 'Study Primary Objective', 'End 1', 'End Desc 1', 'End Label 1', 'End Text 1', 'Primary Endpoint']
+    ['Obj 1','Obj Desc 1', 'Obj Label 1', 'Obj Text 1', 'Primary Objective', 
+     'End 1', 'End Desc 1', 'End Label 1', 'End Text Purpose 1', 'Primary Endpoint']
  ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=[
-    'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 
-    'objectiveLevel', 'endpointDescription', 'endpointLabel', 'endpointText', 'endpointPurpose', 'endpointLevel']
+    'objectiveName', 'objectiveDescription', 'objectiveLabel', 'objectiveText', 'objectiveLevel', 
+    'endpointName', 'endpointDescription', 'endpointLabel', 'endpointPurpose', 'endpointLevel']
   )
   items = StudyDesignObjectiveEndpointSheet("", globals)
   mock_error.assert_called()
-  assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error 'Failed to detect column(s) 'endpointXref, endpointName' in sheet' reading cell '['endpointXref', 'endpointName']'", 40)
+  assert call_parameters[0] == ("studyDesignOE", 1, -1, "Error attempting to read cell 'endpointText'. Exception: Failed to detect column(s) 'endpointText' in sheet", 40)
   
