@@ -43,7 +43,7 @@ class StudyDesignEncounterSheet(BaseSheet):
             description=description,
             label=label,
             type=type, 
-            environmentalSetting=settings,
+            environmentalSettings=settings,
             contactModes=modes,
             transitionStartRule=start_rule,
             transitionEndRule=end_rule,

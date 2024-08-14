@@ -31,6 +31,7 @@ def test_create(mocker, globals):
   assert encounters.items[1].description == 'Encounter Two'
   assert encounters.items[2].id == 'EncounterId_3'
   assert encounters.items[2].type == codes[6]
+  assert encounters.items[2].environmentalSettings[0].decode == 'label8' # Fake Code
   
 def test_create_with_label(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
