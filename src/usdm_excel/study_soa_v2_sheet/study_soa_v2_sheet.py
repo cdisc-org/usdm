@@ -31,7 +31,7 @@ class StudySoAV2Sheet(BaseSheet):
 
       # @TODO Move block to SoAActivities class
       for item in self._raw_activities.items:
-        activity = item.usdm_activity
+        activity = item.activity
         self.activities.append(activity)
         self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
         self.biomedical_concepts += item.usdm_biomedical_concepts

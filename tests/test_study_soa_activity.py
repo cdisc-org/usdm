@@ -13,13 +13,14 @@ def test_read_bc(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[activities[0], bcs[0], None, None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 0)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 0, activity_map)
   assert item._bcs == ['BC1']
   assert item._prs == []
   assert item._tls == []
   assert item._parent_name == ''
   assert item._child_name == "Activity 1"
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Activity 1"
   assert usdm_activity.label == 'Activity One'
   assert usdm_activity.description == None
@@ -34,13 +35,14 @@ def test_read_procedure(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[procedures[0], None, None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 1)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 1, activity_map)
   assert item._bcs == []
   assert item._prs == ['Procedure']
   assert item._tls == []
   assert item._parent_name == ''
   assert item._child_name == "Activity 2"
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Activity 2"
   assert usdm_activity.label == "Activity 2"
   assert usdm_activity.description == "Activity 2"
@@ -56,13 +58,14 @@ def test_read_procedure_error(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[None, activities[0], None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 1)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 1, activity_map)
   assert item._bcs == []
   assert item._prs == ['Procedure']
   assert item._tls == []
   assert item._parent_name == ''
   assert item._child_name == "Activity 2"
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Activity 1"
   assert usdm_activity.label == 'Activity One'
   assert usdm_activity.description == None
@@ -83,13 +86,14 @@ def test_read_timeline(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[timelines[0], None, None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 2)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 2, activity_map)
   assert item._bcs == []
   assert item._prs == []
   assert item._tls == ['Timeline']
   assert item._parent_name == ''
   assert item._child_name == "Activity 3"
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Activity 3"
   assert usdm_activity.label == "Activity 3"
   assert usdm_activity.description == "Activity 3"
@@ -105,13 +109,14 @@ def test_read_timeline_error(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[None, activities[0], None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 2)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 2, activity_map)
   assert item._bcs == []
   assert item._prs == []
   assert item._tls == ['Timeline']
   assert item._parent_name == ''
   assert item._child_name == "Activity 3"
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Activity 1"
   assert usdm_activity.label == 'Activity One'
   assert usdm_activity.description == None
@@ -131,13 +136,14 @@ def test_read_all(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[timelines[0], procedures[0], None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 3)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 3, activity_map)
   assert item._bcs == ['BC1']
   assert item._prs == ['Procedure']
   assert item._tls == ['Timeline']
   assert item._parent_name == ''
   assert item._child_name == "Activity 4"
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Activity 4"
   assert usdm_activity.label == "Activity 4"
   assert usdm_activity.description == "Activity 4"
@@ -152,13 +158,14 @@ def test_read_parent(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[activities[2], None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 4)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 4, activity_map)
   assert item._bcs == ['BC1']
   assert item._prs == ['Procedure']
   assert item._tls == ['Timeline']
   assert item._parent_name == 'Parent 1'
   assert item._child_name == ''
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Parent 1"
   assert usdm_activity.label == "Parent One"
   assert usdm_activity.description == None
@@ -174,13 +181,14 @@ def test_read_parent_ignore_child(mocker, globals):
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[None, None]
   base_sheet = _setup(mocker, globals)
-  item = SoAActivity(base_sheet, 5)
+  activity_map = {}
+  item = SoAActivity(base_sheet, 5, activity_map)
   assert item._bcs == []
   assert item._prs == []
   assert item._tls == []
   assert item._parent_name == 'Parent 2'
   assert item._child_name == 'Activity 5'
-  usdm_activity = item.usdm_activity
+  usdm_activity = item.activity
   assert usdm_activity.name == "Parent 2"
   assert usdm_activity.label == "Parent 2"
   assert usdm_activity.description == "Parent 2"
@@ -190,8 +198,42 @@ def test_read_parent_ignore_child(mocker, globals):
   assert usdm_activity.definedProcedures == []
   assert usdm_activity.timelineId == None
   assert mock_error.call_count == 2
-  mock_error.assert_has_calls([mocker.call('sheet', 6, 3, "Both parent 'Parent 2' and child activity 'Activity 5' found, child has been ignored", 30), 
+  mock_error.assert_has_calls([mocker.call('sheet', 6, 2, "Both parent 'Parent 2' and child activity 'Activity 5' found, child has been ignored", 30), 
                                mocker.call("sheet", 6, 3, "No activity 'Parent 2' found, so one has been created", 30)])
+
+def test_read_parent_repeated(mocker, globals):
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[None, None]
+  base_sheet = _setup(mocker, globals)
+  activity_map = {'Parent 1'}
+  item = SoAActivity(base_sheet, 4, activity_map)
+  assert item._bcs == ['BC1']
+  assert item._prs == ['Procedure']
+  assert item._tls == ['Timeline']
+  assert item._parent_name == 'Parent 1'
+  assert item._child_name == ''
+  assert item.activity is None
+  assert mock_error.call_count == 1
+  mock_error.assert_has_calls([mocker.call('sheet', 5, 1, "Parent activity 'Parent 1' has already been referenced in the SoA, parent has been ignored", 40)])
+
+def test_read_child_repeated(mocker, globals):
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  bcs, procedures, timelines, activities = _data(globals)
+  mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
+  mock_cross_ref.side_effect=[None, None]
+  base_sheet = _setup(mocker, globals)
+  activity_map = {'Activity 1'}
+  item = SoAActivity(base_sheet, 0, activity_map)
+  assert item._bcs == ['BC1']
+  assert item._prs == []
+  assert item._tls == []
+  assert item._parent_name == ''
+  assert item._child_name == 'Activity 1'
+  assert item.activity is None
+  assert mock_error.call_count == 1
+  mock_error.assert_has_calls([mocker.call('sheet', 1, 2, "Child activity 'Activity 1' has already been referenced in the SoA, child has been ignored", 40)])
 
 def _setup(mocker, globals: Globals):
   mocked_open = mocker.mock_open(read_data="File")

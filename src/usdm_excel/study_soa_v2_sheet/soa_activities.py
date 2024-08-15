@@ -8,8 +8,9 @@ class SoAActivities():
   def __init__(self, parent):
     self.parent = parent
     self.items = []
-    self.map = {}
+    self._map = {}
     for row_index, col_def in parent.sheet.iterrows():
       if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
-        activity = SoAActivity(self.parent, row_index)
-        self.items.append(activity)
+        activity = SoAActivity(self.parent, row_index, self._map)
+        if activity:
+          self.items.append(activity)
