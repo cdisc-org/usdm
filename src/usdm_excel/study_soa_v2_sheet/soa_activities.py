@@ -12,5 +12,5 @@ class SoAActivities():
     for row_index, col_def in parent.sheet.iterrows():
       if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
         activity = SoAActivity(self.parent, row_index, self._map)
-        if activity:
+        if activity.activity:
           self.items.append(activity)

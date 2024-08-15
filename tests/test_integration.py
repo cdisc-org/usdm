@@ -248,5 +248,5 @@ def test_full_neo4j_3(mocker):
 def test_full_fhir_1(mocker):
   run_test_fhir('full_1', mocker)
 
-def test_grouped_activities():
-  run_test('group_activities_1')
+def test_group_activities_1(mocker):
+  run_test('group_activities_1', mocker)
