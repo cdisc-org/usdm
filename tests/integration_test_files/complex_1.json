@@ -30,7 +30,9 @@
           "standardCodeAliases": [],
           "instanceType": "AliasCode"
         },
-        "documentVersionId": "StudyProtocolDocumentVersion_1",
+        "documentVersionIds": [
+          "StudyDefinitionDocumentVersion_1"
+        ],
         "dateValues": [],
         "amendments": [],
         "businessTherapeuticAreas": [],
@@ -175,7 +177,7 @@
                 "previousId": null,
                 "nextId": "Encounter_2",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_85",
                     "code": "C16281",
@@ -197,6 +199,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -215,7 +218,7 @@
                 "previousId": "Encounter_1",
                 "nextId": "Encounter_3",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_88",
                     "code": "C51282",
@@ -237,6 +240,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -255,7 +259,7 @@
                 "previousId": "Encounter_2",
                 "nextId": "Encounter_4",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_91",
                     "code": "C51282",
@@ -277,6 +281,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -295,7 +300,7 @@
                 "previousId": "Encounter_3",
                 "nextId": "Encounter_5",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_94",
                     "code": "C51282",
@@ -317,6 +322,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -335,7 +341,7 @@
                 "previousId": "Encounter_4",
                 "nextId": "Encounter_6",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_97",
                     "code": "C51282",
@@ -357,6 +363,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -375,7 +382,7 @@
                 "previousId": "Encounter_5",
                 "nextId": "Encounter_7",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_100",
                     "code": "C51282",
@@ -397,6 +404,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -415,7 +423,7 @@
                 "previousId": "Encounter_6",
                 "nextId": null,
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_103",
                     "code": "C16281",
@@ -437,6 +445,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               }
             ],
@@ -444,10 +453,11 @@
               {
                 "id": "Activity_49",
                 "name": "Informed Consent",
-                "label": null,
+                "label": "Informed Consent",
                 "description": "Informed Consent",
                 "previousId": null,
                 "nextId": "Activity_50",
+                "childIds": [],
                 "definedProcedures": [
                   {
                     "id": "Procedure_1",
@@ -464,36 +474,41 @@
                       "instanceType": "Code"
                     },
                     "studyInterventionId": null,
+                    "notes": [],
                     "instanceType": "Procedure"
                   }
                 ],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_50",
                 "name": "Randomization",
-                "label": null,
+                "label": "Randomization",
                 "description": "Randomization",
                 "previousId": "Activity_49",
                 "nextId": "Activity_51",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_51",
                 "name": "Admission to CRU",
-                "label": null,
+                "label": "Admission to CRU",
                 "description": "Admission to CRU",
                 "previousId": "Activity_50",
                 "nextId": "Activity_52",
+                "childIds": [],
                 "definedProcedures": [
                   {
                     "id": "Procedure_2",
@@ -510,22 +525,25 @@
                       "instanceType": "Code"
                     },
                     "studyInterventionId": null,
+                    "notes": [],
                     "instanceType": "Procedure"
                   }
                 ],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_52",
                 "name": "Discharge from CRU",
-                "label": null,
+                "label": "Discharge from CRU",
                 "description": "Discharge from CRU",
                 "previousId": "Activity_51",
                 "nextId": "Activity_53",
+                "childIds": [],
                 "definedProcedures": [
                   {
                     "id": "Procedure_3",
@@ -542,50 +560,57 @@
                       "instanceType": "Code"
                     },
                     "studyInterventionId": null,
+                    "notes": [],
                     "instanceType": "Procedure"
                   }
                 ],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_53",
                 "name": "Medical History",
-                "label": null,
+                "label": "Medical History",
                 "description": "Medical History",
                 "previousId": "Activity_52",
                 "nextId": "Activity_54",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_54",
                 "name": "Collect Pre-existing Conditions and Adverse Events",
-                "label": null,
+                "label": "Collect Pre-existing Conditions and Adverse Events",
                 "description": "Collect Pre-existing Conditions and Adverse Events",
                 "previousId": "Activity_53",
                 "nextId": "Activity_35",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_35",
                 "name": "Physical Exam",
-                "label": null,
+                "label": "Physical Exam",
                 "description": "Physical Exam",
                 "previousId": "Activity_54",
                 "nextId": "Activity_55",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
@@ -593,16 +618,18 @@
                   "BiomedicalConceptSurrogate_9",
                   "BiomedicalConceptSurrogate_10"
                 ],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_55",
                 "name": "Height and Weight",
-                "label": null,
+                "label": "Height and Weight",
                 "description": "Height and Weight",
                 "previousId": "Activity_35",
                 "nextId": "Activity_56",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [
                   "BiomedicalConcept_2",
@@ -610,86 +637,98 @@
                 ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_56",
                 "name": "Collect Hypoglycemic Events",
-                "label": null,
+                "label": "Collect Hypoglycemic Events",
                 "description": "Collect Hypoglycemic Events",
                 "previousId": "Activity_55",
                 "nextId": "Activity_57",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_57",
                 "name": "Collect Concomitant Medications",
-                "label": null,
+                "label": "Collect Concomitant Medications",
                 "description": "Collect Concomitant Medications",
                 "previousId": "Activity_56",
                 "nextId": "Activity_47",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_47",
                 "name": "Insulin infusion",
-                "label": null,
+                "label": "Insulin infusion",
                 "description": "Insulin infusion",
                 "previousId": "Activity_57",
                 "nextId": "Activity_58",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": "ScheduleTimeline_1",
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_58",
                 "name": "PG Monitoring",
-                "label": null,
+                "label": "PG Monitoring",
                 "description": "PG Monitoring",
                 "previousId": "Activity_47",
                 "nextId": "Activity_59",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_59",
                 "name": "Study Treatment administration",
-                "label": null,
+                "label": "Study Treatment administration",
                 "description": "Study Treatment administration",
                 "previousId": "Activity_58",
                 "nextId": "Activity_39",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": "ScheduleTimeline_2",
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_39",
                 "name": "Vital Signs",
-                "label": null,
+                "label": "Vital Signs",
                 "description": "Vital Signs",
                 "previousId": "Activity_59",
                 "nextId": "Activity_60",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
@@ -697,284 +736,324 @@
                   "BiomedicalConceptSurrogate_11",
                   "BiomedicalConceptSurrogate_12"
                 ],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_60",
                 "name": "Single 12-lead ECG",
-                "label": null,
+                "label": "Single 12-lead ECG",
                 "description": "Single 12-lead ECG",
                 "previousId": "Activity_39",
                 "nextId": "Activity_40",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_40",
                 "name": "Triplicate 12-lead ECG",
-                "label": null,
+                "label": "Triplicate 12-lead ECG",
                 "description": "Triplicate 12-lead ECG",
                 "previousId": "Activity_60",
                 "nextId": "Activity_61",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_61",
                 "name": "Clinical Serology Tests",
-                "label": null,
+                "label": "Clinical Serology Tests",
                 "description": "Clinical Serology Tests",
                 "previousId": "Activity_40",
                 "nextId": "Activity_41",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_41",
                 "name": "Clinical Lab Tests",
-                "label": null,
+                "label": "Clinical Lab Tests",
                 "description": "Clinical Lab Tests",
                 "previousId": "Activity_61",
                 "nextId": "Activity_62",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_62",
                 "name": "HbA1c",
-                "label": null,
+                "label": "HbA1c",
                 "description": "HbA1c",
                 "previousId": "Activity_41",
                 "nextId": "Activity_63",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_63",
                 "name": "PREGN",
-                "label": null,
+                "label": "PREGN",
                 "description": "PREGN",
                 "previousId": "Activity_62",
                 "nextId": "Activity_64",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_64",
                 "name": "FSH",
-                "label": null,
+                "label": "FSH",
                 "description": "FSH",
                 "previousId": "Activity_63",
                 "nextId": "Activity_65",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_65",
                 "name": "Ethanol testing",
-                "label": null,
+                "label": "Ethanol testing",
                 "description": "Ethanol testing",
                 "previousId": "Activity_64",
                 "nextId": "Activity_66",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_66",
                 "name": "Urine Drug Screen",
-                "label": null,
+                "label": "Urine Drug Screen",
                 "description": "Urine Drug Screen",
                 "previousId": "Activity_65",
                 "nextId": "Activity_42",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_42",
                 "name": "PK (Glucagon)",
-                "label": null,
+                "label": "PK (Glucagon)",
                 "description": "PK (Glucagon)",
                 "previousId": "Activity_66",
                 "nextId": "Activity_43",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_43",
                 "name": "Plasma Glucose for PD",
-                "label": null,
+                "label": "Plasma Glucose for PD",
                 "description": "Plasma Glucose for PD",
                 "previousId": "Activity_42",
                 "nextId": "Activity_67",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_67",
                 "name": "Genetic Sample",
-                "label": null,
+                "label": "Genetic Sample",
                 "description": "Genetic Sample",
                 "previousId": "Activity_43",
                 "nextId": "Activity_44",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_44",
                 "name": "Anti-glucagon antibodies",
-                "label": null,
+                "label": "Anti-glucagon antibodies",
                 "description": "Anti-glucagon antibodies",
                 "previousId": "Activity_67",
                 "nextId": "Activity_68",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_68",
                 "name": "Clarke Hypoglycemia Awareness Survey",
-                "label": null,
+                "label": "Clarke Hypoglycemia Awareness Survey",
                 "description": "Clarke Hypoglycemia Awareness Survey",
                 "previousId": "Activity_44",
                 "nextId": "Activity_36",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_36",
                 "name": "Weight",
-                "label": null,
+                "label": "Weight",
                 "description": "Weight",
                 "previousId": "Activity_68",
                 "nextId": "Activity_37",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [
                   "BiomedicalConcept_1"
                 ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_37",
                 "name": "Injection Site Assessment",
-                "label": null,
+                "label": "Injection Site Assessment",
                 "description": "Injection Site Assessment",
                 "previousId": "Activity_36",
                 "nextId": "Activity_38",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_38",
                 "name": "Nasal inspection",
-                "label": null,
+                "label": "Nasal inspection",
                 "description": "Nasal inspection",
                 "previousId": "Activity_37",
                 "nextId": "Activity_45",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_45",
                 "name": "Nasal and Non-nasal Score Quaestionnaire",
-                "label": null,
+                "label": "Nasal and Non-nasal Score Quaestionnaire",
                 "description": "Nasal and Non-nasal Score Quaestionnaire",
                 "previousId": "Activity_38",
                 "nextId": "Activity_46",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_46",
                 "name": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
-                "label": null,
+                "label": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
                 "description": "Edinburgh Hypoglycemia Scale: Experimental Hypoglycemia",
                 "previousId": "Activity_45",
                 "nextId": "Activity_48",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
                 "id": "Activity_48",
                 "name": "Meal",
-                "label": null,
+                "label": "Meal",
                 "description": "Meal",
                 "previousId": "Activity_46",
                 "nextId": null,
+                "childIds": [],
                 "definedProcedures": [
                   {
                     "id": "Procedure_4",
@@ -991,13 +1070,15 @@
                       "instanceType": "Code"
                     },
                     "studyInterventionId": null,
+                    "notes": [],
                     "instanceType": "Procedure"
                   }
                 ],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               }
             ],
@@ -1033,6 +1114,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -1056,6 +1138,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -1119,6 +1202,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -1135,6 +1219,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               },
               {
@@ -1168,6 +1253,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -1191,6 +1277,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -1254,6 +1341,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -1270,6 +1358,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               },
               {
@@ -1303,6 +1392,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -1326,6 +1416,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -1389,6 +1480,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -1405,6 +1497,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               }
             ],
@@ -1416,6 +1509,7 @@
                 "label": "PE 1",
                 "description": "PE 1",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1424,6 +1518,7 @@
                 "label": "PE 2",
                 "description": "PE 2",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1432,6 +1527,7 @@
                 "label": "SBP",
                 "description": "SBP",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1440,6 +1536,7 @@
                 "label": "DBP",
                 "description": "DBP",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1448,6 +1545,7 @@
                 "label": "PE 1",
                 "description": "PE 1",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1456,6 +1554,7 @@
                 "label": "PE 2",
                 "description": "PE 2",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1464,6 +1563,7 @@
                 "label": "SBP",
                 "description": "SBP",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1472,6 +1572,7 @@
                 "label": "DBP",
                 "description": "DBP",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1480,6 +1581,7 @@
                 "label": "PE 1",
                 "description": "PE 1",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1488,6 +1590,7 @@
                 "label": "PE 2",
                 "description": "PE 2",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1496,6 +1599,7 @@
                 "label": "SBP",
                 "description": "SBP",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               },
               {
@@ -1504,6 +1608,7 @@
                 "label": "DBP",
                 "description": "DBP",
                 "reference": "None set",
+                "notes": [],
                 "instanceType": "BiomedicalConceptSurrogate"
               }
             ],
@@ -1531,6 +1636,7 @@
                   "instanceType": "Code"
                 },
                 "populationIds": [],
+                "notes": [],
                 "instanceType": "StudyArm"
               },
               {
@@ -1556,6 +1662,7 @@
                   "instanceType": "Code"
                 },
                 "populationIds": [],
+                "notes": [],
                 "instanceType": "StudyArm"
               }
             ],
@@ -1681,6 +1788,7 @@
                 },
                 "previousId": null,
                 "nextId": "StudyEpoch_2",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -1698,6 +1806,7 @@
                 },
                 "previousId": "StudyEpoch_1",
                 "nextId": "StudyEpoch_3",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -1715,6 +1824,7 @@
                 },
                 "previousId": "StudyEpoch_2",
                 "nextId": "StudyEpoch_4",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -1732,6 +1842,7 @@
                 },
                 "previousId": "StudyEpoch_3",
                 "nextId": "StudyEpoch_5",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -1749,6 +1860,7 @@
                 },
                 "previousId": "StudyEpoch_4",
                 "nextId": null,
+                "notes": [],
                 "instanceType": "StudyEpoch"
               }
             ],
@@ -1775,6 +1887,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1799,6 +1912,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1823,6 +1937,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1847,6 +1962,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1871,12 +1987,16 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               }
             ],
             "estimands": [
               {
                 "id": "Estimand_1",
+                "name": "EST1",
+                "label": "EST1",
+                "description": "",
                 "summaryMeasure": "Treatment Success",
                 "analysisPopulation": {
                   "id": "AnalysisPopulation_1",
@@ -1884,6 +2004,7 @@
                   "label": null,
                   "description": null,
                   "text": "PP",
+                  "notes": [],
                   "instanceType": "AnalysisPopulation"
                 },
                 "interventionId": "StudyIntervention_1",
@@ -1895,13 +2016,18 @@
                     "label": "",
                     "description": "No hypoglycemia induced after 3 hours",
                     "strategy": "Exclude subject from analysis",
+                    "notes": [],
                     "instanceType": "IntercurrentEvent"
                   }
                 ],
+                "notes": [],
                 "instanceType": "Estimand"
               },
               {
                 "id": "Estimand_2",
+                "name": "EST2",
+                "label": "EST2",
+                "description": "",
                 "summaryMeasure": "Something else",
                 "analysisPopulation": {
                   "id": "AnalysisPopulation_2",
@@ -1909,6 +2035,7 @@
                   "label": null,
                   "description": null,
                   "text": "ITT",
+                  "notes": [],
                   "instanceType": "AnalysisPopulation"
                 },
                 "interventionId": "StudyIntervention_2",
@@ -1920,9 +2047,11 @@
                     "label": "",
                     "description": "IC Event Description Number 2",
                     "strategy": "Really really bad shit",
+                    "notes": [],
                     "instanceType": "IntercurrentEvent"
                   }
                 ],
+                "notes": [],
                 "instanceType": "Estimand"
               }
             ],
@@ -1943,6 +2072,7 @@
                   }
                 ],
                 "isRareDisease": false,
+                "notes": [],
                 "instanceType": "Indication"
               },
               {
@@ -1961,6 +2091,7 @@
                   }
                 ],
                 "isRareDisease": false,
+                "notes": [],
                 "instanceType": "Indication"
               }
             ],
@@ -2090,6 +2221,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "AgentAdministration"
                   }
                 ],
@@ -2109,6 +2241,7 @@
                   "decode": "B",
                   "instanceType": "Code"
                 },
+                "notes": [],
                 "instanceType": "StudyIntervention"
               },
               {
@@ -2235,6 +2368,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "AgentAdministration"
                   }
                 ],
@@ -2254,6 +2388,7 @@
                   "decode": "B",
                   "instanceType": "Code"
                 },
+                "notes": [],
                 "instanceType": "StudyIntervention"
               }
             ],
@@ -2265,6 +2400,7 @@
                 "description": "",
                 "text": "To demonstrate that 3 mg LY900018 is non-inferior to 1 mg IMG for the proportion of patients achieving treatment success from insulin-induced hypoglycemia using a non-inferiority margin of 10%",
                 "dictionaryId": null,
+                "notes": [],
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_166",
@@ -2282,6 +2418,7 @@
                     "description": "",
                     "text": "The proportion of patients achieving treatment success defined as either an increase in PG to >70 mg/dL or an increase of >20 mg/dL from nadir within 30 minutes after administration of glucagon. The nadir is defined as the minimum PG value at the time of or within 10 minutes following glucagon administration.",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -2302,6 +2439,7 @@
                 "description": "",
                 "text": "To compare the safety and tolerability of 3 mg LY900018 with 1 mg IMG",
                 "dictionaryId": null,
+                "notes": [],
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_168",
@@ -2319,6 +2457,7 @@
                     "description": "",
                     "text": "SAE, TEAEs (including gastrointestinal, nasal,\nand non-nasal AEs), vital signs",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -2339,6 +2478,7 @@
                 "description": "",
                 "text": "To characterize the PK profile of 3 mg LY900018\ncompared to 1 mg IMG",
                 "dictionaryId": null,
+                "notes": [],
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_170",
@@ -2356,6 +2496,7 @@
                     "description": "",
                     "text": "PK parameters include AUC, Cmax, Tmax",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -2376,6 +2517,7 @@
                 "description": "",
                 "text": "To characterize the PD profile of 3 mg LY900018\ncompared to 1 mg IMG",
                 "dictionaryId": null,
+                "notes": [],
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_172",
@@ -2393,6 +2535,7 @@
                     "description": "",
                     "text": "PD parameters include BGmax and Tmax",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -2439,8 +2582,9 @@
                   "instanceType": "Code"
                 }
               ],
-              "criteria": [],
+              "criterionIds": [],
               "plannedAge": null,
+              "notes": [],
               "instanceType": "StudyDesignPopulation",
               "cohorts": [
                 {
@@ -2452,7 +2596,7 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
-                  "criteria": [],
+                  "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_3",
                     "minValue": 18.0,
@@ -2468,6 +2612,7 @@
                     "isApproximate": false,
                     "instanceType": "Range"
                   },
+                  "notes": [],
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 },
@@ -2480,7 +2625,7 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
-                  "criteria": [],
+                  "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_4",
                     "minValue": 31.0,
@@ -2496,6 +2641,7 @@
                     "isApproximate": false,
                     "instanceType": "Range"
                   },
+                  "notes": [],
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 }
@@ -2914,11 +3060,11 @@
                     "name": "SCREENING",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_23",
                     "epochId": "StudyEpoch_1",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_49",
                       "Activity_53",
@@ -2943,11 +3089,11 @@
                     "name": "INSTANCE_23",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_24",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_51",
                       "Activity_54",
@@ -2963,11 +3109,11 @@
                     "name": "INSTANCE_24",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_25",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_50"
                     ],
@@ -2978,11 +3124,11 @@
                     "name": "INSTANCE_25",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_26",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_54",
                       "Activity_56",
@@ -2997,11 +3143,11 @@
                     "name": "INSTANCE_26",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_27",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_54",
                       "Activity_56",
@@ -3016,11 +3162,11 @@
                     "name": "INSTANCE_27",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_28",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_54",
                       "Activity_56",
@@ -3034,11 +3180,11 @@
                     "name": "INSTANCE_28",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_29",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_52"
                     ],
@@ -3049,11 +3195,11 @@
                     "name": "INSTANCE_29",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_30",
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_54",
                       "Activity_57"
@@ -3065,11 +3211,11 @@
                     "name": "INSTANCE_30",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_31",
                     "epochId": "StudyEpoch_4",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_51",
                       "Activity_52",
@@ -3084,11 +3230,11 @@
                     "name": "INSTANCE_31",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_32",
                     "epochId": "StudyEpoch_4",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_54",
                       "Activity_56",
@@ -3103,11 +3249,11 @@
                     "name": "INSTANCE_32",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_33",
                     "epochId": "StudyEpoch_4",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_54",
                       "Activity_56",
@@ -3121,11 +3267,11 @@
                     "name": "INSTANCE_33",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_34",
                     "epochId": "StudyEpoch_4",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_52"
                     ],
@@ -3136,11 +3282,11 @@
                     "name": "INSTANCE_34",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": "ScheduleTimelineExit_3",
                     "defaultConditionId": null,
                     "epochId": "StudyEpoch_5",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": "ScheduleTimelineExit_3",
                     "activityIds": [
                       "Activity_35",
                       "Activity_57",
@@ -3358,11 +3504,11 @@
                     "name": "INSTANCE_1",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_36",
                       "Activity_37",
@@ -3381,11 +3527,11 @@
                     "name": "INSTANCE_2",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_40"
                     ],
@@ -3396,11 +3542,11 @@
                     "name": "INSTANCE_3",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_40"
                     ],
@@ -3411,11 +3557,11 @@
                     "name": "INSTANCE_4",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_46"
                     ],
@@ -3426,11 +3572,11 @@
                     "name": "INSTANCE_5",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_6",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_37",
                       "Activity_38"
@@ -3442,11 +3588,11 @@
                     "name": "INSTANCE_6",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": "ScheduleTimelineExit_1",
                     "activityIds": [
                       "Activity_43"
                     ],
@@ -3927,11 +4073,11 @@
                     "name": "INSTANCE_7",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_8",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_39",
                       "Activity_40",
@@ -3946,11 +4092,11 @@
                     "name": "INSTANCE_8",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_9",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_47"
                     ],
@@ -3961,11 +4107,11 @@
                     "name": "INSTANCE_9",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_10",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -3977,11 +4123,11 @@
                     "name": "INSTANCE_10",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_11",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -3993,11 +4139,11 @@
                     "name": "INSTANCE_11",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_12",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_39",
                       "Activity_40",
@@ -4013,11 +4159,11 @@
                     "name": "INSTANCE_12",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_13",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -4029,11 +4175,11 @@
                     "name": "INSTANCE_13",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_14",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -4045,11 +4191,11 @@
                     "name": "INSTANCE_14",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_15",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_39",
                       "Activity_40",
@@ -4065,11 +4211,11 @@
                     "name": "INSTANCE_15",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_16",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -4081,11 +4227,11 @@
                     "name": "INSTANCE_16",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_17",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -4097,11 +4243,11 @@
                     "name": "INSTANCE_17",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_18",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_39",
                       "Activity_40",
@@ -4117,11 +4263,11 @@
                     "name": "INSTANCE_18",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_19",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_42",
                       "Activity_43"
@@ -4133,11 +4279,11 @@
                     "name": "INSTANCE_19",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_20",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_39",
                       "Activity_40",
@@ -4153,11 +4299,11 @@
                     "name": "INSTANCE_20",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_21",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_35",
                       "Activity_39",
@@ -4172,11 +4318,11 @@
                     "name": "INSTANCE_21",
                     "label": "",
                     "description": "",
-                    "timelineId": null,
-                    "timelineExitId": "ScheduleTimelineExit_2",
                     "defaultConditionId": null,
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": "ScheduleTimelineExit_2",
                     "activityIds": [
                       "Activity_48"
                     ],
@@ -4196,11 +4342,12 @@
                 "description": "Eligibilty",
                 "text": "All eligibility criteria met",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_2"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_2",
@@ -4209,11 +4356,12 @@
                 "description": "Discretion",
                 "text": "At the discretion of the investigator",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_4"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_3",
@@ -4222,11 +4370,12 @@
                 "description": "Condition 1",
                 "text": "Stopped once bedside PG is <60 mg/dL",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_13"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_4",
@@ -4235,11 +4384,12 @@
                 "description": "Condition 2",
                 "text": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_15"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_5",
@@ -4248,11 +4398,12 @@
                 "description": "IMG",
                 "text": "For IMG only",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_16"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_6",
@@ -4261,11 +4412,12 @@
                 "description": "Fasted",
                 "text": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_22"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_7",
@@ -4274,11 +4426,12 @@
                 "description": "Childbearig potential",
                 "text": "Only females of childbearing potential",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_24"
-                ],
-                "instanceType": "Condition"
+                ]
               },
               {
                 "id": "Condition_8",
@@ -4287,14 +4440,16 @@
                 "description": "Females",
                 "text": "Only Females when needed to confirm postmenopausal status",
                 "dictionaryId": null,
+                "notes": [],
+                "instanceType": "Condition",
                 "contextIds": [],
                 "appliesToIds": [
                   "Activity_26"
-                ],
-                "instanceType": "Condition"
+                ]
               }
             ],
             "organizations": [],
+            "notes": [],
             "instanceType": "StudyDesign"
           }
         ],
@@ -4326,37 +4481,62 @@
             "instanceType": "StudyTitle"
           }
         ],
+        "criteria": [],
+        "narrativeContentItems": [],
+        "abbreviations": [],
+        "notes": [],
         "instanceType": "StudyVersion"
       }
     ],
-    "documentedBy": {
-      "id": "StudyProtocolDocument_1",
-      "name": "Protocol_Document_LY900018",
-      "label": null,
-      "description": null,
-      "versions": [
-        {
-          "id": "StudyProtocolDocumentVersion_1",
-          "protocolVersion": "1",
-          "protocolStatus": {
-            "id": "Code_5",
-            "code": "C85255",
-            "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2023-12-15",
-            "decode": "Draft",
-            "instanceType": "Code"
-          },
-          "dateValues": [],
-          "contents": [],
-          "childIds": [],
-          "instanceType": "StudyProtocolDocumentVersion"
-        }
-      ],
-      "instanceType": "StudyProtocolDocument"
-    },
+    "documentedBy": [
+      {
+        "id": "StudyDefinitionDocument_1",
+        "name": "Protocol_Document_LY900018",
+        "label": null,
+        "description": null,
+        "language": {
+          "id": "Code_173",
+          "code": "en",
+          "codeSystem": "ISO",
+          "codeSystemVersion": "1",
+          "decode": "English",
+          "instanceType": "Code"
+        },
+        "type": {
+          "id": "Code_174",
+          "code": "C12345",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2023-12-15",
+          "decode": "Decode",
+          "instanceType": "Code"
+        },
+        "templateName": "document",
+        "versions": [
+          {
+            "id": "StudyDefinitionDocumentVersion_1",
+            "version": "1",
+            "status": {
+              "id": "Code_5",
+              "code": "C85255",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Draft",
+              "instanceType": "Code"
+            },
+            "dateValues": [],
+            "contents": [],
+            "childIds": [],
+            "notes": [],
+            "instanceType": "StudyDefinitionDocumentVersion"
+          }
+        ],
+        "notes": [],
+        "instanceType": "StudyDefinitionDocument"
+      }
+    ],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.0.0",
+  "usdmVersion": "3.4.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.51.0"
+  "systemVersion": "0.52.0"
 }
