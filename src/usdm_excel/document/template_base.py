@@ -17,7 +17,7 @@ class TemplateBase():
   def valid_method(self, name):
     result = name in self._methods
     if not result:
-      self.parent._general_warning(f"Could not resolve method name, {name} not in {self.methods}")
+      self.parent._general_warning(f"Could not resolve method name, {name} not in {self._methods}")
     return result
   
   def _reference(self, item, attribute):
