@@ -39,7 +39,7 @@ def test_content_to_section(mocker, globals, minimal, factory):
   fhir = ToFHIR(minimal.study)
   item = factory.item(NarrativeContentItem, {'name': "NCI1", 'text': 'Something here for the text'})
   content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'displaySectionNumber': True, 'sectionTitle': 'Section Title', 'displaySectionTitle': True, 'contentItemId': item.id, 'childIds': []})
-  result = fhir._content_to_section(content, item)
+  result = fhir._content_to_section(content, item.text)
   expected = '{"title": "Section Title", "code": {"text": "section1.1.1-section-title"}, "text": {"status": "generated", "div": "Something here for the text"}}'
   assert result.json() == expected
 
