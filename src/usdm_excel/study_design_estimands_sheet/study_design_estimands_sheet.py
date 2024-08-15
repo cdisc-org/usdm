@@ -50,7 +50,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
               current = self.create_object(Estimand, params)
               #current = Estimand(id=self.globals.id_manager.build_id(Estimand), summaryMeasure=e_summary, analysisPopulation=ap, interventionId=treatment_id, variableOfInterestId=endpoint_id, intercurrentEvents=[])
             except Exception as e:
-              self._general_error(f"Failed to create Estimand object", e)
+              self._general_exception(f"Failed to create Estimand object", e)
             else:
               self.estimands.append(current)  
         if current is not None:
@@ -61,7 +61,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
             current_ice_name = ice_name
             current_ice_description = ice_description
           except Exception as e:
-            self._general_error(f"Failed to create IntercurrentEvent object", e)
+            self._general_exception(f"Failed to create IntercurrentEvent object", e)
           else:
             current.intercurrentEvents.append(ice)
         else:
