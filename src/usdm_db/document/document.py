@@ -58,7 +58,7 @@ class Document():
     try:
       self._modal_count = 1
       self.chapters = []
-      root = self._document_version.contents[0]
+      #root = self._document_version.contents[0]
       doc = Doc()
       doc.asis('<!DOCTYPE html>')
       nc_list = self._document_version.narrative_content_in_order()
