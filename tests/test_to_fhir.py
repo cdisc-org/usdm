@@ -57,7 +57,7 @@ def test_clean_section_number(mocker, globals, minimal, factory):
 def test_add_section_heading(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
   fhir = ToFHIR(minimal.study)
-  item = factory.item(NarrativeContentItem, {'name': "NCI1", 'text': 'Something here for the text'})
+  item = factory.item(NarrativeContentItem, {'name': "NCI1", 'text': '<div xmlns="http://www.w3.org/1999/xhtml">Something here for the text</div>'})
   content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'displaySectionNumber': True, 'sectionTitle': 'Section Title', 'displaySectionTitle': True, 'contentItemId': item.id, 'childIds': []})
   div = BeautifulSoup(item.text, 'html.parser')
   assert fhir._add_section_heading(content, div) == '<div xmlns="http://www.w3.org/1999/xhtml"><p>1.1.1 Section Title</p>Something here for the text</div>'
