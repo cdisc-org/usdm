@@ -21,7 +21,8 @@ class Document():
       self._study_design = self._study_version.studyDesigns[0]
       self._document = self._study.document_by_template_name(template_name)
       self._document_version = self._document.versions[0]
-      self._doc_title = self._study_version.get_title('Official Study Title')
+      title = self._study_version.get_title('Official Study Title')
+      self._doc_title = title.text if title else '[Document Title]'
       self._chapters = []
       self._modal_count = 1
     except Exception as e:
@@ -60,8 +61,8 @@ class Document():
       root = self._document_version.contents[0]
       doc = Doc()
       doc.asis('<!DOCTYPE html>')
-      for id in root.childIds:
-        content = next((x for x in self._document_version.contents if x.id == id), None)
+      nc_list = self._document_version.narrative_content_in_order()
+      for content in nc_list:
         if self._is_level_1_doc_section(content.sectionNumber):
           self.chapters.append(f'<a href="#section-{content.sectionNumber}"></a>')
       with doc.tag('html'):
@@ -110,11 +111,10 @@ class Document():
             pass
         
         with doc.tag('body'):
-          doc.asis(self._title_page())    
-          for id in root.childIds:
-            content = next((x for x in self._document_version.contents if x.id == id), None)
-            if content:
-              self._content_to_html(content, doc, highlight)
+          doc.asis(self._title_page())
+          #nc_list = self._document_version.narrative_content_in_order()
+          for content in nc_list:
+            self._content_to_html(content, doc, highlight)
       return doc.getvalue()
     except Exception as e:
       self._errors_and_logging.exception(f"Exception raised generating HTML content. See logs for more details", e)
@@ -122,6 +122,7 @@ class Document():
 
   def _content_to_html(self, content: NarrativeContent, doc, highlight: bool=False) -> None:
     level = self._get_level(content.sectionNumber)
+    print(f"LEVEL: L={level} C={content}")
     klass = "page" if level == 1 else ""
     heading_id = f"section-{content.sectionNumber}"
     if (level == 1 and self._is_first_section(content.sectionNumber)):
@@ -136,9 +137,6 @@ class Document():
         doc.asis(str(self._translate_references(content_item.text, highlight)))
       else:
         self._errors_and_logging.error(f"Missing content item while processing content for section '{content.sectionNumber}', '{content.sectionTitle}' while generating the HTML document")
-      for id in content.childIds:
-        content = next((x for x in self._document_version.contents if x.id == id), None)
-        self._content_to_html(content, doc, highlight)
 
   def _get_level(self, section_number):
     if section_number.lower().startswith("appendix"):
@@ -173,7 +171,7 @@ class Document():
       try:
         attributes = ref.attrs
         instance = self._cross_ref.get(attributes['klass'], attributes['id'])
-        print(f"REF: {instance}")
+        #print(f"REF: {instance}")
         value = self._resolve_instance(instance, attributes['attribute'], highlight)
         translated_text = self._translate_references(value, highlight)
         self._replace_and_highlight(soup, ref, translated_text, highlight)
@@ -184,7 +182,7 @@ class Document():
     return get_soup(str(soup), self._errors_and_logging)
 
   def _resolve_instance(self, instance, attribute, highlight=False):
-    print(f"RI: {instance}, {attribute} {highlight}")
+    #print(f"RI: {instance}, {attribute} {highlight}")
     dictionary = self._get_dictionary(instance)
     value = str(getattr(instance, attribute))
     soup = get_soup(value, self._errors_and_logging)
