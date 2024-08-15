@@ -7,8 +7,6 @@ class DocumentTemplates():
   def __init__(self, file_path: str, globals: Globals):
     self.items = []
     for sheet_name in globals.template_manager.all():
-      globals.errors_and_logging.info(f"Reading document template '{sheet_name}")
-      print(f"Reading document template '{sheet_name}'")
       document = DocumentTemplateSheet(file_path, sheet_name, globals)
       self.items.append(document)
 

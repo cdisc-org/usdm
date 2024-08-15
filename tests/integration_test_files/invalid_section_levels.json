@@ -30,7 +30,9 @@
           "standardCodeAliases": [],
           "instanceType": "AliasCode"
         },
-        "documentVersionId": "StudyProtocolDocumentVersion_1",
+        "documentVersionIds": [
+          "StudyDefinitionDocumentVersion_1"
+        ],
         "dateValues": [],
         "amendments": [],
         "businessTherapeuticAreas": [
@@ -209,7 +211,7 @@
                 "previousId": null,
                 "nextId": "Encounter_2",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_31",
                     "code": "C51282",
@@ -245,6 +247,7 @@
                   "text": "IEs passed",
                   "instanceType": "TransitionRule"
                 },
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -263,7 +266,7 @@
                 "previousId": "Encounter_1",
                 "nextId": "Encounter_3",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_34",
                     "code": "C51282",
@@ -285,6 +288,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -303,7 +307,7 @@
                 "previousId": "Encounter_2",
                 "nextId": "Encounter_4",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_37",
                     "code": "C51282",
@@ -332,6 +336,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -350,7 +355,7 @@
                 "previousId": "Encounter_3",
                 "nextId": "Encounter_5",
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_40",
                     "code": "C51282",
@@ -372,6 +377,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               },
               {
@@ -390,7 +396,7 @@
                 "previousId": "Encounter_4",
                 "nextId": null,
                 "scheduledAtId": null,
-                "environmentalSetting": [
+                "environmentalSettings": [
                   {
                     "id": "Code_43",
                     "code": "C18002",
@@ -412,6 +418,7 @@
                 ],
                 "transitionStartRule": null,
                 "transitionEndRule": null,
+                "notes": [],
                 "instanceType": "Encounter"
               }
             ],
@@ -423,6 +430,7 @@
                 "description": "Basic Demog",
                 "previousId": null,
                 "nextId": "Activity_2",
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [
                   "BiomedicalConcept_1",
@@ -432,7 +440,8 @@
                 ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               },
               {
@@ -442,11 +451,13 @@
                 "description": "Something weird",
                 "previousId": "Activity_1",
                 "nextId": null,
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
-                "timelineId": "",
+                "timelineId": null,
+                "notes": [],
                 "instanceType": "Activity"
               }
             ],
@@ -481,6 +492,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -504,6 +516,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -520,6 +533,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               },
               {
@@ -577,6 +591,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -593,6 +608,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               },
               {
@@ -625,6 +641,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -641,6 +658,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               },
               {
@@ -674,6 +692,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -697,6 +716,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   },
                   {
@@ -760,6 +780,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "BiomedicalConceptProperty"
                   }
                 ],
@@ -776,6 +797,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
+                "notes": [],
                 "instanceType": "BiomedicalConcept"
               }
             ],
@@ -805,6 +827,7 @@
                   "instanceType": "Code"
                 },
                 "populationIds": [],
+                "notes": [],
                 "instanceType": "StudyArm"
               },
               {
@@ -830,6 +853,7 @@
                   "instanceType": "Code"
                 },
                 "populationIds": [],
+                "notes": [],
                 "instanceType": "StudyArm"
               }
             ],
@@ -939,6 +963,7 @@
                 },
                 "previousId": null,
                 "nextId": "StudyEpoch_2",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -956,6 +981,7 @@
                 },
                 "previousId": "StudyEpoch_1",
                 "nextId": "StudyEpoch_3",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -973,6 +999,7 @@
                 },
                 "previousId": "StudyEpoch_2",
                 "nextId": "StudyEpoch_4",
+                "notes": [],
                 "instanceType": "StudyEpoch"
               },
               {
@@ -990,6 +1017,7 @@
                 },
                 "previousId": "StudyEpoch_3",
                 "nextId": null,
+                "notes": [],
                 "instanceType": "StudyEpoch"
               }
             ],
@@ -1016,6 +1044,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1040,6 +1069,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1064,6 +1094,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1088,6 +1119,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               },
               {
@@ -1112,12 +1144,16 @@
                   "instanceType": "TransitionRule"
                 },
                 "studyInterventionIds": [],
+                "notes": [],
                 "instanceType": "StudyElement"
               }
             ],
             "estimands": [
               {
                 "id": "Estimand_1",
+                "name": "EST1",
+                "label": "EST1",
+                "description": "",
                 "summaryMeasure": "Survival of all patients",
                 "analysisPopulation": {
                   "id": "AnalysisPopulation_1",
@@ -1125,6 +1161,7 @@
                   "label": null,
                   "description": null,
                   "text": "ITT",
+                  "notes": [],
                   "instanceType": "AnalysisPopulation"
                 },
                 "interventionId": "StudyIntervention_1",
@@ -1136,6 +1173,7 @@
                     "label": "",
                     "description": "IC Event Description",
                     "strategy": "Patients with out of range lab values before dosing will be excluded",
+                    "notes": [],
                     "instanceType": "IntercurrentEvent"
                   },
                   {
@@ -1144,6 +1182,7 @@
                     "label": "",
                     "description": "IC Event Description",
                     "strategy": "A second bad event",
+                    "notes": [],
                     "instanceType": "IntercurrentEvent"
                   },
                   {
@@ -1152,13 +1191,18 @@
                     "label": "",
                     "description": "IC Event Description",
                     "strategy": "A third bad thing",
+                    "notes": [],
                     "instanceType": "IntercurrentEvent"
                   }
                 ],
+                "notes": [],
                 "instanceType": "Estimand"
               },
               {
                 "id": "Estimand_2",
+                "name": "EST2",
+                "label": "EST2",
+                "description": "",
                 "summaryMeasure": "Something else",
                 "analysisPopulation": {
                   "id": "AnalysisPopulation_2",
@@ -1166,6 +1210,7 @@
                   "label": null,
                   "description": null,
                   "text": "ITT",
+                  "notes": [],
                   "instanceType": "AnalysisPopulation"
                 },
                 "interventionId": "StudyIntervention_2",
@@ -1177,9 +1222,11 @@
                     "label": "",
                     "description": "IC Event Description Number 2",
                     "strategy": "Really really bad shit",
+                    "notes": [],
                     "instanceType": "IntercurrentEvent"
                   }
                 ],
+                "notes": [],
                 "instanceType": "Estimand"
               }
             ],
@@ -1200,6 +1247,7 @@
                   }
                 ],
                 "isRareDisease": false,
+                "notes": [],
                 "instanceType": "Indication"
               },
               {
@@ -1218,6 +1266,7 @@
                   }
                 ],
                 "isRareDisease": false,
+                "notes": [],
                 "instanceType": "Indication"
               }
             ],
@@ -1347,6 +1396,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "AgentAdministration"
                   }
                 ],
@@ -1366,6 +1416,7 @@
                   "decode": "B",
                   "instanceType": "Code"
                 },
+                "notes": [],
                 "instanceType": "StudyIntervention"
               },
               {
@@ -1492,6 +1543,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
+                    "notes": [],
                     "instanceType": "AgentAdministration"
                   }
                 ],
@@ -1511,6 +1563,7 @@
                   "decode": "B",
                   "instanceType": "Code"
                 },
+                "notes": [],
                 "instanceType": "StudyIntervention"
               }
             ],
@@ -1522,6 +1575,7 @@
                 "description": "",
                 "text": "The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
                 "dictionaryId": null,
+                "notes": [],
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_102",
@@ -1539,6 +1593,7 @@
                     "description": "",
                     "text": "Clinical status assessed using a 7-category ordinal scale at Day 28",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1559,6 +1614,7 @@
                 "description": "",
                 "text": "The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia",
                 "dictionaryId": null,
+                "notes": [],
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_104",
@@ -1576,6 +1632,7 @@
                     "description": "",
                     "text": "Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of <=2 maintained for 24 hours",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1594,6 +1651,7 @@
                     "description": "",
                     "text": "Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1612,6 +1670,7 @@
                     "description": "",
                     "text": "Incidence of mechanical ventilation",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1630,6 +1689,7 @@
                     "description": "",
                     "text": "Ventilator-free days to Day 28",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1648,6 +1708,7 @@
                     "description": "",
                     "text": "Incidence of intensive care unit (ICU) stay",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1666,6 +1727,7 @@
                     "description": "",
                     "text": "Duration of ICU stay",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1684,6 +1746,7 @@
                     "description": "",
                     "text": "Time to clinical failure, defined as the time to death, mechanical ventilation, ICU admission, or withdrawal (whichever occurs first). For patients entering the study already in ICU or on mechanical ventilation, clinical failure is defined as a one-category worsening on the ordinal scale, withdrawal or death.",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1702,6 +1765,7 @@
                     "description": "",
                     "text": "Mortality rate at Days 7, 14, 21, 28, and 60",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1720,6 +1784,7 @@
                     "description": "",
                     "text": "Time to hospital discharge or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen)",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1738,6 +1803,7 @@
                     "description": "",
                     "text": "Time to recovery, defined as discharged or \u201cready for discharge\u201d (as evidenced by normal body temperature and respiratory rate, and stable oxygen saturation on ambient air or <= 2L supplemental oxygen); OR, in a non-ICU hospital ward (or \u201cready for hospital ward\u201d) not requiring supplemental oxygen",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1756,6 +1822,7 @@
                     "description": "",
                     "text": "Duration of supplemental oxygen",
                     "dictionaryId": null,
+                    "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
@@ -1802,8 +1869,9 @@
                   "instanceType": "Code"
                 }
               ],
-              "criteria": [],
+              "criterionIds": [],
               "plannedAge": null,
+              "notes": [],
               "instanceType": "StudyDesignPopulation",
               "cohorts": [
                 {
@@ -1815,7 +1883,7 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
-                  "criteria": [],
+                  "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_3",
                     "minValue": 18.0,
@@ -1831,6 +1899,7 @@
                     "isApproximate": false,
                     "instanceType": "Range"
                   },
+                  "notes": [],
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 },
@@ -1843,7 +1912,7 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
-                  "criteria": [],
+                  "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_4",
                     "minValue": 31.0,
@@ -1859,6 +1928,7 @@
                     "isApproximate": false,
                     "instanceType": "Range"
                   },
+                  "notes": [],
                   "instanceType": "StudyCohort",
                   "characteristics": []
                 }
@@ -2037,11 +2107,11 @@
                     "name": "SCREEN",
                     "label": "Screen",
                     "description": "Screening",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_2",
                     "epochId": "StudyEpoch_1",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_1",
                       "Activity_2"
@@ -2053,11 +2123,11 @@
                     "name": "PRE DOSE",
                     "label": "Baseline",
                     "description": "Pre Dose",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_3",
                     "epochId": "StudyEpoch_2",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_2"
                     ],
@@ -2068,11 +2138,11 @@
                     "name": "DOSE",
                     "label": "Treatment",
                     "description": "Dosing",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_4",
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_2"
                     ],
@@ -2083,11 +2153,11 @@
                     "name": "D14",
                     "label": "Day 14",
                     "description": "Day 14",
-                    "timelineId": null,
-                    "timelineExitId": null,
                     "defaultConditionId": "ScheduledActivityInstance_5",
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_2"
                     ],
@@ -2098,11 +2168,11 @@
                     "name": "FU",
                     "label": "Follow Up",
                     "description": "Follow Up",
-                    "timelineId": null,
-                    "timelineExitId": "ScheduleTimelineExit_1",
                     "defaultConditionId": null,
                     "epochId": "StudyEpoch_4",
                     "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": "ScheduleTimelineExit_1",
                     "activityIds": [
                       "Activity_2"
                     ],
@@ -2116,6 +2186,7 @@
             "dictionaries": [],
             "conditions": [],
             "organizations": [],
+            "notes": [],
             "instanceType": "StudyDesign"
           }
         ],
@@ -2186,184 +2257,1032 @@
             "instanceType": "StudyTitle"
           }
         ],
+        "criteria": [],
+        "narrativeContentItems": [
+          {
+            "id": "NarrativeContentItem_1",
+            "name": "NCI_1",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_2",
+            "name": "NCI_2",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_3",
+            "name": "NCI_3",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_4",
+            "name": "NCI_4",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_5",
+            "name": "NCI_5",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_6",
+            "name": "NCI_6",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_7",
+            "name": "NCI_7",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_8",
+            "name": "NCI_8",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_9",
+            "name": "NCI_9",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_10",
+            "name": "NCI_10",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_11",
+            "name": "NCI_11",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Error!!!!</p></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_12",
+            "name": "NCI_12",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_13",
+            "name": "NCI_13",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_14",
+            "name": "NCI_14",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_15",
+            "name": "NCI_15",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_16",
+            "name": "NCI_16",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_17",
+            "name": "NCI_17",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_18",
+            "name": "NCI_18",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_19",
+            "name": "NCI_19",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_20",
+            "name": "NCI_20",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_21",
+            "name": "NCI_21",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Inclusion criteria are:</p>\n<ul>\n  <li>1. Something</li>\n  <li>2. Something else</li>\n</ul></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_22",
+            "name": "NCI_22",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Exclusion criteria are:</p>\n<ul>\n  <li>1. Dont do this</li>\n  <li>2. And don't do that</li>\n</ul></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_23",
+            "name": "NCI_23",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_24",
+            "name": "NCI_24",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_25",
+            "name": "NCI_25",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_26",
+            "name": "NCI_26",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_27",
+            "name": "NCI_27",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_28",
+            "name": "NCI_28",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_29",
+            "name": "NCI_29",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_30",
+            "name": "NCI_30",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_31",
+            "name": "NCI_31",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_32",
+            "name": "NCI_32",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_33",
+            "name": "NCI_33",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_34",
+            "name": "NCI_34",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_35",
+            "name": "NCI_35",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_36",
+            "name": "NCI_36",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_37",
+            "name": "NCI_37",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_38",
+            "name": "NCI_38",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_39",
+            "name": "NCI_39",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_40",
+            "name": "NCI_40",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_41",
+            "name": "NCI_41",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_42",
+            "name": "NCI_42",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Blinding and unblinding text here please</p></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_43",
+            "name": "NCI_43",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_44",
+            "name": "NCI_44",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_45",
+            "name": "NCI_45",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_46",
+            "name": "NCI_46",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_47",
+            "name": "NCI_47",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_48",
+            "name": "NCI_48",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_49",
+            "name": "NCI_49",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_50",
+            "name": "NCI_50",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_51",
+            "name": "NCI_51",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_52",
+            "name": "NCI_52",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_53",
+            "name": "NCI_53",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_54",
+            "name": "NCI_54",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_55",
+            "name": "NCI_55",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_56",
+            "name": "NCI_56",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_57",
+            "name": "NCI_57",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_58",
+            "name": "NCI_58",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_59",
+            "name": "NCI_59",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_60",
+            "name": "NCI_60",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_61",
+            "name": "NCI_61",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_62",
+            "name": "NCI_62",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_63",
+            "name": "NCI_63",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_64",
+            "name": "NCI_64",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_65",
+            "name": "NCI_65",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_66",
+            "name": "NCI_66",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_67",
+            "name": "NCI_67",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_68",
+            "name": "NCI_68",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_69",
+            "name": "NCI_69",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_70",
+            "name": "NCI_70",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_71",
+            "name": "NCI_71",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_72",
+            "name": "NCI_72",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_73",
+            "name": "NCI_73",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_74",
+            "name": "NCI_74",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_75",
+            "name": "NCI_75",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_76",
+            "name": "NCI_76",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_77",
+            "name": "NCI_77",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_78",
+            "name": "NCI_78",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_79",
+            "name": "NCI_79",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_80",
+            "name": "NCI_80",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_81",
+            "name": "NCI_81",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_82",
+            "name": "NCI_82",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_83",
+            "name": "NCI_83",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_84",
+            "name": "NCI_84",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_85",
+            "name": "NCI_85",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_86",
+            "name": "NCI_86",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_87",
+            "name": "NCI_87",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_88",
+            "name": "NCI_88",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_89",
+            "name": "NCI_89",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_90",
+            "name": "NCI_90",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_91",
+            "name": "NCI_91",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_92",
+            "name": "NCI_92",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_93",
+            "name": "NCI_93",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_94",
+            "name": "NCI_94",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_95",
+            "name": "NCI_95",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_96",
+            "name": "NCI_96",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_97",
+            "name": "NCI_97",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_98",
+            "name": "NCI_98",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_99",
+            "name": "NCI_99",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_100",
+            "name": "NCI_100",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_101",
+            "name": "NCI_101",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_102",
+            "name": "NCI_102",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_103",
+            "name": "NCI_103",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_104",
+            "name": "NCI_104",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_105",
+            "name": "NCI_105",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_106",
+            "name": "NCI_106",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_107",
+            "name": "NCI_107",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_108",
+            "name": "NCI_108",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_109",
+            "name": "NCI_109",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_110",
+            "name": "NCI_110",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_111",
+            "name": "NCI_111",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_112",
+            "name": "NCI_112",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_113",
+            "name": "NCI_113",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_114",
+            "name": "NCI_114",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_115",
+            "name": "NCI_115",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_116",
+            "name": "NCI_116",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_117",
+            "name": "NCI_117",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_118",
+            "name": "NCI_118",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_119",
+            "name": "NCI_119",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_120",
+            "name": "NCI_120",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_121",
+            "name": "NCI_121",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_122",
+            "name": "NCI_122",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_123",
+            "name": "NCI_123",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_124",
+            "name": "NCI_124",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_125",
+            "name": "NCI_125",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_126",
+            "name": "NCI_126",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_127",
+            "name": "NCI_127",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_128",
+            "name": "NCI_128",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_129",
+            "name": "NCI_129",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_130",
+            "name": "NCI_130",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_131",
+            "name": "NCI_131",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_132",
+            "name": "NCI_132",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_133",
+            "name": "NCI_133",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_134",
+            "name": "NCI_134",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_135",
+            "name": "NCI_135",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_136",
+            "name": "NCI_136",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
+          }
+        ],
+        "abbreviations": [],
+        "notes": [],
         "instanceType": "StudyVersion"
       }
     ],
-    "documentedBy": {
-      "id": "StudyProtocolDocument_1",
-      "name": "Protocol_Document_SECTIONS1",
-      "label": null,
-      "description": null,
-      "versions": [
-        {
-          "id": "StudyProtocolDocumentVersion_1",
-          "protocolVersion": "1",
-          "protocolStatus": {
-            "id": "Code_10",
-            "code": "C85255",
-            "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2023-12-15",
-            "decode": "Draft",
-            "instanceType": "Code"
-          },
-          "dateValues": [],
-          "contents": [
-            {
-              "id": "NarrativeContent_1",
-              "name": "ROOT",
-              "sectionNumber": "0",
-              "sectionTitle": "Root",
-              "text": "",
-              "childIds": [
-                "NarrativeContent_2",
-                "NarrativeContent_6",
-                "NarrativeContent_9",
-                "NarrativeContent_10"
-              ],
-              "previousId": null,
-              "nextId": "NarrativeContent_2",
-              "instanceType": "NarrativeContent"
+    "documentedBy": [
+      {
+        "id": "StudyDefinitionDocument_1",
+        "name": "Protocol_Document_SECTIONS1",
+        "label": null,
+        "description": null,
+        "language": {
+          "id": "Code_115",
+          "code": "en",
+          "codeSystem": "ISO",
+          "codeSystemVersion": "1",
+          "decode": "English",
+          "instanceType": "Code"
+        },
+        "type": {
+          "id": "Code_116",
+          "code": "C12345",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2023-12-15",
+          "decode": "Decode",
+          "instanceType": "Code"
+        },
+        "templateName": "document",
+        "versions": [
+          {
+            "id": "StudyDefinitionDocumentVersion_1",
+            "version": "1",
+            "status": {
+              "id": "Code_10",
+              "code": "C85255",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Draft",
+              "instanceType": "Code"
             },
-            {
-              "id": "NarrativeContent_2",
-              "name": "SECTION 1",
-              "sectionNumber": "1",
-              "sectionTitle": "PROTOCOL SUMMARY",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [
-                "NarrativeContent_3",
-                "NarrativeContent_4",
-                "NarrativeContent_5"
-              ],
-              "previousId": "NarrativeContent_1",
-              "nextId": "NarrativeContent_3",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_3",
-              "name": "SECTION 1.1",
-              "sectionNumber": "1.1",
-              "sectionTitle": "Protocol Synopsis",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_2",
-              "nextId": "NarrativeContent_4",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_4",
-              "name": "SECTION 1.2",
-              "sectionNumber": "1.2",
-              "sectionTitle": "Trial Schema",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_3",
-              "nextId": "NarrativeContent_5",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_5",
-              "name": "SECTION 1.3",
-              "sectionNumber": "1.3",
-              "sectionTitle": "Schedule of Activities",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_4",
-              "nextId": "NarrativeContent_6",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_6",
-              "name": "SECTION 2",
-              "sectionNumber": "2",
-              "sectionTitle": "INTRODUCTION",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [
-                "NarrativeContent_7",
-                "NarrativeContent_8"
-              ],
-              "previousId": "NarrativeContent_5",
-              "nextId": "NarrativeContent_7",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_7",
-              "name": "SECTION 2.1",
-              "sectionNumber": "2.1",
-              "sectionTitle": "Purpose of Trial",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_6",
-              "nextId": "NarrativeContent_8",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_8",
-              "name": "SECTION 2.2",
-              "sectionNumber": "2.2",
-              "sectionTitle": "Summary of Benefits and Risks",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_7",
-              "nextId": "NarrativeContent_9",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_9",
-              "name": "SECTION 3",
-              "sectionNumber": "3",
-              "sectionTitle": "TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_8",
-              "nextId": "NarrativeContent_10",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_10",
-              "name": "SECTION 4",
-              "sectionNumber": "4",
-              "sectionTitle": "TRIAL DESIGN",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [
-                "NarrativeContent_11"
-              ],
-              "previousId": "NarrativeContent_9",
-              "nextId": "NarrativeContent_11",
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_11",
-              "name": "SECTION 4.1",
-              "sectionNumber": "4.1",
-              "sectionTitle": "Description of Trial Design",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
-              "childIds": [],
-              "previousId": "NarrativeContent_10",
-              "nextId": null,
-              "instanceType": "NarrativeContent"
-            },
-            {
-              "id": "NarrativeContent_12",
-              "name": "SECTION 4.1.1.1",
-              "sectionNumber": "4.1.1.1",
-              "sectionTitle": "Participant Input into Design",
-              "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Error!!!!</p></div>",
-              "childIds": [],
-              "previousId": null,
-              "nextId": null,
-              "instanceType": "NarrativeContent"
-            }
-          ],
-          "childIds": [],
-          "instanceType": "StudyProtocolDocumentVersion"
-        }
-      ],
-      "instanceType": "StudyProtocolDocument"
-    },
+            "dateValues": [],
+            "contents": [
+              {
+                "id": "NarrativeContent_1",
+                "name": "NC_1",
+                "sectionNumber": "1",
+                "sectionTitle": "PROTOCOL SUMMARY",
+                "displaySectionNumber": false,
+                "displaySectionTitle": false,
+                "childIds": [
+                  "NarrativeContent_2",
+                  "NarrativeContent_3",
+                  "NarrativeContent_4"
+                ],
+                "previousId": null,
+                "nextId": "NarrativeContent_2",
+                "contentItemId": "NarrativeContentItem_1",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_2",
+                "name": "NC_2",
+                "sectionNumber": "1.1",
+                "sectionTitle": "Protocol Synopsis",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_1",
+                "nextId": "NarrativeContent_3",
+                "contentItemId": "NarrativeContentItem_2",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_3",
+                "name": "NC_3",
+                "sectionNumber": "1.2",
+                "sectionTitle": "Trial Schema",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_2",
+                "nextId": "NarrativeContent_4",
+                "contentItemId": "NarrativeContentItem_3",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_4",
+                "name": "NC_4",
+                "sectionNumber": "1.3",
+                "sectionTitle": "Schedule of Activities",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_3",
+                "nextId": "NarrativeContent_5",
+                "contentItemId": "NarrativeContentItem_4",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_5",
+                "name": "NC_5",
+                "sectionNumber": "2",
+                "sectionTitle": "INTRODUCTION",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [
+                  "NarrativeContent_6",
+                  "NarrativeContent_7"
+                ],
+                "previousId": "NarrativeContent_4",
+                "nextId": "NarrativeContent_6",
+                "contentItemId": "NarrativeContentItem_5",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_6",
+                "name": "NC_6",
+                "sectionNumber": "2.1",
+                "sectionTitle": "Purpose of Trial",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_5",
+                "nextId": "NarrativeContent_7",
+                "contentItemId": "NarrativeContentItem_6",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_7",
+                "name": "NC_7",
+                "sectionNumber": "2.2",
+                "sectionTitle": "Summary of Benefits and Risks",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_6",
+                "nextId": "NarrativeContent_8",
+                "contentItemId": "NarrativeContentItem_7",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_8",
+                "name": "NC_8",
+                "sectionNumber": "3",
+                "sectionTitle": "TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_7",
+                "nextId": "NarrativeContent_9",
+                "contentItemId": "NarrativeContentItem_8",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_9",
+                "name": "NC_9",
+                "sectionNumber": "4",
+                "sectionTitle": "TRIAL DESIGN",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [
+                  "NarrativeContent_10"
+                ],
+                "previousId": "NarrativeContent_8",
+                "nextId": "NarrativeContent_10",
+                "contentItemId": "NarrativeContentItem_9",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_10",
+                "name": "NC_10",
+                "sectionNumber": "4.1",
+                "sectionTitle": "Description of Trial Design",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_9",
+                "nextId": null,
+                "contentItemId": "NarrativeContentItem_10",
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_11",
+                "name": "NC_11",
+                "sectionNumber": "4.1.1.1",
+                "sectionTitle": "Participant Input into Design",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": null,
+                "nextId": null,
+                "contentItemId": "NarrativeContentItem_11",
+                "instanceType": "NarrativeContent"
+              }
+            ],
+            "childIds": [],
+            "notes": [],
+            "instanceType": "StudyDefinitionDocumentVersion"
+          }
+        ],
+        "notes": [],
+        "instanceType": "StudyDefinitionDocument"
+      }
+    ],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.0.0",
+  "usdmVersion": "3.4.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.51.0"
+  "systemVersion": "0.52.0"
 }
