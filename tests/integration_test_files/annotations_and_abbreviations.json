@@ -11688,7 +11688,29 @@
             "instanceType": "NarrativeContentItem"
           }
         ],
-        "abbreviations": [],
+        "abbreviations": [
+          {
+            "id": "Abbreviation_1",
+            "abbreviatedText": "ECG",
+            "expandedText": "Electrocardiogram",
+            "notes": [],
+            "instanceType": "Abbreviation"
+          },
+          {
+            "id": "Abbreviation_2",
+            "abbreviatedText": "AD",
+            "expandedText": "Alzheimer's Disease",
+            "notes": [
+              {
+                "id": "CommentAnnotation_4",
+                "text": "Additional note",
+                "codes": [],
+                "instanceType": "CommentAnnotation"
+              }
+            ],
+            "instanceType": "Abbreviation"
+          }
+        ],
         "notes": [],
         "instanceType": "StudyVersion"
       }
