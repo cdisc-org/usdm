@@ -15,9 +15,11 @@ class AbbreviationSheet(BaseSheet):
           abbreviation = self.read_cell_by_name(index, 'abbreviatedText')
           text = self.read_cell_by_name(index, 'expandedText')
           params = {'abbreviatedText': abbreviation, 'expandedText': text}
-          item = self.create_object(Abbreviation, params)
+          notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
+          item = self.create_object(Abbreviation, params)          
           if item:
             self.items.append(item)
-            self.globals.cross_references.add(abbreviation, item)     
+            self.globals.cross_references.add(abbreviation, item)
+            self.add_notes(item, notes) 
     except Exception as e:
       self._sheet_exception(e)
