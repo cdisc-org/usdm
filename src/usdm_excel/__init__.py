@@ -3,6 +3,7 @@ from usdm_excel.study_sheet.study_sheet import StudySheet
 from usdm_excel.errors_and_logging.errors import Errors
 from usdm_excel.globals import Globals
 from usdm_excel.annotation_sheet.annotation_sheet import AnnotationSheet
+from usdm_excel.abbreviation_sheet.abbreviation_sheet import AbbreviationSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
@@ -64,6 +65,7 @@ class USDMExcel():
 
       # Process all the remaining sheets
       self.notes = AnnotationSheet(self._file_path, self._globals)
+      self.abbreviations = AbbreviationSheet(self._file_path, self._globals)
       self.study = StudySheet(self._file_path, self._globals)
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
       self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._globals)

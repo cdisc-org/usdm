@@ -250,3 +250,6 @@ def test_full_fhir_1(mocker):
 
 def test_group_activities_1(mocker):
   run_test('group_activities_1', mocker)
+
+def test_notes_1(mocker):
+  run_test('annotations_and_abbreviations', mocker)
