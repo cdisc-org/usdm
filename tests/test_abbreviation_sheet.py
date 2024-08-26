@@ -39,7 +39,7 @@ def test_read_cell_by_name_error(mocker, globals):
   _setup(mocker, globals, data)
   item = AbbreviationSheet("", globals)
   mock_error.assert_called()
-  assert mock_error.call_args[0][0] == "Abbreviations"
+  assert mock_error.call_args[0][0] == "abbreviations"
   assert mock_error.call_args[0][1] == None
   assert mock_error.call_args[0][2] == None
   assert mock_error.call_args[0][3] == "Exception. Failed to create Abbreviation object. See log for additional details."
