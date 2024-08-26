@@ -61,7 +61,7 @@ class FromFHIR():
     protocl_status_code = self._cdisc_ct_code('C85255', 'Draft')
     intervention_model_code = self._cdisc_ct_code('C82639', 'Parallel Study')
     country_code = self._iso_country_code('DNK', 'Denmark')
-    sponsor_code = self._cdisc_ct_code("C70793", '"Clinical Study Sponsor')
+    sponsor_code = self._cdisc_ct_code("C70793", 'Clinical Study Sponsor')
     study_title = self._model_instance(StudyTitle, {'text': title, 'type': sponsor_title_code})
     protocl_document_version = self._model_instance(StudyDefinitionDocumentVersion, {'protocolVersion': '1', 'protocolStatus': protocl_status_code})
     protocl_document = self._model_instance(StudyDefinitionDocument, {'name': 'PROTOCOL V1', 'label': '', 'description': '', 'versions': [protocl_document_version]})
