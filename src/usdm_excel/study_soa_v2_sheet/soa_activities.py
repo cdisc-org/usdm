@@ -32,9 +32,9 @@ class SoAActivities():
     parents = any([x.is_parent for x in self.items])
     if parents:
       parent_activity = None
-      for item in self.items():
+      for item in self.items:
         the_activity = item.activity
-        if the_activity.is_parent:
+        if item.is_parent:
           parent_activity = the_activity
         elif parent_activity:
           parent_activity.childIds.append(the_activity.id)
