@@ -1,8 +1,9 @@
-import pytest
+import base64
 from tests.test_data_factory import MinimalStudy
 from usdm_model.eligibility_criterion import EligibilityCriterion
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.activity import Activity
+from usdm_model.abbreviation import Abbreviation
 from usdm_excel.document.macros import Macros
 from usdm_excel.globals import Globals
 from tests.test_factory import Factory
@@ -32,6 +33,16 @@ def create_bc(factory: Factory, globals: Globals):
   activity = factory.item(Activity, {'name': 'vitals' ,'biomedicalConceptIds': [bc.id]})
   globals.cross_references.add(bc.id, bc)
   globals.cross_references.add(activity.name, activity)
+
+def create_abbreviations(factory: Factory, globals: Globals):
+  abbreviations = [
+    {'abbreviatedText': 'XXX', 'expandedText': 'X is X very X long'},
+    {'abbreviatedText': 'ECG', 'expandedText': 'Electrocardiogram'},
+    {'abbreviatedText': 'AD', 'expandedText': "Alzheimer's"}
+  ]
+  for abbreviation in abbreviations:
+    item = factory.item(Abbreviation, abbreviation)
+    globals.cross_references.add(item.abbreviatedText, item)
 
 def get_instance(mocker, globals: Globals, factory: Factory, minimal: MinimalStudy):
   globals.id_manager.clear()
@@ -97,5 +108,40 @@ def test_activity_error(mocker, globals, factory, minimal):
   macro = get_instance(mocker, globals, factory, minimal)
   create_bc(factory, globals)
   result = macro.resolve('<usdm:macro id="bc" name="height" activity="vitalsX"/>')
-  expected = 'Missing activity: failed to find activity'
+  expected = "Missing activity: failed to find activity 'vitalsX'"
   assert result == expected
+
+def test_image_ok(mocker, globals, factory, minimal):
+  mock_image = mocker.patch("usdm_excel.document.macros.Macros._encode_image")
+  mock_image.side_effect=[base64.b64encode(str.encode('01234567890ABCDEF'))]
+  macro = get_instance(mocker, globals, factory, minimal)
+  result = macro.resolve('<usdm:macro id="image" file="xxx.png" type="png"/>')
+  expected = '<img alt="Alt text" src="data:image/png;base64,MDEyMzQ1Njc4OTBBQkNERUY="/>'
+  assert result == expected
+
+def test_image_error(mocker, globals, factory, minimal):
+  macro = get_instance(mocker, globals, factory, minimal)
+  result = macro.resolve('<usdm:macro id="image" file="xxx.png" type="png"/>')
+  expected = "Missing image: failed to insert image 'xxx.png'"
+  assert result == expected
+
+def test_abbreviation_ok(mocker, globals, factory, minimal):
+  macro = get_instance(mocker, globals, factory, minimal)
+  create_abbreviations(factory, globals)
+  result = macro.resolve('<usdm:macro id="abbreviations" items="XXX"/>')
+  expected = '<usdm:ref attribute="abbreviatedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref>'
+  assert result == expected
+
+def test_abbreviation_multiple_ok(mocker, globals, factory, minimal):
+  macro = get_instance(mocker, globals, factory, minimal)
+  create_abbreviations(factory, globals)
+  result = macro.resolve('<usdm:macro id="abbreviations" items="XXX,  ECG,AD"/>')
+  expected = '<usdm:ref attribute="abbreviatedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref>, <usdm:ref attribute="abbreviatedText" id="Abbreviation_2" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_2" klass="Abbreviation"></usdm:ref>, <usdm:ref attribute="abbreviatedText" id="Abbreviation_3" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_3" klass="Abbreviation"></usdm:ref>'
+  assert result == expected
+
+def test_abbreviation_error(mocker, globals, factory, minimal):
+  macro = get_instance(mocker, globals, factory, minimal)
+  result = macro.resolve('<usdm:macro id="abbreviations" items="AE"/>')
+  expected = "Missing abbreviation: failed to find abbreviation 'AE'"
+  assert result == expected
+

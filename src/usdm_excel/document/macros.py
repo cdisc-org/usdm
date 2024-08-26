@@ -4,6 +4,7 @@ from usdm_excel.document.template_m11 import TemplateM11
 from usdm_excel.document.template_plain import TemplatePlain
 from usdm_excel.document.elements import Elements
 from usdm_excel.base_sheet import BaseSheet
+from usdm_model.abbreviation import Abbreviation
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.activity import Activity
@@ -46,6 +47,28 @@ class Macros():
     ref_tag.attrs = {'klass': instance.__class__.__name__, 'id': instance.id, 'attribute': attribute}
     ref.replace_with(ref_tag)
       
+  def _abbreviations(self, attributes: dict, soup, ref) -> None:
+    items = [x.strip() for x in attributes['items'].split(',')]
+    first = True
+    for item in items:
+      instance = self._parent.globals.cross_references.get(Abbreviation, item)
+      if instance:
+        if not first:
+          ref.insert_before(', ')
+        ref.insert_before(self._new_ref_tag(soup, 'Abbreviation', instance.id, 'abbreviatedText'))
+        ref.insert_before(' = ')
+        ref.insert_before(self._new_ref_tag(soup, 'Abbreviation', instance.id, 'expandedText'))
+        first = False
+      else:
+        self._parent._general_error(f"Failed to find abbreviation '{item}'")
+        ref.insert_after(f"Missing abbreviation: failed to find abbreviation '{item}'")
+    ref.extract()
+
+  def _new_ref_tag(self, soup, klass: str, id: str, attribute: str):
+    tag = soup.new_tag("usdm:ref")
+    tag.attrs = {'klass': klass, 'id': id, 'attribute': attribute}
+    return tag
+        
   def _bc(self, attributes: dict, soup, ref) -> None:
     bc_name = attributes['name'].upper().strip()
     activity_name = attributes['activity'].strip()
@@ -68,8 +91,8 @@ class Macros():
         self._parent._general_error(f"Failed to find BC name '{bc_name}' in activity '{activity_name}'")
         ref.replace_with('Missing BC: failed to find BC in activity')
     else:
-      self._parent._general_error(f"Failed to find  activity '{activity_name}'")
-      ref.replace_with('Missing activity: failed to find activity')
+      self._parent._general_error(f"Failed to find activity '{activity_name}'")
+      ref.replace_with(f"Missing activity: failed to find activity '{activity_name}'")
 
   def _image(self, attributes: dict, soup, ref) -> None:
     type = attributes['type']
@@ -80,7 +103,9 @@ class Macros():
       img_tag.attrs['alt'] = "Alt text"
       ref.replace_with(img_tag)
     else:
-      self._note({'text': f"Failed to insert image '{attributes['file']}', ignoring!"}, soup, ref)
+      name = attributes['file']
+      self._parent._general_error(f"Failed to insert image '{name}'")
+      ref.replace_with(f"Missing image: failed to insert image '{name}'")
 
   def _element(self, attributes, soup, ref) -> None:
     method = attributes['name'].lower()
@@ -112,7 +137,7 @@ class Macros():
     ref.replace_with(get_soup(text, self._parent))
 
   def _valid_method(self, name):
-    return name in ['_xref', '_image', '_element', '_section', '_note', '_bc']
+    return name in ['_xref', '_image', '_element', '_section', '_note', '_bc', '_abbreviations']
   
   def _resolve_template(self, template: str) -> object:
     try:
@@ -126,7 +151,7 @@ class Macros():
       with open(os.path.join(self._parent.dir_path, filename), "rb") as image_file:
         data = base64.b64encode(image_file.read())
       return data
-    except:
-      self._parent._general_error(f"Failed to open image file '{filename}', ignored")
+    except Exception as e:
+      self._parent._general_exception(f"Failed to open / read image file '{filename}', ignored", e)
       return None
       

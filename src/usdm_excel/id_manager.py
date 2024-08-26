@@ -67,7 +67,8 @@ class IdManager():
       'ParameterMap': 0,
       'ConditionAssignment': 0,
       'Characteristic': 0,
-      'CommentAnnotation': 0
+      'CommentAnnotation': 0,
+      'Abbreviation': 0
     }
 
   def build_id(self, klass):

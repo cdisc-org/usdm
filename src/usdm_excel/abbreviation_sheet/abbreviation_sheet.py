@@ -4,7 +4,7 @@ from usdm_excel.globals import Globals
 
 class AbbreviationSheet(BaseSheet):
 
-  SHEET_NAME = 'Abbreviations'
+  SHEET_NAME = 'abbreviations'
 
   def __init__(self, file_path: str, globals: Globals):
     try:
