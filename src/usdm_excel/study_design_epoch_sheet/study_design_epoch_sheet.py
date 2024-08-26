@@ -16,18 +16,11 @@ class StudyDesignEpochSheet(BaseSheet):
         description = self.read_cell_by_name(index, ['studyEpochDescription', 'description'])
         label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
         epoch_type = self.read_cdisc_klass_attribute_cell_by_name('StudyEpoch', 'studyEpochType', index, ['studyEpochType', 'type'])
-        try:
-          item = StudyEpoch(
-            id=self.globals.id_manager.build_id(StudyEpoch), 
-            name=name, 
-            description=description,
-            label=label,
-            type=epoch_type
-          )
-        except Exception as e:
-          self._general_exception(f"Failed to create StudyEpoch object", e)
-        else:
+        notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
+        item = self.create_object(StudyEpoch, {'name': name, 'description': description, 'label': label, 'type': epoch_type})
+        if item:
           self.items.append(item)
-          self.globals.cross_references.add(name, item)     
+          self.globals.cross_references.add(name, item)
+          self.add_notes(item, notes)
     except Exception as e:
       self._sheet_exception(e)

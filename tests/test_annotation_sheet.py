@@ -46,7 +46,7 @@ def test_read_cell_by_name_error(mocker, globals):
   _setup(mocker, globals, data)
   item = AnnotationSheet("", globals)
   mock_error.assert_called()
-  assert mock_error.call_args[0][0] == "Annotations"
+  assert mock_error.call_args[0][0] == "annotations"
   assert mock_error.call_args[0][1] == 1
   assert mock_error.call_args[0][2] == -1
   assert mock_error.call_args[0][3] == "Error attempting to read cell 'text'. Exception: Failed to detect column(s) 'text' in sheet"
