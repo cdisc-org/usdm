@@ -1,7 +1,7 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.activity import Activity
 from usdm_excel.globals import Globals
+from usdm_model.comment_annotation import CommentAnnotation
 
 class StudyDesignActivitySheet(BaseSheet):
 
@@ -16,18 +16,12 @@ class StudyDesignActivitySheet(BaseSheet):
           name = self.read_cell_by_name(index, ['activityName', 'name'])
           description = self.read_cell_by_name(index, ['activityDescription', 'description'])
           label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
-          try:
-            item = Activity(
-              id=self.globals.id_manager.build_id(Activity), 
-              name=name,
-              description=description,
-              label=label
-            )
-          except Exception as e:
-            self._general_exception(f"Failed to create Activity object", e)
-          else:
+          notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
+          item = self.create_object(Activity, {'name': name, 'description': description, 'label': label})
+          if item:
             self.items.append(item)
-            self.globals.cross_references.add(name, item)     
+            self.globals.cross_references.add(name, item)
+            self.add_notes(item, notes)
         self.double_link(self.items, 'previousId', 'nextId')   
     except Exception as e:
       self._sheet_exception(e)

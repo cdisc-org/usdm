@@ -1,8 +1,8 @@
 from usdm_excel.configuration_sheet import ConfigurationSheet
 from usdm_excel.study_sheet.study_sheet import StudySheet
-#from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.errors_and_logging.errors import Errors
 from usdm_excel.globals import Globals
+from usdm_excel.annotation_sheet.annotation_sheet import AnnotationSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
@@ -34,7 +34,6 @@ from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.study_definition_document import StudyDefinitionDocument
 from usdm_model.wrapper import Wrapper
-from usdm_model.wrapper import Wrapper
 from usdm_info import __model_version__ as usdm_version, __package_version__ as system_version
 
 class USDMExcel():
@@ -62,13 +61,9 @@ class USDMExcel():
     
       # Read the configuration. Override the template if requested and present, otherwise leave as configured
       self.configuration = ConfigurationSheet(self._file_path, self._globals)
-      # if template_override:
-      #   sheet_name = self._globals.template_manager.get(template_override)
-      #   if sheet_name:
-      #     self._globals.option_manager.set(Options.USE_TEMPLATE, template_override.upper())
-      #     self._globals.errors_and_logging.info(f"Template overridden. Using template '{template_override}' and sheet '{sheet_name}'")
 
       # Process all the remaining sheets
+      self.notes = AnnotationSheet(self._file_path, self._globals)
       self.study = StudySheet(self._file_path, self._globals)
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
       self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._globals)

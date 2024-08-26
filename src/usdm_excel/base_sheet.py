@@ -10,6 +10,7 @@ from usdm_excel.iso_3166 import ISO3166
 from usdm_model.quantity import Quantity
 from usdm_model.range import Range
 from usdm_model.address import Address
+from usdm_model.comment_annotation import CommentAnnotation
 from usdm_excel.alias import Alias
 from usdm_excel.option_manager import EmptyNoneOption
 from usdm_excel.globals import Globals
@@ -233,6 +234,17 @@ class BaseSheet():
     except Exception as e:
       self._general_exception(f"Failed to create {cls.__name__} object", e)
       return None
+
+  def add_notes(self, instance: object, note_refs: list) -> None:
+    for note_ref in note_refs:
+      try:
+        note = self.globals.cross_references.get(CommentAnnotation, note_ref)
+        if note:
+          instance.notes.append(note)
+        else:
+          self._general_error(f"Failed to find note with name '{note_ref}'")  
+      except Exception as e:
+        self._general_exception(f"Failed to add note to '{object.__class__.__name__}' object", e)
 
   def read_other_code_cell_by_name(self, row_index, field_name):
     col_index = self.column_present(field_name)
