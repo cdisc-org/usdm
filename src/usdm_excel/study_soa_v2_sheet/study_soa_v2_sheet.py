@@ -19,24 +19,15 @@ class StudySoAV2Sheet(BaseSheet):
       self.condition = ""
       self.timeline = None
       self.main_timeline = main
-      #self.encounters = []
       self.activities = []
-      #self.timelines = []
-      self.biomedical_concept_surrogates = []
       self.biomedical_concepts = []
+      self.biomedical_concept_surrogates = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, header=None, require=require)
       self._process_sheet()
       self._raw_activities = SoAActivities(self) # Order important, activities then instances
       self._raw_instances = ScheduledInstances(self)
-
-      # @TODO Move block to SoAActivities class
-      for item in self._raw_activities.items:
-        activity = item.activity
-        self.activities.append(activity)
-        self.biomedical_concept_surrogates += item.usdm_biomedical_concept_surrogates
-        self.biomedical_concepts += item.usdm_biomedical_concepts
-      self.double_link(self.activities, 'previousId', 'nextId')
-      
+      self.activities, self.biomedical_concepts, self.biomedical_concept_surrogates = self._raw_activities.group_and_link()
+      self._raw_activities.set_parents()
       self.timeline = self._add_timeline(self.name, self.description, self.condition, self._raw_instances.instances, self._raw_instances.exits)
 
     except Exception as e:
