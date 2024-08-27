@@ -2,8 +2,12 @@ from usdm_excel.template_manager import *
 
 def test_create(globals):
   object = TemplateManager(globals)
-  assert len(object._items.keys()) == 0
-  assert object._items == {}
+  assert len(object._items.keys()) == 1
+  assert object._items == {'SPONSOR': 'document'}
+
+def test_default(globals):
+  object = TemplateManager(globals)
+  assert object.default_template == 'SPONSOR'
 
 def test_add(globals):
   globals.template_manager._items = {}
@@ -31,3 +35,22 @@ def test_clear(globals):
   assert len(globals.template_manager._items.keys()) == 1
   globals.template_manager.clear()
   assert len(globals.template_manager._items.keys()) == 0
+
+def test_tidy_remove_default_1(globals):
+  object = TemplateManager(globals)
+  object.add('fred', 'value_fred')
+  object.add('Sid', 'value_sid')
+  object.tidy(['value_fred', 'value_sid'])
+  assert len(object._items.keys()) == 2
+  assert object._items['FRED'] == 'value_fred'
+  assert object._items['SID'] == 'value_sid'
+
+def test_tidy_remove_default_2(globals):
+  object = TemplateManager(globals)
+  object.add('fred', 'value_fred')
+  object.add('Sid', 'value_sid')
+  object.tidy(['value_fred', 'value_sid', 'document'])
+  assert len(object._items.keys()) == 3
+  assert object._items['FRED'] == 'value_fred'
+  assert object._items['SID'] == 'value_sid'
+  assert object._items['SPONSOR'] == 'document'

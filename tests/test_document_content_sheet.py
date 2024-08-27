@@ -9,7 +9,6 @@ xfail = pytest.mark.xfail
 
 def test_create(mocker, globals):
   globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
-  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
 
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
@@ -77,7 +76,6 @@ def test_create_empty(mocker, globals):
   assert len(content.items) == 0
 
 def test_read_cell_by_name_error(mocker, globals):
-  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
   globals.template_manager.add('sponsor', 'studyDesignContent')
   call_parameters = []
   

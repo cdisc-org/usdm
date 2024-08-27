@@ -28,5 +28,3 @@ def test_options(globals):
   assert globals.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.NONE.value
   globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
   assert globals.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value
-  globals.option_manager.set(Options.USE_TEMPLATE, "XXX")
-  assert globals.option_manager.get(Options.USE_TEMPLATE) == 'XXX'

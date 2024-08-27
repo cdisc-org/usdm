@@ -3,7 +3,6 @@ from enum import Enum
 
 class Options(Enum):
   EMPTY_NONE = 'empty_none'
-  USE_TEMPLATE = 'use_template'
 
 class EmptyNoneOption(Enum):
   EMPTY = 'empty_string'

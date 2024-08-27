@@ -30,9 +30,7 @@
           "standardCodeAliases": [],
           "instanceType": "AliasCode"
         },
-        "documentVersionIds": [
-          "StudyDefinitionDocumentVersion_1"
-        ],
+        "documentVersionIds": [],
         "dateValues": [
           {
             "id": "GovernanceDate_1",
@@ -10819,96 +10817,7 @@
         "instanceType": "StudyVersion"
       }
     ],
-    "documentedBy": [
-      {
-        "id": "StudyDefinitionDocument_1",
-        "name": "Protocol_Document_CDISC PILOT - LZZT",
-        "label": null,
-        "description": null,
-        "language": {
-          "id": "Code_539",
-          "code": "en",
-          "codeSystem": "ISO",
-          "codeSystemVersion": "1",
-          "decode": "English",
-          "instanceType": "Code"
-        },
-        "type": {
-          "id": "Code_540",
-          "code": "C12345",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
-          "decode": "Decode",
-          "instanceType": "Code"
-        },
-        "templateName": "document",
-        "versions": [
-          {
-            "id": "StudyDefinitionDocumentVersion_1",
-            "version": "2",
-            "status": {
-              "id": "Code_8",
-              "code": "C25508",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Final",
-              "instanceType": "Code"
-            },
-            "dateValues": [
-              {
-                "id": "GovernanceDate_2",
-                "name": "P_APPROVE",
-                "label": "Protocol Approval",
-                "description": "Protocol document approval date",
-                "type": {
-                  "id": "Code_11",
-                  "code": "C99903x1",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Protocol Effective Date",
-                  "instanceType": "Code"
-                },
-                "dateValue": "2006-07-01",
-                "geographicScopes": [
-                  {
-                    "id": "GeographicScope_2",
-                    "type": {
-                      "id": "Code_13",
-                      "code": "C41129",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Region",
-                      "instanceType": "Code"
-                    },
-                    "code": {
-                      "id": "AliasCode_2",
-                      "standardCode": {
-                        "id": "Code_12",
-                        "code": "150",
-                        "codeSystem": "ISO 3166 1 alpha3",
-                        "codeSystemVersion": "2020-08",
-                        "decode": "Europe",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "instanceType": "GeographicScope"
-                  }
-                ],
-                "instanceType": "GovernanceDate"
-              }
-            ],
-            "contents": [],
-            "childIds": [],
-            "notes": [],
-            "instanceType": "StudyDefinitionDocumentVersion"
-          }
-        ],
-        "notes": [],
-        "instanceType": "StudyDefinitionDocument"
-      }
-    ],
+    "documentedBy": [],
     "instanceType": "Study"
   },
   "usdmVersion": "3.4.0",

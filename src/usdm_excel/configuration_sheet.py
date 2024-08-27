@@ -14,16 +14,16 @@ class ConfigurationSheet(BaseSheet):
     try:
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
       self.globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE)
-      self.globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
-      self.globals.template_manager.add('SPONSOR', 'document')
       self._process_sheet()
+      self.globals.template_manager.tidy(self._get_sheet_names(file_path))
+      
     except Exception as e:
       self._sheet_exception(e)
 
   def _process_sheet(self):
     for rindex, row in self.sheet.iterrows():
       raw_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
-      name = raw_name.strip().upper()
+      name = raw_name.strip().upper()  
       value = self.read_cell(rindex, self.PARAMS_VALUE_COL)
       if name == 'CT VERSION':
         parts = value.split('=')
@@ -42,8 +42,7 @@ class ConfigurationSheet(BaseSheet):
         else:
           self._error(rindex, 2, "Badly formatted TEMPLATE, should be of the form <type> = <sheet name>")
       elif name == 'USE TEMPLATE':
-        self.globals.option_manager.set(Options.USE_TEMPLATE, value.strip().upper())
-        self._general_info(f"Using template '{self.globals.option_manager.get(Options.USE_TEMPLATE)}'")
+        self._general_warning("The USE TEMPLATE option is now deprecated and will be ignored.")
       elif name == 'USDM VERSION':
         self._general_warning("The USDM VERSION option is now deprecated and will be ignored.")
       elif name == 'SDR PREV NEXT':

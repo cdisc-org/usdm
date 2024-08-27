@@ -8,7 +8,6 @@ xfail = pytest.mark.xfail
 
 def test_create(mocker, globals):
   globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.EMPTY)
-  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[
     ApiBaseModelWithIdAndName(id="X1",  name='ITEM1'), 
@@ -183,7 +182,6 @@ def test_create_4_levels(mocker, globals):
 #   assert content.items[5].text == '<div xmlns="http://www.w3.org/1999/xhtml">Text 2</div>'
 
 def test_create_invalid_levels(mocker, globals):
-  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[
     ApiBaseModelWithIdAndName(id="X1",  name='ITEM1'), 
@@ -236,7 +234,6 @@ def test_create_empty(mocker, globals):
 
 def test_read_cell_by_name_error(mocker, globals):
   globals.cross_references.clear()
-  globals.option_manager.set(Options.USE_TEMPLATE, 'SPONSOR')
   globals.template_manager.add('sponsor', 'studyDesignContent')
   call_parameters = []
   

@@ -30,6 +30,7 @@ class BaseSheet():
     self.sheet_name = sheet_name
     self.sheet = None
     self.success = False
+    self._sheet_names = None
     if optional and not self._sheet_present(file_path, sheet_name):
       self._general_info(f"{sheet_name} not found but optional")
     else:
@@ -418,9 +419,11 @@ class BaseSheet():
     self.globals.errors_and_logging.exception(f"Error [{e}] while reading sheet '{self.sheet_name}'", e, self.sheet_name)
 
   def _get_sheet_names(self, file_path):
-    wb = load_workbook(file_path, read_only=True, keep_links=False)
-    return wb.sheetnames
-
+    if not self._sheet_names:
+      wb = load_workbook(file_path, read_only=True, keep_links=False)
+      self._sheet_names = wb.sheetnames
+    return self._sheet_names
+  
   def _sheet_present(self, file_path, sheet_name):
     sheet_names = self._get_sheet_names(file_path)
     return sheet_name in sheet_names

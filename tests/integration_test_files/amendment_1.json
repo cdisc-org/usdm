@@ -30,9 +30,7 @@
           "standardCodeAliases": [],
           "instanceType": "AliasCode"
         },
-        "documentVersionIds": [
-          "StudyDefinitionDocumentVersion_1"
-        ],
+        "documentVersionIds": [],
         "dateValues": [
           {
             "id": "GovernanceDate_1",
@@ -2661,101 +2659,7 @@
         "instanceType": "StudyVersion"
       }
     ],
-    "documentedBy": [
-      {
-        "id": "StudyDefinitionDocument_1",
-        "name": "Protocol_Document_SCOPE1",
-        "label": null,
-        "description": null,
-        "language": {
-          "id": "Code_143",
-          "code": "en",
-          "codeSystem": "ISO",
-          "codeSystemVersion": "1",
-          "decode": "English",
-          "instanceType": "Code"
-        },
-        "type": {
-          "id": "Code_144",
-          "code": "C12345",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
-          "decode": "Decode",
-          "instanceType": "Code"
-        },
-        "templateName": "document",
-        "versions": [
-          {
-            "id": "StudyDefinitionDocumentVersion_1",
-            "version": "1",
-            "status": {
-              "id": "Code_10",
-              "code": "C85255",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Draft",
-              "instanceType": "Code"
-            },
-            "dateValues": [
-              {
-                "id": "GovernanceDate_2",
-                "name": "Approval",
-                "label": "Protocol Approval",
-                "description": "Protocol document approval date",
-                "type": {
-                  "id": "Code_20",
-                  "code": "C99903x1",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Protocol Effective Date",
-                  "instanceType": "Code"
-                },
-                "dateValue": "2023-01-01",
-                "geographicScopes": [
-                  {
-                    "id": "GeographicScope_5",
-                    "type": {
-                      "id": "Code_21",
-                      "code": "C68846",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Global",
-                      "instanceType": "Code"
-                    },
-                    "code": null,
-                    "instanceType": "GeographicScope"
-                  }
-                ],
-                "instanceType": "GovernanceDate"
-              },
-              {
-                "id": "GovernanceDate_3",
-                "name": "Approval",
-                "label": "Protocol Approval",
-                "description": "Protocol document approval date",
-                "type": {
-                  "id": "Code_22",
-                  "code": "C99903x1",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Protocol Effective Date",
-                  "instanceType": "Code"
-                },
-                "dateValue": "2023-02-01",
-                "geographicScopes": [],
-                "instanceType": "GovernanceDate"
-              }
-            ],
-            "contents": [],
-            "childIds": [],
-            "notes": [],
-            "instanceType": "StudyDefinitionDocumentVersion"
-          }
-        ],
-        "notes": [],
-        "instanceType": "StudyDefinitionDocument"
-      }
-    ],
+    "documentedBy": [],
     "instanceType": "Study"
   },
   "usdmVersion": "3.4.0",

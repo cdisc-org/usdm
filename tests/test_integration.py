@@ -5,7 +5,7 @@ from usdm_db import USDMDb
 from bs4 import BeautifulSoup
 from uuid import UUID
 
-SAVE_ALL = False
+SAVE_ALL = True
 
 def save_error_csv(file, contents):
   writer = csv.DictWriter(file, fieldnames=['sheet','row','column','message','level'])

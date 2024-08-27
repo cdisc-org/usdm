@@ -32,8 +32,7 @@
         },
         "documentVersionIds": [
           "StudyDefinitionDocumentVersion_1",
-          "StudyDefinitionDocumentVersion_2",
-          "StudyDefinitionDocumentVersion_3"
+          "StudyDefinitionDocumentVersion_2"
         ],
         "dateValues": [
           {
@@ -11737,98 +11736,10 @@
           "decode": "Decode",
           "instanceType": "Code"
         },
-        "templateName": "document",
-        "versions": [
-          {
-            "id": "StudyDefinitionDocumentVersion_1",
-            "version": "2",
-            "status": {
-              "id": "Code_8",
-              "code": "C25508",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
-              "decode": "Final",
-              "instanceType": "Code"
-            },
-            "dateValues": [
-              {
-                "id": "GovernanceDate_2",
-                "name": "P_APPROVE",
-                "label": "Protocol Approval",
-                "description": "Protocol document approval date",
-                "type": {
-                  "id": "Code_11",
-                  "code": "C99903x1",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Protocol Effective Date",
-                  "instanceType": "Code"
-                },
-                "dateValue": "2006-07-01",
-                "geographicScopes": [
-                  {
-                    "id": "GeographicScope_2",
-                    "type": {
-                      "id": "Code_13",
-                      "code": "C41129",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2023-12-15",
-                      "decode": "Region",
-                      "instanceType": "Code"
-                    },
-                    "code": {
-                      "id": "AliasCode_2",
-                      "standardCode": {
-                        "id": "Code_12",
-                        "code": "150",
-                        "codeSystem": "ISO 3166 1 alpha3",
-                        "codeSystemVersion": "2020-08",
-                        "decode": "Europe",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "instanceType": "GeographicScope"
-                  }
-                ],
-                "instanceType": "GovernanceDate"
-              }
-            ],
-            "contents": [],
-            "childIds": [],
-            "notes": [],
-            "instanceType": "StudyDefinitionDocumentVersion"
-          }
-        ],
-        "notes": [],
-        "instanceType": "StudyDefinitionDocument"
-      },
-      {
-        "id": "StudyDefinitionDocument_2",
-        "name": "Protocol_Document_CDISC PILOT - LZZT",
-        "label": null,
-        "description": null,
-        "language": {
-          "id": "Code_541",
-          "code": "en",
-          "codeSystem": "ISO",
-          "codeSystemVersion": "1",
-          "decode": "English",
-          "instanceType": "Code"
-        },
-        "type": {
-          "id": "Code_542",
-          "code": "C12345",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
-          "decode": "Decode",
-          "instanceType": "Code"
-        },
         "templateName": "somethingElse",
         "versions": [
           {
-            "id": "StudyDefinitionDocumentVersion_2",
+            "id": "StudyDefinitionDocumentVersion_1",
             "version": "2",
             "status": {
               "id": "Code_8",
@@ -13754,12 +13665,12 @@
         "instanceType": "StudyDefinitionDocument"
       },
       {
-        "id": "StudyDefinitionDocument_3",
+        "id": "StudyDefinitionDocument_2",
         "name": "Protocol_Document_CDISC PILOT - LZZT",
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_543",
+          "id": "Code_541",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -13767,7 +13678,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_544",
+          "id": "Code_542",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",
@@ -13777,7 +13688,7 @@
         "templateName": "spareFormat",
         "versions": [
           {
-            "id": "StudyDefinitionDocumentVersion_3",
+            "id": "StudyDefinitionDocumentVersion_2",
             "version": "2",
             "status": {
               "id": "Code_8",
