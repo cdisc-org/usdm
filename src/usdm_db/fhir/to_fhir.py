@@ -17,13 +17,13 @@ class ToFHIR():
   class LogicError(Exception):
     pass
 
-  def __init__(self, study: Study):
+  def __init__(self, study: Study, template: str):
     self._study = study
     self._errors_and_logging = ErrorsAndLogging()
     self._cross_ref = CrossReference(study, self._errors_and_logging)
     self._study_version = self._study.versions[0]
     self._study_design = self._study_version.studyDesigns[0]
-    self._document = self._study.document_by_template_name('document')
+    self._document = self._study.document_by_template_name(template)
     self._document_version = self._document.versions[0]
     self._doc_title = self._study_version.get_title('Official Study Title')
     self._doc_title = self._doc_title.text if self._doc_title else '[Missing Doc Title]'

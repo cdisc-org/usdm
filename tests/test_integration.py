@@ -59,7 +59,7 @@ def run_test_html(filename, save=False, highlight=False):
   suffix = "_highlight" if highlight else ""
   usdm = USDMDb()
   errors = usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
-  result = usdm.to_html("document", highlight)
+  result = usdm.to_html("SPONSOR", highlight)
 
   # Useful if you want to see the results.
   if save or SAVE_ALL:
@@ -110,7 +110,9 @@ def run_test_fhir(filename, mocker, save=False):
   mocker.patch("usdm_db.uuid4", side_effect=fake_uuids)
   usdm = USDMDb()
   usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
-  result = usdm.to_fhir()
+  result = usdm.to_fhir('sponsor')
+
+  print(f"RESULT: {result}")
 
   if save or SAVE_ALL:
     with open(f"tests/integration_test_files/{filename}_fhir.json", 'w', encoding='utf-8') as f:

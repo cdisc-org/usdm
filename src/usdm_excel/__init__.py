@@ -55,15 +55,14 @@ class USDMExcel():
     return self._globals.errors_and_logging.errors().dump(Errors.WARNING)
 
   def is_m11(self):
-    return self._globals.option_manager.get(Options.USE_TEMPLATE) == "M11"
+    return 'M11' in [x.upper() for x in list[self._globals.template_manager.values()]]
 
   def was_m11(self):
     self._globals.errors_and_logging.deprecated("Method 'was_m11' deprecated, use 'is_m11' going forward")
-    return self._globals.option_manager.get(Options.USE_TEMPLATE) == "M11"
+    return 'M11' in [x.upper() for x in list[self._globals.template_manager.values()]]
   
   def default_template(self):
-    template = self._globals.option_manager.get(Options.USE_TEMPLATE)
-    return self._globals.template_manager.get(template)
+    return self._globals.template_manager.default_template
 
   def _process(self):
     try:

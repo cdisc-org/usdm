@@ -15,6 +15,6 @@ class Study(ApiBaseModel):
   instanceType: Literal['Study']
 
   def document_by_template_name(self, name: str) -> StudyDefinitionDocument:
-    # for x in self.documentedBy:
-    #   print(f"DOC: {x.templateName}, {name}")
+    for x in self.documentedBy:
+      print(f"DOC: {x.templateName}, {name}")
     return next((x for x in self.documentedBy if x.templateName.upper() == name.upper()), None)

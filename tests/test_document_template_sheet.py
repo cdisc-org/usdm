@@ -38,7 +38,8 @@ def test_create(mocker, globals):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'sectionNumber', 'displaySectionNumber', 'sectionTitle', 'displaySectionTitle', 'content'])
-  content = DocumentTemplateSheet("", "", globals)
+  content = DocumentTemplateSheet("", "Template", "", globals)
+  assert content.name == "Template"
   assert len(content.items) == 7
   assert content.items[0].name == 'CONTENT1'
   assert content.items[0].previousId == ''
@@ -141,7 +142,7 @@ def test_create_4_levels(mocker, globals):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'sectionNumber', 'displaySectionNumber', 'sectionTitle', 'displaySectionTitle', 'content'])
-  content = DocumentTemplateSheet("", "", globals)
+  content = DocumentTemplateSheet("", "Template", "", globals)
   assert len(content.items) == 8
   assert content.items[3].id == 'Content_4'
   assert content.items[3].name == 'CONTENT4'
@@ -214,7 +215,7 @@ def test_create_invalid_levels(mocker, globals):
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'sectionNumber', 'displaySectionNumber', 'sectionTitle', 'displaySectionTitle', 'content'])
-  DocumentTemplateSheet("", "XXX", globals)
+  DocumentTemplateSheet("", "Template", "XXX", globals)
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "XXX"
   assert mock_error.call_args[0][1] == None
@@ -229,7 +230,7 @@ def test_create_empty(mocker, globals):
   data = []
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'sectionNumber', 'displaySectionNumber', 'sectionTitle', 'displaySectionTitle', 'content'])
-  content = DocumentTemplateSheet("", "", globals)
+  content = DocumentTemplateSheet("", "Template", "", globals)
   assert len(content.items) == 0
 
 def test_read_cell_by_name_error(mocker, globals):
@@ -251,7 +252,7 @@ def test_read_cell_by_name_error(mocker, globals):
   data = [['CONTENT1', '1', True, True, 'ITEM1']]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'sectionNumber', 'displaySectionNumber', 'displaySectionTitle', 'content'])
-  content = DocumentTemplateSheet("", "XXX", globals)
+  content = DocumentTemplateSheet("", "Template", "XXX", globals)
   mock_error.assert_called()
   assert call_parameters == [
     ('XXX', 1, -1, "Error attempting to read cell 'sectionTitle'. Exception: Failed to detect column(s) 'sectionTitle' in sheet", 40)

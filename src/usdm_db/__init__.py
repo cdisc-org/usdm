@@ -62,10 +62,10 @@ class USDMDb():
       raw_json = json.dumps({'error': message}, indent = 2)
     return raw_json
 
-  def to_fhir(self):
+  def to_fhir(self, template):
     try:
       study = self._wrapper.study
-      fhir = ToFHIR(study)
+      fhir = ToFHIR(study, template)
       raw_json = fhir.to_fhir(uuid4())
     except Exception as e:
       message = self._format_exception("Failed to generate FHIR output", e)

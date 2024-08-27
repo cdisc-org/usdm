@@ -6,6 +6,9 @@ class BaseManager():
     self._errors_and_logging = errors_and_logging
     self._items = {}
 
+  def __iter__(self):
+    return iter(self._items)
+
   def clear(self):
     self._items = {}
 
@@ -18,3 +21,12 @@ class BaseManager():
   
   def all(self):
     return list(self._items.values())
+  
+  def items(self):
+    return self._items.items()
+  
+  def keys(self):
+    return self._items.keys()
+
+  def values(self):
+    return self._items.values()

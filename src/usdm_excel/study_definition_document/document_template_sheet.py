@@ -6,16 +6,16 @@ class DocumentTemplates():
 
   def __init__(self, file_path: str, globals: Globals):
     self.items = []
-    for sheet_name in globals.template_manager.all():
-      document = DocumentTemplateSheet(file_path, sheet_name, globals)
+    for template, sheet in globals.template_manager.items():
+      document = DocumentTemplateSheet(file_path, template, sheet, globals)
       self.items.append(document)
 
 class DocumentTemplateSheet(BaseSheet):
 
-  def __init__(self, file_path: str, sheet_name: str, globals: Globals):
+  def __init__(self, file_path: str, template_name: str, sheet_name: str, globals: Globals):
     try:
       self.items = []
-      self.name = sheet_name
+      self.name = template_name
       super().__init__(file_path=file_path, globals=globals, sheet_name=sheet_name, optional=True, converters={"sectionName": str})
       if self.success:
         current_level = 0

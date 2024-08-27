@@ -22,21 +22,20 @@ def create_criteria(factory: Factory, minimal: MinimalStudy):
     },
   ]
   results = factory.set(EligibilityCriterion, item_list)
-  #print(f"RESULTS: {results}")
   for criterion in results:
     minimal.population.criterionIds.append(criterion.id)
   minimal.study.versions[0].criteria = results
-  minimal.study.documentedBy[0].templateName = 'document' # Fix the document template
+  #minimal.study.documentedBy[0].templateName = 'document' # Fix the document template
   return results
 
 def test_create(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
-  fhir = ToFHIR(minimal.study)
+  fhir = ToFHIR(minimal.study, 'Sponsor')
   assert fhir is not None
 
 def test_content_to_section(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
-  fhir = ToFHIR(minimal.study)
+  fhir = ToFHIR(minimal.study, 'Sponsor')
   item = factory.item(NarrativeContentItem, {'name': "NCI1", 'text': 'Something here for the text'})
   content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'displaySectionNumber': True, 'sectionTitle': 'Section Title', 'displaySectionTitle': True, 'contentItemId': item.id, 'childIds': []})
   result = fhir._content_to_section(content, item.text)
@@ -45,18 +44,18 @@ def test_content_to_section(mocker, globals, minimal, factory):
 
 def test_format_section(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
-  fhir = ToFHIR(minimal.study)
+  fhir = ToFHIR(minimal.study, 'Sponsor')
   assert fhir._format_section_title('A Section Heading') == 'a-section-heading'
 
 def test_clean_section_number(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
-  fhir = ToFHIR(minimal.study)
+  fhir = ToFHIR(minimal.study, 'Sponsor')
   assert fhir._clean_section_number('1.1') == '1.1'
   assert fhir._clean_section_number('1.1.') == '1.1'
 
 def test_add_section_heading(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
-  fhir = ToFHIR(minimal.study)
+  fhir = ToFHIR(minimal.study, 'Sponsor')
   item = factory.item(NarrativeContentItem, {'name': "NCI1", 'text': '<div xmlns="http://www.w3.org/1999/xhtml">Something here for the text</div>'})
   content = factory.item(NarrativeContent, {'name': "C1", 'sectionNumber': '1.1.1', 'displaySectionNumber': True, 'sectionTitle': 'Section Title', 'displaySectionTitle': True, 'contentItemId': item.id, 'childIds': []})
   div = BeautifulSoup(item.text, 'html.parser')
@@ -64,6 +63,6 @@ def test_add_section_heading(mocker, globals, minimal, factory):
 
 def test_remove_line_feeds(mocker, globals, minimal, factory):
   x = create_criteria(factory, minimal)
-  fhir = ToFHIR(minimal.study)
+  fhir = ToFHIR(minimal.study, 'Sponsor')
   text = "<p>CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.</p>\n<p>The following findings are incompatible with AD:</p>\n"  
   assert fhir._remove_line_feeds(text) == "<p>CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.</p><p>The following findings are incompatible with AD:</p>"  
