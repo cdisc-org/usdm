@@ -49,3 +49,18 @@ def test_tidy_remove_default_2(globals):
   assert object._items['FRED'] == 'value_fred'
   assert object._items['SID'] == 'value_sid'
   assert object._items['SPONSOR'] == 'document'
+
+def test_utility(globals):
+  keys = ['SPONSOR', 'FRED', 'SID']
+  values = ['document', 'value_fred', 'value_sid']
+  object = TemplateManager(globals)
+  object.add('fred', 'value_fred')
+  object.add('Sid', 'value_sid')
+  assert list(object.keys()) == keys
+  assert list(object.values()) == values
+  index = 0
+  for key, value in object.items():
+    assert key == keys[index]
+    assert value == values[index]
+    index += 1
+  assert [x for x in list(object.values())] == values

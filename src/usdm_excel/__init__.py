@@ -55,11 +55,11 @@ class USDMExcel():
     return self._globals.errors_and_logging.errors().dump(Errors.WARNING)
 
   def is_m11(self):
-    return 'M11' in [x.upper() for x in list[self._globals.template_manager.values()]]
+    return 'M11' in [x.upper() for x in list(self._globals.template_manager.values())]
 
   def was_m11(self):
     self._globals.errors_and_logging.deprecated("Method 'was_m11' deprecated, use 'is_m11' going forward")
-    return 'M11' in [x.upper() for x in list[self._globals.template_manager.values()]]
+    return 'M11' in [x.upper() for x in list(self._globals.template_manager.values())]
   
   def default_template(self):
     return self._globals.template_manager.default_template
