@@ -39,14 +39,21 @@ class USDMDb():
     self._wrapper = self._excel.execute()
     return self._excel.errors()
 
+  def default_template(self):
+    return self._excel.default_template()
+  
   def from_fhir(self, data: str):
     fhir = FromFHIR(self._errors_and_logging)
     self._wrapper = fhir.from_fhir(data)
     return True
   
   def was_m11(self) -> bool:
+    self._errors_and_logging.deprecated("Method 'was_m11' deprecated, use 'is_m11' going forward")
     return self._excel.was_m11()
-  
+
+  def is_m11(self) -> bool:
+    return self._excel.is_m11()
+
   def to_json(self):
     try:
       raw_json = self._wrapper.to_json()

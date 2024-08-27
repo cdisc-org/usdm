@@ -1,5 +1,6 @@
 import logging
 import traceback
+import warnings
 from usdm_excel.errors_and_logging.errors import Errors
 
 class ErrorsAndLogging():
@@ -34,6 +35,10 @@ class ErrorsAndLogging():
   def error(self, message: str, sheet: str=None, row: int=None, column: int=None):
     self._errors.add(sheet, row, column, message, self._errors.ERROR)
     self._logger.error(self._format(message, sheet, row, column))
+
+  def deprecated(self, message):
+    warnings.warn(message, DeprecationWarning)    
+    self._logger.warning(self._format(message, None, None, None))
 
   def _format(self, message, sheet, row, column):
     if sheet == None:

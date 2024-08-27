@@ -4,7 +4,7 @@ from usdm_excel.globals import Globals
 
 class AnnotationSheet(BaseSheet):
 
-  SHEET_NAME = 'annotations'
+  SHEET_NAME = 'notes'
 
   def __init__(self, file_path: str, globals: Globals):
     try:

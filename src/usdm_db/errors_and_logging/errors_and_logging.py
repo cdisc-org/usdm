@@ -1,5 +1,6 @@
 import logging
 import traceback
+import warnings
 from usdm_db.errors_and_logging.errors import Errors
 
 class ErrorsAndLogging():
@@ -34,3 +35,7 @@ class ErrorsAndLogging():
   def error(self, message: str):
     self._errors.add(message, self._errors.ERROR)
     self._logger.error(message)
+
+  def deprecated(self, message: str):
+    warnings.warn(message, DeprecationWarning)    
+    self.warning(message)

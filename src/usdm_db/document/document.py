@@ -15,11 +15,13 @@ class Document():
   def __init__(self, study: Study, template_name: str, errors_and_logging: ErrorsAndLogging):
     self._study = study
     self._errors_and_logging = errors_and_logging
+    self._errors_and_logging.debug(f"Initialising document for template '{template_name}'")
     self._cross_ref = CrossReference(study, self._errors_and_logging)
     try:
       self._study_version = self._study.versions[0]
       self._study_design = self._study_version.studyDesigns[0]
       self._document = self._study.document_by_template_name(template_name)
+      self._errors_and_logging.debug(f"Document '{self._document}'")
       self._document_version = self._document.versions[0]
       title = self._study_version.get_title('Official Study Title')
       self._doc_title = title.text if title else '[Document Title]'
@@ -122,7 +124,7 @@ class Document():
 
   def _content_to_html(self, content: NarrativeContent, doc, highlight: bool=False) -> None:
     level = self._get_level(content.sectionNumber)
-    print(f"LEVEL: L={level} C={content}")
+    #print(f"LEVEL: L={level} C={content}")
     klass = "page" if level == 1 else ""
     heading_id = f"section-{content.sectionNumber}"
     if (level == 1 and self._is_first_section(content.sectionNumber)):

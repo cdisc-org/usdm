@@ -132,6 +132,13 @@ def test_abbreviation_ok(mocker, globals, factory, minimal):
   expected = '<usdm:ref attribute="abbreviatedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref>'
   assert result == expected
 
+def test_abbreviation_separator(mocker, globals, factory, minimal):
+  macro = get_instance(mocker, globals, factory, minimal)
+  create_abbreviations(factory, globals)
+  result = macro.resolve('<usdm:macro id="abbreviations" items="XXX, ECG" separator=";"/>')
+  expected = '<usdm:ref attribute="abbreviatedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_1" klass="Abbreviation"></usdm:ref>; <usdm:ref attribute="abbreviatedText" id="Abbreviation_2" klass="Abbreviation"></usdm:ref> = <usdm:ref attribute="expandedText" id="Abbreviation_2" klass="Abbreviation"></usdm:ref>'
+  assert result == expected
+
 def test_abbreviation_multiple_ok(mocker, globals, factory, minimal):
   macro = get_instance(mocker, globals, factory, minimal)
   create_abbreviations(factory, globals)

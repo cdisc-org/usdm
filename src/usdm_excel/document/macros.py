@@ -49,12 +49,13 @@ class Macros():
       
   def _abbreviations(self, attributes: dict, soup, ref) -> None:
     items = [x.strip() for x in attributes['items'].split(',')]
+    separator = attributes['separator'] if 'separator' in attributes else ','
     first = True
     for item in items:
       instance = self._parent.globals.cross_references.get(Abbreviation, item)
       if instance:
         if not first:
-          ref.insert_before(', ')
+          ref.insert_before(f'{separator} ')
         ref.insert_before(self._new_ref_tag(soup, 'Abbreviation', instance.id, 'abbreviatedText'))
         ref.insert_before(' = ')
         ref.insert_before(self._new_ref_tag(soup, 'Abbreviation', instance.id, 'expandedText'))

@@ -1,6 +1,5 @@
 from usdm_excel.errors_and_logging.errors import Errors
 
-
 def test_create(globals):
   errors = Errors()
   assert errors.items == []
