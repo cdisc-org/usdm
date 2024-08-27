@@ -284,6 +284,8 @@ A header row in row 1 followed by repeating rows from row 2, containing the deta
 | D | studyArmType or type | The arm type| CDISC code reference |
 | E | studyArmDataOriginDescription or dataOriginDescription	| The description of the data origin for the arm | Text string |
 | F | studyArmDataOriginType or dataOriginType | The type of arm data origin | CDISC code reference|
+| G (optional) | notes | Any relevant notes | List of note references, comma separated |
+
 
 ### Study Design Epochs sheet
 
@@ -301,6 +303,7 @@ A header row in row 1 followed by repeating rows from row 2, containing the deta
 | B | studyEpochDescription or description | Description | Text string, can be empty |
 | C (optional) | label | Display label | Text string, can be empty. Default value is '' |
 | D | studyEpochType or type | The epoch type| CDISC code reference |
+| E (optional) | notes | Any relevant notes | List of note references, comma separated |
 
 ### V1 Timeline sheets
 
@@ -351,11 +354,11 @@ The timing seciton consists of multiple columns starting in column D. As many co
 
 ##### Activity
 
-The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row. As many rows as needed can be added.
+The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row. As many rows as needed can be added. Note that only one of parent or child activity should be entered on any given row.
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | Parent Activity | Parent Activity. Not used currently | Set to '-' |
+| A | Parent Activity | Parent Activity. | Text string |
 | B | Child Activity | Child activity name | Text string |
 | C | BC/Procedure/Timeline | A set of BCs, procedures or timelines. Comma separated or the form detailed below | :--- |
 
@@ -411,6 +414,7 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | A | activityName or name	| Name | Text string |
 | B | activityDescription or description| Description | Text string, can be empty |
 | C (optional) | label | Display label | Text string, can be empty. Default value is '' |
+| D (optional) | notes | Any relevant notes | List of note references, comma separated |
 
 Note that this sheet is optional. If the sheet is not provided the activities will be created from those defined in the timeline sheets. These activities will have the name and description set to the name used in the timeline sheet and no condition will be set.
 
@@ -687,6 +691,7 @@ There are some prefined macros that can be used to generate content. These are p
 | section | Add a pre defined section into the document | 'name' and 'template'. Supported section are 'title_page', 'inclusion', 'exclusion' and 'objective_endpoints'. Supported templates are 'm11' and 'plain' |
 | bc | Add in a reference to a BC | 'name' and 'activity' where the name is the name of the BC as used in the SoA and activity is the name of the activity it is referenced from (in case several activities reference the same BC). This macro is needed as the BCs are not explicitly defined and thus named, they are read from the CDISC library and can appear multiple times. |
 | note | Insert a note into the document | 'text' |
+| abbreviation | Insert one or more abbreviations into the document | 'items', 'separator'. The items is a list of abbreviations to be inserted, comma separated. The separator is the character used to separate the items when displayed, default is a comma. |
 
 Examples of macros are:
 
@@ -703,6 +708,8 @@ Examples of macros are:
 ```<usdm:macro id="bc" name="Body temperature" activity="Vital signs / Temperature">```
 
 ```<usdm:macro id="note" text="A note here please"/>```
+
+```<usdm:macro id="abbreviations" items="AD, ECG" separator=";"/>```
 
 ### Study Design Sites sheet
 
@@ -771,6 +778,38 @@ The attribute path follows a simplified 'Xpath' syntax of ```@attribute-name[/cl
 An example for accessing the Population planned age, max value is ```@plannedAge/Range/@maxValue```. In this instance the ```class``` column would be set to ```Population``` and the ```xref``` column set to the name of the Population entry in the population shseet. 
 
 Note that the '@' symbol does not need to be included with attribute names but it guides the eye making it easier to read the path.
+
+### Notes Sheet
+
+#### Sheet Name
+
+`notes`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2. Each row contains a note. 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | The note name | Text string | 
+| B | text | The note text | Text string. |	
+| C | codes | The set of codes | A set of external CT codes, comma separated |	
+
+### Abbreviations Sheet
+
+#### Sheet Name
+
+`abbreviations`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2. Each row contains a note. 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | abbreviatedText | The abbreviation | Text string | 
+| B | expandedText | The full text | Text string. |	
+| C (optional) | notes | Any relevant notes | List of note references, comma separated |
 
 ### Configuration Sheet
 
