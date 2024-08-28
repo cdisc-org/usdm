@@ -9,17 +9,21 @@ class BaseManager():
   def __iter__(self):
     return iter(self._items)
 
-  def clear(self):
+  def clear(self) -> None:
     self._items = {}
 
-  def add(self, name, value):
+  def add(self, name: str, value: str) -> None:
     self._items[name.upper()] = value
 
-  def get(self, name):
+  def get(self, name: str) -> str:
     u_name = name.upper()
     return self._items[u_name] if u_name in self._items else ''
   
-  def all(self):
+  def includes(self, name) -> bool:
+    u_name = name.upper()
+    return u_name in self._items
+  
+  def all(self) -> list:
     return list(self._items.values())
   
   def items(self):
