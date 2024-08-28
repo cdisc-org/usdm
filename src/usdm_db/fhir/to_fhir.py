@@ -14,6 +14,8 @@ import datetime
 
 class ToFHIR():
 
+  EMPTY_DIV = '<div xmlns="http://www.w3.org/1999/xhtml"></div>'
+
   class LogicError(Exception):
     pass
 
@@ -35,7 +37,7 @@ class ToFHIR():
       nc_list = self._document_version.narrative_content_in_order()
       for narrative_content in nc_list:
         narrative_content_item = self._map[narrative_content.contentItemId] if narrative_content.contentItemId else None
-        sections.append(self._content_to_section(narrative_content, narrative_content_item.text if narrative_content_item else ''))
+        sections.append(self._content_to_section(narrative_content, narrative_content_item.text if narrative_content_item else self.EMPTY_DIV))
         narrative_content = next((x for x in self._document_version.contents if x.id == narrative_content.nextId), None)
       type_code = CodeableConcept(text=f"EvidenceReport")
       #date = datetime.datetime.now().isoformat()
@@ -53,7 +55,8 @@ class ToFHIR():
 
   def _content_to_section(self, content: NarrativeContent, item_text: str) -> CompositionSection:
     div = self._translate_references(item_text)
-    text = self._add_section_heading(content, div)
+    #text = self._add_section_heading(content, div)
+    text = str(div)
     text = self._remove_line_feeds(text)
     narrative = Narrative(status='generated', div=text)
     title = self._format_section_title(content.sectionTitle)
@@ -113,11 +116,11 @@ class ToFHIR():
     except:
       return None  
 
-  def _add_section_heading(self, content: NarrativeContent, div) -> str:
-    DIV_OPEN_NS = '<div xmlns="http://www.w3.org/1999/xhtml">'
-    text = str(div)
-    text = text.replace(DIV_OPEN_NS, f"{DIV_OPEN_NS}<p>{content.sectionNumber} {content.sectionTitle}</p>")
-    return text
+  # def _add_section_heading(self, content: NarrativeContent, div) -> str:
+  #   DIV_OPEN_NS = '<div xmlns="http://www.w3.org/1999/xhtml">'
+  #   text = str(div)
+  #   text = text.replace(DIV_OPEN_NS, f"{DIV_OPEN_NS}<p>{content.sectionNumber} {content.sectionTitle}</p>")
+  #   return text
 
   def _remove_line_feeds(self, div: str) -> str:
     #print(f"LB: {len(div)}")
