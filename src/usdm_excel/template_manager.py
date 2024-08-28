@@ -18,4 +18,6 @@ class TemplateManager(BaseManager):
       if sheet in sheet_names_present:
         new_items[template] = sheet
     self._items = new_items
-    
+
+  def templates(self):
+    return list(self._items.keys())    

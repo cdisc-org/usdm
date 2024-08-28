@@ -42,6 +42,9 @@ class USDMDb():
   def default_template(self):
     return self._excel.default_template()
   
+  def templates(self):
+    return self._excel.templates()
+  
   def from_fhir(self, data: str):
     fhir = FromFHIR(self._errors_and_logging)
     self._wrapper = fhir.from_fhir(data)

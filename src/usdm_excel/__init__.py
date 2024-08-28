@@ -64,6 +64,9 @@ class USDMExcel():
   def default_template(self):
     return self._globals.template_manager.default_template
 
+  def templates(self):
+    return self._globals.template_manager.templates()
+
   def _process(self):
     try:
     
@@ -91,7 +94,7 @@ class USDMExcel():
       self.study_population = StudyDesignPopulationSheet(self._file_path, self._globals)
 
       self.contents = DocumentContentSheet(self._file_path, self._globals)
-      self.templates = DocumentTemplates(self._file_path, self._globals)
+      self.doc_templates = DocumentTemplates(self._file_path, self._globals)
 
       self.dictionaries = StudyDesignDictionarySheet(self._file_path, self._globals)
       self.oe = StudyDesignObjectiveEndpointSheet(self._file_path, self._globals)
@@ -130,7 +133,7 @@ class USDMExcel():
       self.definition_documents = []
       self.definition_document_version_ids = []
       self.definition_document_version = []
-      for template in self.templates.items:
+      for template in self.doc_templates.items:
         # Final assembly
         try:
           definition_document_version = StudyDefinitionDocumentVersion(

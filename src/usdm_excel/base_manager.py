@@ -23,8 +23,8 @@ class BaseManager():
     u_name = name.upper()
     return u_name in self._items
   
-  def all(self) -> list:
-    return list(self._items.values())
+  # def all(self) -> list:
+  #   return list(self._items.values())
   
   def items(self):
     return self._items.items()

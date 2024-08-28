@@ -24,12 +24,16 @@ def test_get(globals):
   assert globals.template_manager.get('fred') == 'value'
   assert globals.template_manager.get('FRED') == 'value'
 
-def test_includes(globals):
+def test_includes_and_templates(globals):
   globals.template_manager._items = {}
-  globals.template_manager._items['FRED'] = 'value'
+  globals.template_manager._items['FRED'] = 'value_f'
+  globals.template_manager._items['XXX'] = 'value_x'
   assert globals.template_manager.includes('fred') == True
   assert globals.template_manager.includes('FRED') == True
   assert globals.template_manager.includes('FRED1') == False
+  assert globals.template_manager.includes('XXX') == True
+  assert globals.template_manager.includes('XX X') == False
+  assert globals.template_manager.templates() == ['FRED', 'XXX']
 
 def test_clear(globals):
   globals.template_manager._items = {}
