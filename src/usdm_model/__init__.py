@@ -38,7 +38,7 @@ from .study_cell import *
 from .study_design import *
 from .study_element import *
 from .study_epoch import *
-from .study_identifier import *
+from .identifier import *
 from .study_intervention import *
 from .study_definition_document_version import *
 from .study_definition_document import *

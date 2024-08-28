@@ -6,7 +6,7 @@ from usdm_model.study_title import StudyTitle
 from usdm_model.study_definition_document import StudyDefinitionDocument
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.code import Code
-from usdm_model.study_identifier import StudyIdentifier
+from usdm_model.identifier import StudyIdentifier
 from usdm_model.organization import Organization
 from usdm_model.address import Address
 from usdm_model.narrative_content import NarrativeContent

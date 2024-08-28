@@ -1,6 +1,6 @@
 import traceback
 from usdm_model.organization import Organization
-from usdm_model.study_identifier import StudyIdentifier
+from usdm_model.identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.globals import Globals
 

@@ -1,6 +1,6 @@
 from typing import List, Literal, Union
 from .api_base_model import ApiBaseModelWithId
-from .study_identifier import *
+from .identifier import *
 from .study_definition_document_version import *
 from .alias_code import *
 from .code import Code as genericCode
@@ -22,7 +22,8 @@ class StudyVersion(ApiBaseModelWithId):
   dateValues: List[GovernanceDate] = []
   amendments: List[StudyAmendment] = []
   businessTherapeuticAreas: List[Code] = []
-  studyIdentifiers: List[StudyIdentifier] = []
+  studyIdentifiers: List[StudyIdentifier]
+  referenceIdentifiers: List[ReferenceIdentifier] = []
   studyDesigns: List[StudyDesign] = []
   titles: List[StudyTitle]
   criteria: List[EligibilityCriterion] = [] # Not in API
