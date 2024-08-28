@@ -4362,6 +4362,11 @@ edges:
     start: 00000000-0000-4000-8000-000000000028
   - end: 00000000-0000-4000-8000-000000001242
     start: 00000000-0000-4000-8000-000000000028
+  SCOPE_REL:
+  - end: 00000000-0000-4000-8000-000000000021
+    start: 00000000-0000-4000-8000-000000000020
+  - end: 00000000-0000-4000-8000-000000000026
+    start: 00000000-0000-4000-8000-000000000025
   SECONDARY_REASONS_REL:
   - end: 00000000-0000-4000-8000-000000000012
     start: 00000000-0000-4000-8000-000000000009
@@ -4796,11 +4801,6 @@ edges:
     start: 00000000-0000-4000-8000-000000000001
   - end: 00000000-0000-4000-8000-000000000025
     start: 00000000-0000-4000-8000-000000000001
-  STUDY_IDENTIFIER_SCOPE_REL:
-  - end: 00000000-0000-4000-8000-000000000021
-    start: 00000000-0000-4000-8000-000000000020
-  - end: 00000000-0000-4000-8000-000000000026
-    start: 00000000-0000-4000-8000-000000000025
   STUDY_INTERVENTIONS_REL:
   - end: 00000000-0000-4000-8000-000000001094
     start: 00000000-0000-4000-8000-000000000028
@@ -12359,7 +12359,7 @@ nodes:
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
       id="StudyTitle_1" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th style="vertical-align:
       top; text-align: left"><p>Protocol Identifier:</p></th><td style="vertical-align:
-      top; text-align: left"><p><usdm:ref attribute="studyIdentifier" id="StudyIdentifier_1"
+      top; text-align: left"><p><usdm:ref attribute="text" id="StudyIdentifier_1"
       klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th style="vertical-align:
       top; text-align: left"><p>Original Protocol:</p></th><td style="vertical-align:
       top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
@@ -12387,7 +12387,7 @@ nodes:
       id="Organization_1" klass="Organization"></usdm:ref>, <usdm:ref attribute="text"
       id="Address_1" klass="Address"></usdm:ref></p></td></tr><tr><th style="vertical-align:
       top; text-align: left"><p>Regulatory Agency Identifier Number(s):</p></th><td
-      style="vertical-align: top; text-align: left"><p><usdm:ref attribute="studyIdentifier"
+      style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
       id="StudyIdentifier_2" klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Spondor Approval Date:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="dateValue"
@@ -14360,11 +14360,11 @@ nodes:
   StudyIdentifier:
   - id: StudyIdentifier_1
     instanceType: StudyIdentifier
-    studyIdentifier: H2Q-MC-LZZT
+    text: H2Q-MC-LZZT
     uuid: 00000000-0000-4000-8000-000000000020
   - id: StudyIdentifier_2
     instanceType: StudyIdentifier
-    studyIdentifier: NCT12345678
+    text: NCT12345678
     uuid: 00000000-0000-4000-8000-000000000025
   StudyIntervention:
   - description: Int Desc 1

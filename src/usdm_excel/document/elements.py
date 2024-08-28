@@ -45,15 +45,15 @@ class Elements():
 
   def study_identifier(self) -> str:
     identifier = self._study_version.sponsor_identifier()
-    results = [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier'}]
+    results = [{'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'text'}]
     return self._set_of_references(results)
 
   def study_regulatory_identifiers(self) -> str:
     results = []
     identifiers = self._study_version.studyIdentifiers
     for identifier in identifiers:
-      if identifier.studyIdentifierScope.organizationType.code == 'C188863' or identifier.studyIdentifierScope.organizationType.code == 'C93453':
-        item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'studyIdentifier'}
+      if identifier.scope.organizationType.code == 'C188863' or identifier.scope.organizationType.code == 'C93453':
+        item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'text'}
         results.append(item)
     return self._set_of_references(results)
 
@@ -76,22 +76,22 @@ class Elements():
   def organization_name_and_address(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [
-      {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
-      {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
+      {'instance': identifier.scope, 'klass': 'Organization', 'attribute': 'name'},
+      {'instance': identifier.scope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
     ]
     return self._set_of_references(results)
 
   def organization_address(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [
-      {'instance': identifier.studyIdentifierScope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
+      {'instance': identifier.scope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
     ]
     return self._set_of_references(results)
 
   def organization_name(self) -> str:
     identifier = self._study_version.sponsor_identifier()
     results = [
-      {'instance': identifier.studyIdentifierScope, 'klass': 'Organization', 'attribute': 'name'},
+      {'instance': identifier.scope, 'klass': 'Organization', 'attribute': 'name'},
     ]
     return self._set_of_references(results)
 

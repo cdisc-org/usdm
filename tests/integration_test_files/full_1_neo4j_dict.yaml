@@ -2243,6 +2243,17 @@ edges:
   SCHEDULE_TIMELINES_REL:
   - end: 00000000-0000-4000-8000-000000000389
     start: 00000000-0000-4000-8000-000000000085
+  SCOPE_REL:
+  - end: 00000000-0000-4000-8000-000000000067
+    start: 00000000-0000-4000-8000-000000000066
+  - end: 00000000-0000-4000-8000-000000000072
+    start: 00000000-0000-4000-8000-000000000071
+  - end: 00000000-0000-4000-8000-000000000077
+    start: 00000000-0000-4000-8000-000000000076
+  - end: 00000000-0000-4000-8000-000000000080
+    start: 00000000-0000-4000-8000-000000000079
+  - end: 00000000-0000-4000-8000-000000000083
+    start: 00000000-0000-4000-8000-000000000082
   SECONDARY_REASONS_REL:
   - end: 00000000-0000-4000-8000-000000000034
     start: 00000000-0000-4000-8000-000000000031
@@ -2383,17 +2394,6 @@ edges:
     start: 00000000-0000-4000-8000-000000000001
   - end: 00000000-0000-4000-8000-000000000082
     start: 00000000-0000-4000-8000-000000000001
-  STUDY_IDENTIFIER_SCOPE_REL:
-  - end: 00000000-0000-4000-8000-000000000067
-    start: 00000000-0000-4000-8000-000000000066
-  - end: 00000000-0000-4000-8000-000000000072
-    start: 00000000-0000-4000-8000-000000000071
-  - end: 00000000-0000-4000-8000-000000000077
-    start: 00000000-0000-4000-8000-000000000076
-  - end: 00000000-0000-4000-8000-000000000080
-    start: 00000000-0000-4000-8000-000000000079
-  - end: 00000000-0000-4000-8000-000000000083
-    start: 00000000-0000-4000-8000-000000000082
   STUDY_INTERVENTIONS_REL:
   - end: 00000000-0000-4000-8000-000000000327
     start: 00000000-0000-4000-8000-000000000085
@@ -5726,7 +5726,7 @@ nodes:
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
       id="StudyTitle_1" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th style="vertical-align:
       top; text-align: left"><p>Protocol Identifier:</p></th><td style="vertical-align:
-      top; text-align: left"><p><usdm:ref attribute="studyIdentifier" id="StudyIdentifier_2"
+      top; text-align: left"><p><usdm:ref attribute="text" id="StudyIdentifier_2"
       klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th style="vertical-align:
       top; text-align: left"><p>Original Protocol:</p></th><td style="vertical-align:
       top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
@@ -5754,10 +5754,10 @@ nodes:
       id="Organization_2" klass="Organization"></usdm:ref>, <usdm:ref attribute="text"
       id="Address_2" klass="Address"></usdm:ref></p></td></tr><tr><th style="vertical-align:
       top; text-align: left"><p>Regulatory Agency Identifier Number(s):</p></th><td
-      style="vertical-align: top; text-align: left"><p><usdm:ref attribute="studyIdentifier"
-      id="StudyIdentifier_1" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="studyIdentifier"
-      id="StudyIdentifier_3" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="studyIdentifier"
-      id="StudyIdentifier_4" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="studyIdentifier"
+      style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
+      id="StudyIdentifier_1" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="text"
+      id="StudyIdentifier_3" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="text"
+      id="StudyIdentifier_4" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="text"
       id="StudyIdentifier_5" klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Spondor Approval Date:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="dateValue"
@@ -6353,23 +6353,23 @@ nodes:
   StudyIdentifier:
   - id: StudyIdentifier_1
     instanceType: StudyIdentifier
-    studyIdentifier: NCT12345678
+    text: NCT12345678
     uuid: 00000000-0000-4000-8000-000000000066
   - id: StudyIdentifier_2
     instanceType: StudyIdentifier
-    studyIdentifier: AP1234
+    text: AP1234
     uuid: 00000000-0000-4000-8000-000000000071
   - id: StudyIdentifier_3
     instanceType: StudyIdentifier
-    studyIdentifier: EU12345
+    text: EU12345
     uuid: 00000000-0000-4000-8000-000000000076
   - id: StudyIdentifier_4
     instanceType: StudyIdentifier
-    studyIdentifier: IND12345
+    text: IND12345
     uuid: 00000000-0000-4000-8000-000000000079
   - id: StudyIdentifier_5
     instanceType: StudyIdentifier
-    studyIdentifier: WHO12345
+    text: WHO12345
     uuid: 00000000-0000-4000-8000-000000000082
   StudyIntervention:
   - description: Int Desc 1

@@ -1,2 +1,2 @@
-__package_version__ = "0.52.0"
-__model_version__ = "3.5.0"
+__package_version__ = "0.53.0"
+__model_version__ = "3.6.0"

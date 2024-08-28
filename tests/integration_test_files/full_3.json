@@ -129,8 +129,8 @@
         "studyIdentifiers": [
           {
             "id": "StudyIdentifier_1",
-            "studyIdentifier": "I8R-JE-IGBJ",
-            "studyIdentifierScope": {
+            "text": "I8R-JE-IGBJ",
+            "scope": {
               "id": "Organization_1",
               "name": "Eli Lilly Japan K.K",
               "label": "",
@@ -168,8 +168,8 @@
           },
           {
             "id": "StudyIdentifier_2",
-            "studyIdentifier": "NCT03421379",
-            "studyIdentifierScope": {
+            "text": "NCT03421379",
+            "scope": {
               "id": "Organization_2",
               "name": "ClinicalTrials.gov",
               "label": "",
@@ -206,6 +206,7 @@
             "instanceType": "StudyIdentifier"
           }
         ],
+        "referenceIdentifiers": [],
         "studyDesigns": [
           {
             "id": "StudyDesign_1",
@@ -12280,7 +12281,7 @@
           {
             "id": "NarrativeContentItem_1",
             "name": "NCI_1",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"studyIdentifier\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><strong>Confidential Information</strong></p>\n<p>\n<small>\n          The information contained in this protocol is confidential and is intended for the use of clinical\n          investigators. It is the property of Eli Lilly and Company or its subsidiaries and should not be copied by\n          or distributed to persons not involved in the clinical investigation of glucagon (LY900018), unless such\n          persons are bound by a confidentiality agreement with Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n<p>\n<small>\n<b>Note to Regulatory Authorities:</b> This document may contain protected personal data and/or commercially\n          confidential information exempt from public disclosure. Eli Lilly and Company requests consultation\n          regarding release/redaction prior to any public release. In the United States, this document is subject to Freedom of\n          Information Act (FOIA) Exemption 4 and may not be reproduced or otherwise disseminated without the written\n          approval of Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p>Glucagon (LY900018)</p>\n<p>Eli Lilly Japan K.K Japan</p>\n<p>Clinical Pharmacology Protocol Electronically Signed and Approved by Lilly:</p>\n<p>26 October 2017</p>\n<p>Amendment (<usdm:ref attribute=\"number\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref>) Electronically Signed and Approved by Lilly on date provided below.</p>\n\n</div>\n</div>\n<div class=\"row\">\n<div class=\"col-md-3 offset-md-9 text-right\">\n<p>Approval Date: Missing content: invalid method name</p>\n</div>\n</div>\n</div></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><strong>Confidential Information</strong></p>\n<p>\n<small>\n          The information contained in this protocol is confidential and is intended for the use of clinical\n          investigators. It is the property of Eli Lilly and Company or its subsidiaries and should not be copied by\n          or distributed to persons not involved in the clinical investigation of glucagon (LY900018), unless such\n          persons are bound by a confidentiality agreement with Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n<p>\n<small>\n<b>Note to Regulatory Authorities:</b> This document may contain protected personal data and/or commercially\n          confidential information exempt from public disclosure. Eli Lilly and Company requests consultation\n          regarding release/redaction prior to any public release. In the United States, this document is subject to Freedom of\n          Information Act (FOIA) Exemption 4 and may not be reproduced or otherwise disseminated without the written\n          approval of Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p>Glucagon (LY900018)</p>\n<p>Eli Lilly Japan K.K Japan</p>\n<p>Clinical Pharmacology Protocol Electronically Signed and Approved by Lilly:</p>\n<p>26 October 2017</p>\n<p>Amendment (<usdm:ref attribute=\"number\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref>) Electronically Signed and Approved by Lilly on date provided below.</p>\n\n</div>\n</div>\n<div class=\"row\">\n<div class=\"col-md-3 offset-md-9 text-right\">\n<p>Approval Date: Missing content: invalid method name</p>\n</div>\n</div>\n</div></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -14579,7 +14580,7 @@
     ],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.5.0",
+  "usdmVersion": "3.6.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.52.0"
+  "systemVersion": "0.53.0"
 }

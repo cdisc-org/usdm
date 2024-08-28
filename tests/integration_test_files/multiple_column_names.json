@@ -54,8 +54,8 @@
         "studyIdentifiers": [
           {
             "id": "StudyIdentifier_1",
-            "studyIdentifier": "NCT12345678",
-            "studyIdentifierScope": {
+            "text": "NCT12345678",
+            "scope": {
               "id": "Organization_1",
               "name": "ClinicalTrials.gov",
               "label": "",
@@ -93,8 +93,8 @@
           },
           {
             "id": "StudyIdentifier_2",
-            "studyIdentifier": "AP1234",
-            "studyIdentifierScope": {
+            "text": "AP1234",
+            "scope": {
               "id": "Organization_2",
               "name": "ACME Pharma",
               "label": "",
@@ -131,6 +131,7 @@
             "instanceType": "StudyIdentifier"
           }
         ],
+        "referenceIdentifiers": [],
         "studyDesigns": [
           {
             "id": "StudyDesign_1",
@@ -2265,7 +2266,7 @@
     "documentedBy": [],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.5.0",
+  "usdmVersion": "3.6.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.52.0"
+  "systemVersion": "0.53.0"
 }

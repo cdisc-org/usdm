@@ -28,10 +28,10 @@ def test_version_identifier(elements):
   assert elements.study_version_identifier() == '<usdm:ref klass="StudyVersion" id="StudyVersion_1" attribute="versionIdentifier"/>'
 
 def test_identifier(elements):
-  assert elements.study_identifier() == '<usdm:ref klass="StudyIdentifier" id="StudyIdentifier_1" attribute="studyIdentifier"/>'
+  assert elements.study_identifier() == '<usdm:ref klass="StudyIdentifier" id="StudyIdentifier_1" attribute="text"/>'
 
 def test_regulatory_identifiers(elements):
-  assert elements.study_regulatory_identifiers() == '<usdm:ref klass="StudyIdentifier" id="StudyIdentifier_2" attribute="studyIdentifier"/>, <usdm:ref klass="StudyIdentifier" id="StudyIdentifier_3" attribute="studyIdentifier"/>'
+  assert elements.study_regulatory_identifiers() == '<usdm:ref klass="StudyIdentifier" id="StudyIdentifier_2" attribute="text"/>, <usdm:ref klass="StudyIdentifier" id="StudyIdentifier_3" attribute="text"/>'
 
 def test_document_date(elements):
   assert elements.document_approval_date() == '<usdm:ref klass="GovernanceDate" id="GovernanceDate_2" attribute="dateValue"/>'

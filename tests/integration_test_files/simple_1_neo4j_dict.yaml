@@ -2145,6 +2145,11 @@ edges:
   SCHEDULE_TIMELINES_REL:
   - end: 00000000-0000-4000-8000-000000000227
     start: 00000000-0000-4000-8000-000000000021
+  SCOPE_REL:
+  - end: 00000000-0000-4000-8000-000000000012
+    start: 00000000-0000-4000-8000-000000000011
+  - end: 00000000-0000-4000-8000-000000000017
+    start: 00000000-0000-4000-8000-000000000016
   STANDARD_CODE_REL:
   - end: 00000000-0000-4000-8000-000000000004
     start: 00000000-0000-4000-8000-000000000003
@@ -2220,11 +2225,6 @@ edges:
     start: 00000000-0000-4000-8000-000000000001
   - end: 00000000-0000-4000-8000-000000000016
     start: 00000000-0000-4000-8000-000000000001
-  STUDY_IDENTIFIER_SCOPE_REL:
-  - end: 00000000-0000-4000-8000-000000000012
-    start: 00000000-0000-4000-8000-000000000011
-  - end: 00000000-0000-4000-8000-000000000017
-    start: 00000000-0000-4000-8000-000000000016
   STUDY_INTERVENTIONS_REL:
   - end: 00000000-0000-4000-8000-000000000147
     start: 00000000-0000-4000-8000-000000000021
@@ -4746,8 +4746,8 @@ nodes:
   - id: NarrativeContentItem_1
     instanceType: NarrativeContentItem
     name: NCI_1
-    text: <div xmlns="http://www.w3.org/1999/xhtml"><usdm:ref attribute="studyIdentifier"
-      id="StudyIdentifier_1" klass="StudyIdentifier"></usdm:ref></div>
+    text: <div xmlns="http://www.w3.org/1999/xhtml"><usdm:ref attribute="text" id="StudyIdentifier_1"
+      klass="StudyIdentifier"></usdm:ref></div>
     uuid: 00000000-0000-4000-8000-000000000259
   - id: NarrativeContentItem_2
     instanceType: NarrativeContentItem
@@ -5761,11 +5761,11 @@ nodes:
   StudyIdentifier:
   - id: StudyIdentifier_1
     instanceType: StudyIdentifier
-    studyIdentifier: NCT12345678
+    text: NCT12345678
     uuid: 00000000-0000-4000-8000-000000000011
   - id: StudyIdentifier_2
     instanceType: StudyIdentifier
-    studyIdentifier: AP1234
+    text: AP1234
     uuid: 00000000-0000-4000-8000-000000000016
   StudyIntervention:
   - description: Int Desc 1

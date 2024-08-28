@@ -31,7 +31,7 @@ class StudyIdentifiersSheet(BaseSheet):
       organisation = self.create_object(Organization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'organizationType': org_type, 'legalAddress': org_address})
       if organisation:
         self.globals.cross_references.add(organisation.id, organisation)   
-        item = self.create_object(StudyIdentifier, {'studyIdentifier': self.read_cell_by_name(index, 'studyIdentifier'), 'studyIdentifierScope': organisation})
+        item = self.create_object(StudyIdentifier, {'text': self.read_cell_by_name(index, 'studyIdentifier'), 'scope': organisation})
         if item:
           self.identifiers.append(item)
-          self.globals.cross_references.add(item.studyIdentifier, item)         
+          self.globals.cross_references.add(item.text, item)         

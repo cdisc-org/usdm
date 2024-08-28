@@ -451,8 +451,8 @@
         "studyIdentifiers": [
           {
             "id": "StudyIdentifier_1",
-            "studyIdentifier": "NCT12345678",
-            "studyIdentifierScope": {
+            "text": "NCT12345678",
+            "scope": {
               "id": "Organization_1",
               "name": "ClinicalTrials.gov",
               "label": "",
@@ -490,8 +490,8 @@
           },
           {
             "id": "StudyIdentifier_2",
-            "studyIdentifier": "AP1234",
-            "studyIdentifierScope": {
+            "text": "AP1234",
+            "scope": {
               "id": "Organization_2",
               "name": "ACME Pharma",
               "label": "",
@@ -529,8 +529,8 @@
           },
           {
             "id": "StudyIdentifier_3",
-            "studyIdentifier": "EU12345",
-            "studyIdentifierScope": {
+            "text": "EU12345",
+            "scope": {
               "id": "Organization_3",
               "name": "European Union",
               "label": "",
@@ -551,8 +551,8 @@
           },
           {
             "id": "StudyIdentifier_4",
-            "studyIdentifier": "IND12345",
-            "studyIdentifierScope": {
+            "text": "IND12345",
+            "scope": {
               "id": "Organization_4",
               "name": "Food & Drug Administration",
               "label": "",
@@ -573,8 +573,8 @@
           },
           {
             "id": "StudyIdentifier_5",
-            "studyIdentifier": "WHO12345",
-            "studyIdentifierScope": {
+            "text": "WHO12345",
+            "scope": {
               "id": "Organization_5",
               "name": "World Health Organisation",
               "label": "",
@@ -594,6 +594,7 @@
             "instanceType": "StudyIdentifier"
           }
         ],
+        "referenceIdentifiers": [],
         "studyDesigns": [
           {
             "id": "StudyDesign_1",
@@ -3821,7 +3822,7 @@
     "documentedBy": [],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.5.0",
+  "usdmVersion": "3.6.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.52.0"
+  "systemVersion": "0.53.0"
 }
