@@ -1,9 +1,7 @@
-import traceback
-from usdm_model.organization import Organization
 from usdm_model.identifier import StudyIdentifier
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.globals import Globals
-
+from usdm_excel.study_identifiers_sheet.organization import get_organization
 
 class StudyIdentifiersSheet(BaseSheet):
 
@@ -20,17 +18,8 @@ class StudyIdentifiersSheet(BaseSheet):
   def process_sheet(self):
     self.identifiers = []
     for index, row in self.sheet.iterrows():
-      org_type = self.read_cdisc_klass_attribute_cell_by_name('Organization', 'organizationType', index, ['organisationType', 'organizationType', 'type'])     
-      org_id_scheme = self.read_cell_by_name(index, ['organisationIdentifierScheme', 'organizationIdentifierScheme', 'identifierScheme'])
-      org_identifier = self.read_cell_by_name(index, ['organisationIdentifier', 'organizationIdentifier'])
-      org_name = self.read_cell_by_name(index, ['organisationName', 'organizationName', 'name'])
-      org_label = self.read_cell_by_name(index, 'label', default="", must_be_present=False)
-      org_address = self.read_address_cell_by_name(index, ['organisationAddress', 'organizationAddress', 'address'])
-      if org_address:
-        self.globals.cross_references.add(org_address.id, org_address)   
-      organisation = self.create_object(Organization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'organizationType': org_type, 'legalAddress': org_address})
+      organisation = get_organization(self, index)
       if organisation:
-        self.globals.cross_references.add(organisation.id, organisation)   
         item = self.create_object(StudyIdentifier, {'text': self.read_cell_by_name(index, 'studyIdentifier'), 'scope': organisation})
         if item:
           self.identifiers.append(item)

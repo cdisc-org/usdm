@@ -2,7 +2,6 @@ import pandas as pd
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_model.code import Code
 
-
 def test_create(mocker, globals):
   globals.cross_references.clear()
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
