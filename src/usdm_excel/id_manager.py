@@ -68,7 +68,8 @@ class IdManager():
       'ConditionAssignment': 0,
       'Characteristic': 0,
       'CommentAnnotation': 0,
-      'Abbreviation': 0
+      'Abbreviation': 0,
+      'ReferenceIdentifier': 0
     }
 
   def build_id(self, klass):

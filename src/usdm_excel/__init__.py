@@ -5,6 +5,7 @@ from usdm_excel.globals import Globals
 from usdm_excel.annotation_sheet.annotation_sheet import AnnotationSheet
 from usdm_excel.abbreviation_sheet.abbreviation_sheet import AbbreviationSheet
 from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm_excel.study_identifiers_sheet.study_references_sheet import StudyReferencesSheet
 from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
 from usdm_excel.study_design_indication_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
@@ -80,6 +81,7 @@ class USDMExcel():
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
       self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._globals)
       self.study_identifiers = StudyIdentifiersSheet(self._file_path, self._globals)
+      self.study_references = StudyReferencesSheet(self._file_path, self._globals)
       self.procedures = StudyDesignProcedureSheet(self._file_path, self._globals)
       self.encounters = StudyDesignEncounterSheet(self._file_path, self._globals)
       self.elements = StudyDesignElementSheet(self._file_path, self._globals)
@@ -171,6 +173,7 @@ class USDMExcel():
           businessTherapeuticAreas=self.study.therapeutic_areas,
           rationale=self.study.rationale,
           studyIdentifiers=self.study_identifiers.identifiers,
+          referenceIdentifiers=self.study_references.items,
           documentVersionIds=self.definition_document_version_ids,
           studyDesigns=self.study_design.study_designs,
           dateValues=self.study.dates[self.STUDY_VERSION_DATE],
