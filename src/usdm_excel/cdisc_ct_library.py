@@ -15,6 +15,10 @@ class CDISCCTLibrary():
     self._missing_ct = yaml.load(f, Loader=yaml.FullLoader)
     f = open(os.path.join(os.path.dirname(__file__), 'data', 'cdisc_ct_config.yaml'))
     self._cdisc_ct_config = yaml.load(f, Loader=yaml.FullLoader)
+    # Visible properties
+    self.version = self._cdisc_ct_config['version']
+    self.system = "http://www.cdisc.org"
+    # Private properties
     self._by_code_list = {}
     self._by_term = {}
     self._by_submission = {}
@@ -27,9 +31,6 @@ class CDISCCTLibrary():
       self._save_code_lists(self._by_code_list)
     self._get_missing_ct()
     self._get_klass_attribute()
-    # Visible properties
-    self.version = self._cdisc_ct_config['version']
-    self.system = "http://www.cdisc.org"
 
   def submission(self, value, cl=None):
     if value in list(self._by_submission.keys()):
@@ -133,7 +134,7 @@ class CDISCCTLibrary():
     for package in self._cdisc_ct_config['packages']:
       package_full_name = "%sct-%s" % (package, self.version)
       api_url = self._url('/mdr/ct/packages/%s/codelists/%s' % (package_full_name, c_code))
-      self._logger.info(f"CDISC CT Library: {api_url}")
+      self._errors_and_logging.info(f"CDISC CT Library: {api_url}")
       raw = requests.get(api_url, headers=self.__class__.HEADERS)
       if raw.status_code == 200:
         response = raw.json()

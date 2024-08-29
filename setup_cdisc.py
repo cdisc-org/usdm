@@ -37,5 +37,9 @@ if __name__ == "__main__":
     print(f"Deleting CT File")
     file_delete("cdisc_ct*.yaml")
   
-  from usdm_excel.cdisc_ct_library import cdisc_ct_library
-  from usdm_excel.cdisc_bc_library import cdisc_bc_library
+  from src.usdm_excel.cdisc_ct_library import CDISCCTLibrary
+  from src.usdm_excel.cdisc_bc_library import CDISCBCLibrary
+  from src.usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
+
+  errors_and_logging = ErrorsAndLogging()
+  ct = CDISCCTLibrary(errors_and_logging)

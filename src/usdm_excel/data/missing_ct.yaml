@@ -384,7 +384,6 @@
     definition: "A medicinal product that is related to the specific needs of the clinical trial as described in the protocol, but not as an investigational medicinal product. NOTE: Auxiliary medicinal products may be authorised for marketing in a country or region or non-authorised. [after EU-CTR]"
     submissionValue: ''
     synonyms: []
-
 - conceptId: C188725x
   definition: ''
   extensible: false
@@ -414,3 +413,23 @@
     - Trial Exploratory Objective
     - Study Exploratory Objective
     definition: "Additional scientific question(s) within the study that enable further discovery research, beyond the primary and secondary objectives."
+- conceptId: C99910x
+  definition: ''
+  extensible: false
+  name: ''
+  preferredTerm: 'Reference Identifier Type'
+  submissionValue: ''
+  synonyms: []
+  terms:
+  - conceptId: C99910x1
+    preferredTerm: Pediatric Investigation Plan    
+    submissionValue: ''
+    synonyms:
+    - PIP
+    definition: "A development plan aimed at ensuring that the necessary data are obtained to support the authorisation of a medicine for children, through studies in children. (EMA)"
+  - conceptId: C142424
+    preferredTerm: Clinical Development Plan
+    submissionValue: ''
+    synonyms:
+    - CDP
+    definition: A document that describes the collection of clinical studies that are to be performed in sequence, or in parallel, with a particular active substance, device, procedure, or treatment strategy, typically with the intention of submitting them as part of an application for a marketing authorization. (CDISC Glossary)
