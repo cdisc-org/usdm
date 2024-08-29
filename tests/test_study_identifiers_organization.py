@@ -28,8 +28,21 @@ def test_no_address(mocker, globals):
   )
   data = {'organisationIdentifierScheme': ['USGOV'], 'organisationIdentifier': ['CT-GOV'], 'organisationName': ['ClinicalTrials.gov'], 'organisationType': ['Study Registry'], 'studyIdentifier': ['NCT12345678'], 'organisationAddress': ['']}
   base = _setup_base(mocker, globals, data, ids)
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   item = get_organization(base, 0)
   assert str(item.to_json()) == expected
+  assert mock_error.call_count == 1
+  mock_error.assert_has_calls([mocker.call('sheet', 1, 6, "Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40)])
+
+def test_organization_error(mocker, globals):
+  ids = ['Code_1', 'Addr_1', 'Code_2', 'Org_1']
+  data = {'organisationIdentifierScheme': ['USGOV'], 'organisationIdentifier': ['CT-GOV'], 'organisationName': [''], 'organisationType': ['Study Registry'], 'studyIdentifier': ['NCT12345678'], 'organisationAddress': ['line|district|city|state|postal_code|GBR']}
+  base = _setup_base(mocker, globals, data, ids)
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  item = get_organization(base, 0)
+  assert item is None
+  assert mock_error.call_count == 1
+  mock_error.assert_has_calls([mocker.call('sheet', None, None, 'Exception. Failed to create Organization object. See log for additional details.', 40)])
 
 def _setup_base(mocker, globals, data, ids):
   globals.cross_references.clear()
