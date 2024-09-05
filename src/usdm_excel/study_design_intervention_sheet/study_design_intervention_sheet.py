@@ -2,7 +2,7 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.alias import Alias
 from usdm_model.study_intervention import StudyIntervention
-from usdm_model.agent_administration import AgentAdministration
+from usdm_model.administration import Administration
 from usdm_model.administration_duration import AdministrationDuration
 from usdm_excel.globals import Globals
 
@@ -67,15 +67,15 @@ class StudyDesignInterventionSheet(BaseSheet):
     name = self.read_cell_by_name(index, 'administrationName')
     descriptiopn = self.read_cell_by_name(index, 'administrationDescription', must_be_present=False)
     label = self.read_cell_by_name(index, 'administrationLabel', must_be_present=False)
-    route = self.read_cdisc_klass_attribute_cell_by_name("AgentAdministration", "route", index, "administrationRoute")
+    route = self.read_cdisc_klass_attribute_cell_by_name("Administration", "route", index, "administrationRoute")
     dose = self.read_quantity_cell_by_name(index, "administrationDose")
-    frequency = self.read_cdisc_klass_attribute_cell_by_name("AgentAdministration", "frequency", index, "administrationFrequency")
+    frequency = self.read_cdisc_klass_attribute_cell_by_name("Administration", "frequency", index, "administrationFrequency")
     return self._agent_administration(name, descriptiopn, label, route, dose, frequency, admin_duration)
 
   def _agent_administration(self, name, description, label, route, dose, frequency, admin_duration):
     try:
-      item = AgentAdministration(
-        id=self.globals.id_manager.build_id(AgentAdministration), 
+      item = Administration(
+        id=self.globals.id_manager.build_id(Administration), 
         name=name, 
         description=description, 
         label=label,
@@ -85,7 +85,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         frequency=Alias(self.globals).code(frequency, [])
       )
     except Exception as e:
-      self._general_error(f"Failed to create AgentAdministration object", e)
+      self._general_error(f"Failed to create Administration object", e)
     else:
       self.globals.cross_references.add(name, item)
       return item

@@ -1,7 +1,7 @@
 from .activity import *
 from .address import *
 from .administration_duration import *
-from .agent_administration import *
+from .administration import *
 from .alias_code import *
 from .analysis_population import *
 from .api_base_model import *
@@ -55,7 +55,7 @@ __all__ = [
   'Activity',
   'Address',
   'AdministrationDuration',
-  'AgentAdministration',
+  'Administration',
   'AliasCode',
   'AnalysisPopulation',
   'BiomedicalConceptCategory',
