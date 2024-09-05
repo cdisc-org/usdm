@@ -1,7 +1,7 @@
 from typing import List, Literal, Union
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .quantity import Quantity
-from .agent_administration import AgentAdministration
+from .administration import Administration
 from .code import Code
 from .comment_annotation import CommentAnnotation
 
@@ -10,8 +10,7 @@ class StudyIntervention(ApiBaseModelWithIdNameLabelAndDesc):
   type:	Code
   minimumResponseDuration: Union[Quantity, None] = None
   codes: List[Code] = []
-  administrations: List[AgentAdministration] = []
+  administrations: List[Administration] = []
   productDesignation:	Code
-  pharmacologicClass:	Union[Code, None] = None
   notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyIntervention']
