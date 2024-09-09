@@ -1,4 +1,3 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.alias import Alias
 from usdm_model.study_intervention import StudyIntervention
@@ -17,10 +16,8 @@ class StudyDesignInterventionSheet(BaseSheet):
       self.current_name = None
       self.current_intervention = None
       for index, row in self.sheet.iterrows():
-        # Read the adminstrations and durations
         admin_duration = self._create_administration_duration(index)
         agent_admin = self._create_administration(index, admin_duration)
-        # Read intervention in present
         self._create_intervention(index, agent_admin)
     except Exception as e:
       self._sheet_exception(e)

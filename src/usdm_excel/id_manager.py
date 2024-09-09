@@ -69,7 +69,13 @@ class IdManager():
       'Characteristic': 0,
       'CommentAnnotation': 0,
       'Abbreviation': 0,
-      'ReferenceIdentifier': 0
+      'ReferenceIdentifier': 0,
+      'AdministrableProduct': 0,
+      'AdministrableProductProperty': 0,
+      'AdministrableProductIdentifier': 0,
+      'Ingredient': 0,
+      'Substance': 0,
+      'Strength': 0
     }
 
   def build_id(self, klass):
