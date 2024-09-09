@@ -661,6 +661,1181 @@ C201265:
       of another event.
     preferredTerm: Start to Start
     submissionValue: Start to Start
+C66726:
+  conceptId: C66726
+  definition: The form of the completed pharmaceutical product, e.g. tablet, capsule,
+    injection, elixir, suppository. Dosage form can have a significant effect on the
+    onset, duration and intensity of the pharmacological action of a drug. A pharmaceutical
+    dosage form controls the rate at which the drug is released into the biological
+    fluids. This release rate affects its intrinsic absorption pattern and therefore,
+    the bioavailability of the drug.
+  extensible: 'true'
+  name: Pharmaceutical Dosage Form
+  preferredTerm: CDISC SDTM Pharmaceutical Dosage Form Terminology
+  submissionValue: FRM
+  synonyms:
+  - Pharmaceutical Dosage Form
+  terms:
+  - conceptId: C42887
+    definition: A product that is packaged under pressure and contains therapeutically
+      active ingredients that are released upon activation of an appropriate valve
+      system; it is intended for topical application to the skin as well as local
+      application into the nose (nasal aerosols), mouth (lingual aerosols), or lungs
+      (inhalation aerosols).
+    preferredTerm: Aerosol Dosage Form
+    submissionValue: AEROSOL
+    synonyms:
+    - aer
+  - conceptId: C42888
+    definition: A dosage form containing one or more active ingredients, surfactants,
+      aqueous or non-aqueous liquids, and the propellants; if the propellant is in
+      the internal (discontinuous) phase (i.e., of the oil-in-water type), a stable
+      foam is discharged, and if the propellant is in the external (continuous) phase
+      (i.e., of the water-in-oil type), a spray or a quick-breaking foam is discharged.
+    preferredTerm: Aerosol Foam Dosage Form
+    submissionValue: AEROSOL, FOAM
+  - conceptId: C42960
+    definition: A pressurized dosage form consisting of metered dose valves which
+      allow for the delivery of a uniform quantity of spray upon each activation.
+      (NCI)
+    preferredTerm: Metered Aerosol Dosage Form
+    submissionValue: AEROSOL, METERED
+  - conceptId: C42971
+    definition: A product that is packaged under pressure and contains therapeutically
+      active ingredients, in the form of a powder, that are released upon activation
+      of an appropriate valve system. (NCI)
+    preferredTerm: Powder Aerosol Dosage Form
+    submissionValue: AEROSOL, POWDER
+  - conceptId: C42889
+    definition: An aerosol product which utilizes a compressed gas as the propellant
+      to provide the force necessary to expel the product as a wet spray; it is applicable
+      to solutions of medicinal agents in aqueous solvents. (NCI)
+    preferredTerm: Aerosol Spray Dosage Form
+    submissionValue: AEROSOL, SPRAY
+  - conceptId: C42892
+    definition: A solid dosage form usually in the form of a rectangle that is meant
+      to be chewed. (NCI)
+    preferredTerm: Chewable Bar Dosage Form
+    submissionValue: BAR, CHEWABLE
+  - conceptId: C42890
+    definition: A solid dosage form in the shape of a small ball. (NCI)
+    preferredTerm: Bead Dosage Form
+    submissionValue: BEAD
+  - conceptId: C43451
+    definition: A small sterile solid mass consisting of a highly purified drug intended
+      for implantation in the body which would allow at least a reduction in dosing
+      frequency as compared to that drug presented as a conventional dosage form.
+      (NCI)
+    preferredTerm: Extended Release Bead Implant Dosage Form
+    submissionValue: BEAD, IMPLANT, EXTENDED RELEASE
+  - conceptId: C42891
+    definition: Solid dosage form, usually in the shape of a square or rectangle.
+      (NCI)
+    preferredTerm: Block Dosage Form
+    submissionValue: BLOCK
+  - conceptId: C97197
+    definition: A solid dosage form in which a tablet has been compacted into capsule
+      shape.
+    preferredTerm: Caplet Dosage Form
+    submissionValue: CAPLET
+  - conceptId: C25158
+    definition: A solid pharmaceutical dosage form that contains medicinal agent within
+      either a hard or soft soluble container or shell, usually used for the oral
+      administration of medicine. The shells are made of a suitable form of gelatin
+      or other substance. (NCI)
+    preferredTerm: Capsule Dosage Form
+    submissionValue: CAPSULE
+    synonyms:
+    - cap
+  - conceptId: C42896
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container or 'shell' made from a suitable form of gelatin;
+      the drug itself is in the form of granules to which varying amounts of coating
+      have been applied. (NCI)
+    preferredTerm: Coated Pellet in Capsule Dosage Form
+    submissionValue: CAPSULE, COATED PELLETS
+  - conceptId: C42895
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container or "shell" made from a suitable form of gelatin;
+      additionally, the capsule is covered in a designated coating.
+    preferredTerm: Coated Capsule Dosage Form
+    submissionValue: CAPSULE, COATED
+  - conceptId: C42917
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container or "shell" made from a suitable form of gelatin;
+      additionally, the capsule is covered in a designated coating, and which releases
+      a drug (or drugs) in such a manner to allow at least a reduction in dosing frequency
+      as compared to that drug (or drugs) presented as a conventional dosage form.
+    preferredTerm: Extended Release Coated Capsule Dosage Form
+    submissionValue: CAPSULE, COATED, EXTENDED RELEASE
+  - conceptId: C42904
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container or "shell" made from a suitable form of gelatin;
+      the drug itself is in the form of granules to which enteric coating has been
+      applied, thus delaying release of the drug until its passage into the intestines.
+    preferredTerm: Delayed Release Pellet in Capsule Dosage Form
+    submissionValue: CAPSULE, DELAYED RELEASE PELLETS
+  - conceptId: C42902
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container made from a suitable form of gelatin, and which
+      releases a drug (or drugs) at a time other than promptly after administration.
+      Enteric-coated articles are delayed release dosage forms. (NCI)
+    preferredTerm: Delayed Release Capsule Dosage Form
+    submissionValue: CAPSULE, DELAYED RELEASE
+  - conceptId: C42916
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container made from a suitable form of gelatin, and which
+      releases a drug (or drugs) in such a manner to allow a reduction in dosing frequency
+      as compared to that drug (or drugs) presented as a conventional dosage form.
+      (NCI)
+    preferredTerm: Extended Release Capsule Dosage Form
+    submissionValue: CAPSULE, EXTENDED RELEASE
+  - conceptId: C42928
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container or 'shell' made from a suitable form of gelatin;
+      additionally, the capsule is covered in a designated film coating, and which
+      releases a drug (or drugs) in such a manner to allow at least a reduction in
+      dosing frequency as compared to that drug (or drugs) presented as a conventional
+      dosage form.
+    preferredTerm: Extended Release Film Coated Capsule Dosage Form
+    submissionValue: CAPSULE, FILM COATED, EXTENDED RELEASE
+  - conceptId: C42936
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container made from a suitable form of gelatin; through
+      a banding process, the capsule is coated with additional layers of gelatin so
+      as to form a complete seal. (NCI)
+    preferredTerm: Gelatin Coated Capsule Dosage Form
+    submissionValue: CAPSULE, GELATIN COATED
+  - conceptId: C158214
+    definition: A capsule, covered with a rigid outer shell, that is designed to release
+      active and/or inert ingredient(s) at a controlled, prolonged rate so as to reduce
+      dosing frequency.
+    preferredTerm: Extended Release Capsule, Hard Dosage Form
+    submissionValue: CAPSULE, HARD, EXTENDED RELEASE
+  - conceptId: C142247
+    definition: A solid dosage form in which the drug is enclosed within either a
+      hard or soft soluble container, which is designed to release its active and/or
+      inert ingredient(s) immediately upon administration.
+    preferredTerm: Immediate Release Capsule Dosage Form
+    submissionValue: CAPSULE, IMMEDIATE RELEASE
+  - conceptId: C42954
+    definition: A solid dosage form in which the drug is enclosed within a soluble,
+      gelatin shell which is plasticized by the addition of a polyol, such as sorbitol
+      or glycerin, and is therefore of a somewhat thicker consistency than that of
+      a hard shell capsule; typically, the active ingredients are dissolved or suspended
+      in a liquid vehicle. (NCI)
+    preferredTerm: Liquid Filled Capsule Dosage Form
+    submissionValue: CAPSULE, LIQUID FILLED
+  - conceptId: C184506
+    definition: A capsule, covered with a soft gelatin shell and containing a liquid,
+      suspension, or semisolid, that is designed to release active and/or inert ingredient(s).
+    preferredTerm: Capsule Softgel Pharmaceutical Dosage Form
+    submissionValue: CAPSULE, SOFTGEL
+  - conceptId: C158215
+    definition: A capsule, covered with a soft gelatin shell and containing a liquid,
+      suspension, or semisolid, that is designed to release active and/or inert ingredient(s)
+      at a controlled, prolonged rate so as to reduce dosing frequency.
+    preferredTerm: Extended Release Capsule, Softgel Dosage Form
+    submissionValue: CAPSULE, SOFTGEL, EXTENDED RELEASE
+  - conceptId: C45414
+    definition: A substance that serves to produce solid union between two surfaces.
+      (NCI)
+    preferredTerm: Cement Dosage Form
+    submissionValue: CEMENT
+  - conceptId: C42678
+    definition: A narrow tube filled with material that is capable to burn with release
+      of therapeutically-active substance(s) during the process of smoking. Cigarette
+      is a very efficient drug-delivery inhaler system for fast-acting substances.
+    preferredTerm: Cigarette Dosage Form
+    submissionValue: CIGARETTE
+  - conceptId: C60884
+    definition: A large piece of relatively flat, absorbent material that contains
+      a drug. It is typically used for applying medication or for cleansing.
+    preferredTerm: Cloth Dosage Form
+    submissionValue: CLOTH
+  - conceptId: C60891
+    definition: A liquid preparation of increased strength and reduced volume which
+      is usually diluted prior to administration. (NCI)
+    preferredTerm: Concentrated Dosage Form
+    submissionValue: CONCENTRATE
+  - conceptId: C42900
+    definition: A solid dosage form bounded by a circular base and the surface formed
+      by line segments joining every point of the boundary of the base to a common
+      vertex. A cone (usually containing antibiotics) is normally placed below the
+      gingiva after a dental extraction. (NCI)
+    preferredTerm: Cone Dosage Form
+    submissionValue: CONE
+  - conceptId: C42919
+    definition: An ocular system placed in the eye from which the drug diffuses through
+      a membrane at a constant rate over a specified period. (NCI)
+    preferredTerm: Extended Release Core Dosage Form
+    submissionValue: CORE, EXTENDED RELEASE
+  - conceptId: C28944
+    definition: A semisolid emulsion of either the oil-in-water or the water-in-oil
+      type, ordinarily intended for topical use. (NCI)
+    preferredTerm: Cream Dosage Form
+    submissionValue: CREAM
+  - conceptId: C60897
+    definition: 'A cream dosage form that enhances drug delivery. Augmentation does
+      not refer to the strength of the drug in the dosage form. NOTE: CDER has decided
+      to refrain from expanding the use of this dosage form due to difficulties in
+      setting specific criteria that must be met to be considered augmented.'
+    preferredTerm: Augmented Cream Dosage Form
+    submissionValue: CREAM, AUGMENTED
+  - conceptId: C42901
+    definition: A naturally produced angular solid of definite form in which the ultimate
+      units from which it is built up are systematically arranged; they are usually
+      evenly spaced on a regular space lattice.
+    preferredTerm: Crystal Dosage Form
+    submissionValue: CRYSTAL
+  - conceptId: C45415
+    definition: The propagation of microorganisms or of living tissue cells in special
+      media conducive to their growth. (NCI)
+    preferredTerm: Culture Dosage Form
+    submissionValue: CULTURE
+  - conceptId: C106178
+    definition: Parenteral sustained-release systems of microparticles, implants,
+      or biodegradable polymer-excipients designed to release their active pharmaceutical
+      ingredient over a prolonged period of time.
+    preferredTerm: Extended Release Depot Dosage Form
+    submissionValue: DEPOT
+    synonyms:
+    - Depot Extended Release Dosage Form
+  - conceptId: C47890
+    definition: A device usually dome-shaped, worn during copulation over the cervical
+      mouth for prevention of conception or infection. (NCI)
+    preferredTerm: Vaginal Diaphragm Dosage Form
+    submissionValue: DIAPHRAGM
+  - conceptId: C43525
+    definition: A circular plate-like organ or structure.
+    preferredTerm: Disc Dosage Form
+    submissionValue: DISC
+  - conceptId: C42679
+    definition: A liquid preparation, intended for the irrigative cleansing of the
+      vagina, that is prepared from powders, liquid solutions, or liquid concentrates
+      and contains one or more chemical substances dissolved in a suitable solvent
+      or mutually miscible solvents. (NCI)
+    preferredTerm: Douche Dosage Form
+    submissionValue: DOUCHE
+  - conceptId: C42763
+    definition: The application of various materials for protecting a wound.
+    preferredTerm: Dressing Dosage Form
+    submissionValue: DRESSING
+  - conceptId: C17423
+    definition: Modern technology, distributed with or as a part of a drug product
+      that allows for the uniform release or targeting of drugs to the body.
+    preferredTerm: Drug Delivery System
+    submissionValue: DRUG DELIVERY SYSTEM
+  - conceptId: C42912
+    definition: A clear, pleasantly flavored, sweetened hydroalcoholic liquid containing
+      dissolved medicinal agents; it is intended for oral use. (NCI)
+    preferredTerm: Elixir Dosage Form
+    submissionValue: ELIXIR
+  - conceptId: C42913
+    definition: 'A dosage form consisting of a two-phase system comprised of at least
+      two immiscible liquids (1), one of which is dispersed as droplets (internal
+      or dispersed phase) within the other liquid (external or continuous phase),
+      generally stabilized with one or more emulsifying agents. Note 1: A liquid is
+      pourable; it flows and conforms to its container at room temperature. It displays
+      Newtonian or pseudoplastic flow behavior. Note 2: Emulsion is used as a dosage
+      form term unless a more specific term is applicable, e.g. cream, lotion, ointment.
+      (NCI)'
+    preferredTerm: Emulsion Dosage Form
+    submissionValue: EMULSION
+  - conceptId: C42915
+    definition: A rectal preparation for therapeutic, diagnostic, or nutritive purposes.
+      (NCI)
+    preferredTerm: Enema Dosage Form
+    submissionValue: ENEMA
+  - conceptId: C42929
+    definition: A concentrated preparation of vegetable or animal drugs obtained by
+      removal of the active constituents of the respective drugs with a suitable menstrua,
+      evaporation of all or nearly all of the solvent, and adjustment of the residual
+      masses or powders to the prescribed standards. (NCI)
+    preferredTerm: Extract Dosage Form
+    submissionValue: EXTRACT
+  - conceptId: C60926
+    definition: A slender and elongated solid thread-like substance that delivers
+      drug in such a manner to allow a reduction in dosing frequency as compared to
+      that drug (or drugs) presented as a conventional dosage form.
+    preferredTerm: Extended Release Fiber Dosage Form
+    submissionValue: FIBER, EXTENDED RELEASE
+  - conceptId: C42932
+    definition: A thin layer or coating. (NCI)
+    preferredTerm: Film Dosage Form
+    submissionValue: FILM
+  - conceptId: C42920
+    definition: A drug delivery system in the form of a film that releases the drug
+      over an extended period in such a way as to maintain constant drug levels in
+      the blood or target tissue. (NCI)
+    preferredTerm: Extended Release Film Dosage Form
+    submissionValue: FILM, EXTENDED RELEASE
+  - conceptId: C42984
+    definition: A thin layer or coating which is susceptible to being dissolved when
+      in contact with a liquid. (NCI)
+    preferredTerm: Soluble Film Dosage Form
+    submissionValue: FILM, SOLUBLE
+  - conceptId: C60927
+    definition: A product, usually a solid, intended for solution prior to administration.
+    preferredTerm: Dosage Form for Solution
+    submissionValue: FOR SOLUTION
+  - conceptId: C60928
+    definition: A product, usually a solid, intended for suspension prior to administration.
+    preferredTerm: Dosage Form for Suspension
+    submissionValue: FOR SUSPENSION
+  - conceptId: C60929
+    definition: A product, usually a solid, intended for suspension prior to administration;
+      once the suspension is administered, the drug will be released at a constant
+      rate over a specified period.
+    preferredTerm: Extended Release Dosage Form for Suspension
+    submissionValue: FOR SUSPENSION, EXTENDED RELEASE
+  - conceptId: C42933
+    definition: Any elastic aeriform fluid in which the molecules are separated from
+      one another and have free paths. (NCI)
+    preferredTerm: Gas Dosage Form
+    submissionValue: GAS
+  - conceptId: C42934
+    definition: 'A semisolid (1) dosage form that contains a gelling agent to provide
+      stiffness to a solution or a colloidal dispersion (2). A gel may contain suspended
+      particles. Note 1: A semisolid is not pourable; it does not flow or conform
+      to its container at room temperature. It does not flow at low shear stress and
+      generally exhibits plastic flow behavior. Note 2: A colloidal dispersion is
+      a system in which particles of colloidal dimension (i.e., typically between
+      1 nm and 1 micrometer) are distributed uniformly throughout a liquid.'
+    preferredTerm: Gel Dosage Form
+    submissionValue: GEL
+  - conceptId: C134876
+    definition: A formed or molded oral gel dosage form that maintains its shape,
+      is elastic, and yields to mastication. (NCI)
+    preferredTerm: Chewable Gel Dosage Form
+    submissionValue: GEL, CHEWABLE
+    synonyms:
+    - Gummie
+    - Gummy
+  - conceptId: C42906
+    definition: A combination of a dentifrice (formulation intended to clean and/or
+      polish the teeth, and which may contain certain additional agents), and a gel.
+      It is used with a toothbrush for the purpose of cleaning and polishing the teeth.
+      (NCI)
+    preferredTerm: Dentifrice Gel Dosage Form
+    submissionValue: GEL, DENTIFRICE
+  - conceptId: C60930
+    definition: A gel preparation, with metered dose valves, which allow for the delivery
+      of a uniform quantity of gel upon each activation.
+    preferredTerm: Metered Gel Dosage Form
+    submissionValue: GEL, METERED
+  - conceptId: C48193
+    definition: An apparatus for the formation of vapor or gas from a liquid or solid
+      by heat or chemical action. The term GENERATOR also applies to radioactive columns
+      from which radionuclides are provided. (NCI)
+    preferredTerm: Generator Dosage Form
+    submissionValue: GENERATOR
+  - conceptId: C42937
+    definition: Also called pellets or pilules, are made of pure sucrose, lactose,
+      or other polysaccharides. They are formed into small globular masses of various
+      sizes, and are medicated by placing them in a vial and adding the liquid drug
+      attenuation in the proportion not less than one percent (v/w). After shaking,
+      the medicated globules are dried at temperatures not to exceed 40 degrees Centigrade.
+      (NCI)
+    preferredTerm: Globule Dosage Form
+    submissionValue: GLOBULE
+  - conceptId: C45416
+    definition: A slip of skin or of other tissue for implantation. (NCI)
+    preferredTerm: Graft Dosage Form
+    submissionValue: GRAFT
+  - conceptId: C42938
+    definition: A small particle or grain. (NCI)
+    preferredTerm: Granule Dosage Form
+    submissionValue: GRANULE
+  - conceptId: C148551
+    definition: A small medicinal particle or grain that is covered in a designated
+      coating.
+    preferredTerm: Coated Granules Dosage Form
+    submissionValue: GRANULE, COATED
+  - conceptId: C42903
+    definition: A small medicinal particle or grain to which an enteric or other coating
+      has been applied, thus delaying release of the drug until its passage into the
+      intestines. (NCI)
+    preferredTerm: Delayed Release Granules Dosage Form
+    submissionValue: GRANULE, DELAYED RELEASE
+  - conceptId: C42909
+    definition: A small particle or grain containing a medicinal agent in a dry mixture
+      usually composed of sodium bicarbonate, citric acid, and tartaric acid which,
+      when in contact with water, has the capability to release gas, resulting in
+      effervescence. (NCI)
+    preferredTerm: Effervescent Granules Dosage Form
+    submissionValue: GRANULE, EFFERVESCENT
+  - conceptId: C42939
+    definition: A small medicinal particle or grain made available in its more stable
+      dry form, to be reconstituted with solvent just before dispensing; the granules
+      are so prepared to contain not only the medicinal agent, but the colorants,
+      flavorants, and any other desired pharmaceutic ingredient. (NCI)
+    preferredTerm: Granule for Solution Dosage Form
+    submissionValue: GRANULE, FOR SOLUTION
+  - conceptId: C42940
+    definition: A small medicinal particle or grain made available in its more stable
+      dry form, to be reconstituted with solvent just before dispensing to form a
+      suspension; the granules are so prepared to contain not only the medicinal agent,
+      but the colorants, flavorants, and any other desired pharmaceutic ingredient.
+      (NCI)
+    preferredTerm: Granule for Suspension Dosage Form
+    submissionValue: GRANULE, FOR SUSPENSION
+  - conceptId: C42921
+    definition: A small medicinal particle or grain made available in its more stable
+      dry form, to be reconstituted with solvent just before dispensing to form a
+      suspension; the extended release system achieves slow release of the drug over
+      an extended period of time and maintains constant drug levels in the blood or
+      target tissue. (NCI)
+    preferredTerm: Extended Release Granule for Suspension Dosage Form
+    submissionValue: GRANULE, FOR SUSPENSION, EXTENDED RELEASE
+  - conceptId: C42941
+    definition: A mucilaginous excretion from various plants. (NCI)
+    preferredTerm: Gum Dosage Form
+    submissionValue: GUM
+  - conceptId: C42894
+    definition: A sweetened and flavored insoluble plastic material of various shapes
+      which when chewed, releases a drug substance into the oral cavity. (NCI)
+    preferredTerm: Chewing Gum Dosage Form
+    submissionValue: GUM, CHEWING
+  - conceptId: C42978
+    definition: Natural mixture of gum and resin, usually obtained as exudations from
+      plants. (NCI)
+    preferredTerm: Resin Gum Dosage Form
+    submissionValue: GUM, RESIN
+  - conceptId: C42942
+    definition: A material containing drug intended to be inserted securely and deeply
+      in a living site for growth, slow release, or formation of an organic union.
+      (NCI)
+    preferredTerm: Implant Dosage Form
+    submissionValue: IMPLANT
+  - conceptId: C42944
+    definition: A special class of inhalations consisting of a drug or combination
+      of drugs, that by virtue of their high vapor pressure, can be carried by an
+      air current into the nasal passage where they exert their effect; the container
+      from which the inhalant generally is administered is known as an inhaler. (NCI)
+    preferredTerm: Inhalant Dosage Form
+    submissionValue: INHALANT
+  - conceptId: C149582
+    definition: Solid preparation consisting of a capsule formulation intended for
+      generation of vapor to be inhaled to obtain a local effect. The vapor is usually
+      generated by adding the whole capsule or the capsule contents to hot water.
+      (EDQM)
+    preferredTerm: Inhalation Vapor, Capsule Dosage Form
+    submissionValue: INHALATION VAPOR, CAPSULE
+    synonyms:
+    - Capsule for Inhalation
+  - conceptId: C60931
+    definition: An injection, which either consists of or forms liposomes (a lipid
+      bilayer vesicle usually composed of phospholipids which is used to encapsulate
+      an active drug substance).
+    preferredTerm: Liposomal Injection Dosage Form
+    submissionValue: INJECTABLE, LIPOSOMAL
+  - conceptId: C42946
+    definition: A sterile preparation intended for parenteral use; five distinct classes
+      of injections exist as defined by the USP. (NCI)
+    preferredTerm: Injectable Dosage Form
+    submissionValue: INJECTION
+  - conceptId: C42914
+    definition: An emulsion consisting of a sterile, pyrogen-free preparation intended
+      to be administered parenterally.
+    preferredTerm: Emulsion for Injection Dosage Form
+    submissionValue: INJECTION, EMULSION
+  - conceptId: C42950
+    definition: A substance composed of complexed active and/or inert ingredient(s)
+      with natural or synthetic lipids that is intended for injection. (NCI)
+    preferredTerm: Injectable Lipid Complex Dosage Form
+    submissionValue: INJECTION, LIPID COMPLEX
+  - conceptId: C42974
+    definition: A sterile preparation intended for reconstitution to form a solution
+      for parenteral use. (NCI)
+    preferredTerm: Powder for Injectable Solution Dosage Form
+    submissionValue: INJECTION, POWDER, FOR SOLUTION
+  - conceptId: C42976
+    definition: A sterile preparation intended for reconstitution to form a suspension
+      for parenteral use. (NCI)
+    preferredTerm: Powder for Injectable Suspension Dosage Form
+    submissionValue: INJECTION, POWDER, FOR SUSPENSION
+  - conceptId: C42977
+    definition: A dried preparation intended for reconstitution to form a suspension
+      for parenteral use which has been formulated in a manner to allow at least a
+      reduction in dosing frequency as compared to that drug presented as a conventional
+      dosage form (e.g., as a solution).
+    preferredTerm: Powder for Injectable Extended Release Suspension Dosage Form
+    submissionValue: INJECTION, POWDER, FOR SUSPENSION, EXTENDED RELEASE
+  - conceptId: C42959
+    definition: A sterile freeze dried preparation intended for reconstitution for
+      parenteral use which has been formulated in a manner that would allow liposomes
+      (a lipid bilayer vesicle usually composed of phospholipids which is used to
+      encapsulate an active drug substance, either within a lipid bilayer or in an
+      aqueous space) to be formed upon reconstitution. (NCI)
+    preferredTerm: Lyophilized Powder for Injectable Liposomal Suspension Dosage Form
+    submissionValue: INJECTION, POWDER, LYOPHILIZED, FOR LIPOSOMAL SUSPENSION
+  - conceptId: C42957
+    definition: A dosage form intended for the solution prepared by lyophilization
+      ('freeze drying'), a process which involves the removal of water from products
+      in the frozen state at extremely low pressures; this is intended for subsequent
+      addition of liquid to create a solution that conforms in all respects to the
+      requirements for Injections. (NCI)
+    preferredTerm: Lyophilized Powder for Injectable Solution Dosage Form
+    submissionValue: INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION
+  - conceptId: C42958
+    definition: A liquid preparation, intended for parenteral use, that contains solids
+      suspended in a suitable fluid medium and conforms in all respects to the requirements
+      for Sterile Suspensions; the medicinal agents intended for the suspension are
+      prepared by lyophilization ("freeze drying"), a process which involves the removal
+      of water from products in the frozen state at extremely low pressures.
+    preferredTerm: Lyophilized Powder for Injectable Suspension Dosage Form
+    submissionValue: INJECTION, POWDER, LYOPHILIZED, FOR SUSPENSION
+  - conceptId: C42956
+    definition: A sterile freeze dried preparation intended for reconstitution for
+      parenteral use which has been formulated in a manner to allow at least a reduction
+      in dosing frequency as compared to that drug presented as a conventional dosage
+      form (e.g., as a solution). (NCI)
+    preferredTerm: Lyophilized Powder for Extended Release Injectable Suspension Dosage
+      Form
+    submissionValue: INJECTION, POWDER, LYOPHILIZED, FOR SUSPENSION, EXTENDED RELEASE
+  - conceptId: C42945
+    definition: A liquid preparation containing one or more drug substances dissolved
+      in a suitable solvent or mixture of mutually miscible solvents that is suitable
+      for injection. (NCI)
+    preferredTerm: Injectable Solution Dosage Form
+    submissionValue: INJECTION, SOLUTION
+  - conceptId: C42899
+    definition: A sterile preparation for parenteral use which, upon the addition
+      of suitable solvents, yields a solution conforming in all respects to the requirements
+      for Injections. (NCI)
+    preferredTerm: Concentrated Injectable Solution Dosage Form
+    submissionValue: INJECTION, SOLUTION, CONCENTRATE
+  - conceptId: C42995
+    definition: A liquid preparation, suitable for injection, which consists of solid
+      particles dispersed throughout a liquid phase in which the particles are not
+      soluble. It can also consist of an oil phase dispersed throughout an aqueous
+      phase, or vice-versa. (NCI)
+    preferredTerm: Injectable Suspension Dosage Form
+    submissionValue: INJECTION, SUSPENSION
+  - conceptId: C42926
+    definition: A sterile preparation intended for parenteral use which has been formulated
+      in a manner to allow at least a reduction in dosing frequency as compared to
+      that drug presented as a conventional dosage form (e.g., as a solution or a
+      prompt drug-releasing, conventional solid dosage form). (NCI)
+    preferredTerm: Injectable Extended Release Suspension Dosage Form
+    submissionValue: INJECTION, SUSPENSION, EXTENDED RELEASE
+  - conceptId: C42951
+    definition: A liquid parenteral pharmaceutical dosage form structured as a multilamellar
+      composition of concentric phospholipid spheres that encapsulate the drug (drug
+      delivery systems) separated by layers of water. Drug release is facilitated
+      and controlled by in vivo erosion of the liposomes. To further increase the
+      in vivo circulation time, liposomes in some preparations are covalently derivatized
+      with PEG to produce PEGylated or stealth liposomes. Covalent attachment of drugs
+      to the outer surface of liposomes can potentially serve as a delayed-release
+      product. (NCI)
+    preferredTerm: Injectable Liposomal Suspension Dosage Form
+    submissionValue: INJECTION, SUSPENSION, LIPOSOMAL
+  - conceptId: C42988
+    definition: A liquid preparation, suitable for injection, which consists of solid
+      particles dispersed throughout a liquid phase in which the particles are not
+      soluble. In addition, the product is sonicated while a gas is bubbled through
+      the suspension, and this results in the formation of microspheres by the solid
+      particles. (NCI)
+    preferredTerm: Injectable Sonicated Suspension Dosage Form
+    submissionValue: INJECTION, SUSPENSION, SONICATED
+  - conceptId: C60933
+    definition: A specially formulated and shaped non-encapsulated solid preparation
+      intended to be placed into a non-rectal orifice of the body, where drug is released,
+      generally for localized effects.
+    preferredTerm: Insert Dosage Form
+    submissionValue: INSERT
+  - conceptId: C42922
+    definition: A specially formulated and shaped solid preparation (e.g., ring, tablet,
+      or stick) intended to be placed in the vagina by special inserters, where the
+      medication is released, generally for localized effects; the extended release
+      preparation is designed to allow a reduction in dosing frequency. (NCI)
+    preferredTerm: Extended Release Insert Dosage Form
+    submissionValue: INSERT, EXTENDED RELEASE
+  - conceptId: C47915
+    definition: A device inserted and left in the uterus to prevent effective conception.
+      (NCI)
+    preferredTerm: Intrauterine Device Dosage Form
+    submissionValue: INTRAUTERINE DEVICE
+  - conceptId: C42947
+    definition: A sterile solution intended to bathe or flush open wounds or body
+      cavities; they're used topically, never parenterally. (NCI)
+    preferredTerm: Irrigant Dosage Form
+    submissionValue: IRRIGANT
+  - conceptId: C42948
+    definition: A class of gels--semisolid systems which consist of suspensions made
+      up of either small inorganic particles or large organic molecules interpenetrated
+      by a liquid--in which the structural coherent matrix contains a high portion
+      of liquid, usually water. (NCI)
+    preferredTerm: Jelly Dosage Form
+    submissionValue: JELLY
+  - conceptId: C47916
+    definition: A packaged collection of related material. (NCI)
+    preferredTerm: Kit Dosage Form
+    submissionValue: KIT
+  - conceptId: C45413
+    definition: A material applied to the inside of the dental cavity, for protection
+      or insulation of the surface.
+    preferredTerm: Dental Liner Dosage Form
+    submissionValue: LINER, DENTAL
+  - conceptId: C42949
+    definition: A solution or mixture of various substances in oil, alcoholic solutions
+      of soap, or emulsions intended for external application. (NCI)
+    preferredTerm: Liniment Dosage Form
+    submissionValue: LINIMENT
+  - conceptId: C42952
+    definition: A waxy solid, usually colored cosmetic, in stick form for the lips.
+      (NCI)
+    preferredTerm: Lipstick Dosage Form
+    submissionValue: LIPSTICK
+  - conceptId: C42953
+    definition: 'A dosage form consisting of a pure chemical in its liquid state.
+      This dosage form term should not be applied to solutions. Note: A liquid is
+      pourable; it flows and conforms to its container at room temperature. It displays
+      Newtonian or pseudoplastic flow behavior.'
+    preferredTerm: Liquid Dosage Form
+    submissionValue: LIQUID
+  - conceptId: C60934
+    definition: A liquid that delivers a drug in such a manner to allow a reduction
+      in dosing frequency as compared to that drug (or drugs) presented as a conventional
+      dosage form.
+    preferredTerm: Extended Release Liquid Dosage Form
+    submissionValue: LIQUID, EXTENDED RELEASE
+  - conceptId: C29167
+    definition: 'An emulsion, liquid (1) dosage form. This dosage form is generally
+      for external application to the skin (2). Note 1: A liquid is pourable; it flows
+      and conforms to its container at room temperature. It displays Newtonian or
+      pseudoplastic flow behavior. Note 2: Previously the definition of a lotion was:
+      The term lotion has been used to categorize many topical suspensions, solutions,
+      and emulsions intended for application to the skin. The current definition of
+      a lotion is restricted to an emulsion.'
+    preferredTerm: Lotion Dosage Form
+    submissionValue: LOTION
+  - conceptId: C60957
+    definition: 'A lotion dosage form that enhances drug delivery. Augmentation does
+      not refer to the strength of the drug in the dosage form. NOTE: CDER has decided
+      to refrain from expanding the use of this dosage form due to difficulties in
+      setting specific criteria that must be met to be considered augmented.'
+    preferredTerm: Augmented Lotion Dosage Form
+    submissionValue: LOTION, AUGMENTED
+  - conceptId: C60958
+    definition: A lotion dosage form which has a soap or detergent that is usually
+      used to clean the hair and scalp; it is often used as a vehicle for dermatologic
+      agents.
+    preferredTerm: Lotion Shampoo Dosage Form
+    submissionValue: LOTION/SHAMPOO
+  - conceptId: C42955
+    definition: A solid preparation containing one or more medicaments, usually in
+      a flavored, sweetened base which is intended to dissolve or disintegrate slowly
+      in the mouth. A lollipop is a lozenge on a stick.
+    preferredTerm: Lozenge Dosage Form
+    submissionValue: LOZENGE
+  - conceptId: C29269
+    definition: An aqueous solution which is most often used for its deodorant, refreshing,
+      or antiseptic effect. (NCI)
+    preferredTerm: Mouthwash Dosage Form
+    submissionValue: MOUTHWASH
+  - conceptId: C48624
+    definition: The use of a dosage form term is not relevant or appropriate. (NCI)
+    preferredTerm: Dosage Form Not Applicable
+    submissionValue: NOT APPLICABLE
+  - conceptId: C42965
+    definition: An unctuous, combustible substance which is liquid, or easily liquefiable,
+      on warming, and is soluble in ether but insoluble in water. Such substances,
+      depending on their origin, are classified as animal, mineral, or vegetable oils.
+      (NCI)
+    preferredTerm: Oil Dosage Form
+    submissionValue: OIL
+  - conceptId: C42966
+    definition: 'A suspension or emulsion, semisolid (1) dosage form, usually containing
+      less than 20 percent water and volatiles (2) and greater than 50 percent hydrocarbons,
+      waxes, or polyols as the vehicle. This dosage form is generally for external
+      application to the skin or mucous membranes. Note 1: A semisolid is not pourable;
+      it does not flow or conform to its container at room temperature. It does not
+      flow at low shear stress and generally exhibits plastic flow behavior. Note
+      2: Percent water and volatiles are measured by a loss on drying test in which
+      the sample is heated at 105 degrees C until constant weight is achieved.'
+    preferredTerm: Ointment Dosage Form
+    submissionValue: OINTMENT
+    synonyms:
+    - oint
+  - conceptId: C60984
+    definition: 'An ointment dosage form that enhances drug delivery. Augmentation
+      does not refer to the strength of the drug in the dosage form. NOTE: CDER has
+      decided to refrain from expanding the use of this dosage form due to difficulties
+      in setting specific criteria that must be met to be considered augmented.'
+    preferredTerm: Augmented Ointment Dosage Form
+    submissionValue: OINTMENT, AUGMENTED
+  - conceptId: C47887
+    definition: A material, usually covered by or impregnated with a drug, that is
+      inserted into a body cavity or between the tooth enamel and the gingival margin.
+    preferredTerm: Packing Dosage Form
+    submissionValue: PACKING
+  - conceptId: C42967
+    definition: 'A semisolid dosage form, containing a large proportion (20 - 50%)
+      of solids finely dispersed in a fatty vehicle. This dosage form is generally
+      for external application to the skin or mucous membranes. Note: A semisolid
+      is not pourable; it does not flow or conform to its container at room temperature.
+      It does not flow at low shear stress and generally exhibits plastic flow behavior.
+      (NCI)'
+    preferredTerm: Paste Dosage Form
+    submissionValue: PASTE
+  - conceptId: C42907
+    definition: A paste formulation intended to clean and/or polish the teeth, and
+      which may contain certain additional agents. (NCI)
+    preferredTerm: Dentifrice Paste Dosage Form
+    submissionValue: PASTE, DENTIFRICE
+  - conceptId: C60985
+    definition: An aromatic preparation, often with a pleasing flavor, usually intended
+      to dissolve in the mouth.
+    preferredTerm: Pastille Dosage Form
+    submissionValue: PASTILLE
+  - conceptId: C42968
+    definition: A drug delivery system that often contains an adhesive backing that
+      is usually applied to an external site on the body. Its ingredients either passively
+      diffuse from, or are actively transported from, some portion of the patch. Depending
+      upon the patch, the ingredients are either delivered to the outer surface of
+      the body or into the body. A patch is sometimes synonymous with the terms Extended
+      Release Film and System.
+    preferredTerm: Patch Dosage Form
+    submissionValue: PATCH
+  - conceptId: C42923
+    definition: A drug delivery system in the form of a patch that releases the drug
+      in such a manner that a reduction in dosing frequency compared to that drug
+      presented as a conventional dosage form (e.g., a solution or a prompt drug-releasing,
+      conventional solid dosage form). (NCI)
+    preferredTerm: Extended Release Patch Dosage Form
+    submissionValue: PATCH, EXTENDED RELEASE
+  - conceptId: C42911
+    definition: A drug delivery system in the form of a patch which is controlled
+      by an electric current that releases the drug in such a manner that a reduction
+      in dosing frequency compared to that drug presented as a conventional dosage
+      form (e.g., a solution or a prompt drug-releasing, conventional solid dosage
+      form). (NCI)
+    preferredTerm: Electrically Controlled Extended Release Patch Dosage Form
+    submissionValue: PATCH, EXTENDED RELEASE, ELECTRICALLY CONTROLLED
+  - conceptId: C42969
+    definition: A small sterile solid mass consisting of a highly purified drug (with
+      or without excipients) made by the formation of granules, or by compression
+      and molding. (NCI)
+    preferredTerm: Pellet Dosage Form
+    submissionValue: PELLET
+  - conceptId: C42943
+    definition: A small sterile solid mass consisting of a highly purified drug (with
+      or without excipients) made by the formation of granules, or by compression
+      and molding; they are intended for implantation in the body (usually subcutaneously)
+      for the purpose of providing continuous release of the drug over long periods
+      of time.
+    preferredTerm: Implantable Pellet Dosage Form
+    submissionValue: PELLET, IMPLANTABLE
+  - conceptId: C42918
+    definition: A solid dosage form in which the drug itself is in the form of granules
+      to which varying amounts of coating have been applied, and which releases a
+      drug (or drugs) in such a manner to allow a reduction in dosing frequency as
+      compared to that drug (or drugs) presented as a conventional dosage form. (NCI)
+    preferredTerm: Extended Release Coated Pellet Dosage Form
+    submissionValue: PELLETS, COATED, EXTENDED RELEASE
+  - conceptId: C25394
+    definition: A dose of medicine in the form of a small pellet. (NCI)
+    preferredTerm: Pill Dosage Form
+    submissionValue: PILL
+  - conceptId: C42970
+    definition: Substance intended for external application made of such materials
+      and of such consistency as to adhere to the skin and attach to a dressing; plasters
+      are intended to afford protection and support and/or to furnish an occlusion
+      and macerating action and to bring medication into close contact with the skin.
+    preferredTerm: Plaster Dosage Form
+    submissionValue: PLASTER
+  - conceptId: C47913
+    definition: A soft, moist mass of meal, herbs, seed, etc., usually applied hot
+      in cloth that consists of gruel-like consistency. (NCI)
+    preferredTerm: Poultice Dosage Form
+    submissionValue: POULTICE
+  - conceptId: C42972
+    definition: An intimate mixture of dry, finely divided drugs and/or chemicals
+      that may be intended for internal or external use. (NCI)
+    preferredTerm: Powder Dosage Form
+    submissionValue: POWDER
+  - conceptId: C42908
+    definition: A powder formulation intended to clean and/or polish the teeth, and
+      which may contain certain additional agents. (NCI)
+    preferredTerm: Dentifrice Powder Dosage Form
+    submissionValue: POWDER, DENTIFRICE
+  - conceptId: C42973
+    definition: An intimate mixture of dry, finely divided drugs and/or chemicals,
+      which, upon the addition of suitable vehicles, yields a solution. (NCI)
+    preferredTerm: Powder for Solution Dosage Form
+    submissionValue: POWDER, FOR SOLUTION
+  - conceptId: C42975
+    definition: An intimate mixture of dry, finely divided drugs and/or chemicals,
+      which, upon the addition of suitable vehicles, yields a suspension (a liquid
+      preparation containing the solid particles dispersed in the liquid vehicle).
+      (NCI)
+    preferredTerm: Powder for Suspension Dosage Form
+    submissionValue: POWDER, FOR SUSPENSION
+  - conceptId: C87541
+    definition: An intimate mixture of dry, finely divided drugs and/or chemicals
+      that is lyophilized.
+    preferredTerm: Lyophilized Powder Dosage Form
+    submissionValue: POWDER, LYOPHILIZED
+  - conceptId: C42961
+    definition: A powder dosage form that is situated inside a container that has
+      a mechanism to deliver a specified quantity. (NCI)
+    preferredTerm: Metered Powder Dosage Form
+    submissionValue: POWDER, METERED
+  - conceptId: C60988
+    definition: A small circular object with a vacant circular center that is usually
+      intended to be placed in the body by special inserters, where the medication
+      is released, generally for localized effects.
+    preferredTerm: Ring Dosage Form
+    submissionValue: RING
+  - conceptId: C42979
+    definition: A liquid used to cleanse by flushing. (NCI)
+    preferredTerm: Rinse Dosage Form
+    submissionValue: RINSE
+  - conceptId: C42980
+    definition: A thick ointment or cerate (a fat or wax based preparation with a
+      consistency between an ointment and a plaster). (NCI)
+    preferredTerm: Salve Dosage Form
+    submissionValue: SALVE
+  - conceptId: C42981
+    definition: A liquid soap or detergent used to clean the hair and scalp and is
+      often used as a vehicle for dermatologic agents. (NCI)
+    preferredTerm: Shampoo Dosage Form
+    submissionValue: SHAMPOO
+  - conceptId: C42982
+    definition: A liquid soap or detergent containing one or more solid, insoluble
+      substances dispersed in a liquid vehicle that is used to clean the hair and
+      scalp and is often used as a vehicle for dermatologic agents. (NCI)
+    preferredTerm: Shampoo Suspension Dosage Form
+    submissionValue: SHAMPOO, SUSPENSION
+  - conceptId: C42983
+    definition: Any compound of one or more fatty acids, or their equivalents, with
+      an alkali; soap is detergent and is much employed in liniments, enemas, and
+      in making pills. It is also a mild aperient, antacid and antiseptic. (NCI)
+    preferredTerm: Soap Dosage Form
+    submissionValue: SOAP
+  - conceptId: C45235
+    definition: A substance having definite shape and volume manufactured for the
+      administration of active and/or inert ingredient(s). Solids may include, but
+      are not limited to, tablets, capsules, powders, granules, and certain suppositories.
+    preferredTerm: Solid Dosage Form
+    submissionValue: SOLID
+  - conceptId: C42986
+    definition: 'A clear, homogeneous liquid dosage form that contains one or more
+      chemical substances dissolved in a solvent or mixture of mutually miscible solvents.
+      Note: A liquid is pourable; it flows and conforms to its container at room temperature.
+      It displays Newtonian or pseudoplastic flow behavior.'
+    preferredTerm: Solution Dosage Form
+    submissionValue: SOLUTION
+  - conceptId: C42898
+    definition: A liquid preparation (i.e., a substance that flows readily in its
+      natural state) that contains a drug dissolved in a suitable solvent or mixture
+      of mutually miscible solvents; the drug has been strengthened by the evaporation
+      of its non-active parts. (NCI)
+    preferredTerm: Concentrated Solution Dosage Form
+    submissionValue: SOLUTION, CONCENTRATE
+  - conceptId: C42987
+    definition: A solution for the preparation of an iced saline slush, which is administered
+      by irrigation and used to induce regional hypothermia (in conditions such as
+      certain open heart and kidney surgical procedures) by its direct application.
+      (NCI)
+    preferredTerm: Solution for Slush Dosage Form
+    submissionValue: SOLUTION, FOR SLUSH
+  - conceptId: C60994
+    definition: A solution, which after usually being administered in a drop-wise
+      fashion, forms a gel.
+    preferredTerm: Gel Forming Drop Solution Dosage Form
+    submissionValue: SOLUTION, GEL FORMING / DROPS
+  - conceptId: C42935
+    definition: A solution that forms a gel when it comes in contact with ocular fluid,
+      and which allows at least a reduction in dosing frequency.
+    preferredTerm: Extended Release Gel Forming Solution Dosage Form
+    submissionValue: SOLUTION, GEL FORMING, EXTENDED RELEASE
+  - conceptId: C60992
+    definition: A solution which is usually administered in a drop-wise fashion.
+    preferredTerm: Drop Solution Dosage Form
+    submissionValue: SOLUTION/ DROPS
+  - conceptId: C47912
+    definition: A porous, interlacing, absorbent material that contains a drug. It
+      is typically used for applying or introducing medication, or for cleansing.
+      A sponge usually retains its shape.
+    preferredTerm: Sponge Dosage Form
+    submissionValue: SPONGE
+  - conceptId: C42989
+    definition: A liquid minutely divided as by a jet of air or steam. (NCI)
+    preferredTerm: Spray Dosage Form
+    submissionValue: SPRAY
+  - conceptId: C42962
+    definition: A non-pressurized dosage form consisting of valves which allow the
+      dispensing of a specified quantity of spray upon each activation. (NCI)
+    preferredTerm: Metered Spray Dosage Form
+    submissionValue: SPRAY, METERED
+  - conceptId: C42990
+    definition: A liquid preparation containing solid particles dispersed in a liquid
+      vehicle and in the form of coarse droplets or as finely divided solids to be
+      applied locally, most usually to the nasal-pharyngeal tract, or topically to
+      the skin. (NCI)
+    preferredTerm: Spray Suspension Dosage Form
+    submissionValue: SPRAY, SUSPENSION
+  - conceptId: C42991
+    definition: A dosage form prepared in a relatively long and slender often cylindrical
+      form. (NCI)
+    preferredTerm: Stick Dosage Form
+    submissionValue: STICK
+  - conceptId: C47914
+    definition: A long narrow piece of material.
+    preferredTerm: Strip Dosage Form
+    submissionValue: STRIP
+  - conceptId: C42993
+    definition: A solid body of various weights and shapes, adapted for introduction
+      into the rectal, vaginal, or urethral orifice of the human body; they usually
+      melt, soften, or dissolve at body temperature.
+    preferredTerm: Suppository Dosage Form
+    submissionValue: SUPPOSITORY
+    synonyms:
+    - supp
+  - conceptId: C42924
+    definition: A drug delivery system in the form of a suppository that allows at
+      least a reduction in dosing frequency. (NCI)
+    preferredTerm: Extended Release Suppository Dosage Form
+    submissionValue: SUPPOSITORY, EXTENDED RELEASE
+  - conceptId: C42994
+    definition: 'A liquid dosage form that contains solid particles dispersed in a
+      liquid vehicle. Note: A liquid is pourable; it flows and conforms to its container
+      at room temperature. It displays Newtonian or pseudoplastic flow behavior.'
+    preferredTerm: Suspension Dosage Form
+    submissionValue: SUSPENSION
+    synonyms:
+    - Ready to Use Suspension
+    - susp
+  - conceptId: C42925
+    definition: A liquid preparation consisting of solid particles dispersed throughout
+      a liquid phase in which the particles are not soluble; the suspension has been
+      formulated in a manner to allow at least a reduction in dosing frequency as
+      compared to that drug presented as a conventional dosage form (e.g., as a solution
+      or a prompt drug-releasing, conventional solid dosage form). (NCI)
+    preferredTerm: Extended Release Suspension Dosage Form
+    submissionValue: SUSPENSION, EXTENDED RELEASE
+  - conceptId: C60995
+    definition: A suspension which is usually administered in a dropwise fashion.
+    preferredTerm: Drop Suspension Dosage Form
+    submissionValue: SUSPENSION/DROPS
+  - conceptId: C47889
+    definition: A strand or fiber used to hold wound edges in apposition during healing.
+      (NCI)
+    preferredTerm: Suture Dosage Form
+    submissionValue: SUTURE
+  - conceptId: C47898
+    definition: A small piece of relatively flat absorbent material that contains
+      a drug. A swab may also be attached to one end of a small stick. A swab is typically
+      used for applying medication or for cleansing.
+    preferredTerm: Swab Dosage Form
+    submissionValue: SWAB
+  - conceptId: C42996
+    definition: An oral solution containing high concentrations of sucrose or other
+      sugars; the term has also been used to include any other liquid dosage form
+      prepared in a sweet and viscid vehicle, including oral suspensions. (NCI)
+    preferredTerm: Syrup Dosage Form
+    submissionValue: SYRUP
+  - conceptId: C42998
+    definition: A solid dosage form containing medicinal substances with or without
+      suitable diluents. (NCI)
+    preferredTerm: Tablet Dosage Form
+    submissionValue: TABLET
+    synonyms:
+    - tab
+  - conceptId: C42893
+    definition: A solid dosage form containing medicinal substances with or without
+      suitable diluents that is intended to be chewed, producing a pleasant tasting
+      residue in the oral cavity that is easily swallowed and does not leave a bitter
+      or unpleasant after-taste. (NCI)
+    preferredTerm: Chewable Tablet Dosage Form
+    submissionValue: TABLET, CHEWABLE
+  - conceptId: C60997
+    definition: A solid dosage form containing a conglomerate of medicinal particles
+      that have each been covered with a coating.
+    preferredTerm: Tablet Coated Particle Dosage Form
+    submissionValue: TABLET, COATED PARTICLES
+  - conceptId: C42897
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and is covered with a designated coating. (NCI)
+    preferredTerm: Coated Tablet Dosage Form
+    submissionValue: TABLET, COATED
+  - conceptId: C202340
+    definition: A solid dosage form containing medicinal substances with or without
+      suitable diluents that is crushed prior to administration.
+    preferredTerm: Crushed Tablet Dosage Form
+    submissionValue: TABLET, CRUSHED
+  - conceptId: C42997
+    definition: A solid dosage form containing a conglomerate of medicinal particles
+      that have been covered with a coating which releases a drug (or drugs) at a
+      time other than promptly after administration. Enteric-coated articles are delayed
+      release dosage forms. (NCI)
+    preferredTerm: Delayed Release Particle Tablet Dosage Form
+    submissionValue: TABLET, DELAYED RELEASE PARTICLES
+  - conceptId: C42905
+    definition: A solid dosage form which releases a drug (or drugs) at a time other
+      than promptly after administration. Enteric-coated articles are delayed release
+      dosage forms. (NCI)
+    preferredTerm: Delayed Release Tablet Dosage Form
+    submissionValue: TABLET, DELAYED RELEASE
+    synonyms:
+    - Tablet, Gastro-Resistant
+  - conceptId: C42910
+    definition: A solid dosage form containing mixtures of acids (e.g., citric acid,
+      tartaric acid) and sodium bicarbonate, which release carbon dioxide when dissolved
+      in water; it is intended to be dissolved or dispersed in water before administration.
+    preferredTerm: Effervescent Tablet Dosage Form
+    submissionValue: TABLET, EFFERVESCENT
+  - conceptId: C42927
+    definition: A solid dosage form containing a drug which allows at least a reduction
+      in dosing frequency as compared to that drug presented in conventional dosage
+      form. (NCI)
+    preferredTerm: Extended Release Tablet Dosage Form
+    submissionValue: TABLET, EXTENDED RELEASE
+    synonyms:
+    - Tablet, Prolonged Release
+  - conceptId: C42931
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and is coated with a thin layer of a water-insoluble or water-soluble
+      polymer. (NCI)
+    preferredTerm: Film Coated Tablet Dosage Form
+    submissionValue: TABLET, FILM COATED
+  - conceptId: C42930
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and is coated with a thin layer of a water-insoluble or water-soluble
+      polymer; the tablet is formulated in such manner as to make the contained medicament
+      available over an extended period of time following ingestion.
+    preferredTerm: Film Coated Extended Release Tablet Dosage Form
+    submissionValue: TABLET, FILM COATED, EXTENDED RELEASE
+  - conceptId: C202346
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and is coated with a thin layer of a water-insoluble or water-soluble
+      polymer; the tablet is designed to release its active and/or inert ingredient(s)
+      immediately upon administration.
+    preferredTerm: Film Coated Immediate Release Tablet Dosage Form
+    submissionValue: TABLET, FILM COATED, IMMEDIATE RELEASE
+  - conceptId: C202345
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and is coated with a thin layer of a water-insoluble or water-soluble
+      polymer that is crushed prior to administration. The tablet is designed to release
+      its active and/or inert ingredient(s) immediately upon administration.
+    preferredTerm: Film Coated Immediate Release Crushed Tablet Dosage Form
+    submissionValue: TABLET, FILM COATED, IMMEDIATE RELEASE, CRUSHED
+  - conceptId: C61004
+    definition: A tablet that forms a solution when placed in a liquid.
+    preferredTerm: Tablet for Solution Dosage Form
+    submissionValue: TABLET, FOR SOLUTION
+  - conceptId: C61005
+    definition: A tablet that forms a suspension when placed in a liquid (formerly
+      referred to as a Dispersible Tablet).
+    preferredTerm: Tablet for Suspension Dosage Form
+    submissionValue: TABLET, FOR SUSPENSION
+  - conceptId: C142248
+    definition: A solid dosage form containing medicinal substances with or without
+      suitable diluents, which is designed to release its active and/or inert ingredient(s)
+      immediately upon administration.
+    preferredTerm: Immediate Release Tablet Dosage Form
+    submissionValue: TABLET, IMMEDIATE RELEASE
+  - conceptId: C162112
+    definition: A solid dosage form containing one or more active pharmaceutical ingredient
+      which can be dispersed in a carrier at solid state, and immediately released
+      upon administration. (NCI)
+    preferredTerm: Solid Dispersion Immediate Release Tablet Dosage Form
+    submissionValue: TABLET, IMMEDIATE RELEASE, SOLID DISPERSION
+  - conceptId: C170453
+    definition: A solid dosage form exhibiting an altered inherent rate of release
+      of active and/or inert ingredient(s).
+    preferredTerm: Modified Release Tablet Dosage Form
+    submissionValue: TABLET, MODIFIED RELEASE
+  - conceptId: C170573
+    definition: A solid dosage form exhibiting an altered inherent rate of release
+      of active and/or inert ingredient(s) that is classified as long.
+    preferredTerm: Long Modified Release Tablet Dosage Form
+    submissionValue: TABLET, MODIFIED RELEASE, LONG DURATION
+  - conceptId: C170574
+    definition: A solid dosage form exhibiting an altered inherent rate of release
+      of active and/or inert ingredient(s) that is classified as short.
+    preferredTerm: Short Modified Release Tablet Dosage Form
+    submissionValue: TABLET, MODIFIED RELEASE, SHORT DURATION
+  - conceptId: C42964
+    definition: A solid dosage form containing medicinal substances that have been
+      compressed to form a multiple-layered tablet or a tablet-within-a-tablet, the
+      inner tablet being the core and the outer portion being the shell. (NCI)
+    preferredTerm: Multilayered Tablet Dosage Form
+    submissionValue: TABLET, MULTILAYER
+  - conceptId: C42963
+    definition: A solid dosage form containing medicinal substances that have been
+      compressed to form a multiple-layered tablet or a tablet-within-a-tablet, the
+      inner tablet being the core and the outer portion being the shell, which, additionally,
+      is covered in a designated coating; the tablet is formulated in such manner
+      as to allow at least a reduction in dosing frequency as compared to that drug
+      presented as a conventional dosage form. (NCI)
+    preferredTerm: Multilayered Extended Release Tablet Dosage Form
+    submissionValue: TABLET, MULTILAYER, EXTENDED RELEASE
+  - conceptId: C42999
+    definition: A solid dosage form containing medicinal substances which disintegrates
+      rapidly, usually within a matter of seconds, when placed upon the tongue. (NCI)
+    preferredTerm: Orally Disintegrating Tablet Dosage Form
+    submissionValue: TABLET, ORALLY DISINTEGRATING
+  - conceptId: C61006
+    definition: A solid dosage form containing medicinal substances which disintegrates
+      rapidly, usually within a matter of seconds, when placed upon the tongue, but
+      which releases a drug (or drugs) at a time other than promptly after administration.
+    preferredTerm: Orally Disintegrating Delayed Release Tablet Dosage Form
+    submissionValue: TABLET, ORALLY DISINTEGRATING, DELAYED RELEASE
+  - conceptId: C42985
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and possesses the ability to dissolve in fluids. (NCI)
+    preferredTerm: Soluble Tablet Dosage Form
+    submissionValue: TABLET, SOLUBLE
+  - conceptId: C42992
+    definition: A solid dosage form that contains medicinal substances with or without
+      suitable diluents and is coated with a colored or an uncolored water-soluble
+      sugar. (NCI)
+    preferredTerm: Sugar Coated Tablet Dosage Form
+    submissionValue: TABLET, SUGAR COATED
+  - conceptId: C47892
+    definition: A plug made of cotton, sponge, or oakum variously used in surgery
+      to plug the nose, vagina, etc., for the control of hemorrhage or the absorption
+      of secretions. (NCI)
+    preferredTerm: Tampon Dosage Form
+    submissionValue: TAMPON
+  - conceptId: C47897
+    definition: A narrow woven fabric, or a narrow extruded synthetic (such as plastic),
+      usually with an adhesive on one or both sides. (NCI)
+    preferredTerm: Tape Dosage Form
+    submissionValue: TAPE
+  - conceptId: C43000
+    definition: An alcoholic or hydroalcoholic solution prepared from vegetable materials
+      or from chemical substances. (NCI)
+    preferredTerm: Tincture Dosage Form
+    submissionValue: TINCTURE
+  - conceptId: C43001
+    definition: A discoid-shaped solid containing the medicinal agent in a suitably
+      flavored base; troches are placed in the mouth where they slowly dissolve, liberating
+      the active ingredients. (NCI)
+    preferredTerm: Troche Dosage Form
+    submissionValue: TROCHE
+  - conceptId: C43002
+    definition: A dosage form has yet to be assigned. (NCI)
+    preferredTerm: Unassigned Dosage Form
+    submissionValue: UNASSIGNED
+  - conceptId: C150001
+    definition: The type of pharmaceutical dose form is unknown, or has unspecified
+      or variable physical characteristics. (EDQM)
+    preferredTerm: Unknown Dosage Form Category
+    submissionValue: UNKNOWN
+  - conceptId: C91199
+    definition: A ring composed of active and/or inert ingredient(s), intended for
+      administration in or around the vagina.
+    preferredTerm: Vaginal Ring Dosage Form
+    submissionValue: VAGINAL RING
+  - conceptId: C43003
+    definition: A thin slice of material containing a medicinal agent. (NCI)
+    preferredTerm: Wafer Dosage Form
+    submissionValue: WAFER
 C66728:
   conceptId: C66728
   definition: The relative relationship of a timepoint to a reference timepoint.
