@@ -32,7 +32,7 @@ class StudyDesignProductSheet(BaseSheet):
         'description': self.read_cell_by_name(index, 'description', must_be_present=False), 
         'label': self.read_cell_by_name(index, 'label', must_be_present=False),
         'administrableDoseForm': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("AdministrableProduct", "administrableDoseForm", index, "administrableDoseForm"), []),
-        'pharmacologicClass': self.read_other_code_cell_by_name(index, "pharmacologicalClass"),
+        'pharmacologicClass': self.read_other_code_cell_by_name(index, "pharmacologicClass"),
       }
       item = self.create_object(AdministrableProduct, params)
       if item:
@@ -47,12 +47,12 @@ class StudyDesignProductSheet(BaseSheet):
         'name': name,
         'description': self.read_cell_by_name(index, 'substanceDescription', must_be_present=False),
         'label': self.read_cell_by_name(index, 'substanceLabel', must_be_present=False),
-        'code': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("Substance", "code", index, "substanceCode"), [])
+        'code': self.read_other_code_cell_by_name(index, "substanceCode")
       }
       substance = self.create_object(Substance, params)
       if substance:
         params = {
-          'role': self.read_cdisc_klass_attribute_cell_by_name("Ingredient", "role", index, "ingredientRole"),
+          'role': self.read_other_code_cell_by_name(index, "ingredientRole"),
           'substance': substance,
           'strengths': []
         }

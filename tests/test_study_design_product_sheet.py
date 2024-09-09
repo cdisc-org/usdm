@@ -4,21 +4,48 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.code import Code
 
 def test_create_1(mocker, globals):
-  ids = ['Code_1', 'Addr_1', 'Code_2', 'Org_1']
-  expected = ( '{"id": "Org_1", "name": "ClinicalTrials.gov", "label": "", '
-               '"organizationType": {"id": "Code_1", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
-               '"identifierScheme": "USGOV", "identifier": "CT-GOV", '
-               '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "line": "line", "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
-                 '"country": {"id": "Code_2", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
-                 '"instanceType": "Address"}, '
-               '"instanceType": "Organization"}'
+  ids = ['Id_1', 'Id_2', 'Id_3', 'Id_4', 'Id_5', 'Id_6', 'Id_7', 'Id_8', 'Id_9', 'Id_10', 'Id_11', 'Id_12', 'Id_13', 'Id_14']
+  expected = ( 
+    '{"id": "Id_4", "name": "60 mg Study Drug", "label": "label 1", "description": "description 1", "pharmacologicClass": '
+      '{"id": "Id_3", "code": "A", "codeSystem": "FDA", "codeSystemVersion": "", "decode": "B", "instanceType": "Code"}, '
+    '"administrableDoseForm": '
+      '{"id": "Id_2", '
+        '"standardCode": {"id": "Id_1", "code": "C42998", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Tablet Dosage Form", "instanceType": "Code"}, '
+        '"standardCodeAliases": [], '
+        '"instanceType": "AliasCode"}, '
+      '"properties": [], "identifiers": [], '
+      '"ingredients": '
+        '[{"id": "Id_7", "role": '
+          '{"id": "Id_6", "code": "100000072072", "codeSystem": "HL7", "codeSystemVersion": "", "decode": "Active", "instanceType": "Code"}, '
+        '"substance": '
+          '{"id": "Id_5", "name": "Ingredient C", "label": "label 2", "description": "description 2", "code": null, '
+          '"strengths": '
+            '[{"id": "Id_14", "name": "60 mg", "label": "", "description": "", '
+            '"denominator": '
+              '{"id": "Id_13", "value": 1.0, '
+              '"unit": '
+                '{"id": "Id_12", '
+                '"standardCode": '
+                  '{"id": "Id_11", "code": "C48542", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Tablet Dosing Unit", "instanceType": "Code"}, '
+                '"standardCodeAliases": [], "instanceType": "AliasCode"}, '
+              '"instanceType": "Quantity"}, '
+            '"numerator": {"id": "Id_10", "value": 60.0, '
+              '"unit": {"id": "Id_9", '
+                '"standardCode": {"id": "Id_8", "code": "C28253", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Milligram", "instanceType": "Code"}, '
+                '"standardCodeAliases": [], "instanceType": "AliasCode"}, '
+              '"instanceType": "Quantity"}, '
+            '"instanceType": "Strength"}], '
+          '"referenceSubstance": null, "instanceType": "Substance"}, '
+        '"instanceType": "Ingredient"}], "notes": [], '
+      '"instanceType": "AdministrableProduct"}'
   )
   data = {
     'name': ['60 mg Study Drug'],
     'description': ['description 1'],
     'label': ['label 1'],
+    'pharmacologicClass': ['FDA: A=B'],
     'administrableDoseForm': ['TABLET'],
-    'ingredientRole': [''],
+    'ingredientRole': ['HL7:   100000072072=Active'],
     'substanceName': ['Ingredient C'],
     'substanceDescription': ['description 2'],
     'substanceLabel': ['label 2'],
@@ -40,31 +67,71 @@ def test_create_1(mocker, globals):
   sheet = _setup_sheet(mocker, globals, data, ids)
   assert str(sheet.items[0].to_json()) == expected
 
-# def test_no_address(mocker, globals):
-#   ids = ['Code_1', 'Org_1']
-#   expected = ( '{"id": "Org_1", "name": "ClinicalTrials.gov", "label": "", '
-#                '"organizationType": {"id": "Code_1", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
-#                '"identifierScheme": "USGOV", "identifier": "CT-GOV", '
-#                '"legalAddress": null, '
-#                '"instanceType": "Organization"}'
-#   )
-#   data = {'organisationIdentifierScheme': ['USGOV'], 'organisationIdentifier': ['CT-GOV'], 'organisationName': ['ClinicalTrials.gov'], 'organisationType': ['Study Registry'], 'studyIdentifier': ['NCT12345678'], 'organisationAddress': ['']}
-#   base = _setup_base(mocker, globals, data, ids)
-#   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
-#   item = get_organization(base, 0)
-#   assert str(item.to_json()) == expected
-#   assert mock_error.call_count == 1
-#   mock_error.assert_has_calls([mocker.call('sheet', 1, 6, "Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40)])
+def test_create_2(mocker, globals):
+  ids = [
+     'Id_1',  'Id_2',  'Id_3',  'Id_4',  'Id_5',  'Id_6',  'Id_7',  'Id_8',  'Id_9', 'Id_10', 
+    'Id_11', 'Id_12', 'Id_13', 'Id_14', 'Id_15', 'Id_16', 'Id_17', 'Id_18', 'Id_19', 'Id_20',
+    'Id_21', 'Id_22', 'Id_23', 'Id_24', 'Id_25', 'Id_26', 'Id_27', 'Id_28', 'Id_29', 'Id_30'
+  ]
+  data = {
+    'name': ['60 mg Study Drug', ''],
+    'description': ['description 1', ''],
+    'label': ['label 1', ''],
+    'pharmacologicClass': ['FDA: A=B', ''],
+    'administrableDoseForm': ['TABLET', ''],
+    'ingredientRole': ['HL7:   100000072072=Active', 'HL7:   100000072072=Active'],
+    'substanceName': ['Ingredient C', 'Ingredient D'],
+    'substanceDescription': ['description 2', 'description 3'],
+    'substanceLabel': ['label 2', 'label 3'],
+    'substanceCode': ['', ''],
+    'strengthName': ['60 mg', '120 mg'],
+    'strengthDescription': ['', ''],
+    'strengthLabel': ['', ''],
+    'strengthNumerator': ['60 mg', '120 mg'],
+    'strengthDenominator': ['1 TABLET', '1 TABLET'],
+    'referenceSubstanceName': ['', ''],
+    'referenceSubstanceDescription': ['', ''],
+    'referenceSubstanceLabel': ['', ''],
+    'referenceSubstanceStrengthName': ['', ''],
+    'referenceSubstanceStrengthDescription': ['', ''],
+    'referenceSubstanceStrengthLabel': ['', ''],
+    'referenceSubstanceStrengthNumerator': ['', ''],
+    'referenceSubstanceStrengthDenominator': ['', '']
+  }  
+  sheet = _setup_sheet(mocker, globals, data, ids)
+  assert str(sheet.items[0].ingredients[0].substance.name) == 'Ingredient C'
+  assert str(sheet.items[0].ingredients[1].substance.name) == 'Ingredient D'
 
-# def test_organization_error(mocker, globals):
-#   ids = ['Code_1', 'Addr_1', 'Code_2', 'Org_1']
-#   data = {'organisationIdentifierScheme': ['USGOV'], 'organisationIdentifier': ['CT-GOV'], 'organisationName': [''], 'organisationType': ['Study Registry'], 'studyIdentifier': ['NCT12345678'], 'organisationAddress': ['line|district|city|state|postal_code|GBR']}
-#   base = _setup_base(mocker, globals, data, ids)
-#   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
-#   item = get_organization(base, 0)
-#   assert item is None
-#   assert mock_error.call_count == 1
-#   mock_error.assert_has_calls([mocker.call('sheet', None, None, 'Exception. Failed to create Organization object. See log for additional details.', 40)])
+def test_missign_column_error(mocker, globals):
+  ids = ['Id_1', 'Id_2', 'Id_3', 'Id_4', 'Id_5', 'Id_6', 'Id_7', 'Id_8', 'Id_9', 'Id_10', 'Id_11', 'Id_12', 'Id_13', 'Id_14']
+  data = {
+    'name': ['60 mg Study Drug'],
+    'description': ['description 1'],
+    'label': ['label 1'],
+    'administrableDoseForm': ['TABLET'],
+    'ingredientRole': ['HL7:   100000072072=Active'],
+    'substanceName': ['Ingredient C'],
+    'substanceDescription': ['description 2'],
+    'substanceLabel': ['label 2'],
+    'substanceCode': [''],
+    'strengthName': ['60 mg'],
+    'strengthDescription': [''],
+    'strengthLabel': [''],
+    'strengthNumerator': ['60 mg'],
+    'strengthDenominator': ['1 TABLET'],
+    'referenceSubstanceName': [''],
+    'referenceSubstanceDescription': [''],
+    'referenceSubstanceLabel': [''],
+    'referenceSubstanceStrengthName': [''],
+    'referenceSubstanceStrengthDescription': [''],
+    'referenceSubstanceStrengthLabel': [''],
+    'referenceSubstanceStrengthNumerator': [''],
+    'referenceSubstanceStrengthDenominator': ['']
+  }  
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  sheet = _setup_sheet(mocker, globals, data, ids)
+  assert mock_error.call_count == 1
+  mock_error.assert_has_calls([mocker.call('studyDesignProducts', None, None, "Exception. Error [Failed to detect column(s) 'pharmacologicClass' in sheet] while reading sheet 'studyDesignProducts'. See log for additional details.", 40)])
 
 def _setup_sheet(mocker, globals, data, ids):
   globals.cross_references.clear()
