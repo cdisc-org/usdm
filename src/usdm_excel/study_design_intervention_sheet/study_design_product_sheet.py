@@ -31,7 +31,8 @@ class StudyDesignProductSheet(BaseSheet):
         'name': self.read_cell_by_name(index, 'name'), 
         'description': self.read_cell_by_name(index, 'description', must_be_present=False), 
         'label': self.read_cell_by_name(index, 'label', must_be_present=False),
-        'dose_form': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("AdministrableProduct", "administrableDoseForm", index, "administrableDoseForm"), [])
+        'administrableDoseForm': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("AdministrableProduct", "administrableDoseForm", index, "administrableDoseForm"), []),
+        'pharmacologicClass': self.read_other_code_cell_by_name(index, "pharmacologicalClass"),
       }
       item = self.create_object(AdministrableProduct, params)
       if item:
