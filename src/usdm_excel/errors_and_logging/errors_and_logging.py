@@ -41,7 +41,7 @@ class ErrorsAndLogging():
     self._logger.warning(self._format(message, None, None, None))
 
   def _format(self, message, sheet, row, column):
-    if sheet == None:
+    if not sheet:
       return f"{message}"
     elif row == None:
       return f"In sheet {sheet}: {message}"
