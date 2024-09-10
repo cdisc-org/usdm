@@ -15,12 +15,15 @@ class StudyDesignProductSheet(BaseSheet):
       self.items: list[AdministrableProduct] = []
       self._current_product: AdministrableProduct | None = None
       self._current_substance: Substance | None = None
+      self._current_reference_substance: Substance | None = None
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
           self._create_administrable_product(index)
           self._create_ingredient_and_substance(index)
           self._create_strength(index)
+          self._create_reference_substance(index)
+          self._create_reference_strength(index)
     except Exception as e:
       self._sheet_exception(e)
 
@@ -61,6 +64,23 @@ class StudyDesignProductSheet(BaseSheet):
           self._current_product.ingredients.append(ingredient)
           self._current_substance = substance
 
+  def _create_reference_substance(self, index):
+    name = self.read_cell_by_name(index, 'referenceSubstanceName')
+    if name:
+      params = {
+        'name': name,
+        'description': self.read_cell_by_name(index, 'referenceSubstanceDescription', must_be_present=False),
+        'label': self.read_cell_by_name(index, 'referenceSubstanceLabel', must_be_present=False),
+        'code': self.read_other_code_cell_by_name(index, "referenceSubstanceCode")
+      }
+      substance = self.create_object(Substance, params)
+      if substance:
+        self._current_substance.referenceSubstance = substance
+        self._current_reference_substance = substance
+        return
+    self._current_reference_substance = None
+    return
+
   def _create_strength(self, index):
     params = {
       'name': self.read_cell_by_name(index, 'strengthName'), 
@@ -72,6 +92,20 @@ class StudyDesignProductSheet(BaseSheet):
     strength = self.create_object(Strength, params)
     if strength:
       self._current_substance.strengths.append(strength)
+
+  def _create_reference_strength(self, index):
+    name = self.read_cell_by_name(index, 'referenceSubstanceStrengthName')
+    if name:
+      params = {
+        'name': name, 
+        'description': self.read_cell_by_name(index, 'referenceSubstanceStrengthdescription', must_be_present=False), 
+        'label': self.read_cell_by_name(index, 'referenceSubstanceStrengthLabel', must_be_present=False),
+        'numerator': self._read_numerator(index, 'referenceSubstanceStrengthNumerator'),
+        'denominator': self.read_quantity_cell_by_name(index, 'referenceSubstanceStrengthDenominator')
+      }
+      strength = self.create_object(Strength, params)
+      if strength:
+        self._current_reference_substance.strengths.append(strength)
 
   def _read_numerator(self, index, field_name):
     text = self.read_cell_by_name(index, field_name)    

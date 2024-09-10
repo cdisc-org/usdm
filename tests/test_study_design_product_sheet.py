@@ -58,6 +58,7 @@ def test_create_1(mocker, globals):
     'referenceSubstanceName': [''],
     'referenceSubstanceDescription': [''],
     'referenceSubstanceLabel': [''],
+    'referenceSubstanceCode': [''],
     'referenceSubstanceStrengthName': [''],
     'referenceSubstanceStrengthDescription': [''],
     'referenceSubstanceStrengthLabel': [''],
@@ -92,6 +93,7 @@ def test_create_2(mocker, globals):
     'referenceSubstanceName': ['', ''],
     'referenceSubstanceDescription': ['', ''],
     'referenceSubstanceLabel': ['', ''],
+    'referenceSubstanceCode': ['', ''],
     'referenceSubstanceStrengthName': ['', ''],
     'referenceSubstanceStrengthDescription': ['', ''],
     'referenceSubstanceStrengthLabel': ['', ''],
@@ -99,8 +101,46 @@ def test_create_2(mocker, globals):
     'referenceSubstanceStrengthDenominator': ['', '']
   }  
   sheet = _setup_sheet(mocker, globals, data, ids)
-  assert str(sheet.items[0].ingredients[0].substance.name) == 'Ingredient C'
-  assert str(sheet.items[0].ingredients[1].substance.name) == 'Ingredient D'
+  assert sheet.items[0].ingredients[0].substance.name == 'Ingredient C'
+  assert sheet.items[0].ingredients[1].substance.name == 'Ingredient D'
+
+def test_create_3(mocker, globals):
+  ids = [
+     'Id_1',  'Id_2',  'Id_3',  'Id_4',  'Id_5',  'Id_6',  'Id_7',  'Id_8',  'Id_9', 'Id_10', 
+    'Id_11', 'Id_12', 'Id_13', 'Id_14', 'Id_15', 'Id_16', 'Id_17', 'Id_18', 'Id_19', 'Id_20',
+    'Id_21', 'Id_22', 'Id_23', 'Id_24', 'Id_25', 'Id_26', 'Id_27', 'Id_28', 'Id_29', 'Id_30',
+    'Id_31', 'Id_32', 'Id_33', 'Id_34', 'Id_35', 'Id_36', 'Id_37', 'Id_38', 'Id_39', 'Id_40',
+  ]
+  data = {
+    'name': ['60 mg Study Drug', ''],
+    'description': ['description 1', ''],
+    'label': ['label 1', ''],
+    'pharmacologicClass': ['FDA: A=B', ''],
+    'administrableDoseForm': ['TABLET', ''],
+    'ingredientRole': ['HL7:   100000072072=Active', 'HL7:   100000072072=Active'],
+    'substanceName': ['Ingredient C', 'Ingredient D'],
+    'substanceDescription': ['description 2', 'description 3'],
+    'substanceLabel': ['label 2', 'label 3'],
+    'substanceCode': ['', ''],
+    'strengthName': ['60 mg', '120 mg'],
+    'strengthDescription': ['', ''],
+    'strengthLabel': ['', ''],
+    'strengthNumerator': ['60 mg', '120 mg'],
+    'strengthDenominator': ['1 TABLET', '1 TABLET'],
+    'referenceSubstanceName': ['', 'albuterol base'],
+    'referenceSubstanceDescription': ['', 'Reference description'],
+    'referenceSubstanceLabel': ['', 'Reference label'],
+    'referenceSubstanceCode': ['', ''],
+    'referenceSubstanceStrengthName': ['', '90 μg'],
+    'referenceSubstanceStrengthDescription': ['', 'Ref strength description'],
+    'referenceSubstanceStrengthLabel': ['', 'Ref strength label'],
+    'referenceSubstanceStrengthNumerator': ['', '90	ug'],
+    'referenceSubstanceStrengthDenominator': ['', '1	INHALATION']
+  }  
+  sheet = _setup_sheet(mocker, globals, data, ids)
+  assert sheet.items[0].ingredients[0].substance.referenceSubstance == None
+  assert sheet.items[0].ingredients[1].substance.referenceSubstance.name == 'albuterol base'
+  assert sheet.items[0].ingredients[1].substance.referenceSubstance.strengths[0].name == '90 μg'
 
 def test_missign_column_error(mocker, globals):
   ids = ['Id_1', 'Id_2', 'Id_3', 'Id_4', 'Id_5', 'Id_6', 'Id_7', 'Id_8', 'Id_9', 'Id_10', 'Id_11', 'Id_12', 'Id_13', 'Id_14']
@@ -122,6 +162,7 @@ def test_missign_column_error(mocker, globals):
     'referenceSubstanceName': [''],
     'referenceSubstanceDescription': [''],
     'referenceSubstanceLabel': [''],
+    'referenceSubstanceCode': [''],
     'referenceSubstanceStrengthName': [''],
     'referenceSubstanceStrengthDescription': [''],
     'referenceSubstanceStrengthLabel': [''],
