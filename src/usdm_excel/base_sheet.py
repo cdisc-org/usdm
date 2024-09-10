@@ -167,7 +167,7 @@ class BaseSheet():
         self._add_errors(quantity.errors, row_index, col_index)
         return None
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Failed to decode quantity data '{text}'", e, self.sheet, row_index, col_index)
+      self.globals.errors_and_logging.exception(f"Failed to decode quantity data '{text}'", e, self.sheet_name, row_index, col_index)
       return None
 
   def read_range_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):
@@ -185,7 +185,7 @@ class BaseSheet():
         self._add_errors(range.errors, row_index, col_index)
         return None
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Failed to decode range data '{text}'", e, self.sheet, row_index, col_index)
+      self.globals.errors_and_logging.exception(f"Failed to decode range data '{text}'", e, self.sheet_name, row_index, col_index)
       return None
 
   def read_address_cell_by_name(self, row_index, field_name, allow_empty=False):
