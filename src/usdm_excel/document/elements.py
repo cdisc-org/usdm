@@ -52,7 +52,8 @@ class Elements():
     results = []
     identifiers = self._study_version.studyIdentifiers
     for identifier in identifiers:
-      if identifier.scope.organizationType.code == 'C188863' or identifier.scope.organizationType.code == 'C93453':
+      org = self._study_version.organization(identifier.scopeId)
+      if org.type.code == 'C188863' or org.type.code == 'C93453':
         item = {'instance': identifier, 'klass': 'StudyIdentifier', 'attribute': 'text'}
         results.append(item)
     return self._set_of_references(results)
@@ -75,23 +76,26 @@ class Elements():
 
   def organization_name_and_address(self) -> str:
     identifier = self._study_version.sponsor_identifier()
+    org = self._study_version.organization(identifier.scopeId)
     results = [
-      {'instance': identifier.scope, 'klass': 'Organization', 'attribute': 'name'},
-      {'instance': identifier.scope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
+      {'instance': org, 'klass': 'Organization', 'attribute': 'name'},
+      {'instance': org.legalAddress, 'klass': 'Address', 'attribute': 'text'},
     ]
     return self._set_of_references(results)
 
   def organization_address(self) -> str:
     identifier = self._study_version.sponsor_identifier()
+    org = self._study_version.organization(identifier.scopeId)
     results = [
-      {'instance': identifier.scope.legalAddress, 'klass': 'Address', 'attribute': 'text'},
+      {'instance': org.legalAddress, 'klass': 'Address', 'attribute': 'text'},
     ]
     return self._set_of_references(results)
 
   def organization_name(self) -> str:
     identifier = self._study_version.sponsor_identifier()
+    org = self._study_version.organization(identifier.scopeId)
     results = [
-      {'instance': identifier.scope, 'klass': 'Organization', 'attribute': 'name'},
+      {'instance': org, 'klass': 'Organization', 'attribute': 'name'},
     ]
     return self._set_of_references(results)
 
