@@ -12,6 +12,9 @@ from .eligibility_criterion import EligibilityCriterion
 from .narrative_content import NarrativeContentItem
 from .comment_annotation import CommentAnnotation
 from .abbreviation import Abbreviation
+from .study_role import StudyRole
+from .organization import Organization
+from .administrable_product import AdministrableProduct
 
 class StudyVersion(ApiBaseModelWithId):
   versionIdentifier: str
@@ -29,6 +32,9 @@ class StudyVersion(ApiBaseModelWithId):
   criteria: List[EligibilityCriterion] = [] # Not in API
   narrativeContentItems: List[NarrativeContentItem] = []
   abbreviations: List[Abbreviation] = []
+  roles: List[StudyRole] = []
+  organizations: List[Organization] = []
+  administrableProducts: List[AdministrableProduct] = []
   notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyVersion']
 

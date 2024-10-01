@@ -1,4 +1,5 @@
-from typing import Union, List, Literal
+from typing import Union, List, Literal, Annotated
+from annotated_types import Len
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .code import Code
 from .range import Range
@@ -9,7 +10,7 @@ class PopulationDefinition(ApiBaseModelWithIdNameLabelAndDesc):
   includesHealthySubjects: bool
   plannedEnrollmentNumber: Union[Range, None] = None
   plannedCompletionNumber: Union[Range, None] = None
-  plannedSex: List[Code] = []
+  plannedSex: List[Annotated[Code, Len(min_length=0, max_length=2)]] = []
   criterionIds: List[str] = []
   plannedAge: Union[Range, None] = None
   notes: List[CommentAnnotation] = []

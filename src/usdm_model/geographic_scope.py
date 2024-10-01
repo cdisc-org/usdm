@@ -3,6 +3,7 @@ from .api_base_model import ApiBaseModelWithId
 from .code import Code
 from .alias_code import AliasCode
 from .quantity import Quantity
+from .study_site import StudySite
 
 class GeographicScope(ApiBaseModelWithId):
   type: Code
@@ -11,4 +12,5 @@ class GeographicScope(ApiBaseModelWithId):
 
 class SubjectEnrollment(GeographicScope):
   quantity: Quantity
+  appliesTo: Union[StudySite, None] = None
   instanceType: Literal['SubjectEnrollment']
