@@ -75,7 +75,8 @@ class IdManager():
       'AdministrableProductIdentifier': 0,
       'Ingredient': 0,
       'Substance': 0,
-      'Strength': 0
+      'Strength': 0,
+      'AssignedPerson': 0
     }
 
   def build_id(self, klass):
