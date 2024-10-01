@@ -11,7 +11,7 @@ def get_organization(parent: BaseSheet, index: int) -> Organization:
   org_address = parent.read_address_cell_by_name(index, ['organisationAddress', 'organizationAddress', 'address'])
   if org_address:
     parent.globals.cross_references.add(org_address.id, org_address)   
-  organization = parent.create_object(Organization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'organizationType': org_type, 'legalAddress': org_address})
+  organization = parent.create_object(Organization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'type': org_type, 'legalAddress': org_address})
   if organization:
     parent.globals.cross_references.add(organization.id, organization)   
   return organization

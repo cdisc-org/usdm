@@ -54,13 +54,13 @@ class MinimalStudy():
       'rationale': 'Study Design Rationale', 'interventionModel': factory.cdisc_dummy(), 'arms': [arm], 'studyCells': [cell], 
       'epochs': [epoch], 'population': self.population})
     address = factory.item(Address, {'line': 'line 1', 'city': 'City', 'district': 'District', 'state': 'State', 'postalCode': '12345', 'country': factory.code("UKK", "UKK_decode")})
-    organization_1 = factory.item(Organization, {'name': 'Sponsor', 'organizationType': factory.cdisc_code("C70793", "sponsor"), 'identifier': "123456789", 'identifierScheme': "DUNS", 
+    organization_1 = factory.item(Organization, {'name': 'Sponsor', 'type': factory.cdisc_code("C70793", "sponsor"), 'identifier': "123456789", 'identifierScheme': "DUNS", 
                                                  'legalAddress': address}) 
     identifier = factory.item(StudyIdentifier, {'text': 'SPONSOR-1234', 'scope': organization_1})
-    organization_2 = factory.item(Organization, {'name': 'Sponsor', 'organizationType': factory.cdisc_code("C188863", "reg 1"), 
+    organization_2 = factory.item(Organization, {'name': 'Sponsor', 'type': factory.cdisc_code("C188863", "reg 1"), 
                                                  'identifier': "REG 1", 'identifierScheme': "DUNS", 'legalAddress': address}) 
     reg_1_identifier = factory.item(StudyIdentifier, {'text': 'REG 111111', 'scope': organization_2})
-    organization_3 = factory.item(Organization, {'name': 'Sponsor', 'organizationType': factory.cdisc_code("C93453", "reg 2"), 
+    organization_3 = factory.item(Organization, {'name': 'Sponsor', 'type': factory.cdisc_code("C93453", "reg 2"), 
                                                  'identifier': "REG 2", 'identifierScheme': "DUNS", 'legalAddress': address}) 
     reg_2_identifier = factory.item(StudyIdentifier, {'text': 'REG 222222', 'scope': organization_3})
     self.study_version = factory.item(StudyVersion, {'versionIdentifier': '1', 'rationale': 'Study version rationale', 'titles': [study_title, study_short_title, study_acronym], 
