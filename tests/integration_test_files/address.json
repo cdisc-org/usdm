@@ -55,101 +55,19 @@
           {
             "id": "StudyIdentifier_1",
             "text": "NCT12345678",
-            "scope": {
-              "id": "Organization_1",
-              "name": "ClinicalTrials.gov",
-              "label": "",
-              "organizationType": {
-                "id": "Code_24",
-                "code": "C93453",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Study Registry",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "USGOV",
-              "identifier": "CT-GOV",
-              "legalAddress": {
-                "id": "Address_1",
-                "text": "line, city, district, 1, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
-                "line": "line",
-                "city": "city",
-                "district": "district, 1",
-                "state": "state",
-                "postalCode": "postal_code",
-                "country": {
-                  "id": "Code_25",
-                  "code": "GBR",
-                  "codeSystem": "ISO 3166 1 alpha3",
-                  "codeSystemVersion": "2020-08",
-                  "decode": "United Kingdom of Great Britain and Northern Ireland",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Address"
-              },
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
             "text": "AP1234",
-            "scope": {
-              "id": "Organization_2",
-              "name": "ACME Pharma",
-              "label": "",
-              "organizationType": {
-                "id": "Code_26",
-                "code": "C70793",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Clinical Study Sponsor",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "DUNS",
-              "identifier": "123456789",
-              "legalAddress": {
-                "id": "Address_2",
-                "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
-                "line": "Somewhere",
-                "city": "In a City",
-                "district": "In a District",
-                "state": "In a big state",
-                "postalCode": "12345",
-                "country": {
-                  "id": "Code_27",
-                  "code": "FRA",
-                  "codeSystem": "ISO 3166 1 alpha3",
-                  "codeSystemVersion": "2020-08",
-                  "decode": "France",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Address"
-              },
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_2",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_3",
             "text": "EU12345",
-            "scope": {
-              "id": "Organization_3",
-              "name": "EUDRACT",
-              "label": "",
-              "organizationType": {
-                "id": "Code_28",
-                "code": "C93453",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Study Registry",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "EUDRACT",
-              "identifier": "EU",
-              "legalAddress": null,
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_3",
             "instanceType": "StudyIdentifier"
           }
         ],
@@ -1291,7 +1209,6 @@
                 "instanceType": "Indication"
               }
             ],
-            "maskingRoles": [],
             "studyInterventions": [
               {
                 "id": "StudyIntervention_1",
@@ -1417,7 +1334,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
-                    "administrableProduct": null,
+                    "administrableProductId": null,
                     "notes": [],
                     "instanceType": "Administration"
                   }
@@ -1557,7 +1474,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
-                    "administrableProduct": null,
+                    "administrableProductId": null,
                     "notes": [],
                     "instanceType": "Administration"
                   }
@@ -2192,7 +2109,6 @@
             "documentVersionId": null,
             "dictionaries": [],
             "conditions": [],
-            "organizations": [],
             "notes": [],
             "instanceType": "StudyDesign"
           }
@@ -2267,6 +2183,98 @@
         "criteria": [],
         "narrativeContentItems": [],
         "abbreviations": [],
+        "roles": [],
+        "organizations": [
+          {
+            "id": "Organization_1",
+            "name": "ClinicalTrials.gov",
+            "label": "",
+            "type": {
+              "id": "Code_24",
+              "code": "C93453",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Study Registry",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "USGOV",
+            "identifier": "CT-GOV",
+            "legalAddress": {
+              "id": "Address_1",
+              "text": "line, city, district, 1, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
+              "line": "line",
+              "city": "city",
+              "district": "district, 1",
+              "state": "state",
+              "postalCode": "postal_code",
+              "country": {
+                "id": "Code_25",
+                "code": "GBR",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United Kingdom of Great Britain and Northern Ireland",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_2",
+            "name": "ACME Pharma",
+            "label": "",
+            "type": {
+              "id": "Code_26",
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Clinical Study Sponsor",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "123456789",
+            "legalAddress": {
+              "id": "Address_2",
+              "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
+              "line": "Somewhere",
+              "city": "In a City",
+              "district": "In a District",
+              "state": "In a big state",
+              "postalCode": "12345",
+              "country": {
+                "id": "Code_27",
+                "code": "FRA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "France",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_3",
+            "name": "EUDRACT",
+            "label": "",
+            "type": {
+              "id": "Code_28",
+              "code": "C93453",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Study Registry",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "EUDRACT",
+            "identifier": "EU",
+            "legalAddress": null,
+            "managedSites": [],
+            "instanceType": "Organization"
+          }
+        ],
+        "administrableProducts": [],
         "notes": [],
         "instanceType": "StudyVersion"
       }

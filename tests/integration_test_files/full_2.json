@@ -130,7 +130,8 @@
                   "value": 15.0,
                   "unit": null,
                   "instanceType": "Quantity"
-                }
+                },
+                "appliesTo": null
               }
             ],
             "previousId": null,
@@ -151,62 +152,13 @@
           {
             "id": "StudyIdentifier_1",
             "text": "H2Q-MC-LZZT",
-            "scope": {
-              "id": "Organization_1",
-              "name": "Eli Lilly",
-              "label": "",
-              "organizationType": {
-                "id": "Code_73",
-                "code": "C70793",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Clinical Study Sponsor",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "DUNS",
-              "identifier": "00-642-1325",
-              "legalAddress": {
-                "id": "Address_1",
-                "text": "Lilly Corporate Ctr, Indianapolis, IN, 4628, United States of America",
-                "line": "Lilly Corporate Ctr",
-                "city": "Indianapolis",
-                "district": "",
-                "state": "IN",
-                "postalCode": "4628",
-                "country": {
-                  "id": "Code_74",
-                  "code": "USA",
-                  "codeSystem": "ISO 3166 1 alpha3",
-                  "codeSystemVersion": "2020-08",
-                  "decode": "United States of America",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Address"
-              },
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
             "text": "NCT12345678",
-            "scope": {
-              "id": "Organization_2",
-              "name": "ClinicalTrials.gov",
-              "label": "",
-              "organizationType": {
-                "id": "Code_75",
-                "code": "C93453",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Study Registry",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "USGOV",
-              "identifier": "CT-GOV",
-              "legalAddress": null,
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_2",
             "instanceType": "StudyIdentifier"
           }
         ],
@@ -8847,7 +8799,6 @@
                 "instanceType": "Indication"
               }
             ],
-            "maskingRoles": [],
             "studyInterventions": [
               {
                 "id": "StudyIntervention_1",
@@ -8973,7 +8924,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
-                    "administrableProduct": null,
+                    "administrableProductId": null,
                     "notes": [],
                     "instanceType": "Administration"
                   }
@@ -9113,7 +9064,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
-                    "administrableProduct": null,
+                    "administrableProductId": null,
                     "notes": [],
                     "instanceType": "Administration"
                   }
@@ -10639,7 +10590,6 @@
               }
             ],
             "conditions": [],
-            "organizations": [],
             "notes": [],
             "instanceType": "StudyDesign"
           }
@@ -11579,6 +11529,63 @@
           }
         ],
         "abbreviations": [],
+        "roles": [],
+        "organizations": [
+          {
+            "id": "Organization_1",
+            "name": "Eli Lilly",
+            "label": "",
+            "type": {
+              "id": "Code_73",
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Clinical Study Sponsor",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "00-642-1325",
+            "legalAddress": {
+              "id": "Address_1",
+              "text": "Lilly Corporate Ctr, Indianapolis, IN, 4628, United States of America",
+              "line": "Lilly Corporate Ctr",
+              "city": "Indianapolis",
+              "district": "",
+              "state": "IN",
+              "postalCode": "4628",
+              "country": {
+                "id": "Code_74",
+                "code": "USA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United States of America",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_2",
+            "name": "ClinicalTrials.gov",
+            "label": "",
+            "type": {
+              "id": "Code_75",
+              "code": "C93453",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Study Registry",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "USGOV",
+            "identifier": "CT-GOV",
+            "legalAddress": null,
+            "managedSites": [],
+            "instanceType": "Organization"
+          }
+        ],
+        "administrableProducts": [],
         "notes": [],
         "instanceType": "StudyVersion"
       }

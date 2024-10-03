@@ -201,7 +201,8 @@
                   "value": 0.0,
                   "unit": null,
                   "instanceType": "Quantity"
-                }
+                },
+                "appliesTo": null
               }
             ],
             "previousId": null,
@@ -270,7 +271,8 @@
                     "instanceType": "AliasCode"
                   },
                   "instanceType": "Quantity"
-                }
+                },
+                "appliesTo": null
               }
             ],
             "previousId": "StudyAmendment_4",
@@ -325,7 +327,8 @@
                   "value": 15.0,
                   "unit": null,
                   "instanceType": "Quantity"
-                }
+                },
+                "appliesTo": null
               },
               {
                 "id": "SubjectEnrollment_3",
@@ -368,7 +371,8 @@
                     "instanceType": "AliasCode"
                   },
                   "instanceType": "Quantity"
-                }
+                },
+                "appliesTo": null
               }
             ],
             "previousId": "StudyAmendment_3",
@@ -423,7 +427,8 @@
                     "instanceType": "AliasCode"
                   },
                   "instanceType": "Quantity"
-                }
+                },
+                "appliesTo": null
               }
             ],
             "previousId": "StudyAmendment_2",
@@ -452,145 +457,31 @@
           {
             "id": "StudyIdentifier_1",
             "text": "NCT12345678",
-            "scope": {
-              "id": "Organization_1",
-              "name": "ClinicalTrials.gov",
-              "label": "",
-              "organizationType": {
-                "id": "Code_54",
-                "code": "C93453",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Study Registry",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "USGOV",
-              "identifier": "CT-GOV",
-              "legalAddress": {
-                "id": "Address_1",
-                "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
-                "line": "line",
-                "city": "city",
-                "district": "district",
-                "state": "state",
-                "postalCode": "postal_code",
-                "country": {
-                  "id": "Code_55",
-                  "code": "GBR",
-                  "codeSystem": "ISO 3166 1 alpha3",
-                  "codeSystemVersion": "2020-08",
-                  "decode": "United Kingdom of Great Britain and Northern Ireland",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Address"
-              },
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
             "text": "AP1234",
-            "scope": {
-              "id": "Organization_2",
-              "name": "ACME Pharma",
-              "label": "",
-              "organizationType": {
-                "id": "Code_56",
-                "code": "C70793",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Clinical Study Sponsor",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "DUNS",
-              "identifier": "123456789",
-              "legalAddress": {
-                "id": "Address_2",
-                "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
-                "line": "Somewhere",
-                "city": "In a City",
-                "district": "In a District",
-                "state": "In a big state",
-                "postalCode": "12345",
-                "country": {
-                  "id": "Code_57",
-                  "code": "FRA",
-                  "codeSystem": "ISO 3166 1 alpha3",
-                  "codeSystemVersion": "2020-08",
-                  "decode": "France",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Address"
-              },
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_2",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_3",
             "text": "EU12345",
-            "scope": {
-              "id": "Organization_3",
-              "name": "European Union",
-              "label": "",
-              "organizationType": {
-                "id": "Code_58",
-                "code": "C188863",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Regulatory Agency",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "EU",
-              "identifier": "EU CT",
-              "legalAddress": null,
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_3",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_4",
             "text": "IND12345",
-            "scope": {
-              "id": "Organization_4",
-              "name": "Food & Drug Administration",
-              "label": "",
-              "organizationType": {
-                "id": "Code_59",
-                "code": "C188863",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Regulatory Agency",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "US",
-              "identifier": "FDA",
-              "legalAddress": null,
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_4",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_5",
             "text": "WHO12345",
-            "scope": {
-              "id": "Organization_5",
-              "name": "World Health Organisation",
-              "label": "",
-              "organizationType": {
-                "id": "Code_60",
-                "code": "C93453",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "Study Registry",
-                "instanceType": "Code"
-              },
-              "identifierScheme": "UN",
-              "identifier": "WHO",
-              "legalAddress": null,
-              "instanceType": "Organization"
-            },
+            "scopeId": "Organization_5",
             "instanceType": "StudyIdentifier"
           }
         ],
@@ -2619,34 +2510,6 @@
                 "instanceType": "Indication"
               }
             ],
-            "maskingRoles": [
-              {
-                "id": "Masking_1",
-                "description": "This is the sponsor masking description",
-                "role": {
-                  "id": "Code_97",
-                  "code": "C70793",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Sponsor",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Masking"
-              },
-              {
-                "id": "Masking_2",
-                "description": "This is the investigator masking statement",
-                "role": {
-                  "id": "Code_98",
-                  "code": "C25936",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Investigator",
-                  "instanceType": "Code"
-                },
-                "instanceType": "Masking"
-              }
-            ],
             "studyInterventions": [
               {
                 "id": "StudyIntervention_1",
@@ -2772,7 +2635,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
-                    "administrableProduct": null,
+                    "administrableProductId": null,
                     "notes": [],
                     "instanceType": "Administration"
                   }
@@ -2912,7 +2775,7 @@
                       "standardCodeAliases": [],
                       "instanceType": "AliasCode"
                     },
-                    "administrableProduct": null,
+                    "administrableProductId": null,
                     "notes": [],
                     "instanceType": "Administration"
                   }
@@ -3544,104 +3407,6 @@
                 ]
               }
             ],
-            "organizations": [
-              {
-                "id": "ResearchOrganization_1",
-                "name": "SITE_ORG_1",
-                "label": "Site Org",
-                "organizationType": {
-                  "id": "Code_190",
-                  "code": "C70793",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Clinical Study Sponsor",
-                  "instanceType": "Code"
-                },
-                "identifierScheme": "DUNS",
-                "identifier": "123456789.0",
-                "legalAddress": {
-                  "id": "Address_3",
-                  "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
-                  "line": "line",
-                  "city": "city",
-                  "district": "district",
-                  "state": "state",
-                  "postalCode": "postal_code",
-                  "country": {
-                    "id": "Code_191",
-                    "code": "GBR",
-                    "codeSystem": "ISO 3166 1 alpha3",
-                    "codeSystemVersion": "2020-08",
-                    "decode": "United Kingdom of Great Britain and Northern Ireland",
-                    "instanceType": "Code"
-                  },
-                  "instanceType": "Address"
-                },
-                "instanceType": "ResearchOrganization",
-                "manages": [
-                  {
-                    "id": "StudySite_1",
-                    "name": "SITE_1",
-                    "label": "Site One",
-                    "description": "Main Site",
-                    "currentEnrollment": null,
-                    "instanceType": "StudySite"
-                  },
-                  {
-                    "id": "StudySite_2",
-                    "name": "SITE_2",
-                    "label": "Site Two",
-                    "description": "Secondary Site",
-                    "currentEnrollment": null,
-                    "instanceType": "StudySite"
-                  }
-                ]
-              },
-              {
-                "id": "ResearchOrganization_2",
-                "name": "SITE_ORG_2",
-                "label": "Clinical Trials Org",
-                "organizationType": {
-                  "id": "Code_192",
-                  "code": "C70793",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Clinical Study Sponsor",
-                  "instanceType": "Code"
-                },
-                "identifierScheme": "DUNS",
-                "identifier": "234567891.0",
-                "legalAddress": {
-                  "id": "Address_4",
-                  "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
-                  "line": "Somewhere",
-                  "city": "In a City",
-                  "district": "In a District",
-                  "state": "In a big state",
-                  "postalCode": "12345",
-                  "country": {
-                    "id": "Code_193",
-                    "code": "FRA",
-                    "codeSystem": "ISO 3166 1 alpha3",
-                    "codeSystemVersion": "2020-08",
-                    "decode": "France",
-                    "instanceType": "Code"
-                  },
-                  "instanceType": "Address"
-                },
-                "instanceType": "ResearchOrganization",
-                "manages": [
-                  {
-                    "id": "StudySite_3",
-                    "name": "SITE_3",
-                    "label": "Only site",
-                    "description": "Only Site",
-                    "currentEnrollment": null,
-                    "instanceType": "StudySite"
-                  }
-                ]
-              }
-            ],
             "notes": [],
             "instanceType": "StudyDesign"
           }
@@ -3801,6 +3566,227 @@
         ],
         "narrativeContentItems": [],
         "abbreviations": [],
+        "roles": [],
+        "organizations": [
+          {
+            "id": "Organization_1",
+            "name": "ClinicalTrials.gov",
+            "label": "",
+            "type": {
+              "id": "Code_54",
+              "code": "C93453",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Study Registry",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "USGOV",
+            "identifier": "CT-GOV",
+            "legalAddress": {
+              "id": "Address_1",
+              "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
+              "line": "line",
+              "city": "city",
+              "district": "district",
+              "state": "state",
+              "postalCode": "postal_code",
+              "country": {
+                "id": "Code_55",
+                "code": "GBR",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United Kingdom of Great Britain and Northern Ireland",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_2",
+            "name": "ACME Pharma",
+            "label": "",
+            "type": {
+              "id": "Code_56",
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Clinical Study Sponsor",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "123456789",
+            "legalAddress": {
+              "id": "Address_2",
+              "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
+              "line": "Somewhere",
+              "city": "In a City",
+              "district": "In a District",
+              "state": "In a big state",
+              "postalCode": "12345",
+              "country": {
+                "id": "Code_57",
+                "code": "FRA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "France",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_3",
+            "name": "European Union",
+            "label": "",
+            "type": {
+              "id": "Code_58",
+              "code": "C188863",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Regulatory Agency",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "EU",
+            "identifier": "EU CT",
+            "legalAddress": null,
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_4",
+            "name": "Food & Drug Administration",
+            "label": "",
+            "type": {
+              "id": "Code_59",
+              "code": "C188863",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Regulatory Agency",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "US",
+            "identifier": "FDA",
+            "legalAddress": null,
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_5",
+            "name": "World Health Organisation",
+            "label": "",
+            "type": {
+              "id": "Code_60",
+              "code": "C93453",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Study Registry",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "UN",
+            "identifier": "WHO",
+            "legalAddress": null,
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_6",
+            "name": "SITE_ORG_1",
+            "label": "Site Org",
+            "type": {
+              "id": "Code_190",
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Clinical Study Sponsor",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "123456789.0",
+            "legalAddress": {
+              "id": "Address_3",
+              "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
+              "line": "line",
+              "city": "city",
+              "district": "district",
+              "state": "state",
+              "postalCode": "postal_code",
+              "country": {
+                "id": "Code_191",
+                "code": "GBR",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United Kingdom of Great Britain and Northern Ireland",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [
+              {
+                "id": "StudySite_1",
+                "name": "SITE_1",
+                "label": "Site One",
+                "description": "Main Site",
+                "instanceType": "StudySite"
+              },
+              {
+                "id": "StudySite_2",
+                "name": "SITE_2",
+                "label": "Site Two",
+                "description": "Secondary Site",
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_7",
+            "name": "SITE_ORG_2",
+            "label": "Clinical Trials Org",
+            "type": {
+              "id": "Code_192",
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Clinical Study Sponsor",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "234567891.0",
+            "legalAddress": {
+              "id": "Address_4",
+              "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
+              "line": "Somewhere",
+              "city": "In a City",
+              "district": "In a District",
+              "state": "In a big state",
+              "postalCode": "12345",
+              "country": {
+                "id": "Code_193",
+                "code": "FRA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "France",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [
+              {
+                "id": "StudySite_3",
+                "name": "SITE_3",
+                "label": "Only site",
+                "description": "Only Site",
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          }
+        ],
+        "administrableProducts": [],
         "notes": [],
         "instanceType": "StudyVersion"
       }
