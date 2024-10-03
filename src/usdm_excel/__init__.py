@@ -181,7 +181,8 @@ class USDMExcel():
           titles=self.study.titles,
           criteria=self.eligibility_criteria.items,
           narrativeContentItems=self.contents.items,
-          abbreviations=self.abbreviations.items
+          abbreviations=self.abbreviations.items,
+          organizations=self.study_references.organizations + self.study_identifiers.organizations
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:

@@ -24,14 +24,15 @@ def test_create(mocker, globals):
   mock_code.side_effect=[expected_1, expected_2, expected_3]
   ids = StudyIdentifiersSheet("", globals)
   assert len(ids.identifiers) == 3
+  assert len(ids.organizations) == 3
   assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].text == 'NCT12345678'
-  assert ids.identifiers[0].scope.name == 'ClinicalTrials.gov'
-  assert ids.identifiers[0].scope.legalAddress.city == 'city'
+  assert ids.organizations[0].name == 'ClinicalTrials.gov'
+  assert ids.organizations[0].legalAddress.city == 'city'
   assert ids.identifiers[1].id == 'Id_2'
   assert ids.identifiers[1].text == 'NCT12345679'
-  assert ids.identifiers[1].scope.name == 'ClinicalTrials2.gov'
-  assert ids.identifiers[1].scope.legalAddress.city == 'city2'
+  assert ids.organizations[1].name == 'ClinicalTrials2.gov'
+  assert ids.organizations[1].legalAddress.city == 'city2'
   assert ids.identifiers[2].id == 'Id_3'
   assert ids.identifiers[2].text == 'NCT123456710'
   
@@ -57,14 +58,15 @@ def test_create_with_z(mocker, globals):
   mock_code.side_effect=[expected_1, expected_2, expected_3]
   ids = StudyIdentifiersSheet("", globals)
   assert len(ids.identifiers) == 3
+  assert len(ids.organizations) == 3
   assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].text == 'NCT12345678'
-  assert ids.identifiers[0].scope.name == 'ClinicalTrials.gov'
-  assert ids.identifiers[0].scope.legalAddress.city == 'city'
+  assert ids.organizations[0].name == 'ClinicalTrials.gov'
+  assert ids.organizations[0].legalAddress.city == 'city'
   assert ids.identifiers[1].id == 'Id_2'
   assert ids.identifiers[1].text == 'NCT12345679'
-  assert ids.identifiers[1].scope.name == 'ClinicalTrials2.gov'
-  assert ids.identifiers[1].scope.legalAddress.city == 'city2'
+  assert ids.organizations[1].name == 'ClinicalTrials2.gov'
+  assert ids.organizations[1].legalAddress.city == 'city2'
   assert ids.identifiers[2].id == 'Id_3'
   assert ids.identifiers[2].text == 'NCT123456710'
   
@@ -92,14 +94,14 @@ def test_create_new_columns(mocker, globals):
   assert len(ids.identifiers) == 3
   assert ids.identifiers[0].id == 'Id_1'
   assert ids.identifiers[0].text == 'NCT12345678'
-  assert ids.identifiers[0].scope.name == 'ClinicalTrials.gov'
-  assert ids.identifiers[0].scope.label == 'CT.gov [1]'
-  assert ids.identifiers[0].scope.legalAddress.city == 'city'
+  assert ids.organizations[0].name == 'ClinicalTrials.gov'
+  assert ids.organizations[0].label == 'CT.gov [1]'
+  assert ids.organizations[0].legalAddress.city == 'city'
   assert ids.identifiers[1].id == 'Id_2'
   assert ids.identifiers[1].text == 'NCT12345679'
-  assert ids.identifiers[1].scope.name == 'ClinicalTrials2.gov'
-  assert ids.identifiers[1].scope.legalAddress.city == 'city2'
-  assert ids.identifiers[1].scope.label == ''
+  assert ids.organizations[1].name == 'ClinicalTrials2.gov'
+  assert ids.organizations[1].legalAddress.city == 'city2'
+  assert ids.organizations[1].label == ''
   assert ids.identifiers[2].id == 'Id_3'
   assert ids.identifiers[2].text == 'NCT123456710'
   

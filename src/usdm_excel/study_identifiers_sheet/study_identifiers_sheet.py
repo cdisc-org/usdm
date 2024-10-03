@@ -10,6 +10,7 @@ class StudyIdentifiersSheet(BaseSheet):
   def __init__(self, file_path, globals: Globals):
     try:
       self.identifiers = []
+      self.organizations = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
       self.process_sheet()
     except Exception as e:
@@ -20,7 +21,8 @@ class StudyIdentifiersSheet(BaseSheet):
     for index, row in self.sheet.iterrows():
       organisation = get_organization(self, index)
       if organisation:
-        item = self.create_object(StudyIdentifier, {'text': self.read_cell_by_name(index, 'studyIdentifier'), 'scope': organisation})
+        self.organizations.append(organisation)
+        item = self.create_object(StudyIdentifier, {'text': self.read_cell_by_name(index, 'studyIdentifier'), 'scopeId': organisation.id})
         if item:
           self.identifiers.append(item)
           self.globals.cross_references.add(item.text, item)         

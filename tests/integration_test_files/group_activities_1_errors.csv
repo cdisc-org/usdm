@@ -1,7 +1,22 @@
 sheet,row,column,message,level
+studyIdentifiers,,,Exception. Failed to create StudyIdentifier object. See log for additional details.,Error
+studyIdentifiers,,,Exception. Failed to create StudyIdentifier object. See log for additional details.,Error
 studyIdentifiers,3,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyIdentifiers,,,Exception. Failed to create StudyIdentifier object. See log for additional details.,Error
 studyIdentifiers,4,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyIdentifiers,,,Exception. Failed to create StudyIdentifier object. See log for additional details.,Error
 studyIdentifiers,5,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyIdentifiers,,,Exception. Failed to create StudyIdentifier object. See log for additional details.,Error
 mainTimeline,19,2,"Both parent 'Mistake' and child activity 'Something Else' found, child has been ignored",Warning
 mainTimeline,19,3,"No activity 'Mistake' found, so one has been created",Warning
 mainTimeline,,,Unable to find activity 'Something Else' when adding to schedule instance,Warning
+studyDesignPopulations,,,Exception. Failed to create StudyDesignPopulation object. See log for additional details.,Error
+studyDesignPopulations,,,Not main study population detected,Error
+dictionaries,1,7,"Failed to translate reference path 'plannedAge', could not find start instance 'StudyDesignPopulation', 'POP1'",Error
+dictionaries,2,7,"Failed to translate reference path 'plannedAge', could not find start instance 'StudyDesignPopulation', 'POP1'",Error
+dictionaries,3,7,"Failed to translate reference path 'plannedAge', could not find start instance 'StudyDesignPopulation', 'POP1'",Error
+studyDesignSites,1,-1,Error attempting to read cell 'description'. Exception: Failed to detect column(s) 'description' in sheet,Error
+studyDesignSites,2,-1,Error attempting to read cell 'description'. Exception: Failed to detect column(s) 'description' in sheet,Error
+studyDesignSites,,,Exception. Failed to create StudySite object. See log for additional details.,Error
+studyDesignSites,3,-1,Error attempting to read cell 'description'. Exception: Failed to detect column(s) 'description' in sheet,Error
+,,,Exception. Error processing Excel workbook. See log for additional details.,Error

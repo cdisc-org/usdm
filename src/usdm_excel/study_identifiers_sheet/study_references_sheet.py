@@ -10,6 +10,7 @@ class StudyReferencesSheet(BaseSheet):
   def __init__(self, file_path, globals: Globals):
     try:
       self.items = []
+      self.organizations = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         self.process_sheet()
@@ -21,6 +22,7 @@ class StudyReferencesSheet(BaseSheet):
     for index, row in self.sheet.iterrows():
       organisation = get_organization(self, index)
       if organisation:
+        self.organizations.append(organisation)
         text = self.read_cell_by_name(index, 'studyIdentifier')
         type = self.read_cdisc_klass_attribute_cell_by_name('ReferenceIdentifier', 'type', index, ['referenceType'])     
         item = self.create_object(ReferenceIdentifier, {'text': text, 'type': type, 'scope': organisation})
