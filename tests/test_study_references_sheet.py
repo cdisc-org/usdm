@@ -6,29 +6,32 @@ DEFAULT_COLUMNS = ['identifierScheme', 'organisationIdentifier', 'name', 'label'
 MISSING_COLUMN =  ['identifierScheme', 'organisationIdentifier', 'name', 'label', 'type', 'studyIdentifier', 'address']
 
 def test_create(mocker, globals):
-  expected_1 = ('{"id": "RI_1", "text": "NCT12345678", "scope": '
-                  '{"id": "Org_1", "name": "ClinicalTrials.gov", "label": "CT.gov Study Registry", '
-                   '"organizationType": {"id": "Code_1", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
-                   '"identifierScheme": "USGOV", "identifier": "CT-GOV", '
-                   '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "line": "line", "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
-                     '"country": {"id": "Code_2", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
-                     '"instanceType": "Address"}, '
-                   '"instanceType": "Organization"}, '
+  org_1 = ('{"id": "Org_1", "name": "ClinicalTrials.gov", "label": "CT.gov Study Registry", '
+             '"type": {"id": "Code_1", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
+             '"identifierScheme": "USGOV", "identifier": "CT-GOV", '
+             '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "line": "line", "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
+               '"country": {"id": "Code_2", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
+               '"instanceType": "Address"}, '
+             '"managedSites": [], '
+             '"instanceType": "Organization"}'
+  )
+  expected_1 = ('{"id": "RI_1", "text": "NCT12345678", "scopeId": "Org_1", '
                 '"instanceType": "ReferenceIdentifier", '
                 '"type": {"id": "Code_3", "code": "C99910x1", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Pediatric Investigation Plan", "instanceType": "Code"}}'
   )
-  expected_2 = ('{"id": "RI_2", "text": "NCT12345679", "scope": '
-                  '{"id": "Org_2", "name": "ClinicalTrials2.gov", "label": "CT.gov Registry", '
-                   '"organizationType": {"id": "Code_4", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
-                   '"identifierScheme": "USGOV2", "identifier": "CT-GOV2", '
-                   '"legalAddress": {"id": "Addr_2", "text": "line2, city2, district2, state2, postal_code2, Denmark", "line": "line2", "city": "city2", "district": "district2", "state": "state2", "postalCode": "postal_code2", '
-                     '"country": {"id": "Code_5", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
-                     '"instanceType": "Address"}, '
-                   '"instanceType": "Organization"}, '
+  org_2 = ('{"id": "Org_2", "name": "ClinicalTrials2.gov", "label": "CT.gov Registry", '
+             '"type": {"id": "Code_4", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
+             '"identifierScheme": "USGOV2", "identifier": "CT-GOV2", '
+             '"legalAddress": {"id": "Addr_2", "text": "line2, city2, district2, state2, postal_code2, Denmark", "line": "line2", "city": "city2", "district": "district2", "state": "state2", "postalCode": "postal_code2", '
+               '"country": {"id": "Code_5", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
+               '"instanceType": "Address"}, '
+             '"managedSites": [], '
+             '"instanceType": "Organization"}'
+  )
+  expected_2 = ('{"id": "RI_2", "text": "NCT12345679", "scopeId": "Org_2", '
                 '"instanceType": "ReferenceIdentifier", '
                 '"type": {"id": "Code_6", "code": "C142424", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Clinical Development Plan", "instanceType": "Code"}}'
   )
-  expected = [expected_1, expected_2]
   ids = ['Code_1', 'Addr_1', 'Code_2', 'Org_1', 'Code_3', 'RI_1', 'Code_4', 'Addr_2', 'Code_5', 'Org_2', 'Code_6', 'RI_2']
   data = [
     [ 'USGOV',  'CT-GOV',  'ClinicalTrials.gov',  'CT.gov Study Registry', 'Study Registry', 'NCT12345678', 'line|district|city|state|postal_code|GBR', 'Pediatric Investigation Plan'],
@@ -36,8 +39,10 @@ def test_create(mocker, globals):
   ]
   sheet = _setup(mocker, globals, data, ids)
   assert len(sheet.items) == 2
-  assert sheet.items[0].to_json() == expected[0]
-  assert sheet.items[1].to_json() == expected[1]
+  assert sheet.items[0].to_json() == expected_1
+  assert sheet.organizations[0].to_json() == org_1
+  assert sheet.items[1].to_json() == expected_2
+  assert sheet.organizations[1].to_json() == org_2
     
 def test_create_empty(mocker, globals):
   ids = []
