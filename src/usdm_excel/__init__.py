@@ -129,7 +129,6 @@ class USDMExcel():
       study_design.estimands = self.estimands.estimands
       study_design.population.criterionIds = [x.id for x in self.eligibility_criteria.items]
       study_design.dictionaries = self.dictionaries.items
-      study_design.organizations = self.sites.organizations
       study_design.conditions = self.conditions.items
 
       self.definition_documents = []
@@ -182,7 +181,7 @@ class USDMExcel():
           criteria=self.eligibility_criteria.items,
           narrativeContentItems=self.contents.items,
           abbreviations=self.abbreviations.items,
-          organizations=self.study_references.organizations + self.study_identifiers.organizations
+          organizations=self.study_references.organizations + self.study_identifiers.organizations + self.sites.organizations
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:

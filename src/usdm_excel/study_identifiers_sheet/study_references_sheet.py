@@ -25,7 +25,7 @@ class StudyReferencesSheet(BaseSheet):
         self.organizations.append(organisation)
         text = self.read_cell_by_name(index, 'studyIdentifier')
         type = self.read_cdisc_klass_attribute_cell_by_name('ReferenceIdentifier', 'type', index, ['referenceType'])     
-        item = self.create_object(ReferenceIdentifier, {'text': text, 'type': type, 'scope': organisation})
+        item = self.create_object(ReferenceIdentifier, {'text': text, 'type': type, 'scopeId': organisation.id})
         if item:
           self.items.append(item)
           self.globals.cross_references.add(item.text, item)         
