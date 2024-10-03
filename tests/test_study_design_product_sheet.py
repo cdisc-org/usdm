@@ -18,7 +18,7 @@ def test_create_1(mocker, globals):
         '[{"id": "Id_7", "role": '
           '{"id": "Id_6", "code": "100000072072", "codeSystem": "HL7", "codeSystemVersion": "", "decode": "Active", "instanceType": "Code"}, '
         '"substance": '
-          '{"id": "Id_5", "name": "Ingredient C", "label": "label 2", "description": "description 2", "code": null, '
+          '{"id": "Id_5", "name": "Ingredient C", "label": "label 2", "description": "description 2", "codes": [], '
           '"strengths": '
             '[{"id": "Id_14", "name": "60 mg", "label": "", "description": "", '
             '"denominator": '
