@@ -1,4 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_model.study_role import StudyRole
 from usdm_model.assigned_person import AssignedPerson
 from usdm_model.organization import Organization
 from usdm_model.masking import Masking
@@ -14,17 +15,19 @@ class StudyRoleSheet(BaseSheet):
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
-          name = self.read_cell_by_name(index, 'name')
-          description = self.read_cell_by_name(index, 'description', default='')
-          label = self.read_cell_by_name(index, 'label', default='')
-          masking = self._get_masking(index)
-          people = self._get_refs_for(AssignedPerson, index, 'people')
-          orgs = self._get_refs_for(Organization, index, 'organizations')
-          params = {'name': name, 'descriptiopn': description, 'label': label, 'organizations': orgs, 'assignedPersons': people, 'masking': masking}
-          item = self.create_object(AssignedPerson, params)
+          params = {
+            'name': self.read_cell_by_name(index, 'name'), 
+            'descriptiopn': self.read_cell_by_name(index, 'description', default=''), 
+            'label': self.read_cell_by_name(index, 'label', default=''), 
+            'organizations': self._get_refs_for(Organization, index, 'organizations'), 
+            'assignedPersons': self._get_refs_for(AssignedPerson, index, 'people'), 
+            'masking': self._get_masking(index), 
+            'code': self.read_cdisc_klass_attribute_cell_by_name("StudyRole", "code", index, "role")
+          }
+          item = self.create_object(StudyRole, params)
           if item:
             self.items.append(item)
-            self.globals.cross_references.add(name, item)     
+            self.globals.cross_references.add(item.name, item)     
     except Exception as e:
       self._sheet_exception(e)
 
