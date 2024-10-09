@@ -13,17 +13,20 @@ class AssignedPersonSheet(BaseSheet):
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
-          name = self.read_cell_by_name(index, 'name')
-          description = self.read_cell_by_name(index, 'description', default='')
-          label = self.read_cell_by_name(index, 'label', default='')
-          job_title = self.read_cell_by_name(index, 'jobTitle')
-          org_ref = self.read_cell_by_name(index, 'organization', default='')
-          if org_ref:
-            org = self.globals.cross_references.get(Organization, org_ref)
-          params = {'name': name, 'descriptiopn': description, 'label': label, 'jobTitle': job_title, '': org}
+          params = {
+            'name': self.read_cell_by_name(index, 'name'), 
+            'description': self.read_cell_by_name(index, 'description', default=''), 
+            'label': self.read_cell_by_name(index, 'label', default=''), 
+            'jobTitle': self.read_cell_by_name(index, 'jobTitle'), 
+            'organizationId': self._get_org(index)}
           item = self.create_object(AssignedPerson, params)
           if item:
             self.items.append(item)
-            self.globals.cross_references.add(name, item)     
+            self.globals.cross_references.add(item.name, item)     
     except Exception as e:
       self._sheet_exception(e)
+
+  def _get_org(self, index: int) -> str:
+    org_ref = self.read_cell_by_name(index, 'organization', default='')
+    org = self.globals.cross_references.get(Organization, org_ref) if org_ref else None
+    return org.id if org else None
