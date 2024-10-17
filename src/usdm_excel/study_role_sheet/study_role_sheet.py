@@ -19,7 +19,7 @@ class StudyRoleSheet(BaseSheet):
             'name': self.read_cell_by_name(index, 'name'), 
             'description': self.read_cell_by_name(index, 'description', default=''), 
             'label': self.read_cell_by_name(index, 'label', default=''), 
-            'organizations': self._get_refs_for(Organization, index, 'organizations'), 
+            'organizationIds': self._get_refs_for(Organization, index, 'organizations', ids=True), 
             'assignedPersons': self._get_refs_for(AssignedPerson, index, 'people'), 
             'masking': self._get_masking(index), 
             'code': self.read_cdisc_klass_attribute_cell_by_name("StudyRole", "code", index, "role")
@@ -38,13 +38,16 @@ class StudyRoleSheet(BaseSheet):
       masking = self.create_object(Masking, {'description': masking_text})
     return masking
   
-  def _get_refs_for(self, klass, index: int, column_name: str):
+  def _get_refs_for(self, klass, index: int, column_name: str, ids=False):
     collection = []
     refs = self.read_cell_multiple_by_name(index, column_name, must_be_present=False)
     for ref in refs:
       item = self.globals.cross_references.get(klass, ref)
       if item:
-        collection.append(item)
+        if ids:
+          collection.append(item.id)
+        else:
+          collection.append(item)
       else:
         self._warning(index, column_name, f"Failed to find {klass.__name__.lower()} with name '{ref}'")
     return collection

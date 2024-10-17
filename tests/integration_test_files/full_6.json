@@ -11602,8 +11602,8 @@
           {
             "id": "StudyRole_1",
             "name": "ROLE_1",
-            "label": "",
-            "description": "",
+            "label": "Investigator",
+            "description": "The investigator role",
             "code": {
               "id": "Code_541",
               "code": "C25936",
@@ -11620,12 +11620,41 @@
                 "label": "Fred Smith",
                 "description": "",
                 "jobTitle": "MD",
-                "organizationId": null,
+                "organizationId": "Organization_3",
                 "instanceType": "AssignedPerson"
               }
             ],
             "organizationIds": [],
-            "masking": null,
+            "masking": {
+              "id": "Masking_1",
+              "description": "Masked",
+              "instanceType": "Masking"
+            },
+            "instanceType": "StudyRole"
+          },
+          {
+            "id": "StudyRole_2",
+            "name": "ROLE_2",
+            "label": "Sponsor",
+            "description": "Sponsor role",
+            "code": {
+              "id": "Code_542",
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Sponsor",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [],
+            "assignedPersons": [],
+            "organizationIds": [
+              "Organization_1"
+            ],
+            "masking": {
+              "id": "Masking_2",
+              "description": "Masked",
+              "instanceType": "Masking"
+            },
             "instanceType": "StudyRole"
           }
         ],
@@ -11789,7 +11818,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_542",
+          "id": "Code_543",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -11797,7 +11826,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_543",
+          "id": "Code_544",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",
@@ -13738,7 +13767,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_544",
+          "id": "Code_545",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -13746,7 +13775,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_545",
+          "id": "Code_546",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",

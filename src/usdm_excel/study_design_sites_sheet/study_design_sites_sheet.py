@@ -34,7 +34,7 @@ class StudyDesignSitesSheet(BaseSheet):
             item = self.create_object(Organization, {'identifierScheme': org_id_scheme, 'identifier': org_identifier, 'name': org_name, 'label': org_label, 'type': org_type, 'legalAddress': org_address, 'managedSites': [site]})
             if item:
               self.organizations.append(item)
-              self.globals.cross_references.add(item.id, item)     
+              self.globals.cross_references.add(item.name, item)     
               current_org = item
           else:
             current_org.managedSites.append(site)
