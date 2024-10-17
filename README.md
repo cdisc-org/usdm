@@ -68,8 +68,11 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Procedures sheet
 - Study Design Encounters sheet
 - Study Design Elements sheet
-- Study Design Content sheet
+- Document Template sheets
+- Document Content sheet
 - Study Design Sites sheet (optional)
+- Notes Sheet (optional)
+- Abbreviations Sheet (optional)
 - Dictionaries Sheet
 - Configuration sheet
 
@@ -811,6 +814,44 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | B | expandedText | The full text | Text string. |	
 | C (optional) | notes | Any relevant notes | List of note references, comma separated |
 
+### People Sheet
+
+#### Sheet Name
+
+`people`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2. Each row contains an assigned person definition. 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | The dictionary name | Text string | 
+| B | description | Description | Text string. Can be empty |	
+| C | label | Label | Text string. Can be empty |	
+| D | jobTitle | The job title | Text string | 
+| E | organization | Cross reference (name) to an organization to which the person is associated | Text string. |	
+
+### Roles Sheet
+
+#### Sheet Name
+
+`roles`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2. Each row contains an assigned person definition. 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | The dictionary name | Text string | 
+| B | description | Description | Text string. Can be empty |	
+| C | label | Label | Text string. Can be empty |	
+| D | people | Cross reference (name) to one or more persons performing the role | Comma separated list of strings. Can be empty. | 
+| E | masking | The masking associated with the role. Can be empty if no masking. | Text string. Can be empty |	
+| F | role | The role | CDISC code reference | 
+| G | organizations | Cross reference (name) to one or more organizations performing the role | Comma separated list of strings. Can be empty. |	
+
 ### Configuration Sheet
 
 #### Sheet Name
@@ -825,8 +866,8 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | :--- | :--- | :--- |
 | CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form ctName = Version, for example `SNOMED = 21st June 2012`|
 | Empty None | Allows for string fields to be set to '' rather than null/none values so as to accomodate the SDR validation checks | Set to 'EMPTY' to use ''. Any other value will permit  null values to be used |
-| Template | Configures a protocol template and the associated studyDesignContent sheet | Entries take the form of templateName = sheetName, for example `Sponsor = sponsorContent`. The template name and the sheet name are simple strings. Template names are at the user's discretion but the string `m11` or `M11` is reserved as the template name for the M11 Template format. The sheet name must match a sheet within the workbook that must be structured as per the studyDesignContent sheet format. |
-| Use Template | Indicates which template is to be used | The value should match one of the names defined using the Template configuration parameter |
+| Template | Configures a protocol template and the associated template sheet | Entries take the form of templateName = sheetName, for example `Sponsor = sponsorContent`. The template name and the sheet name are simple strings. Template names are at the user's discretion but the string `m11` or `M11` is reserved as the template name for the M11 Template format. The sheet name must match a sheet within the workbook that must be structured as per the template sheet format. |
+| Use Template | Deprecated | Deprecated |
 | USDM Version | Deprecated | Deprecated |
 | SDR Prev Next | Deprecated | Deprecated |
 | SDR Root | Deprecated | Deprecated |
@@ -841,9 +882,8 @@ An example configuration is
 | CT Version | ICD-10=1 |
 | Template | lilly=lillyFormat |
 | Template | m11=m11Format |
-| Use Template | m11 |
 
-This sets up three CT versions and two templates. The M11 template will be used.
+This sets up three CT versions and two templates.
 
 # Issues
 
