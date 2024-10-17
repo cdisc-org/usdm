@@ -13,7 +13,7 @@ def test_create(factory, mocker, globals):
     'description': ['Desc One', 'Desc Two', 'Desc Three'],
     'label': ['Lable 1', 'L2', 'L3'],
     'jobTitle': ['Title 1', 'Title 2', 'Title 3'],
-    'organization': ['Sponsor 1xxx', 'Sponsor 2', '']
+    'organization': ['Sponsor 1', 'Sponsor 2', '']
   }
   expected_1 = '{"id": "AP_1", "name": "AP1", "label": "Lable 1", "description": "Desc One", "jobTitle": "Title 1", "organizationId": "O_1", "instanceType": "AssignedPerson"}'
   expected_2 = '{"id": "AP_2", "name": "AP2", "label": "L2", "description": "Desc Two", "jobTitle": "Title 2", "organizationId": "O_2", "instanceType": "AssignedPerson"}'

@@ -17,7 +17,7 @@ class StudyRoleSheet(BaseSheet):
         for index, row in self.sheet.iterrows():
           params = {
             'name': self.read_cell_by_name(index, 'name'), 
-            'descriptiopn': self.read_cell_by_name(index, 'description', default=''), 
+            'description': self.read_cell_by_name(index, 'description', default=''), 
             'label': self.read_cell_by_name(index, 'label', default=''), 
             'organizations': self._get_refs_for(Organization, index, 'organizations'), 
             'assignedPersons': self._get_refs_for(AssignedPerson, index, 'people'), 
@@ -47,3 +47,4 @@ class StudyRoleSheet(BaseSheet):
         collection.append(item.id)
       else:
         self._warning(index, column_name, f"Failed to find {klass.__name__.lower()} with name '{ref}'")
+    return collection

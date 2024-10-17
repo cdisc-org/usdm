@@ -10,16 +10,31 @@ def test_create(factory, mocker, globals):
     'name': ['AP1', 'AP2', 'AP3'], 
     'description': ['Desc One', 'Desc Two', 'Desc Three'],
     'label': ['Lable 1', 'L2', 'L3'],
-    'organizations': ['Sponsor 1xxx', 'Sponsor 2', ''],
+    'organizations': ['Sponsor 1', 'Sponsor 2', ''],
     'assignedPersons': ['', '', ''], 
     'masking': ['Masking 1', 'Masking 2', ''], 
     'role': ['Investigator', 'Sponsor', 'Sponsor']
   }
-  expected_1 = '{"id": "AP_1", "name": "AP1", "label": "Lable 1", "description": "Desc One", "jobTitle": "Title 1", "organizationId": "O_1", "instanceType": "AssignedPerson"}'
-  expected_2 = '{"id": "AP_2", "name": "AP2", "label": "L2", "description": "Desc Two", "jobTitle": "Title 2", "organizationId": "O_2", "instanceType": "AssignedPerson"}'
-  expected_3 = '{"id": "AP_3", "name": "AP3", "label": "L3", "description": "Desc Three", "jobTitle": "Title 3", "organizationId": null, "instanceType": "AssignedPerson"}'
+  expected_1 = ( '{"id": "AP_1", "name": "AP1", "label": "Lable 1", "description": "Desc One", '
+                 '"code": {"id": "C_4", "code": "C25936", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Investigator", "instanceType": "Code"}, '
+                 '"appliesToIds": [], "assignedPersons": [], "organizationIds": [], '
+                 '"masking": {"id": "M_1", "description": "Masking 1", "instanceType": "Masking"}, '
+                 '"instanceType": "StudyRole"}'
+                )
+  expected_2 = ( '{"id": "AP_2", "name": "AP2", "label": "L2", "description": "Desc Two", '
+                 '"code": {"id": "C_5", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Sponsor", "instanceType": "Code"}, '
+                 '"appliesToIds": [], "assignedPersons": [], "organizationIds": [], '
+                 '"masking": {"id": "M_2", "description": "Masking 2", "instanceType": "Masking"}, '
+                 '"instanceType": "StudyRole"}'
+                )
+  expected_3 = ( '{"id": "AP_3", "name": "AP3", "label": "L3", "description": "Desc Three", '
+                 '"code": {"id": "C_6", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Sponsor", "instanceType": "Code"}, '
+                 '"appliesToIds": [], "assignedPersons": [], "organizationIds": [], '
+                 '"masking": null, '
+                 '"instanceType": "StudyRole"}'
+                )
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
-  mock_id.side_effect=['C_1', 'C_2', 'C_3', 'O_1', 'O_2', 'O_3', 'AP_1', 'AP_2', 'AP_3', 'X_4', 'X_5']
+  mock_id.side_effect=['C_1', 'C_2', 'C_3', 'O_1', 'O_2', 'O_3', 'M_1', 'C_4', 'AP_1', 'M_2', 'C_5', 'AP_2', 'C_6', 'AP_3']
   _setup(mocker, globals, data)
   _create_orgs(factory, globals)
   item = StudyRoleSheet("", globals)
@@ -39,7 +54,9 @@ def test_read_cell_by_name_error(mocker, globals):
     'name': ['AP1'], 
     'description': ['Desc One'],
     'label': ['Lable 1'],
-    'organization': ['']
+    'organizations': [''],
+    'assignedPersons': [''], 
+    'role': ['Investigator']
   }
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -47,7 +64,7 @@ def test_read_cell_by_name_error(mocker, globals):
   _setup(mocker, globals, data)
   item = StudyRoleSheet("", globals)
   assert mock_error.call_count == 1
-  mock_error.assert_has_calls([mocker.call('people', 1, -1, "Error attempting to read cell 'jobTitle'. Exception: Failed to detect column(s) 'jobTitle' in sheet", 40)])
+  mock_error.assert_has_calls([mocker.call('roles', 1, -1, "Error attempting to read cell 'masking'. Exception: Failed to detect column(s) 'masking' in sheet", 40)])
   
 def _setup(mocker, globals, data):
   globals.cross_references.clear()
