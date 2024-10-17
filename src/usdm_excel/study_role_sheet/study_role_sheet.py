@@ -44,7 +44,7 @@ class StudyRoleSheet(BaseSheet):
     for ref in refs:
       item = self.globals.cross_references.get(klass, ref)
       if item:
-        collection.append(item.id)
+        collection.append(item)
       else:
         self._warning(index, column_name, f"Failed to find {klass.__name__.lower()} with name '{ref}'")
     return collection

@@ -11598,7 +11598,37 @@
           }
         ],
         "abbreviations": [],
-        "roles": [],
+        "roles": [
+          {
+            "id": "StudyRole_1",
+            "name": "ROLE_1",
+            "label": "",
+            "description": "",
+            "code": {
+              "id": "Code_541",
+              "code": "C25936",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Investigator",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [],
+            "assignedPersons": [
+              {
+                "id": "AssignedPerson_1",
+                "name": "PERSON_1",
+                "label": "Fred Smith",
+                "description": "",
+                "jobTitle": "MD",
+                "organizationId": null,
+                "instanceType": "AssignedPerson"
+              }
+            ],
+            "organizationIds": [],
+            "masking": null,
+            "instanceType": "StudyRole"
+          }
+        ],
         "organizations": [
           {
             "id": "Organization_1",
@@ -11759,7 +11789,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_541",
+          "id": "Code_542",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -11767,7 +11797,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_542",
+          "id": "Code_543",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",
@@ -13708,7 +13738,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_543",
+          "id": "Code_544",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -13716,7 +13746,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_544",
+          "id": "Code_545",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",

@@ -76,7 +76,8 @@ class IdManager():
       'Ingredient': 0,
       'Substance': 0,
       'Strength': 0,
-      'AssignedPerson': 0
+      'AssignedPerson': 0,
+      'StudyRole': 0
     }
 
   def build_id(self, klass):

@@ -154,6 +154,9 @@ def test_full_4():
 def test_full_5():
   run_test('full_5')
 
+def test_full_6():
+  run_test('full_6')
+
 def test_encounter_1():
   run_test('encounter_1')
 
