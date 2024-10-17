@@ -28,6 +28,8 @@ from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
 from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet import StudyDesignConditionSheet
 from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_sheet import StudyDesignCharacteristicSheet
+from usdm_excel.assigned_person_sheet.assigned_person_sheet import AssignedPersonSheet
+from usdm_excel.study_role_sheet.study_role_sheet import StudyRoleSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
@@ -105,6 +107,9 @@ class USDMExcel():
       self.sites = StudyDesignSitesSheet(self._file_path, self._globals)
       self.conditions = StudyDesignConditionSheet(self._file_path, self._globals)
 
+      self.people = AssignedPersonSheet(self._file_path, self._globals)
+      self.roles = StudyRoleSheet(self._file_path, self._globals)
+
       # Study Design assembly
       study_design = self.study_design.study_designs[0]
       study_design.scheduleTimelines.append(self.soa.timeline)
@@ -181,7 +186,8 @@ class USDMExcel():
           criteria=self.eligibility_criteria.items,
           narrativeContentItems=self.contents.items,
           abbreviations=self.abbreviations.items,
-          organizations=self.study_references.organizations + self.study_identifiers.organizations + self.sites.organizations
+          organizations=self.study_references.organizations + self.study_identifiers.organizations + self.sites.organizations,
+          roles=self.roles.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:

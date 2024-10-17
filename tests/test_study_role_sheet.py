@@ -11,7 +11,7 @@ def test_create(factory, mocker, globals):
     'description': ['Desc One', 'Desc Two', 'Desc Three'],
     'label': ['Lable 1', 'L2', 'L3'],
     'organizations': ['Sponsor 1', 'Sponsor 2', ''],
-    'assignedPersons': ['', '', ''], 
+    'people': ['', '', ''], 
     'masking': ['Masking 1', 'Masking 2', ''], 
     'role': ['Investigator', 'Sponsor', 'Sponsor']
   }
@@ -55,7 +55,7 @@ def test_read_cell_by_name_error(mocker, globals):
     'description': ['Desc One'],
     'label': ['Lable 1'],
     'organizations': [''],
-    'assignedPersons': [''], 
+    'people': [''], 
     'role': ['Investigator']
   }
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
