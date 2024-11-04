@@ -55,6 +55,8 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Identifiers sheet
 - Study Amendments sheet
 - Study Design sheet
+- Study Design Arms sheet
+- Study Design Epochs sheet
 - One or more Timeline sheets
 - Study Design Timing sheet
 - Study Design Activities sheet (optional)
@@ -68,11 +70,13 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Procedures sheet
 - Study Design Encounters sheet
 - Study Design Elements sheet
-- Document Template sheets
+- One or more Document Template sheets
 - Document Content sheet
 - Study Design Sites sheet (optional)
 - Notes Sheet (optional)
 - Abbreviations Sheet (optional)
+- People Sheet (optional)
+- Roles Sheet (optional)
 - Dictionaries Sheet
 - Configuration sheet
 
