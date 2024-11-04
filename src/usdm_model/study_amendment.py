@@ -1,14 +1,23 @@
 from typing import Union, List, Literal
 from .api_base_model import ApiBaseModelWithId
 from .study_amendment_reason import StudyAmendmentReason
-from .geographic_scope import SubjectEnrollment
+from .study_change import StudyChange
+from .study_amendment_impact import StudyAmendmentImpact
+from .geographic_scope import GeographicScope
+from .subject_enrollment import SubjectEnrollment
+from .governance_date import GovernanceDate
+from .comment_annotation import CommentAnnotation
 
 class StudyAmendment(ApiBaseModelWithId):
   number: str
   summary: str
-  substantialImpact: bool
   primaryReason: StudyAmendmentReason
   secondaryReasons: List[StudyAmendmentReason] = []
-  enrollments: List[SubjectEnrollment]
+  changes: List[StudyChange]
+  impacts: List[StudyAmendmentImpact] = []
+  geographicScopes: List[GeographicScope]
+  enrollments: List[SubjectEnrollment] = []
+  dateValues: List[GovernanceDate] = []
   previousId: Union[str, None] = None
+  notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyAmendment']

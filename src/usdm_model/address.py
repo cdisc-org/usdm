@@ -1,10 +1,10 @@
-from typing import Literal, Union
+from typing import Literal, Union, List
 from .api_base_model import ApiBaseModelWithId
 from .code import Code
 
 class Address(ApiBaseModelWithId):
   text: Union[str, None] = None
-  line: Union[str, None] = None
+  lines: List[str] = []
   city: Union[str, None] = None
   district: Union[str, None] = None
   state: Union[str, None] = None
