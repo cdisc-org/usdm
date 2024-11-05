@@ -520,3 +520,99 @@ def test__to_int(mocker, globals):
   base = BaseSheet("", globals, "sheet")
   assert(base._to_int("4")) == 4
   assert(base._to_int("dd")) == None
+
+def test_read_address_cell_by_name(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'address': [
+    'line1, district, city, state, postal code, USA',
+    'line1, line2, district, city, state, postal code, USA',
+    'line1| line2| district| city| state| postal code| USA',
+    ]
+  }
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  mock_json = mocker.patch("json.load")
+  mock_json.side_effect=[{}, {}, {}]
+  expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="USA")
+  mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
+  mock_code.side_effect=[expected_1, expected_1, expected_1]
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+  mock_id.side_effect=['Addr_1', 'Addr_2', 'Addr_3']
+  base = BaseSheet("", globals, "sheet")
+  mock_ta = mocker.patch("usdm_excel.base_sheet.BaseSheet._to_address")
+  mock_ta.side_effect=['success', 'success', 'success']
+  assert base.read_address_cell_by_name(0, 'address') == 'success'
+  assert base.read_address_cell_by_name(1, 'address') == 'success'
+  assert base.read_address_cell_by_name(2, 'address') == 'success'
+  assert mock_ta.call_count == 3
+  expected = [
+    mocker.call('Addr_1', lines=['line1'], district='district', city='city', state='state', postal_code='postal code', country=expected_1),
+    mocker.call('Addr_2', lines=['line1', 'line2'], district='district', city='city', state='state', postal_code='postal code', country=expected_1),
+    mocker.call('Addr_3', lines=['line1', 'line2'], district='district', city='city', state='state', postal_code='postal code', country=expected_1),
+  ]
+  mock_ta.assert_has_calls(expected)
+
+def test_read_address_cell_by_name_errors(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'address': [
+    'district, city, state, postal code, USA',
+    '',
+    ]
+  }
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  mock_json = mocker.patch("json.load")
+  mock_json.side_effect=[{}, {}, {}]
+  expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="USA")
+  mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
+  mock_code.side_effect=[expected_1, expected_1, expected_1]
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+  mock_id.side_effect=['Addr_1', 'Addr_2', 'Addr_3']
+  base = BaseSheet("", globals, "sheet")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  assert base.read_address_cell_by_name(0, 'address') == None
+  assert base.read_address_cell_by_name(1, 'address') == None
+  assert base.read_address_cell_by_name(1, 'address', True) == None
+  assert mock_error.call_count == 2
+  expected = [
+    mocker.call('sheet', 1, 1, "Address 'district, city, state, postal code, USA' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 5 found", 40),
+    mocker.call('sheet', 2, 1, "Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40),
+  ]
+  mock_error.assert_has_calls(expected)
+
+def test__to_address(mocker, globals):
+  code = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="USA")
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {}
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  base = BaseSheet("", globals, "sheet")
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  result = base._to_address('Addr_1', ['line 1'], 'city', 'district', 'state', 'postal code', code)
+  expected = {
+    'city': 'city',
+    'country': {'code': 'code',
+               'codeSystem': 'codesys',
+               'codeSystemVersion': '3',
+               'decode': 'USA',
+               'id': 'Code1',
+               'instanceType': 'Code'},
+    'district': 'district',
+    'id': 'Addr_1',
+    'instanceType': 'Address',
+    'lines': ['line 1'],
+    'postalCode': 'postal code',
+    'state': 'state',
+    'text': 'line 1, city, district, state, postal code, USA)'
+  }
+  assert result.model_dump() == expected
+  result = base._to_address('', ['line 1'], 'city', 'district', 'state', 'postal code', code)
+  assert result == None
+  assert mock_error.call_count == 1
+  expected = [
+    mocker.call('sheet', None, None, "Exception. Failed to create Address object. See log for additional details.", 40),
+  ]
+  mock_error.assert_has_calls(expected)

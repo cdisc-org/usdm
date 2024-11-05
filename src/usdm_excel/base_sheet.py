@@ -200,29 +200,29 @@ class BaseSheet():
     else:
       sep = ','
       parts = self._state_split(raw_address)
-    if len(parts) == 6:
+    if len(parts) >= 6:
       result = self._to_address(
           self.globals.id_manager.build_id(Address),
-          line=parts[0].strip(), 
-          district=parts[1].strip(), 
-          city=parts[2].strip(), 
-          state=parts[3].strip(), 
-          postal_code=parts[4].strip(), 
-          country=ISO3166(self.globals).code(parts[5].strip())
+          lines=[x.strip() for x in parts[:-5]], 
+          district=parts[-5].strip(), 
+          city=parts[-4].strip(), 
+          state=parts[-3].strip(), 
+          postal_code=parts[-2].strip(), 
+          country=ISO3166(self.globals).code(parts[-1].strip())
         )
       return result
     elif allow_empty:
-      pass
+      return None
     else:
       col_index = self.column_present(field_name)
-      self._error(row_index, col_index, f"Address '{raw_address}' does not contain the required fields (first line, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
+      self._error(row_index, col_index, f"Address '{raw_address}' does not contain the required fields (lines, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
       return None
 
-  def _to_address(self, id, line, city, district, state, postal_code, country):
-    text = "%s, %s, %s, %s, %s, %s" % (line, city, district, state, postal_code, country.decode)
-    text = text.replace(' ,', '')
+  def _to_address(self, id, lines, city, district, state, postal_code, country):
+    text = f"{(', ').join(lines)}, {city}, {district}, {state}, {postal_code}, {country.decode})"
+    #text = text.replace(' ,', '')
     try:
-      result = Address(id=id, text=text, line=line, city=city, district=district, state=state, postalCode=postal_code, country=country)
+      result = Address(id=id, text=text, lines=lines, city=city, district=district, state=state, postalCode=postal_code, country=country)
     except Exception as e:
       self._general_exception(f"Failed to create Address object", e)
       result = None

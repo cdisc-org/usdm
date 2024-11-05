@@ -1,6 +1,5 @@
 from usdm_excel.iso_3166 import ISO3166
 
-
 def test_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect=['Code_1', 'Code_2', 'Code_3']
