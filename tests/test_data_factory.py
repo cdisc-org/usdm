@@ -12,7 +12,8 @@ from usdm_model.identifier import StudyIdentifier
 from usdm_model.organization import Organization
 from usdm_model.address import Address
 from usdm_model.governance_date import GovernanceDate
-from usdm_model.geographic_scope import GeographicScope, SubjectEnrollment
+from usdm_model.geographic_scope import GeographicScope
+from usdm_model.subject_enrollment import SubjectEnrollment
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
 from usdm_model.quantity import Quantity
@@ -27,7 +28,7 @@ class MinimalStudy():
     feedback_reason = factory.item(StudyAmendmentReason, {'code': factory.cdisc_code("C99904x3", "IRB/IEC Feedback")})
     other_reason = factory.item(StudyAmendmentReason, {'code': factory.cdisc_code("C17649", "Other"), "otherReason": "Fix typographical errors"})
     subjects = factory.item(Quantity, {'value': 10.0})
-    enrollments = factory.item(SubjectEnrollment, {'type': factory.cdisc_code("C68846", "Global"), 'quantity': subjects})
+    enrollments = factory.item(SubjectEnrollment, {'name': 'ENROLL1', 'type': factory.cdisc_code("C68846", "Global"), 'quantity': subjects})
     amendment = factory.item(StudyAmendment,{"number": "1", "summary": "Updated inclusion criteria", "substantialImpact": True,
                                              "primaryReason": feedback_reason, "secondaryReasons": [other_reason], "enrollments": [enrollments]}) 
     global_scope = factory.item(GeographicScope, {'type': factory.cdisc_code("C68846", "Global")})

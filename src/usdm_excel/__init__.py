@@ -22,7 +22,7 @@ from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import S
 from usdm_excel.study_design_timing_sheet.study_design_timing_sheet import StudyDesignTimingSheet
 from usdm_excel.study_definition_document.document_content_sheet import DocumentContentSheet
 from usdm_excel.study_definition_document.document_template_sheet import DocumentTemplates, DocumentTemplateSheet
-from usdm_excel.study_design_amendment_sheet.study_design_amendment_sheet import StudyDesignAmendmentSheet
+from usdm_excel.study_amendment_sheet.study_amendment_sheet import StudyAmendmentSheet
 from usdm_excel.study_design_dictionary_sheet.study_design_dictionary_sheet import StudyDesignDictionarySheet
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import StudyDesignEligibilityCriteriaSheet
 from usdm_excel.study_design_sites_sheet.study_design_sites_sheet import StudyDesignSitesSheet
@@ -81,7 +81,7 @@ class USDMExcel():
       self.abbreviations = AbbreviationSheet(self._file_path, self._globals)
       self.study = StudySheet(self._file_path, self._globals)
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
-      self.study_amendments = StudyDesignAmendmentSheet(self._file_path, self._globals)
+      self.study_amendments = StudyAmendmentSheet(self._file_path, self._globals)
       self.study_identifiers = StudyIdentifiersSheet(self._file_path, self._globals)
       self.study_references = StudyReferencesSheet(self._file_path, self._globals)
       self.procedures = StudyDesignProcedureSheet(self._file_path, self._globals)

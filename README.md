@@ -100,7 +100,19 @@ For boolean fields the following can be used to indicate a `true` value `'Y', 'Y
 
 ### Address Values
 
-An address is of the form: ```line,district,city,state,postal_code,<country code>```. All fields are text strings except for `<country code>`. `<country code>` is either a two or three character ISO-3166 country code. Note that `|` can be used in place of the commas for backward compatibility.
+An address is of the form: ```<lines>,district,city,state,postal_code,<country code>```. All fields are text strings but note that:
+
+- `<lines>`: one or more comma separated strings. As many as needed can be included.
+- `<country code>`: `<country code>` is either a two or three character ISO-3166 country code. 
+
+Examples
+
+- ```line 1, line 2, A District, A City, A State, 12345, USA```, two lines before the district
+- ```line 1, A District, A City, A State, 12345, USA```, single line before the district
+- ```"14, X Street", A District, A City, A State, 12345, USA```, note the commas to allow a comma to be included
+- ```14, X Street| A District| A City| A State| 12345| USA```, using pipe separators, no need for quotes around the first line
+
+Note that `|` can be used in place of the commas for backward compatibility.
 
 ### Identifiers and Cross References
 
