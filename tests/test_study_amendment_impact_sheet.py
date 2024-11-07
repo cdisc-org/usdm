@@ -1,13 +1,10 @@
-import pytest
 from tests.mocks.mock_general import *
 from tests.mocks.mock_sheet import *
 from tests.mocks.mock_ids import *
-from usdm_excel.base_sheet import BaseSheet
+from tests.mocks.mock_logging import *
 from usdm_model.study_amendment_impact import StudyAmendmentImpact
 from usdm_excel.study_amendment_sheet.study_amendment_impact_sheet import StudyAmendmentImpactSheet
 from usdm_model.code import Code
-
-xfail = pytest.mark.xfail
 
 def test_create(mocker, globals):
   sheet_data = {
@@ -86,13 +83,17 @@ def test_create_empty(mocker, globals):
 
 def test_read_cell_by_name_error(mocker, globals):
   sheet_data = {
-    'name': ['A1'], 
-    'codes': ['Sponsor:X=Y']
+    'amendment': ['A1'], 
+    'substantial': [True],
+    'type': ['Y'],
   }
-  mse = mock_sheet_exception(mocker)
+  expected_1 = Code(id='Code_1', code='X', codeSystem='SPONSOR', codeSystemVersion='', decode="Y")
+  mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
+  mock_code.side_effect=[expected_1]
+  mea = mock_error_add(mocker, [None, None, None, None, None, None])
   mock_sheet_present(mocker)
   mock_sheet(mocker, globals, sheet_data)
   item = StudyAmendmentImpactSheet("", globals)
-  assert mock_called(mse)
-  x = """FormatError("Failed to detect column(s) 'type' in sheet")"""
-  assert mock_parameters_correct(mse, [mocker.call(x)])
+  assert mock_called(mea, 2)
+  mock_parameters_correct(mea, [mocker.call('amendmentImpact', 1, -1, "Error attempting to read cell 'text'. Exception: Failed to detect column(s) 'text' in sheet", 40), 
+                                mocker.call('amendmentImpact', 1, 1, "Failed to find amendment 'A1'", 40)])
