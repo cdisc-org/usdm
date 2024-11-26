@@ -2,6 +2,7 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
+from usdm_model.geographic_scope import GeographicScope
 from usdm_model.subject_enrollment import SubjectEnrollment
 from usdm_model.quantity import Quantity
 from usdm_excel.cdisc_ct import CDISCCT
@@ -24,7 +25,7 @@ class StudyAmendmentSheet(BaseSheet):
           number = self.read_cell_by_name(index, 'number')
           summary = self.read_cell_by_name(index, 'summary')
           substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
-          #notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
+          notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
           primary_reason = self._read_primary_reason_cell(index)
           primary = self._amendment_reason(primary_reason)
           secondary_reasons = self._read_secondary_reason_cell(index)
@@ -32,8 +33,7 @@ class StudyAmendmentSheet(BaseSheet):
             amendment_reason = self._amendment_reason(reason)        
             if amendment_reason:
               secondaries.append(amendment_reason)
-          enrollment = self._read_enrollment_cell(index)
-          enrollments = self._enrollments(enrollment)
+          enrollments = self._enrollments(index)
           params = {
             'number': number,
             'summary': summary,
@@ -46,17 +46,18 @@ class StudyAmendmentSheet(BaseSheet):
           if item:
             self.items.append(item)
             self.globals.cross_references.add(item.number, item)
-            #self.add_notes(item, notes)
+            self.add_notes(item, notes)
         self.items.sort(key=lambda d: int(d.number))
         self.previous_link(self.items, 'previousId')
         
     except Exception as e:
       self._sheet_exception(e)
 
-  def _enrollments(self, enrollments):
+  def _enrollments(self, index):
     results = []
-    for enrollment in enrollments:
-      item = self.create_object(SubjectEnrollment, {'type': enrollment['type'], 'code': enrollment['code'], 'quantity': enrollment['quantity']})
+    enrollments = self._read_enrollment_cell(index)
+    for enrollment in enrollments['scopes']:
+      item = self.create_object(GeographicScope, {'type': enrollment['type'], 'code': enrollment['code']})
       if item:
         results.append(item)
     return results
@@ -70,49 +71,65 @@ class StudyAmendmentSheet(BaseSheet):
     col_index = self.sheet.columns.get_loc('enrollment')
     value = self.read_cell(row_index, col_index)
     if value.strip() == "":
-      self._error(row_index, col_index, "Empty cell detected where geographic enrollment values expected")
-      return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
+      self._error(row_index, col_index, "Empty cell detected where enrollment values expected")
+      #return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': '0'}]
     else:
-      for item in self._state_split(value):
-        if item.strip().upper().startswith("GLOBAL"):
-          # If we ever find global just return the one code
-          text = item.strip()
-          parts = text.split(":")
-          if len(parts) == 2:
-            quantity = self._get_quantitiy(parts[1].strip())
-            return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None, 'quantity': quantity}]
-          else:
-            self._error(row_index, col_index, f"Failed to decode enrollment data {item}, no '=' detected")
-          return 
-        else: 
-          code = None
-          if item.strip():
-            outer_parts = item.split(":")
-            if len(outer_parts) == 2:
-              system = outer_parts[0].strip()
-              value = outer_parts[1].strip()
-              name_value = value.split('=')
-              if len(name_value) == 2:
-                quantity = self._get_quantitiy(name_value[1].strip())
-                if system.upper() == "REGION":
-                  pt = 'Region'
-                  code = ISO3166(self.globals).region_code(value)
-                elif system.upper() == "COUNTRY":
-                  pt = 'Country'
-                  code = ISO3166(self.globals).code(value)
-                else:
-                  self._error(row_index, col_index, f"Failed to decode geographic enrollment data {name_value}, must be either Region or Country using ISO3166 codes")
-              else:
-                self._error(row_index, col_index, f"Failed to decode geographic enrollment data {name_value}, no '=' detected")
-            else:
-              self._error(row_index, col_index, f"Failed to decode geographic enrollment data {outer_parts}, no ':' detected")
-          else:
-            self._error(row_index, col_index, f"Failed to decode geographic enrollment data {item}, appears empty")
+      for item in self._state_split(value, row_index, col_index):
+        key_value = self._key_value(item)
+        if key_value[0] == "COHORT":
+          pass
+        elif key_value[0] == "SITE":
+          pass
+        elif key_value[0] == "GLOBAL":
+          quantity = self._get_quantity(key_value[1])
+          scope = self._scope('Global', None)
+          result.append(self._enrollment(quantity, scope=scope))
+        elif key_value[0] == "REGION": 
+          code, quantity = self._country_region(key_value[1], row_index, col_index)
           if code:
-            result.append({'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', pt), 'code': Alias(self.globals).code(code, []), 'quantity': quantity})
-      return result
+            scope = self._scope('Region', code)
+            result.append(self._enrollment(quantity, scope=scope))
+        elif key_value[0] == "COUNTRY": 
+          code, quantity = self._country_region(key_value[1], row_index, col_index)
+          if code:
+            scope = self._scope('Country', code)
+            result.append(self._enrollment(quantity, scope=scope))
+    return result
 
-  def _get_quantitiy(self, text):
+  def _scope(self, code, type):
+    scope_type = CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', type)
+    return self.create_object(GeographicScope, {'type': scope_type, 'code': Alias(self.globals).code(code, [])})
+
+  def _enrollment(self, quantity, **kwargs):
+    applies_to = None
+    applies_to_id = None
+    if 'scope' in kwargs:
+      applies_to = kwargs['scope']
+    if 'cohort' in kwargs:
+      applies_to_id = kwargs['cohort']
+    if 'site' in kwargs:
+      applies_to_id = kwargs['site']
+    return self.create_object(SubjectEnrollment, {'name': "", 'quantity': quantity, 'appliesTo': applies_to, 'appliesToId': applies_to_id})
+
+  def _key_value(self, text: str, row_index: int, col_index: int):
+    if text.strip():
+      parts = text.split(":")
+      if len(parts) == 2:
+        return [parts[0].strip().upper(), parts[1].strip()]
+    self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing ':'?")
+    return ['', '']
+
+  def _country_region(self, text: str, row_index: int, col_index: int):
+    name_value = text.split('=')
+    if len(name_value) == 2:
+      quantity = self._get_quantity(name_value[1].strip())
+      code = ISO3166(self.globals).region_code(name_value[0].strip())
+      return code, quantity
+    else:
+      self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing '='?")
+      return None, None
+
+  def _get_quantity(self, text):
     quantity = QuantityType(text, self.globals, True, False)
     unit = Alias(self.globals).code(quantity.units_code, [])
     return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
