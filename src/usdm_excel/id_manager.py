@@ -78,7 +78,9 @@ class IdManager():
       'Strength': 0,
       'AssignedPerson': 0,
       'StudyRole': 0,
-      'StudyAmendmentImpact': 0
+      'StudyAmendmentImpact': 0,
+      'StudyChange': 0,
+      'DocumentContentReference': 0
     }
 
   def build_id(self, klass):
