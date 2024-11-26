@@ -1,4 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
+from usdm_excel.iso_3166 import ISO3166
 from usdm_model.study_site import StudySite
 from usdm_model.organization import Organization
 from usdm_excel.globals import Globals
@@ -19,7 +20,8 @@ class StudyDesignSitesSheet(BaseSheet):
           site_name = self.read_cell_by_name(index, 'siteName')
           site_description = self.read_cell_by_name(index, 'siteDescription')
           site_label = self.read_cell_by_name(index, 'siteLabel')
-          site = self.create_object(StudySite, {'name': site_name, 'description': site_description, 'label': site_label})
+          site_country = ISO3166(self.globals).code(self.read_cell_by_name(index, 'siteCountry'))
+          site = self.create_object(StudySite, {'name': site_name, 'description': site_description, 'label': site_label, 'country': site_country})
           if site:
             self.sites.append(site)
             self.globals.cross_references.add(site.name, site)     
@@ -41,3 +43,5 @@ class StudyDesignSitesSheet(BaseSheet):
     except Exception as e:
       self._sheet_exception(e)
 
+  def _site_country(self, index: int):
+    return 
