@@ -55,7 +55,7 @@ def test_create(mocker, globals):
         ],
         'postalCode': 'postal_code',
         'state': 'state',
-        'text': 'line, city, district, state, postal_code, GBR)',
+        'text': 'line, city, district, state, postal_code, GBR',
     },
     'managedSites': [
       {
@@ -108,7 +108,7 @@ def test_create(mocker, globals):
         ],
         'postalCode': 'postal_code2',
         'state': 'state2',
-        'text': 'line2, city2, district2, state2, postal_code2, FRA)',
+        'text': 'line2, city2, district2, state2, postal_code2, FRA',
     },
     'managedSites': [
       {
