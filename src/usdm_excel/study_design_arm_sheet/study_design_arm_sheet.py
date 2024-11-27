@@ -22,7 +22,7 @@ class StudyDesignArmSheet(BaseSheet):
         item = self.create_object(StudyArm, {'name': name, 'description': description, 'label': label, 'type': arm_type, 'dataOriginDescription': arm_origin_description, 'dataOriginType': arm_origin_type})
         if item:
           self.items.append(item)
-          self.globals.cross_references.get(name, item)
+          self.globals.cross_references.add(name, item)
           self.add_notes(item, notes)
     except Exception as e:
       self._sheet_exception(e)
