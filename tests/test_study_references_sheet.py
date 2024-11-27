@@ -9,7 +9,7 @@ def test_create(mocker, globals):
   org_1 = ('{"id": "Org_1", "name": "ClinicalTrials.gov", "label": "CT.gov Study Registry", '
              '"type": {"id": "Code_1", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
              '"identifierScheme": "USGOV", "identifier": "CT-GOV", '
-             '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "line": "line", "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
+             '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "lines": ["line"], "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
                '"country": {"id": "Code_2", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
                '"instanceType": "Address"}, '
              '"managedSites": [], '
@@ -22,7 +22,7 @@ def test_create(mocker, globals):
   org_2 = ('{"id": "Org_2", "name": "ClinicalTrials2.gov", "label": "CT.gov Registry", '
              '"type": {"id": "Code_4", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
              '"identifierScheme": "USGOV2", "identifier": "CT-GOV2", '
-             '"legalAddress": {"id": "Addr_2", "text": "line2, city2, district2, state2, postal_code2, Denmark", "line": "line2", "city": "city2", "district": "district2", "state": "state2", "postalCode": "postal_code2", '
+             '"legalAddress": {"id": "Addr_2", "text": "line2, city2, district2, state2, postal_code2, Denmark", "lines": ["line2"], "city": "city2", "district": "district2", "state": "state2", "postalCode": "postal_code2", '
                '"country": {"id": "Code_5", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
                '"instanceType": "Address"}, '
              '"managedSites": [], '
@@ -59,7 +59,7 @@ def test_error(mocker, globals):
   assert mock_error.call_count == 3
   errors = [
     mocker.call('studyReferences', 1, 5, 'Empty cell detected where CDISC CT value expected.', 40),
-    mocker.call('studyReferences', 1, 7, "Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40),
+    mocker.call('studyReferences', 1, 7, "Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40),
     mocker.call('studyReferences', None, None, 'Exception. Failed to create Organization object. See log for additional details.', 40)
   ]
   mock_error.assert_has_calls(errors)

@@ -219,7 +219,7 @@ class BaseSheet():
       return None
 
   def _to_address(self, id, lines, city, district, state, postal_code, country):
-    text = f"{(', ').join(lines)}, {city}, {district}, {state}, {postal_code}, {country.decode})"
+    text = f"{(', ').join(lines)}, {city}, {district}, {state}, {postal_code}, {country.decode}"
     #text = text.replace(' ,', '')
     try:
       result = Address(id=id, text=text, lines=lines, city=city, district=district, state=state, postalCode=postal_code, country=country)

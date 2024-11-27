@@ -606,7 +606,7 @@ def test__to_address(mocker, globals):
     'lines': ['line 1'],
     'postalCode': 'postal code',
     'state': 'state',
-    'text': 'line 1, city, district, state, postal code, USA)'
+    'text': 'line 1, city, district, state, postal code, USA'
   }
   assert result.model_dump() == expected
   result = base._to_address('', ['line 1'], 'city', 'district', 'state', 'postal code', code)

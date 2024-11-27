@@ -8,7 +8,7 @@ def test_success(mocker, globals):
   expected = ( '{"id": "Org_1", "name": "ClinicalTrials.gov", "label": "", '
                '"type": {"id": "Code_1", "code": "C93453", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Study Registry", "instanceType": "Code"}, '
                '"identifierScheme": "USGOV", "identifier": "CT-GOV", '
-               '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "line": "line", "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
+               '"legalAddress": {"id": "Addr_1", "text": "line, city, district, state, postal_code, Denmark", "lines": ["line"], "city": "city", "district": "district", "state": "state", "postalCode": "postal_code", '
                  '"country": {"id": "Code_2", "code": "DNK", "codeSystem": "ISO 3166 1 alpha3", "codeSystemVersion": "2020-08", "decode": "Denmark", "instanceType": "Code"}, '
                  '"instanceType": "Address"}, '
                '"managedSites": [], '
@@ -34,7 +34,7 @@ def test_no_address(mocker, globals):
   item = get_organization(base, 0)
   assert str(item.to_json()) == expected
   assert mock_error.call_count == 1
-  mock_error.assert_has_calls([mocker.call('sheet', 1, 6, "Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40)])
+  mock_error.assert_has_calls([mocker.call('sheet', 1, 6, "Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found", 40)])
 
 def test_organization_error(mocker, globals):
   ids = ['Code_1', 'Addr_1', 'Code_2', 'Org_1']

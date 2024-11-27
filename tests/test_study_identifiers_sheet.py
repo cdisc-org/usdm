@@ -152,4 +152,4 @@ def test_address_error(mocker, globals):
   assert mock_error.call_args[0][0] == "studyIdentifiers"
   assert mock_error.call_args[0][1] == 1
   assert mock_error.call_args[0][2] == 6
-  assert mock_error.call_args[0][3] == "Address 'line|city|district|state|GBR' does not contain the required fields (first line, district, city, state, postal code and country code) using '|' separator characters, only 5 found"
+  assert mock_error.call_args[0][3] == "Address 'line|city|district|state|GBR' does not contain the required fields (lines, district, city, state, postal code and country code) using '|' separator characters, only 5 found"
