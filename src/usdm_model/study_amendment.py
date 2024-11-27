@@ -13,7 +13,7 @@ class StudyAmendment(ApiBaseModelWithId):
   summary: str
   primaryReason: StudyAmendmentReason
   secondaryReasons: List[StudyAmendmentReason] = []
-  changes: List[StudyChange]
+  changes: List[StudyChange] = [] # Not in API
   impacts: List[StudyAmendmentImpact] = []
   geographicScopes: List[GeographicScope]
   enrollments: List[SubjectEnrollment] = []
