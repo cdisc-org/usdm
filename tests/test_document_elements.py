@@ -10,7 +10,7 @@ def elements(mocker, factory: FactoryClass, minimal: MinimalStudy) -> Elements:
   return Elements(sheet, minimal.study_version, minimal.study_definition_document_version)
 
 def test_phase(elements):
-  assert elements.study_phase() == '<usdm:ref klass="Code" id="Code_9" attribute="decode"/>'
+  assert elements.study_phase() == '<usdm:ref klass="Code" id="Code_10" attribute="decode"/>'
 
 def test_short_title(elements):
   assert elements.study_short_title() == '<usdm:ref klass="StudyTitle" id="StudyTitle_2" attribute="text"/>'
@@ -52,4 +52,4 @@ def test_amendment(elements):
   assert elements.amendment() == '<usdm:ref klass="StudyAmendment" id="StudyAmendment_1" attribute="number"/>'
 
 def test_amendment_scopes(elements):
-  assert elements.amendment_scopes() == '<usdm:ref klass="Code" id="Code_3" attribute="decode"/>'
+  assert elements.amendment_scopes() == '<usdm:ref klass="Code" id="Code_4" attribute="decode"/>'

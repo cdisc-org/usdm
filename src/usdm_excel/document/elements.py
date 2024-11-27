@@ -112,7 +112,7 @@ class Elements():
     amendments = self._study_version.amendments
     if amendments:
       amendment = self._study_version.amendments[-1]
-      for item in amendment.enrollments:
+      for item in amendment.geographicScopes:
         if item.type.code == "C68846":
           results = [{'instance': item.type, 'klass': 'Code', 'attribute': 'decode'}]
           return self._set_of_references(results)
