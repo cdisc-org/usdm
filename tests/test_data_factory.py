@@ -28,9 +28,11 @@ class MinimalStudy():
     feedback_reason = factory.item(StudyAmendmentReason, {'code': factory.cdisc_code("C99904x3", "IRB/IEC Feedback")})
     other_reason = factory.item(StudyAmendmentReason, {'code': factory.cdisc_code("C17649", "Other"), "otherReason": "Fix typographical errors"})
     subjects = factory.item(Quantity, {'value': 10.0})
-    enrollments = factory.item(SubjectEnrollment, {'name': 'ENROLL1', 'type': factory.cdisc_code("C68846", "Global"), 'quantity': subjects})
+    enrollment = factory.item(SubjectEnrollment, {'name': 'ENROLL1', 'type': factory.cdisc_code("C68846", "Global"), 'quantity': subjects})
+    geo_scope = factory.item(GeographicScope, {'type': factory.cdisc_code("C68846", "Global")})
     amendment = factory.item(StudyAmendment,{"number": "1", "summary": "Updated inclusion criteria", "substantialImpact": True,
-                                             "primaryReason": feedback_reason, "secondaryReasons": [other_reason], "enrollments": [enrollments]}) 
+                                             "primaryReason": feedback_reason, "secondaryReasons": [other_reason], "enrollments": [enrollment], 
+                                             "geographicScopes": [geo_scope]}) 
     global_scope = factory.item(GeographicScope, {'type': factory.cdisc_code("C68846", "Global")})
     europe_code = factory.alias_code(factory.geo_code('150', 'Europe'), [])
     europe_scope = factory.item(GeographicScope, {'type': factory.cdisc_code("C41129", "Region"), "code": europe_code})
