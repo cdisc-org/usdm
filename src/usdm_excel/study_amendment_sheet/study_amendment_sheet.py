@@ -2,13 +2,13 @@ import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
-from usdm_model.geographic_scope import GeographicScope
 from usdm_model.subject_enrollment import SubjectEnrollment
 from usdm_model.quantity import Quantity
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.iso_3166 import ISO3166
 from usdm_excel.alias import Alias
 from usdm_excel.quantity_type import QuantityType
+from usdm_model.governance_date import GovernanceDate
 from usdm_excel.globals import Globals
 
 class StudyAmendmentSheet(BaseSheet):
@@ -23,7 +23,8 @@ class StudyAmendmentSheet(BaseSheet):
         for index, row in self.sheet.iterrows():
           secondaries = []
           number = self.read_cell_by_name(index, 'number')
-          amendment_date = self.read_date_cell_by_name(index, 'date')
+          date_name = self.read_cell_by_name(index, 'date', must_be_present=False)
+          date = self.globals.cross_references.get(GovernanceDate, date_name)
           summary = self.read_cell_by_name(index, 'summary')
           #substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
           notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
@@ -35,7 +36,7 @@ class StudyAmendmentSheet(BaseSheet):
             if amendment_reason:
               secondaries.append(amendment_reason)
           enrollments = self._read_enrollment_cell(index)
-          scopes = self.read_geographic_scopes_cell(index)
+          scopes = self.read_geographic_scopes_cell_by_name(index, 'geographicScope')
           params = {
             'number': number,
             'summary': summary,
@@ -43,7 +44,8 @@ class StudyAmendmentSheet(BaseSheet):
             'primaryReason': primary,
             'secondaryReasons': secondaries,
             'enrollments': enrollments,
-            'geographicScopes': scopes
+            'geographicScopes': scopes,
+            'dateValues': [date] if date else []
           }
           item = self.create_object(StudyAmendment, params)
           if item:
@@ -88,11 +90,6 @@ class StudyAmendmentSheet(BaseSheet):
             scope = self._scope('Country', code)
             result.append(self._enrollment(quantity, scope=scope))
     return result
-
-  def _scope(self, type, code):
-    scope_type = CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', type)
-    alias = Alias(self.globals).code(code, []) if code else None
-    return self.create_object(GeographicScope, {'type': scope_type, 'code': alias})
 
   def _enrollment(self, quantity, **kwargs):
     applies_to = None

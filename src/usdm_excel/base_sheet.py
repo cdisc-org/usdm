@@ -15,6 +15,7 @@ from usdm_model.comment_annotation import CommentAnnotation
 from usdm_excel.alias import Alias
 from usdm_excel.option_manager import EmptyNoneOption
 from usdm_excel.globals import Globals
+from usdm_model.geographic_scope import GeographicScope
 
 class BaseSheet():
 
@@ -160,9 +161,10 @@ class BaseSheet():
   def read_date_cell(self, row_index, col_index, must_be_present=True):
     cell = self.read_cell(row_index, col_index)
     try:
+      print(f"DATE: {cell}")
       return datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
     except Exception as e:
-      self._error(row_index, col_index, "Error (%s) reading date cell row '%s', field '%s'" % (e, row_index, col_index))
+      self._exception(row_index, col_index, "Error reading date cell", e)
       return None
 
   def read_quantity_cell_by_name(self, row_index, field_name, allow_missing_units=True, allow_empty=True):
@@ -180,7 +182,7 @@ class BaseSheet():
         self._add_errors(quantity.errors, row_index, col_index)
         return None
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Failed to decode quantity data '{text}'", e, self.sheet_name, row_index, col_index)
+      self._error( row_index, col_index, f"Failed to decode quantity data '{text}'", e)
       return None
 
   def read_range_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):
@@ -198,7 +200,7 @@ class BaseSheet():
         self._add_errors(range.errors, row_index, col_index)
         return None
     except Exception as e:
-      self.globals.errors_and_logging.exception(f"Failed to decode range data '{text}'", e, self.sheet_name, row_index, col_index)
+      self._error( row_index, col_index, f"Failed to decode quantity data '{text}'", e)
       return None
 
   def read_address_cell_by_name(self, row_index, field_name, allow_empty=False):
@@ -256,6 +258,9 @@ class BaseSheet():
           if code:
             scope = self._scope('Country', code)
             result.append(scope)
+        else:
+          self._warning(row_index, col_index, f"Failed to decode geographic scope '{value}'. Formats are 'Global', 'Region: <value>' or 'Country: <value>'. Assuming global scope.")
+          result.append(self._scope('Global', None))
     return result
 
   def _key_value(self, text: str, row_index: int, col_index: int, allow_single=False):
@@ -265,7 +270,7 @@ class BaseSheet():
         return [parts[0].strip().upper(), parts[1].strip()]
       elif len(parts) == 1 and allow_single:
         return [parts[0].strip().upper(), '']
-    self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing ':'?")
+    self._error(row_index, col_index, f"Failed to decode key value pair '{text}', incorrect format, missing ':'?")
     return ['', '']
 
   def _country_region_quantity(self, text: str, type: str, row_index: int, col_index: int):
@@ -285,6 +290,11 @@ class BaseSheet():
     quantity = QuantityType(text, self.globals, True, False)
     unit = Alias(self.globals).code(quantity.units_code, [])
     return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
+
+  def _scope(self, type, code):
+    scope_type = CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', type)
+    alias = Alias(self.globals).code(code, []) if code else None
+    return self.create_object(GeographicScope, {'type': scope_type, 'code': alias})
 
   def _to_address(self, id, lines, city, district, state, postal_code, country):
     text = f"{(', ').join(lines)}, {city}, {district}, {state}, {postal_code}, {country.decode}"

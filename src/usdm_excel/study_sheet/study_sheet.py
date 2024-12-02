@@ -35,11 +35,12 @@ class StudySheet(BaseSheet):
 
   STUDY_VERSION_DATE = 'study_version'
   PROTOCOL_VERSION_DATE = 'protocol_document'
+  AMENDMENT_DATE = 'amendment'
 
   def __init__(self, file_path: str, globals: Globals):
     try:
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
-      self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE]
+      self.date_categories = [self.STUDY_VERSION_DATE, self.PROTOCOL_VERSION_DATE, self.AMENDMENT_DATE]
       self.phase = None
       self.version = None
       self.type = None
@@ -122,17 +123,6 @@ class StudySheet(BaseSheet):
             cell = self.read_cell(rindex, cindex)
             record[field] = cell
         try:
-          scopes = []
-          for scope in record['scopes']:
-            scope = GeographicScope(
-              id=self.globals.id_manager.build_id(GeographicScope), 
-              type=scope['type'], 
-              code=scope['code']
-            )
-            scopes.append(scope)
-        except Exception as e:
-          self._general_exception(f"Failed to create GeographicScope object", e)
-        try:
           date = GovernanceDate(
             id=self.globals.id_manager.build_id(GovernanceDate),
             name=record['name'],
@@ -140,7 +130,7 @@ class StudySheet(BaseSheet):
             description=record['description'],
             type=record['type'],
             dateValue=record['date'],
-            geographicScopes=scopes
+            geographicScopes=record['scopes']
           )
           self.dates[category].append(date)
           self.globals.cross_references.add(record['name'], date)
