@@ -24,7 +24,7 @@ class StudyAmendmentSheet(BaseSheet):
           secondaries = []
           number = self.read_cell_by_name(index, 'number')
           summary = self.read_cell_by_name(index, 'summary')
-          substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
+          #substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
           notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
           primary_reason = self._read_primary_reason_cell(index)
           primary = self._amendment_reason(primary_reason)
@@ -38,7 +38,7 @@ class StudyAmendmentSheet(BaseSheet):
           params = {
             'number': number,
             'summary': summary,
-            'substantialImpact': substantial,
+            #'substantialImpact': substantial,
             'primaryReason': primary,
             'secondaryReasons': secondaries,
             'enrollments': enrollments,

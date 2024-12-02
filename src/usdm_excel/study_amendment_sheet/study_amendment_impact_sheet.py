@@ -13,19 +13,15 @@ class StudyAmendmentImpactSheet(BaseSheet):
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
-          print("A")
           amendment = self.read_cell_by_name(index, 'amendment')
           text = self.read_cell_by_name(index, 'text')
           substantial = self.read_boolean_cell_by_name(index, 'substantial')
           type = self.read_cdisc_klass_attribute_cell_by_name('StudyAmendmentImpact', 'type', index, 'type')
           item = self.create_object(StudyAmendmentImpact, {'text': text, 'isSubstantial': substantial, 'type': type})
-          print("B")
           if item:
-            print("C")
             self.items.append(item)
             parent = self.globals.cross_references.get(StudyAmendment, amendment)
             if parent:
-              print("D")
               parent.impacts.append(item)
             else:
               column = self._get_column_index('amendment')
