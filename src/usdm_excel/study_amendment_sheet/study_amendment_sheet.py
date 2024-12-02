@@ -23,6 +23,7 @@ class StudyAmendmentSheet(BaseSheet):
         for index, row in self.sheet.iterrows():
           secondaries = []
           number = self.read_cell_by_name(index, 'number')
+          amendment_date = self.read_date_cell_by_name(index, 'date')
           summary = self.read_cell_by_name(index, 'summary')
           #substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
           notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
@@ -34,7 +35,7 @@ class StudyAmendmentSheet(BaseSheet):
             if amendment_reason:
               secondaries.append(amendment_reason)
           enrollments = self._read_enrollment_cell(index)
-          scopes = self._read_geographic_scopes_cell(index)
+          scopes = self.read_geographic_scopes_cell(index)
           params = {
             'number': number,
             'summary': summary,
@@ -88,30 +89,6 @@ class StudyAmendmentSheet(BaseSheet):
             result.append(self._enrollment(quantity, scope=scope))
     return result
 
-  def _read_geographic_scopes_cell(self, row_index):
-    result = []
-    col_index = self.sheet.columns.get_loc('geographicScope')
-    value = self.read_cell(row_index, col_index, default='')
-    if value.strip() == '':
-      self._warning(row_index, col_index, "Empty cell detected where geographic scope values expected, assuming global scope.")
-      result.append(self._scope('Global', None))
-    else:
-      for item in self._state_split(value):
-        key_value = self._key_value(item, row_index, col_index, allow_single=True)
-        if key_value[0] == "GLOBAL":
-          result.append(self._scope('Global', None))
-        elif key_value[0] == "REGION": 
-          code = self._country_region(key_value[1], 'Region')
-          if code:
-            scope = self._scope('Region', code)
-            result.append(scope)
-        elif key_value[0] == "COUNTRY": 
-          code = self._country_region(key_value[1], 'Country')
-          if code:
-            scope = self._scope('Country', code)
-            result.append(scope)
-    return result
-
   def _scope(self, type, code):
     scope_type = CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', type)
     alias = Alias(self.globals).code(code, []) if code else None
@@ -127,34 +104,6 @@ class StudyAmendmentSheet(BaseSheet):
     if 'site' in kwargs:
       applies_to_id = kwargs['site']
     return self.create_object(SubjectEnrollment, {'name': "XXX", 'quantity': quantity, 'appliesTo': applies_to, 'appliesToId': applies_to_id})
-
-  def _key_value(self, text: str, row_index: int, col_index: int, allow_single=False):
-    if text.strip():
-      parts = text.split(":")
-      if len(parts) == 2:
-        return [parts[0].strip().upper(), parts[1].strip()]
-      elif len(parts) == 1 and allow_single:
-        return [parts[0].strip().upper(), '']
-    self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing ':'?")
-    return ['', '']
-
-  def _country_region_quantity(self, text: str, type: str, row_index: int, col_index: int):
-    name_value = text.split('=')
-    if len(name_value) == 2:
-      quantity = self._get_quantity(name_value[1].strip())
-      code = self._country_region(name_value[0].strip(), type)
-      return code, quantity
-    else:
-      self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing '='?")
-      return None, None
-
-  def _country_region(self, text: str, type: str):
-    return ISO3166(self.globals).region_code(text) if type == 'Region' else ISO3166(self.globals).code(text)
-
-  def _get_quantity(self, text):
-    quantity = QuantityType(text, self.globals, True, False)
-    unit = Alias(self.globals).code(quantity.units_code, [])
-    return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
 
   def _read_secondary_reason_cell(self, row_index):
     results = []

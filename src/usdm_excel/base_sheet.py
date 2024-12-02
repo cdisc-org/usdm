@@ -1,4 +1,5 @@
 import os
+import datetime
 import pandas as pd
 from openpyxl import load_workbook
 from usdm_excel.cdisc_ct import CDISCCT
@@ -152,6 +153,18 @@ class BaseSheet():
       return True
     return False
 
+  def read_date_cell_by_name(self, row_index, field_name, must_be_present=True):
+    col_index = self.column_present(field_name)
+    return self.read_date_cell(row_index, col_index, must_be_present)
+
+  def read_date_cell(self, row_index, col_index, must_be_present=True):
+    cell = self.read_cell(row_index, col_index)
+    try:
+      return datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
+    except Exception as e:
+      self._error(row_index, col_index, "Error (%s) reading date cell row '%s', field '%s'" % (e, row_index, col_index))
+      return None
+
   def read_quantity_cell_by_name(self, row_index, field_name, allow_missing_units=True, allow_empty=True):
     col_index = self.column_present(field_name)
     return self.read_quantity_cell(row_index, col_index, allow_missing_units, allow_empty)
@@ -217,6 +230,61 @@ class BaseSheet():
       col_index = self.column_present(field_name)
       self._error(row_index, col_index, f"Address '{raw_address}' does not contain the required fields (lines, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found")
       return None
+
+  def read_geographic_scopes_cell_by_name(self, row_index, field_name):
+    col_index = self.sheet.columns.get_loc(field_name)
+    return self.read_geographic_scopes_cell(row_index, col_index)
+  
+  def read_geographic_scopes_cell(self, row_index, col_index):
+    result = []
+    value = self.read_cell(row_index, col_index, default='')
+    if value.strip() == '':
+      self._warning(row_index, col_index, "Empty cell detected where geographic scope values expected, assuming global scope.")
+      result.append(self._scope('Global', None))
+    else:
+      for item in self._state_split(value):
+        key_value = self._key_value(item, row_index, col_index, allow_single=True)
+        if key_value[0] == "GLOBAL":
+          result.append(self._scope('Global', None))
+        elif key_value[0] == "REGION": 
+          code = self._country_region(key_value[1], 'Region')
+          if code:
+            scope = self._scope('Region', code)
+            result.append(scope)
+        elif key_value[0] == "COUNTRY": 
+          code = self._country_region(key_value[1], 'Country')
+          if code:
+            scope = self._scope('Country', code)
+            result.append(scope)
+    return result
+
+  def _key_value(self, text: str, row_index: int, col_index: int, allow_single=False):
+    if text.strip():
+      parts = text.split(":")
+      if len(parts) == 2:
+        return [parts[0].strip().upper(), parts[1].strip()]
+      elif len(parts) == 1 and allow_single:
+        return [parts[0].strip().upper(), '']
+    self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing ':'?")
+    return ['', '']
+
+  def _country_region_quantity(self, text: str, type: str, row_index: int, col_index: int):
+    name_value = text.split('=')
+    if len(name_value) == 2:
+      quantity = self._get_quantity(name_value[1].strip())
+      code = self._country_region(name_value[0].strip(), type)
+      return code, quantity
+    else:
+      self._error(row_index, col_index, f"Failed to decode geographic enrollment data '{text}', incorrect format, missing '='?")
+      return None, None
+
+  def _country_region(self, text: str, type: str):
+    return ISO3166(self.globals).region_code(text) if type == 'Region' else ISO3166(self.globals).code(text)
+
+  def _get_quantity(self, text):
+    quantity = QuantityType(text, self.globals, True, False)
+    unit = Alias(self.globals).code(quantity.units_code, [])
+    return self.create_object(Quantity, {'value': float(quantity.value), 'unit': unit})
 
   def _to_address(self, id, lines, city, district, state, postal_code, country):
     text = f"{(', ').join(lines)}, {city}, {district}, {state}, {postal_code}, {country.decode}"

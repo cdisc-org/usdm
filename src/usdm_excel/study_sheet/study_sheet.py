@@ -1,5 +1,3 @@
-import traceback
-import datetime
 from usdm_model.governance_date import GovernanceDate
 from usdm_model.geographic_scope import GeographicScope
 from usdm_model.study_title import StudyTitle
@@ -117,10 +115,9 @@ class StudySheet(BaseSheet):
           elif field == 'type':
             record[field] = self.read_cdisc_klass_attribute_cell('GovernanceDate', 'type', rindex, cindex)
           elif field == 'date':
-            cell = self.read_cell(rindex, cindex)
-            record[field] = datetime.datetime.strptime(cell, '%Y-%m-%d %H:%M:%S')
+            record[field] = self.read_date_cell(rindex, cindex)
           elif field == 'scopes':
-            record[field] = self._read_scope_cell(rindex, cindex)
+            record[field] = self.read_geographic_scopes_cell(rindex, cindex)
           else:
             cell = self.read_cell(rindex, cindex)
             record[field] = cell
@@ -149,40 +146,6 @@ class StudySheet(BaseSheet):
           self.globals.cross_references.add(record['name'], date)
         except Exception as e:
           self._general_exception(f"Failed to create GovernanceDate object", e)
-
-  def _read_scope_cell(self, row_index, col_index):
-    result = []
-    value = self.read_cell(row_index, col_index)
-    if value.strip() == "":
-      self._error(row_index, col_index, "Empty cell detected where multiple geographic scope CT values expected")
-      return result
-    else:
-      for item in self._state_split(value):
-        if item.upper().strip() == "GLOBAL":
-          # If we ever find global just return the one code
-          return [{'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', 'Global'), 'code': None}]
-        else: 
-          code = None
-          if item.strip():
-            outer_parts = item.split(":")
-            if len(outer_parts) == 2:
-              system = outer_parts[0].strip()
-              value = outer_parts[1].strip()
-              if system.upper() == "REGION":
-                pt = 'Region'
-                code = ISO3166(self.globals).region_code(value)
-              elif system.upper() == "COUNTRY":
-                pt = 'Country'
-                code = ISO3166(self.globals).code(value)
-              else:
-                self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, must be either Global, Region using UN M49 codes, or Country using ISO3166 codes")
-            else:
-              self._error(row_index, col_index, f"Failed to decode geographic scope data {outer_parts}, no ':' detected")
-          else:
-            self._error(row_index, col_index, f"Failed to decode geographic scope data {item}, appears empty")
-          if code:
-            result.append({'type': CDISCCT(self.globals).code_for_attribute('GeographicScope', 'type', pt), 'code':  Alias(self.globals).code(code, [])})
-      return result
 
   def _set_title(self, rindex, cindex, title_type):
     # if self.globals.option_manager.get(Options.USDM_VERSION) == '2':

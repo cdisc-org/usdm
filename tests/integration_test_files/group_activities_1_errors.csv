@@ -1,7 +1,11 @@
 sheet,row,column,message,level
-studyIdentifiers,3,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
-studyIdentifiers,4,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
-studyIdentifiers,5,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyAmendments,,,Exception. Error ['geographicScope'] while reading sheet 'studyAmendments'. See log for additional details.,Error
+studyIdentifiers,3,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyIdentifiers,4,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyIdentifiers,5,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
 mainTimeline,19,2,"Both parent 'Mistake' and child activity 'Something Else' found, child has been ignored",Warning
 mainTimeline,19,3,"No activity 'Mistake' found, so one has been created",Warning
 mainTimeline,,,Unable to find activity 'Something Else' when adding to schedule instance,Warning
+studyDesignSites,1,-1,Error attempting to read cell 'siteCountry'. Exception: Failed to detect column(s) 'siteCountry' in sheet,Error
+studyDesignSites,2,-1,Error attempting to read cell 'siteCountry'. Exception: Failed to detect column(s) 'siteCountry' in sheet,Error
+studyDesignSites,3,-1,Error attempting to read cell 'siteCountry'. Exception: Failed to detect column(s) 'siteCountry' in sheet,Error

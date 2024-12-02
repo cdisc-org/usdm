@@ -66,66 +66,7 @@
             "instanceType": "GovernanceDate"
           }
         ],
-        "amendments": [
-          {
-            "id": "StudyAmendment_1",
-            "number": "A",
-            "summary": "<p>Protocol I8R-JE-IGBJ A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus has been amended. The new protocol is indicated by Amendment (a) and will be used to conduct the study in place of any preceding version of the protocol.</p>\n<p>The overall changes and rationale for the changes made to this protocol are as follows:</p>\n<ul>\n  <li>An exclusion criterion for patients with retinopathy or maculopathy was added due to the potential risk of fundal hemorrhage induced by hypoglycemia.</li>\n  <li>The GlucaGen reconstitution volume was changed from 1.0 mL to 1.1 mL in accordance with instructions in the Summary of Product Characteristics (2015).</li>\n</ul>",
-            "substantialImpact": true,
-            "primaryReason": {
-              "id": "StudyAmendmentReason_1",
-              "code": {
-                "id": "Code_81",
-                "code": "C99904x4",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "New Safety Information Available",
-                "instanceType": "Code"
-              },
-              "otherReason": null,
-              "instanceType": "StudyAmendmentReason"
-            },
-            "secondaryReasons": [
-              {
-                "id": "StudyAmendmentReason_2",
-                "code": {
-                  "id": "Code_82",
-                  "code": "C99904x12",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Inconsistency And/Or Error In The Protocol",
-                  "instanceType": "Code"
-                },
-                "otherReason": null,
-                "instanceType": "StudyAmendmentReason"
-              }
-            ],
-            "enrollments": [
-              {
-                "id": "SubjectEnrollment_1",
-                "type": {
-                  "id": "Code_83",
-                  "code": "C68846",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Global",
-                  "instanceType": "Code"
-                },
-                "code": null,
-                "instanceType": "SubjectEnrollment",
-                "quantity": {
-                  "id": "Quantity_1",
-                  "value": 0.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "appliesTo": null
-              }
-            ],
-            "previousId": null,
-            "instanceType": "StudyAmendment"
-          }
-        ],
+        "amendments": [],
         "businessTherapeuticAreas": [],
         "studyIdentifiers": [
           {
@@ -12200,7 +12141,7 @@
           {
             "id": "NarrativeContentItem_1",
             "name": "NCI_1",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><strong>Confidential Information</strong></p>\n<p>\n<small>\n          The information contained in this protocol is confidential and is intended for the use of clinical\n          investigators. It is the property of Eli Lilly and Company or its subsidiaries and should not be copied by\n          or distributed to persons not involved in the clinical investigation of glucagon (LY900018), unless such\n          persons are bound by a confidentiality agreement with Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n<p>\n<small>\n<b>Note to Regulatory Authorities:</b> This document may contain protected personal data and/or commercially\n          confidential information exempt from public disclosure. Eli Lilly and Company requests consultation\n          regarding release/redaction prior to any public release. In the United States, this document is subject to Freedom of\n          Information Act (FOIA) Exemption 4 and may not be reproduced or otherwise disseminated without the written\n          approval of Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p>Glucagon (LY900018)</p>\n<p>Eli Lilly Japan K.K Japan</p>\n<p>Clinical Pharmacology Protocol Electronically Signed and Approved by Lilly:</p>\n<p>26 October 2017</p>\n<p>Amendment (<usdm:ref attribute=\"number\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref>) Electronically Signed and Approved by Lilly on date provided below.</p>\n\n</div>\n</div>\n<div class=\"row\">\n<div class=\"col-md-3 offset-md-9 text-right\">\n<p>Approval Date: Missing content: invalid method name</p>\n</div>\n</div>\n</div></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><strong>Confidential Information</strong></p>\n<p>\n<small>\n          The information contained in this protocol is confidential and is intended for the use of clinical\n          investigators. It is the property of Eli Lilly and Company or its subsidiaries and should not be copied by\n          or distributed to persons not involved in the clinical investigation of glucagon (LY900018), unless such\n          persons are bound by a confidentiality agreement with Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n<p>\n<small>\n<b>Note to Regulatory Authorities:</b> This document may contain protected personal data and/or commercially\n          confidential information exempt from public disclosure. Eli Lilly and Company requests consultation\n          regarding release/redaction prior to any public release. In the United States, this document is subject to Freedom of\n          Information Act (FOIA) Exemption 4 and may not be reproduced or otherwise disseminated without the written\n          approval of Eli Lilly and Company or its subsidiaries.\n        </small>\n</p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p>Glucagon (LY900018)</p>\n<p>Eli Lilly Japan K.K Japan</p>\n<p>Clinical Pharmacology Protocol Electronically Signed and Approved by Lilly:</p>\n<p>26 October 2017</p>\n<p>Amendment () Electronically Signed and Approved by Lilly on date provided below.</p>\n\n</div>\n</div>\n<div class=\"row\">\n<div class=\"col-md-3 offset-md-9 text-right\">\n<p>Approval Date: Missing content: invalid method name</p>\n</div>\n</div>\n</div></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -12866,7 +12807,7 @@
           {
             "id": "NarrativeContentItem_112",
             "name": "NCI_112",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Summary: <usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></b><br/>\n<usdm:ref attribute=\"summary\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref>\n<p>Overview</p>\n<p>Revised Protocol Sections</p>\n<p><b>Note:</b> All deletions have been identified by strikethroughs.</p>\n<p>All additions have been identified by the use of underscore.</p>\n<p>The numbering system used for inclusion and exclusion criteria provides a unique number for each criterion and allows for efficiency in data collection.</p>\n<p>In case an amendment to the protocol adds a criterion, that criterion will receive the next available number, regardless of whether it is an inclusion or exclusion criterion.</p>\n<p><b>6.2. Exclusion Criteria</b></p>\n<p>Reference to Exclusion 36 here</p>\nMissing content: invalid method name\n<p><b>9.2.2.2. Intramuscular Glucagon Administration</b></p>\n<p>GlucaGen 1 mg for injection will be used as a comparator. The lyophilized 1 mg glucagon will be reconstituted with 1.01.1 mL diluent according to the instruction.</p></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Summary: <usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></b><br/>\nMissing content: exception\n<p>Overview</p>\n<p>Revised Protocol Sections</p>\n<p><b>Note:</b> All deletions have been identified by strikethroughs.</p>\n<p>All additions have been identified by the use of underscore.</p>\n<p>The numbering system used for inclusion and exclusion criteria provides a unique number for each criterion and allows for efficiency in data collection.</p>\n<p>In case an amendment to the protocol adds a criterion, that criterion will receive the next available number, regardless of whether it is an inclusion or exclusion criterion.</p>\n<p><b>6.2. Exclusion Criteria</b></p>\n<p>Reference to Exclusion 36 here</p>\nMissing content: invalid method name\n<p><b>9.2.2.2. Intramuscular Glucagon Administration</b></p>\n<p>GlucaGen 1 mg for injection will be used as a comparator. The lyophilized 1 mg glucagon will be reconstituted with 1.01.1 mL diluent according to the instruction.</p></div>",
             "instanceType": "NarrativeContentItem"
           }
         ],
@@ -12889,8 +12830,10 @@
             "identifier": "006421325",
             "legalAddress": {
               "id": "Address_1",
-              "text": "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG, KOBE, HYOGO, 651-0086, Japan",
-              "line": "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG",
+              "text": "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG, KOBE, HYOGO, , 651-0086, Japan",
+              "lines": [
+                "5-1-28, ISOGAMIDORI, CHUO-KU LILLY PLAZA ONE BLDG"
+              ],
               "city": "KOBE",
               "district": "HYOGO",
               "state": "",
@@ -12924,8 +12867,10 @@
             "identifier": "CT-GOV",
             "legalAddress": {
               "id": "Address_2",
-              "text": "Clinical trials, Washington, Washington DC, 12345, United States of America",
-              "line": "Clinical trials",
+              "text": "Clinical trials, Washington, , Washington DC, 12345, United States of America",
+              "lines": [
+                "Clinical trials"
+              ],
               "city": "Washington",
               "district": "",
               "state": "Washington DC",
@@ -14573,7 +14518,7 @@
     ],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.6.0",
+  "usdmVersion": "3.7.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.53.0"
+  "systemVersion": "0.54.0"
 }

@@ -64,78 +64,7 @@
             "instanceType": "GovernanceDate"
           }
         ],
-        "amendments": [
-          {
-            "id": "StudyAmendment_1",
-            "number": "1",
-            "summary": "Updated inclusion criteria",
-            "substantialImpact": true,
-            "primaryReason": {
-              "id": "StudyAmendmentReason_1",
-              "code": {
-                "id": "Code_69",
-                "code": "C99904x3",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
-                "decode": "IRB/IEC Feedback",
-                "instanceType": "Code"
-              },
-              "otherReason": null,
-              "instanceType": "StudyAmendmentReason"
-            },
-            "secondaryReasons": [
-              {
-                "id": "StudyAmendmentReason_2",
-                "code": {
-                  "id": "Code_70",
-                  "code": "C17649",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Other",
-                  "instanceType": "Code"
-                },
-                "otherReason": "Fix typographical errors",
-                "instanceType": "StudyAmendmentReason"
-              }
-            ],
-            "enrollments": [
-              {
-                "id": "SubjectEnrollment_1",
-                "type": {
-                  "id": "Code_72",
-                  "code": "C41129",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2023-12-15",
-                  "decode": "Region",
-                  "instanceType": "Code"
-                },
-                "code": {
-                  "id": "AliasCode_3",
-                  "standardCode": {
-                    "id": "Code_71",
-                    "code": "150",
-                    "codeSystem": "ISO 3166 1 alpha3",
-                    "codeSystemVersion": "2020-08",
-                    "decode": "Europe",
-                    "instanceType": "Code"
-                  },
-                  "standardCodeAliases": [],
-                  "instanceType": "AliasCode"
-                },
-                "instanceType": "SubjectEnrollment",
-                "quantity": {
-                  "id": "Quantity_1",
-                  "value": 15.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "appliesTo": null
-              }
-            ],
-            "previousId": null,
-            "instanceType": "StudyAmendment"
-          }
-        ],
+        "amendments": [],
         "businessTherapeuticAreas": [
           {
             "id": "Code_4",
@@ -10768,8 +10697,10 @@
             "identifier": "00-642-1325",
             "legalAddress": {
               "id": "Address_1",
-              "text": "Lilly Corporate Ctr, Indianapolis, IN, 4628, United States of America",
-              "line": "Lilly Corporate Ctr",
+              "text": "Lilly Corporate Ctr, Indianapolis, , IN, 4628, United States of America",
+              "lines": [
+                "Lilly Corporate Ctr"
+              ],
               "city": "Indianapolis",
               "district": "",
               "state": "IN",
@@ -10814,7 +10745,7 @@
     "documentedBy": [],
     "instanceType": "Study"
   },
-  "usdmVersion": "3.6.0",
+  "usdmVersion": "3.7.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.53.0"
+  "systemVersion": "0.54.0"
 }

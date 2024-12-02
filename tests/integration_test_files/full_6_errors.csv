@@ -1,3 +1,7 @@
 sheet,row,column,message,level
 configuration,,,The USE TEMPLATE option is now deprecated and will be ignored.,Warning
-studyIdentifiers,2,6,"Address '' does not contain the required fields (first line, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyAmendments,,,Exception. Error ['geographicScope'] while reading sheet 'studyAmendments'. See log for additional details.,Error
+studyIdentifiers,2,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+studyDesignSites,1,-1,Error attempting to read cell 'siteCountry'. Exception: Failed to detect column(s) 'siteCountry' in sheet,Error
+studyDesignSites,2,-1,Error attempting to read cell 'siteCountry'. Exception: Failed to detect column(s) 'siteCountry' in sheet,Error
+studyDesignSites,3,-1,Error attempting to read cell 'siteCountry'. Exception: Failed to detect column(s) 'siteCountry' in sheet,Error

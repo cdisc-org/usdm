@@ -2404,7 +2404,8 @@ nodes:
     district: district
     id: Address_1
     instanceType: Address
-    line: line
+    lines:
+    - line
     postalCode: postal_code
     state: state
     text: line, city, district, state, postal_code, United Kingdom of Great Britain
@@ -2414,7 +2415,8 @@ nodes:
     district: In a District
     id: Address_2
     instanceType: Address
-    line: Somewhere
+    lines:
+    - Somewhere
     postalCode: '12345'
     state: In a big state
     text: Somewhere, In a City, In a District, In a big state, 12345, France
