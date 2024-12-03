@@ -616,3 +616,134 @@ def test__to_address(mocker, globals):
     mocker.call('sheet', None, None, "Exception. Failed to create Address object. See log for additional details.", 40),
   ]
   mock_error.assert_has_calls(expected)
+
+def test__read_geographic_scopes_cell(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'scope': [
+    'Global',
+    'Region: Europe',
+    'Country: FRA',
+    '',
+    'Country=GBR'
+    ]
+  }
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  mock_json = mocker.patch("json.load")
+  mock_json.side_effect=[{}, {}, {}]
+  expected_1 = Code(id='Code1', code='code1', codeSystem='country', codeSystemVersion='2', decode="USA")
+  mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
+  mock_code.side_effect=[expected_1]
+  expected_2 = Code(id='Code4', code='code4', codeSystem='region', codeSystemVersion='3', decode="Europe")
+  mock_region_code = mocker.patch("usdm_excel.iso_3166.ISO3166.region_code")
+  mock_region_code.side_effect=[expected_2]
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+  mock_id.side_effect=['Scope_1', 'Scope_2', 'Scope_3', 'Scope_4', 'Scope_5', 'Scope_6', 'Scope_7', 'Scope_8', 'Scope_9', 'Scope_10', 'Scope_11', 'Scope_12']
+  base = BaseSheet("", globals, "sheet")
+  assert base.read_geographic_scopes_cell(0, 0)[0].model_dump() == {
+    'code': None, 
+    'id': 'Scope_2', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_1', 'instanceType': 'Code'}
+  }
+  assert base.read_geographic_scopes_cell(1, 0)[0].model_dump() == {
+    'code': {
+      'id': 'Scope_4',
+      'instanceType': 'AliasCode',
+      'standardCode': {
+          'code': 'code4',
+          'codeSystem': 'region',
+          'codeSystemVersion': '3',
+          'decode': 'Europe',
+          'id': 'Code4',
+          'instanceType': 'Code',
+      },
+      'standardCodeAliases': []
+    },
+    'id': 'Scope_5', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Region', 'id': 'Scope_3', 'instanceType': 'Code'}
+  }
+  assert base.read_geographic_scopes_cell(2, 0)[0].model_dump() == {
+    'code': {
+      'id': 'Scope_7',
+      'instanceType': 'AliasCode',
+      'standardCode': {
+          'code': 'code1',
+          'codeSystem': 'country',
+          'codeSystemVersion': '2',
+          'decode': 'USA',
+          'id': 'Code1',
+          'instanceType': 'Code',
+      },
+      'standardCodeAliases': []
+    },
+    'id': 'Scope_8', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C25464', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Country', 'id': 'Scope_6', 'instanceType': 'Code'}
+  }
+  mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
+  assert base.read_geographic_scopes_cell(3, 0)[0].model_dump() == {
+    'code': None, 
+    'id': 'Scope_10', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_9', 'instanceType': 'Code'}
+  }
+  assert base.read_geographic_scopes_cell(4, 0)[0].model_dump() == {
+    'code': None, 
+    'id': 'Scope_12', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_11', 'instanceType': 'Code'}
+  }
+  assert mock_error.call_count == 2
+  expected = [
+    mocker.call('sheet', 4, 1, "Empty cell detected where geographic scope values expected, assuming global scope.", 30),
+    mocker.call('sheet', 5, 1, "Failed to decode geographic scope 'Country=GBR'. Formats are 'Global', 'Region: <value>' or 'Country: <value>'. Assuming global scope.", 30),
+  ]
+  mock_error.assert_has_calls(expected)
+  
+def test__read_geographic_scopes_cell_by_name(mocker, globals):
+  mocked_open = mocker.mock_open(read_data="File")
+  mocker.patch("builtins.open", mocked_open)
+  data = {'region': [
+    'Region: Europe',
+    ]
+  }
+  mock_read = mocker.patch("pandas.read_excel")
+  mock_read.return_value = pd.DataFrame.from_dict(data)
+  mock_json = mocker.patch("json.load")
+  mock_json.side_effect=[{}]
+  expected_1 = Code(id='Code1', code='code1', codeSystem='country', codeSystemVersion='2', decode="USA")
+  mock_code = mocker.patch("usdm_excel.iso_3166.ISO3166.code")
+  mock_code.side_effect=[expected_1]
+  expected_2 = Code(id='Code4', code='code4', codeSystem='region', codeSystemVersion='3', decode="Europe")
+  mock_region_code = mocker.patch("usdm_excel.iso_3166.ISO3166.region_code")
+  mock_region_code.side_effect=[expected_2]
+  mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+  mock_id.side_effect=['Scope_1', 'Scope_2', 'Scope_3', 'Scope_4', 'Scope_5', 'Scope_6', 'Scope_7', 'Scope_8', 'Scope_9']
+  base = BaseSheet("", globals, "sheet")
+  assert base.read_geographic_scopes_cell_by_name(0, 'region')[0].model_dump() == {
+    'code': {
+      'id': 'Scope_2',
+      'instanceType': 'AliasCode',
+      'standardCode': {
+          'code': 'code4',
+          'codeSystem': 'region',
+          'codeSystemVersion': '3',
+          'decode': 'Europe',
+          'id': 'Code4',
+          'instanceType': 'Code',
+      },
+      'standardCodeAliases': []
+    },
+    'id': 'Scope_3', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Region', 'id': 'Scope_1', 'instanceType': 'Code'}
+  }
+  assert base.read_geographic_scopes_cell_by_name(1, 'regionxxx')[0].model_dump() == {
+    'code': None,
+    'id': 'Scope_5', 
+    'instanceType': 'GeographicScope', 
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_4', 'instanceType': 'Code'}
+  }
