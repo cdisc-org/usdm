@@ -1,5 +1,8 @@
 sheet,row,column,message,level
 ,,,"Duplicate cross reference detected, class 'GovernanceDate' with name 'Approval'",Error
 ,,,"Duplicate cross reference detected, class 'GovernanceDate' with name 'Approval'",Error
-studyAmendments,,,Exception. Error ['geographicScope'] while reading sheet 'studyAmendments'. See log for additional details.,Error
+studyAmendments,1,-1,"No geographic scope column found, assuming global scope.",Warning
+studyAmendments,2,-1,"No geographic scope column found, assuming global scope.",Warning
+studyAmendments,3,-1,"No geographic scope column found, assuming global scope.",Warning
+studyAmendments,4,-1,"No geographic scope column found, assuming global scope.",Warning
 studyDesignEligibilityCriteria,2,6,Failed to find 'max_agexxx' in dictionary 'IE_Dict',Warning

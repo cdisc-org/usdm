@@ -234,8 +234,12 @@ class BaseSheet():
       return None
 
   def read_geographic_scopes_cell_by_name(self, row_index, field_name):
-    col_index = self.sheet.columns.get_loc(field_name)
-    return self.read_geographic_scopes_cell(row_index, col_index)
+    try:
+      col_index = self.sheet.columns.get_loc(field_name)
+      return self.read_geographic_scopes_cell(row_index, col_index)
+    except Exception as e:
+      self._warning(row_index, -2, "No geographic scope column found, assuming global scope.")
+      return [self._scope('Global', None)]
   
   def read_geographic_scopes_cell(self, row_index, col_index):
     result = []

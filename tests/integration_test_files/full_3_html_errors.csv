@@ -1,5 +1,6 @@
 sheet,row,column,message,level
-studyAmendments,,,Exception. Error ['geographicScope'] while reading sheet 'studyAmendments'. See log for additional details.,Error
+studyAmendments,1,-1,"No geographic scope column found, assuming global scope.",Warning
+studyAmendments,,,Exception. Error [invalid literal for int() with base 10: 'A'] while reading sheet 'studyAmendments'. See log for additional details.,Error
 documentContent,,,"Failed to translate element method name 'approval_date' in '{'id': 'element', 'name': 'approval_date'}', invalid method",Error
 documentContent,,,"Exception. Failed to open / read image file 'design.png', ignored. See log for additional details.",Error
 documentContent,,,Failed to insert image 'design.png',Error
@@ -13,5 +14,4 @@ documentContent,,,"Exception. Failed to open / read image file 'clarke_p1.png', 
 documentContent,,,Failed to insert image 'clarke_p1.png',Error
 documentContent,,,"Exception. Failed to open / read image file 'clarke_p2.png', ignored. See log for additional details.",Error
 documentContent,,,Failed to insert image 'clarke_p2.png',Error
-documentContent,,,"Exception. Failed to resolve document macro '{'id': 'xref', 'klass': 'StudyAmendment', 'name': 'A', 'attribute': 'summary'}'. See log for additional details.",Error
 documentContent,,,"Failed to translate element method name 'missing' in '{'id': 'element', 'name': 'missing'}', invalid method",Error
