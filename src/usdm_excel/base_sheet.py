@@ -235,7 +235,7 @@ class BaseSheet():
 
   def read_geographic_scopes_cell_by_name(self, row_index, field_name):
     try:
-      col_index = self.sheet.columns.get_loc(field_name)
+      col_index = self._get_column_index(field_name)
       return self.read_geographic_scopes_cell(row_index, col_index)
     except Exception as e:
       self._warning(row_index, -2, "No geographic scope column found, assuming global scope.")
@@ -454,7 +454,12 @@ class BaseSheet():
       return None
 
   def _get_column_index(self, column_name):
-    return self.sheet.columns.get_loc(column_name)
+    try:
+      col_index = self.sheet.columns.get_loc(column_name)
+      return col_index
+    except Exception as e:
+      pass
+    raise BaseSheet.FormatError(f"Failed to detect column(s) '{column_name}' in sheet")
 
   def _add_errors(self, errors, row, column):
     for error in errors:
@@ -462,7 +467,7 @@ class BaseSheet():
       
   def _info(self, row: int, column: int | str, message: str):
     try:
-      column = self.sheet.columns.get_loc(column) if isinstance(column, str) else column
+      column = self._get_column_index(column) if isinstance(column, str) else column
       self.globals.errors_and_logging.info(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
       self.globals.errors_and_logging.exception(message, e, self.sheet_name)
@@ -472,7 +477,7 @@ class BaseSheet():
      
   def _error(self, row: int, column: int | str, message: str):
     try:
-      column = self.sheet.columns.get_loc(column) if isinstance(column, str) else column
+      column = self._get_column_index(column) if isinstance(column, str) else column
       self.globals.errors_and_logging.error(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
       self.globals.errors_and_logging.exception(message, e, self.sheet_name)
@@ -482,7 +487,7 @@ class BaseSheet():
 
   def _warning(self, row: int, column: int | str, message: str):
     try:
-      column = self.sheet.columns.get_loc(column) if isinstance(column, str) else column
+      column = self._get_column_index(column) if isinstance(column, str) else column
       self.globals.errors_and_logging.warning(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
       self.globals.errors_and_logging.exception(message, e, self.sheet_name)
@@ -492,7 +497,7 @@ class BaseSheet():
 
   def _debug(self, row: int, column: int | str, message: str):
     try:
-      column = self.sheet.columns.get_loc(column) if isinstance(column, str) else column
+      column = self._get_column_index(column) if isinstance(column, str) else column
       self.globals.errors_and_logging.debug(message, self.sheet_name, row + 1, column + 1)
     except Exception as e:
       self.globals.errors_and_logging.exception(message, e, self.sheet_name)
@@ -505,7 +510,7 @@ class BaseSheet():
 
   def _exception(self, row: int, column: int | str, message: str, e: Exception):
     try:
-      column = self.sheet.columns.get_loc(column) if isinstance(column, str) else column
+      column = self._get_column_index(column) if isinstance(column, str) else column
       self.globals.errors_and_logging.exception(message, e, self.sheet_name, row + 1, column + 1)
     except Exception as e:
       self.globals.errors_and_logging.exception(message, e, self.sheet_name)

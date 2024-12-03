@@ -64,7 +64,7 @@ class StudyAmendmentSheet(BaseSheet):
     
   def _read_enrollment_cell(self, row_index):
     result = []
-    col_index = self.sheet.columns.get_loc('enrollment')
+    col_index = self._get_column_index('enrollment')
     value = self.read_cell(row_index, col_index)
     if value.strip() == '':
       self._error(row_index, col_index, "Empty cell detected where enrollment values expected")
@@ -104,7 +104,7 @@ class StudyAmendmentSheet(BaseSheet):
 
   def _read_secondary_reason_cell(self, row_index):
     results = []
-    col_index = self.sheet.columns.get_loc('secondaryReasons')
+    col_index = self._get_column_index('secondaryReasons')
     value = self.read_cell(row_index, col_index)
     if not value.strip():
       return results
@@ -116,7 +116,7 @@ class StudyAmendmentSheet(BaseSheet):
     return results
       
   def _read_primary_reason_cell(self, row_index):
-    col_index = self.sheet.columns.get_loc('primaryReason')
+    col_index = self._get_column_index('primaryReason')
     value = self.read_cell(row_index, col_index)
     return self._extract_reason(value, row_index, col_index)
   
