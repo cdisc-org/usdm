@@ -54,6 +54,8 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study sheet
 - Study Identifiers sheet
 - Study Amendments sheet
+- Study Amendments Changes sheet
+- Study Amenedment Impact sheet
 - Study Design sheet
 - Study Design Arms sheet
 - Study Design Epochs sheet
@@ -141,6 +143,12 @@ Some entries can include "tags" that allow the text to reference structured cont
 
 An example of Templated Text is `Subjects shall be between <usdm:tag name="min_age"/> and <usdm:tag name="max_age"/>` where the min and max ages will be inserted using the dictionary entries that refer to particular attribute values from within the structured parts of the model.
 
+### Geographic Scopes & Enrollment
+
+Geographic Scopes appear in a few of the sheets. These take the form `Global`, `Region: <region>` or , `Country: <country>`. Regions and Countries are taken from the ISO3166 value set. Examples are `Global` or `Region: Europe, Country: USA`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored. 
+
+In some cases (subject recruitment) values are associated with the scopes. The enrollment data is of the form: `Global: <enrollment>`, `Region: <region>=<enrollment>` or , `Country: <country>=<enrollment>`. The enrollment is either a percentage or an absolute value. Regions and Countries are taken from the ISO3166 value set. Examples are `Global: 65%` or `Region: Europe=15, Country: USA=20%`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored.
+
 ### Sheet Descriptions
 
 The sheet descriptions detail the fields found within each sheet and the details of the data required. Note:
@@ -186,9 +194,7 @@ A header row in row 16 followed by repeating rows from row 17, containing a seri
 | D | label	| A date label | Text string| 
 | E | type | the type of date | CDISC code reference | 
 | F | date| The date | Date field, dd/mm/yyyy | 
-| H | scopes | The geographic scopes for the date | Geographic scoped, see below |
-
-The geographic is of the form: `Global`, `Region: <region>` or , `Country: <country>`. Regions and Countries are taken from the ISO3166 value set. Examples are `Global` or `Region: Europe, Country: USA`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored. 
+| H | scopes | The geographic scopes for the date | Geographic scope |
 
 ### Study Identifiers	Sheet
 	
@@ -210,7 +216,6 @@ A header row in row 1 followed by repeating rows from row 2, each containing a s
 | F | studyIdentifier | The identifier for the study | Text string |
 | G | organisationAddress, organizationAddress or address | The organisation address | Address |
 
-
 ### Study Amendments	Sheet
 	
 #### Sheet Name
@@ -228,29 +233,45 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | C | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
 | D | primaryReason | Primary reason for the amendment | CDISC code reference |
 | E | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
-| F | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scoped, see below |
+| F | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scope with enrollment |
 
-The enrollment data is of the form: `Global: <enrollment>`, `Region: <region>=<enrollment>` or , `Country: <country>=<enrollment>`. 
-The enrollment is either a percentage or an absolute value. Regions and Countries are taken from the ISO3166 value set. Examples are `Global: 65%` or `Region: Europe=15, Country: USA=20%`. Where multiple codes are needed then the values are separated by commas. Note, if a global entry is specified then no other values are required and will be ignored.
+### Study Amendments Changes Sheet
+	
+#### Sheet Name
 
-The primary and secondary reasons should be set to one (primary) or one or more (secondary) values from the following reasons:
+`amendmentChanges`
 
-- Regulatory Agency Request To Amend
-- New Regulatory Guidance
-- IRB/IEC Feedback
-- New Safety Information Available
-- Manufacturing Change
-- IMP Addition
-- Change In Strategy
-- Change In Standard Of Care
-- New Data Available (Other Than Safety Data)
-- Investigator/Site Feedback
-- Recruitment Difficulty
-- Inconsistency And/Or Error In The Protocol
-- Protocol Design Error
-- Other
-- Not Applicable
+#### Sheet Contents
 
+A header row in row 1 followed by repeating rows from row 2, containing a study amendment changes: 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | amendment | The amendment to which the change belongs, references the main amendment sheet | Integer |
+| B | name | Name of the change | Text string |
+| C | description | Description for the change | Text string |
+| D | label | Change label. Default value is '' | Text string |
+| E | rationale | The rationale for the change | Text string |
+| F | summary | Summary of the change | Text string |
+| G | sections | Section references | Comma separated text string consisting of `<section number>: <description of change>` |
+
+### Study Amendments Impact Sheet
+	
+#### Sheet Name
+
+`amendmentImpact`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, containing a study amendment impacts: 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | amendment | The amendment to which the change belongs, references the main amendment sheet | Integer |
+| B | text | Text describing the impact of the amendment | Test string |
+| C | substantial | Indicates the change is substantial | Boolean |
+| D | type | The type of impact | CDISC code referernce |
+    
 ### Study Design sheet
 
 #### Sheet Name
