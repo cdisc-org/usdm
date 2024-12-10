@@ -2594,88 +2594,7 @@
                 "instanceType": "StudyElement"
               }
             ],
-            "estimands": [
-              {
-                "id": "Estimand_1",
-                "name": "EST1",
-                "label": "EST1",
-                "description": "",
-                "summaryMeasure": "Survival of all patients",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_1",
-                  "name": "AP_1",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_1",
-                "variableOfInterestId": "Endpoint_1",
-                "intercurrentEvents": [
-                  {
-                    "id": "IntercurrentEvent_1",
-                    "name": "termination",
-                    "label": "",
-                    "description": "IC Event Description",
-                    "strategy": "Patients with out of range lab values before dosing will be excluded",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  },
-                  {
-                    "id": "IntercurrentEvent_2",
-                    "name": "termination",
-                    "label": "",
-                    "description": "IC Event Description",
-                    "strategy": "A second bad event",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  },
-                  {
-                    "id": "IntercurrentEvent_3",
-                    "name": "termination",
-                    "label": "",
-                    "description": "IC Event Description",
-                    "strategy": "A third bad thing",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "Estimand"
-              },
-              {
-                "id": "Estimand_2",
-                "name": "EST2",
-                "label": "EST2",
-                "description": "",
-                "summaryMeasure": "Something else",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_2",
-                  "name": "AP_4",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_2",
-                "variableOfInterestId": "Endpoint_2",
-                "intercurrentEvents": [
-                  {
-                    "id": "IntercurrentEvent_4",
-                    "name": "Something  Else",
-                    "label": "",
-                    "description": "IC Event Description Number 2",
-                    "strategy": "Something else bad",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "Estimand"
-              }
-            ],
+            "estimands": [],
             "indications": [
               {
                 "id": "Indication_1",
@@ -3200,6 +3119,7 @@
                 }
               ]
             },
+            "analysisPopulations": [],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
@@ -3514,7 +3434,7 @@
                 "instanceType": "ScheduleTimeline"
               }
             ],
-            "documentVersionId": null,
+            "documentVersionIds": [],
             "dictionaries": [
               {
                 "id": "SyntaxTemplateDictionary_1",

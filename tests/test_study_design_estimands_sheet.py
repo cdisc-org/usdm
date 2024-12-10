@@ -15,7 +15,8 @@ def test_create(mocker, globals):
     'intercurrentEventDescription': ['IE Desc 1', 'IE Desc 2', 'IE Desc 3'],
     'treatmentXref': ['INT1', 'INT2', 'INT3'],
     'endpointXref': ['END1', 'END2', 'END3'],
-    'intercurrentEventStrategy': ['Strategy 1', 'Strategy 2', 'Strategy 3']
+    'intercurrentEventStrategy': ['Strategy 1', 'Strategy 2', 'Strategy 3'],
+    'intercurrentEventText': ['Strategy Text 1', 'Strategy Text 2', 'Strategy Text 3']
   }
   mock_cross_ref = mocker.patch("usdm_excel.cross_ref.CrossRef.get")
   mock_cross_ref.side_effect=[
@@ -39,7 +40,19 @@ def test_create(mocker, globals):
     'description': '',
     'id': 'Estimand_1',
     'instanceType': 'Estimand',
-    'intercurrentEvents': [],
+    'intercurrentEvents': [
+      {
+        'description': 'IE Desc 1',
+        'dictionaryId': None,
+        'id': 'IntercurrentEvent_1',
+        'instanceType': 'IntercurrentEvent',
+        'label': '',
+        'name': 'IE Name 1',
+        'notes': [],
+        'strategy': 'Strategy 1',
+        'text': 'Strategy Text 1',
+      },
+    ],
     'interventionIds': ['X2'],
     'label': 'ESTIMAND1',
     'name': 'ESTIMAND1',
@@ -62,7 +75,19 @@ def test_create(mocker, globals):
     'description': '',
     'id': 'Estimand_2',
     'instanceType': 'Estimand',
-    'intercurrentEvents': [],
+    'intercurrentEvents': [
+      {
+        'description': 'IE Desc 2',
+        'dictionaryId': None,
+        'id': 'IntercurrentEvent_2',
+        'instanceType': 'IntercurrentEvent',
+        'label': '',
+        'name': 'IE Name 2',
+        'notes': [],
+        'strategy': 'Strategy 2',
+        'text': 'Strategy Text 2',
+      },
+    ],
     'interventionIds': ['X5'],
     'label': 'ESTIMAND2',
     'name': 'ESTIMAND2',
@@ -85,7 +110,19 @@ def test_create(mocker, globals):
     'description': '',
     'id': 'Estimand_3',
     'instanceType': 'Estimand',
-    'intercurrentEvents': [],
+    'intercurrentEvents': [
+      {
+        'description': 'IE Desc 3',
+        'dictionaryId': None,
+        'id': 'IntercurrentEvent_3',
+        'instanceType': 'IntercurrentEvent',
+        'label': '',
+        'name': 'IE Name 3',
+        'notes': [],
+        'strategy': 'Strategy 3',
+        'text': 'Strategy Text 3',
+      },
+    ],
     'interventionIds': ['X8'],
     'label': 'ESTIMAND3',
     'name': 'ESTIMAND3',
@@ -121,7 +158,8 @@ def test_read_cell_by_name_error(mocker, globals):
     'intercurrentEventDescription': ['IE Desc 1'],
     'treatmentXref': ['INT1'],
     'endpointXref': ['END1'],
-    'intercurrentEventStrategy': ['Strategy 1']
+    'intercurrentEventStrategy': ['Strategy 1'],
+    'intercurrentEventText': ['Text 1']
   }
   mea = mock_error_add(mocker, [None, None, None, None, None, None])
   mock_sheet_present(mocker)

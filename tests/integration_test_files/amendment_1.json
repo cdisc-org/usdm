@@ -178,14 +178,7 @@
                 "description": "",
                 "summary": "Fixed F",
                 "rationale": "Disaster!",
-                "changedSections": [
-                  {
-                    "id": "DocumentContentReference_7",
-                    "sectionNumber": "1.5",
-                    "sectionTitle": "Header 1.5",
-                    "instanceType": "DocumentContentReference"
-                  }
-                ],
+                "changedSections": [],
                 "instanceType": "StudyChange"
               }
             ],
@@ -388,14 +381,7 @@
                 "description": "",
                 "summary": "Fixed E",
                 "rationale": "Just plain wrong",
-                "changedSections": [
-                  {
-                    "id": "DocumentContentReference_6",
-                    "sectionNumber": "1.4",
-                    "sectionTitle": "Header 1.4",
-                    "instanceType": "DocumentContentReference"
-                  }
-                ],
+                "changedSections": [],
                 "instanceType": "StudyChange"
               }
             ],
@@ -547,14 +533,7 @@
                 "description": "",
                 "summary": "Fixed D",
                 "rationale": "Really wrong",
-                "changedSections": [
-                  {
-                    "id": "DocumentContentReference_5",
-                    "sectionNumber": "1.3",
-                    "sectionTitle": "Header 1.3",
-                    "instanceType": "DocumentContentReference"
-                  }
-                ],
+                "changedSections": [],
                 "instanceType": "StudyChange"
               }
             ],
@@ -769,14 +748,7 @@
                 "description": "Amendment 4 change",
                 "summary": "Fixed A",
                 "rationale": "Needed fixing",
-                "changedSections": [
-                  {
-                    "id": "DocumentContentReference_1",
-                    "sectionNumber": "1.2",
-                    "sectionTitle": "Header 1.2",
-                    "instanceType": "DocumentContentReference"
-                  }
-                ],
+                "changedSections": [],
                 "instanceType": "StudyChange"
               },
               {
@@ -786,20 +758,7 @@
                 "description": "",
                 "summary": "Fixed B",
                 "rationale": "Something wrong",
-                "changedSections": [
-                  {
-                    "id": "DocumentContentReference_2",
-                    "sectionNumber": "2.4",
-                    "sectionTitle": "Header 2.4",
-                    "instanceType": "DocumentContentReference"
-                  },
-                  {
-                    "id": "DocumentContentReference_3",
-                    "sectionNumber": "2.5",
-                    "sectionTitle": "header 2.5",
-                    "instanceType": "DocumentContentReference"
-                  }
-                ],
+                "changedSections": [],
                 "instanceType": "StudyChange"
               },
               {
@@ -809,14 +768,7 @@
                 "description": "",
                 "summary": "Fixed C",
                 "rationale": "Somethig else wrong",
-                "changedSections": [
-                  {
-                    "id": "DocumentContentReference_4",
-                    "sectionNumber": "5.4",
-                    "sectionTitle": "Header 5.4",
-                    "instanceType": "DocumentContentReference"
-                  }
-                ],
+                "changedSections": [],
                 "instanceType": "StudyChange"
               }
             ],
@@ -2021,88 +1973,7 @@
                 "instanceType": "StudyElement"
               }
             ],
-            "estimands": [
-              {
-                "id": "Estimand_1",
-                "name": "EST1",
-                "label": "EST1",
-                "description": "",
-                "summaryMeasure": "Survival of all patients",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_1",
-                  "name": "AP_1",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_1",
-                "variableOfInterestId": "Endpoint_1",
-                "intercurrentEvents": [
-                  {
-                    "id": "IntercurrentEvent_1",
-                    "name": "termination",
-                    "label": "",
-                    "description": "IC Event Description",
-                    "strategy": "Patients with out of range lab values before dosing will be excluded",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  },
-                  {
-                    "id": "IntercurrentEvent_2",
-                    "name": "termination",
-                    "label": "",
-                    "description": "IC Event Description",
-                    "strategy": "A second bad event",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  },
-                  {
-                    "id": "IntercurrentEvent_3",
-                    "name": "termination",
-                    "label": "",
-                    "description": "IC Event Description",
-                    "strategy": "A third bad thing",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "Estimand"
-              },
-              {
-                "id": "Estimand_2",
-                "name": "EST2",
-                "label": "EST2",
-                "description": "",
-                "summaryMeasure": "Something else",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_2",
-                  "name": "AP_4",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_2",
-                "variableOfInterestId": "Endpoint_2",
-                "intercurrentEvents": [
-                  {
-                    "id": "IntercurrentEvent_4",
-                    "name": "Bad stuff",
-                    "label": "",
-                    "description": "IC Event Description Number 2",
-                    "strategy": "Really really bad shit",
-                    "notes": [],
-                    "instanceType": "IntercurrentEvent"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "Estimand"
-              }
-            ],
+            "estimands": [],
             "indications": [
               {
                 "id": "Indication_1",
@@ -2792,6 +2663,7 @@
                 }
               ]
             },
+            "analysisPopulations": [],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
@@ -3040,7 +2912,7 @@
                 "instanceType": "ScheduleTimeline"
               }
             ],
-            "documentVersionId": null,
+            "documentVersionIds": [],
             "dictionaries": [],
             "conditions": [],
             "notes": [],

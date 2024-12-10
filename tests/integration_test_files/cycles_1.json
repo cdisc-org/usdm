@@ -1222,17 +1222,11 @@
                 "name": "EST1",
                 "label": "EST1",
                 "description": "",
-                "summaryMeasure": "Survival of all patients",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_1",
-                  "name": "AP_1",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_1",
+                "populationSummary": "Survival of all patients",
+                "analysisPopulationId": "AnalysisPopulation_1",
+                "interventionIds": [
+                  "StudyIntervention_1"
+                ],
                 "variableOfInterestId": "Endpoint_1",
                 "intercurrentEvents": [
                   {
@@ -1240,9 +1234,11 @@
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
-                    "strategy": "Patients with out of range lab values before dosing will be excluded",
+                    "text": "",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Patients with out of range lab values before dosing will be excluded"
                   }
                 ],
                 "notes": [],
@@ -1709,6 +1705,20 @@
                 }
               ]
             },
+            "analysisPopulations": [
+              {
+                "id": "AnalysisPopulation_1",
+                "name": "AP_1",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyDesignPopulation_1"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              }
+            ],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
@@ -2474,7 +2484,7 @@
                 "instanceType": "ScheduleTimeline"
               }
             ],
-            "documentVersionId": null,
+            "documentVersionIds": [],
             "dictionaries": [],
             "conditions": [],
             "notes": [],

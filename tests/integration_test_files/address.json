@@ -1099,17 +1099,11 @@
                 "name": "EST1",
                 "label": "EST1",
                 "description": "",
-                "summaryMeasure": "Survival of all patients",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_1",
-                  "name": "AP_1",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_1",
+                "populationSummary": "Survival of all patients",
+                "analysisPopulationId": "AnalysisPopulation_1",
+                "interventionIds": [
+                  "StudyIntervention_1"
+                ],
                 "variableOfInterestId": "Endpoint_1",
                 "intercurrentEvents": [
                   {
@@ -1117,27 +1111,33 @@
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
-                    "strategy": "Patients with out of range lab values before dosing will be excluded",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Patients with out of range lab values before dosing will be excluded"
                   },
                   {
                     "id": "IntercurrentEvent_2",
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
-                    "strategy": "A second bad event",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "A second bad event"
                   },
                   {
                     "id": "IntercurrentEvent_3",
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
-                    "strategy": "A third bad thing",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "A third bad thing"
                   }
                 ],
                 "notes": [],
@@ -1148,17 +1148,11 @@
                 "name": "EST2",
                 "label": "EST2",
                 "description": "",
-                "summaryMeasure": "Something else",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_2",
-                  "name": "AP_4",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_2",
+                "populationSummary": "Something else",
+                "analysisPopulationId": "AnalysisPopulation_2",
+                "interventionIds": [
+                  "StudyIntervention_2"
+                ],
                 "variableOfInterestId": "Endpoint_2",
                 "intercurrentEvents": [
                   {
@@ -1166,9 +1160,11 @@
                     "name": "Bad stuff",
                     "label": "",
                     "description": "IC Event Description Number 2",
-                    "strategy": "Really really bad shit",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Really really bad shit"
                   }
                 ],
                 "notes": [],
@@ -1864,6 +1860,32 @@
                 }
               ]
             },
+            "analysisPopulations": [
+              {
+                "id": "AnalysisPopulation_1",
+                "name": "AP_1",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_1"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              },
+              {
+                "id": "AnalysisPopulation_2",
+                "name": "AP_4",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_2"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              }
+            ],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
@@ -2112,7 +2134,7 @@
                 "instanceType": "ScheduleTimeline"
               }
             ],
-            "documentVersionId": null,
+            "documentVersionIds": [],
             "dictionaries": [],
             "conditions": [],
             "notes": [],

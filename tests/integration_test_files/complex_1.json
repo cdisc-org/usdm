@@ -1930,17 +1930,11 @@
                 "name": "EST1",
                 "label": "EST1",
                 "description": "",
-                "summaryMeasure": "Treatment Success",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_1",
-                  "name": "AP_1",
-                  "label": null,
-                  "description": null,
-                  "text": "PP",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_1",
+                "populationSummary": "Treatment Success",
+                "analysisPopulationId": "AnalysisPopulation_1",
+                "interventionIds": [
+                  "StudyIntervention_1"
+                ],
                 "variableOfInterestId": "Endpoint_1",
                 "intercurrentEvents": [
                   {
@@ -1948,9 +1942,11 @@
                     "name": "no Hypo",
                     "label": "",
                     "description": "No hypoglycemia induced after 3 hours",
-                    "strategy": "Exclude subject from analysis",
+                    "text": "",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Exclude subject from analysis"
                   }
                 ],
                 "notes": [],
@@ -1961,17 +1957,11 @@
                 "name": "EST2",
                 "label": "EST2",
                 "description": "",
-                "summaryMeasure": "Something else",
-                "analysisPopulation": {
-                  "id": "AnalysisPopulation_2",
-                  "name": "AP_2",
-                  "label": null,
-                  "description": null,
-                  "text": "ITT",
-                  "notes": [],
-                  "instanceType": "AnalysisPopulation"
-                },
-                "interventionId": "StudyIntervention_2",
+                "populationSummary": "Something else",
+                "analysisPopulationId": "AnalysisPopulation_2",
+                "interventionIds": [
+                  "StudyIntervention_2"
+                ],
                 "variableOfInterestId": "Endpoint_2",
                 "intercurrentEvents": [
                   {
@@ -1979,9 +1969,11 @@
                     "name": "Bad stuff",
                     "label": "",
                     "description": "IC Event Description Number 2",
-                    "strategy": "Really really bad shit",
+                    "text": "",
+                    "dictionaryId": null,
                     "notes": [],
-                    "instanceType": "IntercurrentEvent"
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Really really bad shit"
                   }
                 ],
                 "notes": [],
@@ -2565,6 +2557,32 @@
                 }
               ]
             },
+            "analysisPopulations": [
+              {
+                "id": "AnalysisPopulation_1",
+                "name": "AP_1",
+                "label": null,
+                "description": null,
+                "text": "PP",
+                "subsetOfIds": [
+                  "StudyCohort_1"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              },
+              {
+                "id": "AnalysisPopulation_2",
+                "name": "AP_2",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_2"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              }
+            ],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_3",
@@ -4250,7 +4268,7 @@
                 "instanceType": "ScheduleTimeline"
               }
             ],
-            "documentVersionId": null,
+            "documentVersionIds": [],
             "dictionaries": [],
             "conditions": [
               {
