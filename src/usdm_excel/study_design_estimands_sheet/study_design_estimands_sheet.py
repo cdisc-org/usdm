@@ -30,6 +30,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
         ice_description = self.read_cell_by_name(index, ['intercurrentEventDescription', 'description'])
         ice_label = self.read_cell_by_name(index, 'label', must_be_present=False)
         ice_strategy = self.read_cell_by_name(index, "intercurrentEventStrategy")
+        ice_text = self.read_cell_by_name(index, "intercurrentEventText")
         treatment_xref = self.read_cell_by_name(index, "treatmentXref")
         endpoint_xref = self.read_cell_by_name(index, "endpointXref")
         if not e_summary == "":
@@ -52,7 +53,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
         if current is not None:
           ice_name = current_ice_name if ice_name == "" else ice_name
           ice_description = current_ice_description if ice_description == "" else ice_description
-          ice = self.create_object(IntercurrentEvent, {'name': ice_name, 'description': ice_description, 'label': ice_label, 'strategy': ice_strategy})
+          ice = self.create_object(IntercurrentEvent, {'name': ice_name, 'description': ice_description, 'label': ice_label, 'strategy': ice_strategy, 'text': ice_text})
           current_ice_name = ice_name
           current_ice_description = ice_description
           if ice:
@@ -71,7 +72,7 @@ class StudyDesignEstimandsSheet(BaseSheet):
 
   def _get_population(self, name):
     for klass in [StudyDesignPopulation, StudyCohort]:
-      item = self.globals.cross_references.get(StudyDesignPopulation, name)
+      item = self.globals.cross_references.get(klass, name)
       if item:
         return item
     self._general_error(f"Unable to find population or cohort with name '{name}'")   

@@ -2495,7 +2495,84 @@
                 "instanceType": "StudyElement"
               }
             ],
-            "estimands": [],
+            "estimands": [
+              {
+                "id": "Estimand_1",
+                "name": "EST1",
+                "label": "EST1",
+                "description": "",
+                "populationSummary": "Survival of all patients",
+                "analysisPopulationId": "AnalysisPopulation_1",
+                "interventionIds": [
+                  "StudyIntervention_1"
+                ],
+                "variableOfInterestId": "Endpoint_1",
+                "intercurrentEvents": [
+                  {
+                    "id": "IntercurrentEvent_1",
+                    "name": "termination",
+                    "label": "",
+                    "description": "IC Event Description",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
+                    "notes": [],
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Patients with out of range lab values before dosing will be excluded"
+                  },
+                  {
+                    "id": "IntercurrentEvent_2",
+                    "name": "termination",
+                    "label": "",
+                    "description": "IC Event Description",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
+                    "notes": [],
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "A second bad event"
+                  },
+                  {
+                    "id": "IntercurrentEvent_3",
+                    "name": "termination",
+                    "label": "",
+                    "description": "IC Event Description",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
+                    "notes": [],
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "A third bad thing"
+                  }
+                ],
+                "notes": [],
+                "instanceType": "Estimand"
+              },
+              {
+                "id": "Estimand_2",
+                "name": "EST2",
+                "label": "EST2",
+                "description": "",
+                "populationSummary": "Something else",
+                "analysisPopulationId": "AnalysisPopulation_2",
+                "interventionIds": [
+                  "StudyIntervention_2"
+                ],
+                "variableOfInterestId": "Endpoint_2",
+                "intercurrentEvents": [
+                  {
+                    "id": "IntercurrentEvent_4",
+                    "name": "Something  Else",
+                    "label": "",
+                    "description": "IC Event Description Number 2",
+                    "text": "ICE Text",
+                    "dictionaryId": null,
+                    "notes": [],
+                    "instanceType": "IntercurrentEvent",
+                    "strategy": "Something else bad"
+                  }
+                ],
+                "notes": [],
+                "instanceType": "Estimand"
+              }
+            ],
             "indications": [
               {
                 "id": "Indication_1",
@@ -3019,7 +3096,32 @@
                 }
               ]
             },
-            "analysisPopulations": [],
+            "analysisPopulations": [
+              {
+                "id": "AnalysisPopulation_1",
+                "name": "AP_1",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_1"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              },
+              {
+                "id": "AnalysisPopulation_2",
+                "name": "AP_4",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_2"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              }
+            ],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
