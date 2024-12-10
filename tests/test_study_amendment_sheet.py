@@ -15,7 +15,7 @@ def test_create(mocker, globals):
     'secondaryReasons': ['', 'Investigator/Site Feedback'],
     'enrollment': ['Region: Europe=15, Country: USA=20%', 'Global:31%'],
     'date': ['', ''],
-    'document': ['doc 1', 'doc 2']
+    'template': ['doc 1', 'doc 2']
   }
   mock_sheet_present(mocker)
   mock_sheet(mocker, globals, sheet_data)

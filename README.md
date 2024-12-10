@@ -234,6 +234,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | D | primaryReason | Primary reason for the amendment | CDISC code reference |
 | E | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
 | F | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scope with enrollment |
+| F (optional) | template | The name of the template for the document to which the amendment applies. Defaults to 'SPONSOR'. See configuration sheet for template names | Text string. |
 
 ### Study Amendments Changes Sheet
 	
@@ -607,19 +608,20 @@ A header row in row 1 followed by repeating rows from row 2, containing eligibil
 
 #### Sheet Contents
 
-A header row in row 1 followed by repeating rows from row 2, containing estimand definitions. Note that column H can repeat for the same content in columns A through G.
+A header row in row 1 followed by repeating rows from row 2, containing estimand definitions. Note that column I and J can repeat for the same content in columns A through H.
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
 | A | xref or name | Identifier | Text string |
 | B | summaryMeasure	| The summary measure | Text string |
 | C | populationDescription	| Description | Text string, can be empty |
-| D (optional) | label | Display label | Text string, can be empty. Default value is '' |
+| D | populationSubset | Name of the related population | Text string |
 | E | intercurrentEventName or name	| Name | Text string |
 | F | intercurrentEventDescription or description| Description | Text string, can be empty |
 | G | treatmentXref	| Treatment cross reference | Cross reference to a treatment |
-| H | endpointXref	| Endpoint cross reference | Cross reference to an endpont |
-| I | intercurrentEventstrategy| Strategy | Text string. This column can be repeated fo reach intercurrent event required for the Estimand |
+| H | endpointXref| Endpoint cross reference | Cross reference to an endpont |
+| I | intercurrentEventStrategy| The strategy for the event | Text string. |
+| J | intercurrentEventText| The text for the event | Text string. |
 
 ### Study Design Procedures sheet
 
