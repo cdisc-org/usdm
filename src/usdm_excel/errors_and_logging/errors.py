@@ -1,4 +1,3 @@
-import logging
 from .error import Error
 
 class Errors():

@@ -36,6 +36,7 @@ from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
 from usdm_model.study import Study
+from usdm_model.study_design import StudyDesign
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.study_definition_document import StudyDefinitionDocument
@@ -115,7 +116,7 @@ class USDMExcel():
       self.roles = StudyRoleSheet(self._file_path, self._globals)
 
       # Study Design assembly
-      study_design = self.study_design.study_designs[0]
+      study_design: StudyDesign = self.study_design.study_designs[0]
       study_design.scheduleTimelines.append(self.soa.timeline)
       study_design.encounters = self.encounters.items
       study_design.activities = self.soa.activities
@@ -136,6 +137,7 @@ class USDMExcel():
       study_design.population = self.study_population.population
       study_design.objectives = self.oe.objectives
       study_design.estimands = self.estimands.estimands
+      study_design.analysisPopulations = self.estimands.populations
       study_design.population.criterionIds = [x.id for x in self.eligibility_criteria.items]
       study_design.dictionaries = self.dictionaries.items
       study_design.conditions = self.conditions.items

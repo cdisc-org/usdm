@@ -387,12 +387,12 @@ class BaseSheet():
         self._error(row_index, col_index, f"CDISC CT not found for value '{item.strip()}'.")
     return result
 
-  def _get_cross_reference(self, klass, name, error_klass_name):
+  def _get_cross_reference(self, klass, name):
     item = self.globals.cross_references.get(klass, name)
     if item:
       return item.id
     else:
-      self._general_error(f"Unable to find {error_klass_name} with name '{name}'")              
+      self._general_error(f"Unable to find {klass.__name__} with name '{name}'")              
       return None
 
   def double_link(self, items, prev, next):
