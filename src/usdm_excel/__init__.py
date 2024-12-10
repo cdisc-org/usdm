@@ -171,6 +171,7 @@ class USDMExcel():
             templateName=template.name
           )
           self.definition_documents.append(definition_document)
+          self.study_amendments.set_document(definition_document)
         except Exception as e:
           self._globals.errors_and_logging.exception(f"Error creating StudyDefinitionDocument object", e)
 

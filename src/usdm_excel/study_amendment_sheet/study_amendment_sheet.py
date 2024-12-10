@@ -1,14 +1,10 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
 from usdm_model.subject_enrollment import SubjectEnrollment
-from usdm_model.quantity import Quantity
-from usdm_excel.cdisc_ct import CDISCCT
-from usdm_excel.iso_3166 import ISO3166
-from usdm_excel.alias import Alias
-from usdm_excel.quantity_type import QuantityType
+from usdm_model.study_definition_document import StudyDefinitionDocument
 from usdm_model.governance_date import GovernanceDate
+from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.globals import Globals
 
 class StudyAmendmentSheet(BaseSheet):
@@ -18,6 +14,7 @@ class StudyAmendmentSheet(BaseSheet):
   def __init__(self, file_path: str, globals: Globals):
     try:
       self.items = []
+      self.template_names = []
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
       if self.success:
         for index, row in self.sheet.iterrows():
@@ -26,7 +23,7 @@ class StudyAmendmentSheet(BaseSheet):
           date_name = self.read_cell_by_name(index, 'date', must_be_present=False)
           date = self.globals.cross_references.get(GovernanceDate, date_name)
           summary = self.read_cell_by_name(index, 'summary')
-          #substantial = self.read_boolean_cell_by_name(index, 'substantialImpact')
+          template = self.read_cell_by_name(index, 'template', must_be_present=False)
           notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)
           primary_reason = self._read_primary_reason_cell(index)
           primary = self._amendment_reason(primary_reason)
@@ -40,7 +37,6 @@ class StudyAmendmentSheet(BaseSheet):
           params = {
             'number': number,
             'summary': summary,
-            #'substantialImpact': substantial,
             'primaryReason': primary,
             'secondaryReasons': secondaries,
             'enrollments': enrollments,
@@ -49,12 +45,24 @@ class StudyAmendmentSheet(BaseSheet):
           }
           item = self.create_object(StudyAmendment, params)
           if item:
+            template = template if template else self.globals.template_manager.default_template
             self.items.append(item)
+            self.template_names.append(template)
             self.globals.cross_references.add(item.number, item)
             self.add_notes(item, notes)
         self.items.sort(key=lambda d: int(d.number))
         self.previous_link(self.items, 'previousId')
         
+    except Exception as e:
+      self._sheet_exception(e)
+
+  def set_document(self, document: StudyDefinitionDocument):
+    try:
+      for index, amendment in enumerate(self.items):
+        if self.template_names[index] == document.templateName:
+          for change in amendment.changes:
+            for ref in change.changedSections:
+              ref.appliesToId = document.id
     except Exception as e:
       self._sheet_exception(e)
 

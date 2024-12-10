@@ -24,7 +24,7 @@ def test_create(mocker, globals):
     refs = sheet_data['sections'][y]
     for ref in refs.split(','):
       parts = ref.split(':')
-      dcr = {'sectionNumber': parts[0].strip(), 'sectionTitle': parts[1].strip()}
+      dcr = {'sectionNumber': parts[0].strip(), 'sectionTitle': parts[1].strip(), 'appliesToId': 'TempId'}
       dcrs.append(fake_create_object(DocumentContentReference, dcr, index))
       sc = {'cls': DocumentContentReference, 'data': dcr}
       object_data.append(sc)    
@@ -52,6 +52,7 @@ def test_create(mocker, globals):
         'instanceType': 'DocumentContentReference',
         'sectionNumber': '1.2.1',
         'sectionTitle': 'XXX',
+        'appliesToId': 'TempId',
       },
     ]
   }
@@ -69,12 +70,14 @@ def test_create(mocker, globals):
         'instanceType': 'DocumentContentReference',
         'sectionNumber': '1.3.1',
         'sectionTitle': 'YYY',
+        'appliesToId': 'TempId',
       },
       {
         'id': 'DocumentContentReference_3',
         'instanceType': 'DocumentContentReference',
         'sectionNumber': '3.2',
         'sectionTitle': 'ZZZ',
+        'appliesToId': 'TempId',
       },
     ]
   }
@@ -92,6 +95,7 @@ def test_create(mocker, globals):
         'instanceType': 'DocumentContentReference',
         'sectionNumber': '4.5',
         'sectionTitle': 'Something Long',
+        'appliesToId': 'TempId',
       },
     ]
   }

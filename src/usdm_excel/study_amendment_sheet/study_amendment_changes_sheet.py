@@ -39,7 +39,7 @@ class StudyAmendmentChangesSheet(BaseSheet):
     for section in section_list:
       parts = section.split(':')
       if len(parts) == 2:
-        ref = self.create_object(DocumentContentReference, {'sectionNumber': parts[0].strip(), 'sectionTitle': parts[1].strip()})
+        ref = self.create_object(DocumentContentReference, {'sectionNumber': parts[0].strip(), 'sectionTitle': parts[1].strip(), 'appliesToId': 'TempId'})
         if ref:
           result.append(ref)
       else:
