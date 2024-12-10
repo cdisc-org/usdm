@@ -10,7 +10,7 @@ class PopulationDefinition(ApiBaseModelWithIdNameLabelAndDesc):
   includesHealthySubjects: bool
   plannedEnrollmentNumber: Union[Range, None] = None
   plannedCompletionNumber: Union[Range, None] = None
-  plannedSex: Annotated[list[Code], Len(min_length=0, max_length=2)] = []
+  plannedSex: Annotated[List[Code], Len(min_length=0, max_length=2)] = []
   criterionIds: List[str] = []
   plannedAge: Union[Range, None] = None
   notes: List[CommentAnnotation] = []

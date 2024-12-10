@@ -4,5 +4,6 @@ from .comment_annotation import CommentAnnotation
 
 class AnalysisPopulation(ApiBaseModelWithIdNameLabelAndDesc):
   text: str
+  subsetOfIds: List[str] = []
   notes: List[CommentAnnotation] = []
   instanceType: Literal['AnalysisPopulation']
