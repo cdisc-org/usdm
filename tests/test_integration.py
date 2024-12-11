@@ -258,3 +258,6 @@ def test_group_activities_1(mocker):
 
 def test_notes_1(mocker):
   run_test('annotations_and_abbreviations', mocker)
+
+def test_template_1(mocker):
+  run_test('template', mocker)
