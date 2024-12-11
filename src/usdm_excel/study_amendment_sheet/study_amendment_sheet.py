@@ -59,7 +59,8 @@ class StudyAmendmentSheet(BaseSheet):
   def set_document(self, document: StudyDefinitionDocument):
     try:
       for index, amendment in enumerate(self.items):
-        if self.template_names[index] == document.templateName:
+        self._general_info(f"Checking document template '{document.templateName}' versus '{self.template_names}' ")
+        if self.template_names[index].upper() == document.templateName.upper():
           for change in amendment.changes:
             for ref in change.changedSections:
               ref.appliesToId = document.id
