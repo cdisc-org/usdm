@@ -261,3 +261,6 @@ def test_notes_1(mocker):
 
 def test_template_1(mocker):
   run_test('template', mocker)
+
+def test_interventions_1(mocker):
+  run_test('interventions', mocker)
