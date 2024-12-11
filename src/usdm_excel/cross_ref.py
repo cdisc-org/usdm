@@ -32,7 +32,8 @@ class CrossRef():
     if key in self._references:
       return self._references[key]
     else:
-      self._debug(f"Failed to find by name: klass={self._klass_name(klass)}, name={name}, key={key}:\n\n{'':<9}references={self._references.keys()}")
+      #self._debug(f"Failed to find by name: klass={self._klass_name(klass)}, name={name}, key={key}:\n\n{'':<9}references={self._references.keys()}")
+      self._debug(f"Failed to find by name: klass={self._klass_name(klass)}, name={name}, key={key}")
       return None
 
   def get_by_id(self, klass, id):
@@ -40,7 +41,8 @@ class CrossRef():
     if id_key in self._identifiers:
       return self._identifiers[id_key]
     else:
-      self._debug(f"Failed to find by id: klass={self._klass_name(klass)}, id={id}, key={id_key}:\n\n{'':<9}identifiers={self._identifiers.keys()}")
+      #self._debug(f"Failed to find by id: klass={self._klass_name(klass)}, id={id}, key={id_key}:\n\n{'':<9}identifiers={self._identifiers.keys()}")
+      self._debug(f"Failed to find by id: klass={self._klass_name(klass)}, id={id}, key={id_key}")
       return None
 
   def get_by_path(self, klass, name, path):
