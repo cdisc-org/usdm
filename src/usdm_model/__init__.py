@@ -50,6 +50,7 @@ from .syntax_template import *
 from .syntax_template_dictionary import *
 from .timing import *
 from .transition_rule import *
+from .wrapper import *
 
 __all__ = [
   'Abbreviation',
