@@ -13,3 +13,10 @@ class ReferenceIdentifier(Identifier):
 
 class StudyIdentifier(Identifier):
   instanceType: Literal['StudyIdentifier']
+
+class AdministrableProductIdentifier(Identifier):
+  instanceType: Literal['AdministrableProductIdentifier']
+
+class MedicalDeviceIdentifier(Identifier):
+  type: Code
+  instanceType: Literal['MedicalDeviceIdentifier']

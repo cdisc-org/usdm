@@ -1,7 +1,7 @@
 from typing import List, Union, Literal
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .administrable_product_property import AdministrableProductProperty
-from .administrable_product_identifier import AdministrableProductIdentifier
+from .identifier import AdministrableProductIdentifier
 from .ingredient import Ingredient
 from .code import Code
 from .alias_code import AliasCode
