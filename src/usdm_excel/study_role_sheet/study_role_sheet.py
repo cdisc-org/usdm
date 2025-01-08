@@ -49,5 +49,5 @@ class StudyRoleSheet(BaseSheet):
         else:
           collection.append(item)
       else:
-        self._warning(index, column_name, f"Failed to find {klass.__name__.lower()} with name '{ref}'")
+        self._error(index, column_name, f"Failed to find {klass.__name__.lower()} with name '{ref}'")
     return collection

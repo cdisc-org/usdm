@@ -1,5 +1,5 @@
 import pandas as pd
-from usdm_excel.study_identifiers_sheet.study_references_sheet import StudyReferencesSheet
+from usdm_excel.study_identifier_and_organization_sheets.study_references_sheet import StudyReferencesSheet
 from usdm_model.code import Code
 
 DEFAULT_COLUMNS = ['identifierScheme', 'organisationIdentifier', 'name', 'label', 'type', 'studyIdentifier', 'address', 'referenceType']

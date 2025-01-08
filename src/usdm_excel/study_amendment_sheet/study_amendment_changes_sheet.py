@@ -28,7 +28,7 @@ class StudyAmendmentChangesSheet(BaseSheet):
             if parent:
               parent.changes.append(item)
             else:
-              self._error(index, self._get_column_index('amendment'), f"Failed to find amendment '{amendment}'")
+              self._error(index, 'amendment', f"Failed to find amendment with name '{amendment}'")
                 
     except Exception as e:
       self._sheet_exception(e)

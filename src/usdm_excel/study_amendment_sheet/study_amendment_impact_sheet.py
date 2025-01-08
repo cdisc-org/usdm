@@ -25,6 +25,6 @@ class StudyAmendmentImpactSheet(BaseSheet):
               parent.impacts.append(item)
             else:
               column = self._get_column_index('amendment')
-              self._error(index, column, f"Failed to find amendment '{amendment}'")
+              self._error(index, column, f"Failed to find amendment with name '{amendment}'")
     except Exception as e:
       self._sheet_exception(e)

@@ -1,5 +1,5 @@
 import pandas as pd
-from usdm_excel.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm_excel.study_identifier_and_organization_sheets.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_model.code import Code
 
 def test_create(mocker, globals):

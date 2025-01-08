@@ -1,5 +1,5 @@
 import pandas as pd
-from usdm_excel.study_identifiers_sheet.organization import get_organization
+from usdm_excel.study_identifier_and_organization_sheets.organization import get_organization
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.code import Code
 
