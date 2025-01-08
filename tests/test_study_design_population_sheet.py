@@ -25,22 +25,210 @@ def test_create(mocker, globals):
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['level', 'name', 'description', 'label', 'plannedSexOfParticipants', "plannedCompletionNumber", "plannedEnrollmentNumber", "plannedAge", 'includesHealthySubjects', 'characteristics'])
   item = StudyDesignPopulationSheet("", globals)
-  assert item.population.id == 'PopulationId_1'
-  assert item.population.name == 'POP01'
-  assert item.population.description == 'Main pop'
-  assert item.population.label == 'Main Pop'
-  assert item.population.plannedEnrollmentNumber.id == 'R_2'
-  assert item.population.plannedCompletionNumber.id == 'R_1'
-  assert item.population.plannedSex[0].id == 'Code_5'
-  assert item.population.plannedSex[0].decode == 'Both'
-  assert item.population.plannedAge.id == 'R_4'
-  assert item.population.cohorts[0].id == 'CohortId_1'
-  assert item.population.cohorts[0].name == 'POP02'
-  assert item.population.cohorts[0].characteristics[0].id == 'CH_1'
-  assert item.population.cohorts[0].characteristics[1].id == 'CH_2'
-  assert item.population.cohorts[1].id == 'CohortId_2'
-  assert item.population.cohorts[1].name == 'POP03'
-  assert item.population.cohorts[1].characteristics[0].id == 'CH_3'
+  assert item.population.model_dump() == {
+   'cohorts': [
+       {
+           'characteristics': [
+               {
+                   'description': None,
+                   'dictionaryId': None,
+                   'id': 'CH_1',
+                   'instanceType': 'Characteristic',
+                   'label': None,
+                   'name': 'CHAR_1',
+                   'notes': [],
+                   'text': 'Something',
+               },
+               {
+                   'description': None,
+                   'dictionaryId': None,
+                   'id': 'CH_2',
+                   'instanceType': 'Characteristic',
+                   'label': None,
+                   'name': 'CHAR_2',
+                   'notes': [],
+                   'text': 'Something',
+               },
+           ],
+           'criterionIds': [],
+           'description': 'Cohort 1',
+           'id': 'X_14',
+           'includesHealthySubjects': True,
+           'instanceType': 'StudyCohort',
+           'label': 'Cohort 1',
+           'name': 'POP02',
+           'notes': [],
+           'plannedAge': {
+               'id': 'CohortId_1',
+               'instanceType': 'Range',
+               'isApproximate': False,
+               'maxValue': 50.0,
+               'minValue': 50.0,
+               'unit': {
+                   'id': 'X_11',
+                   'instanceType': 'AliasCode',
+                   'standardCode': {
+                       'code': 'C29848',
+                       'codeSystem': 'http://www.cdisc.org',
+                       'codeSystemVersion': '2023-12-15',
+                       'decode': 'Year',
+                       'id': 'X_10',
+                       'instanceType': 'Code',
+                   },
+                   'standardCodeAliases': [],
+               },
+           },
+           'plannedCompletionNumber': {
+               'id': 'X_8',
+               'instanceType': 'Range',
+               'isApproximate': False,
+               'maxValue': 10.0,
+               'minValue': 5.0,
+               'unit': None,
+           },
+           'plannedEnrollmentNumber': {
+               'id': 'X_9',
+               'instanceType': 'Range',
+               'isApproximate': False,
+               'maxValue': 50.0,
+               'minValue': 50.0,
+               'unit': None,
+           },
+           'plannedSex': [
+               {
+                   'code': 'C20197',
+                   'codeSystem': 'http://www.cdisc.org',
+                   'codeSystemVersion': '2023-12-15',
+                   'decode': 'Male',
+                   'id': 'X_13',
+                   'instanceType': 'Code',
+               },
+           ],
+       },
+       {
+           'characteristics': [
+               {
+                   'description': None,
+                   'dictionaryId': None,
+                   'id': 'CH_3',
+                   'instanceType': 'Characteristic',
+                   'label': None,
+                   'name': 'CHAR_3',
+                   'notes': [],
+                   'text': 'Something',
+               },
+           ],
+           'criterionIds': [],
+           'description': 'Cohort 2',
+           'id': 'X_20',
+           'includesHealthySubjects': True,
+           'instanceType': 'StudyCohort',
+           'label': 'Cohort 2',
+           'name': 'POP03',
+           'notes': [],
+           'plannedAge': {
+               'id': 'X_18',
+               'instanceType': 'Range',
+               'isApproximate': False,
+               'maxValue': 60.0,
+               'minValue': 50.0,
+               'unit': {
+                   'id': 'CohortId_2',
+                   'instanceType': 'AliasCode',
+                   'standardCode': {
+                       'code': 'C29848',
+                       'codeSystem': 'http://www.cdisc.org',
+                       'codeSystemVersion': '2023-12-15',
+                       'decode': 'Year',
+                       'id': 'X_17',
+                       'instanceType': 'Code',
+                   },
+                   'standardCodeAliases': [],
+               },
+           },
+           'plannedCompletionNumber': {
+               'id': 'X_15',
+               'instanceType': 'Range',
+               'isApproximate': False,
+               'maxValue': 10.0,
+               'minValue': 5.0,
+               'unit': None,
+           },
+           'plannedEnrollmentNumber': {
+               'id': 'X_16',
+               'instanceType': 'Range',
+               'isApproximate': False,
+               'maxValue': 60.0,
+               'minValue': 50.0,
+               'unit': None,
+           },
+           'plannedSex': [
+               {
+                   'code': 'C16576',
+                   'codeSystem': 'http://www.cdisc.org',
+                   'codeSystemVersion': '2023-12-15',
+                   'decode': 'Female',
+                   'id': 'X_19',
+                   'instanceType': 'Code',
+               },
+           ],
+       },
+   ],
+   'criterionIds': [],
+   'description': 'Main pop',
+   'id': 'X_7',
+   'includesHealthySubjects': True,
+   'instanceType': 'StudyDesignPopulation',
+   'label': 'Main Pop',
+   'name': 'POP01',
+   'notes': [],
+   'plannedAge': {
+       'id': 'Code_5',
+       'instanceType': 'Range',
+       'isApproximate': False,
+       'maxValue': 110.0,
+       'minValue': 100.0,
+       'unit': {
+           'id': 'R_4',
+           'instanceType': 'AliasCode',
+           'standardCode': {
+               'code': 'C29848',
+               'codeSystem': 'http://www.cdisc.org',
+               'codeSystemVersion': '2023-12-15',
+               'decode': 'Year',
+               'id': 'X_3',
+               'instanceType': 'Code',
+           },
+           'standardCodeAliases': [],
+       },
+   },
+   'plannedCompletionNumber': {
+       'id': 'R_1',
+       'instanceType': 'Range',
+       'isApproximate': False,
+       'maxValue': 20.0,
+       'minValue': 10.0,
+       'unit': None,
+   },
+   'plannedEnrollmentNumber': {
+       'id': 'R_2',
+       'instanceType': 'Range',
+       'isApproximate': False,
+       'maxValue': 110.0,
+       'minValue': 100.0,
+       'unit': None,
+   },
+   'plannedSex': [
+       {
+           'code': 'C49636',
+           'codeSystem': 'http://www.cdisc.org',
+           'codeSystemVersion': '2023-12-15',
+           'decode': 'Both',
+           'id': 'PopulationId_1',
+           'instanceType': 'Code',
+       },
+   ]
+  }
   
 def test_create_empty(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")

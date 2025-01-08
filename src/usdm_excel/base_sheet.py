@@ -182,7 +182,7 @@ class BaseSheet():
         self._add_errors(quantity.errors, row_index, col_index)
         return None
     except Exception as e:
-      self._error( row_index, col_index, f"Failed to decode quantity data '{text}'", e)
+      self._exception( row_index, col_index, f"Failed to decode quantity data '{text}'", e)
       return None
 
   def read_range_cell_by_name(self, row_index, field_name, require_units=True, allow_empty=True):

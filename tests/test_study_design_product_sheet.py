@@ -4,47 +4,15 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.code import Code
 
 def test_create_1(mocker, globals):
-  ids = ['Id_1', 'Id_2', 'Id_3', 'Id_4', 'Id_5', 'Id_6', 'Id_7', 'Id_8', 'Id_9', 'Id_10', 'Id_11', 'Id_12', 'Id_13', 'Id_14']
-  expected = ( 
-    '{"id": "Id_4", "name": "60 mg Study Drug", "label": "label 1", "description": "description 1", "pharmacologicClass": '
-      '{"id": "Id_3", "code": "A", "codeSystem": "FDA", "codeSystemVersion": "", "decode": "B", "instanceType": "Code"}, '
-    '"administrableDoseForm": '
-      '{"id": "Id_2", '
-        '"standardCode": {"id": "Id_1", "code": "C42998", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Tablet Dosage Form", "instanceType": "Code"}, '
-        '"standardCodeAliases": [], '
-        '"instanceType": "AliasCode"}, '
-      '"properties": [], "identifiers": [], '
-      '"ingredients": '
-        '[{"id": "Id_7", "role": '
-          '{"id": "Id_6", "code": "100000072072", "codeSystem": "HL7", "codeSystemVersion": "", "decode": "Active", "instanceType": "Code"}, '
-        '"substance": '
-          '{"id": "Id_5", "name": "Ingredient C", "label": "label 2", "description": "description 2", "codes": [], '
-          '"strengths": '
-            '[{"id": "Id_14", "name": "60 mg", "label": "", "description": "", '
-            '"denominator": '
-              '{"id": "Id_13", "value": 1.0, '
-              '"unit": '
-                '{"id": "Id_12", '
-                '"standardCode": '
-                  '{"id": "Id_11", "code": "C48542", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Tablet Dosing Unit", "instanceType": "Code"}, '
-                '"standardCodeAliases": [], "instanceType": "AliasCode"}, '
-              '"instanceType": "Quantity"}, '
-            '"numerator": {"id": "Id_10", "value": 60.0, '
-              '"unit": {"id": "Id_9", '
-                '"standardCode": {"id": "Id_8", "code": "C28253", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Milligram", "instanceType": "Code"}, '
-                '"standardCodeAliases": [], "instanceType": "AliasCode"}, '
-              '"instanceType": "Quantity"}, '
-            '"instanceType": "Strength"}], '
-          '"referenceSubstance": null, "instanceType": "Substance"}, '
-        '"instanceType": "Ingredient"}], "notes": [], '
-      '"instanceType": "AdministrableProduct"}'
-  )
+  ids = ['Id_1', 'Id_2', 'Id_3', 'Id_4', 'Id_5', 'Id_6', 'Id_7', 'Id_8', 'Id_9', 'Id_10', 'Id_11', 'Id_12', 'Id_13', 'Id_14', 'Id_15', 'Id_16']
   data = {
     'name': ['60 mg Study Drug'],
     'description': ['description 1'],
     'label': ['label 1'],
     'pharmacologicClass': ['FDA: A=B'],
     'administrableDoseForm': ['TABLET'],
+    'productDesignation': ['IMP'],
+    'productSourcing': ['Centrally Sourced'],
     'ingredientRole': ['HL7:   100000072072=Active'],
     'substanceName': ['Ingredient C'],
     'substanceDescription': ['description 2'],
@@ -66,7 +34,121 @@ def test_create_1(mocker, globals):
     'referenceSubstanceStrengthDenominator': ['']
   }  
   sheet = _setup_sheet(mocker, globals, data, ids)
-  assert str(sheet.items[0].to_json()) == expected
+  assert sheet.items[0].model_dump() == {
+     'administrableDoseForm': {
+         'id': 'Id_2',
+         'instanceType': 'AliasCode',
+         'standardCode': {
+             'code': 'C42998',
+             'codeSystem': 'http://www.cdisc.org',
+             'codeSystemVersion': '2023-12-15',
+             'decode': 'Tablet Dosage Form',
+             'id': 'Id_1',
+             'instanceType': 'Code',
+         },
+         'standardCodeAliases': [],
+     },
+     'description': 'description 1',
+     'id': 'Id_6',
+     'identifiers': [],
+     'ingredients': [
+         {
+             'id': 'Id_9',
+             'instanceType': 'Ingredient',
+             'role': {
+                 'code': '100000072072',
+                 'codeSystem': 'HL7',
+                 'codeSystemVersion': '',
+                 'decode': 'Active',
+                 'id': 'Id_8',
+                 'instanceType': 'Code',
+             },
+             'substance': {
+                 'codes': [],
+                 'description': 'description 2',
+                 'id': 'Id_7',
+                 'instanceType': 'Substance',
+                 'label': 'label 2',
+                 'name': 'Ingredient C',
+                 'referenceSubstance': None,
+                 'strengths': [
+                     {
+                         'denominator': {
+                             'id': 'Id_15',
+                             'instanceType': 'Quantity',
+                             'unit': {
+                                 'id': 'Id_14',
+                                 'instanceType': 'AliasCode',
+                                 'standardCode': {
+                                     'code': 'C48542',
+                                     'codeSystem': 'http://www.cdisc.org',
+                                     'codeSystemVersion': '2023-12-15',
+                                     'decode': 'Tablet Dosing Unit',
+                                     'id': 'Id_13',
+                                     'instanceType': 'Code',
+                                 },
+                                 'standardCodeAliases': [],
+                             },
+                             'value': 1.0,
+                         },
+                         'description': '',
+                         'id': 'Id_16',
+                         'instanceType': 'Strength',
+                         'label': '',
+                         'name': '60 mg',
+                         'numerator': {
+                             'id': 'Id_12',
+                             'instanceType': 'Quantity',
+                             'unit': {
+                                 'id': 'Id_11',
+                                 'instanceType': 'AliasCode',
+                                 'standardCode': {
+                                     'code': 'C28253',
+                                     'codeSystem': 'http://www.cdisc.org',
+                                     'codeSystemVersion': '2023-12-15',
+                                     'decode': 'Milligram',
+                                     'id': 'Id_10',
+                                     'instanceType': 'Code',
+                                 },
+                                 'standardCodeAliases': [],
+                             },
+                             'value': 60.0,
+                         },
+                     },
+                 ],
+             },
+         },
+     ],
+     'instanceType': 'AdministrableProduct',
+     'label': 'label 1',
+     'name': '60 mg Study Drug',
+     'notes': [],
+     'pharmacologicClass': {
+         'code': 'A',
+         'codeSystem': 'FDA',
+         'codeSystemVersion': '',
+         'decode': 'B',
+         'id': 'Id_3',
+         'instanceType': 'Code',
+     },
+     'productDesignation': {
+         'code': 'C99909x1',
+         'codeSystem': 'http://www.cdisc.org',
+         'codeSystemVersion': '2023-12-15',
+         'decode': 'IMP',
+         'id': 'Id_4',
+         'instanceType': 'Code',
+     },
+     'properties': [],
+     'sourcing': {
+         'code': 'C99914x1',
+         'codeSystem': 'http://www.cdisc.org',
+         'codeSystemVersion': '2023-12-15',
+         'decode': 'Centrally Sourced',
+         'id': 'Id_5',
+         'instanceType': 'Code',
+     },
+ }
 
 def test_create_2(mocker, globals):
   ids = [
@@ -80,6 +162,8 @@ def test_create_2(mocker, globals):
     'label': ['label 1', ''],
     'pharmacologicClass': ['FDA: A=B', ''],
     'administrableDoseForm': ['TABLET', ''],
+    'productDesignation': ['IMP', 'NIMP (AxMP)'],
+    'productSourcing': ['Centrally Sourced', 'Locally Sourced'],
     'ingredientRole': ['HL7:   100000072072=Active', 'HL7:   100000072072=Active'],
     'substanceName': ['Ingredient C', 'Ingredient D'],
     'substanceDescription': ['description 2', 'description 3'],
@@ -117,6 +201,8 @@ def test_create_3(mocker, globals):
     'label': ['label 1', ''],
     'pharmacologicClass': ['FDA: A=B', ''],
     'administrableDoseForm': ['TABLET', ''],
+    'productDesignation': ['IMP', 'NIMP (AxMP)'],
+    'productSourcing': ['Centrally Sourced', 'Locally Sourced'],
     'ingredientRole': ['HL7:   100000072072=Active', 'HL7:   100000072072=Active'],
     'substanceName': ['Ingredient C', 'Ingredient D'],
     'substanceDescription': ['description 2', 'description 3'],
@@ -149,6 +235,8 @@ def test_missign_column_error(mocker, globals):
     'description': ['description 1'],
     'label': ['label 1'],
     'administrableDoseForm': ['TABLET'],
+    'productDesignation': ['IMP'],
+    'productSourcing': ['Centrally Sourced'],
     'ingredientRole': ['HL7:   100000072072=Active'],
     'substanceName': ['Ingredient C'],
     'substanceDescription': ['description 2'],
