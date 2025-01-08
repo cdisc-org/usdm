@@ -11,6 +11,5 @@ class StudyIntervention(ApiBaseModelWithIdNameLabelAndDesc):
   minimumResponseDuration: Union[Quantity, None] = None
   codes: List[Code] = []
   administrations: List[Administration] = []
-  productDesignation:	Code
   notes: List[CommentAnnotation] = []
   instanceType: Literal['StudyIntervention']

@@ -11,5 +11,6 @@ class Administration(ApiBaseModelWithIdNameLabelAndDesc):
   route: AliasCode
   frequency: AliasCode
   administrableProductId: Union[str, None] = None
+  medicalDeviceId: Union[str, None] = None
   notes: List[CommentAnnotation] = []
   instanceType: Literal['Administration']
