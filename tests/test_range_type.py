@@ -13,7 +13,7 @@ def test_range_type(mocker, globals):
     assert(item.upper) == test[2]
     assert(item.label) == test[3]
     assert(item.units) == test[4]
-    assert(item.units_code.code) == test[5]
+    assert(item.units_code.standardCode.code) == test[5]
     assert(item.errors) == [] 
 
 def test_range_type_error(mocker, globals):

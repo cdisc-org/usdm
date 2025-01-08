@@ -1,6 +1,7 @@
 import re
 from usdm_excel.globals import Globals
 from usdm_excel.cdisc_ct import CDISCCT
+from usdm_excel.alias import Alias
 
 class RangeType():
 
@@ -25,7 +26,9 @@ class RangeType():
           if units_reqd:
             if parts['units']:
               self.units = parts['units'].strip()
-              self.units_code = CDISCCT(globals).code_for_unit(self.units)
+              # Units code now an alias
+              cdisc_code = CDISCCT(globals).code_for_unit(self.units)
+              self.units_code = Alias(globals).code(cdisc_code, [])
               if not self.units_code:        
                 self.errors.append(f"Unable to set the units code for the range '{range_info}'")
             else:
