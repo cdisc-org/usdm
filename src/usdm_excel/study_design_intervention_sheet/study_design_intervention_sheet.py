@@ -33,7 +33,7 @@ class StudyDesignInterventionSheet(BaseSheet):
         'codes': self.read_other_code_cell_multiple_by_name(index, "codes"),
         'role': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "role", index, "role"),
         'type': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "type", index, "type"),
-        'productDesignation': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "productDesignation", index, "productDesignation"),
+        #'productDesignation': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "productDesignation", index, "productDesignation"),
         'minimumResponseDuration': self.read_quantity_cell_by_name(index, "minimumResponseDuration"),
         'administrations': [agent_admin]
       }
