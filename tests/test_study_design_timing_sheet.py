@@ -8,7 +8,7 @@ def test_create(mocker, globals):
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
-  mock_id.side_effect=['Range1', 'Code1', 'Code2', 'TimingId_1', 'Code3', 'Code4', 'TimingId_2', 'Code5', 'Code6', 'TimingId_3']
+  mock_id.side_effect=['Range1', 'AC1', 'Code1', 'Code2', 'TimingId_1', 'Code3', 'Code4', 'TimingId_2', 'Code5', 'Code6', 'TimingId_3']
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
@@ -20,8 +20,6 @@ def test_create(mocker, globals):
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'description', 'label', 'type', 'from', 'to', 'timingValue', 'toFrom', 'window'])
 
   items = StudyDesignTimingSheet("", globals)
-  #print(f"ERRORS: {[item.to_dict() for item in globals.errors_and_logging.errors().items]}")
-  #print(f"ITEMS: {items.items}")
   assert len( globals.errors_and_logging.errors().items) == 0
   assert len(items.items) == 3
   assert items.items[0].id == 'TimingId_1'
@@ -33,51 +31,6 @@ def test_create(mocker, globals):
   assert items.items[1].type.decode == 'Before'
   assert items.items[2].id == 'TimingId_3'
   assert items.items[2].type.decode == 'Fixed Reference'
-
-# def test_timepoint_type(mocker, globals):
-#   mocked_open = mocker.mock_open(read_data="File")
-#   mocker.patch("builtins.open", mocked_open)
-#   mock_read = mocker.patch("pandas.read_excel")
-#   data = { 'col_1': [ 'A:', 'P: 2D ', 'P2:2D', 'C:', 'N3: 3 weeks', 'N: +2 days', 'P: -3 hrs' ] }
-#   mock_read.return_value = pd.DataFrame.from_dict(data)
-#   parent = BaseSheet("", "")
-#   test_data = [
-#     (0,0,'anchor', 0, None, ISO8601Duration.ZERO_DURATION),
-#     (1,0,'previous', -1, "2D", "P2D"),
-#     (2,0,'previous', -2, "2D", "P2D"),
-#     (3,0,'cycle start', 1, None, ISO8601Duration.ZERO_DURATION),
-#     (4,0,'next', 3, "3 weeks", "P3W"),
-#     (5,0,'next', 1, "+2 days", "P2D"),
-#     (6,0,'previous', -1, "-3 hrs", "PT3H"),
-#   ]
-#   for index, test in enumerate(test_data):
-#     item = TimepointType(parent, test[0], test[1])
-#     assert(item.timing_type) == test[2]
-#     assert(item.relative_ref) == test[3]
-#     assert(item.description) == test[4]
-#     assert(item.value) == test[5]
-
-# def test_timepoint_type_error(mocker, globals):
-#   mocked_open = mocker.mock_open(read_data="File")
-#   mocker.patch("builtins.open", mocked_open)
-#   mock_read = mocker.patch("pandas.read_excel")
-#   data = { 'col_1': [ 'A', 'P: 2 ', '', 'P2: 2 decades' ] }
-#   mock_read.return_value = pd.DataFrame.from_dict(data)
-#   parent = BaseSheet("", "Sheet X")
-#   test_data = [
-#     (0,0,"Could not decode the timing value, no ':' detected in 'A'"),
-#     (1,0,"Could not decode the duration value, no value and units found in '2'"),
-#     (2,0,"Could not decode the timing value, cell was empty"),
-#     (3,0,"Could not decode the duration value '2 decades'"),
-#   ]
-#   for index, test in enumerate(test_data):
-#     mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
-#     item = TimepointType(parent, test[0], test[1])
-#     mock_error.assert_called()
-#     assert mock_error.call_args[0][0] == "Sheet X"
-#     assert mock_error.call_args[0][1] == test[0] + 1
-#     assert mock_error.call_args[0][2] == test[1] + 1
-#     assert mock_error.call_args[0][3] == test[2]
 
 def test_window_type(mocker, globals):
   test_data = [
