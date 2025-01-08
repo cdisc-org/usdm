@@ -18,9 +18,9 @@ class StudyReferencesSheet(BaseSheet):
       
   def _process_sheet(self):
     for index, row in self.sheet.iterrows():
-      text = self.read_cell_by_name(index, 'studyIdentifier')
-      org_name = self.read_cell_by_name(index, 'orgName')
-      type = self.read_cdisc_klass_attribute_cell_by_name('ReferenceIdentifier', 'type', index, ['referenceType'])     
+      text = self.read_cell_by_name(index, ['studyIdentifier', 'identifier'])
+      org_name = self.read_cell_by_name(index, 'organization')
+      type = self.read_cdisc_klass_attribute_cell_by_name('ReferenceIdentifier', 'type', index, ['referenceType', 'type'])     
       organization = self.globals.cross_references.get(Organization, org_name)
       if organization:
         item = self.create_object(ReferenceIdentifier, {'text': text, 'type': type, 'scopeId': organization.id})
@@ -28,4 +28,4 @@ class StudyReferencesSheet(BaseSheet):
           self.items.append(item)
           self.globals.cross_references.add(item.text, item)         
       else:
-        self._error(row, 'orgName', "Failed to find organization with name '{org_name}'")
+        self._error(row, 'organization', "Failed to find organization with name '{org_name}'")

@@ -15,14 +15,14 @@ class StudyIdentifiersSheet(BaseSheet):
     except Exception as e:
       self._sheet_exception(e)
       
-  def process_sheet(self):
+  def _process_sheet(self):
     for index, row in self.sheet.iterrows():
-      org_name = self.read_cell_by_name(index, 'orgName')
+      org_name = self.read_cell_by_name(index, 'organization')
       organization: Organization = self.globals.cross_references.get(Organization, org_name)
       if organization:
-        item = self.create_object(StudyIdentifier, {'text': self.read_cell_by_name(index, 'studyIdentifier'), 'scopeId': organization.id})
+        item: StudyIdentifier = self.create_object(StudyIdentifier, {'text': self.read_cell_by_name(index, ['studyIdentifier', 'identifier']), 'scopeId': organization.id})
         if item:
           self.items.append(item)
           self.globals.cross_references.add(item.text, item)         
       else:
-          self._error(row, 'orgName', "Failed to find organization with name '{org_name}'")
+          self._error(index, 'organization', f"Failed to find organization with name '{org_name}'")
