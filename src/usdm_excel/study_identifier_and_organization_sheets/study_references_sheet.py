@@ -28,4 +28,4 @@ class StudyReferencesSheet(BaseSheet):
           self.items.append(item)
           self.globals.cross_references.add(item.text, item)         
       else:
-        self._error(row, 'organization', "Failed to find organization with name '{org_name}'")
+        self._error(row, 'organization', f"Failed to find organization with name '{org_name}'")
