@@ -96,4 +96,4 @@ def test_read_cell_by_name_error(mocker, globals):
   item = StudyAmendmentImpactSheet("", globals)
   assert mock_called(mea, 2)
   mock_parameters_correct(mea, [mocker.call('amendmentImpact', 1, -1, "Error attempting to read cell 'text'. Exception: Failed to detect column(s) 'text' in sheet", 40), 
-                                mocker.call('amendmentImpact', 1, 1, "Failed to find amendment 'A1'", 40)])
+                                mocker.call('amendmentImpact', 1, 1, "Failed to find amendment with name 'A1'", 40)])
