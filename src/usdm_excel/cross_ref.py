@@ -21,7 +21,7 @@ class CrossRef():
       if not key in self._references:
         self._references[key] = object
         self._identifiers[id_key] = object
-        self._debug(f"Added cross reference, klass='{self._klass_name(klass)}', name='{name}'")
+        #self._debug(f"Added cross reference, klass='{self._klass_name(klass)}', name='{name}'")
       else:
         self._debug(f"Duplicate cross reference detected, klass='{self._klass_name(klass)}', name='{name}'")
     except Exception as e:
@@ -32,8 +32,8 @@ class CrossRef():
     if key in self._references:
       return self._references[key]
     else:
-      self._debug(f"Failed to find by name: klass='{self._klass_name(klass)}', name='{name}', key='{key}':\n\n{'':<9}references='{self._references.keys()}'")
-      #self._debug(f"Failed to find by name: klass='{self._klass_name(klass)}', name='{name}', key='{key}'")
+      #self._debug(f"Failed to find by name: klass='{self._klass_name(klass)}', name='{name}', key='{key}':\n\n{'':<9}references='{self._references.keys()}'")
+      self._debug(f"Failed to find by name: klass='{self._klass_name(klass)}', name='{name}', key='{key}'")
       return None
 
   def get_by_id(self, klass, id):
@@ -81,6 +81,9 @@ class CrossRef():
 
   def _error(self, message):
     self._errors_and_logging.error(message)
+
+  def _warning(self, message):
+    self._errors_and_logging.warning(message)
 
   def _debug(self, message):
     self._errors_and_logging.debug(message)
