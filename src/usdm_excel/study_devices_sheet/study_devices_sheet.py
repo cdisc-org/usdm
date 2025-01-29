@@ -28,7 +28,7 @@ class StudyDevicesSheet(BaseSheet):
             product_name = self.read_cell_by_name(index, 'product')
             product = self.globals.cross_references.get(AdministrableProduct, product_name)
             if product:
-                params['embddedProductId'] = product.id
+                params['embeddedProductId'] = product.id
             else:
                 self._warning(index, 'product', f"Failed to find administrable product with name '{product_name}'")
             notes = self.read_cell_multiple_by_name(index, 'notes', must_be_present=False)

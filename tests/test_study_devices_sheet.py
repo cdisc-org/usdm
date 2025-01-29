@@ -40,7 +40,7 @@ def test_create(mocker, globals):
     'description': 'DESCRIPTION1',
     'hardwareVersion': 'HARDWAREVERSION1',
     'softwareVersion': 'SOFTWAREVERSION1',
-    'embeddedProductId': None,
+    'embeddedProductId': 'AdministrableProduct_1',
     'identifiers': [],
     'sourcing': {
       'code': 'code',
@@ -73,7 +73,7 @@ def test_create(mocker, globals):
     'description': 'DESCRIPTION2',
     'hardwareVersion': 'HARDWAREVERSION2',
     'softwareVersion': 'SOFTWAREVERSION2',
-    'embeddedProductId': None,
+    'embeddedProductId': 'AdministrableProduct_2',
     'identifiers': [],
     'sourcing': {
       'code': 'code',
