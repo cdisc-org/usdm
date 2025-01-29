@@ -32,6 +32,10 @@ from usdm_excel.study_design_conditions_sheet.study_design_conditions_sheet impo
 from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_sheet import StudyDesignCharacteristicSheet
 from usdm_excel.assigned_person_sheet.assigned_person_sheet import AssignedPersonSheet
 from usdm_excel.study_role_sheet.study_role_sheet import StudyRoleSheet
+from usdm_excel.study_identifier_and_organization_sheets.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm_excel.study_identifier_and_organization_sheets.study_references_sheet import StudyReferencesSheet
+from usdm_excel.study_identifier_and_organization_sheets.study_organizations_sheet import StudyOrganizationsSheet
+from usdm_excel.study_devices_sheet.study_devices_sheet import StudyDevicesSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
@@ -82,6 +86,8 @@ class USDMExcel():
       # Process all the remaining sheets
       self.notes = AnnotationSheet(self._file_path, self._globals)
       self.abbreviations = AbbreviationSheet(self._file_path, self._globals)
+      self.organizations = StudyOrganizationsSheet(self._file_path, self._globals)
+      self.devices = StudyDevicesSheet(self._file_path, self._globals)
       self.study = StudySheet(self._file_path, self._globals)
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
       self.study_amendments = StudyAmendmentSheet(self._file_path, self._globals)
@@ -193,7 +199,7 @@ class USDMExcel():
           criteria=self.eligibility_criteria.items,
           narrativeContentItems=self.contents.items,
           abbreviations=self.abbreviations.items,
-          organizations=self.study_references.organizations + self.study_identifiers.organizations + self.sites.organizations,
+          organizations=self.organizations.items,
           roles=self.roles.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)

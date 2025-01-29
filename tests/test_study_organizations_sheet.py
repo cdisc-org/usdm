@@ -1,5 +1,5 @@
 import pandas as pd
-from usdm_excel.study_identifier_and_organization_sheets.study_organisations_sheet import StudyOrganizationsSheet
+from usdm_excel.study_identifier_and_organization_sheets.study_organizations_sheet import StudyOrganizationsSheet
 from usdm_model.code import Code
 
 def test_create(mocker, globals):
