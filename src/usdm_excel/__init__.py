@@ -189,7 +189,7 @@ class USDMExcel():
           studyPhase=self.study.phase,
           businessTherapeuticAreas=self.study.therapeutic_areas,
           rationale=self.study.rationale,
-          studyIdentifiers=self.study_identifiers.identifiers,
+          studyIdentifiers=self.study_identifiers.items,
           referenceIdentifiers=self.study_references.items,
           documentVersionIds=self.definition_document_version_ids,
           studyDesigns=self.study_design.study_designs,
@@ -200,7 +200,8 @@ class USDMExcel():
           narrativeContentItems=self.contents.items,
           abbreviations=self.abbreviations.items,
           organizations=self.organizations.items,
-          roles=self.roles.items
+          roles=self.roles.items,
+          medicalDevices=self.devices.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:

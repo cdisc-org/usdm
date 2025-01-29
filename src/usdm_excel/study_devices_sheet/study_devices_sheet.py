@@ -10,8 +10,9 @@ class StudyDevicesSheet(BaseSheet):
     def __init__(self, file_path, globals: Globals):
         try:
             self.items = []
-            super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME)
-            self._process_sheet()
+            super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, optional=True)
+            if self.success:
+                self._process_sheet()
         except Exception as e:
             self._sheet_exception(e)
       
