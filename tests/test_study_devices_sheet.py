@@ -7,10 +7,9 @@ from usdm_excel.option_manager import Options, EmptyNoneOption
 from tests.test_factory import Factory
 from usdm_model.administrable_product import AdministrableProduct
 from usdm_model.code import Code
+from usdm_model.comment_annotation import CommentAnnotation
+
 def test_create(mocker, globals):
-  globals.id_manager.clear()
-  globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE.value)
-  organizations(globals)
   sheet_data = {
     'name': ['DEVICE1', 'DEVICE2'], 
     'description': ['DESCRIPTION1', 'DESCRIPTION2'], 
@@ -19,10 +18,12 @@ def test_create(mocker, globals):
     'softwareVersion': ['SOFTWAREVERSION1', 'SOFTWAREVERSION2'],
     'sourcing': ['Centrally Sourced', 'Locally Sourced'],
     'product': ['PRODUCT1', 'PRODUCT2'],
-    'notes': ['', ''],
+    'notes': ['N1, N2', 'N2'],
   }
   mock_sheet_present(mocker)
   mock_sheet(mocker, globals, sheet_data)
+  _organizations(globals)
+  _notes(globals)
   mock_json = mocker.patch("json.load")
   mock_json.side_effect=[{}, {}]
   expected_1 = Code(id='Code1', code='code', codeSystem='codesys', codeSystemVersion='3', decode="Centrally Sourced")
@@ -49,7 +50,20 @@ def test_create(mocker, globals):
       'id': 'Code1',
       'instanceType': 'Code',
     },
-    'notes': [],
+    'notes': [
+      {
+        'codes': [],
+        'id': 'CommentAnnotation_1',
+        'instanceType': 'CommentAnnotation',
+        'text': 'Note 1',
+      },
+      {
+        'codes': [],
+        'id': 'CommentAnnotation_2',
+        'instanceType': 'CommentAnnotation',
+        'text': 'Note 2',
+      }
+    ],
   }
   assert item.items[1].model_dump() == {
     'id': 'MedicalDevice_2',
@@ -69,7 +83,14 @@ def test_create(mocker, globals):
       'id': 'Code2',
       'instanceType': 'Code',
     },
-    'notes': [],
+    'notes': [
+      {
+        'codes': [],
+        'id': 'CommentAnnotation_2',
+        'instanceType': 'CommentAnnotation',
+        'text': 'Note 2',
+      }
+    ],
   }
 
 def test_create_empty(mocker, globals):
@@ -99,7 +120,7 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_called(mea, 1)
   mock_parameters_correct(mea, [mocker.call('studyDevices', None, None, "Exception. Error [Failed to detect column(s) 'sourcing' in sheet] while reading sheet 'studyDevices'. See log for additional details.", 40)])
 
-def organizations(globals):
+def _organizations(globals: Globals):
   factory = Factory(globals)
   dose_code = factory.cdisc_code("C12345", "something_dose")
   prod1 = factory.item(AdministrableProduct, {'name': 'PRODUCT1', 'productDesignation': factory.cdisc_code("C6789", "designation"), 'administrableDoseForm': factory.alias_code(dose_code, alias_codes=[])}) 
@@ -108,3 +129,15 @@ def organizations(globals):
   globals.cross_references.add(prod1.name, prod1)
   globals.cross_references.add(prod2.name, prod2)
   globals.cross_references.add(prod3.name, prod3)  
+
+def _notes(globals: Globals):
+  factory = Factory(globals)
+  notes = {
+    'N1': {'text': 'Note 1', 'codes': []},
+    'N2': {'text': 'Note 2', 'codes': []},
+    'N3': {'text': 'Note 3', 'codes': []},
+  }
+  for name, note in notes.items():
+    item = factory.item(CommentAnnotation, note)
+    print(f"ITEM: {item}")
+    globals.cross_references.add(name, item)

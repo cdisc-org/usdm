@@ -1,4 +1,3 @@
-import inspect
 from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
 class CrossRef():
@@ -22,18 +21,19 @@ class CrossRef():
       if not key in self._references:
         self._references[key] = object
         self._identifiers[id_key] = object
+        self._debug(f"Added cross reference, klass='{self._klass_name(klass)}', name='{name}'")
       else:
-        self._error(f"Duplicate cross reference detected, class '{self._klass_name(klass)}' with name '{name}'")
+        self._debug(f"Duplicate cross reference detected, klass='{self._klass_name(klass)}', name='{name}'")
     except Exception as e:
-      self._exception(f"Failed to add cross reference detected, class '{self._klass_name(klass)}' with name '{name}'.", e)
+      self._exception(f"Failed to add cross reference, klass='{self._klass_name(klass)}', name='{name}'.", e)
 
   def get(self, klass, name):
     key, id_key = self._key(klass, name, "")
     if key in self._references:
       return self._references[key]
     else:
-      #self._debug(f"Failed to find by name: klass={self._klass_name(klass)}, name={name}, key={key}:\n\n{'':<9}references={self._references.keys()}")
-      self._debug(f"Failed to find by name: klass={self._klass_name(klass)}, name={name}, key={key}")
+      self._debug(f"Failed to find by name: klass='{self._klass_name(klass)}', name='{name}', key='{key}':\n\n{'':<9}references='{self._references.keys()}'")
+      #self._debug(f"Failed to find by name: klass='{self._klass_name(klass)}', name='{name}', key='{key}'")
       return None
 
   def get_by_id(self, klass, id):
@@ -41,8 +41,8 @@ class CrossRef():
     if id_key in self._identifiers:
       return self._identifiers[id_key]
     else:
-      #self._debug(f"Failed to find by id: klass={self._klass_name(klass)}, id={id}, key={id_key}:\n\n{'':<9}identifiers={self._identifiers.keys()}")
-      self._debug(f"Failed to find by id: klass={self._klass_name(klass)}, id={id}, key={id_key}")
+      #self._debug(f"Failed to find by id: klass='{self._klass_name(klass)}', id='{id}', key='{id_key}':\n\n{'':<9}identifiers='{self._identifiers.keys()}'")
+      self._debug(f"Failed to find by id: klass='{self._klass_name(klass)}', id='{id}', key='{id_key}'")
       return None
 
   def get_by_path(self, klass, name, path):

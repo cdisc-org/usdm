@@ -2,7 +2,7 @@ import pandas as pd
 from usdm_excel.globals import Globals
 
 def mock_sheet(mocker, globals: Globals, data):
-  print(f"MOCKER: {type(mocker)}")
+  #print(f"MOCKER: {type(mocker)}")
   globals.cross_references.clear()
   mo = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mo)
