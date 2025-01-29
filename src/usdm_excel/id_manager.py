@@ -80,7 +80,8 @@ class IdManager():
       'StudyRole': 0,
       'StudyAmendmentImpact': 0,
       'StudyChange': 0,
-      'DocumentContentReference': 0
+      'DocumentContentReference': 0,
+      'MedicalDevice': 0
     }
 
   def build_id(self, klass):
