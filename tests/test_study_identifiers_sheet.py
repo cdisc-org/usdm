@@ -7,6 +7,7 @@ from tests.test_factory import Factory
 
 def test_create(mocker, globals):
   globals.cross_references.clear()
+  globals.id_manager.clear()
   organizations(globals)
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Id_1', 'Id_2', 'Id_3']
@@ -42,6 +43,7 @@ def test_create(mocker, globals):
 
 def test_create_empty(mocker, globals):
   globals.cross_references.clear()
+  globals.id_manager.clear()
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = []
@@ -52,6 +54,7 @@ def test_create_empty(mocker, globals):
 
 def test_error(mocker, globals):
   globals.cross_references.clear()
+  globals.id_manager.clear()
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'Org_1', 'Addr_1', 'Id_1']

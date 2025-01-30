@@ -46,6 +46,7 @@ def test_error(mocker, globals):
   
 def _setup(mocker, globals, data, ids, columns=DEFAULT_COLUMNS):
   globals.cross_references.clear()
+  globals.id_manager.clear()
   organizations(globals)
   mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
   mock_present.side_effect=[True]
