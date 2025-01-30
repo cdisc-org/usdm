@@ -95,7 +95,7 @@ def test_read_cell_by_name_error(mocker, globals):
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
   data = [
-    ['Site1', 'Site One', 'Big Site', 'Description', ''],
+    ['Site1', 'Site One', 'Big Site', 'Description', '']
   ]
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame(data, columns=['name', 'siteName', 'siteLabel', 'siteDescription', 'organization'])
@@ -105,8 +105,8 @@ def test_read_cell_by_name_error(mocker, globals):
   mock_error.assert_called()
   assert mock_error.call_args[0][0] == "studyDesignSites"
   assert mock_error.call_args[0][1] == 1
-  assert mock_error.call_args[0][2] == -1
-  assert mock_error.call_args[0][3] == "Error attempting to read cell '['siteCountry', 'country']'. Exception: Failed to detect column(s) 'siteCountry, country' in sheet"
+  assert mock_error.call_args[0][2] == 5
+  assert mock_error.call_args[0][3] == "No organization specified for site 'Site One'"
 
 def _organizations(globals: Globals):
   factory = Factory(globals)

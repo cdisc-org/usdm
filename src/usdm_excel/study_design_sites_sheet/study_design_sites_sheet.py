@@ -28,9 +28,9 @@ class StudyDesignSitesSheet(BaseSheet):
                                 if org:
                                     org.managedSites.append(site)
                                 else:
-                                    self._error(row, 'organization', f"Failed to find organization with name '{org_name}'")
+                                    self._error(index, 'organization', f"Failed to find organization with name '{org_name}'")
                             else:
-                                self._error(row, 'organization', f"No organization specified for site '{site_name}'")
+                                self._error(index, 'organization', f"No organization specified for site '{site_name}'")
         except Exception as e:
             self._sheet_exception(e)
 
