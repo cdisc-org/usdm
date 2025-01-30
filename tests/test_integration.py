@@ -264,3 +264,6 @@ def test_template_1(mocker):
 
 def test_interventions_1(mocker):
   run_test('interventions', mocker)
+
+def test_study_devices_1(mocker):
+  run_test('devices', mocker)
