@@ -52,7 +52,9 @@ An example spreadsheet in maintained within the [document directory](https://git
 The workbook consists of several sheets each with a dedicated purpose. All sheets must be present except for those marked optional.
 
 - Study sheet
+- Organisations sheet
 - Study Identifiers sheet
+- Study References sheet
 - Study Amendments sheet
 - Study Amendments Changes sheet
 - Study Amenedment Impact sheet
@@ -196,7 +198,27 @@ A header row in row 16 followed by repeating rows from row 17, containing a seri
 | F | date| The date | Date field, dd/mm/yyyy | 
 | H | scopes | The geographic scopes for the date | Geographic scope |
 
-### Study Identifiers	Sheet
+
+### Study Organizations	Sheet
+	
+#### Sheet Name
+
+`studyOrganizations`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, each containing a study identifier: 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | identifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
+| B | identifier | Organisation identifier | Text string |
+| C | name | Organisation name | Text string |
+| D | label | Display label | Text string, can be empty. Default value is '' |
+| E | type, organizationType or type | Organisation type | CDISC code reference |
+| F | address | The organisation address | Address |
+
+### Study Identifiers Sheet
 	
 #### Sheet Name
 
@@ -208,13 +230,24 @@ A header row in row 1 followed by repeating rows from row 2, each containing a s
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | organisationIdentifierScheme, organizationIdentifierScheme or IdentifierScheme | The scheme for the organisation identifier. | Example would be 'DUNS' |
-| B | organisationIdentifier or identifier | Organisation identifier | Text string |
-| C | organisationName or name | Organisation name | Text string |
-| D (optional) | label | Display label | Text string, can be empty. Default value is '' |
-| E | organisationType, organizationType or type | Organisation type | CDISC code reference |
-| F | studyIdentifier | The identifier for the study | Text string |
-| G | organisationAddress, organizationAddress or address | The organisation address | Address |
+| A | identifier | The identifier for the study | Text string |
+| B | organization | The organisation name as per the studyOrganizations sheet | Text string |
+
+### Study References Sheet
+	
+#### Sheet Name
+
+`studyReferences`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2, each containing a study reference identifier: 
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | identifier | The identifier for the study | Text string |
+| B | organization | The organisation name as per the studyOrganizations sheet | Text string |
+| C | type | The type of identifier | CDISC code reference |
 
 ### Study Amendments	Sheet
 	
@@ -765,15 +798,11 @@ A header row in row 1 followed by repeating rows from row 2, containing organiza
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | name | Organization name | Text string |
-| B | label | Organization display label | Text string, can be empty |
-| C | type | Organisation type | CDISC code reference |
-| D | identifierScheme | The scheme for the organisation identifier | Example would be 'DUNS' |
-| E | identifier | Organisation identifier | Text string |
-| F | address | Organisation address | Address |
-| G | siteName | Site name | Formated using a pipe delimited form, see below |
-| H | siteDescription | Site description | Text string, can be empty|
-| I | siteLabel | Site display Label | Text string, can be empty |
+| A | name | Site name | Formated using a pipe delimited form, see below |
+| B | description | Site description | Text string, can be empty|
+| C | label | Site display Label | Text string, can be empty |
+| D | country | Country the site is in | CDISC code reference |
+| E | organization | Organization name | Text string |
 
 ### Study Design Conditions sheet
 
