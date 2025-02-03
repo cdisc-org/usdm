@@ -12041,7 +12041,27 @@
             "instanceType": "MedicalDevice"
           }
         ],
-        "productOrganizationRoles": [],
+        "productOrganizationRoles": [
+          {
+            "id": "ProductOrganizationRole_1",
+            "name": "DEVICE_ROLE_1",
+            "label": "Role",
+            "description": "Device Role 1",
+            "code": {
+              "id": "Code_554",
+              "code": "C99915x1",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2023-12-15",
+              "decode": "Manufacturer",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "MedicalDevice_1"
+            ],
+            "organizationId": "Organization_1",
+            "instanceType": "ProductOrganizationRole"
+          }
+        ],
         "notes": [],
         "instanceType": "StudyVersion"
       }
@@ -12053,7 +12073,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_554",
+          "id": "Code_555",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -12061,7 +12081,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_555",
+          "id": "Code_556",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",
@@ -14002,7 +14022,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_556",
+          "id": "Code_557",
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -14010,7 +14030,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_557",
+          "id": "Code_558",
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2023-12-15",

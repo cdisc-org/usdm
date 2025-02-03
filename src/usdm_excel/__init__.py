@@ -37,6 +37,7 @@ from usdm_excel.study_identifier_and_organization_sheets.study_identifiers_sheet
 from usdm_excel.study_identifier_and_organization_sheets.study_references_sheet import StudyReferencesSheet
 from usdm_excel.study_identifier_and_organization_sheets.study_organizations_sheet import StudyOrganizationsSheet
 from usdm_excel.study_devices_sheet.study_devices_sheet import StudyDevicesSheet
+from usdm_excel.study_devices_sheet.study_devices_role_sheet import StudyDeviceRoleSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
@@ -122,6 +123,7 @@ class USDMExcel():
 
       self.people = AssignedPersonSheet(self._file_path, self._globals)
       self.roles = StudyRoleSheet(self._file_path, self._globals)
+      self.device_roles = StudyDeviceRoleSheet(self._file_path, self._globals)
 
       # Study Design assembly
       study_design: StudyDesign = self.study_design.study_designs[0]
@@ -204,7 +206,8 @@ class USDMExcel():
           organizations=self.organizations.items,
           roles=self.roles.items,
           medicalDevices=self.devices.items,
-          administrableProducts=self.products.items
+          administrableProducts=self.products.items,
+          productOrganizationRoles=self.device_roles.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
