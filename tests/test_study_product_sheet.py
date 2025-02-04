@@ -260,7 +260,7 @@ def test_missign_column_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   sheet = _setup_sheet(mocker, globals, data, ids)
   assert mock_error.call_count == 1
-  mock_error.assert_has_calls([mocker.call('studyDesignProducts', None, None, "Exception. Error [Failed to detect column(s) 'pharmacologicClass' in sheet] while reading sheet 'studyDesignProducts'. See log for additional details.", 40)])
+  mock_error.assert_has_calls([mocker.call('studyProducts', None, None, "Exception. Error [Failed to detect column(s) 'pharmacologicClass' in sheet] while reading sheet 'studyProducts'. See log for additional details.", 40)])
 
 def _setup_sheet(mocker, globals, data, ids):
   globals.cross_references.clear()

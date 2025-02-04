@@ -74,8 +74,8 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_count == 2
   mock_error.assert_has_calls(
     [
-      mocker.call('deviceRoles', 1, -1, "Error attempting to read cell 'organization'. Exception: Failed to detect column(s) 'organization' in sheet", 40),
-      mocker.call('deviceRoles', None, None, "Exception. Error ['NoneType' object has no attribute 'id'] while reading sheet 'deviceRoles'. See log for additional details.", 40)
+      mocker.call('studyProductOrganizationRoles', 1, -1, "Error attempting to read cell 'organization'. Exception: Failed to detect column(s) 'organization' in sheet", 40),
+      mocker.call('studyProductOrganizationRoles', None, None, "Exception. Error ['NoneType' object has no attribute 'id'] while reading sheet 'studyProductOrganizationRoles'. See log for additional details.", 40)
     ]
   )
   
