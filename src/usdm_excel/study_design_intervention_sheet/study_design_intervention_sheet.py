@@ -3,6 +3,7 @@ from usdm_excel.alias import Alias
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.administration import Administration
 from usdm_model.administration_duration import AdministrationDuration
+from usdm_model.administrable_product import AdministrableProduct
 from usdm_excel.globals import Globals
 
 class StudyDesignInterventionSheet(BaseSheet):
@@ -33,7 +34,6 @@ class StudyDesignInterventionSheet(BaseSheet):
         'codes': self.read_other_code_cell_multiple_by_name(index, "codes"),
         'role': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "role", index, "role"),
         'type': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "type", index, "type"),
-        #'productDesignation': self.read_cdisc_klass_attribute_cell_by_name("StudyIntervention", "productDesignation", index, "productDesignation"),
         'minimumResponseDuration': self.read_quantity_cell_by_name(index, "minimumResponseDuration"),
         'administrations': [agent_admin]
       }
@@ -46,6 +46,9 @@ class StudyDesignInterventionSheet(BaseSheet):
       self.current_intervention.administrations.append(agent_admin)
 
   def _create_administration(self, index, admin_duration):
+    product_name = self.read_cell_by_name(index, "product", must_be_present=False)
+    product = self.globals.cross_references.get(AdministrableProduct, product_name)
+    product_id = product.id if product else None
     params = {
       'name': self.read_cell_by_name(index, 'administrationName'), 
       'description': self.read_cell_by_name(index, 'administrationDescription', must_be_present=False), 
@@ -53,7 +56,8 @@ class StudyDesignInterventionSheet(BaseSheet):
       'duration': admin_duration,
       'dose': self.read_quantity_cell_by_name(index, "administrationDose"),
       'route': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("Administration", "route", index, "administrationRoute"), []),
-      'frequency': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("Administration", "frequency", index, "administrationFrequency"), [])
+      'frequency': Alias(self.globals).code(self.read_cdisc_klass_attribute_cell_by_name("Administration", "frequency", index, "administrationFrequency"), []),
+      'administrableProductId': product_id,
     }
     item = self.create_object(Administration, params)
     if item:

@@ -3,13 +3,15 @@ import json
 import pandas as pd
 from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
 from usdm_model.code import Code
-
+from usdm_model.administrable_product import AdministrableProduct
+from usdm_excel.globals import Globals
+from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 
 SAVE = True
 COLUMNS = [ 'name', 'description', 'label', "codes", "role", "type", 
-  "pharmacologicalClass", "productDesignation", "minimumResponseDuration", 'administrationName', 'administrationDescription', 
+  "product", "minimumResponseDuration", 'administrationName', 'administrationDescription', 
   'administrationLabel', "administrationRoute", "administrationDose", "administrationFrequency", 
   'administrationDurationDescription', 'administrationDurationWillVary', 'administrationDurationWillVaryReason', 'administrationDurationQuantity' ]
 
@@ -21,8 +23,10 @@ def read_json(filename):
 def dump_json(data):
   print(f"\n{json.dumps(data, indent=2)}")
 
-def test_create(mocker, globals):
+def test_create(mocker, globals: Globals, factory: Factory):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+  mock_id.side_effect=[f"pid_{x}" for x in range(10)]
+  _create_products(factory, globals)
   mock_id.side_effect=[f"Id_{x}" for x in range(100)]
 
   mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
@@ -32,12 +36,12 @@ def test_create(mocker, globals):
   mocker.patch("builtins.open", mocked_open)
   # productDesignation now removed but leave in data, wont do any harm as it is ignored. Also see COLUMNS above.
   data = [
-    # name     description    label          codes                          role                         type      pharmacologicalClass  productDesignation      minimumResponseDuration,  administrationName [10] administrationDescription administrationLabel administrationRoute administrationDose administrationFrequency administrationDurationDescription administrationDurationWillVary administrationDurationWillVaryReason administrationDurationQuantity
-    [ 'Int 1', 'Int Desc 1',  'Int Label 1', 'SPONSOR: A=B',                'Experimental Intervention', 'C12345', 'FDA: A=B',           'IMP',                  '1 Day',                  'Admin 1',              'Admin Desc 1',           'Admin Label 1',    'C345671',          '12 mg',            'C65432',               'Dur desc 1',                     'False',                       '',                                  '14 %'                         ], 
-    [ '',      '',            '',            '',                            '',                          '',       '',                   '',                     '',                       'Admin 2',              'Admin Desc 2',           'Admin Label 1',    'C345672',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '10 m'                         ], 
-    [ 'Int 2', 'Int Desc 2',  'Int Label 2', 'SPONSOR: C=D',                'Placebo',                   'C12346', 'FDA: A=B',           'NIMP (AxMP)',          '3 Weeks',                'Admin 3',              'Admin Desc 3',           'Admin Label 1',    'C345673',          '100 mg',           'C65432',               'Dur desc 1',                     'False',                       '',                                  '12 C'                         ], 
-    [ 'Int 3', 'Int Desc 3',  'Int Label 3', 'SPONSOR: E=F, SPONSOR: G=H',  'Rescue Medicine',           'C12347', 'FDA: A=B',           'IMP',                  '4 Years',                'Admin 4',              'Admin Desc 4',           'Admin Label 1',    'C345674',          '500 mg',           'C65432',               'Dur desc 1',                     'False',                       '',                                  '12 F'                         ], 
-    [ '',      '',            '',            '',                            '',                          '',       '',                   '',                     '',                       'Admin 5',              'Admin Desc 5',           'Admin Label 1',    'C345675',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '15 in'                        ], 
+    # name     description    label          codes                          role                         type      product                 minimumResponseDuration,  administrationName [10] administrationDescription administrationLabel administrationRoute administrationDose administrationFrequency administrationDurationDescription administrationDurationWillVary administrationDurationWillVaryReason administrationDurationQuantity
+    [ 'Int 1', 'Int Desc 1',  'Int Label 1', 'SPONSOR: A=B',                'Experimental Intervention', 'C12345', 'Product 1',            '1 Day',                  'Admin 1',              'Admin Desc 1',           'Admin Label 1',    'C345671',          '12 mg',            'C65432',               'Dur desc 1',                     'False',                       '',                                  '14 %'                         ], 
+    [ '',      '',            '',            '',                            '',                          '',       '',                     '',                       'Admin 2',              'Admin Desc 2',           'Admin Label 1',    'C345672',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '10 m'                         ], 
+    [ 'Int 2', 'Int Desc 2',  'Int Label 2', 'SPONSOR: C=D',                'Placebo',                   'C12346', '',                     '3 Weeks',                'Admin 3',              'Admin Desc 3',           'Admin Label 1',    'C345673',          '100 mg',           'C65432',               'Dur desc 1',                     'False',                       '',                                  '12 C'                         ], 
+    [ 'Int 3', 'Int Desc 3',  'Int Label 3', 'SPONSOR: E=F, SPONSOR: G=H',  'Rescue Medicine',           'C12347', '',                     '4 Years',                'Admin 4',              'Admin Desc 4',           'Admin Label 1',    'C345674',          '500 mg',           'C65432',               'Dur desc 1',                     'False',                       '',                                  '12 F'                         ], 
+    [ '',      '',            '',            '',                            '',                          '',       '',                     '',                       'Admin 5',              'Admin Desc 5',           'Admin Label 1',    'C345675',          '1 mg',             'C65432',               'Dur desc 1',                     'False',                       '',                                  '15 in'                        ], 
   ]
 
   mock_read = mocker.patch("pandas.read_excel")
@@ -100,7 +104,7 @@ def test_create(mocker, globals):
         "name": "Admin 1",
         "label": "Admin Label 1",
         "medicalDeviceId": None,
-        "administrableProductId": None,
+        "administrableProductId": "pid_4",
         "description": "Admin Desc 1",
         "duration": {
           "id": "Id_3",
@@ -624,7 +628,7 @@ def test_read_cell_by_name_error(mocker, globals):
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   mocked_open = mocker.mock_open(read_data="File")
   mocker.patch("builtins.open", mocked_open)
-  data = [['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']]
+  data = [['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']]
   mock_read = mocker.patch("pandas.read_excel")
   columns = COLUMNS
   columns = columns[0:-1]
@@ -636,3 +640,11 @@ def test_read_cell_by_name_error(mocker, globals):
   assert mock_error.call_args[0][2] == None
   assert mock_error.call_args[0][3] == "Exception. Error [Failed to detect column(s) 'administrationDurationQuantity' in sheet] while reading sheet 'studyDesignInterventions'. See log for additional details."
   
+def _create_products(factory: Factory, globals: Globals):
+  std_code =factory.cdisc_code("C70793", "XX1")
+  items = [
+    {'name': 'Product 1', 'productDesignation': factory.cdisc_code("C70793", "YYY"), 'sourcing': factory.cdisc_code("C70793", "XXX"), 'administrableDoseForm': factory.alias_code(std_code, [])},
+  ]
+  for item in items:
+    instance = factory.item(AdministrableProduct, item)
+    globals.cross_references.add(item['name'], instance)
