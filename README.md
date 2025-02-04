@@ -534,19 +534,18 @@ A header row in row 1 followed by repeating rows from row 2, containing an inter
 | D | codes | The set of intervention codes | A set of external CT codes, comma separated |	
 | E | role | The role th eintervanetion plays |	A single M11 code |
 | F | type | The intervention type | |
-| G | pharmacologicalClass | The pharmalogical class | A single external CT code |
-| H | productDesignation | The product designation| A single M11 code |
-| I | minimumResponseDuration | The minimum response duration | |
-| J | administrationName | Name | Text string | 
-| K | administrationDescription | Description | Text string, can be empty |
-| L | administrationLabel | Display label | Text string, can be empty |
-| M | administrationRoute | Route of administration | CDISC code reference |
-| N | administrationDose | Dose quantity | Quantity |
-| O | administrationFrequency | Administration freqeunce | CDISC code reference |
-| P | administrationDurationDescription | Description | Text string, can be empty |
-| Q | administrationDurationWillVary | Duration will vary flag | Boolean |
-| R | administrationDurationWillVaryReason | Duration will vary reason | Text string |
-| S | administrationDurationQuantity| administration quantity | Quantity |
+| G | product | The product | the name of the product |
+| H | minimumResponseDuration | The minimum response duration | |
+| I | administrationName | Name | Text string | 
+| J | administrationDescription | Description | Text string, can be empty |
+| K | administrationLabel | Display label | Text string, can be empty |
+| L | administrationRoute | Route of administration | CDISC code reference |
+| M | administrationDose | Dose quantity | Quantity |
+| N | administrationFrequency | Administration freqeunce | CDISC code reference |
+| O | administrationDurationDescription | Description | Text string, can be empty |
+| P | administrationDurationWillVary | Duration will vary flag | Boolean |
+| Q | administrationDurationWillVaryReason | Duration will vary reason | Text string |
+| R | administrationDurationQuantity| administration quantity | Quantity |
 
 ### Study Design Products Sheet
 	
