@@ -66,6 +66,9 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Design Activities sheet (optional)
 - Study Design Indications sheet
 - Study Design Interventions sheet
+- Study Products Sheet
+- Study Devices Sheet
+- Study Product Organization Roles Sheet
 - Study Design Populations sheet
 - Study Design Characteristcis sheet
 - Study Design Objectives and Endpoints sheet
@@ -545,6 +548,83 @@ A header row in row 1 followed by repeating rows from row 2, containing an inter
 | R | administrationDurationWillVaryReason | Duration will vary reason | Text string |
 | S | administrationDurationQuantity| administration quantity | Quantity |
 
+### Study Design Products Sheet
+	
+#### Sheet Name
+
+`studyDesignProducts`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Name | Text string |
+| B | description | Description | Text string, can be empty |
+| C | label | Display label | Text string, can be empty |
+| D | administrableDoseForm | Administrable dose form | CDISC code reference |
+| E | productDesignation | Product designation | CDISC code reference |
+| F | productSourcing | Product sourcing | CDISC code reference |
+| G | ingredientRole | Ingredient role | CDISC code reference |
+| H | substanceName | Substance name | Text string |
+| I | substanceDescription | Substance description | Text string, can be empty |
+| J | substanceLabel | Substance label | Text string, can be empty |
+| K | substanceCode | Substance code | Text string, can be empty |
+| L | strengthName | Strength name | Text string |
+| M | strengthDescription | Strength description | Text string, can be empty |
+| N | strengthLabel | Strength label | Text string, can be empty |
+| O | strengthNumerator | Strength numerator | Text string |
+| P | strengthDenominator | Strength denominator | Text string |
+| Q | referenceSubstanceName | Reference substance name | Text string |
+| R | referenceSubstanceDescription | Reference substance description | Text string, can be empty |
+| S | referenceSubstanceLabel | Reference substance label | Text string, can be empty |
+| T | referenceSubstanceCode | Reference substance code | Text string, can be empty |
+| U | referenceSubstanceStrengthName | Reference substance strength name | Text string |
+| V | referenceSubstanceStrengthDescription | Reference substance strength description | Text string, can be empty |
+| W | referenceSubstanceStrengthLabel | Reference substance strength label | Text string, can be empty |
+| X | referenceSubstanceStrengthNumerator | Reference substance strength numerator | Text string |
+| Y | referenceSubstanceStrengthDenominator | Reference substance strength denominator | Text string |
+
+### Study Devices Sheet
+	
+#### Sheet Name
+
+`studyDevices`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Name | Text string |
+| B | description | Description | Text string, can be empty |
+| C | label | Display label | Text string, can be empty |
+| D | hardwareVersion | Hardware version | Text string |
+| E | softwareVersion | Software version | Text string |
+| F | sourcing | Sourcing | CDISC code reference |
+| G | product | Product | Text string |
+| H | notes | Notes | List of note references, comma separated |
+
+### Study Product Organization Roles Sheet
+	
+#### Sheet Name
+
+`studyProductOrganizationRoles`
+
+#### Sheet Contents
+
+A header row in row 1 followed by repeating rows from row 2
+
+| Column | Column Name | Purpose | Format and Values |
+| :--- | :--- | :--- | :--- |
+| A | name | Name | Text string |
+| B | description | Description | Text string, can be empty |
+| C | label | Display label | Text string, can be empty |
+| D | organizationId | Organization ID | Cross reference to an organization |
+| E | code | Code | CDISC code reference |
+| F | appliesToIds | Applies to IDs | List of cross references to a product, either interventions or devices |
 
 ### Study Design Populations sheet
 
