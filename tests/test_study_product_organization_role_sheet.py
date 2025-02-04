@@ -16,17 +16,17 @@ def test_create(factory, mocker, globals):
     'appliesTo': ['Product 1', 'Device 1', 'Product 1, Device 1']
   }
   expected_1 = ( '{"id": "POR_1", "name": "AP1", "label": "Lable 1", "description": "Desc One", '
-                 '"code": {"id": "C_18", "code": "C99915x1", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Manufacturer", "instanceType": "Code"}, '
+                 '"code": {"id": "C_18", "code": "C99915x1", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Manufacturer", "instanceType": "Code"}, '
                  '"appliesToIds": ["AP_1"], "organizationId": "O_1", '
                  '"instanceType": "ProductOrganizationRole"}'
                 )
   expected_2 = ( '{"id": "POR_2", "name": "AP2", "label": "L2", "description": "Desc Two", '
-                 '"code": {"id": "C_19", "code": "C99915x2", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Supplier", "instanceType": "Code"}, '
+                 '"code": {"id": "C_19", "code": "C99915x2", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Supplier", "instanceType": "Code"}, '
                  '"appliesToIds": ["MD_1"], "organizationId": "O_2", '
                  '"instanceType": "ProductOrganizationRole"}'
                 )
   expected_3 = ( '{"id": "POR_3", "name": "AP3", "label": "L3", "description": "Desc Three", '
-                 '"code": {"id": "C_20", "code": "C99915x2", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Supplier", "instanceType": "Code"}, '
+                 '"code": {"id": "C_20", "code": "C99915x2", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Supplier", "instanceType": "Code"}, '
                  '"appliesToIds": ["AP_1", "MD_1"], "organizationId": "O_3", '
                  '"instanceType": "ProductOrganizationRole"}'
                 )

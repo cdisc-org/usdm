@@ -645,7 +645,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
     'code': None, 
     'id': 'Scope_2', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_1', 'instanceType': 'Code'}
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'id': 'Scope_1', 'instanceType': 'Code'}
   }
   assert base.read_geographic_scopes_cell(1, 0)[0].model_dump() == {
     'code': {
@@ -663,7 +663,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
     },
     'id': 'Scope_5', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Region', 'id': 'Scope_3', 'instanceType': 'Code'}
+    'type': {'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Region', 'id': 'Scope_3', 'instanceType': 'Code'}
   }
   assert base.read_geographic_scopes_cell(2, 0)[0].model_dump() == {
     'code': {
@@ -681,20 +681,20 @@ def test__read_geographic_scopes_cell(mocker, globals):
     },
     'id': 'Scope_8', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C25464', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Country', 'id': 'Scope_6', 'instanceType': 'Code'}
+    'type': {'code': 'C25464', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Country', 'id': 'Scope_6', 'instanceType': 'Code'}
   }
   mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
   assert base.read_geographic_scopes_cell(3, 0)[0].model_dump() == {
     'code': None, 
     'id': 'Scope_10', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_9', 'instanceType': 'Code'}
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'id': 'Scope_9', 'instanceType': 'Code'}
   }
   assert base.read_geographic_scopes_cell(4, 0)[0].model_dump() == {
     'code': None, 
     'id': 'Scope_12', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_11', 'instanceType': 'Code'}
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'id': 'Scope_11', 'instanceType': 'Code'}
   }
   assert mock_error.call_count == 2
   expected = [
@@ -739,11 +739,11 @@ def test__read_geographic_scopes_cell_by_name(mocker, globals):
     },
     'id': 'Scope_3', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Region', 'id': 'Scope_1', 'instanceType': 'Code'}
+    'type': {'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Region', 'id': 'Scope_1', 'instanceType': 'Code'}
   }
   assert base.read_geographic_scopes_cell_by_name(1, 'regionxxx')[0].model_dump() == {
     'code': None,
     'id': 'Scope_5', 
     'instanceType': 'GeographicScope', 
-    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'id': 'Scope_4', 'instanceType': 'Code'}
+    'type': {'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'id': 'Scope_4', 'instanceType': 'Code'}
   }

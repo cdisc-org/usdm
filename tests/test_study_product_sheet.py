@@ -41,7 +41,7 @@ def test_create_1(mocker, globals):
          'standardCode': {
              'code': 'C42998',
              'codeSystem': 'http://www.cdisc.org',
-             'codeSystemVersion': '2023-12-15',
+             'codeSystemVersion': '2024-09-27',
              'decode': 'Tablet Dosage Form',
              'id': 'Id_1',
              'instanceType': 'Code',
@@ -82,7 +82,7 @@ def test_create_1(mocker, globals):
                                  'standardCode': {
                                      'code': 'C48542',
                                      'codeSystem': 'http://www.cdisc.org',
-                                     'codeSystemVersion': '2023-12-15',
+                                     'codeSystemVersion': '2024-09-27',
                                      'decode': 'Tablet Dosing Unit',
                                      'id': 'Id_13',
                                      'instanceType': 'Code',
@@ -105,7 +105,7 @@ def test_create_1(mocker, globals):
                                  'standardCode': {
                                      'code': 'C28253',
                                      'codeSystem': 'http://www.cdisc.org',
-                                     'codeSystemVersion': '2023-12-15',
+                                     'codeSystemVersion': '2024-09-27',
                                      'decode': 'Milligram',
                                      'id': 'Id_10',
                                      'instanceType': 'Code',
@@ -134,7 +134,7 @@ def test_create_1(mocker, globals):
      'productDesignation': {
          'code': 'C99909x1',
          'codeSystem': 'http://www.cdisc.org',
-         'codeSystemVersion': '2023-12-15',
+         'codeSystemVersion': '2024-09-27',
          'decode': 'IMP',
          'id': 'Id_4',
          'instanceType': 'Code',
@@ -143,7 +143,7 @@ def test_create_1(mocker, globals):
      'sourcing': {
          'code': 'C99914x1',
          'codeSystem': 'http://www.cdisc.org',
-         'codeSystemVersion': '2023-12-15',
+         'codeSystemVersion': '2024-09-27',
          'decode': 'Centrally Sourced',
          'id': 'Id_5',
          'instanceType': 'Code',

@@ -75,7 +75,7 @@ def test_create(mocker, globals):
           "id": "Id_11",
           "code": "C25301",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
+          "codeSystemVersion": "2024-09-27",
           "decode": "Day",
           "instanceType": "Code"
         },
@@ -113,7 +113,7 @@ def test_create(mocker, globals):
                 "id": "Id_0",
                 "code": "C25613",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
+                "codeSystemVersion": "2024-09-27",
                 "decode": "Percentage",
                 "instanceType": "Code"
               },
@@ -136,7 +136,7 @@ def test_create(mocker, globals):
               "id": "Id_4",
               "code": "C28253",
               "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
+              "codeSystemVersion": "2024-09-27",
               "decode": "Milligram",
               "instanceType": "Code"
             },
@@ -192,7 +192,7 @@ def test_create(mocker, globals):
                 "id": "Id_15",
                 "code": "C41139",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
+                "codeSystemVersion": "2024-09-27",
                 "decode": "Meter",
                 "instanceType": "Code"
               },
@@ -215,7 +215,7 @@ def test_create(mocker, globals):
               "id": "Id_19",
               "code": "C28253",
               "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
+              "codeSystemVersion": "2024-09-27",
               "decode": "Milligram",
               "instanceType": "Code"
             },
@@ -287,7 +287,7 @@ def test_create(mocker, globals):
           "id": "Id_36",
           "code": "C29844",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
+          "codeSystemVersion": "2024-09-27",
           "decode": "Week",
           "instanceType": "Code"
         },
@@ -325,7 +325,7 @@ def test_create(mocker, globals):
                 "id": "Id_25",
                 "code": "C42559",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
+                "codeSystemVersion": "2024-09-27",
                 "decode": "Degree Celsius",
                 "instanceType": "Code"
               },
@@ -348,7 +348,7 @@ def test_create(mocker, globals):
               "id": "Id_29",
               "code": "C28253",
               "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
+              "codeSystemVersion": "2024-09-27",
               "decode": "Milligram",
               "instanceType": "Code"
             },
@@ -420,7 +420,7 @@ def test_create(mocker, globals):
           "id": "Id_52",
           "code": "C29848",
           "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2023-12-15",
+          "codeSystemVersion": "2024-09-27",
           "decode": "Year",
           "instanceType": "Code"
         },
@@ -466,7 +466,7 @@ def test_create(mocker, globals):
                 "id": "Id_40",
                 "code": "C44277",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
+                "codeSystemVersion": "2024-09-27",
                 "decode": "Degree Fahrenheit",
                 "instanceType": "Code"
               },
@@ -489,7 +489,7 @@ def test_create(mocker, globals):
               "id": "Id_44",
               "code": "C28253",
               "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
+              "codeSystemVersion": "2024-09-27",
               "decode": "Milligram",
               "instanceType": "Code"
             },
@@ -545,7 +545,7 @@ def test_create(mocker, globals):
                 "id": "Id_56",
                 "code": "C48500",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2023-12-15",
+                "codeSystemVersion": "2024-09-27",
                 "decode": "Inch",
                 "instanceType": "Code"
               },
@@ -568,7 +568,7 @@ def test_create(mocker, globals):
               "id": "Id_60",
               "code": "C28253",
               "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2023-12-15",
+              "codeSystemVersion": "2024-09-27",
               "decode": "Milligram",
               "instanceType": "Code"
             },

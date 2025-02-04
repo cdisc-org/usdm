@@ -16,19 +16,19 @@ def test_create(factory, mocker, globals):
     'role': ['Investigator', 'Sponsor', 'Sponsor']
   }
   expected_1 = ( '{"id": "AP_1", "name": "AP1", "label": "Lable 1", "description": "Desc One", '
-                 '"code": {"id": "C_4", "code": "C25936", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Investigator", "instanceType": "Code"}, '
+                 '"code": {"id": "C_4", "code": "C25936", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Investigator", "instanceType": "Code"}, '
                  '"appliesToIds": [], "assignedPersons": [], "organizationIds": ["O_1"], '
                  '"masking": {"id": "M_1", "description": "Masking 1", "instanceType": "Masking"}, '
                  '"instanceType": "StudyRole"}'
                 )
   expected_2 = ( '{"id": "AP_2", "name": "AP2", "label": "L2", "description": "Desc Two", '
-                 '"code": {"id": "C_5", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Sponsor", "instanceType": "Code"}, '
+                 '"code": {"id": "C_5", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Sponsor", "instanceType": "Code"}, '
                  '"appliesToIds": [], "assignedPersons": [], "organizationIds": ["O_2"], '
                  '"masking": {"id": "M_2", "description": "Masking 2", "instanceType": "Masking"}, '
                  '"instanceType": "StudyRole"}'
                 )
   expected_3 = ( '{"id": "AP_3", "name": "AP3", "label": "L3", "description": "Desc Three", '
-                 '"code": {"id": "C_6", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Sponsor", "instanceType": "Code"}, '
+                 '"code": {"id": "C_6", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Sponsor", "instanceType": "Code"}, '
                  '"appliesToIds": [], "assignedPersons": [], "organizationIds": [], '
                  '"masking": null, '
                  '"instanceType": "StudyRole"}'

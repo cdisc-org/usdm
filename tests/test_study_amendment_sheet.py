@@ -29,7 +29,7 @@ def test_create(mocker, globals):
     'summary': 'Added section on unblinding', 
     'primaryReason': {
       'id': 'StudyAmendmentReason_1', 
-      'code': {'id': 'Code_1', 'code': 'C99904x4', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'New Safety Information Available', 'instanceType': 'Code'}, 
+      'code': {'id': 'Code_1', 'code': 'C99904x4', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'New Safety Information Available', 'instanceType': 'Code'}, 
       'otherReason': None, 
       'instanceType': 'StudyAmendmentReason'
     }, 
@@ -39,7 +39,7 @@ def test_create(mocker, globals):
     'geographicScopes': [
       {
         'id': 'GeographicScope_3', 
-        'type': {'id': 'Code_7', 'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'instanceType': 'Code'}, 
+        'type': {'id': 'Code_7', 'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'instanceType': 'Code'}, 
         'code': None, 
         'instanceType': 'GeographicScope'
       }
@@ -53,7 +53,7 @@ def test_create(mocker, globals):
         'quantity': {'id': 'Quantity_1', 'value': 15.0, 'unit': None, 'instanceType': 'Quantity'}, 
         'appliesTo': {
           'id': 'GeographicScope_1', 
-          'type': {'id': 'Code_3', 'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Region', 'instanceType': 'Code'}, 
+          'type': {'id': 'Code_3', 'code': 'C41129', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Region', 'instanceType': 'Code'}, 
           'code': {
             'id': 'AliasCode_1', 
             'standardCode': {'id': 'Code_2', 'code': '150', 'codeSystem': 'ISO 3166 1 alpha3', 'codeSystemVersion': '2020-08', 'decode': 'Europe', 'instanceType': 'Code'}, 
@@ -75,14 +75,14 @@ def test_create(mocker, globals):
           'value': 20.0, 
           'unit': {
             'id': 'AliasCode_2', 
-            'standardCode': {'id': 'Code_4', 'code': 'C25613', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Percentage', 'instanceType': 'Code'}, 
+            'standardCode': {'id': 'Code_4', 'code': 'C25613', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Percentage', 'instanceType': 'Code'}, 
             'standardCodeAliases': [], 'instanceType': 'AliasCode'
           }, 
           'instanceType': 'Quantity'
         }, 
         'appliesTo': {
           'id': 'GeographicScope_2', 
-          'type': {'id': 'Code_6', 'code': 'C25464', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Country', 'instanceType': 'Code'}, 
+          'type': {'id': 'Code_6', 'code': 'C25464', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Country', 'instanceType': 'Code'}, 
           'code': {
             'id': 'AliasCode_3', 
             'standardCode': {'id': 'Code_5', 'code': 'DNK', 'codeSystem': 'ISO 3166 1 alpha3', 'codeSystemVersion': '2020-08', 'decode': 'Denmark', 'instanceType': 'Code'}, 
@@ -106,7 +106,7 @@ def test_create(mocker, globals):
     'summary': 'Amended Design', 
     'primaryReason': {
       'id': 'StudyAmendmentReason_2', 
-      'code': {'id': 'Code_8', 'code': 'C99904x7', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Change In Strategy', 'instanceType': 'Code'}, 
+      'code': {'id': 'Code_8', 'code': 'C99904x7', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Change In Strategy', 'instanceType': 'Code'}, 
       'otherReason': None, 
       'instanceType': 'StudyAmendmentReason'
     }, 
@@ -115,7 +115,7 @@ def test_create(mocker, globals):
         'code': {
           'code': 'C99904x10',
           'codeSystem': 'http://www.cdisc.org',
-          'codeSystemVersion': '2023-12-15',
+          'codeSystemVersion': '2024-09-27',
           'decode': 'Investigator/Site Feedback',
           'id': 'Code_9',
           'instanceType': 'Code',
@@ -130,7 +130,7 @@ def test_create(mocker, globals):
     'geographicScopes': [
       {
         'id': 'GeographicScope_5', 
-        'type': {'id': 'Code_12', 'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'instanceType': 'Code'}, 
+        'type': {'id': 'Code_12', 'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'instanceType': 'Code'}, 
         'code': None, 
         'instanceType': 'GeographicScope'
       }
@@ -146,14 +146,14 @@ def test_create(mocker, globals):
           'value': 31.0, 
           'unit': {
             'id': 'AliasCode_4', 
-            'standardCode': {'id': 'Code_10', 'code': 'C25613', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Percentage', 'instanceType': 'Code'}, 
+            'standardCode': {'id': 'Code_10', 'code': 'C25613', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Percentage', 'instanceType': 'Code'}, 
             'standardCodeAliases': [], 'instanceType': 'AliasCode'
           }, 
           'instanceType': 'Quantity'
         }, 
         'appliesTo': {
           'id': 'GeographicScope_4', 
-          'type': {'id': 'Code_11', 'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2023-12-15', 'decode': 'Global', 'instanceType': 'Code'}, 
+          'type': {'id': 'Code_11', 'code': 'C68846', 'codeSystem': 'http://www.cdisc.org', 'codeSystemVersion': '2024-09-27', 'decode': 'Global', 'instanceType': 'Code'}, 
           'code': None, 
           'instanceType': 'GeographicScope'
         }, 

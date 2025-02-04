@@ -70,7 +70,7 @@ def test_create(mocker, globals):
                    'standardCode': {
                        'code': 'C29848',
                        'codeSystem': 'http://www.cdisc.org',
-                       'codeSystemVersion': '2023-12-15',
+                       'codeSystemVersion': '2024-09-27',
                        'decode': 'Year',
                        'id': 'X_10',
                        'instanceType': 'Code',
@@ -98,7 +98,7 @@ def test_create(mocker, globals):
                {
                    'code': 'C20197',
                    'codeSystem': 'http://www.cdisc.org',
-                   'codeSystemVersion': '2023-12-15',
+                   'codeSystemVersion': '2024-09-27',
                    'decode': 'Male',
                    'id': 'X_13',
                    'instanceType': 'Code',
@@ -138,7 +138,7 @@ def test_create(mocker, globals):
                    'standardCode': {
                        'code': 'C29848',
                        'codeSystem': 'http://www.cdisc.org',
-                       'codeSystemVersion': '2023-12-15',
+                       'codeSystemVersion': '2024-09-27',
                        'decode': 'Year',
                        'id': 'X_17',
                        'instanceType': 'Code',
@@ -166,7 +166,7 @@ def test_create(mocker, globals):
                {
                    'code': 'C16576',
                    'codeSystem': 'http://www.cdisc.org',
-                   'codeSystemVersion': '2023-12-15',
+                   'codeSystemVersion': '2024-09-27',
                    'decode': 'Female',
                    'id': 'X_19',
                    'instanceType': 'Code',
@@ -194,7 +194,7 @@ def test_create(mocker, globals):
            'standardCode': {
                'code': 'C29848',
                'codeSystem': 'http://www.cdisc.org',
-               'codeSystemVersion': '2023-12-15',
+               'codeSystemVersion': '2024-09-27',
                'decode': 'Year',
                'id': 'X_3',
                'instanceType': 'Code',
@@ -222,7 +222,7 @@ def test_create(mocker, globals):
        {
            'code': 'C49636',
            'codeSystem': 'http://www.cdisc.org',
-           'codeSystemVersion': '2023-12-15',
+           'codeSystemVersion': '2024-09-27',
            'decode': 'Both',
            'id': 'PopulationId_1',
            'instanceType': 'Code',

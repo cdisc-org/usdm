@@ -55,7 +55,7 @@ def test_create(mocker, globals):
     'type': {
         'code': 'C93453',
         'codeSystem': 'http://www.cdisc.org',
-        'codeSystemVersion': '2023-12-15',
+        'codeSystemVersion': '2024-09-27',
         'decode': 'Study Registry',
         'id': 'Code_1',
         'instanceType': 'Code',
@@ -92,7 +92,7 @@ def test_create(mocker, globals):
     'type': {
         'code': 'C93453',
         'codeSystem': 'http://www.cdisc.org',
-        'codeSystemVersion': '2023-12-15',
+        'codeSystemVersion': '2024-09-27',
         'decode': 'Study Registry',
         'id': 'Code_2',
         'instanceType': 'Code',
@@ -129,7 +129,7 @@ def test_create(mocker, globals):
     'type': {
         'code': 'C93453',
         'codeSystem': 'http://www.cdisc.org',
-        'codeSystemVersion': '2023-12-15',
+        'codeSystemVersion': '2024-09-27',
         'decode': 'Study Registry',
         'id': 'Code_3',
         'instanceType': 'Code',
@@ -189,7 +189,7 @@ def test_create_with_z(mocker, globals):
     'type': {
         'code': 'C93453',
         'codeSystem': 'http://www.cdisc.org',
-        'codeSystemVersion': '2023-12-15',
+        'codeSystemVersion': '2024-09-27',
         'decode': 'Study Registry',
         'id': 'Code_1',
         'instanceType': 'Code',
@@ -226,7 +226,7 @@ def test_create_with_z(mocker, globals):
     'type': {
         'code': 'C93453',
         'codeSystem': 'http://www.cdisc.org',
-        'codeSystemVersion': '2023-12-15',
+        'codeSystemVersion': '2024-09-27',
         'decode': 'Study Registry',
         'id': 'Code_2',
         'instanceType': 'Code',
@@ -263,7 +263,7 @@ def test_create_with_z(mocker, globals):
     'type': {
         'code': 'C93453',
         'codeSystem': 'http://www.cdisc.org',
-        'codeSystemVersion': '2023-12-15',
+        'codeSystemVersion': '2024-09-27',
         'decode': 'Study Registry',
         'id': 'Code_3',
         'instanceType': 'Code',

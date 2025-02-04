@@ -10,11 +10,11 @@ MISSING_COLUMN =  ['identifier', 'organization']
 def test_create(mocker, globals):
   expected_1 = ('{"id": "RI_1", "text": "NCT12345678", "scopeId": "Organization_1", '
                 '"instanceType": "ReferenceIdentifier", '
-                '"type": {"id": "Code_1", "code": "C99910x1", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Pediatric Investigation Plan", "instanceType": "Code"}}'
+                '"type": {"id": "Code_1", "code": "C99910x1", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Pediatric Investigation Plan", "instanceType": "Code"}}'
   )
   expected_2 = ('{"id": "RI_2", "text": "NCT12345679", "scopeId": "Organization_2", '
                 '"instanceType": "ReferenceIdentifier", '
-                '"type": {"id": "Code_2", "code": "C142424", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2023-12-15", "decode": "Clinical Development Plan", "instanceType": "Code"}}'
+                '"type": {"id": "Code_2", "code": "C142424", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Clinical Development Plan", "instanceType": "Code"}}'
   )
   ids = ['Code_1', 'RI_1', 'Code_2', 'RI_2']
   data = [
