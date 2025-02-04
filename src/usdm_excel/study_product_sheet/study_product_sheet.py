@@ -6,9 +6,9 @@ from usdm_model.substance import Substance
 from usdm_model.strength import Strength
 from usdm_excel.globals import Globals
 
-class StudyDesignProductSheet(BaseSheet):
+class StudyProductSheet(BaseSheet):
 
-  SHEET_NAME = 'studyDesignProducts'
+  SHEET_NAME = 'studyProducts'
 
   def __init__(self, file_path: str, globals: Globals):
     try:

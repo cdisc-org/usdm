@@ -1,5 +1,5 @@
 import pandas as pd
-from usdm_excel.study_design_intervention_sheet.study_design_product_sheet import StudyDesignProductSheet
+from usdm_excel.study_product_sheet.study_product_sheet import StudyProductSheet
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.code import Code
 
@@ -272,4 +272,4 @@ def _setup_sheet(mocker, globals, data, ids):
   mocker.patch("builtins.open", mocked_open)
   mock_read = mocker.patch("pandas.read_excel")
   mock_read.return_value = pd.DataFrame.from_dict(data)
-  return StudyDesignProductSheet("", globals)
+  return StudyProductSheet("", globals)

@@ -1,5 +1,5 @@
 import pandas as pd
-from usdm_excel.study_devices_sheet.study_devices_role_sheet import StudyDeviceRoleSheet
+from usdm_excel.study_product_sheet.study_product_organization_role_sheet import StudyProductOrganizationRoleSheet
 from usdm_model.organization import Organization
 from usdm_model.administrable_product import AdministrableProduct
 from usdm_model.medical_device import MedicalDevice
@@ -47,7 +47,7 @@ def test_create(factory, mocker, globals):
   _create_orgs(factory, globals)
   _create_products(factory, globals)
   _create_devices(factory, globals)
-  item = StudyDeviceRoleSheet("", globals)
+  item = StudyProductOrganizationRoleSheet("", globals)
   assert len(item.items) == 3
   assert item.items[0].to_json() == expected_1
   assert item.items[1].to_json() == expected_2
@@ -56,7 +56,7 @@ def test_create(factory, mocker, globals):
 def test_create_empty(mocker, globals):
   data = {}
   _setup(mocker, globals, data)
-  item = StudyDeviceRoleSheet("", globals)
+  item = StudyProductOrganizationRoleSheet("", globals)
   assert len(item.items) == 0
 
 def test_read_cell_by_name_error(mocker, globals):
@@ -70,7 +70,7 @@ def test_read_cell_by_name_error(mocker, globals):
   mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
   mock_id.side_effect=['Code_1', 'Abbreviation_1']
   _setup(mocker, globals, data)
-  item = StudyDeviceRoleSheet("", globals)
+  item = StudyProductOrganizationRoleSheet("", globals)
   assert mock_error.call_count == 2
   mock_error.assert_has_calls(
     [

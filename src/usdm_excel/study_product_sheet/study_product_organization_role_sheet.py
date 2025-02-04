@@ -3,9 +3,9 @@ from usdm_model.product_organization_role import ProductOrganizationRole
 from usdm_model.organization import Organization
 from usdm_excel.globals import Globals
 
-class StudyDeviceRoleSheet(BaseSheet):
+class StudyProductOrganizationRoleSheet(BaseSheet):
 
-  SHEET_NAME = 'deviceRoles'
+  SHEET_NAME = 'studyProductOrganizationRoles'
 
   def __init__(self, file_path: str, globals: Globals):
     try:

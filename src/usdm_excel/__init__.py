@@ -10,7 +10,7 @@ from usdm_excel.study_design_sheet.study_design_sheet import StudyDesignSheet
 from usdm_excel.study_soa_v2_sheet.study_soa_v2_sheet import StudySoAV2Sheet
 from usdm_excel.study_design_indication_sheet.study_design_indication_sheet import StudyDesignIndicationSheet
 from usdm_excel.study_design_intervention_sheet.study_design_intervention_sheet import StudyDesignInterventionSheet
-from usdm_excel.study_design_intervention_sheet.study_design_product_sheet import StudyDesignProductSheet
+from usdm_excel.study_product_sheet.study_product_sheet import StudyProductSheet
 from usdm_excel.study_design_population_sheet.study_design_population_sheet import StudyDesignPopulationSheet
 from usdm_excel.study_design_objective_endpoint_sheet.study_design_objective_endpoint_sheet import StudyDesignObjectiveEndpointSheet
 from usdm_excel.study_design_estimands_sheet.study_design_estimands_sheet import StudyDesignEstimandsSheet
@@ -36,8 +36,8 @@ from usdm_excel.study_role_sheet.study_role_sheet import StudyRoleSheet
 from usdm_excel.study_identifier_and_organization_sheets.study_identifiers_sheet import StudyIdentifiersSheet
 from usdm_excel.study_identifier_and_organization_sheets.study_references_sheet import StudyReferencesSheet
 from usdm_excel.study_identifier_and_organization_sheets.study_organizations_sheet import StudyOrganizationsSheet
-from usdm_excel.study_devices_sheet.study_devices_sheet import StudyDevicesSheet
-from usdm_excel.study_devices_sheet.study_devices_role_sheet import StudyDeviceRoleSheet
+from usdm_excel.study_product_sheet.study_devices_sheet import StudyDevicesSheet
+from usdm_excel.study_product_sheet.study_product_organization_role_sheet import StudyProductOrganizationRoleSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
@@ -89,7 +89,7 @@ class USDMExcel():
       self.notes = AnnotationSheet(self._file_path, self._globals)
       self.abbreviations = AbbreviationSheet(self._file_path, self._globals)
       self.organizations = StudyOrganizationsSheet(self._file_path, self._globals)
-      self.products = StudyDesignProductSheet(self._file_path, self._globals)
+      self.products = StudyProductSheet(self._file_path, self._globals)
       self.devices = StudyDevicesSheet(self._file_path, self._globals)
       self.study = StudySheet(self._file_path, self._globals)
       self.timings = StudyDesignTimingSheet(self._file_path, self._globals)
@@ -123,7 +123,7 @@ class USDMExcel():
 
       self.people = AssignedPersonSheet(self._file_path, self._globals)
       self.roles = StudyRoleSheet(self._file_path, self._globals)
-      self.device_roles = StudyDeviceRoleSheet(self._file_path, self._globals)
+      self.product_organization_roles = StudyProductOrganizationRoleSheet(self._file_path, self._globals)
 
       # Study Design assembly
       study_design: StudyDesign = self.study_design.study_designs[0]
@@ -207,7 +207,7 @@ class USDMExcel():
           roles=self.roles.items,
           medicalDevices=self.devices.items,
           administrableProducts=self.products.items,
-          productOrganizationRoles=self.device_roles.items
+          productOrganizationRoles=self.product_organization_roles.items
         )
         self._globals.cross_references.add(self.study_version.id, self.study_version)
       except Exception as e:
