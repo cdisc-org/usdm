@@ -12,7 +12,8 @@ class StudyDesignSpecimenRetentionSheet(BaseSheet):
             super().__init__(
                 file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME
             )
-            self._process_sheet()
+            if self.success:
+                self._process_sheet()
         except Exception as e:
             self._sheet_exception(e)
 

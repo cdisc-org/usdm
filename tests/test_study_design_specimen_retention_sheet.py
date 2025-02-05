@@ -83,9 +83,9 @@ def test_read_cell_by_name_error(mocker, globals):
         [
             mocker.call(
                 "studyDesignSpecimen",
-                1,
-                -1,
-                "Error attempting to read cell 'retained'. Exception: Failed to detect column(s) 'retained' in sheet",
+                None,
+                None,
+                "Exception. Error [Failed to detect column(s) 'retained' in sheet] while reading sheet 'studyDesignSpecimen'. See log for additional details.",
                 40,
             ),
         ]
