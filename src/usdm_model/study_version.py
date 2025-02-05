@@ -1,5 +1,6 @@
 from typing import List, Literal, Union
 from .api_base_model import ApiBaseModelWithId
+from .code import Code
 from .identifier import StudyIdentifier, ReferenceIdentifier
 from .study_design import InterventionalStudyDesign, ObservationalStudyDesign
 from .governance_date import GovernanceDate
@@ -50,8 +51,9 @@ class StudyVersion(ApiBaseModelWithId):
         return identifier
     return None
 
-  def phase(self):
-    return self.studyPhase.standardCode
+#  Now in StudyDesign
+#  def phase(self):
+#    return self.studyPhase.standardCode
   
   def organization(self, id: str) -> Organization:
     return next((x for x in self.organizations if x.id == id), None)

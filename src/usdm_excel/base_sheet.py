@@ -147,8 +147,14 @@ class BaseSheet():
       return ""
 
   def read_boolean_cell_by_name(self, row_index, field_name, must_be_present=True):
-    value = self.read_cell_by_name(row_index, field_name, must_be_present=must_be_present)
+    col_index = self.column_present(field_name)
+    return self.read_boolean_cell(row_index, col_index, must_be_present)
+
+  def read_boolean_cell(self, row_index, col_index, must_be_present=True):
+    value = self.read_cell(row_index, col_index)
     if not value:
+      if must_be_present:
+        self._error(row_index, col_index, "Empty cell detected where boolean value expected.")
       return False
     elif value.strip().upper() in ['Y', 'YES', 'T', 'TRUE', '1']:
       return True

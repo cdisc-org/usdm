@@ -38,6 +38,7 @@ from usdm_excel.study_identifier_and_organization_sheets.study_references_sheet 
 from usdm_excel.study_identifier_and_organization_sheets.study_organizations_sheet import StudyOrganizationsSheet
 from usdm_excel.study_product_sheet.study_devices_sheet import StudyDevicesSheet
 from usdm_excel.study_product_sheet.study_product_organization_role_sheet import StudyProductOrganizationRoleSheet
+from usdm_excel.study_design_specimen_retention_sheet.study_design_specimen_retention_sheet import StudyDesignSpecimenRetentionSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
@@ -89,6 +90,7 @@ class USDMExcel():
       self.notes = AnnotationSheet(self._file_path, self._globals)
       self.abbreviations = AbbreviationSheet(self._file_path, self._globals)
       self.organizations = StudyOrganizationsSheet(self._file_path, self._globals)
+      self.specimen_retentions = StudyDesignSpecimenRetentionSheet(self._file_path, self._globals)
       self.products = StudyProductSheet(self._file_path, self._globals)
       self.devices = StudyDevicesSheet(self._file_path, self._globals)
       self.study = StudySheet(self._file_path, self._globals)
@@ -216,7 +218,9 @@ class USDMExcel():
       try:
         self.study = Study(
           id=None, # No Id, will be allocated a UUID
-          name=f"Study_{self.study.name}", 
+          name=self.study.name,
+          label=self.study.label,
+          description=self.study.description,
           versions=[self.study_version],
           documentedBy=self.definition_documents
         )

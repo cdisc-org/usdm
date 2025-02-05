@@ -55,6 +55,9 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   def main_timeline(self):
     return next((item for item in self.scheduleTimelines if item.mainTimeline), None)
 
+  def phase(self):
+    return self.studyPhase.standardCode
+  
 class InterventionalStudyDesign(StudyDesign):
   subTypes: List[Code] = []
   model: Code

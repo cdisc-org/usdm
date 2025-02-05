@@ -4,9 +4,10 @@ from usdm_model.study_epoch import StudyEpoch
 from usdm_model.study_arm import StudyArm
 from usdm_model.study_element import StudyElement
 from usdm_model.study_cell import StudyCell
-from usdm_model.study_design import StudyDesign
+from usdm_model.study_design import StudyDesign, ObservationalStudyDesign, InterventionalStudyDesign
 from usdm_model.masking import Masking
 from usdm_excel.alias import Alias
+from usdm_model.biospecimen_retention import BiospecimenRetention
 from usdm_excel.option_manager import *
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.globals import Globals
@@ -15,19 +16,24 @@ class StudyDesignSheet(BaseSheet):
 
   SHEET_NAME = 'studyDesign'
   
-  NAME_LABEL = ['studyDesignName', 'name']
-  DESCRIPTION_LABEL = ['studyDesignDescription', 'description']
-  LABEL_LABEL = ['label']
-  TA_LABEL = ['therapeuticAreas']
-  RATIONALE_LABEL = ['studyDesignRationale']
-  BLINDING_LABEL = ['studyDesignBlindingScheme']
-  INTENT_LABEL = ['trialIntentTypes']
-  TYPES_LABEL = ['trialTypes']
-  INT_LABEL = ['interventionModel']
-  MAIN_TIMELINE_LABEL = ['mainTimeline']
-  OTHER_TIMELINES_LABEL = ['otherTimelines']
-  MASKING_ROLE_LABEL = ['masking']
-  CHARACTERISTICS_LABEL = ['characteristics']
+  NAME_KEY = ['studyDesignName', 'name']
+  DESCRIPTION_KEY = ['studyDesignDescription', 'description']
+  LABEL_KEY = ['label']
+  TA_KEY = ['therapeuticAreas']
+  RATIONALE_KEY = ['studyDesignRationale']
+  BLINDING_KEY = ['studyDesignBlindingScheme']
+  INTENT_KEY = ['trialIntentTypes']
+  SUB_TYPES_KEY = ['trialSubTypes']
+  MODEL_KEY = ['interventionModel', 'model']
+  MAIN_TIMELINE_KEY = ['mainTimeline']
+  OTHER_TIMELINES_KEY = ['otherTimelines']
+  MASKING_ROLE_KEY = ['masking']
+  CHARACTERISTICS_KEY = ['characteristics']
+  PHASE_KEY = ['studyDesignPhase', 'Phase']
+  STUDY_TYPE_KEY = ['studyDesignType', 'Type']
+  SPECIMEN_RETENTION_KEY = ['specimenRetentions']
+  TIME_PERSPECTIVE_KEY = ['timePerspective']
+  SAMPLING_METHOD_KEY = ['samplingMethod']
 
   PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
@@ -35,9 +41,10 @@ class StudyDesignSheet(BaseSheet):
   def __init__(self, file_path: str, globals: Globals):
     try:
       super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
+      self.interventional = True
       self.name = "TEST"
-      self.description = "An Microsoft Excel test study design"
-      self.label=""
+      self.description = "USDM Example Study Design"
+      self.label="USDM Example Study Design"
       self.epochs = []
       self.epoch_names = {}
       self.arms = []
@@ -50,11 +57,16 @@ class StudyDesignSheet(BaseSheet):
       self.blinding = None
       self.trial_intents = []
       self.characteristics = []
-      self.trial_types = []
+      self.trial_sub_types = []
       self.intervention_model = None
       self.main_timeline = None
       self.other_timelines = []
       self.masks = []
+      self.phase = None
+      self.study_type = None
+      self.specimen_retentions = []
+      self.time_perspective = None
+      self.sampling_methods = []
       self.process_sheet()
     except Exception as e:
       self._sheet_exception(e)
@@ -67,37 +79,54 @@ class StudyDesignSheet(BaseSheet):
       key = self.read_cell(rindex, self.PARAMS_NAME_COL)
       if general_params:
         #print(f"KEY: {key}")
-        if key in self.NAME_LABEL:
+        if key in self.NAME_KEY:
           self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-        elif key in self.LABEL_LABEL:
+        elif key in self.LABEL_KEY:
           self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
-        elif key in self.DESCRIPTION_LABEL:
+        elif key in self.DESCRIPTION_KEY:
           self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
-        elif key in self.TA_LABEL:
+        elif key in self.TA_KEY:
           self.therapeutic_areas = self.read_other_code_cell_mutiple(rindex, self.PARAMS_DATA_COL)
-        elif key in self.RATIONALE_LABEL:
+        elif key in self.RATIONALE_KEY:
           self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
-        elif key in self.BLINDING_LABEL:
+        elif key in self.BLINDING_KEY:
           self.blinding = Alias(self.globals).code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
-        elif key in self.INTENT_LABEL:
+          #self.blinding = self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL)
+        elif key in self.INTENT_KEY:
           self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
-        elif key in self.CHARACTERISTICS_LABEL:
+        elif key in self.CHARACTERISTICS_KEY:
           self.characteristics = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'characteristics', rindex, self.PARAMS_DATA_COL)
           #print(f"CHARAC: {self.characteristics}")
-        elif key in self.TYPES_LABEL:
-          self.trial_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
-        elif key in self.INT_LABEL:
+        elif key in self.SUB_TYPES_KEY:
+          self.trial_sub_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
+        elif key in self.MODEL_KEY:
           self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
-        elif key in self.MAIN_TIMELINE_LABEL:
+        elif key in self.MAIN_TIMELINE_KEY:
           #print(f"MAIN TL: {rindex}")
           self.main_timeline = self.read_cell(rindex, self.PARAMS_DATA_COL)
-        elif key in self.OTHER_TIMELINES_LABEL:
+        elif key in self.OTHER_TIMELINES_KEY:
           #print(f"OTHER TL: {rindex}")
           self.other_timelines = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
-        elif key in self.MASKING_ROLE_LABEL:
+        elif key in self.MASKING_ROLE_KEY:
           #print(f"MASKING: {rindex}")
           self._set_masking(rindex, self.PARAMS_DATA_COL)
-        elif key in '':
+        elif key in self.PHASE_KEY:
+          phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
+          self.phase = Alias(self.globals).code(phase, [])
+        elif key in self.STUDY_TYPE_KEY:
+          self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
+          if self.type.code == 'OBSERVATIONAL':
+            self.interventional = False
+        elif key in self.SPECIMEN_RETENTION_KEY:
+          specimen_refs = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
+          for ref in specimen_refs:
+            specimen = self.globals.cross_references.get(BiospecimenRetention, ref)
+            if specimen is not None:
+              self.specimen_retentions.append(specimen)
+        elif key in self.TIME_PERSPECTIVE_KEY:
+          self.time_perspective = self.read_cdisc_klass_attribute_cell('StudyDesign', 'timePerspective', rindex, self.PARAMS_DATA_COL)
+        elif key in self.SAMPLING_METHOD_KEY:
+          self.sampling_method = self.read_cdisc_klass_attribute_cell('StudyDesign', 'samplingMethod', rindex, self.PARAMS_DATA_COL)
           general_params = False
           start_row = rindex + 1
           #print(f"START: {start_row}")
@@ -178,26 +207,44 @@ class StudyDesignSheet(BaseSheet):
 
   def _create_design(self):
     try:
-      result = StudyDesign(
-        id=self.globals.id_manager.build_id(StudyDesign), 
-        name=self.name,
-        description=self.description,
-        label=self.label,
-        trialIntentTypes=self.trial_intents, 
-        trialTypes=self.trial_types, 
-        interventionModel=self.intervention_model,
-        studyCells=self.cells,
-        arms=self.arms,
-        epochs=self.epochs,
-        elements=list(self.elements.values()),
-        therapeuticAreas=self.therapeutic_areas,
-        rationale=self.rationale, 
-        blindingSchema=self.blinding, 
-        contents=[],
-        maskingRoles=self.masks,
-        characteristics=self.characteristics
-      )
-      #print(f"SD: {result.characteristics}")
+      if self.interventional:
+        result = InterventionalStudyDesign(   
+            id=self.globals.id_manager.build_id(InterventionalStudyDesign), 
+            name=self.name,
+            description=self.description,
+            label=self.label,
+            intentTypes=self.trial_intents, 
+            subTypes=self.trial_sub_types, 
+            model=self.intervention_model,
+            studyCells=self.cells,
+            arms=self.arms,
+            epochs=self.epochs,
+            elements=list(self.elements.values()),
+            therapeuticAreas=self.therapeutic_areas,
+            rationale=self.rationale, 
+            blindingSchema=self.blinding, 
+            characteristics=self.characteristics,
+            biospecimenRetentions=self.specimen_retentions
+          )
+      else:
+        result = ObservationalStudyDesign(   
+            id=self.globals.id_manager.build_id(ObservationalStudyDesign), 
+            name=self.name,
+            description=self.description,
+            label=self.label,
+            subTypes=self.trial_sub_types, 
+            model=self.intervention_model,
+            timePerspective=self.time_perspective,
+            samplingMethod=self.sampling_method,
+            studyCells=self.cells,
+            arms=self.arms,
+            epochs=self.epochs,
+            elements=list(self.elements.values()),
+            therapeuticAreas=self.therapeutic_areas,
+            rationale=self.rationale, 
+            characteristics=self.characteristics,
+            biospecimenRetentions=self.specimen_retentions
+          )
       return result
     except Exception as e:
       self._general_error("Failed to create StudyDesign object", e)

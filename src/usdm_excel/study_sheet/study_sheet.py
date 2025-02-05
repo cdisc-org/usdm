@@ -13,6 +13,8 @@ class StudySheet(BaseSheet):
   SHEET_NAME = 'study'
   
   NAME_TITLE = 'name'
+  DESCRIPTION_TITLE = 'description'
+  LABEL_TITLE = 'label'
   TITLE_TITLE = 'studyTitle'
   VERSION_TITLE = 'studyVersion'
   TYPE_TITLE = 'studyType'
@@ -45,6 +47,8 @@ class StudySheet(BaseSheet):
       self.version = None
       self.type = None
       self.name = None
+      self.description = None
+      self.label = None
       self.brief_title = None
       self.official_title = None
       self.public_title = None
@@ -73,16 +77,19 @@ class StudySheet(BaseSheet):
       field_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
       if field_name == self.NAME_TITLE:
         self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-      #elif field_name == self.TITLE_TITLE:
-      #  if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
-      #    self.title = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.DESCRIPTION_TITLE:
+        self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
+      elif field_name == self.LABEL_TITLE:
+        self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.VERSION_TITLE:
         self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
       elif field_name == self.TYPE_TITLE:
-        self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
+        #self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
+        self._warning(rindex, self.PARAMS_DATA_COL, f"Study type has been moved to the 'studyDesign' sheet, value ignored")
       elif field_name == self.PHASE_TITLE:
-        phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
-        self.phase = Alias(self.globals).code(phase, [])
+        #phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
+        #self.phase = Alias(self.globals).code(phase, [])
+        self._warning(rindex, self.PARAMS_DATA_COL, f"Study phase has been moved to the 'studyDesign' sheet, value ignored")
       elif field_name == self.ACRONYM_TITLE:
         self.acronym = self._set_title(rindex, self.PARAMS_DATA_COL, "Study Acronym")
       elif field_name == self.RATIONALE_TITLE:
@@ -138,9 +145,6 @@ class StudySheet(BaseSheet):
           self._general_exception(f"Failed to create GovernanceDate object", e)
 
   def _set_title(self, rindex, cindex, title_type):
-    # if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
-    #   return self.read_cell(rindex, cindex)
-    # else:
     try:
       text = self.read_cell(rindex, cindex)
       if text:
