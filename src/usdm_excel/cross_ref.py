@@ -21,7 +21,7 @@ class CrossRef():
       if not key in self._references:
         self._references[key] = object
         self._identifiers[id_key] = object
-        #self._debug(f"Added cross reference, klass='{self._klass_name(klass)}', name='{name}'")
+        #self._debug(f"Added cross reference, klass='{self._klass_name(klass)}', name='{name}', id='{object.id}'")
       else:
         self._debug(f"Duplicate cross reference detected, klass='{self._klass_name(klass)}', name='{name}'")
     except Exception as e:

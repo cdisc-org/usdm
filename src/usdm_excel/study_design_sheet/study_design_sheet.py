@@ -28,19 +28,19 @@ class StudyDesignSheet(BaseSheet):
   MAIN_TIMELINE_KEY = ['mainTimeline']
   OTHER_TIMELINES_KEY = ['otherTimelines']
   MASKING_ROLE_KEY = ['masking']
-  CHARACTERISTICS_KEY = ['characteristics']
-  PHASE_KEY = ['studyDesignPhase', 'Phase']
-  STUDY_TYPE_KEY = ['studyDesignType', 'Type']
+  PHASE_KEY = ['studyDesignPhase', 'studyPhase']
+  STUDY_TYPE_KEY = ['studyDesignType', 'studyType']
   SPECIMEN_RETENTION_KEY = ['specimenRetentions']
   TIME_PERSPECTIVE_KEY = ['timePerspective']
   SAMPLING_METHOD_KEY = ['samplingMethod']
+  CHARACTERISTICS_KEY = ['characteristics']
 
   PARAMS_NAME_COL = 0
   PARAMS_DATA_COL = 1
 
   def __init__(self, file_path: str, globals: Globals):
     try:
-      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
+      self.items = []
       self.interventional = True
       self.name = "TEST"
       self.description = "USDM Example Study Design"
@@ -51,22 +51,22 @@ class StudyDesignSheet(BaseSheet):
       self.arm_names = {}
       self.cells = []
       self.elements = {}
-      self.study_designs = []
       self.therapeutic_areas = []
       self.rationale = ""
       self.blinding = None
       self.trial_intents = []
-      self.characteristics = []
+      self.study_type = None
       self.trial_sub_types = []
       self.intervention_model = None
       self.main_timeline = None
       self.other_timelines = []
       self.masks = []
       self.phase = None
-      self.study_type = None
       self.specimen_retentions = []
       self.time_perspective = None
       self.sampling_methods = []
+      self.characteristics = []
+      super().__init__(file_path=file_path, globals=globals, sheet_name=self.SHEET_NAME, header=None)
       self.process_sheet()
     except Exception as e:
       self._sheet_exception(e)
@@ -78,7 +78,6 @@ class StudyDesignSheet(BaseSheet):
     for rindex, row in self.sheet.iterrows():
       key = self.read_cell(rindex, self.PARAMS_NAME_COL)
       if general_params:
-        #print(f"KEY: {key}")
         if key in self.NAME_KEY:
           self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.LABEL_KEY:
@@ -91,14 +90,14 @@ class StudyDesignSheet(BaseSheet):
           self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
         elif key in self.BLINDING_KEY:
           self.blinding = Alias(self.globals).code(self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL), [])
-          #self.blinding = self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyDesignBlindingScheme',rindex, self.PARAMS_DATA_COL)
         elif key in self.INTENT_KEY:
           self.trial_intents = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialIntentType', rindex, self.PARAMS_DATA_COL)
-        elif key in self.CHARACTERISTICS_KEY:
-          self.characteristics = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'characteristics', rindex, self.PARAMS_DATA_COL)
-          #print(f"CHARAC: {self.characteristics}")
+        elif key in self.STUDY_TYPE_KEY:
+          self.type = self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyType', rindex, self.PARAMS_DATA_COL)
+          if self.type.code == 'OBSERVATIONAL':
+            self.interventional = False
         elif key in self.SUB_TYPES_KEY:
-          self.trial_sub_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'trialType', rindex, self.PARAMS_DATA_COL)
+          self.trial_sub_types = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'subTypes', rindex, self.PARAMS_DATA_COL)
         elif key in self.MODEL_KEY:
           self.intervention_model = self.read_cdisc_klass_attribute_cell('StudyDesign', 'interventionModel', rindex, self.PARAMS_DATA_COL)
         elif key in self.MAIN_TIMELINE_KEY:
@@ -111,12 +110,8 @@ class StudyDesignSheet(BaseSheet):
           #print(f"MASKING: {rindex}")
           self._set_masking(rindex, self.PARAMS_DATA_COL)
         elif key in self.PHASE_KEY:
-          phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
+          phase = self.read_cdisc_klass_attribute_cell('StudyDesign', 'studyPhase', rindex, self.PARAMS_DATA_COL)
           self.phase = Alias(self.globals).code(phase, [])
-        elif key in self.STUDY_TYPE_KEY:
-          self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
-          if self.type.code == 'OBSERVATIONAL':
-            self.interventional = False
         elif key in self.SPECIMEN_RETENTION_KEY:
           specimen_refs = self.read_cell_multiple(rindex, self.PARAMS_DATA_COL)
           for ref in specimen_refs:
@@ -127,9 +122,13 @@ class StudyDesignSheet(BaseSheet):
           self.time_perspective = self.read_cdisc_klass_attribute_cell('StudyDesign', 'timePerspective', rindex, self.PARAMS_DATA_COL)
         elif key in self.SAMPLING_METHOD_KEY:
           self.sampling_method = self.read_cdisc_klass_attribute_cell('StudyDesign', 'samplingMethod', rindex, self.PARAMS_DATA_COL)
+        elif key in self.CHARACTERISTICS_KEY:
+          self.characteristics = self.read_cdisc_klass_attribute_cell_multiple('StudyDesign', 'characteristic', rindex, self.PARAMS_DATA_COL)
+        elif key == '':
           general_params = False
           start_row = rindex + 1
-          #print(f"START: {start_row}")
+        else:
+          self._warning(rindex, self.PARAMS_NAME_COL, f"Unrecognized key '{key}', ignored")
       else:
         for cindex in range(0, len(self.sheet.columns)):
           epoch_index = cindex - 1
@@ -159,7 +158,8 @@ class StudyDesignSheet(BaseSheet):
       self.double_link(self.epochs, 'previousId', 'nextId')
 
     study_design = self._create_design()
-    self.study_designs.append(study_design)
+    if study_design:
+      self.items.append(study_design)
 
   def _add_arm(self, name):
     arm = self.globals.cross_references.get(StudyArm, name)
@@ -190,7 +190,7 @@ class StudyDesignSheet(BaseSheet):
         self.elements[name] = element
       return element
     else:
-      self._general_error(f"No element definition found for element '{name}'")
+      self._general_exception(f"No element definition found for element '{name}'")
       return None
 
   def _add_cell(self, arm, epoch, elements):
@@ -202,7 +202,7 @@ class StudyDesignSheet(BaseSheet):
         elementIds=elements
       )
     except Exception as e:
-      self._general_error("Failed to create StudyCell object", e)
+      self._general_exception("Failed to create StudyCell object", e)
       return None
 
   def _create_design(self):
@@ -214,6 +214,8 @@ class StudyDesignSheet(BaseSheet):
             description=self.description,
             label=self.label,
             intentTypes=self.trial_intents, 
+            studyType=self.study_type,
+            studyPhase=self.phase,
             subTypes=self.trial_sub_types, 
             model=self.intervention_model,
             studyCells=self.cells,
@@ -223,8 +225,8 @@ class StudyDesignSheet(BaseSheet):
             therapeuticAreas=self.therapeutic_areas,
             rationale=self.rationale, 
             blindingSchema=self.blinding, 
-            characteristics=self.characteristics,
-            biospecimenRetentions=self.specimen_retentions
+            biospecimenRetentions=self.specimen_retentions,
+            characteristics=self.characteristics
           )
       else:
         result = ObservationalStudyDesign(   
@@ -232,6 +234,8 @@ class StudyDesignSheet(BaseSheet):
             name=self.name,
             description=self.description,
             label=self.label,
+            studyType=self.study_type,
+            studyPhase=self.phase,
             subTypes=self.trial_sub_types, 
             model=self.intervention_model,
             timePerspective=self.time_perspective,
@@ -242,12 +246,12 @@ class StudyDesignSheet(BaseSheet):
             elements=list(self.elements.values()),
             therapeuticAreas=self.therapeutic_areas,
             rationale=self.rationale, 
-            characteristics=self.characteristics,
-            biospecimenRetentions=self.specimen_retentions
+            biospecimenRetentions=self.specimen_retentions,
+            characteristics=self.characteristics
           )
       return result
     except Exception as e:
-      self._general_error("Failed to create StudyDesign object", e)
+      self._general_exception("Failed to create StudyDesign object", e)
       return None
   
 
@@ -272,5 +276,5 @@ class StudyDesignSheet(BaseSheet):
         self._error(rindex, cindex, f"Failed to decode masking role data '{text}', no '=' detected")
         return None
     except Exception as e:
-      self._error(rindex, cindex, "Failed to create Masking object", e)
+      self._exception(rindex, cindex, "Failed to create Masking object", e)
       return None
