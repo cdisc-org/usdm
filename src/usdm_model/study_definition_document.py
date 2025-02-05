@@ -4,10 +4,11 @@ from .study_definition_document_version import StudyDefinitionDocumentVersion
 from .code import Code
 from .comment_annotation import CommentAnnotation
 
+
 class StudyDefinitionDocument(ApiBaseModelWithIdNameLabelAndDesc):
-  language: Code
-  type: Code
-  templateName: str
-  versions: List[StudyDefinitionDocumentVersion] = []
-  notes: List[CommentAnnotation] = []
-  instanceType: Literal['StudyDefinitionDocument']
+    language: Code
+    type: Code
+    templateName: str
+    versions: List[StudyDefinitionDocumentVersion] = []
+    notes: List[CommentAnnotation] = []
+    instanceType: Literal["StudyDefinitionDocument"]

@@ -7,13 +7,14 @@ from .code import Code
 from .alias_code import AliasCode
 from .comment_annotation import CommentAnnotation
 
+
 class AdministrableProduct(ApiBaseModelWithIdNameLabelAndDesc):
-  pharmacologicClass:	Union[Code, None] = None
-  administrableDoseForm: AliasCode
-  productDesignation:	Code
-  sourcing:	Union[Code, None] = None
-  properties: List[AdministrableProductProperty] = []
-  identifiers: List[AdministrableProductIdentifier] = []
-  ingredients: List[Ingredient] = []
-  notes: List[CommentAnnotation] = []
-  instanceType: Literal['AdministrableProduct']
+    pharmacologicClass: Union[Code, None] = None
+    administrableDoseForm: AliasCode
+    productDesignation: Code
+    sourcing: Union[Code, None] = None
+    properties: List[AdministrableProductProperty] = []
+    identifiers: List[AdministrableProductIdentifier] = []
+    ingredients: List[Ingredient] = []
+    notes: List[CommentAnnotation] = []
+    instanceType: Literal["AdministrableProduct"]

@@ -1,8 +1,9 @@
 from usdm_excel.iso_3166 import ISO3166
 
+
 def test_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
-    mock_id.side_effect=['Code_1', 'Code_2', 'Code_3']
+    mock_id.side_effect = ["Code_1", "Code_2", "Code_3"]
     item = ISO3166(globals)
     code = item.code("GB")
     assert code.id == "Code_1"
@@ -23,9 +24,10 @@ def test_code(mocker, globals):
     assert code.codeSystemVersion == "2020-08"
     assert code.decode == "Denmark"
 
+
 def test_region_code(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
-    mock_id.side_effect=['Code_1', 'Code_2', 'Code_3', 'Code_4']
+    mock_id.side_effect = ["Code_1", "Code_2", "Code_3", "Code_4"]
     item = ISO3166(globals)
     code = item.region_code("Americas")
     assert code.id == "Code_1"
@@ -51,4 +53,3 @@ def test_region_code(mocker, globals):
     assert code.codeSystem == "ISO 3166 1 alpha3"
     assert code.codeSystemVersion == "2020-08"
     assert code.decode == "Europe"
-

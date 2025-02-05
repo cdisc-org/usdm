@@ -8,16 +8,17 @@ from .subject_enrollment import SubjectEnrollment
 from .governance_date import GovernanceDate
 from .comment_annotation import CommentAnnotation
 
+
 class StudyAmendment(ApiBaseModelWithId):
-  number: str
-  summary: str
-  primaryReason: StudyAmendmentReason
-  secondaryReasons: List[StudyAmendmentReason] = []
-  changes: List[StudyChange] = [] # Not in API
-  impacts: List[StudyAmendmentImpact] = []
-  geographicScopes: List[GeographicScope]
-  enrollments: List[SubjectEnrollment] = []
-  dateValues: List[GovernanceDate] = []
-  previousId: Union[str, None] = None
-  notes: List[CommentAnnotation] = []
-  instanceType: Literal['StudyAmendment']
+    number: str
+    summary: str
+    primaryReason: StudyAmendmentReason
+    secondaryReasons: List[StudyAmendmentReason] = []
+    changes: List[StudyChange] = []  # Not in API
+    impacts: List[StudyAmendmentImpact] = []
+    geographicScopes: List[GeographicScope]
+    enrollments: List[SubjectEnrollment] = []
+    dateValues: List[GovernanceDate] = []
+    previousId: Union[str, None] = None
+    notes: List[CommentAnnotation] = []
+    instanceType: Literal["StudyAmendment"]

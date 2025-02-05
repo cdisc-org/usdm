@@ -5,55 +5,63 @@ import enum
 import datetime
 from uuid import UUID
 
+
 # Example, see https://stackoverflow.com/questions/10252010/serializing-class-instance-to-json
 def _serialize_as_json(obj):
-  if isinstance(obj, enum.Enum):
-    return obj.value
-  elif isinstance(obj, datetime.date):
-    return obj.isoformat()
-  elif isinstance(obj, UUID):
-    return str(obj)
-  else:
-    return obj.__dict__
+    if isinstance(obj, enum.Enum):
+        return obj.value
+    elif isinstance(obj, datetime.date):
+        return obj.isoformat()
+    elif isinstance(obj, UUID):
+        return str(obj)
+    else:
+        return obj.__dict__
+
 
 def _serialize_as_json_with_type(obj):
-  if isinstance(obj, enum.Enum):
-    return obj.value
-  elif isinstance(obj, datetime.date):
-    return obj.isoformat()
-  elif isinstance(obj, UUID):
-    return str(obj)
-  else:
-    result = obj.__dict__
-    result['_type'] = obj.__class__.__name__
-    return result
+    if isinstance(obj, enum.Enum):
+        return obj.value
+    elif isinstance(obj, datetime.date):
+        return obj.isoformat()
+    elif isinstance(obj, UUID):
+        return str(obj)
+    else:
+        result = obj.__dict__
+        result["_type"] = obj.__class__.__name__
+        return result
+
 
 class ApiBaseModel(BaseModel):
+    def __init__(self, *args, **kwargs):
+        kwargs["instanceType"] = self.__class__.__name__
+        super().__init__(*args, **kwargs)
 
-  def __init__(self, *args, **kwargs):
-    kwargs['instanceType'] = self.__class__.__name__
-    super().__init__(*args, **kwargs)
+    def to_json(self):
+        return json.dumps(self, default=_serialize_as_json)
 
-  def to_json(self):
-    return json.dumps(self, default=_serialize_as_json)
+    def to_json_with_type(self):
+        return json.dumps(self, default=_serialize_as_json_with_type)
 
-  def to_json_with_type(self):
-    return json.dumps(self, default=_serialize_as_json_with_type)
 
 class ApiBaseModelWithId(ApiBaseModel):
-  id: constr(min_length=1)
+    id: constr(min_length=1)
+
 
 class ApiBaseModelWithIdAndDesc(ApiBaseModelWithId):
-  description: Union[str, None] = None
+    description: Union[str, None] = None
+
 
 class ApiBaseModelWithIdAndName(ApiBaseModelWithId):
-  name: constr(min_length=1)
+    name: constr(min_length=1)
+
 
 class ApiBaseModelWithIdNameAndLabel(ApiBaseModelWithIdAndName):
-  label: Union[str, None] = None
+    label: Union[str, None] = None
+
 
 class ApiBaseModelWithIdNameLabelAndDesc(ApiBaseModelWithIdNameAndLabel):
-  description: Union[str, None] = None
+    description: Union[str, None] = None
+
 
 class ApiBaseModelWithIdNameAndDesc(ApiBaseModelWithIdAndName):
-  description: Union[str, None] = None
+    description: Union[str, None] = None

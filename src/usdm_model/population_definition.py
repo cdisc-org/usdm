@@ -6,20 +6,23 @@ from .range import Range
 from .characteristic import Characteristic
 from .comment_annotation import CommentAnnotation
 
+
 class PopulationDefinition(ApiBaseModelWithIdNameLabelAndDesc):
-  includesHealthySubjects: bool
-  plannedEnrollmentNumber: Union[Range, None] = None
-  plannedCompletionNumber: Union[Range, None] = None
-  plannedSex: Annotated[List[Code], Len(min_length=0, max_length=2)] = []
-  criterionIds: List[str] = []
-  plannedAge: Union[Range, None] = None
-  notes: List[CommentAnnotation] = []
-  instanceType: Literal['PopulationDefinition']
+    includesHealthySubjects: bool
+    plannedEnrollmentNumber: Union[Range, None] = None
+    plannedCompletionNumber: Union[Range, None] = None
+    plannedSex: Annotated[List[Code], Len(min_length=0, max_length=2)] = []
+    criterionIds: List[str] = []
+    plannedAge: Union[Range, None] = None
+    notes: List[CommentAnnotation] = []
+    instanceType: Literal["PopulationDefinition"]
+
 
 class StudyCohort(PopulationDefinition):
-  characteristics: List[Characteristic] = []
-  instanceType: Literal['StudyCohort']
-  
+    characteristics: List[Characteristic] = []
+    instanceType: Literal["StudyCohort"]
+
+
 class StudyDesignPopulation(PopulationDefinition):
-  cohorts: List[StudyCohort] = []
-  instanceType: Literal['StudyDesignPopulation']
+    cohorts: List[StudyCohort] = []
+    instanceType: Literal["StudyDesignPopulation"]

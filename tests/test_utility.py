@@ -4,11 +4,12 @@
 # #from usdm_excel.cross_ref import cross_references
 # from usdm_excel.errors.errors import error_manager
 
+
 def clear():
-  pass
-  # self.globals.option_manager.clear()
-  # ct_version_manager.clear()
-  # id_manager.clear()
-  # self.globals.cross_references.clear()
-  # ct_version_manager.clear()
-  # self.globals.errors_and_logging.errors().clear()
+    pass
+    # self.globals.option_manager.clear()
+    # ct_version_manager.clear()
+    # id_manager.clear()
+    # self.globals.cross_references.clear()
+    # ct_version_manager.clear()
+    # self.globals.errors_and_logging.errors().clear()

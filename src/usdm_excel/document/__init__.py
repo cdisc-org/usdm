@@ -1,8 +1,1 @@
-__all__ = [
-  'Elements',
-  'Macros',
-  'TemplateBase',
-  'TemplateM11',
-  'TemplatePlain',
-  'SoA'
-]
+__all__ = ["Elements", "Macros", "TemplateBase", "TemplateM11", "TemplatePlain", "SoA"]

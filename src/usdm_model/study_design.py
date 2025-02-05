@@ -23,52 +23,56 @@ from .syntax_template_dictionary import SyntaxTemplateDictionary
 from .condition import Condition
 from .comment_annotation import CommentAnnotation
 
+
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
-  studyType: Union[Code, None] = None
-  studyPhase: Union[AliasCode, None] = None
-  therapeuticAreas: List[Code] = []
-  characteristics: List[Code] = []
-  encounters: List[Encounter] = []
-  activities: List[Activity] = []
-  biomedicalConcepts: List[BiomedicalConcept] = []
-  bcCategories: List[BiomedicalConceptCategory] = []
-  bcSurrogates: List[BiomedicalConceptSurrogate] = []
-  arms: List[StudyArm]
-  studyCells: List[StudyCell]
-  rationale: str
-  epochs: List[StudyEpoch]
-  elements: List[StudyElement] = []
-  estimands: List[Estimand] = []
-  indications: List[Indication] = []
-  studyInterventions: List[StudyIntervention] = []
-  objectives: List[Objective] = []
-  population: Union[StudyDesignPopulation, None] = None
-  analysisPopulations: List[AnalysisPopulation] = []
-  scheduleTimelines: List[ScheduleTimeline] = []
-  biospecimenRetentions: List[BiospecimenRetention] = []
-  documentVersionIds: List[str] = []
-  dictionaries: List[SyntaxTemplateDictionary] = []
-  conditions: List[Condition] = []
-  notes: List[CommentAnnotation] = []
-  instanceType: Literal['StudyDesign']
+    studyType: Union[Code, None] = None
+    studyPhase: Union[AliasCode, None] = None
+    therapeuticAreas: List[Code] = []
+    characteristics: List[Code] = []
+    encounters: List[Encounter] = []
+    activities: List[Activity] = []
+    biomedicalConcepts: List[BiomedicalConcept] = []
+    bcCategories: List[BiomedicalConceptCategory] = []
+    bcSurrogates: List[BiomedicalConceptSurrogate] = []
+    arms: List[StudyArm]
+    studyCells: List[StudyCell]
+    rationale: str
+    epochs: List[StudyEpoch]
+    elements: List[StudyElement] = []
+    estimands: List[Estimand] = []
+    indications: List[Indication] = []
+    studyInterventions: List[StudyIntervention] = []
+    objectives: List[Objective] = []
+    population: Union[StudyDesignPopulation, None] = None
+    analysisPopulations: List[AnalysisPopulation] = []
+    scheduleTimelines: List[ScheduleTimeline] = []
+    biospecimenRetentions: List[BiospecimenRetention] = []
+    documentVersionIds: List[str] = []
+    dictionaries: List[SyntaxTemplateDictionary] = []
+    conditions: List[Condition] = []
+    notes: List[CommentAnnotation] = []
+    instanceType: Literal["StudyDesign"]
 
-  def main_timeline(self):
-    return next((item for item in self.scheduleTimelines if item.mainTimeline), None)
+    def main_timeline(self):
+        return next(
+            (item for item in self.scheduleTimelines if item.mainTimeline), None
+        )
 
-  def phase(self):
-    return self.studyPhase.standardCode
-  
+    def phase(self):
+        return self.studyPhase.standardCode
+
+
 class InterventionalStudyDesign(StudyDesign):
-  subTypes: List[Code] = []
-  model: Code
-  intentTypes: List[Code] = []
-  blindingSchema: Union[AliasCode, None] = None
-  instanceType: Literal['InterventionalStudyDesign']
+    subTypes: List[Code] = []
+    model: Code
+    intentTypes: List[Code] = []
+    blindingSchema: Union[AliasCode, None] = None
+    instanceType: Literal["InterventionalStudyDesign"]
+
 
 class ObservationalStudyDesign(StudyDesign):
-  subTypes: List[Code] = []
-  model: Code
-  timePerspective: Code
-  samplingMethod: Union[Code, None] = None
-  instanceType: Literal['ObservationalStudyDesign']
-  
+    subTypes: List[Code] = []
+    model: Code
+    timePerspective: Code
+    samplingMethod: Union[Code, None] = None
+    instanceType: Literal["ObservationalStudyDesign"]
