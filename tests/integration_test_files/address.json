@@ -63,7 +63,14 @@
             "name": "Study Design 1",
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
-            "studyType": null,
+            "studyType": {
+              "id": "Code_61",
+              "code": "C98388",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Interventional Study",
+              "instanceType": "Code"
+            },
             "studyPhase": {
               "id": "AliasCode_5",
               "standardCode": {
