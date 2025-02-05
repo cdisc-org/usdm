@@ -5,6 +5,7 @@ from .alias_code import AliasCode
 from .biomedical_concept import BiomedicalConcept
 from .biomedical_concept_category import BiomedicalConceptCategory
 from .biomedical_concept_surrogate import BiomedicalConceptSurrogate
+from .biospecimen_retention import BiospecimenRetention
 from .code import Code
 from .encounter import Encounter
 from .study_cell import StudyCell
@@ -23,11 +24,10 @@ from .condition import Condition
 from .comment_annotation import CommentAnnotation
 
 class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
-  trialIntentTypes: List[Code] = []
-  trialTypes: List[Code] = []
+  studyType: Union[Code, None] = None
+  studyPhase: Union[AliasCode, None] = None
   therapeuticAreas: List[Code] = []
   characteristics: List[Code] = []
-  interventionModel: Code
   encounters: List[Encounter] = []
   activities: List[Activity] = []
   biomedicalConcepts: List[BiomedicalConcept] = []
@@ -35,7 +35,6 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   bcSurrogates: List[BiomedicalConceptSurrogate] = []
   arms: List[StudyArm]
   studyCells: List[StudyCell]
-  blindingSchema: Union[AliasCode, None] = None
   rationale: str
   epochs: List[StudyEpoch]
   elements: List[StudyElement] = []
@@ -46,6 +45,7 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
   population: Union[StudyDesignPopulation, None] = None
   analysisPopulations: List[AnalysisPopulation] = []
   scheduleTimelines: List[ScheduleTimeline] = []
+  biospecimenRetentions: List[BiospecimenRetention] = []
   documentVersionIds: List[str] = []
   dictionaries: List[SyntaxTemplateDictionary] = []
   conditions: List[Condition] = []
@@ -54,3 +54,18 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
 
   def main_timeline(self):
     return next((item for item in self.scheduleTimelines if item.mainTimeline), None)
+
+class InterventionalStudyDesign(StudyDesign):
+  subTypes: List[Code] = []
+  model: Code
+  intentTypes: List[Code] = []
+  blindingSchema: Union[AliasCode, None] = None
+  instanceType: Literal['InterventionalStudyDesign']
+
+class ObservationalStudyDesign(StudyDesign):
+  subTypes: List[Code] = []
+  model: Code
+  timePerspective: Code
+  samplingMethod: Union[Code, None] = None
+  instanceType: Literal['ObservationalStudyDesign']
+  
