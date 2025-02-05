@@ -208,7 +208,7 @@ class USDMExcel:
             )
 
             # Study Design assembly
-            study_design: StudyDesign = self.study_design.study_designs[0]
+            study_design: StudyDesign = self.study_design.items[0]
             study_design.scheduleTimelines.append(self.soa.timeline)
             study_design.encounters = self.encounters.items
             study_design.activities = self.soa.activities
@@ -285,14 +285,14 @@ class USDMExcel:
                 self.study_version = StudyVersion(
                     id=self._globals.id_manager.build_id(StudyVersion),
                     versionIdentifier=self.study.version,
-                    studyType=self.study.type,
-                    studyPhase=self.study.phase,
+                    #studyType=self.study.type,
+                    #studyPhase=self.study.phase,
                     businessTherapeuticAreas=self.study.therapeutic_areas,
                     rationale=self.study.rationale,
                     studyIdentifiers=self.study_identifiers.items,
                     referenceIdentifiers=self.study_references.items,
                     documentVersionIds=self.definition_document_version_ids,
-                    studyDesigns=self.study_design.study_designs,
+                    studyDesigns=self.study_design.items,
                     dateValues=self.study.dates[self.STUDY_VERSION_DATE],
                     amendments=self.study_amendments.items,
                     titles=self.study.titles,
