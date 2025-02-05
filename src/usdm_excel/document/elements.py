@@ -13,7 +13,7 @@ class Elements:
         super().__init__()
         self._parent = parent
         self._study_version = study_version
-        self._study_design = self._study_version.studyDesigns[0]
+        self._study_designs = self._study_version.studyDesigns
         self._document_version = document_version
         self._methods = [
             func
@@ -25,8 +25,10 @@ class Elements:
         return name in self._methods
 
     def study_phase(self) -> str:
-        phase = self._study_version.phase()
-        results = [{"instance": phase, "klass": "Code", "attribute": "decode"}]
+        results = []
+        for study_design in self._study_designs:
+            phase = study_design.phase()
+            results.append({"instance": phase, "klass": "Code", "attribute": "decode"})
         return self._set_of_references(results)
 
     def study_short_title(self) -> str:

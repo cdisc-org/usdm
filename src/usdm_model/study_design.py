@@ -58,7 +58,7 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
             (item for item in self.scheduleTimelines if item.mainTimeline), None
         )
 
-    def phase(self):
+    def phase(self) -> Code:
         return self.studyPhase.standardCode
 
 

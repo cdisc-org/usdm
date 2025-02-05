@@ -83,6 +83,9 @@ class IdManager:
             "DocumentContentReference": 0,
             "MedicalDevice": 0,
             "ProductOrganizationRole": 0,
+            "InterventionalStudyDesign": 0,
+            "ObservationalStudyDesign": 0,
+            "BiospecimenRetention": 0
         }
 
     def build_id(self, klass):

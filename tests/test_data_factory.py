@@ -1,4 +1,4 @@
-from usdm_model.study_design import StudyDesign
+from usdm_model.study_design import InterventionalStudyDesign
 from usdm_model.study_epoch import StudyEpoch
 from usdm_model.study_cell import StudyCell
 from usdm_model.study_arm import StudyArm
@@ -160,17 +160,19 @@ class MinimalStudy:
             },
         )
         self.study_design = factory.item(
-            StudyDesign,
+            InterventionalStudyDesign,
             {
                 "name": "Study Design",
                 "label": "",
                 "description": "",
                 "rationale": "Study Design Rationale",
-                "interventionModel": factory.cdisc_dummy(),
+                "interventionModel": factory.cdisc_code("C98388", "Interventional"),
                 "arms": [arm],
                 "studyCells": [cell],
                 "epochs": [epoch],
                 "population": self.population,
+                "studyPhase": alias_phase,
+                "model": factory.cdisc_code("C82639", "Parallel Study"),
             },
         )
         address = factory.item(
