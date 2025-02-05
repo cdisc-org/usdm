@@ -215,16 +215,10 @@ def test_read_cell_multiple_by_name(mocker, globals):
         errors.clear()
         assert (base.read_cell_multiple_by_name(test[0], "Children")) == test[1]
 
-        # assert(errors.items[0].to_log()) == test[3]
 
-
-# read_cell_with_previous
-
-
-def test_read_boolean_cell_by_name(mocker, globals):
+def test_read_boolean_cell(mocker, globals):
     mocked_open = mocker.mock_open(read_data="File")
     mocker.patch("builtins.open", mocked_open)
-    # data = [[0, 1, 2, 3, 4, 5, 6, 7, 8], ['a', 'y', 'Y', 'true', 'True', 'yes', 1, '1', '']]
     data = [
         [0, "a"],
         [1, "y"],
@@ -244,6 +238,39 @@ def test_read_boolean_cell_by_name(mocker, globals):
     mock_read.return_value = pd.DataFrame(data, columns=["Name", "Children"])
     base = BaseSheet("", globals, "sheet")
     test_data = [
+        (0, 1, False),
+        (1, 1, True),
+        (2, 1, True),
+        (3, 1, True),
+        (4, 1, True),
+        (5, 1, True),
+        (6, 1, True),
+        (7, 1, True),
+        (8, 1, False),
+        (9, 1, True),
+    ]
+    for test in test_data:
+        assert (base.read_boolean_cell(test[0], test[1])) == test[2]
+
+def test_read_boolean_cell_by_name(mocker, globals):
+    mocked_open = mocker.mock_open(read_data="File")
+    mocker.patch("builtins.open", mocked_open)
+    data = [
+        [0, "a", ""],
+        [1, "y", ""],
+        [2, "Y", ""],
+        [3, "true", ""],
+        [4, "True", ""],
+        [5, "yes", ""],
+        [6, 1, ""],
+        [7, "1", ""],
+        [8, "", ""],
+        [9, "T", ""],
+    ]
+    mock_read = mocker.patch("pandas.read_excel")
+    mock_read.return_value = pd.DataFrame(data, columns=["Name", "Children", "Other"])
+    base = BaseSheet("", globals, "sheet")
+    test_data = [
         (0, "Children", False),
         (1, "Children", True),
         (2, "Children", True),
@@ -254,10 +281,11 @@ def test_read_boolean_cell_by_name(mocker, globals):
         (7, "Children", True),
         (8, "Children", False),
         (9, "Children", True),
+        (0, "Other", False),
+        (1, "OtherX", False),
     ]
     for test in test_data:
         assert (base.read_boolean_cell_by_name(test[0], test[1])) == test[2]
-
 
 def test_read_quantity_cell_by_name(mocker, globals):
     globals.cross_references.clear()

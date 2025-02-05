@@ -186,8 +186,19 @@ class BaseSheet:
             return ""
 
     def read_boolean_cell_by_name(self, row_index, field_name, must_be_present=True):
-        col_index = self.column_present(field_name)
-        return self.read_boolean_cell(row_index, col_index, must_be_present)
+        try:
+            col_index = self.column_present(field_name)
+            return self.read_boolean_cell(row_index, col_index)
+        except Exception as e:
+            if not must_be_present:
+                return False  # if self.globals.option_manager.get(Options.EMPTY_NONE) == EmptyNoneOption.EMPTY.value else None
+            else:
+                self._error(
+                    row_index,
+                    -2,
+                    f"Error attempting to read cell '{field_name}'. Exception: {e}",
+                )
+                return False
 
     def read_boolean_cell(self, row_index, col_index, must_be_present=True):
         value = self.read_cell(row_index, col_index)
