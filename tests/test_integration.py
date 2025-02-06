@@ -161,6 +161,10 @@ def run_test_fhir(filename, mocker, save=False):
     json.dumps(result_dict) == json.dumps(expected)
 
 
+def test_observational_1():
+    run_test("observational")
+
+
 def test_full_1():
     run_test("full_1")
 
@@ -241,7 +245,7 @@ def test_no_activity_sheet():
     run_test("no_activity_sheet")
 
 
-def test_address_comma():
+def test_address():
     run_test("address")
 
 
