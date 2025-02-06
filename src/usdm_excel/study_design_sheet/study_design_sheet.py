@@ -173,7 +173,7 @@ class StudyDesignSheet(BaseSheet):
                     self.characteristics = (
                         self.read_cdisc_klass_attribute_cell_multiple(
                             "StudyDesign",
-                            "characteristic",
+                            "characteristics",
                             rindex,
                             self.PARAMS_DATA_COL,
                         )

@@ -2,7 +2,12 @@ sheet,row,column,message,level
 studyOrganizations,3,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
 studyOrganizations,4,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
 studyOrganizations,5,6,"Address '' does not contain the required fields (lines, district, city, state, postal code and country code) using ',' separator characters, only 0 found",Error
+study,4,2,"Study type has been moved to the 'studyDesign' sheet, value ignored",Warning
+study,5,2,"Study phase has been moved to the 'studyDesign' sheet, value ignored",Warning
 studyAmendments,1,-1,"No geographic scope column found, assuming global scope.",Warning
 studyAmendments,2,-1,"No geographic scope column found, assuming global scope.",Warning
 studyAmendments,3,-1,"No geographic scope column found, assuming global scope.",Warning
 studyAmendments,4,-1,"No geographic scope column found, assuming global scope.",Warning
+studyDesign,9,1,"Masking has been moved to the 'roles' sheet, value ignored",Warning
+studyDesign,10,1,"Masking has been moved to the 'roles' sheet, value ignored",Warning
+studyDesign,16,1,"Unrecognized key 'spare', ignored",Warning
