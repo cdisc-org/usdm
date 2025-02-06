@@ -122,7 +122,7 @@ def test_create_empty(mocker, globals):
 
 def test_read_cell_by_name_error(mocker, globals):
     data = {
-        "name": ["A1"],
+        "name": ["studyDesignName"],
         "description": ["Annotation Text One"],
         "label": ["LABEL1"],
         "includesDNA": [True],
@@ -136,10 +136,10 @@ def test_read_cell_by_name_error(mocker, globals):
     mock_error.assert_has_calls(
         [
             mocker.call(
-                "studyDesignSpecimen",
-                1,
-                -1,
-                "Error attempting to read cell 'retained'. Exception: Failed to detect column(s) 'retained' in sheet",
+                "studyDesign",
+                None,
+                None,
+                "Exception. Failed to create StudyDesign object. See log for additional details.",
                 40,
             ),
         ]
@@ -511,7 +511,14 @@ def _expected():
             },
             "standardCodeAliases": [],
         },
-        "studyType": None,
+        "studyType": {
+            "code": "C98388",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Interventional Study",
+            "id": "X25",
+            "instanceType": "Code",
+        },
         "subTypes": [
             {
                 "code": "C49666",

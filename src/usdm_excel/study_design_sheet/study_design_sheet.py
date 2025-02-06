@@ -140,8 +140,12 @@ class StudyDesignSheet(BaseSheet):
                         rindex, self.PARAMS_DATA_COL
                     )
                 elif key in self.MASKING_ROLE_KEY:
-                    # print(f"MASKING: {rindex}")
-                    self._set_masking(rindex, self.PARAMS_DATA_COL)
+                    self._warning(
+                        rindex,
+                        self.PARAMS_NAME_COL,
+                        f"Masking has been moved to the 'roles' sheet, value ignored",
+                    )
+                    # self._set_masking(rindex, self.PARAMS_DATA_COL)
                 elif key in self.PHASE_KEY:
                     phase = self.read_cdisc_klass_attribute_cell(
                         "StudyDesign", "studyPhase", rindex, self.PARAMS_DATA_COL
@@ -316,40 +320,40 @@ class StudyDesignSheet(BaseSheet):
             self._general_exception("Failed to create StudyDesign object", e)
             return None
 
-    def _set_masking(self, rindex, cindex):
-        # if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
-        #   return None
-        # else:
-        try:
-            text = self.read_cell(rindex, cindex)
-            parts = text.split("=")
-            if len(parts) == 2:
-                code = CDISCCT(self.globals).code_for_attribute(
-                    "Masking", "role", parts[0].strip()
-                )
-                if code:
-                    mask = Masking(
-                        id=self.globals.id_manager.build_id(Masking),
-                        description=parts[1].strip(),
-                        role=code,
-                    )
-                    self.masks.append(mask)
-                    self.globals.cross_references.add(mask.id, mask)
-                    return mask
-                else:
-                    self._error(
-                        rindex,
-                        cindex,
-                        f"Failed to decode masking role data '{text}', must be a valid role code '{parts[0]}'",
-                    )
-                    return None
-            else:
-                self._error(
-                    rindex,
-                    cindex,
-                    f"Failed to decode masking role data '{text}', no '=' detected",
-                )
-                return None
-        except Exception as e:
-            self._exception(rindex, cindex, "Failed to create Masking object", e)
-            return None
+    # def _set_masking(self, rindex, cindex):
+    #     # if self.globals.option_manager.get(Options.USDM_VERSION) == '2':
+    #     #   return None
+    #     # else:
+    #     try:
+    #         text = self.read_cell(rindex, cindex)
+    #         parts = text.split("=")
+    #         if len(parts) == 2:
+    #             code = CDISCCT(self.globals).code_for_attribute(
+    #                 "Masking", "role", parts[0].strip()
+    #             )
+    #             if code:
+    #                 mask = Masking(
+    #                     id=self.globals.id_manager.build_id(Masking),
+    #                     description=parts[1].strip(),
+    #                     role=code,
+    #                 )
+    #                 self.masks.append(mask)
+    #                 self.globals.cross_references.add(mask.id, mask)
+    #                 return mask
+    #             else:
+    #                 self._error(
+    #                     rindex,
+    #                     cindex,
+    #                     f"Failed to decode masking role data '{text}', must be a valid role code '{parts[0]}'",
+    #                 )
+    #                 return None
+    #         else:
+    #             self._error(
+    #                 rindex,
+    #                 cindex,
+    #                 f"Failed to decode masking role data '{text}', no '=' detected",
+    #             )
+    #             return None
+    #     except Exception as e:
+    #         self._exception(rindex, cindex, "Failed to create Masking object", e)
+    #         return None
