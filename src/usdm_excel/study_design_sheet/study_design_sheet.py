@@ -114,12 +114,10 @@ class StudyDesignSheet(BaseSheet):
                         "StudyDesign", "trialIntentType", rindex, self.PARAMS_DATA_COL
                     )
                 elif key in self.STUDY_TYPE_KEY:
-                    print(f"STUDY TYPE: {rindex}")
                     self.study_type = self.read_cdisc_klass_attribute_cell(
                         "StudyDesign", "studyType", rindex, self.PARAMS_DATA_COL
                     )
-                    print(f"STUDY TYPE: {self.study_type}")
-                    if self.study_type.code == "OBSERVATIONAL":
+                    if self.study_type.code == "C16084":
                         self.interventional = False
                 elif key in self.SUB_TYPES_KEY:
                     self.trial_sub_types = (

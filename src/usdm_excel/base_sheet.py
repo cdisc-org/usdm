@@ -221,7 +221,7 @@ class BaseSheet:
     def read_date_cell(self, row_index, col_index, must_be_present=True):
         cell = self.read_cell(row_index, col_index)
         try:
-            print(f"DATE: {cell}")
+            #print(f"DATE: {cell}")
             return datetime.datetime.strptime(cell, "%Y-%m-%d %H:%M:%S")
         except Exception as e:
             self._exception(row_index, col_index, "Error reading date cell", e)

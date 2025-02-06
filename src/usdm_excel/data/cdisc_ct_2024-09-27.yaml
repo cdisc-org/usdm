@@ -285,6 +285,57 @@ C124309:
     definition: Leaving no doubt; not open to question. (NCI)
     preferredTerm: Unequivocal
     submissionValue: UNEQUIVOCAL
+C127260:
+  conceptId: C127260
+  definition: A terminology codelist relevant to the sampling method used to assign
+    study participants into groups or cohorts within an observational study.
+  extensible: 'true'
+  name: Observational Study Sampling Method
+  preferredTerm: CDISC SDTM Observational Study Sampling Method Terminology
+  submissionValue: OBSSSM
+  synonyms:
+  - Observational Study Sampling Method
+  terms:
+  - conceptId: C127781
+    definition: A non-random process used to select a study population in which the
+      participants have been selected based on convenience or with a particular purpose
+      in mind.
+    preferredTerm: Non-Probability Sampling Method
+    submissionValue: NON-PROBABILITY SAMPLE
+  - conceptId: C71517
+    definition: An exclusively random process to guarantee that each participant or
+      population has specified chance of selection, such as simple random sampling,
+      systematic sampling, stratified random sampling, cluster sampling, and consecutive
+      patient sampling. (clinicaltrials.gov)
+    preferredTerm: Equal Probability Sampling Method
+    submissionValue: PROBABILITY SAMPLE
+C127261:
+  conceptId: C127261
+  definition: A terminology codelist relevant to the temporal relationship between
+    the observation period and time of subject enrollment in an observational study.
+  extensible: 'true'
+  name: Observational Study Time Perspective
+  preferredTerm: CDISC SDTM Observational Study Time Perspective Terminology
+  submissionValue: OBSSTP
+  synonyms:
+  - Observational Study Time Perspective
+  terms:
+  - conceptId: C53310
+    definition: A study that measures the prevalence of health outcomes or determinants
+      of health, or both, in a population at a point in time or over a short period.
+      (CDISC Glossary)
+    preferredTerm: Cross-Sectional Study
+    submissionValue: CROSS SECTIONAL
+  - conceptId: C15273
+    definition: A prospective observational study designed to monitor health measures
+      of individuals over a defined period of time. (CDISC Glossary)
+    preferredTerm: Longitudinal Study
+    submissionValue: PROSPECTIVE
+  - conceptId: C53312
+    definition: A study with planned observations collected predominantly before study
+      start (i.e., backward-looking). (CDISC Glossary)
+    preferredTerm: Retrospective Study
+    submissionValue: RETROSPECTIVE
 C127262:
   conceptId: C127262
   definition: A terminology codelist relevant to the surroundings or environment.
