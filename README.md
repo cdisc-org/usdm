@@ -173,21 +173,18 @@ The study sheet consists of two parts, the upper section for those single values
 
 For the single values, the keyword is in column A while the value is in column B. 
 
-| Row | Row Name | Purpose | Format and Values |
-| :--- | :--- | :--- | :--- |
-| 1 | studyTitle | The study title | Text string |
-| 2 | studyVersion | String version | Text string |
-| 3 | studyType or type | The study type | CDISC code reference |
-| 4 | studyPhase | The study phase | CDISC code reference |
-| 5 | studyAcronym | The study acronym | Text string |
-| 6 | studyRationale | the study rationale | Text string |
-| 7 | businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
-| 8 | briefTitle | The brief title | Text string | 
-| 9 | officialTitle	 | The officiall title | Text string| 
-| 10 | publicTitle	 | The public title | Text string| 
-| 11 | scientificTitle	 | The scientific title | Text string| 
-| 12 | protocolVersion	 | The version of the protocol | Text string | 
-| 13 | protocolStatus | The status | CDISC code reference | 
+| Key Word | Purpose | Format and Values |
+| :--- | :--- | :--- |
+| studyVersion | String version | Text string |
+| studyAcronym | The study acronym | Text string |
+| studyRationale | the study rationale | Text string |
+| businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
+| briefTitle | The brief title | Text string | 
+| officialTitle	| The officiall title | Text string| 
+| publicTitle | The public title | Text string| 
+| scientificTitle | The scientific title | Text string| 
+| protocolVersion | The version of the protocol | Text string | 
+| protocolStatus | The status | CDISC code reference | 
 
 A header row in row 16 followed by repeating rows from row 17, containing a series of dates: 
 
@@ -319,23 +316,26 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 
 The study design sheet consists of two parts, the upper section for those single values and then a section for the arms and epochs.
 
-For the single values, the keyword is in column A while the value is in column B. Some rows can repeat
+For the single values, the keyword is in column A while the value is in column B.
 
-| Row Name | Purpose | Format and Values | Repeat |
-| :--- | :--- | :--- | :--- |
-| studyDesignName or name | Study design name | Text string | No | 
-| studyDesignDescription or description | Study design description | Text string | No |
-| label | Study design label. Default value is '' | Text string | No |
-| therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated | No |
-| studyDesignRationale | Study design rationale | Text string | No |
-| studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference | No |
-| trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references | No |
-| trialTypes | Code for the trial type | CDISC code reference| No |
-| interventionModel | | CDISC code reference | No |
-| masking | A masking role | Takes form of Role=description where the role is a CDISC Code Reference | Yes |
-| characteristics | Set of characteristics | Set of CDISC code references | No |
-| mainTimeline | Name of main timeline sheet | This must be present | No |
-| otherTimelines | Names of other timeline sheeText string | Commma separated list of sheet names. Can be empty | No |
+| Key Word | Purpose | Format and Values |
+| :--- | :--- | :--- |
+| studyDesignName or name | Study design name | Text string |
+| studyDesignDescription or description | Study design description | Text string |
+| label | Study design label. Default value is '' | Text string |
+| studyType | The study type. This is where Interventional / Observation selection is made | CDISC code reference |
+| studyPhase | The study phase | CDISC code reference |
+| therapeuticAreas | Set of therapeutic area codes | Set of external CT references, comma separated |
+| studyDesignRationale | Study design rationale | Text string |
+| studyDesignBlindingScheme | Code for the blinding scheme | CDISC code reference |
+| trialIntentTypes | Codes for the trial intent types | Comma separated CDISC code references |
+| trialTypes | Code for the trial type | CDISC code reference|
+| interventionModel | | CDISC code reference |
+| characteristics | Set of characteristics | Set of CDISC code references |
+| timePerspective | Observation study time perspective | CDISC code reference |
+| samplingMethod | Sampling method | CDISC code reference |
+| mainTimeline | Name of main timeline sheet | This must be present |
+| otherTimelines | Names of other timeline sheets | Commma separated list of sheet names. Can be empty |
 
 For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
 
