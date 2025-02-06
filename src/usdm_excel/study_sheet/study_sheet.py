@@ -29,9 +29,6 @@ class StudySheet(BaseSheet):
     PROTOCOL_VERSION_TITLE = "protocolVersion"
     PROTOCOL_STATUS_TITLE = "protocolStatus"
 
-    DATES_HEADER_ROW = 15
-    DATES_DATA_ROW = 16
-
     PARAMS_NAME_COL = 0
     PARAMS_DATA_COL = 1
 
@@ -81,112 +78,129 @@ class StudySheet(BaseSheet):
             self._sheet_exception(e)
 
     def _process_sheet(self):
+        main_part = True
+        dates_row = 15
         fields = ["category", "name", "description", "label", "type", "date", "scopes"]
         for rindex, row in self.sheet.iterrows():
             field_name = self.read_cell(rindex, self.PARAMS_NAME_COL)
-            if field_name == self.NAME_TITLE:
-                self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
-            elif field_name == self.DESCRIPTION_TITLE:
-                self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
-            elif field_name == self.LABEL_TITLE:
-                self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
-            elif field_name == self.VERSION_TITLE:
-                self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
-            elif field_name == self.TYPE_TITLE:
-                # self.type = self.read_cdisc_klass_attribute_cell('Study', 'studyType', rindex, self.PARAMS_DATA_COL)
-                self._warning(
-                    rindex,
-                    self.PARAMS_DATA_COL,
-                    f"Study type has been moved to the 'studyDesign' sheet, value ignored",
-                )
-            elif field_name == self.PHASE_TITLE:
-                # phase = self.read_cdisc_klass_attribute_cell('Study', 'studyPhase', rindex, self.PARAMS_DATA_COL)
-                # self.phase = Alias(self.globals).code(phase, [])
-                self._warning(
-                    rindex,
-                    self.PARAMS_DATA_COL,
-                    f"Study phase has been moved to the 'studyDesign' sheet, value ignored",
-                )
-            elif field_name == self.ACRONYM_TITLE:
-                self.acronym = self._set_title(
-                    rindex, self.PARAMS_DATA_COL, "Study Acronym"
-                )
-            elif field_name == self.RATIONALE_TITLE:
-                self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
-            elif field_name == self.TA_TITLE:
-                self.therapeutic_areas = self.read_other_code_cell_mutiple(
-                    rindex, self.PARAMS_DATA_COL
-                )
-            elif field_name == self.BRIEF_TITLE_TITLE:
-                self.brief_title = self._set_title(
-                    rindex, self.PARAMS_DATA_COL, "Brief Study Title"
-                )
-            elif field_name == self.OFFICAL_TITLE_TITLE:
-                self.official_title = self._set_title(
-                    rindex, self.PARAMS_DATA_COL, "Official Study Title"
-                )
-            elif field_name == self.PUBLIC_TITLE_TITLE:
-                self.public_title = self._set_title(
-                    rindex, self.PARAMS_DATA_COL, "Public Study Title"
-                )
-            elif field_name == self.SCIENTIFIC_TITLE_TITLE:
-                self.scientific_title = self._set_title(
-                    rindex, self.PARAMS_DATA_COL, "Scientific Study Title"
-                )
-            elif field_name == self.PROTOCOL_VERSION_TITLE:
-                self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
-            elif field_name == self.PROTOCOL_STATUS_TITLE:
-                self.protocol_status = self.read_cdisc_klass_attribute_cell(
-                    "StudyProtocolVersion",
-                    "protocolStatus",
-                    rindex,
-                    self.PARAMS_DATA_COL,
-                )
-            elif rindex >= self.DATES_DATA_ROW:
-                record = {}
-                for cindex in range(0, len(self.sheet.columns)):
-                    field = fields[cindex]
-                    if field == "category":
-                        cell = self.read_cell(rindex, cindex)
-                        if cell.lower() in self.date_categories:
-                            category = cell.lower()
+            if main_part:
+                if field_name == self.NAME_TITLE:
+                    self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
+                elif field_name == self.DESCRIPTION_TITLE:
+                    self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
+                elif field_name == self.LABEL_TITLE:
+                    self.label = self.read_cell(rindex, self.PARAMS_DATA_COL)
+                elif field_name == self.VERSION_TITLE:
+                    self.version = self.read_cell(rindex, self.PARAMS_DATA_COL)
+                elif field_name == self.TYPE_TITLE:
+                    self._warning(
+                        rindex,
+                        self.PARAMS_DATA_COL,
+                        f"Study type has been moved to the 'studyDesign' sheet, value ignored",
+                    )
+                elif field_name == self.PHASE_TITLE:
+                    self._warning(
+                        rindex,
+                        self.PARAMS_DATA_COL,
+                        f"Study phase has been moved to the 'studyDesign' sheet, value ignored",
+                    )
+                elif field_name == self.ACRONYM_TITLE:
+                    self.acronym = self._set_title(
+                        rindex, self.PARAMS_DATA_COL, "Study Acronym"
+                    )
+                elif field_name == self.RATIONALE_TITLE:
+                    self.rationale = self.read_cell(rindex, self.PARAMS_DATA_COL)
+                elif field_name == self.TA_TITLE:
+                    self.therapeutic_areas = self.read_other_code_cell_mutiple(
+                        rindex, self.PARAMS_DATA_COL
+                    )
+                elif field_name == self.TITLE_TITLE:
+                    self._warning(
+                        rindex,
+                        self.PARAMS_DATA_COL,
+                        f"Study title has been deprecated, use officialTitle or publicTitle instead",
+                    )
+                elif field_name == self.BRIEF_TITLE_TITLE:
+                    self.brief_title = self._set_title(
+                        rindex, self.PARAMS_DATA_COL, "Brief Study Title"
+                    )
+                elif field_name == self.OFFICAL_TITLE_TITLE:
+                    self.official_title = self._set_title(
+                        rindex, self.PARAMS_DATA_COL, "Official Study Title"
+                    )
+                elif field_name == self.PUBLIC_TITLE_TITLE:
+                    self.public_title = self._set_title(
+                        rindex, self.PARAMS_DATA_COL, "Public Study Title"
+                    )
+                elif field_name == self.SCIENTIFIC_TITLE_TITLE:
+                    self.scientific_title = self._set_title(
+                        rindex, self.PARAMS_DATA_COL, "Scientific Study Title"
+                    )
+                elif field_name == self.PROTOCOL_VERSION_TITLE:
+                    self.protocol_version = self.read_cell(rindex, self.PARAMS_DATA_COL)
+                elif field_name == self.PROTOCOL_STATUS_TITLE:
+                    self.protocol_status = self.read_cdisc_klass_attribute_cell(
+                        "StudyProtocolVersion",
+                        "protocolStatus",
+                        rindex,
+                        self.PARAMS_DATA_COL,
+                    )
+                elif field_name == "":
+                    main_part = False
+                    dates_row = rindex + 2
+                else:
+                    self._warning(
+                        rindex,
+                        self.PARAMS_DATA_COL,
+                        f"Unrecognized key '{field_name}', ignored",
+                    )
+
+            else:
+                if rindex >= dates_row:
+                    record = {}
+                    for cindex in range(0, len(self.sheet.columns)):
+                        field = fields[cindex]
+                        if field == "category":
+                            cell = self.read_cell(rindex, cindex)
+                            if cell.lower() in self.date_categories:
+                                category = cell.lower()
+                            else:
+                                categories = ", ".join(
+                                    f'"{w}"' for w in self.date_categories
+                                )
+                                self._error(
+                                    rindex,
+                                    cindex,
+                                    f"Date category not recognized, should be one of {categories}, defaults to '{self.date_categories[0]}'",
+                                )
+                                category = self.date_categories[0]
+                        elif field == "type":
+                            record[field] = self.read_cdisc_klass_attribute_cell(
+                                "GovernanceDate", "type", rindex, cindex
+                            )
+                        elif field == "date":
+                            record[field] = self.read_date_cell(rindex, cindex)
+                        elif field == "scopes":
+                            record[field] = self.read_geographic_scopes_cell(rindex, cindex)
                         else:
-                            categories = ", ".join(
-                                f'"{w}"' for w in self.date_categories
-                            )
-                            self._error(
-                                rindex,
-                                cindex,
-                                f"Date category not recognized, should be one of {categories}, defaults to '{self.date_categories[0]}'",
-                            )
-                            category = self.date_categories[0]
-                    elif field == "type":
-                        record[field] = self.read_cdisc_klass_attribute_cell(
-                            "GovernanceDate", "type", rindex, cindex
+                            cell = self.read_cell(rindex, cindex)
+                            record[field] = cell
+                    try:
+                        date = GovernanceDate(
+                            id=self.globals.id_manager.build_id(GovernanceDate),
+                            name=record["name"],
+                            label=record["label"],
+                            description=record["description"],
+                            type=record["type"],
+                            dateValue=record["date"],
+                            geographicScopes=record["scopes"],
                         )
-                    elif field == "date":
-                        record[field] = self.read_date_cell(rindex, cindex)
-                    elif field == "scopes":
-                        record[field] = self.read_geographic_scopes_cell(rindex, cindex)
-                    else:
-                        cell = self.read_cell(rindex, cindex)
-                        record[field] = cell
-                try:
-                    date = GovernanceDate(
-                        id=self.globals.id_manager.build_id(GovernanceDate),
-                        name=record["name"],
-                        label=record["label"],
-                        description=record["description"],
-                        type=record["type"],
-                        dateValue=record["date"],
-                        geographicScopes=record["scopes"],
-                    )
-                    self.dates[category].append(date)
-                    self.globals.cross_references.add(record["name"], date)
-                except Exception as e:
-                    self._general_exception(
-                        f"Failed to create GovernanceDate object", e
-                    )
+                        self.dates[category].append(date)
+                        self.globals.cross_references.add(record["name"], date)
+                    except Exception as e:
+                        self._general_exception(
+                            f"Failed to create GovernanceDate object", e
+                        )
 
     def _set_title(self, rindex, cindex, title_type):
         try:
