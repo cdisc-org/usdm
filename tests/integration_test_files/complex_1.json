@@ -1,7 +1,7 @@
 {
   "study": {
     "id": null,
-    "name": "Study_LY900018",
+    "name": "LY900018",
     "description": null,
     "label": null,
     "versions": [
@@ -9,27 +9,6 @@
         "id": "StudyVersion_1",
         "versionIdentifier": "1",
         "rationale": "Test of a cross over study",
-        "studyType": {
-          "id": "Code_5",
-          "code": "C98388",
-          "codeSystem": "http://www.cdisc.org",
-          "codeSystemVersion": "2024-09-27",
-          "decode": "Interventional Study",
-          "instanceType": "Code"
-        },
-        "studyPhase": {
-          "id": "AliasCode_1",
-          "standardCode": {
-            "id": "Code_6",
-            "code": "C15602",
-            "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
-            "decode": "Phase III Trial",
-            "instanceType": "Code"
-          },
-          "standardCodeAliases": [],
-          "instanceType": "AliasCode"
-        },
         "documentVersionIds": [],
         "dateValues": [],
         "amendments": [],
@@ -51,48 +30,33 @@
         "referenceIdentifiers": [],
         "studyDesigns": [
           {
-            "id": "StudyDesign_1",
+            "id": "InterventionalStudyDesign_1",
             "name": "Study Design 1",
-            "label": "",
+            "label": "USDM Example Study Design",
             "description": "The main design for the study",
-            "trialIntentTypes": [
-              {
-                "id": "Code_115",
-                "code": "C15714",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "Basic Research",
-                "instanceType": "Code"
-              },
-              {
-                "id": "Code_116",
-                "code": "C139174",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "Device Feasibility Study",
-                "instanceType": "Code"
-              }
-            ],
-            "trialTypes": [
-              {
-                "id": "Code_117",
-                "code": "C49666",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "Efficacy Study",
-                "instanceType": "Code"
-              }
-            ],
-            "therapeuticAreas": [],
-            "characteristics": [],
-            "interventionModel": {
-              "id": "Code_118",
-              "code": "C82639",
+            "studyType": {
+              "id": "Code_117",
+              "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
-              "decode": "Parallel Study",
+              "decode": "Interventional Study",
               "instanceType": "Code"
             },
+            "studyPhase": {
+              "id": "AliasCode_4",
+              "standardCode": {
+                "id": "Code_118",
+                "code": "C15602",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Phase III Trial",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "therapeuticAreas": [],
+            "characteristics": [],
             "encounters": [
               {
                 "id": "Encounter_1",
@@ -100,7 +64,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_84",
+                  "id": "Code_82",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -112,7 +76,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_85",
+                    "id": "Code_83",
                     "code": "C16281",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -122,7 +86,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_86",
+                    "id": "Code_84",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -141,7 +105,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_87",
+                  "id": "Code_85",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -153,7 +117,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_88",
+                    "id": "Code_86",
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -163,7 +127,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_89",
+                    "id": "Code_87",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -182,7 +146,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_90",
+                  "id": "Code_88",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -194,7 +158,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_91",
+                    "id": "Code_89",
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -204,7 +168,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_92",
+                    "id": "Code_90",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -223,7 +187,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_93",
+                  "id": "Code_91",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -235,7 +199,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_94",
+                    "id": "Code_92",
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -245,7 +209,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_95",
+                    "id": "Code_93",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -264,7 +228,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_96",
+                  "id": "Code_94",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -276,7 +240,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_97",
+                    "id": "Code_95",
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -286,7 +250,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_98",
+                    "id": "Code_96",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -305,7 +269,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_99",
+                  "id": "Code_97",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -317,7 +281,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_100",
+                    "id": "Code_98",
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -327,7 +291,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_101",
+                    "id": "Code_99",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -346,7 +310,7 @@
                 "label": "",
                 "description": "",
                 "type": {
-                  "id": "Code_102",
+                  "id": "Code_100",
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -358,7 +322,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_103",
+                    "id": "Code_101",
                     "code": "C16281",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -368,7 +332,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_104",
+                    "id": "Code_102",
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -399,7 +363,7 @@
                     "description": "Informed Consent",
                     "procedureType": "XXX",
                     "code": {
-                      "id": "Code_80",
+                      "id": "Code_78",
                       "code": "414925007",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
@@ -450,7 +414,7 @@
                     "description": "Admission",
                     "procedureType": "XXX",
                     "code": {
-                      "id": "Code_81",
+                      "id": "Code_79",
                       "code": "305056002",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
@@ -485,7 +449,7 @@
                     "description": "Discharge",
                     "procedureType": "XXX",
                     "code": {
-                      "id": "Code_82",
+                      "id": "Code_80",
                       "code": "58000006",
                       "codeSystem": "SNOMED",
                       "codeSystemVersion": "January 31, 2018",
@@ -995,7 +959,7 @@
                     "description": "Meal",
                     "procedureType": "XXX",
                     "code": {
-                      "id": "Code_83",
+                      "id": "Code_81",
                       "code": "1234",
                       "codeSystem": "SPONSOR",
                       "codeSystemVersion": "12",
@@ -1552,7 +1516,7 @@
                 "label": "",
                 "description": "LY900018-IMG",
                 "type": {
-                  "id": "Code_105",
+                  "id": "Code_103",
                   "code": "C174266",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1561,7 +1525,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_106",
+                  "id": "Code_104",
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1578,7 +1542,7 @@
                 "label": "",
                 "description": "IMG-LY900018",
                 "type": {
-                  "id": "Code_107",
+                  "id": "Code_105",
                   "code": "C174266",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1587,7 +1551,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_108",
+                  "id": "Code_106",
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1691,19 +1655,6 @@
                 "instanceType": "StudyCell"
               }
             ],
-            "blindingSchema": {
-              "id": "AliasCode_4",
-              "standardCode": {
-                "id": "Code_114",
-                "code": "C49659",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "Open Label Study",
-                "instanceType": "Code"
-              },
-              "standardCodeAliases": [],
-              "instanceType": "AliasCode"
-            },
             "rationale": "Basic study",
             "epochs": [
               {
@@ -1712,7 +1663,7 @@
                 "label": "",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_109",
+                  "id": "Code_107",
                   "code": "C202487",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1730,7 +1681,7 @@
                 "label": "",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_110",
+                  "id": "Code_108",
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1748,7 +1699,7 @@
                 "label": "",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_111",
+                  "id": "Code_109",
                   "code": "C42872",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1766,7 +1717,7 @@
                 "label": "",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_112",
+                  "id": "Code_110",
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1784,7 +1735,7 @@
                 "label": "",
                 "description": "Follow-up Epoch",
                 "type": {
-                  "id": "Code_113",
+                  "id": "Code_111",
                   "code": "C202578",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -2601,7 +2552,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_10",
+                      "id": "Code_8",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2611,7 +2562,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_11",
+                      "id": "Code_9",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2631,7 +2582,7 @@
                     "label": "",
                     "description": "1 Day",
                     "type": {
-                      "id": "Code_12",
+                      "id": "Code_10",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2641,7 +2592,7 @@
                     "value": "P1D",
                     "valueLabel": "1 day",
                     "relativeToFrom": {
-                      "id": "Code_13",
+                      "id": "Code_11",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2658,6 +2609,36 @@
                   {
                     "id": "Timing_3",
                     "name": "TIMING_3",
+                    "label": "",
+                    "description": "",
+                    "type": {
+                      "id": "Code_12",
+                      "code": "C201357",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Before",
+                      "instanceType": "Code"
+                    },
+                    "value": "PT0M",
+                    "valueLabel": "0 mins",
+                    "relativeToFrom": {
+                      "id": "Code_13",
+                      "code": "C201355",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_24",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_25",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "windowLabel": "",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_4",
+                    "name": "TIMING_4",
                     "label": "",
                     "description": "",
                     "type": {
@@ -2678,16 +2659,16 @@
                       "decode": "Start to Start",
                       "instanceType": "Code"
                     },
-                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_24",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_25",
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_25",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_26",
                     "windowLower": null,
                     "windowUpper": null,
                     "windowLabel": "",
                     "instanceType": "Timing"
                   },
                   {
-                    "id": "Timing_4",
-                    "name": "TIMING_4",
+                    "id": "Timing_5",
+                    "name": "TIMING_5",
                     "label": "",
                     "description": "",
                     "type": {
@@ -2708,36 +2689,6 @@
                       "decode": "Start to Start",
                       "instanceType": "Code"
                     },
-                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_25",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_26",
-                    "windowLower": null,
-                    "windowUpper": null,
-                    "windowLabel": "",
-                    "instanceType": "Timing"
-                  },
-                  {
-                    "id": "Timing_5",
-                    "name": "TIMING_5",
-                    "label": "",
-                    "description": "",
-                    "type": {
-                      "id": "Code_18",
-                      "code": "C201357",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Before",
-                      "instanceType": "Code"
-                    },
-                    "value": "PT0M",
-                    "valueLabel": "0 mins",
-                    "relativeToFrom": {
-                      "id": "Code_19",
-                      "code": "C201355",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Start to Start",
-                      "instanceType": "Code"
-                    },
                     "relativeFromScheduledInstanceId": "ScheduledActivityInstance_26",
                     "relativeToScheduledInstanceId": "ScheduledActivityInstance_27",
                     "windowLower": null,
@@ -2751,7 +2702,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_20",
+                      "id": "Code_18",
                       "code": "C201358",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2761,7 +2712,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_21",
+                      "id": "Code_19",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2781,7 +2732,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_22",
+                      "id": "Code_20",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2791,7 +2742,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_23",
+                      "id": "Code_21",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2811,7 +2762,7 @@
                     "label": "",
                     "description": "0 Days",
                     "type": {
-                      "id": "Code_24",
+                      "id": "Code_22",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2821,7 +2772,7 @@
                     "value": "P0D",
                     "valueLabel": "0 days",
                     "relativeToFrom": {
-                      "id": "Code_25",
+                      "id": "Code_23",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2841,7 +2792,7 @@
                     "label": "",
                     "description": "2 Days",
                     "type": {
-                      "id": "Code_26",
+                      "id": "Code_24",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2851,7 +2802,7 @@
                     "value": "P2D",
                     "valueLabel": "2 days",
                     "relativeToFrom": {
-                      "id": "Code_27",
+                      "id": "Code_25",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2871,7 +2822,7 @@
                     "label": "",
                     "description": "1 Day",
                     "type": {
-                      "id": "Code_31",
+                      "id": "Code_29",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2881,7 +2832,7 @@
                     "value": "P1D",
                     "valueLabel": "1 Day",
                     "relativeToFrom": {
-                      "id": "Code_32",
+                      "id": "Code_30",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2901,7 +2852,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_29",
+                      "id": "Code_27",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2911,7 +2862,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_30",
+                      "id": "Code_28",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2931,7 +2882,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_33",
+                      "id": "Code_31",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2941,7 +2892,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_34",
+                      "id": "Code_32",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2961,7 +2912,7 @@
                     "label": "",
                     "description": "28 Days",
                     "type": {
-                      "id": "Code_35",
+                      "id": "Code_33",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2971,7 +2922,7 @@
                     "value": "P28D",
                     "valueLabel": "28 Days",
                     "relativeToFrom": {
-                      "id": "Code_36",
+                      "id": "Code_34",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3255,7 +3206,7 @@
                     "label": "",
                     "description": "pre-hypoglycemia induction",
                     "type": {
-                      "id": "Code_68",
+                      "id": "Code_66",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3265,7 +3216,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_69",
+                      "id": "Code_67",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3285,7 +3236,7 @@
                     "label": "",
                     "description": "30 min",
                     "type": {
-                      "id": "Code_70",
+                      "id": "Code_68",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3295,7 +3246,7 @@
                     "value": "PT30M",
                     "valueLabel": "30 mins",
                     "relativeToFrom": {
-                      "id": "Code_71",
+                      "id": "Code_69",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3315,7 +3266,7 @@
                     "label": "",
                     "description": "15min",
                     "type": {
-                      "id": "Code_72",
+                      "id": "Code_70",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3325,7 +3276,7 @@
                     "value": "PT15M",
                     "valueLabel": "15 mins",
                     "relativeToFrom": {
-                      "id": "Code_73",
+                      "id": "Code_71",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3345,7 +3296,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_74",
+                      "id": "Code_72",
                       "code": "C201358",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3355,7 +3306,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_75",
+                      "id": "Code_73",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3375,7 +3326,7 @@
                     "label": "",
                     "description": "90 min",
                     "type": {
-                      "id": "Code_76",
+                      "id": "Code_74",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3385,7 +3336,7 @@
                     "value": "PT90M",
                     "valueLabel": "90 mins",
                     "relativeToFrom": {
-                      "id": "Code_77",
+                      "id": "Code_75",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3405,7 +3356,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_78",
+                      "id": "Code_76",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3415,7 +3366,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_79",
+                      "id": "Code_77",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3554,7 +3505,7 @@
                     "label": "",
                     "description": "Pre dose",
                     "type": {
-                      "id": "Code_38",
+                      "id": "Code_36",
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3564,7 +3515,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_39",
+                      "id": "Code_37",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3584,7 +3535,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_40",
+                      "id": "Code_38",
                       "code": "C201358",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3594,7 +3545,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_41",
+                      "id": "Code_39",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3614,7 +3565,7 @@
                     "label": "",
                     "description": "5 min",
                     "type": {
-                      "id": "Code_42",
+                      "id": "Code_40",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3624,7 +3575,7 @@
                     "value": "PT5M",
                     "valueLabel": "5 min",
                     "relativeToFrom": {
-                      "id": "Code_43",
+                      "id": "Code_41",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3644,7 +3595,7 @@
                     "label": "",
                     "description": "10 min",
                     "type": {
-                      "id": "Code_44",
+                      "id": "Code_42",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3654,7 +3605,7 @@
                     "value": "PT10M",
                     "valueLabel": "10 min",
                     "relativeToFrom": {
-                      "id": "Code_45",
+                      "id": "Code_43",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3674,7 +3625,7 @@
                     "label": "",
                     "description": "15 min",
                     "type": {
-                      "id": "Code_46",
+                      "id": "Code_44",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3684,7 +3635,7 @@
                     "value": "PT15M",
                     "valueLabel": "15 min",
                     "relativeToFrom": {
-                      "id": "Code_47",
+                      "id": "Code_45",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3704,7 +3655,7 @@
                     "label": "",
                     "description": "20 min",
                     "type": {
-                      "id": "Code_48",
+                      "id": "Code_46",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3714,7 +3665,7 @@
                     "value": "PT20M",
                     "valueLabel": "20 min",
                     "relativeToFrom": {
-                      "id": "Code_49",
+                      "id": "Code_47",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3734,7 +3685,7 @@
                     "label": "",
                     "description": "25 min",
                     "type": {
-                      "id": "Code_50",
+                      "id": "Code_48",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3744,7 +3695,7 @@
                     "value": "PT25M",
                     "valueLabel": "25 min",
                     "relativeToFrom": {
-                      "id": "Code_51",
+                      "id": "Code_49",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3764,7 +3715,7 @@
                     "label": "",
                     "description": "30 min",
                     "type": {
-                      "id": "Code_52",
+                      "id": "Code_50",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3774,7 +3725,7 @@
                     "value": "PT30M",
                     "valueLabel": "30 min",
                     "relativeToFrom": {
-                      "id": "Code_53",
+                      "id": "Code_51",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3794,7 +3745,7 @@
                     "label": "",
                     "description": "40 min",
                     "type": {
-                      "id": "Code_54",
+                      "id": "Code_52",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3804,7 +3755,7 @@
                     "value": "PT40M",
                     "valueLabel": "40 min",
                     "relativeToFrom": {
-                      "id": "Code_55",
+                      "id": "Code_53",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3824,7 +3775,7 @@
                     "label": "",
                     "description": "50min",
                     "type": {
-                      "id": "Code_56",
+                      "id": "Code_54",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3834,7 +3785,7 @@
                     "value": "PT50M",
                     "valueLabel": "50min",
                     "relativeToFrom": {
-                      "id": "Code_57",
+                      "id": "Code_55",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3854,7 +3805,7 @@
                     "label": "",
                     "description": "60min",
                     "type": {
-                      "id": "Code_58",
+                      "id": "Code_56",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3864,7 +3815,7 @@
                     "value": "PT60M",
                     "valueLabel": "60min",
                     "relativeToFrom": {
-                      "id": "Code_59",
+                      "id": "Code_57",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3884,7 +3835,7 @@
                     "label": "",
                     "description": "90 min",
                     "type": {
-                      "id": "Code_60",
+                      "id": "Code_58",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3894,7 +3845,7 @@
                     "value": "PT90M",
                     "valueLabel": "90 min",
                     "relativeToFrom": {
-                      "id": "Code_61",
+                      "id": "Code_59",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3914,7 +3865,7 @@
                     "label": "",
                     "description": "120 min",
                     "type": {
-                      "id": "Code_62",
+                      "id": "Code_60",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3924,7 +3875,7 @@
                     "value": "PT120M",
                     "valueLabel": "120 min",
                     "relativeToFrom": {
-                      "id": "Code_63",
+                      "id": "Code_61",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3944,7 +3895,7 @@
                     "label": "",
                     "description": "240 min",
                     "type": {
-                      "id": "Code_64",
+                      "id": "Code_62",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3954,7 +3905,7 @@
                     "value": "PT240M",
                     "valueLabel": "240 min",
                     "relativeToFrom": {
-                      "id": "Code_65",
+                      "id": "Code_63",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3974,7 +3925,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_66",
+                      "id": "Code_64",
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3984,7 +3935,7 @@
                     "value": "PT0M",
                     "valueLabel": "0 mins",
                     "relativeToFrom": {
-                      "id": "Code_67",
+                      "id": "Code_65",
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -4264,6 +4215,7 @@
                 "instanceType": "ScheduleTimeline"
               }
             ],
+            "biospecimenRetentions": [],
             "documentVersionIds": [],
             "dictionaries": [],
             "conditions": [
@@ -4381,7 +4333,56 @@
               }
             ],
             "notes": [],
-            "instanceType": "StudyDesign"
+            "instanceType": "InterventionalStudyDesign",
+            "subTypes": [
+              {
+                "id": "Code_115",
+                "code": "C49666",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Efficacy Study",
+                "instanceType": "Code"
+              }
+            ],
+            "model": {
+              "id": "Code_116",
+              "code": "C82639",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Parallel Study",
+              "instanceType": "Code"
+            },
+            "intentTypes": [
+              {
+                "id": "Code_113",
+                "code": "C15714",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Basic Research",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_114",
+                "code": "C139174",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Device Feasibility Study",
+                "instanceType": "Code"
+              }
+            ],
+            "blindingSchema": {
+              "id": "AliasCode_3",
+              "standardCode": {
+                "id": "Code_112",
+                "code": "C49659",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Open Label Study",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            }
           }
         ],
         "titles": [
@@ -4389,7 +4390,7 @@
             "id": "StudyTitle_1",
             "text": "A Study of Nasal Glucagon (LY900018) in Japanese Participants With Diabetes Mellitus",
             "type": {
-              "id": "Code_7",
+              "id": "Code_5",
               "code": "C99905x1",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -4402,7 +4403,7 @@
             "id": "StudyTitle_2",
             "text": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of\nInsulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
             "type": {
-              "id": "Code_8",
+              "id": "Code_6",
               "code": "C99905x2",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
