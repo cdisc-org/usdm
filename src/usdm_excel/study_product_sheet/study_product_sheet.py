@@ -4,6 +4,8 @@ from usdm_model.administrable_product import AdministrableProduct
 from usdm_model.ingredient import Ingredient
 from usdm_model.substance import Substance
 from usdm_model.strength import Strength
+from usdm_model.quantity import Quantity
+from usdm_model.range import Range
 from usdm_excel.globals import Globals
 
 
@@ -118,6 +120,9 @@ class StudyProductSheet(BaseSheet):
         return
 
     def _create_strength(self, index):
+        numerator = self._read_numerator(index, "strengthNumerator")
+        numerator_range = numerator if isinstance(numerator, Range) else None
+        numerator_quantity = numerator if isinstance(numerator, Quantity) else None
         params = {
             "name": self.read_cell_by_name(index, "strengthName"),
             "description": self.read_cell_by_name(
@@ -126,7 +131,8 @@ class StudyProductSheet(BaseSheet):
             "label": self.read_cell_by_name(
                 index, "strengthLabel", must_be_present=False
             ),
-            "numerator": self._read_numerator(index, "strengthNumerator"),
+            "numeratorRange": numerator_range,
+            "numeratorQuantity": numerator_quantity,
             "denominator": self.read_quantity_cell_by_name(
                 index, "strengthDenominator"
             ),
@@ -138,6 +144,11 @@ class StudyProductSheet(BaseSheet):
     def _create_reference_strength(self, index):
         name = self.read_cell_by_name(index, "referenceSubstanceStrengthName")
         if name:
+            numerator = self._read_numerator(
+                    index, "referenceSubstanceStrengthNumerator"
+                )
+            numerator_range = numerator if isinstance(numerator, Range) else None
+            numerator_quantity = numerator if isinstance(numerator, Quantity) else None
             params = {
                 "name": name,
                 "description": self.read_cell_by_name(
@@ -148,9 +159,8 @@ class StudyProductSheet(BaseSheet):
                 "label": self.read_cell_by_name(
                     index, "referenceSubstanceStrengthLabel", must_be_present=False
                 ),
-                "numerator": self._read_numerator(
-                    index, "referenceSubstanceStrengthNumerator"
-                ),
+                "numeratorRange": numerator_range,
+                "numeratorQuantity": numerator_quantity,
                 "denominator": self.read_quantity_cell_by_name(
                     index, "referenceSubstanceStrengthDenominator"
                 ),

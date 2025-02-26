@@ -6,5 +6,6 @@ from .range import Range
 
 class Strength(ApiBaseModelWithIdNameLabelAndDesc):
     denominator: Union[Quantity, None] = None
-    numerator: Union[Quantity, Range, None] = None
+    numeratorQuantity: Union[Quantity, None] = None
+    numeratorRange: Union[Range, None] = None
     instanceType: Literal["Strength"]
