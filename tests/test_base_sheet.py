@@ -408,10 +408,10 @@ def test_read_range_cell_by_name(mocker, globals):
         # print(f"INDEX: {test[0]}")
         range = base.read_range_cell_by_name(test[0], test[1], test[2], test[3])
         if not test[4] and not test[5]:
-            assert (range.minValue) == test[6]
-            assert (range.maxValue) == test[7]
+            assert (range.minValue.value) == test[6]
+            assert (range.maxValue.value) == test[7]
             if test[2]:
-                assert (range.unit.standardCode.code) == test[8]
+                assert (range.minValue.unit.standardCode.code) == test[8]
             assert (range.isApproximate) == False
             assert (len(globals.errors_and_logging.errors().items)) == 0
         elif test[5]:

@@ -280,13 +280,15 @@ class BaseSheet:
                 return (
                     None
                     if range.empty
-                    else Range(
-                        id=self.globals.id_manager.build_id(Range),
-                        minValue=float(range.lower),
-                        maxValue=float(range.upper),
-                        unit=range.units_code,
-                        isApproximate=False,
-                    )
+                    else self.create_object(Range, {
+                        "minValue": self.create_object(
+                            Quantity, {"value": float(range.lower), "unit": range.units_code}
+                        ),
+                        "maxValue": self.create_object(
+                            Quantity, {"value": float(range.upper), "unit": range.units_code}
+                        ),
+                        "isApproximate": False,
+                    })
                 )
             else:
                 self._add_errors(range.errors, row_index, col_index)

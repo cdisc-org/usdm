@@ -9153,17 +9153,35 @@
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
                 "id": "Range_2",
-                "minValue": 75.0,
-                "maxValue": 75.0,
-                "unit": null,
+                "minValue": {
+                  "id": "Quantity_10",
+                  "value": 75.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_11",
+                  "value": 75.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
                 "isApproximate": false,
                 "instanceType": "Range"
               },
               "plannedCompletionNumber": {
                 "id": "Range_1",
-                "minValue": 66.0,
-                "maxValue": 66.0,
-                "unit": null,
+                "minValue": {
+                  "id": "Quantity_8",
+                  "value": 66.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_9",
+                  "value": 66.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
                 "isApproximate": false,
                 "instanceType": "Range"
               },
@@ -9228,9 +9246,18 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": {
                     "id": "Range_3",
-                    "minValue": 30.0,
-                    "maxValue": 30.0,
-                    "unit": null,
+                    "minValue": {
+                      "id": "Quantity_12",
+                      "value": 30.0,
+                      "unit": null,
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_13",
+                      "value": 30.0,
+                      "unit": null,
+                      "instanceType": "Quantity"
+                    },
                     "isApproximate": false,
                     "instanceType": "Range"
                   },
@@ -9238,20 +9265,41 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_4",
-                    "minValue": 18.0,
-                    "maxValue": 64.0,
-                    "unit": {
-                      "id": "AliasCode_218",
-                      "standardCode": {
-                        "id": "Code_490",
-                        "code": "C29848",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Year",
-                        "instanceType": "Code"
+                    "minValue": {
+                      "id": "Quantity_14",
+                      "value": 18.0,
+                      "unit": {
+                        "id": "AliasCode_218",
+                        "standardCode": {
+                          "id": "Code_490",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
                       },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_15",
+                      "value": 64.0,
+                      "unit": {
+                        "id": "AliasCode_218",
+                        "standardCode": {
+                          "id": "Code_490",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
                     },
                     "isApproximate": false,
                     "instanceType": "Range"
@@ -9269,9 +9317,18 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": {
                     "id": "Range_5",
-                    "minValue": 30.0,
-                    "maxValue": 30.0,
-                    "unit": null,
+                    "minValue": {
+                      "id": "Quantity_16",
+                      "value": 30.0,
+                      "unit": null,
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_17",
+                      "value": 30.0,
+                      "unit": null,
+                      "instanceType": "Quantity"
+                    },
                     "isApproximate": false,
                     "instanceType": "Range"
                   },
@@ -9279,20 +9336,41 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_6",
-                    "minValue": 20.0,
-                    "maxValue": 70.0,
-                    "unit": {
-                      "id": "AliasCode_219",
-                      "standardCode": {
-                        "id": "Code_491",
-                        "code": "C29848",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Year",
-                        "instanceType": "Code"
+                    "minValue": {
+                      "id": "Quantity_18",
+                      "value": 20.0,
+                      "unit": {
+                        "id": "AliasCode_219",
+                        "standardCode": {
+                          "id": "Code_491",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
                       },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_19",
+                      "value": 70.0,
+                      "unit": {
+                        "id": "AliasCode_219",
+                        "standardCode": {
+                          "id": "Code_491",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
                     },
                     "isApproximate": false,
                     "instanceType": "Range"

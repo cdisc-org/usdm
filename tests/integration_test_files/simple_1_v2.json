@@ -1696,17 +1696,35 @@
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
                 "id": "Range_2",
-                "minValue": 120.0,
-                "maxValue": 120.0,
-                "unit": null,
+                "minValue": {
+                  "id": "Quantity_9",
+                  "value": 120.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_10",
+                  "value": 120.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
                 "isApproximate": false,
                 "instanceType": "Range"
               },
               "plannedCompletionNumber": {
                 "id": "Range_1",
-                "minValue": 100.0,
-                "maxValue": 100.0,
-                "unit": null,
+                "minValue": {
+                  "id": "Quantity_7",
+                  "value": 100.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_8",
+                  "value": 100.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
                 "isApproximate": false,
                 "instanceType": "Range"
               },
@@ -1737,20 +1755,41 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_3",
-                    "minValue": 18.0,
-                    "maxValue": 30.0,
-                    "unit": {
-                      "id": "AliasCode_27",
-                      "standardCode": {
-                        "id": "Code_95",
-                        "code": "C29848",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Year",
-                        "instanceType": "Code"
+                    "minValue": {
+                      "id": "Quantity_11",
+                      "value": 18.0,
+                      "unit": {
+                        "id": "AliasCode_27",
+                        "standardCode": {
+                          "id": "Code_95",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
                       },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_12",
+                      "value": 30.0,
+                      "unit": {
+                        "id": "AliasCode_27",
+                        "standardCode": {
+                          "id": "Code_95",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
                     },
                     "isApproximate": false,
                     "instanceType": "Range"
@@ -1771,20 +1810,41 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_4",
-                    "minValue": 31.0,
-                    "maxValue": 70.0,
-                    "unit": {
-                      "id": "AliasCode_28",
-                      "standardCode": {
-                        "id": "Code_96",
-                        "code": "C29848",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Year",
-                        "instanceType": "Code"
+                    "minValue": {
+                      "id": "Quantity_13",
+                      "value": 31.0,
+                      "unit": {
+                        "id": "AliasCode_28",
+                        "standardCode": {
+                          "id": "Code_96",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
                       },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_14",
+                      "value": 70.0,
+                      "unit": {
+                        "id": "AliasCode_28",
+                        "standardCode": {
+                          "id": "Code_96",
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
                     },
                     "isApproximate": false,
                     "instanceType": "Range"
