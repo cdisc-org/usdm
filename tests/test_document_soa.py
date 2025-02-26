@@ -299,7 +299,7 @@ def create_activity_instances(factory, globals):
 
 
 def scenario_1(factory, globals):
-    dummy_cell = factory.item(StudyCell, {"armId": "X", "epochId": "Y"})
+    dummy_cell = factory.item(StudyCell, {"armId": "X", "epochId": "Y", "elementIds": ["Z"]})
     dummy_arm = factory.item(
         StudyArm,
         {
