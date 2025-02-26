@@ -647,6 +647,7 @@ A header row in row 1 followed by repeating rows from row 2 containing populatio
 | H | plannedSexOfParticipants | Sex of participants | CDISC code reference |
 | I | includesHealthSubjects | Healthy subjects flag | Boolean |
 | I | characterisitcs | List of characteristics for the cohort (ignored for main population) | Comma separated list of charcateristics name references |
+| J | indications | List of indications for the cohort (ignored for main population) | Comma separated list of indications name references |
 
 ### Study Design Characteristics sheet
 

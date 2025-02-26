@@ -4,7 +4,7 @@ from usdm_excel.study_design_population_sheet.study_design_population_sheet impo
     StudyDesignPopulationSheet,
 )
 from usdm_model.characteristic import Characteristic
-
+from usdm_model.indication import Indication
 xfail = pytest.mark.xfail
 
 
@@ -17,8 +17,17 @@ def test_create(mocker, globals):
         Characteristic(
             id="CH_2", name="CHAR_2", text="Something", instanceType="Characteristic"
         ),
+        Indication(
+            id="I_1", name="IND_1", isRareDisease=False, instanceType="Indication"
+        ),
+        Indication(
+            id="I_2", name="IND_2", isRareDisease=False, instanceType="Indication"
+        ),
         Characteristic(
             id="CH_3", name="CHAR_3", text="Something", instanceType="Characteristic"
+        ),
+        Indication(
+            id="I_1", name="IND_1", isRareDisease=False, instanceType="Indication"
         ),
     ]
     mock_present = mocker.patch("usdm_excel.base_sheet.BaseSheet._sheet_present")
@@ -68,6 +77,13 @@ def test_create(mocker, globals):
         "X_41",
         "X_42",
         "X_43",
+        "X_44",
+        "X_45",
+        "X_46",
+        "X_47",
+        "X_48",
+        "X_49",
+        "X_50",
     ]
     mocked_open = mocker.mock_open(read_data="File")
     mocker.patch("builtins.open", mocked_open)
@@ -83,6 +99,7 @@ def test_create(mocker, globals):
             "100..110 years",
             "Y",
             "",
+            "",
         ],
         [
             "COHORT",
@@ -95,6 +112,7 @@ def test_create(mocker, globals):
             "50..50 years",
             "Y",
             "CHAR_1, CHAR_2",
+            "IND_1, IND_2",
         ],
         [
             "COHORT",
@@ -107,6 +125,7 @@ def test_create(mocker, globals):
             "50..60 years",
             "Y",
             "CHAR_3",
+            "IND_1",
         ],
     ]
     mock_read = mocker.patch("pandas.read_excel")
@@ -123,6 +142,7 @@ def test_create(mocker, globals):
             "plannedAge",
             "includesHealthySubjects",
             "characteristics",
+            "indications",
         ],
     )
     item = StudyDesignPopulationSheet("", globals)
@@ -151,6 +171,7 @@ def test_create(mocker, globals):
                         "text": "Something",
                     },
                 ],
+                "indicationIds": ["I_1", "I_2"],
                 "criterionIds": [],
                 "description": "Cohort 1",
                 "id": "X_26",
@@ -258,6 +279,7 @@ def test_create(mocker, globals):
                         "text": "Something",
                     },
                 ],
+                "indicationIds": ["I_1"],
                 "criterionIds": [],
                 "description": "Cohort 2",
                 "id": "X_39",

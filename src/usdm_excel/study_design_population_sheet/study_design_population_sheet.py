@@ -2,6 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
 from usdm_model.range import Range
 from usdm_model.characteristic import Characteristic
+from usdm_model.indication import Indication
 from usdm_excel.globals import Globals
 
 
@@ -41,6 +42,9 @@ class StudyDesignPopulationSheet(BaseSheet):
                 characteristics = self.read_cell_multiple_by_name(
                     index, "characteristics", must_be_present=False
                 )
+                indications = self.read_cell_multiple_by_name(
+                    index, "indications", must_be_present=False
+                )
                 codes = self._build_codes(row, index)
                 if level.upper() == "MAIN":
                     self.population = self._study_population(
@@ -64,6 +68,7 @@ class StudyDesignPopulationSheet(BaseSheet):
                         healthy,
                         codes,
                         characteristics,
+                        indications,
                     )
             if self.population:
                 self.population.cohorts = self._cohorts
@@ -119,8 +124,10 @@ class StudyDesignPopulationSheet(BaseSheet):
         healthy: bool,
         codes: list,
         characteristics: list,
+        indications: list,
     ) -> StudyCohort:
         characteristic_refs = self._resolve_characteristics(characteristics)
+        indication_refs = self._resolve_indications(indications)
         params = {
             "name": name,
             "description": description,
@@ -131,6 +138,7 @@ class StudyDesignPopulationSheet(BaseSheet):
             "plannedAge": planned_age,
             "plannedSex": codes,
             "characteristics": characteristic_refs,
+            "indicationIds": [indication.id for indication in indication_refs],
         }
         item = self.create_object(StudyCohort, params)
         if item:
@@ -146,4 +154,15 @@ class StudyDesignPopulationSheet(BaseSheet):
                 results.append(object)
             else:
                 self._general_warning(f"Characterisitc '{name}' not found")
+        return results
+
+    def _resolve_indications(self, names):
+        print(f"Resolving indications: {names}")
+        results = []
+        for name in names:
+            object = self.globals.cross_references.get(Indication, name)
+            if object:
+                results.append(object)
+            else:
+                self._general_warning(f"Indication '{name}' not found")
         return results
