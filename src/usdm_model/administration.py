@@ -8,9 +8,9 @@ from .comment_annotation import CommentAnnotation
 
 class Administration(ApiBaseModelWithIdNameLabelAndDesc):
     duration: AdministrationDuration
-    dose: Quantity
-    route: AliasCode
-    frequency: AliasCode
+    dose: Union[Quantity, None] = None
+    route: Union[AliasCode, None] = None
+    frequency: Union[AliasCode, None] = None
     administrableProductId: Union[str, None] = None
     medicalDeviceId: Union[str, None] = None
     notes: List[CommentAnnotation] = []
