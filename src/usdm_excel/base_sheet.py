@@ -2,12 +2,14 @@ import os
 import datetime
 import pandas as pd
 from openpyxl import load_workbook
+from typing import Type
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
 from usdm_excel.option_manager import Options
 from usdm_excel.quantity_type import QuantityType
 from usdm_excel.range_type import RangeType
 from usdm_excel.iso_3166 import ISO3166
+from usdm_model.api_base_model import ApiBaseModelWithId
 from usdm_model.quantity import Quantity
 from usdm_model.range import Range
 from usdm_model.address import Address
@@ -221,7 +223,7 @@ class BaseSheet:
     def read_date_cell(self, row_index, col_index, must_be_present=True):
         cell = self.read_cell(row_index, col_index)
         try:
-            #print(f"DATE: {cell}")
+            # print(f"DATE: {cell}")
             return datetime.datetime.strptime(cell, "%Y-%m-%d %H:%M:%S")
         except Exception as e:
             self._exception(row_index, col_index, "Error reading date cell", e)
@@ -280,15 +282,20 @@ class BaseSheet:
                 return (
                     None
                     if range.empty
-                    else self.create_object(Range, {
-                        "minValue": self.create_object(
-                            Quantity, {"value": float(range.lower), "unit": range.units_code}
-                        ),
-                        "maxValue": self.create_object(
-                            Quantity, {"value": float(range.upper), "unit": range.units_code}
-                        ),
-                        "isApproximate": False,
-                    })
+                    else self.create_object(
+                        Range,
+                        {
+                            "minValue": self.create_object(
+                                Quantity,
+                                {"value": float(range.lower), "unit": range.units_code},
+                            ),
+                            "maxValue": self.create_object(
+                                Quantity,
+                                {"value": float(range.upper), "unit": range.units_code},
+                            ),
+                            "isApproximate": False,
+                        },
+                    )
                 )
             else:
                 self._add_errors(range.errors, row_index, col_index)
@@ -451,9 +458,11 @@ class BaseSheet:
             result = None
         return result
 
-    def create_object(self, cls, params):
+    def create_object(
+        self, cls: Type[ApiBaseModelWithId], params: dict, id: str = None
+    ) -> object:
         try:
-            params["id"] = self.globals.id_manager.build_id(cls)
+            params["id"] = id if id else self.globals.id_manager.build_id(cls)
             return cls(**params)
         except Exception as e:
             self._general_exception(f"Failed to create {cls.__name__} object", e)

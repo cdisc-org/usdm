@@ -252,6 +252,7 @@ def test_read_boolean_cell(mocker, globals):
     for test in test_data:
         assert (base.read_boolean_cell(test[0], test[1])) == test[2]
 
+
 def test_read_boolean_cell_by_name(mocker, globals):
     mocked_open = mocker.mock_open(read_data="File")
     mocker.patch("builtins.open", mocked_open)
@@ -286,6 +287,7 @@ def test_read_boolean_cell_by_name(mocker, globals):
     ]
     for test in test_data:
         assert (base.read_boolean_cell_by_name(test[0], test[1])) == test[2]
+
 
 def test_read_quantity_cell_by_name(mocker, globals):
     globals.cross_references.clear()

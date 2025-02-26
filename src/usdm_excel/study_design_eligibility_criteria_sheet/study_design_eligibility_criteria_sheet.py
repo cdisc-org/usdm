@@ -1,7 +1,11 @@
+from typing import Tuple
 from usdm_excel.globals import Globals
 from usdm_excel.syntax_template_sheet import SyntaxTemplateSheet
 from usdm_model.code import Code
-from usdm_model.eligibility_criterion import EligibilityCriterion
+from usdm_model.eligibility_criterion import (
+    EligibilityCriterion,
+    EligibilityCriterionItem,
+)
 
 
 class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
@@ -10,6 +14,7 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
     def __init__(self, file_path: str, globals: Globals):
         try:
             self.items = []
+            self.criterion_items = []
             super().__init__(
                 file_path=file_path,
                 globals=globals,
@@ -28,7 +33,7 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
                     text = self.read_cell_by_name(index, "text")
                     dictionary_name = self.read_cell_by_name(index, "dictionary")
                     self._validate_references(index, "text", text, dictionary_name)
-                    item = self._criteria(
+                    ec, eci = self._criterion(
                         name,
                         description,
                         label,
@@ -37,13 +42,14 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
                         identifier,
                         dictionary_name,
                     )
-                    if item:
-                        self.globals.cross_references.add(item.name, item)
-                        self.items.append(item)
+                    if ec:
+                        self.globals.cross_references.add(ec.name, ec)
+                        self.items.append(ec)
+                        self.criterion_items.append(eci)
         except Exception as e:
             self._sheet_exception(e)
 
-    def _criteria(
+    def _criterion(
         self,
         name: str,
         description: str,
@@ -52,15 +58,19 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
         category: Code,
         identifier: str,
         dictionary_name: str,
-    ) -> EligibilityCriterion:
+    ) -> Tuple[EligibilityCriterion, EligibilityCriterionItem]:
         dictionary_id = self._get_dictionary_id(dictionary_name)
+        eci = self.create_object(
+            EligibilityCriterionItem,
+            {"name": name, "text": text, "dictionaryId": dictionary_id},
+        )
         params = {
             "name": name,
             "description": description,
             "label": label,
-            "text": text,
             "category": category,
             "identifier": identifier,
-            "dictionaryId": dictionary_id,
+            "criterionItemId": eci.id,
         }
-        return self.create_object(EligibilityCriterion, params)
+        ec = self.create_object(EligibilityCriterion, params)
+        return ec, eci

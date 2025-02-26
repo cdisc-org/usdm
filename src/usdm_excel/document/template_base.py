@@ -36,3 +36,13 @@ class TemplateBase:
 
     def _add_checking_for_tag(self, doc, tag, text):
         doc.asis(text)
+
+    def _critierion_item(self, item_id):
+        return next(
+            (
+                x
+                for x in self._study_version.eligibilityCriterionItems
+                if x.id == item_id
+            ),
+            None,
+        )

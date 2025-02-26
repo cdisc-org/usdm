@@ -122,7 +122,10 @@ class MinimalStudy:
                 "type": factory.cdisc_code("C22222", "Epoch Code"),
             },
         )
-        cell = factory.item(StudyCell, {"armId": arm.id, "epochId": epoch.id, "elementIds": [element.id]})
+        cell = factory.item(
+            StudyCell,
+            {"armId": arm.id, "epochId": epoch.id, "elementIds": [element.id]},
+        )
         study_title = factory.item(
             StudyTitle,
             {

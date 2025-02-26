@@ -15,10 +15,13 @@ def test_create(mocker, globals):
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect = [
         "Code_1",
+        "EligibilityItemId_1",
         "EligibilityId_1",
         "Code_2",
+        "EligibilityItemId_2",
         "EligibilityId_2",
         "Code_3",
+        "EligibilityItemId_3",
         "EligibilityId_3",
     ]
     mocked_open = mocker.mock_open(read_data="File")
@@ -67,15 +70,96 @@ def test_create(mocker, globals):
     )
     items = StudyDesignEligibilityCriteriaSheet("", globals)
     assert len(items.items) == 3
-    assert items.items[0].id == "EligibilityId_1"
-    assert items.items[0].category.decode == "Inclusion Criteria"
-    assert items.items[0].identifier == "01"
-    assert items.items[0].name == "INC01"
-    assert items.items[0].description == "The study age criterion"
-    assert items.items[0].label == "Age critierion"
-    assert items.items[0].text == "Subjects should be between 18 and 45 years old"
-    assert items.items[1].category.decode == "Inclusion Criteria"
-    assert items.items[2].category.decode == "Exclusion Criteria"
+    assert items.items[0].model_dump() == {
+        "id": "EligibilityId_1",
+        "name": "INC01",
+        "description": "The study age criterion",
+        "label": "Age critierion",
+        "criterionItemId": "EligibilityItemId_1",
+        "category": {
+            "code": "C25532",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Inclusion Criteria",
+            "id": "Code_1",
+            "instanceType": "Code",
+        },
+        "identifier": "01",
+        "nextId": None,
+        "previousId": None,
+        "notes": [],
+        "instanceType": "EligibilityCriterion",
+    }
+    assert items.criterion_items[0].model_dump() == {
+        "id": "EligibilityItemId_1",
+        "text": "Subjects should be between 18 and 45 years old",
+        "dictionaryId": None,
+        "instanceType": "EligibilityCriterionItem",
+        "name": "INC01",
+        "label": None,
+        "description": None,
+        "notes": [],
+    }
+    assert items.items[1].model_dump() == {
+        "id": "EligibilityId_2",
+        "name": "INC01",
+        "description": "The study abc criterion",
+        "label": "ABC critierion",
+        "criterionItemId": "EligibilityItemId_2",
+        "category": {
+            "code": "C25532",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Inclusion Criteria",
+            "id": "Code_2",
+            "instanceType": "Code",
+        },
+        "identifier": "02",
+        "nextId": None,
+        "previousId": None,
+        "notes": [],
+        "instanceType": "EligibilityCriterion",
+    }
+    assert items.criterion_items[1].model_dump() == {
+        "id": "EligibilityItemId_2",
+        "text": "Subjects should have ABC",
+        "dictionaryId": None,
+        "instanceType": "EligibilityCriterionItem",
+        "name": "INC01",
+        "label": None,
+        "description": None,
+        "notes": [],
+    }
+    assert items.items[2].model_dump() == {
+        "id": "EligibilityId_3",
+        "name": "EXC01",
+        "description": "Exclude those with all fingers",
+        "label": "Fingers critierion",
+        "criterionItemId": "EligibilityItemId_3",
+        "category": {
+            "code": "C25370",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Exclusion Criteria",
+            "id": "Code_3",
+            "instanceType": "Code",
+        },
+        "identifier": "01",
+        "nextId": None,
+        "previousId": None,
+        "notes": [],
+        "instanceType": "EligibilityCriterion",
+    }
+    assert items.criterion_items[2].model_dump() == {
+        "id": "EligibilityItemId_3",
+        "text": "Subjects should not have all fingers",
+        "dictionaryId": None,
+        "instanceType": "EligibilityCriterionItem",
+        "name": "EXC01",
+        "label": None,
+        "description": None,
+        "notes": [],
+    }
 
 
 def test_create_empty(mocker, globals):

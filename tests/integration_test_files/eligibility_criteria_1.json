@@ -2648,6 +2648,48 @@
             ],
             "biospecimenRetentions": [],
             "documentVersionIds": [],
+            "eligibilityCriteria": [
+              {
+                "id": "EligibilityCriterion_1",
+                "name": "Age Criteria",
+                "label": "",
+                "description": "The study age criterion",
+                "category": {
+                  "id": "Code_145",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "1",
+                "criterionItemId": "EligibilityCriterionItem_1",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_2",
+                "name": "Age Criteria Error",
+                "label": "",
+                "description": "The study age criterion with error",
+                "category": {
+                  "id": "Code_146",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "2",
+                "criterionItemId": "EligibilityCriterionItem_2",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              }
+            ],
             "dictionaries": [
               {
                 "id": "SyntaxTemplateDictionary_1",
@@ -2792,48 +2834,26 @@
             "instanceType": "StudyTitle"
           }
         ],
-        "criteria": [
+        "eligibilityCriterionItems": [
           {
-            "id": "EligibilityCriterion_1",
+            "id": "EligibilityCriterionItem_1",
             "name": "Age Criteria",
-            "label": "",
-            "description": "The study age criterion",
+            "label": null,
+            "description": null,
             "text": "Subjects shall be between [min_age] and [max_age]",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_145",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "1",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_2",
+            "id": "EligibilityCriterionItem_2",
             "name": "Age Criteria Error",
-            "label": "",
-            "description": "The study age criterion with error",
+            "label": null,
+            "description": null,
             "text": "Subjects shall be between [min_age] and [max_agexxx]",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_146",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "2",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           }
         ],
         "narrativeContentItems": [],

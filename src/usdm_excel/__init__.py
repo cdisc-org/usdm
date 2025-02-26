@@ -230,6 +230,7 @@ class USDMExcel:
             study_design.objectives = self.oe.objectives
             study_design.estimands = self.estimands.estimands
             study_design.analysisPopulations = self.estimands.populations
+            study_design.eligibilityCriteria = self.eligibility_criteria.items
             study_design.population.criterionIds = [
                 x.id for x in self.eligibility_criteria.items
             ]
@@ -285,8 +286,6 @@ class USDMExcel:
                 self.study_version = StudyVersion(
                     id=self._globals.id_manager.build_id(StudyVersion),
                     versionIdentifier=self.study.version,
-                    #studyType=self.study.type,
-                    #studyPhase=self.study.phase,
                     businessTherapeuticAreas=self.study.therapeutic_areas,
                     rationale=self.study.rationale,
                     studyIdentifiers=self.study_identifiers.items,
@@ -296,7 +295,8 @@ class USDMExcel:
                     dateValues=self.study.dates[self.STUDY_VERSION_DATE],
                     amendments=self.study_amendments.items,
                     titles=self.study.titles,
-                    criteria=self.eligibility_criteria.items,
+                    # criteria=self.eligibility_criteria.items,
+                    eligibilityCriterionItems=self.eligibility_criteria.criterion_items,
                     narrativeContentItems=self.contents.items,
                     abbreviations=self.abbreviations.items,
                     organizations=self.organizations.items,

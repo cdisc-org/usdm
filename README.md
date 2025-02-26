@@ -925,7 +925,7 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 
 The attribute path follows a simplified 'Xpath' syntax of ```@attribute-name[/class/@attribute-name]``` form. The class attribute pairs can be repeated to arrive as the desired attribute. This has been provided since not all instances of all classes are named which prevents thenm being addressed directly, for example Range of Quantity instances.
 
-An example for accessing the Population planned age, max value is ```@plannedAge/Range/@maxValue```. In this instance the ```class``` column would be set to ```Population``` and the ```xref``` column set to the name of the Population entry in the population shseet. 
+An example for accessing the Population planned age, max value is ```@plannedAge/Range/@maxValue/Quantity/@value```. In this instance the ```class``` column would be set to ```Population``` and the ```xref``` column set to the name of the Population entry in the population shseet. 
 
 Note that the '@' symbol does not need to be included with attribute names but it guides the eye making it easier to read the path.
 

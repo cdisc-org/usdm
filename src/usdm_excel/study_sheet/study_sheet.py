@@ -181,7 +181,9 @@ class StudySheet(BaseSheet):
                         elif field == "date":
                             record[field] = self.read_date_cell(rindex, cindex)
                         elif field == "scopes":
-                            record[field] = self.read_geographic_scopes_cell(rindex, cindex)
+                            record[field] = self.read_geographic_scopes_cell(
+                                rindex, cindex
+                            )
                         else:
                             cell = self.read_cell(rindex, cindex)
                             record[field] = cell

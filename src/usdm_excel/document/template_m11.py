@@ -130,7 +130,7 @@ class TemplateM11(TemplateBase):
 
     def _criteria_list(self, type):
         results = []
-        criteria = {x.id: x for x in self._study_version.criteria}
+        criteria = {x.id: x for x in self._study_design.eligibilityCriteria}
         items = [
             criteria[c]
             for c in self._study_design.population.criterionIds
@@ -138,11 +138,17 @@ class TemplateM11(TemplateBase):
         ]
         items.sort(key=lambda d: d.identifier)
         for item in items:
-            result = {
-                "identifier": item.identifier,
-                "text": self._reference(item, "text"),
-            }
-            results.append(result)
+            criterion_item = self._critierion_item(item.criterionItemId)
+            if criterion_item:
+                result = {
+                    "identifier": item.identifier,
+                    "text": self._reference(criterion_item, "text"),
+                }
+                results.append(result)
+            else:
+                self.parent._general_warning(
+                    f"Could not resolve criterion item for criterion '{item.name}'"
+                )
         return results
 
     def _objective_endpoints_list(self):

@@ -12,6 +12,7 @@ from usdm_model.study_design import (
 from usdm_model.masking import Masking
 from usdm_excel.alias import Alias
 from usdm_model.biospecimen_retention import BiospecimenRetention
+from usdm_model.population_definition import StudyDesignPopulation
 from usdm_excel.option_manager import *
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.globals import Globals
@@ -271,6 +272,11 @@ class StudyDesignSheet(BaseSheet):
 
     def _create_design(self):
         try:
+            dummy_population = self.create_object(
+                StudyDesignPopulation,
+                {"name": "Dummy Population", "includesHealthySubjects": True},
+                id="DummyPopulationId",
+            )
             if self.interventional:
                 result = InterventionalStudyDesign(
                     id=self.globals.id_manager.build_id(InterventionalStudyDesign),
@@ -291,6 +297,7 @@ class StudyDesignSheet(BaseSheet):
                     blindingSchema=self.blinding,
                     biospecimenRetentions=self.specimen_retentions,
                     characteristics=self.characteristics,
+                    population=dummy_population,
                 )
             else:
                 result = ObservationalStudyDesign(
@@ -312,6 +319,7 @@ class StudyDesignSheet(BaseSheet):
                     rationale=self.rationale,
                     biospecimenRetentions=self.specimen_retentions,
                     characteristics=self.characteristics,
+                    population=dummy_population,
                 )
             return result
         except Exception as e:

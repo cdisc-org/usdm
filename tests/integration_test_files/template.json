@@ -11361,6 +11361,628 @@
             ],
             "biospecimenRetentions": [],
             "documentVersionIds": [],
+            "eligibilityCriteria": [
+              {
+                "id": "EligibilityCriterion_1",
+                "name": "IN01",
+                "label": "Age greater than 50",
+                "description": "",
+                "category": {
+                  "id": "Code_573",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "01",
+                "criterionItemId": "EligibilityCriterionItem_1",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_2",
+                "name": "IN02",
+                "label": "Diagnosis of Alzheimer's",
+                "description": "",
+                "category": {
+                  "id": "Code_574",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "02",
+                "criterionItemId": "EligibilityCriterionItem_2",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_3",
+                "name": "IN03",
+                "label": "MMSE Score",
+                "description": "",
+                "category": {
+                  "id": "Code_575",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "03",
+                "criterionItemId": "EligibilityCriterionItem_3",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_4",
+                "name": "IN04",
+                "label": "Hachinski Ischemic Score",
+                "description": "",
+                "category": {
+                  "id": "Code_576",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "04",
+                "criterionItemId": "EligibilityCriterionItem_4",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_5",
+                "name": "IN05",
+                "label": "CNS imaging comptaible with Alzheimer's",
+                "description": "",
+                "category": {
+                  "id": "Code_577",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "05",
+                "criterionItemId": "EligibilityCriterionItem_5",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_6",
+                "name": "IN06",
+                "label": "Informed consent criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_578",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "06",
+                "criterionItemId": "EligibilityCriterionItem_6",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_7",
+                "name": "IN07",
+                "label": "Geographic proximity criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_579",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "07",
+                "criterionItemId": "EligibilityCriterionItem_7",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_8",
+                "name": "IN08",
+                "label": "Reliable caregiver criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_580",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "08",
+                "criterionItemId": "EligibilityCriterionItem_8",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_9",
+                "name": "EX01",
+                "label": "Previous study criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_581",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "09",
+                "criterionItemId": "EligibilityCriterionItem_9",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_10",
+                "name": "EX02",
+                "label": "Other Alzheimer's therapy criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_582",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "10",
+                "criterionItemId": "EligibilityCriterionItem_10",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_11",
+                "name": "EX03",
+                "label": "Serious illness criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_583",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "11",
+                "criterionItemId": "EligibilityCriterionItem_11",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_12",
+                "name": "EX04",
+                "label": "Serious neurolocal conditions criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_584",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "12",
+                "criterionItemId": "EligibilityCriterionItem_12",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_13",
+                "name": "EX05",
+                "label": "Depression criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_585",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "13",
+                "criterionItemId": "EligibilityCriterionItem_13",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_14",
+                "name": "EX06",
+                "label": "Schizophrenia, Bipolar, Ethanol or psychoactive abuse criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_586",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "14",
+                "criterionItemId": "EligibilityCriterionItem_14",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_15",
+                "name": "EX07",
+                "label": "Syncope criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_587",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "15",
+                "criterionItemId": "EligibilityCriterionItem_15",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_16",
+                "name": "EX08",
+                "label": "ECG Criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_588",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "16b",
+                "criterionItemId": "EligibilityCriterionItem_16",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_17",
+                "name": "EX09",
+                "label": "Cardiovascular criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_589",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "17",
+                "criterionItemId": "EligibilityCriterionItem_17",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_18",
+                "name": "EX10",
+                "label": "Gastrointensinal criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_590",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "18",
+                "criterionItemId": "EligibilityCriterionItem_18",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_19",
+                "name": "EX11",
+                "label": "Endocrine criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_591",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "19",
+                "criterionItemId": "EligibilityCriterionItem_19",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_20",
+                "name": "EX12",
+                "label": "Resporatory criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_592",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "20",
+                "criterionItemId": "EligibilityCriterionItem_20",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_21",
+                "name": "EX13",
+                "label": "Genitourinary criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_593",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "21",
+                "criterionItemId": "EligibilityCriterionItem_21",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_22",
+                "name": "EX14",
+                "label": "Rheumatologic criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_594",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "22",
+                "criterionItemId": "EligibilityCriterionItem_22",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_23",
+                "name": "EX15",
+                "label": "HIV criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_595",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "23",
+                "criterionItemId": "EligibilityCriterionItem_23",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_24",
+                "name": "EX16",
+                "label": "Neurosyphilis, Meningitis,Encephalitis criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_596",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "24",
+                "criterionItemId": "EligibilityCriterionItem_24",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_25",
+                "name": "EX17",
+                "label": "Malignant disease criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_597",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "25",
+                "criterionItemId": "EligibilityCriterionItem_25",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_26",
+                "name": "EX18",
+                "label": "Ability to participate in study criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_598",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "26",
+                "criterionItemId": "EligibilityCriterionItem_26",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_27",
+                "name": "EX19",
+                "label": "Laboratory values criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_599",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "27b",
+                "criterionItemId": "EligibilityCriterionItem_27",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_28",
+                "name": "EX20",
+                "label": "Central laboratory values criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_600",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "28b",
+                "criterionItemId": "EligibilityCriterionItem_28",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_29",
+                "name": "EX21",
+                "label": "Syphilia criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_601",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "29b",
+                "criterionItemId": "EligibilityCriterionItem_29",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_30",
+                "name": "EX22",
+                "label": "Hemoglobin criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_602",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "30b",
+                "criterionItemId": "EligibilityCriterionItem_30",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_31",
+                "name": "EX23",
+                "label": "Medications Criteria",
+                "description": "",
+                "category": {
+                  "id": "Code_603",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "31b",
+                "criterionItemId": "EligibilityCriterionItem_31",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              }
+            ],
             "dictionaries": [
               {
                 "id": "SyntaxTemplateDictionary_1",
@@ -11563,657 +12185,316 @@
             "instanceType": "StudyTitle"
           }
         ],
-        "criteria": [
+        "eligibilityCriterionItems": [
           {
-            "id": "EligibilityCriterion_1",
+            "id": "EligibilityCriterionItem_1",
             "name": "IN01",
-            "label": "Age greater than 50",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Males and postmenopausal females at least <usdm:tag name=\"min_age\"/> years of age.</p>",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_573",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "01",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_2",
+            "id": "EligibilityCriterionItem_2",
             "name": "IN02",
-            "label": "Diagnosis of Alzheimer's",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p><usdm:tag name=\"StudyPopulation\"/> as defined by National Institute of Neurological and Communicative Disorders and Stroke (NINCDS) and the Alzheimer's Disease and Related Disorders Association (ADRDA) guidelines (Attachment LZZT.7).</p>",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_574",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "02",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_3",
+            "id": "EligibilityCriterionItem_3",
             "name": "IN03",
-            "label": "MMSE Score",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p><usdm:tag name=\"Activity1\"/> score of 10 to 23.</p>",
             "dictionaryId": "SyntaxTemplateDictionary_2",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_575",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "03",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_4",
+            "id": "EligibilityCriterionItem_4",
             "name": "IN04",
-            "label": "Hachinski Ischemic Score",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p><usdm:tag name=\"Activity2\"/>  score of \u22644 (Attachment LZZT.8).</p>",
             "dictionaryId": "SyntaxTemplateDictionary_2",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_576",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "04",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_5",
+            "id": "EligibilityCriterionItem_5",
             "name": "IN05",
-            "label": "CNS imaging comptaible with Alzheimer's",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.</p>\n<p>The following findings are incompatible with AD:</p>\n<ol style=\"list-style-type: lower-alpha;\">\n  <li>\n    <p>Large vessel strokes</p>\n    <ol>\n      <li>\n        <p>Any definite area of encephalomalacia consistent with ischemic necrosis in any cerebral artery territory.</p>\n      </li>\n      <li>\n        <p>Large, confluent areas of encephalomalacia in parieto-occipital or frontal regions consistent with watershed\n          infarcts.</p>\n        <p>The above are exclusionary. Exceptions are made for small areas of cortical asymmetry which may represent a\n          small cortical stroke or a focal area of atrophy provided there is no abnormal signal intensity in the\n          immediately underlying parenchyma. Only one such questionable area allowed per scan, and size is restricted to\n          \u22641cm in frontal/parietal/temporal cortices and \u22642 cm in occipital cortex.</p>\n      </li>\n    </ol>\n  </li>\n  <li>\n    <p>Small vessel ischemia</p>\n    <ol>\n      <li>\n        <p>Lacunar infarct is defined as an area of abnormal intensity seen on CT scan or on both T1 and T2 weighted MRI\n          images in the basal ganglia, thalamus or deep white matter which is \u22641 cm in maximal diameter. A maximum of\n          one\n          lacune is allowed per scan.</p>\n      </li>\n      <li>\n        <p>Leukoariosis or leukoencephalopathy is regarded as an abnormality seen on T2 but not T1 weighted MRIs, or on\n          CT. This is accepted if mild or moderate in extent, meaning involvement of less than 25% of cortical white\n          matter.\n      </li>\n    </ol>\n  </li>\n  <li>\n    <p>Miscellaneous</p>\n    <ol>\n      <li>\n        <p>Benign small extra-axial tumors (ie, meningiomas) are accepted if they do not contact or indent the brain\n          parenchyma.</p>\n      </li>\n      <li>\n        <p>Small extra-axial arachnoid cysts are accepted if they do not indent or deform the brain parenchyma.</p>\n      </li>\n    </ol>\n  </li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_577",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "05",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_6",
+            "id": "EligibilityCriterionItem_6",
             "name": "IN06",
-            "label": "Informed consent criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Investigator has obtained informed consent signed by the patient (and/or legal representative) and by the caregiver.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_578",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "06",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_7",
+            "id": "EligibilityCriterionItem_7",
             "name": "IN07",
-            "label": "Geographic proximity criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Geographic proximity to investigator's site that allows adequate follow-up.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_579",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "07",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_8",
+            "id": "EligibilityCriterionItem_8",
             "name": "IN08",
-            "label": "Reliable caregiver criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A reliable caregiver who is in frequent or daily contact with the patient and who will accompany the patient to the office and/or be available by telephone at designated times, will monitor administration of prescribed medications, and will be responsible for the overall care of the patient at home. The caregiver and the patient must be able to communicate in English and willing to comply with 26 weeks of transdermal therapy.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_580",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "08",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_9",
+            "id": "EligibilityCriterionItem_9",
             "name": "EX01",
-            "label": "Previous study criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Persons who have previously completed or withdrawn from this study or any other study investigating xanomeline TTS or the oral formulation of xanomeline.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_581",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "09",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_10",
+            "id": "EligibilityCriterionItem_10",
             "name": "EX02",
-            "label": "Other Alzheimer's therapy criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Use of any investigational agent or approved Alzheimer's therapeutic medication within 30 days prior to enrollment into the study.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_582",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "10",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_11",
+            "id": "EligibilityCriterionItem_11",
             "name": "EX03",
-            "label": "Serious illness criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Serious illness which required hospitalization within 3 months of screening.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_583",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "11",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_12",
+            "id": "EligibilityCriterionItem_12",
             "name": "EX04",
-            "label": "Serious neurolocal conditions criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Diagnosis of serious neurological conditions, including </p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Stroke or vascular dementia documented by clinical history and/or radiographic findings interpretable by the investigator as indicative of these disorders</p></li>\n<li><p>Seizure disorder other than simple childhood febrile seizures</p></li>\n<li><p>Severe head trauma resulting in protracted loss of consciousness within the last 5 years, or multiple episodes of head trauma</p></li>\n<li><p>Parkinson's disease</p></li>\n<li><p>Multiple sclerosis</p></li>\n<li><p>Amyotrophic lateral sclerosis</p></li>\n<li><p>Myasthenia gravis.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_584",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "12",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_13",
+            "id": "EligibilityCriterionItem_13",
             "name": "EX05",
-            "label": "Depression criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Episode of depression meeting DSM-IV criteria within 3 months of screening.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_585",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "13",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_14",
+            "id": "EligibilityCriterionItem_14",
             "name": "EX06",
-            "label": "Schizophrenia, Bipolar, Ethanol or psychoactive abuse criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of the following:</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Schizophrenia</p></li>\n<li><p>Bipolar Disease</p></li>\n<li><p>Ethanol or psychoactive drug abuse or dependence. </p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_586",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "14",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_15",
+            "id": "EligibilityCriterionItem_15",
             "name": "EX07",
-            "label": "Syncope criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history of syncope within the last 5 years.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_587",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "15",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_16",
+            "id": "EligibilityCriterionItem_16",
             "name": "EX08",
-            "label": "ECG Criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Evidence from ECG recording at screening of any of the following conditions :</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Left bundle branch block</p></li>\n<li><p>Bradycardia \u226450 beats per minute</p></li>\n<li><p>Sinus pauses &gt;2 seconds</p></li>\n<li><p>Second or third degree heart block unless treated with a pacemaker</p></li>\n<li><p>Wolff-Parkinson-White syndrome</p></li>\n<li><p>Sustained supraventricular tachyarrhythmia including SVT\u226510 sec, atrial fibrillation, atrial flutter.</p></li>\n<li><p>Ventricular tachycardia at a rate of \u2265120 beats per minute lasting\u226510 seconds.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_588",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "16b",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_17",
+            "id": "EligibilityCriterionItem_17",
             "name": "EX09",
-            "label": "Cardiovascular criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a serious cardiovascular disorder, including</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Clinically significant arrhythmia</p></li>\n<li><p>Symptomatic sick sinus syndrome not treated with a pacemaker</p></li>\n<li><p>Congestive heart failure refractory to treatment</p></li>\n<li><p>Angina except angina controlled with PRN nitroglycerin</p></li>\n<li><p>Resting heart rate &lt;50 or &gt;100 beats per minute, on physical exam</p></li>\n<li><p>Uncontrolled hypertension.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_589",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "17",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_18",
+            "id": "EligibilityCriterionItem_18",
             "name": "EX10",
-            "label": "Gastrointensinal criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a serious gastrointestinal disorder, including </p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Chronic peptic/duodenal/gastric/esophageal ulcer that are untreated or refractory to treatment</p></li>\n<li><p>Symptomatic diverticular disease</p></li>\n<li><p>Inflammatory bowel disease</p></li>\n<li><p>Pancreatitis</p></li>\n<li><p>Hepatitis</p></li>\n<li><p>Cirrhosis of the liver.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_590",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "18",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_19",
+            "id": "EligibilityCriterionItem_19",
             "name": "EX11",
-            "label": "Endocrine criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a serious endocrine disorder, including</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Uncontrolled Insulin Dependent Diabetes Mellitus (IDDM)</p></li>\n<li><p>Diabetic ketoacidosis</p></li>\n<li><p>Untreated hyperthyroidism</p></li>\n<li><p>Untreated hypothyroidism</p></li>\n<li><p>Other untreated endocrinological disorder</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_591",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "19",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_20",
+            "id": "EligibilityCriterionItem_20",
             "name": "EX12",
-            "label": "Resporatory criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p> A history within the last 5 years of a serious respiratory disorder, including</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Asthma with bronchospasm refractory to treatment</p></li>\n<li><p>Decompensated chronic obstructive pulmonary disease.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_592",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "20",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_21",
+            "id": "EligibilityCriterionItem_21",
             "name": "EX13",
-            "label": "Genitourinary criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a serious genitourinary disorder, including</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Renal failure</p></li>\n<li><p>Uncontrolled urinary retention.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_593",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "21",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_22",
+            "id": "EligibilityCriterionItem_22",
             "name": "EX14",
-            "label": "Rheumatologic criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a serious rheumatologic disorder, including</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>Lupus</p></li>\n<li><p>Temporal arteritis</p></li>\n<li><p>Severe rheumatoid arthritis.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_594",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "22",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_23",
+            "id": "EligibilityCriterionItem_23",
             "name": "EX15",
-            "label": "HIV criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A known history of human immunodeficiency virus (HIV) within the last 5 years.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_595",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "23",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_24",
+            "id": "EligibilityCriterionItem_24",
             "name": "EX16",
-            "label": "Neurosyphilis, Meningitis,Encephalitis criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a serious infectious disease including</p>\n<ol style=\"list-style-type: lower-alpha;\">\n<li><p>a)  Neurosyphilis</p></li>\n<li><p>b)  Meningitis</p></li>\n<li><p>c)  Encephalitis.</p></li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_596",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "24",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_25",
+            "id": "EligibilityCriterionItem_25",
             "name": "EX17",
-            "label": "Malignant disease criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>A history within the last 5 years of a primary or recurrent malignant disease with the exception of resected cutaneous squamous cell carcinoma in situ, basal cell carcinoma, cervical carcinoma in situ, or in situ prostate cancer with a normal PSA postresection.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_597",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "25",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_26",
+            "id": "EligibilityCriterionItem_26",
             "name": "EX18",
-            "label": "Ability to participate in study criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Visual, hearing, or communication disabilities impairing the ability to participate in the study; (for example, inability to speak or understand English, illiteracy).</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_598",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "26",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_27",
+            "id": "EligibilityCriterionItem_27",
             "name": "EX19",
-            "label": "Laboratory values criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Laboratory test values exceeding the Lilly Reference Range III for the patient's age in any of the following analytes: \u2191 creatinine, \u2191 total bilirubin, \u2191 SGOT, \u2191 SGPT, \u2191 alkaline phosphatase, \u2191 GGT, \u2191\u2193 hemoglobin, \u2191\u2193 white blood cell count, \u2191\u2193 platelet count, \u2191\u2193 serum sodium, potassium, or calcium.</p>\n<p>If values exceed these laboratory reference ranges, clinical significance will be judged by the monitoring physicians. If the monitoring physician determines that the deviation from the reference range is not clinically significant, the patient may be included in the study. This decision will be documented.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_599",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "27b",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_28",
+            "id": "EligibilityCriterionItem_28",
             "name": "EX20",
-            "label": "Central laboratory values criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Central laboratory test values below reference range for folate, and Vitamin B 12 , and outside reference range for thyroid function tests.</p>\n<ol style=\"list-style-type: lower-alpha;\">\n  <li>\n    <p>Folate reference range 2.0 to 25.0 ng/mL. Patients will be allowed to enroll if their folate levels are above the upper end of the range if patients are taking vitamin supplements.</p>\n  </li>\n  <li>\n    <p>Vitamin B 12 reference range 130 to 900 pg/mL. Patients will be allowed to enroll if their B 12 levels are above the upper reference range if patients are taking oral vitamin supplements.</p>\n  </li>\n  <li>\n    <p>Thyroid functions</p>\n    <ol>\n      <li>\n        <p>Thyroid Uptake reference range 25 to 38%. Patients will be allowed to enroll with results of 23 to 51% provided the remainder of the thyroid profile is normal and there are no clinical signs or symptoms of thyroid abnormality.</p>\n      </li>\n      <li>\n        <p>TSH reference range 0.32 to 5.0. Patients will be allowed to enroll with results of 0.03 to 6.2 if patients are taking stable doses of exogenous thyroid supplements, with normal free thyroid index, and show no clinical signs or symptoms of thyroid abnormality.</p>\n      </li>\n      <li>\n        <p>Total T4 reference range 4.5 to 12.5. Patients will be allowed to enroll with results of 4.1 to 13.4 if patients are taking stable doses of exogenous thyroid hormone, with normal free thyroid index, and show no clinical signs or symptoms of thyroid abnormality.</p>\n      </li>\n      <li>\n        <p>Free Thyroid Index reference range 1.1 to 4.6.</p>\n      </li>\n    </ol>\n  </li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_600",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "28b",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_29",
+            "id": "EligibilityCriterionItem_29",
             "name": "EX21",
-            "label": "Syphilia criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Positive syphilis screening.</p>\n<p>Positive syphilis screening. As determined by positive RPR followed up by confirmatory FTA-Abs. Confirmed patients are excluded unless there is a documented medical history of an alternative disease (for example, yaws) which caused the lab abnormality.</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_601",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "29b",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_30",
+            "id": "EligibilityCriterionItem_30",
             "name": "EX22",
-            "label": "Hemoglobin criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Glycosylated hemoglobin (A1C). Required only on patients with known diabetes mellitus or random blood sugar &gt;200 on screening labs. Patients will be excluded if levels are &gt;9.5%</p>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_602",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "30b",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_31",
+            "id": "EligibilityCriterionItem_31",
             "name": "EX23",
-            "label": "Medications Criteria",
-            "description": "",
+            "label": null,
+            "description": null,
             "text": "<p>Treatment with the following medications within the specified washout periods prior to enrollment and during the\n  study:</p>\n<ol style=\"list-style-type: lower-alpha;\">\n  <li>\n    <p>Anticonvulsants including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Depakote&#174; (valproic acid) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Dilantin&#174; (phenytoin)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Felbatol&#174;\n          (felbamate)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Klonopin&#174; (clonazepam)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Lamictal&#174; (lamotrigine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Mysoline&#174; (primidone)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Neurontin&#174;\n          (gabapentin)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Phenobarbitol</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Tegretol&#174; (carbamazepine)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Alpha receptor blockers including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Aldomet&#174; (methyldopa) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Cardura&#174;\n          (doxazosin) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Catapres&#174; (clonidine)\n        </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Hytrin&#174; (terazosin) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Minipress&#174; (prazosin)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tenex&#174; (guanfacine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Wytensin&#174;\n          (guanabenz) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>The use of low doses\n        (2 mg daily) of either Hytrin</b>&#174; <b>or Cardura</b>&#174; <b>for relief of\n        urinary retention for patients with prostatic hypertrophy will be considered\n        on a case-by-case basis provided blood pressure is stable and the medication\n        has not had demonstrable effect on dementia symptoms in the opinion of the treating\n        physician. Contact CRO medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Calcium channel blockers\n      that are CNS active including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Calan&#174; , Isoptin&#174; , Verelan&#174; (verapamil) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Cardizem&#174; (diltiazem) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Nimotop&#174;\n          (nimodipine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Adalat&#174; , Procardia XL&#174;\n          (nifedipine) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Cardene</b>&#174; <b>(nicardipine),\n        Norvasc</b>&#174; <b>, (amlodipine), and DynaCirc</b>&#174; <b>(isradipine) will\n        be allowed during the study. If a patient is taking an excluded calcium channel\n        blocker and is changed to an equivalent dose of an allowed calcium channel blocker,\n        enrollment may proceed in as little as 24 hours though 1 week is preferred when\n        possible.</b></p>\n  </li>\n  <li>\n    <p>Beta blockers including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Betapace&#174; (sotalol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Inderal&#174; (propranolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Lopressor&#174;\n          , Toprol XL&#174; (metoprolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Corgard&#174; (nadolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Sectral&#174; (acebutolol)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tenormin&#174; (atenolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Visken&#174; (pindolol)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Beta\n        blocker eye drops for glaucoma will be considered on a case-by-case basis. Call\n        medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Beta sympathomimetics (unless inhaled) including\n      but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Alupent&#174; tablets\n          (metaproterenol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Brethine&#174; tablets\n          (terbutaline) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Dopamine </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Proventil Repetabs&#174; , Ventolin&#174; tablets (albuterol tablets)\n        </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>Parasympathomimetics (cholinergics) (unless opthalmic) including but not limited to\n    <table class=\"table\">\n      <tr>\n        <td>Antilirium&#174; (physostigmine) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Aricept&#174; (donepezil) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Cognex&#174; (tacrine) </td>\n        <td>1\n          month</td>\n      </tr>\n      <tr>\n        <td>Mestinon&#174; (pyridostigmine) </td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Reglan&#174; (metoclopramide)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Urecholine&#174;\n          , Duvoid (bethanechol) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Cholinergic eye drops for treatment of glaucoma will be allowed during the study on a case-by-case basis.\n        Please contact the CRO medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Muscle relaxants-centrally active including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Equanil&#174; (meprobamate) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Flexeril&#174; (cyclobenzaprine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Lioresal&#174; (baclofen) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Norflex&#174; (orphenadrine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Parafon Forte&#174; (chlorzoxazone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Robaxin&#174; (methocarbamol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Skelaxin&#174; (metaxalone)\n        </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Soma&#174; (carisoprodol) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Monamine oxidase inhibitors (MAOI) including but not limited to</p>\n    <table class=\"table\">\n      <tr>\n        <td>Eldepryl&#174; (selegiline)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Nardil&#174; (phenelzine) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Parnate&#174; (tranylcypromine) </td>\n        <td>1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Parasympatholytics including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Antivert&#174; , Bonine&#174; , Dramamine II&#174; (meclizine)</td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Artane&#174; (trihexyphenidyl)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Bellergal-S&#174; (alkaloids of belladonna and ergotamine) </td>\n        <td>2 weeks </td>\n      </tr>\n      <tr>\n        <td>Bentyl&#174; (dicyclomine) </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Cogentin&#174; (benztropine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Cystospaz&#174;, Levsin&#174; , Levsinex&#174; (hyoscyamine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Ditropan&#174;\n          (oxybutynin) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Donnatal&#174; , Hyosophen&#174;\n          (atropine, scopolamine, hyoscyamine and phenobarbitol) </td>\n        <td>1 month </td>\n      </tr>\n      <tr>\n        <td>Dramamine&#174; (dimenhydrinate)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Lomotil&#174;, Lonox&#174; (atropine, diphenoxylate) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Pro-Banthine&#174;(propantheline) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Robinul&#174; (glycopyrrolate)</td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Tigan&#174; (trimethobenzamide) </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Transderm-Scop&#174; (scopolamine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Urispas&#174; (flavoxate)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Antidepressants including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Anafranil&#174; (clomipramine)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Asendin&#174;\n          (amoxapine)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Desyrel&#174; (trazodone)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Effexor&#174; (venlafaxine) </td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Elavil&#174; (amitriptyline)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Ludiomil&#174;\n          (maprotiline)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Norpramin&#174; (desipramine)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Pamelor&#174; , Aventyl&#174; (nortriptyline)</td>\n        <td> 1\n          month</td>\n      </tr>\n      <tr>\n        <td>Paxil&#174; (paroxetine)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Prozac&#174;\n          (fluoxetine</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Remeron&#174; (mirtazapine)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Serzone&#174; (nefazodone) </td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Sinequan&#174;\n          (doxepin)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Tofranil&#174; (imipramine)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Vivactil&#174; (protriptyline)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Wellbutrin&#174; (bupropion)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Zoloft&#174;\n          (sertraline)</td>\n        <td> 1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Systemic corticosteroids including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Cortisone</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Decadron&#174; (dexamethasone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Depo-Medrol&#174; (methylprednisolone)</td>\n        <td>1 month</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Prednisone</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Xanthine derivatives\n      including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Aminophylline</td>\n        <td>2 weeks</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Fioricet&#174; , Esgic&#174; , Phrenilin Forte&#174; (caffeine, butalbital)</td>\n        <td>3 days</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Theo-Dur&#174; (theophylline)</td>\n        <td>2 weeks</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Wigraine&#174; , Cafergot&#174; (caffeine, ergotamine)</td>\n        <td>3 days</td>\n        <td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Histamine (H2 ) antagonists including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Axid&#174; (nizatidine)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Pepcid&#174; (famotidine)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Tagamet&#174; (cimetidine)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Zantac&#174; (ranitidine)</td>\n        <td>1 week</td>\n      </tr>\n    </table>\n    <p><b>If an H 2 antagonist is needed by the patient, Axid</b>&#174; <b>will be</b> <b>allowed on a case-by-case\n        basis. Please consult CRO</b> <b>medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Narcotic Analgesics including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Darvocet-N\n          100&#174; , (propoxyphene)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Demerol&#174; (meperidine)</td>\n        <td>1\n          week </td>\n      </tr>\n      <tr>\n        <td>Dilaudid&#174; (hydromorphone)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Duragesic&#174; (fentanyl)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>MS\n          Contin&#174; , Roxanol&#174; , Oramorph&#174; (morphine) </td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Percocet&#174; , Roxicet&#174; (oxycodone with acetaminophen)</td>\n        <td>3\n          days </td>\n      </tr>\n      <tr>\n        <td>Percodan&#174; , Roxiprin</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Stadol&#174; (butorphanol)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Talacen&#174;\n          (pentazocine)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Tylenol #2&#174; , #3&#174;\n          , #4&#174; (codeine and acetaminophen) </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Tylox&#174;\n          , Roxilox&#174; (oxycodone)</td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Vicodin&#174;, Lorcet&#174; (hydrocodone)</td>\n        <td>1 week</td>\n      </tr>\n    </table>\n    <p><b>Percocet\n        (oxycodone with acetaminophen) and Tylenol</b>&#174; <b>with codeine #2, #3, #4\n        (acetaminophen + codeine) ARE allowed in the month prior to enrollment, but\n        are not permitted in the 3 days prior to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Neuroleptics\n      (antipsychotics) including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Clozaril&#174;\n          (clozapine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Haldol&#174; (haloperidol)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Loxitane&#174; (loxapine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Mellaril&#174; (thioridazine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Moban&#174;\n          (molindone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Navane&#174; (thiothixene)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Orap&#174; (pimozide)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Prolixin&#174; (fluphenazine)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Risperdal&#174;\n          (risperidone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Stelazine&#174; (trifluoperazine)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Thorazine&#174; (chlorpromazine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Trilafon&#174; (perphenazine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Serentil&#174;\n          (mesoridazine)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>The use of neuroleptics\n        on a daily basis must be discontinued 2 to 4 weeks prior to enrollment. The\n        use of neuroleptics on an as-needed basis is allowable during the screening\n        period, but the last dose must be at least 7 days prior to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Antianxiety agents including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Atarax&#174; (hydroxyzine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>BuSpar&#174;\n          (buspirone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Librium&#174; (chlordiazepoxide)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Serax&#174; (oxazepam)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tranxene&#174; (clorazepate)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Valium&#174; (diazepam)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Vistaril&#174; (hydroxyzine pamoate)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Xanax&#174; (alprazolam)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Ativan</b>&#174; <b>(lorazepam) should be discontinued on a daily\n        basis 2 weeks</b></p>\n    <p><b>prior to enrollment. It may be used on an as-needed\n        basis during the screening period, but is not permitted in the 24 hours prior\n        to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Hypnotics/Sedatives including but not limited to</p>\n    <table class=\"table\">\n      <tr>\n        <td>Ambien&#174; (zolpidem)</td>\n        <td> 3 days\n        </td>\n      </tr>\n      <tr>\n        <td>Dalmane&#174; (flurazepam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Doral&#174; (quazepam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Halcion&#174; (triazolam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Nembutal&#174; </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>ProSom&#174; (estazolam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Restoril&#174;\n          (temazepam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Seconal&#174;</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Chloral Hydrate is allowed on an as-needed basis during screening, but is not permitted in the 24 hours prior to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Histamine (H1 ) antagonists including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Actifed&#174; , Actifed Plus&#174; (triprolidine) Benadryl&#174;\n          , Unisom&#174; , Tylenol P.M.&#174; </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>(diphenhydramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Compazine&#174; (prochlorperazine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Contac&#174; , Coricidin D&#174; , Sinutab&#174; , Novahistine&#174; , Alka\n          Seltzer Plus&#174; , Naldecon&#174; , Sudafed Plus&#174; , Tylenol Cold&#174; , Tylenol\n          Cold and Flu&#174; (chlorpheniramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Dimetapp&#174;\n          (brompheniramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Drixoral&#174; (dexbrompheniramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Hismanal&#174; (astemizole)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Phenergan&#174;\n          (promethazine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Seldane&#174; (terfenadine)</td>\n        <td>1\n          week</td>\n      </tr>\n      <tr>\n        <td>Tavist&#174; (clemastine fumarate)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Zyrtec&#174; (cetrizine) </td>\n        <td>1 week</td>\n      </tr>\n    </table>\n    <p><b>Allegra</b>&#174;\n      <b>(fexofenadine hydrochloride) or Claritin</b>&#174; <b>(loratadine) may be taken\n        on as-needed basis during screening but must be discontinued within 24 hours\n        of enrollment.</b>\n    </p>\n  </li>\n  <li>\n    <p>Stimulants including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Cylert&#174; (pemoline) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Ritalin&#174; (methylphenidate)</td>\n        <td>1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Antiarrhythmics including but not limited to the following</p>\n    <table class=\"table\">\n      <tr>\n        <td>Adenocard&#174; (adenosine) </td>\n      </tr>\n      <tr>\n        <td>Cordarone&#174;\n          (amiodarone) </td>\n      </tr>\n      <tr>\n        <td>Ethmozine&#174; (moricizine) </td>\n      </tr>\n      <tr>\n        <td>Mexitil&#174; (mexiletine) </td>\n      </tr>\n      <tr>\n        <td>Norpace&#174; (disopyramide)\n        </td>\n      </tr>\n      <tr>\n        <td>Procan&#174; (procainamide) </td>\n      </tr>\n      <tr>\n        <td>Quinaglute&#174;\n          (quinidine) </td>\n      </tr>\n      <tr>\n        <td>Rythmol&#174; (propafenone) </td>\n      </tr>\n      <tr>\n        <td>Tambocor&#174;\n          (flecainide) </td>\n      </tr>\n      <tr>\n        <td>Tonocard&#174; (tocainide)</td>\n      </tr>\n    </table>\n    <p><b>Requirement of these drugs for control of cardiac arrhythmia indicates that\n        the patient should be excluded from the study. If discontinuation of an antiarrhythmic\n        is considered, please discuss case with CRO medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Miscellaneous drugs including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Coenzyme\n          Q</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Eskalith&#174; , Lithobid&#174; (lithium)</td>\n        <td>2\n          weeks </td>\n      </tr>\n      <tr>\n        <td>Ginkgo biloba</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Lecithin\n        </td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Lecithin </td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Lupron</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tamoxifen</td>\n        <td>1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Estrogen supplements are permitted during the study, but dosage must be stable for at least 3 months prior to\n      enrollment.</p>\n  </li>\n</ol>",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_603",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "31b",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           }
         ],
         "narrativeContentItems": [
@@ -12298,13 +12579,13 @@
           {
             "id": "NarrativeContentItem_14",
             "name": "NCI_14",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <b>all</b> the following criteria:</p>\n<table class=\"table\"><tr><td>01</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>02</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>03</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>04</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>05</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>06</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_6\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>07</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_7\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>08</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_8\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <b>all</b> the following criteria:</p>\n<table class=\"table\"><tr><td>01</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_1\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>02</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_2\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>03</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_3\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>04</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_4\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>05</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_5\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>06</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_6\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>07</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_7\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>08</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_8\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_15",
             "name": "NCI_15",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients will be excluded from the study for <b>any</b> of the following reasons:</p>\n<table class=\"table\"><tr><td>09</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_9\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>10</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_10\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>11</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_11\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>12</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_12\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>13</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_13\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>14</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_14\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>15</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_15\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>16b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_16\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>17</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_17\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>18</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_18\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>19</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_19\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>20</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_20\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>21</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_21\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>22</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_22\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>23</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_23\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>24</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_24\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>25</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_25\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>26</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_26\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>27b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_27\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>28b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_28\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>29b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_29\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>30b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_30\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>31b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_31\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients will be excluded from the study for <b>any</b> of the following reasons:</p>\n<table class=\"table\"><tr><td>09</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_9\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>10</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_10\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>11</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_11\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>12</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_12\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>13</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_13\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>14</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_14\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>15</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_15\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>16b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_16\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>17</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_17\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>18</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_18\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>19</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_19\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>20</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_20\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>21</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_21\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>22</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_22\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>23</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_23\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>24</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_24\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>25</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_25\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>26</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_26\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>27b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_27\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>28b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_28\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>29b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_29\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>30b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_30\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>31b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_31\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -12718,13 +12999,13 @@
           {
             "id": "NarrativeContentItem_84",
             "name": "NCI_84",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <b>all</b> the following criteria:</p>\n<table class=\"table\"><tr><td>01</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>02</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>03</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>04</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>05</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>06</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_6\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>07</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_7\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>08</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_8\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <b>all</b> the following criteria:</p>\n<table class=\"table\"><tr><td>01</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_1\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>02</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_2\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>03</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_3\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>04</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_4\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>05</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_5\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>06</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_6\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>07</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_7\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>08</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_8\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_85",
             "name": "NCI_85",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients will be excluded from the study for <b>any</b> of the following reasons:</p>\n<table class=\"table\"><tr><td>09</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_9\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>10</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_10\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>11</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_11\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>12</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_12\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>13</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_13\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>14</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_14\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>15</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_15\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>16b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_16\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>17</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_17\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>18</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_18\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>19</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_19\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>20</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_20\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>21</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_21\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>22</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_22\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>23</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_23\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>24</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_24\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>25</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_25\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>26</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_26\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>27b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_27\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>28b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_28\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>29b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_29\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>30b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_30\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr><tr><td>31b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_31\" klass=\"EligibilityCriterion\"></usdm:ref></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients will be excluded from the study for <b>any</b> of the following reasons:</p>\n<table class=\"table\"><tr><td>09</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_9\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>10</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_10\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>11</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_11\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>12</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_12\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>13</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_13\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>14</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_14\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>15</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_15\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>16b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_16\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>17</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_17\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>18</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_18\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>19</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_19\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>20</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_20\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>21</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_21\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>22</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_22\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>23</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_23\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>24</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_24\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>25</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_25\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>26</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_26\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>27b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_27\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>28b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_28\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>29b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_29\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>30b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_30\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>31b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_31\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           }
         ],

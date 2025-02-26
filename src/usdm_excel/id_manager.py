@@ -54,6 +54,7 @@ class IdManager:
             "SubjectEnrollment": 0,
             "SyntaxTemplateDictionary": 0,
             "EligibilityCriterion": 0,
+            "EligibilityCriterionItem": 0,
             "Administration": 0,
             "AdministrationDuration": 0,
             "Quantity": 0,

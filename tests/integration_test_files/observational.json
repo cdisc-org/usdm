@@ -3458,6 +3458,108 @@
             ],
             "biospecimenRetentions": [],
             "documentVersionIds": [],
+            "eligibilityCriteria": [
+              {
+                "id": "EligibilityCriterion_1",
+                "name": "Age Criteria",
+                "label": "",
+                "description": "The study age criterion",
+                "category": {
+                  "id": "Code_192",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "1",
+                "criterionItemId": "EligibilityCriterionItem_1",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_2",
+                "name": "Age Criteria Error",
+                "label": "",
+                "description": "The study age criterion with error",
+                "category": {
+                  "id": "Code_193",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "2",
+                "criterionItemId": "EligibilityCriterionItem_2",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_3",
+                "name": "Drug A",
+                "label": "",
+                "description": "Ever taken drug A",
+                "category": {
+                  "id": "Code_194",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "1",
+                "criterionItemId": "EligibilityCriterionItem_3",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_4",
+                "name": "Missing Tag",
+                "label": "",
+                "description": "Test for missing tag",
+                "category": {
+                  "id": "Code_195",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "2",
+                "criterionItemId": "EligibilityCriterionItem_4",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_5",
+                "name": "Value Example",
+                "label": "",
+                "description": "Test for value dict key",
+                "category": {
+                  "id": "Code_196",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "3",
+                "criterionItemId": "EligibilityCriterionItem_5",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              }
+            ],
             "dictionaries": [
               {
                 "id": "SyntaxTemplateDictionary_1",
@@ -3670,111 +3772,56 @@
             "instanceType": "StudyTitle"
           }
         ],
-        "criteria": [
+        "eligibilityCriterionItems": [
           {
-            "id": "EligibilityCriterion_1",
+            "id": "EligibilityCriterionItem_1",
             "name": "Age Criteria",
-            "label": "",
-            "description": "The study age criterion",
+            "label": null,
+            "description": null,
             "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_age\"/>",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_192",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "1",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_2",
+            "id": "EligibilityCriterionItem_2",
             "name": "Age Criteria Error",
-            "label": "",
-            "description": "The study age criterion with error",
+            "label": null,
+            "description": null,
             "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_agexxx\"/>",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_193",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "2",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_3",
+            "id": "EligibilityCriterionItem_3",
             "name": "Drug A",
-            "label": "",
-            "description": "Ever taken drug A",
+            "label": null,
+            "description": null,
             "text": "Subjects has been treated with Drug A at any time in the past",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_194",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "1",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_4",
+            "id": "EligibilityCriterionItem_4",
             "name": "Missing Tag",
-            "label": "",
-            "description": "Test for missing tag",
+            "label": null,
+            "description": null,
             "text": "Pick up activity <usdm:tag name=\"xxxx\"/>",
             "dictionaryId": "SyntaxTemplateDictionary_3",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_195",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "2",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_5",
+            "id": "EligibilityCriterionItem_5",
             "name": "Value Example",
-            "label": "",
-            "description": "Test for value dict key",
+            "label": null,
+            "description": null,
             "text": "If the value is equal to <usdm:tag name=\"value_key\"/>",
             "dictionaryId": "SyntaxTemplateDictionary_3",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_196",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "3",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           }
         ],
         "narrativeContentItems": [
@@ -3793,13 +3840,13 @@
           {
             "id": "NarrativeContentItem_3",
             "name": "NCI_3",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_1\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_2\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_4",
             "name": "NCI_4",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_5\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_3\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_4\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_5\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {

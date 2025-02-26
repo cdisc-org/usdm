@@ -10609,6 +10609,88 @@
             ],
             "biospecimenRetentions": [],
             "documentVersionIds": [],
+            "eligibilityCriteria": [
+              {
+                "id": "EligibilityCriterion_1",
+                "name": "Age Criteria",
+                "label": "",
+                "description": "The study age criterion",
+                "category": {
+                  "id": "Code_532",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "1",
+                "criterionItemId": "EligibilityCriterionItem_1",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_2",
+                "name": "Pop Criteria",
+                "label": "",
+                "description": "The study population criterion",
+                "category": {
+                  "id": "Code_533",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "2",
+                "criterionItemId": "EligibilityCriterionItem_2",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_3",
+                "name": "Diag Criteria",
+                "label": "",
+                "description": "The study diagnosis criterion",
+                "category": {
+                  "id": "Code_534",
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "3",
+                "criterionItemId": "EligibilityCriterionItem_3",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              },
+              {
+                "id": "EligibilityCriterion_4",
+                "name": "Previous Criteria",
+                "label": "",
+                "description": "The previous xanomeline TTS criterion",
+                "category": {
+                  "id": "Code_535",
+                  "code": "C25370",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Exclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "9",
+                "criterionItemId": "EligibilityCriterionItem_4",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              }
+            ],
             "dictionaries": [
               {
                 "id": "SyntaxTemplateDictionary_1",
@@ -10769,90 +10851,46 @@
             "instanceType": "StudyTitle"
           }
         ],
-        "criteria": [
+        "eligibilityCriterionItems": [
           {
-            "id": "EligibilityCriterion_1",
+            "id": "EligibilityCriterionItem_1",
             "name": "Age Criteria",
-            "label": "",
-            "description": "The study age criterion",
+            "label": null,
+            "description": null,
             "text": "Subjects shall be between <usdm:tag name=\"min_age\"/> and <usdm:tag name=\"max_age\"/>",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_532",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "1",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_2",
+            "id": "EligibilityCriterionItem_2",
             "name": "Pop Criteria",
-            "label": "",
-            "description": "The study population criterion",
+            "label": null,
+            "description": null,
             "text": "<usdm:tag name=\"StudyPopulation\"/> as defined by the NINCDS and the ADRDA guidelines (Attachment LZZT.7)",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_533",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "2",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_3",
+            "id": "EligibilityCriterionItem_3",
             "name": "Diag Criteria",
-            "label": "",
-            "description": "The study diagnosis criterion",
+            "label": null,
+            "description": null,
             "text": "<usdm:tag name=\"Activity1\"/> score of 10 to 23",
             "dictionaryId": "SyntaxTemplateDictionary_2",
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_534",
-              "code": "C25532",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Inclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "3",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           },
           {
-            "id": "EligibilityCriterion_4",
+            "id": "EligibilityCriterionItem_4",
             "name": "Previous Criteria",
-            "label": "",
-            "description": "The previous xanomeline TTS criterion",
+            "label": null,
+            "description": null,
             "text": "Persons who have previously completed or withdrawn from this study or any other study investigating xanomeline TTS or the oral formulation of xanomeline.",
             "dictionaryId": null,
             "notes": [],
-            "instanceType": "EligibilityCriterion",
-            "category": {
-              "id": "Code_535",
-              "code": "C25370",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Exclusion Criteria",
-              "instanceType": "Code"
-            },
-            "identifier": "9",
-            "nextId": null,
-            "previousId": null
+            "instanceType": "EligibilityCriterionItem"
           }
         ],
         "narrativeContentItems": [
@@ -10991,13 +11029,13 @@
           {
             "id": "NarrativeContentItem_23",
             "name": "NCI_23",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_1\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_2\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_3\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_1\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_2\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_3\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_24",
             "name": "NCI_24",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>9</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterion_4\" klass=\"EligibilityCriterion\"></usdm:ref></p></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>9</p></td><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_4\" klass=\"EligibilityCriterionItem\"></usdm:ref></p></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {

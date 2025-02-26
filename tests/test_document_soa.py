@@ -9,6 +9,7 @@ from usdm_model.study_design import StudyDesign
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.scheduled_instance import ScheduledActivityInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
+from usdm_model.population_definition import StudyDesignPopulation
 from usdm_model.timing import Timing
 from usdm_model.condition import Condition
 
@@ -42,6 +43,23 @@ def double_link(items, prev, next):
 def add_cross_ref(collection, globals):
     for item in collection:
         globals.cross_references.add(item.id, item)
+
+
+def create_populations(factory, globals):
+    item_list = [
+        {
+            "name": "POP1",
+            "includesHealthySubjects": True,
+            "plannedEnrollmentNumber": None,
+            "plannedCompletionNumber": None,
+            "plannedSex": [],
+            "criterionIds": [],
+            "plannedAge": None,
+        },
+    ]
+    results = factory.set(StudyDesignPopulation, item_list)
+    add_cross_ref(results, globals)
+    return results
 
 
 def create_conditions(factory, globals):
@@ -299,7 +317,9 @@ def create_activity_instances(factory, globals):
 
 
 def scenario_1(factory, globals):
-    dummy_cell = factory.item(StudyCell, {"armId": "X", "epochId": "Y", "elementIds": ["Z"]})
+    dummy_cell = factory.item(
+        StudyCell, {"armId": "X", "epochId": "Y", "elementIds": ["Z"]}
+    )
     dummy_arm = factory.item(
         StudyArm,
         {
@@ -338,6 +358,7 @@ def scenario_1(factory, globals):
     conditions[0].appliesToIds = [activities[0].id]
     conditions[0].contextIds = [activity_instances[0].id]
     conditions[1].appliesToIds = [activities[3].id]
+    populations = create_populations(factory, globals)
 
     exit = factory.item(ScheduleTimelineExit, {})
     activity_instances[-1].timelineExitId = exit.id
@@ -369,6 +390,7 @@ def scenario_1(factory, globals):
             "activities": activities,
             "scheduledTimelines": [timeline],
             "conditions": conditions,
+            "population": populations[0],
         },
     )
     return study_design, timeline

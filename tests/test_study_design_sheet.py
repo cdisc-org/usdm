@@ -435,7 +435,22 @@ def _expected():
         "name": "Study Design 1",
         "notes": [],
         "objectives": [],
-        "population": None,
+        "population": {
+            "cohorts": [],
+            "criterionIds": [],
+            "description": None,
+            "id": "DummyPopulationId",
+            "includesHealthySubjects": True,
+            "instanceType": "StudyDesignPopulation",
+            "label": None,
+            "name": "Dummy Population",
+            "notes": [],
+            "plannedAge": None,
+            "plannedCompletionNumber": None,
+            "plannedEnrollmentNumber": None,
+            "plannedSex": [],
+        },
+        "eligibilityCriteria": [],
         "rationale": "The discontinuation rate associated with this oral dosing regimen was "
         "58.6% in previous studies, and alternative clinical strategies have been "
         "sought to improve tolerance for the compound. To that end, development of "
