@@ -131,21 +131,23 @@ class StudyAmendmentSheet(BaseSheet):
         return result
 
     def _enrollment(self, quantity, **kwargs):
-        applies_to = None
-        applies_to_id = None
+        for_geographic_scope = None
+        for_study_cohort_id = None
+        for_study_site_id = None
         if "scope" in kwargs:
-            applies_to = kwargs["scope"]
+            for_geographic_scope = kwargs["scope"]
         if "cohort" in kwargs:
-            applies_to_id = kwargs["cohort"]
+            for_study_cohort_id = kwargs["cohort"]
         if "site" in kwargs:
-            applies_to_id = kwargs["site"]
+            for_study_site_id = kwargs["site"]
         return self.create_object(
             SubjectEnrollment,
             {
                 "name": "XXX",
                 "quantity": quantity,
-                "appliesTo": applies_to,
-                "appliesToId": applies_to_id,
+                "forGeographicScope": for_geographic_scope,
+                "forStudyCohortId": for_study_cohort_id,
+                "forStudySiteId": for_study_site_id,
             },
         )
 

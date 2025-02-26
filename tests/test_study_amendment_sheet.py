@@ -71,7 +71,7 @@ def test_create(mocker, globals):
                     "unit": None,
                     "instanceType": "Quantity",
                 },
-                "appliesTo": {
+                "forGeographicScope": {
                     "id": "GeographicScope_1",
                     "type": {
                         "id": "Code_3",
@@ -96,7 +96,8 @@ def test_create(mocker, globals):
                     },
                     "instanceType": "GeographicScope",
                 },
-                "appliesToId": None,
+                "forStudyCohortId": None,
+                "forStudySiteId": None,
                 "instanceType": "SubjectEnrollment",
             },
             {
@@ -122,7 +123,7 @@ def test_create(mocker, globals):
                     },
                     "instanceType": "Quantity",
                 },
-                "appliesTo": {
+                "forGeographicScope": {
                     "id": "GeographicScope_2",
                     "type": {
                         "id": "Code_6",
@@ -147,7 +148,8 @@ def test_create(mocker, globals):
                     },
                     "instanceType": "GeographicScope",
                 },
-                "appliesToId": None,
+                "forStudyCohortId": None,
+                "forStudySiteId": None,
                 "instanceType": "SubjectEnrollment",
             },
         ],
@@ -229,7 +231,7 @@ def test_create(mocker, globals):
                     },
                     "instanceType": "Quantity",
                 },
-                "appliesTo": {
+                "forGeographicScope": {
                     "id": "GeographicScope_4",
                     "type": {
                         "id": "Code_11",
@@ -242,7 +244,8 @@ def test_create(mocker, globals):
                     "code": None,
                     "instanceType": "GeographicScope",
                 },
-                "appliesToId": None,
+                "forStudyCohortId": None,
+                "forStudySiteId": None,
                 "instanceType": "SubjectEnrollment",
             }
         ],

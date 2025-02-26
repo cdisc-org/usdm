@@ -6,6 +6,7 @@ from .geographic_scope import GeographicScope
 
 class SubjectEnrollment(ApiBaseModelWithIdNameLabelAndDesc):
     quantity: Quantity
-    appliesTo: Union[GeographicScope, None] = None
-    appliesToId: Union[str, None] = None
+    forGeographicScope: Union[GeographicScope, None] = None
+    forStudyCohortId: Union[str, None] = None
+    forStudySiteId: Union[str, None] = None
     instanceType: Literal["SubjectEnrollment"]
