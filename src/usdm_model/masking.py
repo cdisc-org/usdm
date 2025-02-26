@@ -3,5 +3,6 @@ from .api_base_model import ApiBaseModelWithId
 
 
 class Masking(ApiBaseModelWithId):
-    description: str
+    text: str
+    isMasked: bool
     instanceType: Literal["Masking"]

@@ -48,7 +48,7 @@ class StudyRoleSheet(BaseSheet):
         masking = None
         masking_text = self.read_cell_by_name(index, "masking", default="")
         if masking_text:
-            masking = self.create_object(Masking, {"description": masking_text})
+            masking = self.create_object(Masking, {"text": masking_text, "isMasked": True})
         return masking
 
     def _get_refs_for(self, klass, index: int, column_name: str, ids=False):
