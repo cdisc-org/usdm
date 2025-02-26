@@ -7,5 +7,5 @@ class AdministrationDuration(ApiBaseModelWithId):
     quantity: Union[Quantity, None] = None
     description: str
     durationWillVary: bool
-    reasonDurationWillVary: str
+    reasonDurationWillVary: Union[str, None] = None
     instanceType: Literal["AdministrationDuration"]
