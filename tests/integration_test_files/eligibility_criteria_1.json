@@ -2410,29 +2410,6 @@
                 "instanceType": "EligibilityCriterion"
               }
             ],
-            "dictionaries": [
-              {
-                "id": "SyntaxTemplateDictionary_1",
-                "name": "IE_Dict",
-                "label": "IE Dictionary",
-                "description": "Dictionary for IE",
-                "parameterMaps": [
-                  {
-                    "id": "ParameterMap_1",
-                    "tag": "min_age",
-                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMinimumAgeOfParticipants\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  },
-                  {
-                    "id": "ParameterMap_2",
-                    "tag": "max_age",
-                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMaximumAgeOfParticipants\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  }
-                ],
-                "instanceType": "SyntaxTemplateDictionary"
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -2927,6 +2904,29 @@
         "productOrganizationRoles": [],
         "bcCategories": [],
         "bcSurrogates": [],
+        "dictionaries": [
+          {
+            "id": "SyntaxTemplateDictionary_1",
+            "name": "IE_Dict",
+            "label": "IE Dictionary",
+            "description": "Dictionary for IE",
+            "parameterMaps": [
+              {
+                "id": "ParameterMap_1",
+                "tag": "min_age",
+                "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMinimumAgeOfParticipants\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              },
+              {
+                "id": "ParameterMap_2",
+                "tag": "max_age",
+                "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"plannedMaximumAgeOfParticipants\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              }
+            ],
+            "instanceType": "SyntaxTemplateDictionary"
+          }
+        ],
         "conditions": [],
         "notes": [],
         "instanceType": "StudyVersion"

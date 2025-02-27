@@ -10455,50 +10455,6 @@
                 "instanceType": "EligibilityCriterion"
               }
             ],
-            "dictionaries": [
-              {
-                "id": "SyntaxTemplateDictionary_1",
-                "name": "IE_Dict",
-                "label": "IE Dictionary",
-                "description": "Dictionary for IE",
-                "parameterMaps": [
-                  {
-                    "id": "ParameterMap_1",
-                    "tag": "min_age",
-                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_1\" attribute=\"minValue\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  },
-                  {
-                    "id": "ParameterMap_2",
-                    "tag": "max_age",
-                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_1\" attribute=\"maxValue\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  },
-                  {
-                    "id": "ParameterMap_3",
-                    "tag": "StudyPopulation",
-                    "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  }
-                ],
-                "instanceType": "SyntaxTemplateDictionary"
-              },
-              {
-                "id": "SyntaxTemplateDictionary_2",
-                "name": "AS_Dict",
-                "label": "Assessment Dictionary",
-                "description": "Dictionary for Study Assessments",
-                "parameterMaps": [
-                  {
-                    "id": "ParameterMap_4",
-                    "tag": "Activity1",
-                    "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  }
-                ],
-                "instanceType": "SyntaxTemplateDictionary"
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -12134,6 +12090,50 @@
         ],
         "bcCategories": [],
         "bcSurrogates": [],
+        "dictionaries": [
+          {
+            "id": "SyntaxTemplateDictionary_1",
+            "name": "IE_Dict",
+            "label": "IE Dictionary",
+            "description": "Dictionary for IE",
+            "parameterMaps": [
+              {
+                "id": "ParameterMap_1",
+                "tag": "min_age",
+                "reference": "<usdm:ref klass=\"Range\" id=\"Range_1\" attribute=\"minValue\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              },
+              {
+                "id": "ParameterMap_2",
+                "tag": "max_age",
+                "reference": "<usdm:ref klass=\"Range\" id=\"Range_1\" attribute=\"maxValue\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              },
+              {
+                "id": "ParameterMap_3",
+                "tag": "StudyPopulation",
+                "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              }
+            ],
+            "instanceType": "SyntaxTemplateDictionary"
+          },
+          {
+            "id": "SyntaxTemplateDictionary_2",
+            "name": "AS_Dict",
+            "label": "Assessment Dictionary",
+            "description": "Dictionary for Study Assessments",
+            "parameterMaps": [
+              {
+                "id": "ParameterMap_4",
+                "tag": "Activity1",
+                "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              }
+            ],
+            "instanceType": "SyntaxTemplateDictionary"
+          }
+        ],
         "conditions": [],
         "notes": [],
         "instanceType": "StudyVersion"

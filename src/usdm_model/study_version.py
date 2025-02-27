@@ -18,6 +18,7 @@ from .medical_device import MedicalDevice
 from .product_organization_role import ProductOrganizationRole
 from .biomedical_concept_category import BiomedicalConceptCategory
 from .biomedical_concept_surrogate import BiomedicalConceptSurrogate
+from .syntax_template_dictionary import SyntaxTemplateDictionary
 from .condition import Condition
 
 class StudyVersion(ApiBaseModelWithId):
@@ -42,6 +43,7 @@ class StudyVersion(ApiBaseModelWithId):
     productOrganizationRoles: List[ProductOrganizationRole] = []
     bcCategories: List[BiomedicalConceptCategory] = []
     bcSurrogates: List[BiomedicalConceptSurrogate] = []
+    dictionaries: List[SyntaxTemplateDictionary] = []
     conditions: List[Condition] = []
     notes: List[CommentAnnotation] = []
     instanceType: Literal["StudyVersion"]

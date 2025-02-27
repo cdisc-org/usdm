@@ -234,7 +234,7 @@ class USDMExcel:
             study_design.population.criterionIds = [
                 x.id for x in self.eligibility_criteria.items
             ]
-            study_design.dictionaries = self.dictionaries.items
+            #study_design.dictionaries = self.dictionaries.items
             #study_design.conditions = self.conditions.items
 
             self.definition_documents = []
@@ -306,6 +306,7 @@ class USDMExcel:
                     studyInterventions=self.interventions.items,
                     conditions=self.conditions.items,
                     bcSurrogates=bcSurrogates,
+                    dictionaries=self.dictionaries.items,
                 )
                 self._globals.cross_references.add(
                     self.study_version.id, self.study_version

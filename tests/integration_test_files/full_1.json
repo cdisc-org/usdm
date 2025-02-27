@@ -3324,65 +3324,6 @@
                 "instanceType": "EligibilityCriterion"
               }
             ],
-            "dictionaries": [
-              {
-                "id": "SyntaxTemplateDictionary_1",
-                "name": "IE_Dict",
-                "label": "IE Dictionary",
-                "description": "Dictionary for IE",
-                "parameterMaps": [
-                  {
-                    "id": "ParameterMap_1",
-                    "tag": "min_age",
-                    "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_14\" attribute=\"value\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  },
-                  {
-                    "id": "ParameterMap_2",
-                    "tag": "max_age",
-                    "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_15\" attribute=\"value\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  }
-                ],
-                "instanceType": "SyntaxTemplateDictionary"
-              },
-              {
-                "id": "SyntaxTemplateDictionary_2",
-                "name": "OE_Dict",
-                "label": "OE Dictionary",
-                "description": "Dictionary for OE",
-                "parameterMaps": [
-                  {
-                    "id": "ParameterMap_3",
-                    "tag": "min_age",
-                    "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_14\" attribute=\"value\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  }
-                ],
-                "instanceType": "SyntaxTemplateDictionary"
-              },
-              {
-                "id": "SyntaxTemplateDictionary_3",
-                "name": "Example3_Dict",
-                "label": "Example 3 Dictionary",
-                "description": "Dictionary for Example",
-                "parameterMaps": [
-                  {
-                    "id": "ParameterMap_4",
-                    "tag": "xxxx",
-                    "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_1\" attribute=\"label\"></usdm:ref>",
-                    "instanceType": "ParameterMap"
-                  },
-                  {
-                    "id": "ParameterMap_5",
-                    "tag": "value_key",
-                    "reference": "1234.0",
-                    "instanceType": "ParameterMap"
-                  }
-                ],
-                "instanceType": "SyntaxTemplateDictionary"
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -4119,6 +4060,65 @@
         "productOrganizationRoles": [],
         "bcCategories": [],
         "bcSurrogates": [],
+        "dictionaries": [
+          {
+            "id": "SyntaxTemplateDictionary_1",
+            "name": "IE_Dict",
+            "label": "IE Dictionary",
+            "description": "Dictionary for IE",
+            "parameterMaps": [
+              {
+                "id": "ParameterMap_1",
+                "tag": "min_age",
+                "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_14\" attribute=\"value\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              },
+              {
+                "id": "ParameterMap_2",
+                "tag": "max_age",
+                "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_15\" attribute=\"value\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              }
+            ],
+            "instanceType": "SyntaxTemplateDictionary"
+          },
+          {
+            "id": "SyntaxTemplateDictionary_2",
+            "name": "OE_Dict",
+            "label": "OE Dictionary",
+            "description": "Dictionary for OE",
+            "parameterMaps": [
+              {
+                "id": "ParameterMap_3",
+                "tag": "min_age",
+                "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_14\" attribute=\"value\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              }
+            ],
+            "instanceType": "SyntaxTemplateDictionary"
+          },
+          {
+            "id": "SyntaxTemplateDictionary_3",
+            "name": "Example3_Dict",
+            "label": "Example 3 Dictionary",
+            "description": "Dictionary for Example",
+            "parameterMaps": [
+              {
+                "id": "ParameterMap_4",
+                "tag": "xxxx",
+                "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_1\" attribute=\"label\"></usdm:ref>",
+                "instanceType": "ParameterMap"
+              },
+              {
+                "id": "ParameterMap_5",
+                "tag": "value_key",
+                "reference": "1234.0",
+                "instanceType": "ParameterMap"
+              }
+            ],
+            "instanceType": "SyntaxTemplateDictionary"
+          }
+        ],
         "conditions": [
           {
             "id": "Condition_1",

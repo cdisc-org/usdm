@@ -301,7 +301,6 @@ def _expected():
         },
         "characteristics": [],
         "description": "The main design for the study",
-        "dictionaries": [],
         "documentVersionIds": [],
         "elements": [
             {

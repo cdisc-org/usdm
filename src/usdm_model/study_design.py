@@ -3,14 +3,11 @@ from .activity import Activity
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .alias_code import AliasCode
 from .biomedical_concept import BiomedicalConcept
-from .biomedical_concept_category import BiomedicalConceptCategory
-from .biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from .biospecimen_retention import BiospecimenRetention
 from .code import Code
 from .encounter import Encounter
 from .study_cell import StudyCell
 from .indication import Indication
-from .study_intervention import StudyIntervention
 from .study_arm import StudyArm
 from .study_epoch import StudyEpoch
 from .study_element import StudyElement
@@ -20,8 +17,6 @@ from .analysis_population import AnalysisPopulation
 from .objective import Objective
 from .schedule_timeline import ScheduleTimeline
 from .estimand import Estimand
-from .syntax_template_dictionary import SyntaxTemplateDictionary
-from .condition import Condition
 from .comment_annotation import CommentAnnotation
 
 
@@ -48,8 +43,6 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
     biospecimenRetentions: List[BiospecimenRetention] = []
     documentVersionIds: List[str] = []
     eligibilityCriteria: List[EligibilityCriterion] = []
-    dictionaries: List[SyntaxTemplateDictionary] = []
-    #conditions: List[Condition] = []
     notes: List[CommentAnnotation] = []
     instanceType: Literal["StudyDesign"]
 
