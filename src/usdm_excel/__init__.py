@@ -213,7 +213,7 @@ class USDMExcel:
             study_design.encounters = self.encounters.items
             study_design.activities = self.soa.activities
             activity_ids = [item.id for item in study_design.activities]
-            study_design.biomedicalConcepts = self.soa.biomedical_concepts
+            biomedicalConcepts = self.soa.biomedical_concepts
             bcSurrogates = self.soa.biomedical_concept_surrogates
             for key, tl in self.study.timelines.items():
                 study_design.scheduleTimelines.append(tl.timeline)
@@ -221,7 +221,7 @@ class USDMExcel:
                     if activity.id not in activity_ids:
                         study_design.activities.append(activity)
                         activity_ids.append(activity.id)
-                study_design.biomedicalConcepts += tl.biomedical_concepts
+                biomedicalConcepts += tl.biomedical_concepts
                 bcSurrogates += tl.biomedical_concept_surrogates
             self._double_link(study_design.activities, "previousId", "nextId")
             study_design.indications = self.indications.items
@@ -305,6 +305,7 @@ class USDMExcel:
                     productOrganizationRoles=self.product_organization_roles.items,
                     studyInterventions=self.interventions.items,
                     conditions=self.conditions.items,
+                    biomedicalConcepts=biomedicalConcepts,
                     bcSurrogates=bcSurrogates,
                     dictionaries=self.dictionaries.items,
                 )

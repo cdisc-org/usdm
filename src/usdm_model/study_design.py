@@ -27,7 +27,6 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
     characteristics: List[Code] = []
     encounters: List[Encounter] = []
     activities: List[Activity] = []
-    biomedicalConcepts: List[BiomedicalConcept] = []
     arms: List[StudyArm]
     studyCells: List[StudyCell]
     rationale: str

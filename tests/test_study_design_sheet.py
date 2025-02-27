@@ -265,7 +265,6 @@ def _expected():
                 },
             },
         ],
-        "biomedicalConcepts": [],
         "biospecimenRetentions": [
             {
                 "description": None,

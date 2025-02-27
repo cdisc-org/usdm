@@ -979,425 +979,6 @@
                 "instanceType": "Activity"
               }
             ],
-            "biomedicalConcepts": [
-              {
-                "id": "BiomedicalConcept_2",
-                "name": "Weight",
-                "label": "Weight",
-                "synonyms": [
-                  "Weight",
-                  "Body Weight"
-                ],
-                "reference": "/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/WEIGHT",
-                "properties": [
-                  {
-                    "id": "BiomedicalConceptProperty_4",
-                    "name": "VSTESTCD",
-                    "label": "VSTESTCD",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "",
-                    "responseCodes": [],
-                    "code": {
-                      "id": "AliasCode_9",
-                      "standardCode": {
-                        "id": "Code_126",
-                        "code": "C25208",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "WEIGHT",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  },
-                  {
-                    "id": "BiomedicalConceptProperty_5",
-                    "name": "VSORRES",
-                    "label": "VSORRES",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "float",
-                    "responseCodes": [],
-                    "code": {
-                      "id": "AliasCode_10",
-                      "standardCode": {
-                        "id": "Code_127",
-                        "code": "C77140",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "Clinical Test Result",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  },
-                  {
-                    "id": "BiomedicalConceptProperty_6",
-                    "name": "VSORRESU",
-                    "label": "VSORRESU",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "",
-                    "responseCodes": [
-                      {
-                        "id": "ResponseCode_4",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_128",
-                          "code": "C48531",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Pound",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      },
-                      {
-                        "id": "ResponseCode_5",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_129",
-                          "code": "C48155",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Gram",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      },
-                      {
-                        "id": "ResponseCode_6",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_130",
-                          "code": "C28252",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Kilogram",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      }
-                    ],
-                    "code": {
-                      "id": "AliasCode_11",
-                      "standardCode": {
-                        "id": "Code_131",
-                        "code": "C48208",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "Unit of Weight",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  }
-                ],
-                "code": {
-                  "id": "AliasCode_12",
-                  "standardCode": {
-                    "id": "Code_132",
-                    "code": "C25208",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-12-15",
-                    "decode": "WEIGHT",
-                    "instanceType": "Code"
-                  },
-                  "standardCodeAliases": [],
-                  "instanceType": "AliasCode"
-                },
-                "notes": [],
-                "instanceType": "BiomedicalConcept"
-              },
-              {
-                "id": "BiomedicalConcept_3",
-                "name": "Height",
-                "label": "Height",
-                "synonyms": [
-                  "Height",
-                  "Body Height"
-                ],
-                "reference": "/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/HEIGHT",
-                "properties": [
-                  {
-                    "id": "BiomedicalConceptProperty_7",
-                    "name": "VSTESTCD",
-                    "label": "VSTESTCD",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "",
-                    "responseCodes": [],
-                    "code": {
-                      "id": "AliasCode_13",
-                      "standardCode": {
-                        "id": "Code_133",
-                        "code": "C25347",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "HEIGHT",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  },
-                  {
-                    "id": "BiomedicalConceptProperty_8",
-                    "name": "VSORRES",
-                    "label": "VSORRES",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "float",
-                    "responseCodes": [],
-                    "code": {
-                      "id": "AliasCode_14",
-                      "standardCode": {
-                        "id": "Code_134",
-                        "code": "C77140",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "Clinical Test Result",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  },
-                  {
-                    "id": "BiomedicalConceptProperty_9",
-                    "name": "VSORRESU",
-                    "label": "VSORRESU",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "",
-                    "responseCodes": [
-                      {
-                        "id": "ResponseCode_7",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_135",
-                          "code": "C49668",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Centimeter",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      },
-                      {
-                        "id": "ResponseCode_8",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_136",
-                          "code": "C48500",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Inch",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      },
-                      {
-                        "id": "ResponseCode_9",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_137",
-                          "code": "C41139",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Meter",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      }
-                    ],
-                    "code": {
-                      "id": "AliasCode_15",
-                      "standardCode": {
-                        "id": "Code_138",
-                        "code": "C168688",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "Unit of Height",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  }
-                ],
-                "code": {
-                  "id": "AliasCode_16",
-                  "standardCode": {
-                    "id": "Code_139",
-                    "code": "C25347",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-12-15",
-                    "decode": "HEIGHT",
-                    "instanceType": "Code"
-                  },
-                  "standardCodeAliases": [],
-                  "instanceType": "AliasCode"
-                },
-                "notes": [],
-                "instanceType": "BiomedicalConcept"
-              },
-              {
-                "id": "BiomedicalConcept_1",
-                "name": "Weight",
-                "label": "Weight",
-                "synonyms": [
-                  "Weight",
-                  "Body Weight"
-                ],
-                "reference": "/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/WEIGHT",
-                "properties": [
-                  {
-                    "id": "BiomedicalConceptProperty_1",
-                    "name": "VSTESTCD",
-                    "label": "VSTESTCD",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "",
-                    "responseCodes": [],
-                    "code": {
-                      "id": "AliasCode_5",
-                      "standardCode": {
-                        "id": "Code_119",
-                        "code": "C25208",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "WEIGHT",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  },
-                  {
-                    "id": "BiomedicalConceptProperty_2",
-                    "name": "VSORRES",
-                    "label": "VSORRES",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "float",
-                    "responseCodes": [],
-                    "code": {
-                      "id": "AliasCode_6",
-                      "standardCode": {
-                        "id": "Code_120",
-                        "code": "C77140",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "Clinical Test Result",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  },
-                  {
-                    "id": "BiomedicalConceptProperty_3",
-                    "name": "VSORRESU",
-                    "label": "VSORRESU",
-                    "isRequired": true,
-                    "isEnabled": true,
-                    "datatype": "",
-                    "responseCodes": [
-                      {
-                        "id": "ResponseCode_1",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_121",
-                          "code": "C48531",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Pound",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      },
-                      {
-                        "id": "ResponseCode_2",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_122",
-                          "code": "C48155",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Gram",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      },
-                      {
-                        "id": "ResponseCode_3",
-                        "isEnabled": true,
-                        "code": {
-                          "id": "Code_123",
-                          "code": "C28252",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2023-12-15",
-                          "decode": "Kilogram",
-                          "instanceType": "Code"
-                        },
-                        "instanceType": "ResponseCode"
-                      }
-                    ],
-                    "code": {
-                      "id": "AliasCode_7",
-                      "standardCode": {
-                        "id": "Code_124",
-                        "code": "C48208",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2023-12-15",
-                        "decode": "Unit of Weight",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "notes": [],
-                    "instanceType": "BiomedicalConceptProperty"
-                  }
-                ],
-                "code": {
-                  "id": "AliasCode_8",
-                  "standardCode": {
-                    "id": "Code_125",
-                    "code": "C25208",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2023-12-15",
-                    "decode": "WEIGHT",
-                    "instanceType": "Code"
-                  },
-                  "standardCodeAliases": [],
-                  "instanceType": "AliasCode"
-                },
-                "notes": [],
-                "instanceType": "BiomedicalConcept"
-              }
-            ],
             "arms": [
               {
                 "id": "StudyArm_1",
@@ -4321,6 +3902,425 @@
         "administrableProducts": [],
         "medicalDevices": [],
         "productOrganizationRoles": [],
+        "biomedicalConcepts": [
+          {
+            "id": "BiomedicalConcept_2",
+            "name": "Weight",
+            "label": "Weight",
+            "synonyms": [
+              "Weight",
+              "Body Weight"
+            ],
+            "reference": "/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/WEIGHT",
+            "properties": [
+              {
+                "id": "BiomedicalConceptProperty_4",
+                "name": "VSTESTCD",
+                "label": "VSTESTCD",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "",
+                "responseCodes": [],
+                "code": {
+                  "id": "AliasCode_9",
+                  "standardCode": {
+                    "id": "Code_126",
+                    "code": "C25208",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "WEIGHT",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              },
+              {
+                "id": "BiomedicalConceptProperty_5",
+                "name": "VSORRES",
+                "label": "VSORRES",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "float",
+                "responseCodes": [],
+                "code": {
+                  "id": "AliasCode_10",
+                  "standardCode": {
+                    "id": "Code_127",
+                    "code": "C77140",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "Clinical Test Result",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              },
+              {
+                "id": "BiomedicalConceptProperty_6",
+                "name": "VSORRESU",
+                "label": "VSORRESU",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "",
+                "responseCodes": [
+                  {
+                    "id": "ResponseCode_4",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_128",
+                      "code": "C48531",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Pound",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  },
+                  {
+                    "id": "ResponseCode_5",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_129",
+                      "code": "C48155",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Gram",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  },
+                  {
+                    "id": "ResponseCode_6",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_130",
+                      "code": "C28252",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Kilogram",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  }
+                ],
+                "code": {
+                  "id": "AliasCode_11",
+                  "standardCode": {
+                    "id": "Code_131",
+                    "code": "C48208",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "Unit of Weight",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              }
+            ],
+            "code": {
+              "id": "AliasCode_12",
+              "standardCode": {
+                "id": "Code_132",
+                "code": "C25208",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "WEIGHT",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "notes": [],
+            "instanceType": "BiomedicalConcept"
+          },
+          {
+            "id": "BiomedicalConcept_3",
+            "name": "Height",
+            "label": "Height",
+            "synonyms": [
+              "Height",
+              "Body Height"
+            ],
+            "reference": "/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/HEIGHT",
+            "properties": [
+              {
+                "id": "BiomedicalConceptProperty_7",
+                "name": "VSTESTCD",
+                "label": "VSTESTCD",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "",
+                "responseCodes": [],
+                "code": {
+                  "id": "AliasCode_13",
+                  "standardCode": {
+                    "id": "Code_133",
+                    "code": "C25347",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "HEIGHT",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              },
+              {
+                "id": "BiomedicalConceptProperty_8",
+                "name": "VSORRES",
+                "label": "VSORRES",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "float",
+                "responseCodes": [],
+                "code": {
+                  "id": "AliasCode_14",
+                  "standardCode": {
+                    "id": "Code_134",
+                    "code": "C77140",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "Clinical Test Result",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              },
+              {
+                "id": "BiomedicalConceptProperty_9",
+                "name": "VSORRESU",
+                "label": "VSORRESU",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "",
+                "responseCodes": [
+                  {
+                    "id": "ResponseCode_7",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_135",
+                      "code": "C49668",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Centimeter",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  },
+                  {
+                    "id": "ResponseCode_8",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_136",
+                      "code": "C48500",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Inch",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  },
+                  {
+                    "id": "ResponseCode_9",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_137",
+                      "code": "C41139",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Meter",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  }
+                ],
+                "code": {
+                  "id": "AliasCode_15",
+                  "standardCode": {
+                    "id": "Code_138",
+                    "code": "C168688",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "Unit of Height",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              }
+            ],
+            "code": {
+              "id": "AliasCode_16",
+              "standardCode": {
+                "id": "Code_139",
+                "code": "C25347",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "HEIGHT",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "notes": [],
+            "instanceType": "BiomedicalConcept"
+          },
+          {
+            "id": "BiomedicalConcept_1",
+            "name": "Weight",
+            "label": "Weight",
+            "synonyms": [
+              "Weight",
+              "Body Weight"
+            ],
+            "reference": "/mdr/specializations/sdtm/packages/2023-12-12/datasetspecializations/WEIGHT",
+            "properties": [
+              {
+                "id": "BiomedicalConceptProperty_1",
+                "name": "VSTESTCD",
+                "label": "VSTESTCD",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "",
+                "responseCodes": [],
+                "code": {
+                  "id": "AliasCode_5",
+                  "standardCode": {
+                    "id": "Code_119",
+                    "code": "C25208",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "WEIGHT",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              },
+              {
+                "id": "BiomedicalConceptProperty_2",
+                "name": "VSORRES",
+                "label": "VSORRES",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "float",
+                "responseCodes": [],
+                "code": {
+                  "id": "AliasCode_6",
+                  "standardCode": {
+                    "id": "Code_120",
+                    "code": "C77140",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "Clinical Test Result",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              },
+              {
+                "id": "BiomedicalConceptProperty_3",
+                "name": "VSORRESU",
+                "label": "VSORRESU",
+                "isRequired": true,
+                "isEnabled": true,
+                "datatype": "",
+                "responseCodes": [
+                  {
+                    "id": "ResponseCode_1",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_121",
+                      "code": "C48531",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Pound",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  },
+                  {
+                    "id": "ResponseCode_2",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_122",
+                      "code": "C48155",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Gram",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  },
+                  {
+                    "id": "ResponseCode_3",
+                    "isEnabled": true,
+                    "code": {
+                      "id": "Code_123",
+                      "code": "C28252",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2023-12-15",
+                      "decode": "Kilogram",
+                      "instanceType": "Code"
+                    },
+                    "instanceType": "ResponseCode"
+                  }
+                ],
+                "code": {
+                  "id": "AliasCode_7",
+                  "standardCode": {
+                    "id": "Code_124",
+                    "code": "C48208",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2023-12-15",
+                    "decode": "Unit of Weight",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "notes": [],
+                "instanceType": "BiomedicalConceptProperty"
+              }
+            ],
+            "code": {
+              "id": "AliasCode_8",
+              "standardCode": {
+                "id": "Code_125",
+                "code": "C25208",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2023-12-15",
+                "decode": "WEIGHT",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "notes": [],
+            "instanceType": "BiomedicalConcept"
+          }
+        ],
         "bcCategories": [],
         "bcSurrogates": [
           {
