@@ -12,6 +12,7 @@ from .comment_annotation import CommentAnnotation
 from .abbreviation import Abbreviation
 from .study_role import StudyRole
 from .organization import Organization
+from .study_intervention import StudyIntervention
 from .administrable_product import AdministrableProduct
 from .medical_device import MedicalDevice
 from .product_organization_role import ProductOrganizationRole
@@ -33,6 +34,7 @@ class StudyVersion(ApiBaseModelWithId):
     abbreviations: List[Abbreviation] = []
     roles: List[StudyRole] = []
     organizations: List[Organization] = []
+    studyInterventions: List[StudyIntervention] = []
     administrableProducts: List[AdministrableProduct] = []
     medicalDevices: List[MedicalDevice] = []
     productOrganizationRoles: List[ProductOrganizationRole] = []

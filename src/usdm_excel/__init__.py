@@ -225,7 +225,7 @@ class USDMExcel:
                 study_design.bcSurrogates += tl.biomedical_concept_surrogates
             self._double_link(study_design.activities, "previousId", "nextId")
             study_design.indications = self.indications.items
-            study_design.studyInterventions = self.interventions.items
+            study_design.studyInterventionIds = [x.id for x in self.interventions.items]
             study_design.population = self.study_population.population
             study_design.objectives = self.oe.objectives
             study_design.estimands = self.estimands.estimands
@@ -295,7 +295,6 @@ class USDMExcel:
                     dateValues=self.study.dates[self.STUDY_VERSION_DATE],
                     amendments=self.study_amendments.items,
                     titles=self.study.titles,
-                    # criteria=self.eligibility_criteria.items,
                     eligibilityCriterionItems=self.eligibility_criteria.criterion_items,
                     narrativeContentItems=self.contents.items,
                     abbreviations=self.abbreviations.items,
@@ -304,6 +303,7 @@ class USDMExcel:
                     medicalDevices=self.devices.items,
                     administrableProducts=self.products.items,
                     productOrganizationRoles=self.product_organization_roles.items,
+                    studyInterventions=self.interventions.items,
                 )
                 self._globals.cross_references.add(
                     self.study_version.id, self.study_version

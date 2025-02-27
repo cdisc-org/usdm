@@ -8641,273 +8641,9 @@
                 "instanceType": "Indication"
               }
             ],
-            "studyInterventions": [
-              {
-                "id": "StudyIntervention_1",
-                "name": "LY",
-                "label": "LY900018",
-                "description": "LY900018",
-                "role": {
-                  "id": "Code_478",
-                  "code": "C41161",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Experimental Intervention",
-                  "instanceType": "Code"
-                },
-                "type": {
-                  "id": "Code_479",
-                  "code": "C1909",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Pharmacologic Substance",
-                  "instanceType": "Code"
-                },
-                "minimumResponseDuration": {
-                  "id": "Quantity_4",
-                  "value": 1.0,
-                  "unit": {
-                    "id": "AliasCode_212",
-                    "standardCode": {
-                      "id": "Code_480",
-                      "code": "C25301",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Day",
-                      "instanceType": "Code"
-                    },
-                    "standardCodeAliases": [],
-                    "instanceType": "AliasCode"
-                  },
-                  "instanceType": "Quantity"
-                },
-                "codes": [
-                  {
-                    "id": "Code_477",
-                    "code": "A",
-                    "codeSystem": "SPONSOR",
-                    "codeSystemVersion": "12",
-                    "decode": "B",
-                    "instanceType": "Code"
-                  }
-                ],
-                "administrations": [
-                  {
-                    "id": "Administration_1",
-                    "name": "LY_ADMIN",
-                    "label": "",
-                    "description": "Administer a single nasal dose upon hypoglycemia onset",
-                    "duration": {
-                      "id": "AdministrationDuration_1",
-                      "quantity": {
-                        "id": "Quantity_2",
-                        "value": 1.0,
-                        "unit": {
-                          "id": "AliasCode_208",
-                          "standardCode": {
-                            "id": "Code_473",
-                            "code": "C25301",
-                            "codeSystem": "http://www.cdisc.org",
-                            "codeSystemVersion": "2024-09-27",
-                            "decode": "Day",
-                            "instanceType": "Code"
-                          },
-                          "standardCodeAliases": [],
-                          "instanceType": "AliasCode"
-                        },
-                        "instanceType": "Quantity"
-                      },
-                      "description": "",
-                      "durationWillVary": false,
-                      "reasonDurationWillVary": "",
-                      "instanceType": "AdministrationDuration"
-                    },
-                    "dose": {
-                      "id": "Quantity_3",
-                      "value": 3.0,
-                      "unit": {
-                        "id": "AliasCode_209",
-                        "standardCode": {
-                          "id": "Code_474",
-                          "code": "C28253",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Milligram",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "route": {
-                      "id": "AliasCode_210",
-                      "standardCode": {
-                        "id": "Code_475",
-                        "code": "C38284",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Nasal Route of Administration",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "frequency": {
-                      "id": "AliasCode_211",
-                      "standardCode": {
-                        "id": "Code_476",
-                        "code": "C64576",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Once",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "administrableProductId": null,
-                    "medicalDeviceId": null,
-                    "notes": [],
-                    "instanceType": "Administration"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "StudyIntervention"
-              },
-              {
-                "id": "StudyIntervention_2",
-                "name": "IMG",
-                "label": "GlucaGen",
-                "description": "Glucagon",
-                "role": {
-                  "id": "Code_486",
-                  "code": "C41161",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Experimental Intervention",
-                  "instanceType": "Code"
-                },
-                "type": {
-                  "id": "Code_487",
-                  "code": "C1909",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Pharmacologic Substance",
-                  "instanceType": "Code"
-                },
-                "minimumResponseDuration": {
-                  "id": "Quantity_7",
-                  "value": 1.0,
-                  "unit": {
-                    "id": "AliasCode_217",
-                    "standardCode": {
-                      "id": "Code_488",
-                      "code": "C25301",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Day",
-                      "instanceType": "Code"
-                    },
-                    "standardCodeAliases": [],
-                    "instanceType": "AliasCode"
-                  },
-                  "instanceType": "Quantity"
-                },
-                "codes": [
-                  {
-                    "id": "Code_485",
-                    "code": "A",
-                    "codeSystem": "SPONSOR",
-                    "codeSystemVersion": "12",
-                    "decode": "B",
-                    "instanceType": "Code"
-                  }
-                ],
-                "administrations": [
-                  {
-                    "id": "Administration_2",
-                    "name": "IMG_ADMIN",
-                    "label": "",
-                    "description": "Administer a single intramuscular injection upon hypoglycemia onset",
-                    "duration": {
-                      "id": "AdministrationDuration_2",
-                      "quantity": {
-                        "id": "Quantity_5",
-                        "value": 1.0,
-                        "unit": {
-                          "id": "AliasCode_213",
-                          "standardCode": {
-                            "id": "Code_481",
-                            "code": "C25301",
-                            "codeSystem": "http://www.cdisc.org",
-                            "codeSystemVersion": "2024-09-27",
-                            "decode": "Day",
-                            "instanceType": "Code"
-                          },
-                          "standardCodeAliases": [],
-                          "instanceType": "AliasCode"
-                        },
-                        "instanceType": "Quantity"
-                      },
-                      "description": "",
-                      "durationWillVary": false,
-                      "reasonDurationWillVary": "",
-                      "instanceType": "AdministrationDuration"
-                    },
-                    "dose": {
-                      "id": "Quantity_6",
-                      "value": 1.0,
-                      "unit": {
-                        "id": "AliasCode_214",
-                        "standardCode": {
-                          "id": "Code_482",
-                          "code": "C28253",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Milligram",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "route": {
-                      "id": "AliasCode_215",
-                      "standardCode": {
-                        "id": "Code_483",
-                        "code": "C28161",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Intramuscular Route of Administration",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "frequency": {
-                      "id": "AliasCode_216",
-                      "standardCode": {
-                        "id": "Code_484",
-                        "code": "C64576",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Once",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "administrableProductId": null,
-                    "medicalDeviceId": null,
-                    "notes": [],
-                    "instanceType": "Administration"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "StudyIntervention"
-              }
+            "studyInterventionIds": [
+              "StudyIntervention_1",
+              "StudyIntervention_2"
             ],
             "objectives": [
               {
@@ -13338,6 +13074,274 @@
             },
             "managedSites": [],
             "instanceType": "Organization"
+          }
+        ],
+        "studyInterventions": [
+          {
+            "id": "StudyIntervention_1",
+            "name": "LY",
+            "label": "LY900018",
+            "description": "LY900018",
+            "role": {
+              "id": "Code_478",
+              "code": "C41161",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Experimental Intervention",
+              "instanceType": "Code"
+            },
+            "type": {
+              "id": "Code_479",
+              "code": "C1909",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Pharmacologic Substance",
+              "instanceType": "Code"
+            },
+            "minimumResponseDuration": {
+              "id": "Quantity_4",
+              "value": 1.0,
+              "unit": {
+                "id": "AliasCode_212",
+                "standardCode": {
+                  "id": "Code_480",
+                  "code": "C25301",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Day",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
+              },
+              "instanceType": "Quantity"
+            },
+            "codes": [
+              {
+                "id": "Code_477",
+                "code": "A",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "B",
+                "instanceType": "Code"
+              }
+            ],
+            "administrations": [
+              {
+                "id": "Administration_1",
+                "name": "LY_ADMIN",
+                "label": "",
+                "description": "Administer a single nasal dose upon hypoglycemia onset",
+                "duration": {
+                  "id": "AdministrationDuration_1",
+                  "quantity": {
+                    "id": "Quantity_2",
+                    "value": 1.0,
+                    "unit": {
+                      "id": "AliasCode_208",
+                      "standardCode": {
+                        "id": "Code_473",
+                        "code": "C25301",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2024-09-27",
+                        "decode": "Day",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "description": "",
+                  "durationWillVary": false,
+                  "reasonDurationWillVary": "",
+                  "instanceType": "AdministrationDuration"
+                },
+                "dose": {
+                  "id": "Quantity_3",
+                  "value": 3.0,
+                  "unit": {
+                    "id": "AliasCode_209",
+                    "standardCode": {
+                      "id": "Code_474",
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "route": {
+                  "id": "AliasCode_210",
+                  "standardCode": {
+                    "id": "Code_475",
+                    "code": "C38284",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Nasal Route of Administration",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "frequency": {
+                  "id": "AliasCode_211",
+                  "standardCode": {
+                    "id": "Code_476",
+                    "code": "C64576",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Once",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "administrableProductId": null,
+                "medicalDeviceId": null,
+                "notes": [],
+                "instanceType": "Administration"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_2",
+            "name": "IMG",
+            "label": "GlucaGen",
+            "description": "Glucagon",
+            "role": {
+              "id": "Code_486",
+              "code": "C41161",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Experimental Intervention",
+              "instanceType": "Code"
+            },
+            "type": {
+              "id": "Code_487",
+              "code": "C1909",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Pharmacologic Substance",
+              "instanceType": "Code"
+            },
+            "minimumResponseDuration": {
+              "id": "Quantity_7",
+              "value": 1.0,
+              "unit": {
+                "id": "AliasCode_217",
+                "standardCode": {
+                  "id": "Code_488",
+                  "code": "C25301",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Day",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
+              },
+              "instanceType": "Quantity"
+            },
+            "codes": [
+              {
+                "id": "Code_485",
+                "code": "A",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "B",
+                "instanceType": "Code"
+              }
+            ],
+            "administrations": [
+              {
+                "id": "Administration_2",
+                "name": "IMG_ADMIN",
+                "label": "",
+                "description": "Administer a single intramuscular injection upon hypoglycemia onset",
+                "duration": {
+                  "id": "AdministrationDuration_2",
+                  "quantity": {
+                    "id": "Quantity_5",
+                    "value": 1.0,
+                    "unit": {
+                      "id": "AliasCode_213",
+                      "standardCode": {
+                        "id": "Code_481",
+                        "code": "C25301",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2024-09-27",
+                        "decode": "Day",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "description": "",
+                  "durationWillVary": false,
+                  "reasonDurationWillVary": "",
+                  "instanceType": "AdministrationDuration"
+                },
+                "dose": {
+                  "id": "Quantity_6",
+                  "value": 1.0,
+                  "unit": {
+                    "id": "AliasCode_214",
+                    "standardCode": {
+                      "id": "Code_482",
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "route": {
+                  "id": "AliasCode_215",
+                  "standardCode": {
+                    "id": "Code_483",
+                    "code": "C28161",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Intramuscular Route of Administration",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "frequency": {
+                  "id": "AliasCode_216",
+                  "standardCode": {
+                    "id": "Code_484",
+                    "code": "C64576",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Once",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "administrableProductId": null,
+                "medicalDeviceId": null,
+                "notes": [],
+                "instanceType": "Administration"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyIntervention"
           }
         ],
         "administrableProducts": [],

@@ -8766,273 +8766,9 @@
                 "instanceType": "Indication"
               }
             ],
-            "studyInterventions": [
-              {
-                "id": "StudyIntervention_1",
-                "name": "INT1",
-                "label": "Int Label 1",
-                "description": "Int Desc 1",
-                "role": {
-                  "id": "Code_507",
-                  "code": "C41161",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Experimental Intervention",
-                  "instanceType": "Code"
-                },
-                "type": {
-                  "id": "Code_508",
-                  "code": "C1909",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Pharmacologic Substance",
-                  "instanceType": "Code"
-                },
-                "minimumResponseDuration": {
-                  "id": "Quantity_4",
-                  "value": 1.0,
-                  "unit": {
-                    "id": "AliasCode_200",
-                    "standardCode": {
-                      "id": "Code_509",
-                      "code": "C25301",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Day",
-                      "instanceType": "Code"
-                    },
-                    "standardCodeAliases": [],
-                    "instanceType": "AliasCode"
-                  },
-                  "instanceType": "Quantity"
-                },
-                "codes": [
-                  {
-                    "id": "Code_506",
-                    "code": "A",
-                    "codeSystem": "SPONSOR",
-                    "codeSystemVersion": "12",
-                    "decode": "B",
-                    "instanceType": "Code"
-                  }
-                ],
-                "administrations": [
-                  {
-                    "id": "Administration_1",
-                    "name": "Admin 1",
-                    "label": "",
-                    "description": "Admin Desc 1",
-                    "duration": {
-                      "id": "AdministrationDuration_1",
-                      "quantity": {
-                        "id": "Quantity_2",
-                        "value": 14.0,
-                        "unit": {
-                          "id": "AliasCode_196",
-                          "standardCode": {
-                            "id": "Code_502",
-                            "code": "C25613",
-                            "codeSystem": "http://www.cdisc.org",
-                            "codeSystemVersion": "2024-09-27",
-                            "decode": "Percentage",
-                            "instanceType": "Code"
-                          },
-                          "standardCodeAliases": [],
-                          "instanceType": "AliasCode"
-                        },
-                        "instanceType": "Quantity"
-                      },
-                      "description": "",
-                      "durationWillVary": true,
-                      "reasonDurationWillVary": "Will vary becuase we say so",
-                      "instanceType": "AdministrationDuration"
-                    },
-                    "dose": {
-                      "id": "Quantity_3",
-                      "value": 12.0,
-                      "unit": {
-                        "id": "AliasCode_197",
-                        "standardCode": {
-                          "id": "Code_503",
-                          "code": "C28253",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Milligram",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "route": {
-                      "id": "AliasCode_198",
-                      "standardCode": {
-                        "id": "Code_504",
-                        "code": "C38197",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Dental Route of Administration",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "frequency": {
-                      "id": "AliasCode_199",
-                      "standardCode": {
-                        "id": "Code_505",
-                        "code": "C139179",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Ten Days Per Month",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "administrableProductId": null,
-                    "medicalDeviceId": null,
-                    "notes": [],
-                    "instanceType": "Administration"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "StudyIntervention"
-              },
-              {
-                "id": "StudyIntervention_2",
-                "name": "INT2",
-                "label": "Int Label 2",
-                "description": "Int Desc 2",
-                "role": {
-                  "id": "Code_515",
-                  "code": "C753",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Placebo",
-                  "instanceType": "Code"
-                },
-                "type": {
-                  "id": "Code_516",
-                  "code": "C1909",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Pharmacologic Substance",
-                  "instanceType": "Code"
-                },
-                "minimumResponseDuration": {
-                  "id": "Quantity_7",
-                  "value": 1.0,
-                  "unit": {
-                    "id": "AliasCode_205",
-                    "standardCode": {
-                      "id": "Code_517",
-                      "code": "C25301",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Day",
-                      "instanceType": "Code"
-                    },
-                    "standardCodeAliases": [],
-                    "instanceType": "AliasCode"
-                  },
-                  "instanceType": "Quantity"
-                },
-                "codes": [
-                  {
-                    "id": "Code_514",
-                    "code": "A",
-                    "codeSystem": "SPONSOR",
-                    "codeSystemVersion": "12",
-                    "decode": "B",
-                    "instanceType": "Code"
-                  }
-                ],
-                "administrations": [
-                  {
-                    "id": "Administration_2",
-                    "name": "Admin 2",
-                    "label": "",
-                    "description": "Admin Desc 2",
-                    "duration": {
-                      "id": "AdministrationDuration_2",
-                      "quantity": {
-                        "id": "Quantity_5",
-                        "value": 14.0,
-                        "unit": {
-                          "id": "AliasCode_201",
-                          "standardCode": {
-                            "id": "Code_510",
-                            "code": "C25613",
-                            "codeSystem": "http://www.cdisc.org",
-                            "codeSystemVersion": "2024-09-27",
-                            "decode": "Percentage",
-                            "instanceType": "Code"
-                          },
-                          "standardCodeAliases": [],
-                          "instanceType": "AliasCode"
-                        },
-                        "instanceType": "Quantity"
-                      },
-                      "description": "",
-                      "durationWillVary": true,
-                      "reasonDurationWillVary": "Will vary becuase we say so",
-                      "instanceType": "AdministrationDuration"
-                    },
-                    "dose": {
-                      "id": "Quantity_6",
-                      "value": 12.0,
-                      "unit": {
-                        "id": "AliasCode_202",
-                        "standardCode": {
-                          "id": "Code_511",
-                          "code": "C28253",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Milligram",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "route": {
-                      "id": "AliasCode_203",
-                      "standardCode": {
-                        "id": "Code_512",
-                        "code": "C38197",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Dental Route of Administration",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "frequency": {
-                      "id": "AliasCode_204",
-                      "standardCode": {
-                        "id": "Code_513",
-                        "code": "C139179",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
-                        "decode": "Ten Days Per Month",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "administrableProductId": null,
-                    "medicalDeviceId": null,
-                    "notes": [],
-                    "instanceType": "Administration"
-                  }
-                ],
-                "notes": [],
-                "instanceType": "StudyIntervention"
-              }
+            "studyInterventionIds": [
+              "StudyIntervention_1",
+              "StudyIntervention_2"
             ],
             "objectives": [
               {
@@ -10891,6 +10627,274 @@
             "legalAddress": null,
             "managedSites": [],
             "instanceType": "Organization"
+          }
+        ],
+        "studyInterventions": [
+          {
+            "id": "StudyIntervention_1",
+            "name": "INT1",
+            "label": "Int Label 1",
+            "description": "Int Desc 1",
+            "role": {
+              "id": "Code_507",
+              "code": "C41161",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Experimental Intervention",
+              "instanceType": "Code"
+            },
+            "type": {
+              "id": "Code_508",
+              "code": "C1909",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Pharmacologic Substance",
+              "instanceType": "Code"
+            },
+            "minimumResponseDuration": {
+              "id": "Quantity_4",
+              "value": 1.0,
+              "unit": {
+                "id": "AliasCode_200",
+                "standardCode": {
+                  "id": "Code_509",
+                  "code": "C25301",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Day",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
+              },
+              "instanceType": "Quantity"
+            },
+            "codes": [
+              {
+                "id": "Code_506",
+                "code": "A",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "B",
+                "instanceType": "Code"
+              }
+            ],
+            "administrations": [
+              {
+                "id": "Administration_1",
+                "name": "Admin 1",
+                "label": "",
+                "description": "Admin Desc 1",
+                "duration": {
+                  "id": "AdministrationDuration_1",
+                  "quantity": {
+                    "id": "Quantity_2",
+                    "value": 14.0,
+                    "unit": {
+                      "id": "AliasCode_196",
+                      "standardCode": {
+                        "id": "Code_502",
+                        "code": "C25613",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2024-09-27",
+                        "decode": "Percentage",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "description": "",
+                  "durationWillVary": true,
+                  "reasonDurationWillVary": "Will vary becuase we say so",
+                  "instanceType": "AdministrationDuration"
+                },
+                "dose": {
+                  "id": "Quantity_3",
+                  "value": 12.0,
+                  "unit": {
+                    "id": "AliasCode_197",
+                    "standardCode": {
+                      "id": "Code_503",
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "route": {
+                  "id": "AliasCode_198",
+                  "standardCode": {
+                    "id": "Code_504",
+                    "code": "C38197",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Dental Route of Administration",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "frequency": {
+                  "id": "AliasCode_199",
+                  "standardCode": {
+                    "id": "Code_505",
+                    "code": "C139179",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Ten Days Per Month",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "administrableProductId": null,
+                "medicalDeviceId": null,
+                "notes": [],
+                "instanceType": "Administration"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_2",
+            "name": "INT2",
+            "label": "Int Label 2",
+            "description": "Int Desc 2",
+            "role": {
+              "id": "Code_515",
+              "code": "C753",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Placebo",
+              "instanceType": "Code"
+            },
+            "type": {
+              "id": "Code_516",
+              "code": "C1909",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Pharmacologic Substance",
+              "instanceType": "Code"
+            },
+            "minimumResponseDuration": {
+              "id": "Quantity_7",
+              "value": 1.0,
+              "unit": {
+                "id": "AliasCode_205",
+                "standardCode": {
+                  "id": "Code_517",
+                  "code": "C25301",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Day",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
+              },
+              "instanceType": "Quantity"
+            },
+            "codes": [
+              {
+                "id": "Code_514",
+                "code": "A",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "B",
+                "instanceType": "Code"
+              }
+            ],
+            "administrations": [
+              {
+                "id": "Administration_2",
+                "name": "Admin 2",
+                "label": "",
+                "description": "Admin Desc 2",
+                "duration": {
+                  "id": "AdministrationDuration_2",
+                  "quantity": {
+                    "id": "Quantity_5",
+                    "value": 14.0,
+                    "unit": {
+                      "id": "AliasCode_201",
+                      "standardCode": {
+                        "id": "Code_510",
+                        "code": "C25613",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2024-09-27",
+                        "decode": "Percentage",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "description": "",
+                  "durationWillVary": true,
+                  "reasonDurationWillVary": "Will vary becuase we say so",
+                  "instanceType": "AdministrationDuration"
+                },
+                "dose": {
+                  "id": "Quantity_6",
+                  "value": 12.0,
+                  "unit": {
+                    "id": "AliasCode_202",
+                    "standardCode": {
+                      "id": "Code_511",
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "route": {
+                  "id": "AliasCode_203",
+                  "standardCode": {
+                    "id": "Code_512",
+                    "code": "C38197",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Dental Route of Administration",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "frequency": {
+                  "id": "AliasCode_204",
+                  "standardCode": {
+                    "id": "Code_513",
+                    "code": "C139179",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Ten Days Per Month",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "administrableProductId": null,
+                "medicalDeviceId": null,
+                "notes": [],
+                "instanceType": "Administration"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyIntervention"
           }
         ],
         "administrableProducts": [],

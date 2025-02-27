@@ -42,7 +42,7 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
     elements: List[StudyElement] = []
     estimands: List[Estimand] = []
     indications: List[Indication] = []
-    studyInterventions: List[StudyIntervention] = []
+    studyInterventionIds: List[str] = []
     objectives: List[Objective] = []
     population: StudyDesignPopulation
     analysisPopulations: List[AnalysisPopulation] = []
