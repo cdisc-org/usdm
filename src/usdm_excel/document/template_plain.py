@@ -87,7 +87,7 @@ class TemplatePlain(TemplateBase):
             timeline = self._resolve_timeline(attributes)
             footnote = 1
             footnotes = []
-            soa = SoA(self.parent, self._study_design, timeline)
+            soa = SoA(self.parent, self._study_version, self._study_design, timeline)
             result = soa.generate()
             with doc.tag("div", klass="page soa-page table-responsive"):
                 with doc.tag("p"):

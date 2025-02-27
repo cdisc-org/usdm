@@ -1,17 +1,15 @@
 from .utility import usdm_reference
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.schedule_timeline import ScheduleTimeline
-
-# from usdm_model.activity import Activity
-# from usdm_model.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
 from usdm_model.study_design import StudyDesign
-
+from usdm_model.study_version import StudyVersion
 
 class SoA:
     def __init__(
-        self, parent: BaseSheet, study_design: StudyDesign, timeline: ScheduleTimeline
+        self, parent: BaseSheet, study_version: StudyVersion, study_design: StudyDesign, timeline: ScheduleTimeline
     ):
         self.parent = parent
+        self.study_version = study_version
         self.study_design = study_design
         self.timeline = timeline
 
@@ -151,7 +149,7 @@ class SoA:
             row = self._template_copy(row_template)
             row[0]["label"] = usdm_reference(activity, "label")
             condition = self._condition_no_context(
-                self.study_design.conditions, activity
+                self.study_version.conditions, activity
             )
             if condition:
                 row[0]["condition"] = condition
@@ -161,7 +159,7 @@ class SoA:
                     if activity.id in sai.activityIds:
                         row[index + sai_start_index]["set"] = True
                         condition = self._condition_with_context(
-                            self.study_design.conditions, activity, sai
+                            self.study_version.conditions, activity, sai
                         )
                         if condition:
                             row[index + sai_start_index]["condition"] = condition

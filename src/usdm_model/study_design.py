@@ -51,7 +51,7 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
     documentVersionIds: List[str] = []
     eligibilityCriteria: List[EligibilityCriterion] = []
     dictionaries: List[SyntaxTemplateDictionary] = []
-    conditions: List[Condition] = []
+    #conditions: List[Condition] = []
     notes: List[CommentAnnotation] = []
     instanceType: Literal["StudyDesign"]
 

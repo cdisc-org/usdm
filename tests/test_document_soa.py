@@ -5,11 +5,15 @@ from usdm_model.study_epoch import StudyEpoch
 from usdm_model.study_cell import StudyCell
 from usdm_model.study_arm import StudyArm
 from usdm_model.encounter import Encounter
-from usdm_model.study_design import StudyDesign
+from usdm_model.study_design import InterventionalStudyDesign
+from usdm_model.study_version import StudyVersion
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.scheduled_instance import ScheduledActivityInstance
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 from usdm_model.population_definition import StudyDesignPopulation
+from usdm_model.study_title import StudyTitle
+from usdm_model.organization import Organization
+from usdm_model.identifier import StudyIdentifier
 from usdm_model.timing import Timing
 from usdm_model.condition import Condition
 
@@ -376,12 +380,16 @@ def scenario_1(factory, globals):
             "timings": timings,
         },
     )
+    model_code = factory.cdisc_code("C12345", "Model Code")
+    phase_code = factory.cdisc_code("C12345", "Phase Code")
+    alias_phase = factory.alias_code(phase_code, [])
     study_design = factory.item(
-        StudyDesign,
+        InterventionalStudyDesign,
         {
             "name": "Study Design",
             "label": "",
             "description": "",
+            "studyPhase": alias_phase,
             "rationale": "XXX",
             "interventionModel": factory.cdisc_dummy(),
             "arms": [dummy_arm],
@@ -389,17 +397,53 @@ def scenario_1(factory, globals):
             "epochs": epochs,
             "activities": activities,
             "scheduledTimelines": [timeline],
-            "conditions": conditions,
             "population": populations[0],
+            "model": model_code
         },
     )
-    return study_design, timeline
+
+    study_title = factory.item(
+        StudyTitle,
+        {
+            "text": "Title",
+            "type": factory.cdisc_code("C44444", "Official Study Title"),
+        },
+    )
+    organization_1 = factory.item(
+        Organization,
+        {
+            "name": "Sponsor",
+            "type": factory.cdisc_code("C188863", "reg 1"),
+            "identifier": "REG 1",
+            "identifierScheme": "DUNS",
+            "legalAddress": None,
+        },
+    )
+    identifier = factory.item(
+        StudyIdentifier, {"text": "SPONSOR-1234", "scopeId": organization_1.id}
+    )
+    study_version = factory.item(
+        StudyVersion,
+        {
+            "versionIdentifier": "1",
+            "rationale": "Study version rationale",
+            "titles": [study_title],
+            "studyDesigns": [study_design],
+            "documentVersionId": None,
+            "studyIdentifiers": [identifier],
+            "dateValues": [],
+            "amendments": [],
+            "organizations": [organization_1],
+            "conditions": conditions,
+        },
+    )
+    return study_version, study_design, timeline
 
 
 def test_create(mocker, globals, factory):
     bs = factory.base_sheet(mocker)
-    study_design, timeline = scenario_1(factory, globals)
-    soa = SoA(bs, study_design, timeline)
+    study_version, study_design, timeline = scenario_1(factory, globals)
+    soa = SoA(bs, study_version, study_design, timeline)
     result = soa.generate()
     # print(f"RESULT: {result}")
     labels = []

@@ -302,7 +302,6 @@ def _expected():
             "standardCodeAliases": [],
         },
         "characteristics": [],
-        "conditions": [],
         "description": "The main design for the study",
         "dictionaries": [],
         "documentVersionIds": [],
@@ -514,7 +513,7 @@ def _expected():
                 "instanceType": "StudyCell",
             },
         ],
-        "studyInterventions": [],
+        "studyInterventionIds": [],
         "studyPhase": {
             "id": "X27",
             "instanceType": "AliasCode",

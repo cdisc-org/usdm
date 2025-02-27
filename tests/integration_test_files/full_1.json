@@ -3385,54 +3385,6 @@
                 "instanceType": "SyntaxTemplateDictionary"
               }
             ],
-            "conditions": [
-              {
-                "id": "Condition_1",
-                "name": "COND1",
-                "label": "X",
-                "description": "Condition for X",
-                "text": "If this is true",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [
-                  "Activity_2"
-                ],
-                "appliesToIds": [
-                  "Procedure_1"
-                ]
-              },
-              {
-                "id": "Condition_2",
-                "name": "COND2",
-                "label": "Y",
-                "description": "Condition for Y",
-                "text": "If the sky is blue",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [
-                  "Activity_2"
-                ],
-                "appliesToIds": [
-                  "Procedure_2"
-                ]
-              },
-              {
-                "id": "Condition_3",
-                "name": "COND3",
-                "label": "Z",
-                "description": "Condition for Z",
-                "text": "If the sea is red",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_3"
-                ]
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -4167,6 +4119,54 @@
         "administrableProducts": [],
         "medicalDevices": [],
         "productOrganizationRoles": [],
+        "conditions": [
+          {
+            "id": "Condition_1",
+            "name": "COND1",
+            "label": "X",
+            "description": "Condition for X",
+            "text": "If this is true",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [
+              "Activity_2"
+            ],
+            "appliesToIds": [
+              "Procedure_1"
+            ]
+          },
+          {
+            "id": "Condition_2",
+            "name": "COND2",
+            "label": "Y",
+            "description": "Condition for Y",
+            "text": "If the sky is blue",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [
+              "Activity_2"
+            ],
+            "appliesToIds": [
+              "Procedure_2"
+            ]
+          },
+          {
+            "id": "Condition_3",
+            "name": "COND3",
+            "label": "Z",
+            "description": "Condition for Z",
+            "text": "If the sea is red",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_3"
+            ]
+          }
+        ],
         "notes": [],
         "instanceType": "StudyVersion"
       }

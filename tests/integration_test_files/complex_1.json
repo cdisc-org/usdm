@@ -4001,120 +4001,6 @@
             "documentVersionIds": [],
             "eligibilityCriteria": [],
             "dictionaries": [],
-            "conditions": [
-              {
-                "id": "Condition_1",
-                "name": "COND1",
-                "label": "",
-                "description": "Eligibilty",
-                "text": "All eligibility criteria met",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_2"
-                ]
-              },
-              {
-                "id": "Condition_2",
-                "name": "COND2",
-                "label": "",
-                "description": "Discretion",
-                "text": "At the discretion of the investigator",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_4"
-                ]
-              },
-              {
-                "id": "Condition_3",
-                "name": "COND3",
-                "label": "",
-                "description": "Condition 1",
-                "text": "Stopped once bedside PG is <60 mg/dL",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_13"
-                ]
-              },
-              {
-                "id": "Condition_4",
-                "name": "COND4",
-                "label": "",
-                "description": "Condition 2",
-                "text": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_15"
-                ]
-              },
-              {
-                "id": "Condition_5",
-                "name": "COND5",
-                "label": "",
-                "description": "IMG",
-                "text": "For IMG only",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_16"
-                ]
-              },
-              {
-                "id": "Condition_6",
-                "name": "COND6",
-                "label": "",
-                "description": "Fasted",
-                "text": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_22"
-                ]
-              },
-              {
-                "id": "Condition_7",
-                "name": "COND7",
-                "label": "",
-                "description": "Childbearig potential",
-                "text": "Only females of childbearing potential",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_24"
-                ]
-              },
-              {
-                "id": "Condition_8",
-                "name": "COND8",
-                "label": "",
-                "description": "Females",
-                "text": "Only Females when needed to confirm postmenopausal status",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_26"
-                ]
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -4547,6 +4433,120 @@
         "administrableProducts": [],
         "medicalDevices": [],
         "productOrganizationRoles": [],
+        "conditions": [
+          {
+            "id": "Condition_1",
+            "name": "COND1",
+            "label": "",
+            "description": "Eligibilty",
+            "text": "All eligibility criteria met",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_2"
+            ]
+          },
+          {
+            "id": "Condition_2",
+            "name": "COND2",
+            "label": "",
+            "description": "Discretion",
+            "text": "At the discretion of the investigator",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_4"
+            ]
+          },
+          {
+            "id": "Condition_3",
+            "name": "COND3",
+            "label": "",
+            "description": "Condition 1",
+            "text": "Stopped once bedside PG is <60 mg/dL",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_13"
+            ]
+          },
+          {
+            "id": "Condition_4",
+            "name": "COND4",
+            "label": "",
+            "description": "Condition 2",
+            "text": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_15"
+            ]
+          },
+          {
+            "id": "Condition_5",
+            "name": "COND5",
+            "label": "",
+            "description": "IMG",
+            "text": "For IMG only",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_16"
+            ]
+          },
+          {
+            "id": "Condition_6",
+            "name": "COND6",
+            "label": "",
+            "description": "Fasted",
+            "text": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_22"
+            ]
+          },
+          {
+            "id": "Condition_7",
+            "name": "COND7",
+            "label": "",
+            "description": "Childbearig potential",
+            "text": "Only females of childbearing potential",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_24"
+            ]
+          },
+          {
+            "id": "Condition_8",
+            "name": "COND8",
+            "label": "",
+            "description": "Females",
+            "text": "Only Females when needed to confirm postmenopausal status",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_26"
+            ]
+          }
+        ],
         "notes": [],
         "instanceType": "StudyVersion"
       }

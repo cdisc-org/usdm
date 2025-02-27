@@ -10415,43 +10415,6 @@
                 "instanceType": "SyntaxTemplateDictionary"
               }
             ],
-            "conditions": [
-              {
-                "id": "Condition_1",
-                "name": "COND1",
-                "label": "HA1C",
-                "description": "Hemoglobin A<sup>1C</sup> and insulin-dependent subjects",
-                "text": "Performed if patient is an insulin-dependent diabetic",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [
-                  "ScheduledActivityInstance_7"
-                ],
-                "appliesToIds": [
-                  "Activity_24"
-                ]
-              },
-              {
-                "id": "Condition_2",
-                "name": "COND2",
-                "label": "Practice",
-                "description": "Questionnaire practice condition",
-                "text": "Practice only - It is recommended that a sampling of the CIBIC+, ADAS-Cog, DAD, and NPI-X be administered at Visit 1. Data from this sampling would not be considered as study data and would not be collected.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [
-                  "ScheduledActivityInstance_7"
-                ],
-                "appliesToIds": [
-                  "Activity_27",
-                  "Activity_28",
-                  "Activity_29",
-                  "Activity_30"
-                ]
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -11779,6 +11742,43 @@
         "administrableProducts": [],
         "medicalDevices": [],
         "productOrganizationRoles": [],
+        "conditions": [
+          {
+            "id": "Condition_1",
+            "name": "COND1",
+            "label": "HA1C",
+            "description": "Hemoglobin A<sup>1C</sup> and insulin-dependent subjects",
+            "text": "Performed if patient is an insulin-dependent diabetic",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [
+              "ScheduledActivityInstance_7"
+            ],
+            "appliesToIds": [
+              "Activity_24"
+            ]
+          },
+          {
+            "id": "Condition_2",
+            "name": "COND2",
+            "label": "Practice",
+            "description": "Questionnaire practice condition",
+            "text": "Practice only - It is recommended that a sampling of the CIBIC+, ADAS-Cog, DAD, and NPI-X be administered at Visit 1. Data from this sampling would not be considered as study data and would not be collected.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [
+              "ScheduledActivityInstance_7"
+            ],
+            "appliesToIds": [
+              "Activity_27",
+              "Activity_28",
+              "Activity_29",
+              "Activity_30"
+            ]
+          }
+        ],
         "notes": [],
         "instanceType": "StudyVersion"
       }

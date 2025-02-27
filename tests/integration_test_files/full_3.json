@@ -11528,359 +11528,6 @@
               }
             ],
             "dictionaries": [],
-            "conditions": [
-              {
-                "id": "Condition_1",
-                "name": "COND1",
-                "label": "Eligibilty",
-                "description": "Eligibilty",
-                "text": "All eligibility criteria met",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Procedure_5"
-                ]
-              },
-              {
-                "id": "Condition_2",
-                "name": "COND2",
-                "label": "",
-                "description": "Condition 1",
-                "text": "Stopped once bedside PG is <60 mg/dL",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_11"
-                ]
-              },
-              {
-                "id": "Condition_3",
-                "name": "COND3",
-                "label": "",
-                "description": "Condition 2",
-                "text": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_13"
-                ]
-              },
-              {
-                "id": "Condition_4",
-                "name": "COND4",
-                "label": "Injection site assessment",
-                "description": "Injection site assessment only required for IMG",
-                "text": "Injection-site assessment for IMG only.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_14"
-                ]
-              },
-              {
-                "id": "Condition_5",
-                "name": "COND5",
-                "label": "",
-                "description": "Fasted",
-                "text": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_20"
-                ]
-              },
-              {
-                "id": "Condition_6",
-                "name": "COND6",
-                "label": "",
-                "description": "Childbearig potential",
-                "text": "Only females of childbearing potential",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_22"
-                ]
-              },
-              {
-                "id": "Condition_7",
-                "name": "COND7",
-                "label": "",
-                "description": "Females",
-                "text": "Only Females when needed to confirm postmenopausal status",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_24"
-                ]
-              },
-              {
-                "id": "Condition_8",
-                "name": "COND8",
-                "label": "Admission",
-                "description": "Patient admission PG level critieria",
-                "text": "Admission can be rescheduled if PG level is not 90 to 250 mg/dL on Day 1.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Procedure_2"
-                ]
-              },
-              {
-                "id": "Condition_9",
-                "name": "COND9",
-                "label": "Discharge",
-                "description": "Patient discharge critieria",
-                "text": "Patient may be discharged 6 hours after glucagon administration. A patient may remain inpatient at the CRU at the discretion of the investigator.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Procedure_3"
-                ]
-              },
-              {
-                "id": "Condition_10",
-                "name": "COND10",
-                "label": "Physical Examination",
-                "description": "Scope of patient physical examination",
-                "text": "After screening, medical assessment only performed to include medical review and targeted examination, as appropriate.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Procedure_6"
-                ]
-              },
-              {
-                "id": "Condition_11",
-                "name": "COND11",
-                "label": "Hypoglycemia induction check",
-                "description": "Ability of patient to undergo hypoglycemia induction",
-                "text": "Review patients\u2019 insulin regimens to confirm acceptability to undergo the procedure to induce hypoglycemia.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_10"
-                ]
-              },
-              {
-                "id": "Condition_12",
-                "name": "COND12",
-                "label": "Carbohydrate-rich meal.",
-                "description": "Provision of carbohydrate-rich meal.",
-                "text": "After completion of all PK sampling, patients will be provided a carbohydrate-rich meal. The investigator will ensure the patient\u2019s PG is stable. A prandial insulin dose will be administered if needed.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Procedure_4"
-                ]
-              },
-              {
-                "id": "Condition_13",
-                "name": "COND13",
-                "label": "Timing of insulin infusion",
-                "description": "Timing of insulin infusion",
-                "text": "Procedures in Period 2 will occur at approximately the same time as those in Period 1. Insulin infusion is stopped once bedside PG is <60 mg/dL.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_11"
-                ]
-              },
-              {
-                "id": "Condition_14",
-                "name": "COND14",
-                "label": "Patient fasting",
-                "description": "Patient fasting for labs tests",
-                "text": "Patients do not need to fast for samples at screening or follow-up. At Periods 1 and 2, samples should be collected from patients who have fasted at least 8 hours before any study procedures.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_20"
-                ]
-              },
-              {
-                "id": "Condition_15",
-                "name": "COND15",
-                "label": "Pregnancy tests",
-                "description": "Type of pregnancy tests",
-                "text": "Serum pregnancy test will be performed at screening. Urine pregnancy test will be performed at every admission period and follow-up visit if applicable.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_22"
-                ]
-              },
-              {
-                "id": "Condition_16",
-                "name": "COND16",
-                "label": "FSH testing",
-                "description": "FSH testing",
-                "text": "When needed to confirm postmenopausal status.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_23"
-                ]
-              },
-              {
-                "id": "Condition_17",
-                "name": "COND17",
-                "label": "Ethanol testing",
-                "description": "Ethanol testing",
-                "text": "Additional tests can be done at the discretion of the investigator.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_24",
-                  "Activity_25"
-                ]
-              },
-              {
-                "id": "Condition_18",
-                "name": "COND18",
-                "label": "Genetic sampling",
-                "description": "Genetic sampling",
-                "text": "Single sample for pharmacogenetic analysis taken prior to/on Period 1 Day -1.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_28"
-                ]
-              },
-              {
-                "id": "Condition_19",
-                "name": "COND19",
-                "label": "Drug reactions",
-                "description": "Drug reactions",
-                "text": "In the event of drug hypersensitivity reactions (immediate or non-immediate), samples will be collected as close to event onset as possible, at event resolution, and 30 days following the event. Patients with TE ADA at follow-up/ED will undergo additional follow-up.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_29"
-                ]
-              },
-              {
-                "id": "Condition_20",
-                "name": "COND20",
-                "label": "Nasal site inspection",
-                "description": "Nasal site inspection",
-                "text": "Nasal inspection both for IMG and LY900018.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_15"
-                ]
-              },
-              {
-                "id": "Condition_21",
-                "name": "COND21",
-                "label": "Triplicate 12-Lead ECG",
-                "description": "Triplicate 12-Lead ECG",
-                "text": "Time points may be added for Period 1 and Period 2 if warranted and agreed upon between Lilly and the investigator. Predose time point will be between insulin infusion stop and study treatment.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_18"
-                ]
-              },
-              {
-                "id": "Condition_22",
-                "name": "COND22",
-                "label": "PK (Glucagon)",
-                "description": "PK (Glucagon)",
-                "text": "Sampling times are relative to the time of study treatment administration (0 min). Predose time point will be between insulin infusion stop and study treatment.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_26"
-                ]
-              },
-              {
-                "id": "Condition_23",
-                "name": "COND23",
-                "label": "Plasma Glucose",
-                "description": "Plasma Glucose",
-                "text": "Sampling times are relative to the time of study treatment administration (0 min). Predose time point will be between insulin infusion stop and study treatment.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_27"
-                ]
-              },
-              {
-                "id": "Condition_24",
-                "name": "COND24",
-                "label": "Nasal and Non-Nasal Score",
-                "description": "Nasal and Non-Nasal Score",
-                "text": "Sampling times are relative to the time of study treatment administration (0 min). Questionnaire will be collected in both LY900018 and IMG treatment groups in both periods.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_31"
-                ]
-              },
-              {
-                "id": "Condition_25",
-                "name": "COND25",
-                "label": "Edinburgh Scale",
-                "description": "Edinburgh Scale",
-                "text": "Sampling times are relative to the time of study treatment administration (0 min). During hypoglycemia induction will be when PG \u226475 mg/dL. Predose time point will be between insulin infusion stop and study treatment.",
-                "dictionaryId": null,
-                "notes": [],
-                "instanceType": "Condition",
-                "contextIds": [],
-                "appliesToIds": [
-                  "Activity_32"
-                ]
-              }
-            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
@@ -13347,6 +12994,359 @@
         "administrableProducts": [],
         "medicalDevices": [],
         "productOrganizationRoles": [],
+        "conditions": [
+          {
+            "id": "Condition_1",
+            "name": "COND1",
+            "label": "Eligibilty",
+            "description": "Eligibilty",
+            "text": "All eligibility criteria met",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Procedure_5"
+            ]
+          },
+          {
+            "id": "Condition_2",
+            "name": "COND2",
+            "label": "",
+            "description": "Condition 1",
+            "text": "Stopped once bedside PG is <60 mg/dL",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_11"
+            ]
+          },
+          {
+            "id": "Condition_3",
+            "name": "COND3",
+            "label": "",
+            "description": "Condition 2",
+            "text": "5 minutes after bedside PG reaches <60 mg/dL and insulin infusion is stopped.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_13"
+            ]
+          },
+          {
+            "id": "Condition_4",
+            "name": "COND4",
+            "label": "Injection site assessment",
+            "description": "Injection site assessment only required for IMG",
+            "text": "Injection-site assessment for IMG only.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_14"
+            ]
+          },
+          {
+            "id": "Condition_5",
+            "name": "COND5",
+            "label": "",
+            "description": "Fasted",
+            "text": "At periods 1 and 2 pts should have fasted at least 8 hoours before any study procedures",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_20"
+            ]
+          },
+          {
+            "id": "Condition_6",
+            "name": "COND6",
+            "label": "",
+            "description": "Childbearig potential",
+            "text": "Only females of childbearing potential",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_22"
+            ]
+          },
+          {
+            "id": "Condition_7",
+            "name": "COND7",
+            "label": "",
+            "description": "Females",
+            "text": "Only Females when needed to confirm postmenopausal status",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_24"
+            ]
+          },
+          {
+            "id": "Condition_8",
+            "name": "COND8",
+            "label": "Admission",
+            "description": "Patient admission PG level critieria",
+            "text": "Admission can be rescheduled if PG level is not 90 to 250 mg/dL on Day 1.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Procedure_2"
+            ]
+          },
+          {
+            "id": "Condition_9",
+            "name": "COND9",
+            "label": "Discharge",
+            "description": "Patient discharge critieria",
+            "text": "Patient may be discharged 6 hours after glucagon administration. A patient may remain inpatient at the CRU at the discretion of the investigator.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Procedure_3"
+            ]
+          },
+          {
+            "id": "Condition_10",
+            "name": "COND10",
+            "label": "Physical Examination",
+            "description": "Scope of patient physical examination",
+            "text": "After screening, medical assessment only performed to include medical review and targeted examination, as appropriate.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Procedure_6"
+            ]
+          },
+          {
+            "id": "Condition_11",
+            "name": "COND11",
+            "label": "Hypoglycemia induction check",
+            "description": "Ability of patient to undergo hypoglycemia induction",
+            "text": "Review patients\u2019 insulin regimens to confirm acceptability to undergo the procedure to induce hypoglycemia.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_10"
+            ]
+          },
+          {
+            "id": "Condition_12",
+            "name": "COND12",
+            "label": "Carbohydrate-rich meal.",
+            "description": "Provision of carbohydrate-rich meal.",
+            "text": "After completion of all PK sampling, patients will be provided a carbohydrate-rich meal. The investigator will ensure the patient\u2019s PG is stable. A prandial insulin dose will be administered if needed.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Procedure_4"
+            ]
+          },
+          {
+            "id": "Condition_13",
+            "name": "COND13",
+            "label": "Timing of insulin infusion",
+            "description": "Timing of insulin infusion",
+            "text": "Procedures in Period 2 will occur at approximately the same time as those in Period 1. Insulin infusion is stopped once bedside PG is <60 mg/dL.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_11"
+            ]
+          },
+          {
+            "id": "Condition_14",
+            "name": "COND14",
+            "label": "Patient fasting",
+            "description": "Patient fasting for labs tests",
+            "text": "Patients do not need to fast for samples at screening or follow-up. At Periods 1 and 2, samples should be collected from patients who have fasted at least 8 hours before any study procedures.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_20"
+            ]
+          },
+          {
+            "id": "Condition_15",
+            "name": "COND15",
+            "label": "Pregnancy tests",
+            "description": "Type of pregnancy tests",
+            "text": "Serum pregnancy test will be performed at screening. Urine pregnancy test will be performed at every admission period and follow-up visit if applicable.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_22"
+            ]
+          },
+          {
+            "id": "Condition_16",
+            "name": "COND16",
+            "label": "FSH testing",
+            "description": "FSH testing",
+            "text": "When needed to confirm postmenopausal status.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_23"
+            ]
+          },
+          {
+            "id": "Condition_17",
+            "name": "COND17",
+            "label": "Ethanol testing",
+            "description": "Ethanol testing",
+            "text": "Additional tests can be done at the discretion of the investigator.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_24",
+              "Activity_25"
+            ]
+          },
+          {
+            "id": "Condition_18",
+            "name": "COND18",
+            "label": "Genetic sampling",
+            "description": "Genetic sampling",
+            "text": "Single sample for pharmacogenetic analysis taken prior to/on Period 1 Day -1.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_28"
+            ]
+          },
+          {
+            "id": "Condition_19",
+            "name": "COND19",
+            "label": "Drug reactions",
+            "description": "Drug reactions",
+            "text": "In the event of drug hypersensitivity reactions (immediate or non-immediate), samples will be collected as close to event onset as possible, at event resolution, and 30 days following the event. Patients with TE ADA at follow-up/ED will undergo additional follow-up.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_29"
+            ]
+          },
+          {
+            "id": "Condition_20",
+            "name": "COND20",
+            "label": "Nasal site inspection",
+            "description": "Nasal site inspection",
+            "text": "Nasal inspection both for IMG and LY900018.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_15"
+            ]
+          },
+          {
+            "id": "Condition_21",
+            "name": "COND21",
+            "label": "Triplicate 12-Lead ECG",
+            "description": "Triplicate 12-Lead ECG",
+            "text": "Time points may be added for Period 1 and Period 2 if warranted and agreed upon between Lilly and the investigator. Predose time point will be between insulin infusion stop and study treatment.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_18"
+            ]
+          },
+          {
+            "id": "Condition_22",
+            "name": "COND22",
+            "label": "PK (Glucagon)",
+            "description": "PK (Glucagon)",
+            "text": "Sampling times are relative to the time of study treatment administration (0 min). Predose time point will be between insulin infusion stop and study treatment.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_26"
+            ]
+          },
+          {
+            "id": "Condition_23",
+            "name": "COND23",
+            "label": "Plasma Glucose",
+            "description": "Plasma Glucose",
+            "text": "Sampling times are relative to the time of study treatment administration (0 min). Predose time point will be between insulin infusion stop and study treatment.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_27"
+            ]
+          },
+          {
+            "id": "Condition_24",
+            "name": "COND24",
+            "label": "Nasal and Non-Nasal Score",
+            "description": "Nasal and Non-Nasal Score",
+            "text": "Sampling times are relative to the time of study treatment administration (0 min). Questionnaire will be collected in both LY900018 and IMG treatment groups in both periods.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_31"
+            ]
+          },
+          {
+            "id": "Condition_25",
+            "name": "COND25",
+            "label": "Edinburgh Scale",
+            "description": "Edinburgh Scale",
+            "text": "Sampling times are relative to the time of study treatment administration (0 min). During hypoglycemia induction will be when PG \u226475 mg/dL. Predose time point will be between insulin infusion stop and study treatment.",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "Condition",
+            "contextIds": [],
+            "appliesToIds": [
+              "Activity_32"
+            ]
+          }
+        ],
         "notes": [],
         "instanceType": "StudyVersion"
       }
