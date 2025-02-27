@@ -145,8 +145,8 @@ class StudyProductSheet(BaseSheet):
         name = self.read_cell_by_name(index, "referenceSubstanceStrengthName")
         if name:
             numerator = self._read_numerator(
-                    index, "referenceSubstanceStrengthNumerator"
-                )
+                index, "referenceSubstanceStrengthNumerator"
+            )
             numerator_range = numerator if isinstance(numerator, Range) else None
             numerator_quantity = numerator if isinstance(numerator, Quantity) else None
             params = {

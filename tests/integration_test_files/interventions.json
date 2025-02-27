@@ -9151,39 +9151,19 @@
               "label": "Overall study population",
               "description": "Overall study population",
               "includesHealthySubjects": false,
-              "plannedEnrollmentNumber": {
-                "id": "Range_2",
-                "minValue": {
-                  "id": "Quantity_10",
-                  "value": 75.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "maxValue": {
-                  "id": "Quantity_11",
-                  "value": 75.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "isApproximate": false,
-                "instanceType": "Range"
+              "plannedEnrollmentNumberRange": null,
+              "plannedEnrollmentNumberQuantity": {
+                "id": "Quantity_9",
+                "value": 75.0,
+                "unit": null,
+                "instanceType": "Quantity"
               },
-              "plannedCompletionNumber": {
-                "id": "Range_1",
-                "minValue": {
-                  "id": "Quantity_8",
-                  "value": 66.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "maxValue": {
-                  "id": "Quantity_9",
-                  "value": 66.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "isApproximate": false,
-                "instanceType": "Range"
+              "plannedCompletionNumberRange": null,
+              "plannedCompletionNumberQuantity": {
+                "id": "Quantity_8",
+                "value": 66.0,
+                "unit": null,
+                "instanceType": "Quantity"
               },
               "plannedSex": [
                 {
@@ -9243,30 +9223,21 @@
                   "label": "Type-1 Diabetes Mellitus Cohort",
                   "description": "Type-1 Diabetes Mellitus Cohort",
                   "includesHealthySubjects": false,
-                  "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": {
-                    "id": "Range_3",
-                    "minValue": {
-                      "id": "Quantity_12",
-                      "value": 30.0,
-                      "unit": null,
-                      "instanceType": "Quantity"
-                    },
-                    "maxValue": {
-                      "id": "Quantity_13",
-                      "value": 30.0,
-                      "unit": null,
-                      "instanceType": "Quantity"
-                    },
-                    "isApproximate": false,
-                    "instanceType": "Range"
+                  "plannedEnrollmentNumberRange": null,
+                  "plannedEnrollmentNumberQuantity": null,
+                  "plannedCompletionNumberRange": null,
+                  "plannedCompletionNumberQuantity": {
+                    "id": "Quantity_10",
+                    "value": 30.0,
+                    "unit": null,
+                    "instanceType": "Quantity"
                   },
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": {
-                    "id": "Range_4",
+                    "id": "Range_1",
                     "minValue": {
-                      "id": "Quantity_14",
+                      "id": "Quantity_11",
                       "value": 18.0,
                       "unit": {
                         "id": "AliasCode_218",
@@ -9284,7 +9255,7 @@
                       "instanceType": "Quantity"
                     },
                     "maxValue": {
-                      "id": "Quantity_15",
+                      "id": "Quantity_12",
                       "value": 64.0,
                       "unit": {
                         "id": "AliasCode_218",
@@ -9315,30 +9286,21 @@
                   "label": "Type-2 Diabetes Mellitus Cohort",
                   "description": "Type-2 Diabetes Mellitus Cohort",
                   "includesHealthySubjects": false,
-                  "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": {
-                    "id": "Range_5",
-                    "minValue": {
-                      "id": "Quantity_16",
-                      "value": 30.0,
-                      "unit": null,
-                      "instanceType": "Quantity"
-                    },
-                    "maxValue": {
-                      "id": "Quantity_17",
-                      "value": 30.0,
-                      "unit": null,
-                      "instanceType": "Quantity"
-                    },
-                    "isApproximate": false,
-                    "instanceType": "Range"
+                  "plannedEnrollmentNumberRange": null,
+                  "plannedEnrollmentNumberQuantity": null,
+                  "plannedCompletionNumberRange": null,
+                  "plannedCompletionNumberQuantity": {
+                    "id": "Quantity_13",
+                    "value": 30.0,
+                    "unit": null,
+                    "instanceType": "Quantity"
                   },
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": {
-                    "id": "Range_6",
+                    "id": "Range_2",
                     "minValue": {
-                      "id": "Quantity_18",
+                      "id": "Quantity_14",
                       "value": 20.0,
                       "unit": {
                         "id": "AliasCode_219",
@@ -9356,7 +9318,7 @@
                       "instanceType": "Quantity"
                     },
                     "maxValue": {
-                      "id": "Quantity_19",
+                      "id": "Quantity_15",
                       "value": 70.0,
                       "unit": {
                         "id": "AliasCode_219",
@@ -12636,7 +12598,7 @@
           {
             "id": "NarrativeContentItem_2",
             "name": "NCI_2",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>Title of Study:</b></p>\n<p>A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced\n    Hypoglycemia in Japanese Patients with Diabetes Mellitus</p>\n<p><b>Rationale:</b></p>\n<usdm:ref attribute=\"rationale\" id=\"StudyVersion_1\" klass=\"StudyVersion\"></usdm:ref>\n<p><b>Objectives Endpoints:</b></p>\n<table class=\"table\">\n<tr>\n<th>Objectives</th>\n<th>Endpoints</th>\n</tr>\n<tr>\n<td>\n<p><b>Primary</b></p>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_1\" klass=\"Objective\"></usdm:ref>\n</p>\n</td>\n<td>\n<p>\u00a0</p>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_1\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</td>\n</tr>\n<tr>\n<td>\n<p><b>Secondary</b></p>\n<ul>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_2\" klass=\"Objective\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_3\" klass=\"Objective\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_4\" klass=\"Objective\"></usdm:ref>\n</p>\n</li>\n</ul>\n</td>\n<td>\n<p>\u00a0</p>\n<ul>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_2\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_3\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_4\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</li>\n</ul>\n</td>\n</tr>\n</table>\n<p><small>Abbreviations: AE = adverse event; AUC = area under the concentration versus time curve; BG max = maximal\n      plasma glucose concentration; C max = maximal concentration; IMG = intramuscular glucagon; PD = pharmacodynamics;\n      PG = plasma glucose; PK = pharmacokinetics; SAE = serious adverse event; TEAE = treatment-emergent adverse event;\n      T max = time to maximal concentration.</small></p>\n<p><b>Summary of Study Design:</b></p>\n<p>Study I8R-JE-IGBJ is a Phase 3, multicenter, randomized, open-label, active comparator, single-dose, 2-treatment,\n    2-period crossover study in Japanese patients with T1DM and patients with T2DM.</p>\n<p><b>Treatment Arms and Planned Duration for an Individual Patient:</b></p>\n<p>LY900018: Single 3-mg dose; nasal administration by study site personnel<br/>\n    IMG (GlucaGen, Novo Nordisk A/S): Single 1-mg dose; IM injection by study site personnel</p>\n<p>Patients will undergo a screening examination within 28 days prior to enrollment. Patients will be administered a\n    single dose in Periods 1 and 2, which will be separated by a washout period of 3 to 14 days. Patients will return\n    for a follow-up visit 26 to 30 days after the last study treatment.</p>\n<p><b>Number of Patients:</b></p>\n<p>Seventy five (<usdm:ref attribute=\"maxValue\" id=\"Range_2\" klass=\"Range\"></usdm:ref>) patients may be enrolled in order to have at\n    least <usdm:ref attribute=\"maxValue\" id=\"Range_1\" klass=\"Range\"></usdm:ref> patients (at least <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref> patients with T1DM and <usdm:ref attribute=\"maxValue\" id=\"Range_5\" klass=\"Range\"></usdm:ref>\n    T2DM, respectively) complete both periods with evaluable primary outcome. If patients discontinue from the study\n    before completion of both periods with evaluable primary outcome for any reason, the patient may be replaced.\n    Replacement\n    should not occur beyond <usdm:ref attribute=\"maxValue\" id=\"Range_2\" klass=\"Range\"></usdm:ref> patients enrolled, if it is expected to have at\n    least <usdm:ref attribute=\"maxValue\" id=\"Range_1\" klass=\"Range\"></usdm:ref> patients complete the study.</p>\n<p><b>Statistical Analysis:</b></p>\n<p>A total of 66 completers are required in the study in order to achieve the primary objective with at least 90%\n    power using the following assumptions:</p>\n<ul>\n<li>\n<p>A treatment success rate of 98% for both treatments</p>\n</li>\n<li>\n<p>A non-inferiority margin (NIM) of 10%</p>\n</li>\n<li>\n<p>One-sided alpha level of 0.025</p>\n</li>\n<li>\n<p>A within-patient correlation of zero between 2 treatment visits</p>\n</li>\n</ul>\n<p>The primary analysis will be a treatment comparison\n    of the percentage of patients, including both T1DM and T2DM, who achieve treatment success. The percentage of\n    patients who achieve treatment success within each treatment group and the difference in the percentages between the\n    2\n    treatment groups will be computed. A 2-sided 95% confidence interval (CI) will be obtained from the 1-sample mean of\n    the paired differences in primary outcome (1=outcome observed; 0=outcome not observed) across 2 treatment visits.\n    Non-inferiority of LY900018 will be declared if the upper limit of the 2-sided 95% CI constructed on the difference\n    in percentage (IMG - LY900018) is less than the NIM of 10%.</p>\n</div>\"",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>Title of Study:</b></p>\n<p>A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced\n    Hypoglycemia in Japanese Patients with Diabetes Mellitus</p>\n<p><b>Rationale:</b></p>\n<usdm:ref attribute=\"rationale\" id=\"StudyVersion_1\" klass=\"StudyVersion\"></usdm:ref>\n<p><b>Objectives Endpoints:</b></p>\n<table class=\"table\">\n<tr>\n<th>Objectives</th>\n<th>Endpoints</th>\n</tr>\n<tr>\n<td>\n<p><b>Primary</b></p>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_1\" klass=\"Objective\"></usdm:ref>\n</p>\n</td>\n<td>\n<p>\u00a0</p>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_1\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</td>\n</tr>\n<tr>\n<td>\n<p><b>Secondary</b></p>\n<ul>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_2\" klass=\"Objective\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_3\" klass=\"Objective\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Objective_4\" klass=\"Objective\"></usdm:ref>\n</p>\n</li>\n</ul>\n</td>\n<td>\n<p>\u00a0</p>\n<ul>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_2\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_3\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</li>\n<li>\n<p>\n<usdm:ref attribute=\"text\" id=\"Endpoint_4\" klass=\"Endpoint\"></usdm:ref>\n</p>\n</li>\n</ul>\n</td>\n</tr>\n</table>\n<p><small>Abbreviations: AE = adverse event; AUC = area under the concentration versus time curve; BG max = maximal\n      plasma glucose concentration; C max = maximal concentration; IMG = intramuscular glucagon; PD = pharmacodynamics;\n      PG = plasma glucose; PK = pharmacokinetics; SAE = serious adverse event; TEAE = treatment-emergent adverse event;\n      T max = time to maximal concentration.</small></p>\n<p><b>Summary of Study Design:</b></p>\n<p>Study I8R-JE-IGBJ is a Phase 3, multicenter, randomized, open-label, active comparator, single-dose, 2-treatment,\n    2-period crossover study in Japanese patients with T1DM and patients with T2DM.</p>\n<p><b>Treatment Arms and Planned Duration for an Individual Patient:</b></p>\n<p>LY900018: Single 3-mg dose; nasal administration by study site personnel<br/>\n    IMG (GlucaGen, Novo Nordisk A/S): Single 1-mg dose; IM injection by study site personnel</p>\n<p>Patients will undergo a screening examination within 28 days prior to enrollment. Patients will be administered a\n    single dose in Periods 1 and 2, which will be separated by a washout period of 3 to 14 days. Patients will return\n    for a follow-up visit 26 to 30 days after the last study treatment.</p>\n<p><b>Number of Patients:</b></p>\n<p>Seventy five (<usdm:ref attribute=\"value\" id=\"Quantity_9\" klass=\"Quantity\"></usdm:ref>) patients may be enrolled in order to have at\n    least <usdm:ref attribute=\"value\" id=\"Quantity_8\" klass=\"Quantity\"></usdm:ref> patients (at least <usdm:ref attribute=\"value\" id=\"Quantity_10\" klass=\"Quantity\"></usdm:ref> patients with T1DM and <usdm:ref attribute=\"value\" id=\"Quantity_13\" klass=\"Quantity\"></usdm:ref>\n    T2DM, respectively) complete both periods with evaluable primary outcome. If patients discontinue from the study\n    before completion of both periods with evaluable primary outcome for any reason, the patient may be replaced.\n    Replacement\n    should not occur beyond <usdm:ref attribute=\"value\" id=\"Quantity_9\" klass=\"Quantity\"></usdm:ref> patients enrolled, if it is expected to have at\n    least <usdm:ref attribute=\"value\" id=\"Quantity_8\" klass=\"Quantity\"></usdm:ref> patients complete the study.</p>\n<p><b>Statistical Analysis:</b></p>\n<p>A total of 66 completers are required in the study in order to achieve the primary objective with at least 90%\n    power using the following assumptions:</p>\n<ul>\n<li>\n<p>A treatment success rate of 98% for both treatments</p>\n</li>\n<li>\n<p>A non-inferiority margin (NIM) of 10%</p>\n</li>\n<li>\n<p>One-sided alpha level of 0.025</p>\n</li>\n<li>\n<p>A within-patient correlation of zero between 2 treatment visits</p>\n</li>\n</ul>\n<p>The primary analysis will be a treatment comparison\n    of the percentage of patients, including both T1DM and T2DM, who achieve treatment success. The percentage of\n    patients who achieve treatment success within each treatment group and the difference in the percentages between the\n    2\n    treatment groups will be computed. A 2-sided 95% confidence interval (CI) will be obtained from the 1-sample mean of\n    the paired differences in primary outcome (1=outcome observed; 0=outcome not observed) across 2 treatment visits.\n    Non-inferiority of LY900018 will be declared if the upper limit of the 2-sided 95% CI constructed on the difference\n    in percentage (IMG - LY900018) is less than the NIM of 10%.</p>\n</div>\"",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -12690,7 +12652,7 @@
           {
             "id": "NarrativeContentItem_11",
             "name": "NCI_11",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Seventy five (<usdm:ref attribute=\"maxValue\" id=\"Range_2\" klass=\"Range\"></usdm:ref>) patients may be enrolled in order to have at\nleast <usdm:ref attribute=\"maxValue\" id=\"Range_1\" klass=\"Range\"></usdm:ref> patients (at least <usdm:ref attribute=\"maxValue\" id=\"Range_3\" klass=\"Range\"></usdm:ref> patients with T1DM and <usdm:ref attribute=\"maxValue\" id=\"Range_5\" klass=\"Range\"></usdm:ref>\nT2DM, respectively) complete the study. For purposes of this study, a\ncompleter is defined as a patient who completes both periods with evaluable primary outcome.\nIf patients discontinue from the study before completion of both periods with evaluable primary\noutcome for any reason, the patient may be replaced to ensure <usdm:ref attribute=\"maxValue\" id=\"Range_1\" klass=\"Range\"></usdm:ref> patients complete the study.\nThe replacement patients will be assigned the same treatment sequence as the patients to be\nreplaced and will complete that treatment sequence in its entirety. Replacement should not occur\nbeyond <usdm:ref attribute=\"maxValue\" id=\"Range_2\" klass=\"Range\"></usdm:ref> patients enrolled, if it is expected to have at\nleast <usdm:ref attribute=\"maxValue\" id=\"Range_1\" klass=\"Range\"></usdm:ref> patients complete the study.</p></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Seventy five (<usdm:ref attribute=\"value\" id=\"Quantity_9\" klass=\"Quantity\"></usdm:ref>) patients may be enrolled in order to have at\nleast <usdm:ref attribute=\"value\" id=\"Quantity_8\" klass=\"Quantity\"></usdm:ref> patients (at least <usdm:ref attribute=\"value\" id=\"Quantity_10\" klass=\"Quantity\"></usdm:ref> patients with T1DM and <usdm:ref attribute=\"value\" id=\"Quantity_13\" klass=\"Quantity\"></usdm:ref>\nT2DM, respectively) complete the study. For purposes of this study, a\ncompleter is defined as a patient who completes both periods with evaluable primary outcome.\nIf patients discontinue from the study before completion of both periods with evaluable primary\noutcome for any reason, the patient may be replaced to ensure <usdm:ref attribute=\"value\" id=\"Quantity_8\" klass=\"Quantity\"></usdm:ref> patients complete the study.\nThe replacement patients will be assigned the same treatment sequence as the patients to be\nreplaced and will complete that treatment sequence in its entirety. Replacement should not occur\nbeyond <usdm:ref attribute=\"value\" id=\"Quantity_9\" klass=\"Quantity\"></usdm:ref> patients enrolled, if it is expected to have at\nleast <usdm:ref attribute=\"value\" id=\"Quantity_8\" klass=\"Quantity\"></usdm:ref> patients complete the study.</p></div>",
             "instanceType": "NarrativeContentItem"
           },
           {

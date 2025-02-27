@@ -1,6 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
 from usdm_model.range import Range
+from usdm_model.quantity import Quantity
 from usdm_model.characteristic import Characteristic
 from usdm_model.indication import Indication
 from usdm_excel.globals import Globals
@@ -21,18 +22,15 @@ class StudyDesignPopulationSheet(BaseSheet):
                 name = self.read_cell_by_name(index, "name")
                 description = self.read_cell_by_name(index, "description")
                 label = self.read_cell_by_name(index, "label")
-                required_number = self.read_range_cell_by_name(
+                completion_number = self._read_range_quantity(
                     index,
                     "plannedCompletionNumber",
-                    require_units=False,
-                    allow_empty=True,
                 )
-                recruit_number = self.read_range_cell_by_name(
+                enrollment_number = self._read_range_quantity(
                     index,
                     "plannedEnrollmentNumber",
-                    require_units=False,
-                    allow_empty=True,
                 )
+
                 planned_age = self.read_range_cell_by_name(
                     index, "plannedAge", require_units=True, allow_empty=True
                 )
@@ -51,8 +49,8 @@ class StudyDesignPopulationSheet(BaseSheet):
                         name,
                         description,
                         label,
-                        recruit_number,
-                        required_number,
+                        enrollment_number,
+                        completion_number,
                         planned_age,
                         healthy,
                         codes,
@@ -62,8 +60,8 @@ class StudyDesignPopulationSheet(BaseSheet):
                         name,
                         description,
                         label,
-                        recruit_number,
-                        required_number,
+                        enrollment_number,
+                        completion_number,
                         planned_age,
                         healthy,
                         codes,
@@ -92,19 +90,33 @@ class StudyDesignPopulationSheet(BaseSheet):
         name: str,
         description: str,
         label: str,
-        recruit_number: Range,
-        required_number: Range,
+        enrollment_number: Range | Quantity,
+        completion_number: Range | Quantity,
         planned_age: Range,
         healthy: bool,
         codes: list,
     ) -> StudyDesignPopulation:
+        planned_completion_range = (
+            completion_number if isinstance(completion_number, Range) else None
+        )
+        planned_completion_quantity = (
+            completion_number if isinstance(completion_number, Quantity) else None
+        )
+        planned_enrollment_range = (
+            enrollment_number if isinstance(enrollment_number, Range) else None
+        )
+        planned_enrollment_quantity = (
+            enrollment_number if isinstance(enrollment_number, Quantity) else None
+        )
         params = {
             "name": name,
             "description": description,
             "label": label,
             "includesHealthySubjects": healthy,
-            "plannedEnrollmentNumber": recruit_number,
-            "plannedCompletionNumber": required_number,
+            "plannedEnrollmentNumberRange": planned_enrollment_range,
+            "plannedEnrollmentNumberQuantity": planned_enrollment_quantity,
+            "plannedCompletionNumberRange": planned_completion_range,
+            "plannedCompletionNumberQuantity": planned_completion_quantity,
             "plannedAge": planned_age,
             "plannedSex": codes,
         }
@@ -118,14 +130,26 @@ class StudyDesignPopulationSheet(BaseSheet):
         name: str,
         description: str,
         label: str,
-        recruit_number: Range,
-        required_number: Range,
+        enrollment_number: Range | Quantity,
+        completion_number: Range | Quantity,
         planned_age: Range,
         healthy: bool,
         codes: list,
         characteristics: list,
         indications: list,
     ) -> StudyCohort:
+        planned_completion_range = (
+            completion_number if isinstance(completion_number, Range) else None
+        )
+        planned_completion_quantity = (
+            completion_number if isinstance(completion_number, Quantity) else None
+        )
+        planned_enrollment_range = (
+            enrollment_number if isinstance(enrollment_number, Range) else None
+        )
+        planned_enrollment_quantity = (
+            enrollment_number if isinstance(enrollment_number, Quantity) else None
+        )
         characteristic_refs = self._resolve_characteristics(characteristics)
         indication_refs = self._resolve_indications(indications)
         params = {
@@ -133,8 +157,10 @@ class StudyDesignPopulationSheet(BaseSheet):
             "description": description,
             "label": label,
             "includesHealthySubjects": healthy,
-            "plannedEnrollmentNumber": recruit_number,
-            "plannedCompletionNumber": required_number,
+            "plannedEnrollmentNumberRange": planned_enrollment_range,
+            "plannedEnrollmentNumberQuantity": planned_enrollment_quantity,
+            "plannedCompletionNumberRange": planned_completion_range,
+            "plannedCompletionNumberQuantity": planned_completion_quantity,
             "plannedAge": planned_age,
             "plannedSex": codes,
             "characteristics": characteristic_refs,
@@ -157,7 +183,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         return results
 
     def _resolve_indications(self, names):
-        print(f"Resolving indications: {names}")
+        #print(f"Resolving indications: {names}")
         results = []
         for name in names:
             object = self.globals.cross_references.get(Indication, name)
@@ -166,3 +192,13 @@ class StudyDesignPopulationSheet(BaseSheet):
             else:
                 self._general_warning(f"Indication '{name}' not found")
         return results
+
+    def _read_range_quantity(self, index, field_name):
+        text = self.read_cell_by_name(index, field_name)
+        return (
+            self.read_range_cell_by_name(index, field_name, require_units=False, allow_empty=True)
+            if ".." in text
+            else self.read_quantity_cell_by_name(
+                index, field_name, allow_missing_units=True, allow_empty=True
+            )
+        )

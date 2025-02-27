@@ -9954,39 +9954,19 @@
               "label": "",
               "description": "Patients with Probable Mild to Moderate Alzheimer's Disease",
               "includesHealthySubjects": false,
-              "plannedEnrollmentNumber": {
-                "id": "Range_2",
-                "minValue": {
-                  "id": "Quantity_4",
-                  "value": 300.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "maxValue": {
-                  "id": "Quantity_5",
-                  "value": 300.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "isApproximate": false,
-                "instanceType": "Range"
+              "plannedEnrollmentNumberRange": null,
+              "plannedEnrollmentNumberQuantity": {
+                "id": "Quantity_3",
+                "value": 300.0,
+                "unit": null,
+                "instanceType": "Quantity"
               },
-              "plannedCompletionNumber": {
-                "id": "Range_1",
-                "minValue": {
-                  "id": "Quantity_2",
-                  "value": 300.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "maxValue": {
-                  "id": "Quantity_3",
-                  "value": 300.0,
-                  "unit": null,
-                  "instanceType": "Quantity"
-                },
-                "isApproximate": false,
-                "instanceType": "Range"
+              "plannedCompletionNumberRange": null,
+              "plannedCompletionNumberQuantity": {
+                "id": "Quantity_2",
+                "value": 300.0,
+                "unit": null,
+                "instanceType": "Quantity"
               },
               "plannedSex": [
                 {
@@ -10032,9 +10012,9 @@
                 "EligibilityCriterion_31"
               ],
               "plannedAge": {
-                "id": "Range_3",
+                "id": "Range_1",
                 "minValue": {
-                  "id": "Quantity_6",
+                  "id": "Quantity_4",
                   "value": 50.0,
                   "unit": {
                     "id": "AliasCode_213",
@@ -10052,7 +10032,7 @@
                   "instanceType": "Quantity"
                 },
                 "maxValue": {
-                  "id": "Quantity_7",
+                  "id": "Quantity_5",
                   "value": 100.0,
                   "unit": {
                     "id": "AliasCode_213",
@@ -11993,13 +11973,13 @@
                   {
                     "id": "ParameterMap_1",
                     "tag": "min_age",
-                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"minValue\"></usdm:ref>",
+                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_1\" attribute=\"minValue\"></usdm:ref>",
                     "instanceType": "ParameterMap"
                   },
                   {
                     "id": "ParameterMap_2",
                     "tag": "max_age",
-                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_3\" attribute=\"maxValue\"></usdm:ref>",
+                    "reference": "<usdm:ref klass=\"Range\" id=\"Range_1\" attribute=\"maxValue\"></usdm:ref>",
                     "instanceType": "ParameterMap"
                   },
                   {

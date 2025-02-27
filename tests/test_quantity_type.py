@@ -7,6 +7,7 @@ def test_quantity_type(mocker, globals):
         ("15 days", "15", "days", "C25301", "15 days"),
         ("1%", "1", "%", "C25613", "1%"),
         ("  10    %", "10", "%", "C25613", "10    %"),
+        ("  10.0    %", "10", "%", "C25613", "10.0    %"),
     ]
     for index, test in enumerate(test_data):
         item = QuantityType(test[0], globals)
@@ -40,6 +41,7 @@ def test_quantity_type_no_units(mocker, globals):
     test_data = [
         (" 15 ", "15", None, None, False, "15"),
         (" 15 C ", "15", "C", "C42559", False, "15 C"),
+        (" 15.0 ", "15", None, None, False, "15.0"),
     ]
     for index, test in enumerate(test_data):
         # print(f"TEST {test}")

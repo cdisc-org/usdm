@@ -5,6 +5,7 @@ from usdm_excel.study_design_population_sheet.study_design_population_sheet impo
 )
 from usdm_model.characteristic import Characteristic
 from usdm_model.indication import Indication
+
 xfail = pytest.mark.xfail
 
 
@@ -221,7 +222,8 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedCompletionNumber": {
+                "plannedCompletionNumberQuantity": None,
+                "plannedCompletionNumberRange": {
                     "id": "X_16",
                     "instanceType": "Range",
                     "isApproximate": False,
@@ -238,7 +240,8 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedEnrollmentNumber": {
+                "plannedEnrollmentNumberQuantity": None,
+                "plannedEnrollmentNumberRange": {
                     "id": "X_19",
                     "instanceType": "Range",
                     "isApproximate": False,
@@ -329,7 +332,8 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedCompletionNumber": {
+                "plannedCompletionNumberQuantity": None,
+                "plannedCompletionNumberRange": {
                     "id": "X_29",
                     "instanceType": "Range",
                     "isApproximate": False,
@@ -346,7 +350,8 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedEnrollmentNumber": {
+                "plannedEnrollmentNumberQuantity": None,
+                "plannedEnrollmentNumberRange": {
                     "id": "X_32",
                     "instanceType": "Range",
                     "isApproximate": False,
@@ -424,7 +429,8 @@ def test_create(mocker, globals):
                 "instanceType": "Quantity",
             },
         },
-        "plannedCompletionNumber": {
+        "plannedCompletionNumberQuantity": None,
+        "plannedCompletionNumberRange": {
             "id": "X_3",
             "instanceType": "Range",
             "isApproximate": False,
@@ -441,7 +447,8 @@ def test_create(mocker, globals):
                 "instanceType": "Quantity",
             },
         },
-        "plannedEnrollmentNumber": {
+        "plannedEnrollmentNumberQuantity": None,
+        "plannedEnrollmentNumberRange": {
             "id": "X_6",
             "instanceType": "Range",
             "isApproximate": False,
