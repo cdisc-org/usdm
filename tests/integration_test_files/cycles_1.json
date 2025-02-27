@@ -902,26 +902,6 @@
                 "instanceType": "BiomedicalConcept"
               }
             ],
-            "bcSurrogates": [
-              {
-                "id": "BiomedicalConceptSurrogate_1",
-                "name": "PE 1",
-                "label": "PE 1",
-                "description": "PE 1",
-                "reference": "None set",
-                "notes": [],
-                "instanceType": "BiomedicalConceptSurrogate"
-              },
-              {
-                "id": "BiomedicalConceptSurrogate_2",
-                "name": "PE 2",
-                "label": "PE 2",
-                "description": "PE 2",
-                "reference": "None set",
-                "notes": [],
-                "instanceType": "BiomedicalConceptSurrogate"
-              }
-            ],
             "arms": [
               {
                 "id": "StudyArm_1",
@@ -2651,6 +2631,26 @@
         "medicalDevices": [],
         "productOrganizationRoles": [],
         "bcCategories": [],
+        "bcSurrogates": [
+          {
+            "id": "BiomedicalConceptSurrogate_1",
+            "name": "PE 1",
+            "label": "PE 1",
+            "description": "PE 1",
+            "reference": "None set",
+            "notes": [],
+            "instanceType": "BiomedicalConceptSurrogate"
+          },
+          {
+            "id": "BiomedicalConceptSurrogate_2",
+            "name": "PE 2",
+            "label": "PE 2",
+            "description": "PE 2",
+            "reference": "None set",
+            "notes": [],
+            "instanceType": "BiomedicalConceptSurrogate"
+          }
+        ],
         "conditions": [],
         "notes": [],
         "instanceType": "StudyVersion"

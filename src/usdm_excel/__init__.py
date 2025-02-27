@@ -214,7 +214,7 @@ class USDMExcel:
             study_design.activities = self.soa.activities
             activity_ids = [item.id for item in study_design.activities]
             study_design.biomedicalConcepts = self.soa.biomedical_concepts
-            study_design.bcSurrogates = self.soa.biomedical_concept_surrogates
+            bcSurrogates = self.soa.biomedical_concept_surrogates
             for key, tl in self.study.timelines.items():
                 study_design.scheduleTimelines.append(tl.timeline)
                 for activity in tl.activities:
@@ -222,7 +222,7 @@ class USDMExcel:
                         study_design.activities.append(activity)
                         activity_ids.append(activity.id)
                 study_design.biomedicalConcepts += tl.biomedical_concepts
-                study_design.bcSurrogates += tl.biomedical_concept_surrogates
+                bcSurrogates += tl.biomedical_concept_surrogates
             self._double_link(study_design.activities, "previousId", "nextId")
             study_design.indications = self.indications.items
             study_design.studyInterventionIds = [x.id for x in self.interventions.items]
@@ -305,6 +305,7 @@ class USDMExcel:
                     productOrganizationRoles=self.product_organization_roles.items,
                     studyInterventions=self.interventions.items,
                     conditions=self.conditions.items,
+                    bcSurrogates=bcSurrogates,
                 )
                 self._globals.cross_references.add(
                     self.study_version.id, self.study_version

@@ -33,7 +33,6 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
     encounters: List[Encounter] = []
     activities: List[Activity] = []
     biomedicalConcepts: List[BiomedicalConcept] = []
-    bcSurrogates: List[BiomedicalConceptSurrogate] = []
     arms: List[StudyArm]
     studyCells: List[StudyCell]
     rationale: str

@@ -265,7 +265,6 @@ def _expected():
                 },
             },
         ],
-        "bcSurrogates": [],
         "biomedicalConcepts": [],
         "biospecimenRetentions": [
             {

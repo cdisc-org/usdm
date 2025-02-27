@@ -17,6 +17,7 @@ from .administrable_product import AdministrableProduct
 from .medical_device import MedicalDevice
 from .product_organization_role import ProductOrganizationRole
 from .biomedical_concept_category import BiomedicalConceptCategory
+from .biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from .condition import Condition
 
 class StudyVersion(ApiBaseModelWithId):
@@ -40,6 +41,7 @@ class StudyVersion(ApiBaseModelWithId):
     medicalDevices: List[MedicalDevice] = []
     productOrganizationRoles: List[ProductOrganizationRole] = []
     bcCategories: List[BiomedicalConceptCategory] = []
+    bcSurrogates: List[BiomedicalConceptSurrogate] = []
     conditions: List[Condition] = []
     notes: List[CommentAnnotation] = []
     instanceType: Literal["StudyVersion"]
