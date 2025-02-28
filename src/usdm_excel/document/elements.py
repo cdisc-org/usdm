@@ -131,7 +131,7 @@ class Elements:
         identifier = self._study_version.sponsor_identifier()
         org = self._study_version.organization(identifier.scopeId)
         results = [
-            {"instance": org, "klass": "Organization", "attribute": "name"},
+            {"instance": org, "klass": "Organization", "attribute": "label"},
             {"instance": org.legalAddress, "klass": "Address", "attribute": "text"},
         ]
         return self._set_of_references(results)

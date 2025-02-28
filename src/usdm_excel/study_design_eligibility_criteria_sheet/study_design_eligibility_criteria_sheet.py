@@ -45,6 +45,7 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
                     if ec:
                         self.globals.cross_references.add(ec.name, ec)
                         self.items.append(ec)
+                        self.globals.cross_references.add(eci.name, eci)
                         self.criterion_items.append(eci)
         except Exception as e:
             self._sheet_exception(e)

@@ -86,7 +86,7 @@ def test_study_date(elements):
 def test_organization_name_and_address(elements):
     assert (
         elements.organization_name_and_address()
-        == '<usdm:ref klass="Organization" id="Organization_1" attribute="name"/>, <usdm:ref klass="Address" id="Address_1" attribute="text"/>'
+        == '<usdm:ref klass="Organization" id="Organization_1" attribute="label"/>, <usdm:ref klass="Address" id="Address_1" attribute="text"/>'
     )
 
 
