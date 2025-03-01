@@ -83,12 +83,14 @@ def test_create(mocker, globals):
             "decode": "Inclusion Criteria",
             "id": "Code_1",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "identifier": "01",
         "nextId": None,
         "previousId": None,
         "notes": [],
         "instanceType": "EligibilityCriterion",
+        "extensionAttributes": [],
     }
     assert items.criterion_items[0].model_dump() == {
         "id": "EligibilityItemId_1",
@@ -99,6 +101,7 @@ def test_create(mocker, globals):
         "label": None,
         "description": None,
         "notes": [],
+        "extensionAttributes": [],
     }
     assert items.items[1].model_dump() == {
         "id": "EligibilityId_2",
@@ -113,12 +116,14 @@ def test_create(mocker, globals):
             "decode": "Inclusion Criteria",
             "id": "Code_2",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "identifier": "02",
         "nextId": None,
         "previousId": None,
         "notes": [],
         "instanceType": "EligibilityCriterion",
+        "extensionAttributes": [],
     }
     assert items.criterion_items[1].model_dump() == {
         "id": "EligibilityItemId_2",
@@ -129,6 +134,7 @@ def test_create(mocker, globals):
         "label": None,
         "description": None,
         "notes": [],
+        "extensionAttributes": [],
     }
     assert items.items[2].model_dump() == {
         "id": "EligibilityId_3",
@@ -143,12 +149,14 @@ def test_create(mocker, globals):
             "decode": "Exclusion Criteria",
             "id": "Code_3",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "identifier": "01",
         "nextId": None,
         "previousId": None,
         "notes": [],
         "instanceType": "EligibilityCriterion",
+        "extensionAttributes": [],
     }
     assert items.criterion_items[2].model_dump() == {
         "id": "EligibilityItemId_3",
@@ -159,6 +167,7 @@ def test_create(mocker, globals):
         "label": None,
         "description": None,
         "notes": [],
+        "extensionAttributes": [],
     }
 
 

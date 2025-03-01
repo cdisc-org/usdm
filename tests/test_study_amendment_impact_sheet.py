@@ -79,7 +79,9 @@ def test_create(mocker, globals):
             "decode": "Y",
             "id": "Code_1",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert item.items[1].model_dump() == {
         "id": "StudyAmendmentImpact_2",
@@ -94,7 +96,9 @@ def test_create(mocker, globals):
             "decode": "BBB",
             "id": "Code_2",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert item.items[2].model_dump() == {
         "id": "StudyAmendmentImpact_3",
@@ -109,7 +113,9 @@ def test_create(mocker, globals):
             "decode": "1234",
             "id": "Code_3",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
 
 

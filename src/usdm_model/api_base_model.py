@@ -1,9 +1,10 @@
-from pydantic import BaseModel, constr
-from typing import Union
 import json
 import enum
 import datetime
 from uuid import UUID
+from typing import Union, List
+from pydantic import BaseModel, Field
+from .extension import ExtensionAttribute
 
 
 # Example, see https://stackoverflow.com/questions/10252010/serializing-class-instance-to-json
@@ -43,8 +44,12 @@ class ApiBaseModel(BaseModel):
         return json.dumps(self, default=_serialize_as_json_with_type)
 
 
-class ApiBaseModelWithId(ApiBaseModel):
-    id: constr(min_length=1)
+class ApiBaseModelWithIdOnly(ApiBaseModel):
+    id: str = Field(min_length=1)
+
+
+class ApiBaseModelWithId(ApiBaseModelWithIdOnly):
+    extensionAttributes: List[ExtensionAttribute] = []
 
 
 class ApiBaseModelWithIdAndDesc(ApiBaseModelWithId):
@@ -52,7 +57,7 @@ class ApiBaseModelWithIdAndDesc(ApiBaseModelWithId):
 
 
 class ApiBaseModelWithIdAndName(ApiBaseModelWithId):
-    name: constr(min_length=1)
+    name: str = Field(min_length=1)
 
 
 class ApiBaseModelWithIdNameAndLabel(ApiBaseModelWithIdAndName):

@@ -27,18 +27,21 @@ def test_create(mocker, globals):
     assert len(item.items) == 3
     assert item.items[0].model_dump() == {
         "id": "Id_1",
+        "extensionAttributes": [],
         "instanceType": "StudyIdentifier",
         "scopeId": "Organization_1",
         "text": "NCT12345678",
     }
     assert item.items[1].model_dump() == {
         "id": "Id_2",
+        "extensionAttributes": [],
         "instanceType": "StudyIdentifier",
         "scopeId": "Organization_2",
         "text": "NCT12345679",
     }
     assert item.items[2].model_dump() == {
         "id": "Id_3",
+        "extensionAttributes": [],
         "instanceType": "StudyIdentifier",
         "scopeId": "Organization_3",
         "text": "NCT123456710",

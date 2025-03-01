@@ -55,6 +55,7 @@ def test_create_1(mocker, globals):
     assert sheet.items[0].model_dump() == {
         "administrableDoseForm": {
             "id": "Id_2",
+            "extensionAttributes": [],
             "instanceType": "AliasCode",
             "standardCode": {
                 "code": "C42998",
@@ -62,6 +63,7 @@ def test_create_1(mocker, globals):
                 "codeSystemVersion": "2024-09-27",
                 "decode": "Tablet Dosage Form",
                 "id": "Id_1",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "standardCodeAliases": [],
@@ -72,6 +74,7 @@ def test_create_1(mocker, globals):
         "ingredients": [
             {
                 "id": "Id_9",
+                "extensionAttributes": [],
                 "instanceType": "Ingredient",
                 "role": {
                     "code": "100000072072",
@@ -79,12 +82,14 @@ def test_create_1(mocker, globals):
                     "codeSystemVersion": "",
                     "decode": "Active",
                     "id": "Id_8",
+                    "extensionAttributes": [],
                     "instanceType": "Code",
                 },
                 "substance": {
                     "codes": [],
                     "description": "description 2",
                     "id": "Id_7",
+                    "extensionAttributes": [],
                     "instanceType": "Substance",
                     "label": "label 2",
                     "name": "Ingredient C",
@@ -93,9 +98,11 @@ def test_create_1(mocker, globals):
                         {
                             "denominator": {
                                 "id": "Id_15",
+                                "extensionAttributes": [],
                                 "instanceType": "Quantity",
                                 "unit": {
                                     "id": "Id_14",
+                                    "extensionAttributes": [],
                                     "instanceType": "AliasCode",
                                     "standardCode": {
                                         "code": "C48542",
@@ -103,6 +110,7 @@ def test_create_1(mocker, globals):
                                         "codeSystemVersion": "2024-09-27",
                                         "decode": "Tablet Dosing Unit",
                                         "id": "Id_13",
+                                        "extensionAttributes": [],
                                         "instanceType": "Code",
                                     },
                                     "standardCodeAliases": [],
@@ -111,15 +119,18 @@ def test_create_1(mocker, globals):
                             },
                             "description": "",
                             "id": "Id_16",
+                            "extensionAttributes": [],
                             "instanceType": "Strength",
                             "label": "",
                             "name": "60 mg",
                             "numeratorRange": None,
                             "numeratorQuantity": {
                                 "id": "Id_12",
+                                "extensionAttributes": [],
                                 "instanceType": "Quantity",
                                 "unit": {
                                     "id": "Id_11",
+                                    "extensionAttributes": [],
                                     "instanceType": "AliasCode",
                                     "standardCode": {
                                         "code": "C28253",
@@ -127,6 +138,7 @@ def test_create_1(mocker, globals):
                                         "codeSystemVersion": "2024-09-27",
                                         "decode": "Milligram",
                                         "id": "Id_10",
+                                        "extensionAttributes": [],
                                         "instanceType": "Code",
                                     },
                                     "standardCodeAliases": [],
@@ -138,6 +150,7 @@ def test_create_1(mocker, globals):
                 },
             },
         ],
+        "extensionAttributes": [],
         "instanceType": "AdministrableProduct",
         "label": "label 1",
         "name": "60 mg Study Drug",
@@ -148,6 +161,7 @@ def test_create_1(mocker, globals):
             "codeSystemVersion": "",
             "decode": "B",
             "id": "Id_3",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
         "productDesignation": {
@@ -156,6 +170,7 @@ def test_create_1(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "IMP",
             "id": "Id_4",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
         "properties": [],
@@ -165,6 +180,7 @@ def test_create_1(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Centrally Sourced",
             "id": "Id_5",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }

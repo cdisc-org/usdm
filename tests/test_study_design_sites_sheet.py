@@ -62,12 +62,14 @@ def test_create(mocker, globals):
             "decode": "GBR",
             "id": "Code1",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "description": "Big Site",
         "id": "Site_1",
         "instanceType": "StudySite",
         "label": "Site One",
         "name": "Site1",
+        "extensionAttributes": [],
     }
     assert sheet.items[1].model_dump() == {
         "country": {
@@ -77,12 +79,14 @@ def test_create(mocker, globals):
             "decode": "FRA",
             "id": "Code2",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "description": "Little Site",
         "id": "Site_2",
         "instanceType": "StudySite",
         "label": "Site Two",
         "name": "Site2",
+        "extensionAttributes": [],
     }
     assert sheet.items[2].model_dump() == {
         "country": {
@@ -92,12 +96,14 @@ def test_create(mocker, globals):
             "decode": "GER",
             "id": "Code3",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "description": "Middle Site",
         "id": "Site_3",
         "instanceType": "StudySite",
         "label": "Site Three",
         "name": "Site3",
+        "extensionAttributes": [],
     }
 
 

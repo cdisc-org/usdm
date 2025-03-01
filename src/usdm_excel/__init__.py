@@ -234,8 +234,8 @@ class USDMExcel:
             study_design.population.criterionIds = [
                 x.id for x in self.eligibility_criteria.items
             ]
-            #study_design.dictionaries = self.dictionaries.items
-            #study_design.conditions = self.conditions.items
+            # study_design.dictionaries = self.dictionaries.items
+            # study_design.conditions = self.conditions.items
 
             self.definition_documents = []
             self.definition_document_version_ids = []

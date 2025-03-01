@@ -398,7 +398,7 @@ def scenario_1(factory, globals):
             "activities": activities,
             "scheduledTimelines": [timeline],
             "population": populations[0],
-            "model": model_code
+            "model": model_code,
         },
     )
 

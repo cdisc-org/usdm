@@ -7,6 +7,7 @@
     "versions": [
       {
         "id": "StudyVersion_1",
+        "extensionAttributes": [],
         "versionIdentifier": "1",
         "rationale": "A simple test",
         "documentVersionIds": [],
@@ -15,6 +16,7 @@
         "businessTherapeuticAreas": [
           {
             "id": "Code_9",
+            "extensionAttributes": [],
             "code": "VAC",
             "codeSystem": "SPONSOR",
             "codeSystemVersion": "12",
@@ -23,6 +25,7 @@
           },
           {
             "id": "Code_10",
+            "extensionAttributes": [],
             "code": "REG",
             "codeSystem": "SPONSOR",
             "codeSystemVersion": "12",
@@ -33,24 +36,28 @@
         "studyIdentifiers": [
           {
             "id": "StudyIdentifier_1",
+            "extensionAttributes": [],
             "text": "NCT12345678",
             "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
+            "extensionAttributes": [],
             "text": "AP1234-FR",
             "scopeId": "Organization_2",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_3",
+            "extensionAttributes": [],
             "text": "EU12345",
             "scopeId": "Organization_3",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_4",
+            "extensionAttributes": [],
             "text": "AP1234-US",
             "scopeId": "Organization_4",
             "instanceType": "StudyIdentifier"
@@ -60,11 +67,13 @@
         "studyDesigns": [
           {
             "id": "InterventionalStudyDesign_1",
+            "extensionAttributes": [],
             "name": "Study Design 1",
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {
               "id": "Code_61",
+              "extensionAttributes": [],
               "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -73,8 +82,10 @@
             },
             "studyPhase": {
               "id": "AliasCode_5",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_62",
+                "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -87,6 +98,7 @@
             "therapeuticAreas": [
               {
                 "id": "Code_54",
+                "extensionAttributes": [],
                 "code": "T2_DIABETES",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
@@ -95,6 +107,7 @@
               },
               {
                 "id": "Code_55",
+                "extensionAttributes": [],
                 "code": "73211009",
                 "codeSystem": "SNOMED",
                 "codeSystemVersion": "January 31, 2018",
@@ -106,11 +119,13 @@
             "encounters": [
               {
                 "id": "Encounter_1",
+                "extensionAttributes": [],
                 "name": "Screening",
                 "label": "",
                 "description": "Screening encounter",
                 "type": {
                   "id": "Code_31",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -123,6 +138,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_32",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -133,6 +149,7 @@
                 "contactModes": [
                   {
                     "id": "Code_33",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -142,6 +159,7 @@
                 ],
                 "transitionStartRule": {
                   "id": "TransitionRule_1",
+                  "extensionAttributes": [],
                   "name": "ENCOUNTER_START_RULE_1",
                   "label": null,
                   "description": null,
@@ -150,6 +168,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_2",
+                  "extensionAttributes": [],
                   "name": "ENCOUNTER_START_RULE_1",
                   "label": null,
                   "description": null,
@@ -161,11 +180,13 @@
               },
               {
                 "id": "Encounter_2",
+                "extensionAttributes": [],
                 "name": "Baseline",
                 "label": "",
                 "description": "Baseline encounter",
                 "type": {
                   "id": "Code_34",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -178,6 +199,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_35",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -188,6 +210,7 @@
                 "contactModes": [
                   {
                     "id": "Code_36",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -202,11 +225,13 @@
               },
               {
                 "id": "Encounter_3",
+                "extensionAttributes": [],
                 "name": "15 min",
                 "label": "",
                 "description": "First dose",
                 "type": {
                   "id": "Code_37",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -219,6 +244,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_38",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -229,6 +255,7 @@
                 "contactModes": [
                   {
                     "id": "Code_39",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -238,6 +265,7 @@
                 ],
                 "transitionStartRule": {
                   "id": "TransitionRule_3",
+                  "extensionAttributes": [],
                   "name": "ENCOUNTER_START_RULE_3",
                   "label": null,
                   "description": null,
@@ -250,11 +278,13 @@
               },
               {
                 "id": "Encounter_4",
+                "extensionAttributes": [],
                 "name": "Day 24",
                 "label": "",
                 "description": "2 week visit",
                 "type": {
                   "id": "Code_40",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -267,6 +297,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_41",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -277,6 +308,7 @@
                 "contactModes": [
                   {
                     "id": "Code_42",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -291,11 +323,13 @@
               },
               {
                 "id": "Encounter_5",
+                "extensionAttributes": [],
                 "name": "Day 35",
                 "label": "",
                 "description": "5 week visit",
                 "type": {
                   "id": "Code_43",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -308,6 +342,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_44",
+                    "extensionAttributes": [],
                     "code": "C18002",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -318,6 +353,7 @@
                 "contactModes": [
                   {
                     "id": "Code_45",
+                    "extensionAttributes": [],
                     "code": "C171537",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -334,6 +370,7 @@
             "activities": [
               {
                 "id": "Activity_1",
+                "extensionAttributes": [],
                 "name": "Demographics",
                 "label": "",
                 "description": "Basic Demog",
@@ -355,6 +392,7 @@
               },
               {
                 "id": "Activity_2",
+                "extensionAttributes": [],
                 "name": "Something Else",
                 "label": "",
                 "description": "Something weird",
@@ -373,11 +411,13 @@
             "arms": [
               {
                 "id": "StudyArm_1",
+                "extensionAttributes": [],
                 "name": "Active",
                 "label": "",
                 "description": "Active Substance",
                 "type": {
                   "id": "Code_46",
+                  "extensionAttributes": [],
                   "code": "C174267",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -387,6 +427,7 @@
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
                   "id": "Code_47",
+                  "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -399,11 +440,13 @@
               },
               {
                 "id": "StudyArm_2",
+                "extensionAttributes": [],
                 "name": "Placebo",
                 "label": "",
                 "description": "Placebo",
                 "type": {
                   "id": "Code_48",
+                  "extensionAttributes": [],
                   "code": "C174268",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -413,6 +456,7 @@
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
                   "id": "Code_49",
+                  "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -427,6 +471,7 @@
             "studyCells": [
               {
                 "id": "StudyCell_1",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_1",
                 "elementIds": [
@@ -436,6 +481,7 @@
               },
               {
                 "id": "StudyCell_2",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_2",
                 "elementIds": [
@@ -445,6 +491,7 @@
               },
               {
                 "id": "StudyCell_3",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_3",
                 "elementIds": [
@@ -455,6 +502,7 @@
               },
               {
                 "id": "StudyCell_4",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_4",
                 "elementIds": [
@@ -464,6 +512,7 @@
               },
               {
                 "id": "StudyCell_5",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_1",
                 "elementIds": [
@@ -473,6 +522,7 @@
               },
               {
                 "id": "StudyCell_6",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_2",
                 "elementIds": [
@@ -482,6 +532,7 @@
               },
               {
                 "id": "StudyCell_7",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_3",
                 "elementIds": [
@@ -492,6 +543,7 @@
               },
               {
                 "id": "StudyCell_8",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_4",
                 "elementIds": [
@@ -504,11 +556,13 @@
             "epochs": [
               {
                 "id": "StudyEpoch_1",
+                "extensionAttributes": [],
                 "name": "Screening",
                 "label": "",
                 "description": "Screening Epoch",
                 "type": {
                   "id": "Code_50",
+                  "extensionAttributes": [],
                   "code": "C202487",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -522,11 +576,13 @@
               },
               {
                 "id": "StudyEpoch_2",
+                "extensionAttributes": [],
                 "name": "Baseline",
                 "label": "",
                 "description": "Baseline Epoch",
                 "type": {
                   "id": "Code_51",
+                  "extensionAttributes": [],
                   "code": "C125938",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -540,11 +596,13 @@
               },
               {
                 "id": "StudyEpoch_3",
+                "extensionAttributes": [],
                 "name": "Treatment",
                 "label": "",
                 "description": "Treatment Epoch",
                 "type": {
                   "id": "Code_52",
+                  "extensionAttributes": [],
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -558,11 +616,13 @@
               },
               {
                 "id": "StudyEpoch_4",
+                "extensionAttributes": [],
                 "name": "Follow-Up",
                 "label": "",
                 "description": "Follow-up Epoch",
                 "type": {
                   "id": "Code_53",
+                  "extensionAttributes": [],
                   "code": "C202578",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -578,11 +638,13 @@
             "elements": [
               {
                 "id": "StudyElement_1",
+                "extensionAttributes": [],
                 "name": "Screening",
                 "label": "",
                 "description": "Screening Element",
                 "transitionStartRule": {
                   "id": "TransitionRule_4",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_1",
                   "label": null,
                   "description": null,
@@ -591,6 +653,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_5",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_1",
                   "label": null,
                   "description": null,
@@ -603,11 +666,13 @@
               },
               {
                 "id": "StudyElement_2",
+                "extensionAttributes": [],
                 "name": "Baseline",
                 "label": "",
                 "description": "Baseline Element",
                 "transitionStartRule": {
                   "id": "TransitionRule_6",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_2",
                   "label": null,
                   "description": null,
@@ -616,6 +681,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_7",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_2",
                   "label": null,
                   "description": null,
@@ -628,11 +694,13 @@
               },
               {
                 "id": "StudyElement_3",
+                "extensionAttributes": [],
                 "name": "Treatment 1",
                 "label": "",
                 "description": "Treatment Element 1",
                 "transitionStartRule": {
                   "id": "TransitionRule_8",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_3",
                   "label": null,
                   "description": null,
@@ -641,6 +709,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_9",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_3",
                   "label": null,
                   "description": null,
@@ -653,11 +722,13 @@
               },
               {
                 "id": "StudyElement_5",
+                "extensionAttributes": [],
                 "name": "Treatment 2",
                 "label": "",
                 "description": "Treatment Element 2",
                 "transitionStartRule": {
                   "id": "TransitionRule_12",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_5",
                   "label": null,
                   "description": null,
@@ -666,6 +737,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_13",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_5",
                   "label": null,
                   "description": null,
@@ -678,11 +750,13 @@
               },
               {
                 "id": "StudyElement_4",
+                "extensionAttributes": [],
                 "name": "Follow Up",
                 "label": "",
                 "description": "Follow Up Element",
                 "transitionStartRule": {
                   "id": "TransitionRule_10",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_4",
                   "label": null,
                   "description": null,
@@ -691,6 +765,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_11",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_4",
                   "label": null,
                   "description": null,
@@ -705,6 +780,7 @@
             "estimands": [
               {
                 "id": "Estimand_1",
+                "extensionAttributes": [],
                 "name": "EST1",
                 "label": "EST1",
                 "description": "",
@@ -717,6 +793,7 @@
                 "intercurrentEvents": [
                   {
                     "id": "IntercurrentEvent_1",
+                    "extensionAttributes": [],
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
@@ -728,6 +805,7 @@
                   },
                   {
                     "id": "IntercurrentEvent_2",
+                    "extensionAttributes": [],
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
@@ -739,6 +817,7 @@
                   },
                   {
                     "id": "IntercurrentEvent_3",
+                    "extensionAttributes": [],
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
@@ -754,6 +833,7 @@
               },
               {
                 "id": "Estimand_2",
+                "extensionAttributes": [],
                 "name": "EST2",
                 "label": "EST2",
                 "description": "",
@@ -766,6 +846,7 @@
                 "intercurrentEvents": [
                   {
                     "id": "IntercurrentEvent_4",
+                    "extensionAttributes": [],
                     "name": "Bad stuff",
                     "label": "",
                     "description": "IC Event Description Number 2",
@@ -783,12 +864,14 @@
             "indications": [
               {
                 "id": "Indication_1",
+                "extensionAttributes": [],
                 "name": "IND1",
                 "label": "Indication 1",
                 "description": "Indication One",
                 "codes": [
                   {
                     "id": "Code_79",
+                    "extensionAttributes": [],
                     "code": "12345",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -802,12 +885,14 @@
               },
               {
                 "id": "Indication_2",
+                "extensionAttributes": [],
                 "name": "IND2",
                 "label": "Indication 2",
                 "description": "Indication Two",
                 "codes": [
                   {
                     "id": "Code_80",
+                    "extensionAttributes": [],
                     "code": "345678",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -827,6 +912,7 @@
             "objectives": [
               {
                 "id": "Objective_1",
+                "extensionAttributes": [],
                 "name": "OBJ1",
                 "label": "",
                 "description": "",
@@ -836,6 +922,7 @@
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_101",
+                  "extensionAttributes": [],
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -845,6 +932,7 @@
                 "endpoints": [
                   {
                     "id": "Endpoint_1",
+                    "extensionAttributes": [],
                     "name": "END1",
                     "label": "",
                     "description": "",
@@ -855,6 +943,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_100",
+                      "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -866,6 +955,7 @@
               },
               {
                 "id": "Objective_2",
+                "extensionAttributes": [],
                 "name": "OBJ2",
                 "label": "",
                 "description": "",
@@ -875,6 +965,7 @@
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_103",
+                  "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -884,6 +975,7 @@
                 "endpoints": [
                   {
                     "id": "Endpoint_2",
+                    "extensionAttributes": [],
                     "name": "END2",
                     "label": "",
                     "description": "",
@@ -894,6 +986,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_102",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -903,6 +996,7 @@
                   },
                   {
                     "id": "Endpoint_3",
+                    "extensionAttributes": [],
                     "name": "END3",
                     "label": "",
                     "description": "",
@@ -913,6 +1007,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_104",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -922,6 +1017,7 @@
                   },
                   {
                     "id": "Endpoint_4",
+                    "extensionAttributes": [],
                     "name": "END4",
                     "label": "",
                     "description": "",
@@ -932,6 +1028,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_105",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -941,6 +1038,7 @@
                   },
                   {
                     "id": "Endpoint_5",
+                    "extensionAttributes": [],
                     "name": "END5",
                     "label": "",
                     "description": "",
@@ -951,6 +1049,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_106",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -960,6 +1059,7 @@
                   },
                   {
                     "id": "Endpoint_6",
+                    "extensionAttributes": [],
                     "name": "END6",
                     "label": "",
                     "description": "",
@@ -970,6 +1070,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_107",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -979,6 +1080,7 @@
                   },
                   {
                     "id": "Endpoint_7",
+                    "extensionAttributes": [],
                     "name": "END7",
                     "label": "",
                     "description": "",
@@ -989,6 +1091,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_108",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -998,6 +1101,7 @@
                   },
                   {
                     "id": "Endpoint_8",
+                    "extensionAttributes": [],
                     "name": "END8",
                     "label": "",
                     "description": "",
@@ -1008,6 +1112,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_109",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1017,6 +1122,7 @@
                   },
                   {
                     "id": "Endpoint_9",
+                    "extensionAttributes": [],
                     "name": "END9",
                     "label": "",
                     "description": "",
@@ -1027,6 +1133,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_110",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1036,6 +1143,7 @@
                   },
                   {
                     "id": "Endpoint_10",
+                    "extensionAttributes": [],
                     "name": "END10",
                     "label": "",
                     "description": "",
@@ -1046,6 +1154,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_111",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1055,6 +1164,7 @@
                   },
                   {
                     "id": "Endpoint_11",
+                    "extensionAttributes": [],
                     "name": "END11",
                     "label": "",
                     "description": "",
@@ -1065,6 +1175,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_112",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1074,6 +1185,7 @@
                   },
                   {
                     "id": "Endpoint_12",
+                    "extensionAttributes": [],
                     "name": "END12",
                     "label": "",
                     "description": "",
@@ -1084,6 +1196,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_113",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1096,6 +1209,7 @@
             ],
             "population": {
               "id": "StudyDesignPopulation_1",
+              "extensionAttributes": [],
               "name": "POP1",
               "label": "",
               "description": "",
@@ -1103,6 +1217,7 @@
               "plannedEnrollmentNumberRange": null,
               "plannedEnrollmentNumberQuantity": {
                 "id": "Quantity_8",
+                "extensionAttributes": [],
                 "value": 120.0,
                 "unit": null,
                 "instanceType": "Quantity"
@@ -1110,6 +1225,7 @@
               "plannedCompletionNumberRange": null,
               "plannedCompletionNumberQuantity": {
                 "id": "Quantity_7",
+                "extensionAttributes": [],
                 "value": 100.0,
                 "unit": null,
                 "instanceType": "Quantity"
@@ -1117,6 +1233,7 @@
               "plannedSex": [
                 {
                   "id": "Code_97",
+                  "extensionAttributes": [],
                   "code": "C49636",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1131,6 +1248,7 @@
               "cohorts": [
                 {
                   "id": "StudyCohort_1",
+                  "extensionAttributes": [],
                   "name": "COHORT1",
                   "label": "",
                   "description": "",
@@ -1143,13 +1261,17 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_1",
+                    "extensionAttributes": [],
                     "minValue": {
                       "id": "Quantity_9",
+                      "extensionAttributes": [],
                       "value": 18.0,
                       "unit": {
                         "id": "AliasCode_27",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_98",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1163,11 +1285,14 @@
                     },
                     "maxValue": {
                       "id": "Quantity_10",
+                      "extensionAttributes": [],
                       "value": 30.0,
                       "unit": {
                         "id": "AliasCode_27",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_98",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1189,6 +1314,7 @@
                 },
                 {
                   "id": "StudyCohort_2",
+                  "extensionAttributes": [],
                   "name": "COHORT2",
                   "label": "",
                   "description": "",
@@ -1201,13 +1327,17 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_2",
+                    "extensionAttributes": [],
                     "minValue": {
                       "id": "Quantity_11",
+                      "extensionAttributes": [],
                       "value": 31.0,
                       "unit": {
                         "id": "AliasCode_28",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_99",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1221,11 +1351,14 @@
                     },
                     "maxValue": {
                       "id": "Quantity_12",
+                      "extensionAttributes": [],
                       "value": 70.0,
                       "unit": {
                         "id": "AliasCode_28",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_99",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1247,35 +1380,10 @@
                 }
               ]
             },
-            "analysisPopulations": [
-              {
-                "id": "AnalysisPopulation_1",
-                "name": "AP_1",
-                "label": null,
-                "description": null,
-                "text": "ITT",
-                "subsetOfIds": [
-                  "StudyCohort_1"
-                ],
-                "notes": [],
-                "instanceType": "AnalysisPopulation"
-              },
-              {
-                "id": "AnalysisPopulation_2",
-                "name": "AP_4",
-                "label": null,
-                "description": null,
-                "text": "ITT",
-                "subsetOfIds": [
-                  "StudyCohort_2"
-                ],
-                "notes": [],
-                "instanceType": "AnalysisPopulation"
-              }
-            ],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
+                "extensionAttributes": [],
                 "name": "Main Timeline",
                 "label": "Main Timeline",
                 "description": "This is the main timeline for the study design.",
@@ -1285,17 +1393,20 @@
                 "exits": [
                   {
                     "id": "ScheduleTimelineExit_1",
+                    "extensionAttributes": [],
                     "instanceType": "ScheduleTimelineExit"
                   }
                 ],
                 "timings": [
                   {
                     "id": "Timing_1",
+                    "extensionAttributes": [],
                     "name": "TIM1",
                     "label": "Screening",
                     "description": "Screening timing",
                     "type": {
                       "id": "Code_16",
+                      "extensionAttributes": [],
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1306,6 +1417,7 @@
                     "valueLabel": "2 days",
                     "relativeToFrom": {
                       "id": "Code_17",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1321,11 +1433,13 @@
                   },
                   {
                     "id": "Timing_2",
+                    "extensionAttributes": [],
                     "name": "TIM2",
                     "label": "Pre dose",
                     "description": "Pre dose timing",
                     "type": {
                       "id": "Code_18",
+                      "extensionAttributes": [],
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1336,6 +1450,7 @@
                     "valueLabel": "15 min",
                     "relativeToFrom": {
                       "id": "Code_19",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1351,11 +1466,13 @@
                   },
                   {
                     "id": "Timing_3",
+                    "extensionAttributes": [],
                     "name": "TIM3",
                     "label": "Dosing",
                     "description": "Dosing anchor",
                     "type": {
                       "id": "Code_21",
+                      "extensionAttributes": [],
                       "code": "C201358",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1366,6 +1483,7 @@
                     "valueLabel": "1 Day",
                     "relativeToFrom": {
                       "id": "Code_22",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1381,11 +1499,13 @@
                   },
                   {
                     "id": "Timing_4",
+                    "extensionAttributes": [],
                     "name": "TIM4",
                     "label": "Day 14",
                     "description": "24 Hour timing",
                     "type": {
                       "id": "Code_23",
+                      "extensionAttributes": [],
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1396,6 +1516,7 @@
                     "valueLabel": "24 Hours",
                     "relativeToFrom": {
                       "id": "Code_24",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1411,11 +1532,13 @@
                   },
                   {
                     "id": "Timing_5",
+                    "extensionAttributes": [],
                     "name": "TIM5",
                     "label": "Follow Up",
                     "description": "Follow up timing",
                     "type": {
                       "id": "Code_26",
+                      "extensionAttributes": [],
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1426,6 +1549,7 @@
                     "valueLabel": "7 Days",
                     "relativeToFrom": {
                       "id": "Code_27",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1443,6 +1567,7 @@
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
+                    "extensionAttributes": [],
                     "name": "SCREEN",
                     "label": "Screen",
                     "description": "Screening",
@@ -1459,6 +1584,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
+                    "extensionAttributes": [],
                     "name": "PRE DOSE",
                     "label": "Baseline",
                     "description": "Pre Dose",
@@ -1474,6 +1600,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
+                    "extensionAttributes": [],
                     "name": "DOSE",
                     "label": "Treatment",
                     "description": "Dosing",
@@ -1489,6 +1616,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
+                    "extensionAttributes": [],
                     "name": "D14",
                     "label": "Day 14",
                     "description": "Day 14",
@@ -1504,6 +1632,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
+                    "extensionAttributes": [],
                     "name": "FU",
                     "label": "Follow Up",
                     "description": "Follow Up",
@@ -1524,11 +1653,40 @@
             "biospecimenRetentions": [],
             "documentVersionIds": [],
             "eligibilityCriteria": [],
+            "analysisPopulations": [
+              {
+                "id": "AnalysisPopulation_1",
+                "extensionAttributes": [],
+                "name": "AP_1",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_1"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              },
+              {
+                "id": "AnalysisPopulation_2",
+                "extensionAttributes": [],
+                "name": "AP_4",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_2"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              }
+            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
               {
                 "id": "Code_59",
+                "extensionAttributes": [],
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1538,6 +1696,7 @@
             ],
             "model": {
               "id": "Code_60",
+              "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1547,6 +1706,7 @@
             "intentTypes": [
               {
                 "id": "Code_57",
+                "extensionAttributes": [],
                 "code": "C15714",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1555,6 +1715,7 @@
               },
               {
                 "id": "Code_58",
+                "extensionAttributes": [],
                 "code": "C139174",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1564,8 +1725,10 @@
             ],
             "blindingSchema": {
               "id": "AliasCode_4",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_56",
+                "extensionAttributes": [],
                 "code": "C49659",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1580,9 +1743,11 @@
         "titles": [
           {
             "id": "StudyTitle_1",
+            "extensionAttributes": [],
             "text": "SIMPLE",
             "type": {
               "id": "Code_8",
+              "extensionAttributes": [],
               "code": "C94108",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1593,9 +1758,11 @@
           },
           {
             "id": "StudyTitle_2",
+            "extensionAttributes": [],
             "text": "Something Brief",
             "type": {
               "id": "Code_11",
+              "extensionAttributes": [],
               "code": "C99905x1",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1606,9 +1773,11 @@
           },
           {
             "id": "StudyTitle_3",
+            "extensionAttributes": [],
             "text": "Something Very Official",
             "type": {
               "id": "Code_12",
+              "extensionAttributes": [],
               "code": "C99905x2",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1619,9 +1788,11 @@
           },
           {
             "id": "StudyTitle_4",
+            "extensionAttributes": [],
             "text": "Something Public",
             "type": {
               "id": "Code_13",
+              "extensionAttributes": [],
               "code": "C99905x3",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1632,9 +1803,11 @@
           },
           {
             "id": "StudyTitle_5",
+            "extensionAttributes": [],
             "text": "Somethign Clever But New",
             "type": {
               "id": "Code_14",
+              "extensionAttributes": [],
               "code": "C99905x4",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1651,10 +1824,12 @@
         "organizations": [
           {
             "id": "Organization_1",
+            "extensionAttributes": [],
             "name": "CT-GOV",
             "label": "ClinicalTrials.gov",
             "type": {
               "id": "Code_1",
+              "extensionAttributes": [],
               "code": "C93453",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1665,6 +1840,7 @@
             "identifier": "CT-GOV",
             "legalAddress": {
               "id": "Address_1",
+              "extensionAttributes": [],
               "text": "line, city, district, 1, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
               "lines": [
                 "line"
@@ -1675,6 +1851,7 @@
               "postalCode": "postal_code",
               "country": {
                 "id": "Code_2",
+                "extensionAttributes": [],
                 "code": "GBR",
                 "codeSystem": "ISO 3166 1 alpha3",
                 "codeSystemVersion": "2020-08",
@@ -1688,10 +1865,12 @@
           },
           {
             "id": "Organization_2",
+            "extensionAttributes": [],
             "name": "ACME FR",
             "label": "ACME Pharma FR",
             "type": {
               "id": "Code_3",
+              "extensionAttributes": [],
               "code": "C70793",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1702,6 +1881,7 @@
             "identifier": "123456789",
             "legalAddress": {
               "id": "Address_2",
+              "extensionAttributes": [],
               "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
               "lines": [
                 "Somewhere"
@@ -1712,6 +1892,7 @@
               "postalCode": "12345",
               "country": {
                 "id": "Code_4",
+                "extensionAttributes": [],
                 "code": "FRA",
                 "codeSystem": "ISO 3166 1 alpha3",
                 "codeSystemVersion": "2020-08",
@@ -1725,10 +1906,12 @@
           },
           {
             "id": "Organization_3",
+            "extensionAttributes": [],
             "name": "EUDRACT",
             "label": "EUDRACT",
             "type": {
               "id": "Code_5",
+              "extensionAttributes": [],
               "code": "C93453",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1739,6 +1922,7 @@
             "identifier": "EU",
             "legalAddress": {
               "id": "Address_3",
+              "extensionAttributes": [],
               "text": "line1, line2, Amsterdam, schipol, North, 12345, Netherlands",
               "lines": [
                 "line1",
@@ -1750,6 +1934,7 @@
               "postalCode": "12345",
               "country": {
                 "id": "Code_6",
+                "extensionAttributes": [],
                 "code": "NLD",
                 "codeSystem": "ISO 3166 1 alpha3",
                 "codeSystemVersion": "2020-08",
@@ -1763,10 +1948,12 @@
           },
           {
             "id": "Organization_4",
+            "extensionAttributes": [],
             "name": "ACME US",
             "label": "ACME Pharma US",
             "type": {
               "id": "Code_7",
+              "extensionAttributes": [],
               "code": "C70793",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1783,11 +1970,13 @@
         "studyInterventions": [
           {
             "id": "StudyIntervention_1",
+            "extensionAttributes": [],
             "name": "INT1",
             "label": "Int Label 1",
             "description": "Int Desc 1",
             "role": {
               "id": "Code_86",
+              "extensionAttributes": [],
               "code": "C41161",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1796,6 +1985,7 @@
             },
             "type": {
               "id": "Code_87",
+              "extensionAttributes": [],
               "code": "C1909",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1804,11 +1994,14 @@
             },
             "minimumResponseDuration": {
               "id": "Quantity_3",
+              "extensionAttributes": [],
               "value": 1.0,
               "unit": {
                 "id": "AliasCode_21",
+                "extensionAttributes": [],
                 "standardCode": {
                   "id": "Code_88",
+                  "extensionAttributes": [],
                   "code": "C25301",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1823,6 +2016,7 @@
             "codes": [
               {
                 "id": "Code_85",
+                "extensionAttributes": [],
                 "code": "A",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
@@ -1833,18 +2027,23 @@
             "administrations": [
               {
                 "id": "Administration_1",
+                "extensionAttributes": [],
                 "name": "Admin 1",
                 "label": "",
                 "description": "Admin Desc 1",
                 "duration": {
                   "id": "AdministrationDuration_1",
+                  "extensionAttributes": [],
                   "quantity": {
                     "id": "Quantity_1",
+                    "extensionAttributes": [],
                     "value": 14.0,
                     "unit": {
                       "id": "AliasCode_17",
+                      "extensionAttributes": [],
                       "standardCode": {
                         "id": "Code_81",
+                        "extensionAttributes": [],
                         "code": "C25613",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2024-09-27",
@@ -1863,11 +2062,14 @@
                 },
                 "dose": {
                   "id": "Quantity_2",
+                  "extensionAttributes": [],
                   "value": 12.0,
                   "unit": {
                     "id": "AliasCode_18",
+                    "extensionAttributes": [],
                     "standardCode": {
                       "id": "Code_82",
+                      "extensionAttributes": [],
                       "code": "C28253",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1881,8 +2083,10 @@
                 },
                 "route": {
                   "id": "AliasCode_19",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_83",
+                    "extensionAttributes": [],
                     "code": "C38197",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -1894,8 +2098,10 @@
                 },
                 "frequency": {
                   "id": "AliasCode_20",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_84",
+                    "extensionAttributes": [],
                     "code": "C139179",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -1916,11 +2122,13 @@
           },
           {
             "id": "StudyIntervention_2",
+            "extensionAttributes": [],
             "name": "INT2",
             "label": "Int Label 2",
             "description": "Int Desc 2",
             "role": {
               "id": "Code_94",
+              "extensionAttributes": [],
               "code": "C753",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1929,6 +2137,7 @@
             },
             "type": {
               "id": "Code_95",
+              "extensionAttributes": [],
               "code": "C1909",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1937,11 +2146,14 @@
             },
             "minimumResponseDuration": {
               "id": "Quantity_6",
+              "extensionAttributes": [],
               "value": 1.0,
               "unit": {
                 "id": "AliasCode_26",
+                "extensionAttributes": [],
                 "standardCode": {
                   "id": "Code_96",
+                  "extensionAttributes": [],
                   "code": "C25301",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1956,6 +2168,7 @@
             "codes": [
               {
                 "id": "Code_93",
+                "extensionAttributes": [],
                 "code": "A",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
@@ -1966,18 +2179,23 @@
             "administrations": [
               {
                 "id": "Administration_2",
+                "extensionAttributes": [],
                 "name": "Admin 2",
                 "label": "",
                 "description": "Admin Desc 2",
                 "duration": {
                   "id": "AdministrationDuration_2",
+                  "extensionAttributes": [],
                   "quantity": {
                     "id": "Quantity_4",
+                    "extensionAttributes": [],
                     "value": 14.0,
                     "unit": {
                       "id": "AliasCode_22",
+                      "extensionAttributes": [],
                       "standardCode": {
                         "id": "Code_89",
+                        "extensionAttributes": [],
                         "code": "C25613",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2024-09-27",
@@ -1996,11 +2214,14 @@
                 },
                 "dose": {
                   "id": "Quantity_5",
+                  "extensionAttributes": [],
                   "value": 12.0,
                   "unit": {
                     "id": "AliasCode_23",
+                    "extensionAttributes": [],
                     "standardCode": {
                       "id": "Code_90",
+                      "extensionAttributes": [],
                       "code": "C28253",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2014,8 +2235,10 @@
                 },
                 "route": {
                   "id": "AliasCode_24",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_91",
+                    "extensionAttributes": [],
                     "code": "C38197",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -2027,8 +2250,10 @@
                 },
                 "frequency": {
                   "id": "AliasCode_25",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_92",
+                    "extensionAttributes": [],
                     "code": "C139179",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -2054,6 +2279,7 @@
         "biomedicalConcepts": [
           {
             "id": "BiomedicalConcept_1",
+            "extensionAttributes": [],
             "name": "Subject Age",
             "label": "Subject Age",
             "synonyms": [
@@ -2063,6 +2289,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_1",
+                "extensionAttributes": [],
                 "name": "Numeric Age for Data Tabulation",
                 "label": "Numeric Age for Data Tabulation",
                 "isRequired": true,
@@ -2071,8 +2298,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_6",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_63",
+                    "extensionAttributes": [],
                     "code": "C170981",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2087,6 +2316,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_2",
+                "extensionAttributes": [],
                 "name": "Age Unit",
                 "label": "Age Unit",
                 "isRequired": true,
@@ -2095,8 +2325,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_7",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_64",
+                    "extensionAttributes": [],
                     "code": "C50400",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2112,8 +2344,10 @@
             ],
             "code": {
               "id": "AliasCode_8",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_65",
+                "extensionAttributes": [],
                 "code": "C69260",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -2128,6 +2362,7 @@
           },
           {
             "id": "BiomedicalConcept_2",
+            "extensionAttributes": [],
             "name": "Sex",
             "label": "Sex",
             "synonyms": [],
@@ -2135,6 +2370,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_3",
+                "extensionAttributes": [],
                 "name": "Sex",
                 "label": "Sex",
                 "isRequired": true,
@@ -2143,9 +2379,11 @@
                 "responseCodes": [
                   {
                     "id": "ResponseCode_1",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_66",
+                      "extensionAttributes": [],
                       "code": "C20197",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2156,9 +2394,11 @@
                   },
                   {
                     "id": "ResponseCode_2",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_67",
+                      "extensionAttributes": [],
                       "code": "C16576",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2170,8 +2410,10 @@
                 ],
                 "code": {
                   "id": "AliasCode_9",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_68",
+                    "extensionAttributes": [],
                     "code": "C28421",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2187,8 +2429,10 @@
             ],
             "code": {
               "id": "AliasCode_10",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_69",
+                "extensionAttributes": [],
                 "code": "C28421",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -2203,6 +2447,7 @@
           },
           {
             "id": "BiomedicalConcept_3",
+            "extensionAttributes": [],
             "name": "Race",
             "label": "Race",
             "synonyms": [
@@ -2212,6 +2457,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_4",
+                "extensionAttributes": [],
                 "name": "Race",
                 "label": "Race",
                 "isRequired": true,
@@ -2220,8 +2466,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_11",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_70",
+                    "extensionAttributes": [],
                     "code": "C17049",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2237,8 +2485,10 @@
             ],
             "code": {
               "id": "AliasCode_12",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_71",
+                "extensionAttributes": [],
                 "code": "C17049",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -2253,6 +2503,7 @@
           },
           {
             "id": "BiomedicalConcept_4",
+            "extensionAttributes": [],
             "name": "Weight",
             "label": "Weight",
             "synonyms": [
@@ -2263,6 +2514,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_5",
+                "extensionAttributes": [],
                 "name": "VSTESTCD",
                 "label": "VSTESTCD",
                 "isRequired": true,
@@ -2271,8 +2523,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_13",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_72",
+                    "extensionAttributes": [],
                     "code": "C25208",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2287,6 +2541,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_6",
+                "extensionAttributes": [],
                 "name": "VSORRES",
                 "label": "VSORRES",
                 "isRequired": true,
@@ -2295,8 +2550,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_14",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_73",
+                    "extensionAttributes": [],
                     "code": "C77140",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2311,6 +2568,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_7",
+                "extensionAttributes": [],
                 "name": "VSORRESU",
                 "label": "VSORRESU",
                 "isRequired": true,
@@ -2319,9 +2577,11 @@
                 "responseCodes": [
                   {
                     "id": "ResponseCode_3",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_74",
+                      "extensionAttributes": [],
                       "code": "C48531",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2332,9 +2592,11 @@
                   },
                   {
                     "id": "ResponseCode_4",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_75",
+                      "extensionAttributes": [],
                       "code": "C48155",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2345,9 +2607,11 @@
                   },
                   {
                     "id": "ResponseCode_5",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_76",
+                      "extensionAttributes": [],
                       "code": "C28252",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2359,8 +2623,10 @@
                 ],
                 "code": {
                   "id": "AliasCode_15",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_77",
+                    "extensionAttributes": [],
                     "code": "C48208",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2376,8 +2642,10 @@
             ],
             "code": {
               "id": "AliasCode_16",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_78",
+                "extensionAttributes": [],
                 "code": "C25208",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -2404,5 +2672,5 @@
   },
   "usdmVersion": "3.11.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.58.0"
+  "systemVersion": "0.59.0"
 }

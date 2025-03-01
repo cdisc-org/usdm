@@ -902,6 +902,7 @@ def test__to_address(mocker, globals):
             "decode": "USA",
             "id": "Code1",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
         "district": "district",
         "id": "Addr_1",
@@ -910,6 +911,7 @@ def test__to_address(mocker, globals):
         "postalCode": "postal code",
         "state": "state",
         "text": "line 1, city, district, state, postal code, USA",
+        "extensionAttributes": [],
     }
     assert result.model_dump() == expected
     result = base._to_address(
@@ -982,7 +984,9 @@ def test__read_geographic_scopes_cell(mocker, globals):
             "decode": "Global",
             "id": "Scope_1",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert base.read_geographic_scopes_cell(1, 0)[0].model_dump() == {
         "code": {
@@ -995,8 +999,10 @@ def test__read_geographic_scopes_cell(mocker, globals):
                 "decode": "Europe",
                 "id": "Code4",
                 "instanceType": "Code",
+                "extensionAttributes": [],
             },
             "standardCodeAliases": [],
+            "extensionAttributes": [],
         },
         "id": "Scope_5",
         "instanceType": "GeographicScope",
@@ -1007,7 +1013,9 @@ def test__read_geographic_scopes_cell(mocker, globals):
             "decode": "Region",
             "id": "Scope_3",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert base.read_geographic_scopes_cell(2, 0)[0].model_dump() == {
         "code": {
@@ -1020,8 +1028,10 @@ def test__read_geographic_scopes_cell(mocker, globals):
                 "decode": "USA",
                 "id": "Code1",
                 "instanceType": "Code",
+                "extensionAttributes": [],
             },
             "standardCodeAliases": [],
+            "extensionAttributes": [],
         },
         "id": "Scope_8",
         "instanceType": "GeographicScope",
@@ -1032,7 +1042,9 @@ def test__read_geographic_scopes_cell(mocker, globals):
             "decode": "Country",
             "id": "Scope_6",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
     assert base.read_geographic_scopes_cell(3, 0)[0].model_dump() == {
@@ -1046,7 +1058,9 @@ def test__read_geographic_scopes_cell(mocker, globals):
             "decode": "Global",
             "id": "Scope_9",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert base.read_geographic_scopes_cell(4, 0)[0].model_dump() == {
         "code": None,
@@ -1059,7 +1073,9 @@ def test__read_geographic_scopes_cell(mocker, globals):
             "decode": "Global",
             "id": "Scope_11",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert mock_error.call_count == 2
     expected = [
@@ -1135,8 +1151,10 @@ def test__read_geographic_scopes_cell_by_name(mocker, globals):
                 "decode": "Europe",
                 "id": "Code4",
                 "instanceType": "Code",
+                "extensionAttributes": [],
             },
             "standardCodeAliases": [],
+            "extensionAttributes": [],
         },
         "id": "Scope_3",
         "instanceType": "GeographicScope",
@@ -1147,7 +1165,9 @@ def test__read_geographic_scopes_cell_by_name(mocker, globals):
             "decode": "Region",
             "id": "Scope_1",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }
     assert base.read_geographic_scopes_cell_by_name(1, "regionxxx")[0].model_dump() == {
         "code": None,
@@ -1160,5 +1180,7 @@ def test__read_geographic_scopes_cell_by_name(mocker, globals):
             "decode": "Global",
             "id": "Scope_4",
             "instanceType": "Code",
+            "extensionAttributes": [],
         },
+        "extensionAttributes": [],
     }

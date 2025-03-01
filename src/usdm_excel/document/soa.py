@@ -4,9 +4,14 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.study_design import StudyDesign
 from usdm_model.study_version import StudyVersion
 
+
 class SoA:
     def __init__(
-        self, parent: BaseSheet, study_version: StudyVersion, study_design: StudyDesign, timeline: ScheduleTimeline
+        self,
+        parent: BaseSheet,
+        study_version: StudyVersion,
+        study_design: StudyDesign,
+        timeline: ScheduleTimeline,
     ):
         self.parent = parent
         self.study_version = study_version

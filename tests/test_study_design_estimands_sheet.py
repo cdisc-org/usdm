@@ -58,6 +58,7 @@ def test_create(mocker, globals):
                 "notes": [],
                 "strategy": "Strategy 1",
                 "text": "Strategy Text 1",
+                "extensionAttributes": [],
             },
         ],
         "interventionIds": ["X2"],
@@ -66,6 +67,7 @@ def test_create(mocker, globals):
         "notes": [],
         "populationSummary": "Survival 1",
         "variableOfInterestId": "X3",
+        "extensionAttributes": [],
     }
     assert item.populations[0].model_dump() == {
         "description": None,
@@ -76,6 +78,7 @@ def test_create(mocker, globals):
         "notes": [],
         "subsetOfIds": ["X1"],
         "text": "P Desc 1",
+        "extensionAttributes": [],
     }
     assert item.estimands[1].model_dump() == {
         "analysisPopulationId": "AnalysisPopulation_2",
@@ -93,6 +96,7 @@ def test_create(mocker, globals):
                 "notes": [],
                 "strategy": "Strategy 2",
                 "text": "Strategy Text 2",
+                "extensionAttributes": [],
             },
         ],
         "interventionIds": ["X5"],
@@ -101,6 +105,7 @@ def test_create(mocker, globals):
         "notes": [],
         "populationSummary": "Survival 2",
         "variableOfInterestId": "X6",
+        "extensionAttributes": [],
     }
     assert item.populations[1].model_dump() == {
         "description": None,
@@ -111,6 +116,7 @@ def test_create(mocker, globals):
         "notes": [],
         "subsetOfIds": ["X4"],
         "text": "P Desc 2",
+        "extensionAttributes": [],
     }
     assert item.estimands[2].model_dump() == {
         "analysisPopulationId": "AnalysisPopulation_3",
@@ -128,6 +134,7 @@ def test_create(mocker, globals):
                 "notes": [],
                 "strategy": "Strategy 3",
                 "text": "Strategy Text 3",
+                "extensionAttributes": [],
             },
         ],
         "interventionIds": ["X8"],
@@ -136,6 +143,7 @@ def test_create(mocker, globals):
         "notes": [],
         "populationSummary": "Survival 3",
         "variableOfInterestId": "X9",
+        "extensionAttributes": [],
     }
     assert item.populations[2].model_dump() == {
         "description": None,
@@ -146,6 +154,7 @@ def test_create(mocker, globals):
         "notes": [],
         "subsetOfIds": ["X7"],
         "text": "P Desc 3",
+        "extensionAttributes": [],
     }
 
 

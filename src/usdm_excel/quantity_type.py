@@ -21,7 +21,9 @@ class QuantityType:
             self.label = quantity_info.strip()
 
             if quantity_info:
-                match = re.match(r"(?P<value>[+|-]*\d+)\.?\d{0,5}(\s*(?P<units>.+))?", self.label)
+                match = re.match(
+                    r"(?P<value>[+|-]*\d+)\.?\d{0,5}(\s*(?P<units>.+))?", self.label
+                )
                 if match:
                     parts = match.groupdict()
                     self.value = parts["value"].strip()

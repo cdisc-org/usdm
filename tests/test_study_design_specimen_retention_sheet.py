@@ -32,6 +32,7 @@ def test_create(mocker, globals):
     assert len(item.items) == 3
     assert item.items[0].model_dump() == {
         "id": "BiospecimenRetention_1",
+        "extensionAttributes": [],
         "instanceType": "BiospecimenRetention",
         "name": "A1",
         "description": "Annotation Text One",
@@ -41,6 +42,7 @@ def test_create(mocker, globals):
     }
     assert item.items[1].model_dump() == {
         "id": "BiospecimenRetention_2",
+        "extensionAttributes": [],
         "instanceType": "BiospecimenRetention",
         "name": "A2",
         "description": "Annotation Text Two",
@@ -50,6 +52,7 @@ def test_create(mocker, globals):
     }
     assert item.items[2].model_dump() == {
         "id": "BiospecimenRetention_3",
+        "extensionAttributes": [],
         "instanceType": "BiospecimenRetention",
         "name": "A3",
         "description": "Annotation Text Three",

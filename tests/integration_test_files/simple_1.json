@@ -7,6 +7,7 @@
     "versions": [
       {
         "id": "StudyVersion_1",
+        "extensionAttributes": [],
         "versionIdentifier": "1",
         "rationale": "A simple test",
         "documentVersionIds": [
@@ -15,11 +16,13 @@
         "dateValues": [
           {
             "id": "GovernanceDate_1",
+            "extensionAttributes": [],
             "name": "Approval",
             "label": "Design Approval",
             "description": "Design approval date",
             "type": {
               "id": "Code_13",
+              "extensionAttributes": [],
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -30,8 +33,10 @@
             "geographicScopes": [
               {
                 "id": "GeographicScope_1",
+                "extensionAttributes": [],
                 "type": {
                   "id": "Code_14",
+                  "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -49,6 +54,7 @@
         "businessTherapeuticAreas": [
           {
             "id": "Code_6",
+            "extensionAttributes": [],
             "code": "VAC",
             "codeSystem": "SPONSOR",
             "codeSystemVersion": "12",
@@ -57,6 +63,7 @@
           },
           {
             "id": "Code_7",
+            "extensionAttributes": [],
             "code": "REG",
             "codeSystem": "SPONSOR",
             "codeSystemVersion": "12",
@@ -67,12 +74,14 @@
         "studyIdentifiers": [
           {
             "id": "StudyIdentifier_1",
+            "extensionAttributes": [],
             "text": "NCT12345678",
             "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
+            "extensionAttributes": [],
             "text": "AP1234",
             "scopeId": "Organization_2",
             "instanceType": "StudyIdentifier"
@@ -82,11 +91,13 @@
         "studyDesigns": [
           {
             "id": "InterventionalStudyDesign_1",
+            "extensionAttributes": [],
             "name": "Study Design 1",
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {
               "id": "Code_62",
+              "extensionAttributes": [],
               "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -95,8 +106,10 @@
             },
             "studyPhase": {
               "id": "AliasCode_5",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_63",
+                "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -109,6 +122,7 @@
             "therapeuticAreas": [
               {
                 "id": "Code_55",
+                "extensionAttributes": [],
                 "code": "T2_DIABETES",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
@@ -117,6 +131,7 @@
               },
               {
                 "id": "Code_56",
+                "extensionAttributes": [],
                 "code": "73211009",
                 "codeSystem": "SNOMED",
                 "codeSystemVersion": "January 31, 2018",
@@ -128,11 +143,13 @@
             "encounters": [
               {
                 "id": "Encounter_1",
+                "extensionAttributes": [],
                 "name": "Screening",
                 "label": "",
                 "description": "Screening encounter",
                 "type": {
                   "id": "Code_32",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -145,6 +162,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_33",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -155,6 +173,7 @@
                 "contactModes": [
                   {
                     "id": "Code_34",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -164,6 +183,7 @@
                 ],
                 "transitionStartRule": {
                   "id": "TransitionRule_1",
+                  "extensionAttributes": [],
                   "name": "ENCOUNTER_START_RULE_1",
                   "label": null,
                   "description": null,
@@ -172,6 +192,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_2",
+                  "extensionAttributes": [],
                   "name": "ENCOUNTER_START_RULE_1",
                   "label": null,
                   "description": null,
@@ -183,11 +204,13 @@
               },
               {
                 "id": "Encounter_2",
+                "extensionAttributes": [],
                 "name": "Baseline",
                 "label": "",
                 "description": "Baseline encounter",
                 "type": {
                   "id": "Code_35",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -200,6 +223,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_36",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -210,6 +234,7 @@
                 "contactModes": [
                   {
                     "id": "Code_37",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -224,11 +249,13 @@
               },
               {
                 "id": "Encounter_3",
+                "extensionAttributes": [],
                 "name": "15 min",
                 "label": "",
                 "description": "First dose",
                 "type": {
                   "id": "Code_38",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -241,6 +268,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_39",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -251,6 +279,7 @@
                 "contactModes": [
                   {
                     "id": "Code_40",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -260,6 +289,7 @@
                 ],
                 "transitionStartRule": {
                   "id": "TransitionRule_3",
+                  "extensionAttributes": [],
                   "name": "ENCOUNTER_START_RULE_3",
                   "label": null,
                   "description": null,
@@ -272,11 +302,13 @@
               },
               {
                 "id": "Encounter_4",
+                "extensionAttributes": [],
                 "name": "Day 24",
                 "label": "",
                 "description": "2 week visit",
                 "type": {
                   "id": "Code_41",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -289,6 +321,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_42",
+                    "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -299,6 +332,7 @@
                 "contactModes": [
                   {
                     "id": "Code_43",
+                    "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -313,11 +347,13 @@
               },
               {
                 "id": "Encounter_5",
+                "extensionAttributes": [],
                 "name": "Day 35",
                 "label": "",
                 "description": "5 week visit",
                 "type": {
                   "id": "Code_44",
+                  "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -330,6 +366,7 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_45",
+                    "extensionAttributes": [],
                     "code": "C18002",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -340,6 +377,7 @@
                 "contactModes": [
                   {
                     "id": "Code_46",
+                    "extensionAttributes": [],
                     "code": "C171537",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -356,6 +394,7 @@
             "activities": [
               {
                 "id": "Activity_1",
+                "extensionAttributes": [],
                 "name": "Demographics",
                 "label": "",
                 "description": "Basic Demog",
@@ -377,6 +416,7 @@
               },
               {
                 "id": "Activity_2",
+                "extensionAttributes": [],
                 "name": "Something Else",
                 "label": "",
                 "description": "Something weird",
@@ -395,11 +435,13 @@
             "arms": [
               {
                 "id": "StudyArm_1",
+                "extensionAttributes": [],
                 "name": "Active",
                 "label": "",
                 "description": "Active Substance",
                 "type": {
                   "id": "Code_47",
+                  "extensionAttributes": [],
                   "code": "C174267",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -409,6 +451,7 @@
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
                   "id": "Code_48",
+                  "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -421,11 +464,13 @@
               },
               {
                 "id": "StudyArm_2",
+                "extensionAttributes": [],
                 "name": "Placebo",
                 "label": "",
                 "description": "Placebo",
                 "type": {
                   "id": "Code_49",
+                  "extensionAttributes": [],
                   "code": "C174268",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -435,6 +480,7 @@
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
                   "id": "Code_50",
+                  "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -449,6 +495,7 @@
             "studyCells": [
               {
                 "id": "StudyCell_1",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_1",
                 "elementIds": [
@@ -458,6 +505,7 @@
               },
               {
                 "id": "StudyCell_2",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_2",
                 "elementIds": [
@@ -467,6 +515,7 @@
               },
               {
                 "id": "StudyCell_3",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_3",
                 "elementIds": [
@@ -477,6 +526,7 @@
               },
               {
                 "id": "StudyCell_4",
+                "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_4",
                 "elementIds": [
@@ -486,6 +536,7 @@
               },
               {
                 "id": "StudyCell_5",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_1",
                 "elementIds": [
@@ -495,6 +546,7 @@
               },
               {
                 "id": "StudyCell_6",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_2",
                 "elementIds": [
@@ -504,6 +556,7 @@
               },
               {
                 "id": "StudyCell_7",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_3",
                 "elementIds": [
@@ -514,6 +567,7 @@
               },
               {
                 "id": "StudyCell_8",
+                "extensionAttributes": [],
                 "armId": "StudyArm_2",
                 "epochId": "StudyEpoch_4",
                 "elementIds": [
@@ -526,11 +580,13 @@
             "epochs": [
               {
                 "id": "StudyEpoch_1",
+                "extensionAttributes": [],
                 "name": "Screening",
                 "label": "",
                 "description": "Screening Epoch",
                 "type": {
                   "id": "Code_51",
+                  "extensionAttributes": [],
                   "code": "C202487",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -544,11 +600,13 @@
               },
               {
                 "id": "StudyEpoch_2",
+                "extensionAttributes": [],
                 "name": "Baseline",
                 "label": "",
                 "description": "Baseline Epoch",
                 "type": {
                   "id": "Code_52",
+                  "extensionAttributes": [],
                   "code": "C125938",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -562,11 +620,13 @@
               },
               {
                 "id": "StudyEpoch_3",
+                "extensionAttributes": [],
                 "name": "Treatment",
                 "label": "",
                 "description": "Treatment Epoch",
                 "type": {
                   "id": "Code_53",
+                  "extensionAttributes": [],
                   "code": "C101526",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -580,11 +640,13 @@
               },
               {
                 "id": "StudyEpoch_4",
+                "extensionAttributes": [],
                 "name": "Follow-Up",
                 "label": "",
                 "description": "Follow-up Epoch",
                 "type": {
                   "id": "Code_54",
+                  "extensionAttributes": [],
                   "code": "C202578",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -600,11 +662,13 @@
             "elements": [
               {
                 "id": "StudyElement_1",
+                "extensionAttributes": [],
                 "name": "Screening",
                 "label": "",
                 "description": "Screening Element",
                 "transitionStartRule": {
                   "id": "TransitionRule_4",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_1",
                   "label": null,
                   "description": null,
@@ -613,6 +677,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_5",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_1",
                   "label": null,
                   "description": null,
@@ -625,11 +690,13 @@
               },
               {
                 "id": "StudyElement_2",
+                "extensionAttributes": [],
                 "name": "Baseline",
                 "label": "",
                 "description": "Baseline Element",
                 "transitionStartRule": {
                   "id": "TransitionRule_6",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_2",
                   "label": null,
                   "description": null,
@@ -638,6 +705,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_7",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_2",
                   "label": null,
                   "description": null,
@@ -650,11 +718,13 @@
               },
               {
                 "id": "StudyElement_3",
+                "extensionAttributes": [],
                 "name": "Treatment 1",
                 "label": "",
                 "description": "Treatment Element 1",
                 "transitionStartRule": {
                   "id": "TransitionRule_8",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_3",
                   "label": null,
                   "description": null,
@@ -663,6 +733,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_9",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_3",
                   "label": null,
                   "description": null,
@@ -675,11 +746,13 @@
               },
               {
                 "id": "StudyElement_5",
+                "extensionAttributes": [],
                 "name": "Treatment 2",
                 "label": "",
                 "description": "Treatment Element 2",
                 "transitionStartRule": {
                   "id": "TransitionRule_12",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_5",
                   "label": null,
                   "description": null,
@@ -688,6 +761,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_13",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_5",
                   "label": null,
                   "description": null,
@@ -700,11 +774,13 @@
               },
               {
                 "id": "StudyElement_4",
+                "extensionAttributes": [],
                 "name": "Follow Up",
                 "label": "",
                 "description": "Follow Up Element",
                 "transitionStartRule": {
                   "id": "TransitionRule_10",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_4",
                   "label": null,
                   "description": null,
@@ -713,6 +789,7 @@
                 },
                 "transitionEndRule": {
                   "id": "TransitionRule_11",
+                  "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_4",
                   "label": null,
                   "description": null,
@@ -727,6 +804,7 @@
             "estimands": [
               {
                 "id": "Estimand_1",
+                "extensionAttributes": [],
                 "name": "EST1",
                 "label": "EST1",
                 "description": "",
@@ -739,6 +817,7 @@
                 "intercurrentEvents": [
                   {
                     "id": "IntercurrentEvent_1",
+                    "extensionAttributes": [],
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
@@ -750,6 +829,7 @@
                   },
                   {
                     "id": "IntercurrentEvent_2",
+                    "extensionAttributes": [],
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
@@ -761,6 +841,7 @@
                   },
                   {
                     "id": "IntercurrentEvent_3",
+                    "extensionAttributes": [],
                     "name": "termination",
                     "label": "",
                     "description": "IC Event Description",
@@ -776,6 +857,7 @@
               },
               {
                 "id": "Estimand_2",
+                "extensionAttributes": [],
                 "name": "EST2",
                 "label": "EST2",
                 "description": "",
@@ -788,6 +870,7 @@
                 "intercurrentEvents": [
                   {
                     "id": "IntercurrentEvent_4",
+                    "extensionAttributes": [],
                     "name": "Bad stuff",
                     "label": "",
                     "description": "IC Event Description Number 2",
@@ -805,12 +888,14 @@
             "indications": [
               {
                 "id": "Indication_1",
+                "extensionAttributes": [],
                 "name": "IND1",
                 "label": "Indication 1",
                 "description": "Indication One",
                 "codes": [
                   {
                     "id": "Code_80",
+                    "extensionAttributes": [],
                     "code": "12345",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -824,12 +909,14 @@
               },
               {
                 "id": "Indication_2",
+                "extensionAttributes": [],
                 "name": "IND2",
                 "label": "Indication 2",
                 "description": "Indication Two",
                 "codes": [
                   {
                     "id": "Code_81",
+                    "extensionAttributes": [],
                     "code": "345678",
                     "codeSystem": "SNOMED",
                     "codeSystemVersion": "January 31, 2018",
@@ -849,6 +936,7 @@
             "objectives": [
               {
                 "id": "Objective_1",
+                "extensionAttributes": [],
                 "name": "OBJ1",
                 "label": "",
                 "description": "",
@@ -858,6 +946,7 @@
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_102",
+                  "extensionAttributes": [],
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -867,6 +956,7 @@
                 "endpoints": [
                   {
                     "id": "Endpoint_1",
+                    "extensionAttributes": [],
                     "name": "END1",
                     "label": "",
                     "description": "",
@@ -877,6 +967,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_101",
+                      "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -888,6 +979,7 @@
               },
               {
                 "id": "Objective_2",
+                "extensionAttributes": [],
                 "name": "OBJ2",
                 "label": "",
                 "description": "",
@@ -897,6 +989,7 @@
                 "instanceType": "Objective",
                 "level": {
                   "id": "Code_104",
+                  "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -906,6 +999,7 @@
                 "endpoints": [
                   {
                     "id": "Endpoint_2",
+                    "extensionAttributes": [],
                     "name": "END2",
                     "label": "",
                     "description": "",
@@ -916,6 +1010,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_103",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -925,6 +1020,7 @@
                   },
                   {
                     "id": "Endpoint_3",
+                    "extensionAttributes": [],
                     "name": "END3",
                     "label": "",
                     "description": "",
@@ -935,6 +1031,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_105",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -944,6 +1041,7 @@
                   },
                   {
                     "id": "Endpoint_4",
+                    "extensionAttributes": [],
                     "name": "END4",
                     "label": "",
                     "description": "",
@@ -954,6 +1052,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_106",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -963,6 +1062,7 @@
                   },
                   {
                     "id": "Endpoint_5",
+                    "extensionAttributes": [],
                     "name": "END5",
                     "label": "",
                     "description": "",
@@ -973,6 +1073,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_107",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -982,6 +1083,7 @@
                   },
                   {
                     "id": "Endpoint_6",
+                    "extensionAttributes": [],
                     "name": "END6",
                     "label": "",
                     "description": "",
@@ -992,6 +1094,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_108",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1001,6 +1104,7 @@
                   },
                   {
                     "id": "Endpoint_7",
+                    "extensionAttributes": [],
                     "name": "END7",
                     "label": "",
                     "description": "",
@@ -1011,6 +1115,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_109",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1020,6 +1125,7 @@
                   },
                   {
                     "id": "Endpoint_8",
+                    "extensionAttributes": [],
                     "name": "END8",
                     "label": "",
                     "description": "",
@@ -1030,6 +1136,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_110",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1039,6 +1146,7 @@
                   },
                   {
                     "id": "Endpoint_9",
+                    "extensionAttributes": [],
                     "name": "END9",
                     "label": "",
                     "description": "",
@@ -1049,6 +1157,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_111",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1058,6 +1167,7 @@
                   },
                   {
                     "id": "Endpoint_10",
+                    "extensionAttributes": [],
                     "name": "END10",
                     "label": "",
                     "description": "",
@@ -1068,6 +1178,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_112",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1077,6 +1188,7 @@
                   },
                   {
                     "id": "Endpoint_11",
+                    "extensionAttributes": [],
                     "name": "END11",
                     "label": "",
                     "description": "",
@@ -1087,6 +1199,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_113",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1096,6 +1209,7 @@
                   },
                   {
                     "id": "Endpoint_12",
+                    "extensionAttributes": [],
                     "name": "END12",
                     "label": "",
                     "description": "",
@@ -1106,6 +1220,7 @@
                     "purpose": "",
                     "level": {
                       "id": "Code_114",
+                      "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1118,6 +1233,7 @@
             ],
             "population": {
               "id": "StudyDesignPopulation_1",
+              "extensionAttributes": [],
               "name": "POP1",
               "label": "",
               "description": "",
@@ -1125,6 +1241,7 @@
               "plannedEnrollmentNumberRange": null,
               "plannedEnrollmentNumberQuantity": {
                 "id": "Quantity_8",
+                "extensionAttributes": [],
                 "value": 120.0,
                 "unit": null,
                 "instanceType": "Quantity"
@@ -1132,6 +1249,7 @@
               "plannedCompletionNumberRange": null,
               "plannedCompletionNumberQuantity": {
                 "id": "Quantity_7",
+                "extensionAttributes": [],
                 "value": 100.0,
                 "unit": null,
                 "instanceType": "Quantity"
@@ -1139,6 +1257,7 @@
               "plannedSex": [
                 {
                   "id": "Code_98",
+                  "extensionAttributes": [],
                   "code": "C49636",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -1153,6 +1272,7 @@
               "cohorts": [
                 {
                   "id": "StudyCohort_1",
+                  "extensionAttributes": [],
                   "name": "COHORT1",
                   "label": "",
                   "description": "",
@@ -1165,13 +1285,17 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_1",
+                    "extensionAttributes": [],
                     "minValue": {
                       "id": "Quantity_9",
+                      "extensionAttributes": [],
                       "value": 18.0,
                       "unit": {
                         "id": "AliasCode_27",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_99",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1185,11 +1309,14 @@
                     },
                     "maxValue": {
                       "id": "Quantity_10",
+                      "extensionAttributes": [],
                       "value": 30.0,
                       "unit": {
                         "id": "AliasCode_27",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_99",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1211,6 +1338,7 @@
                 },
                 {
                   "id": "StudyCohort_2",
+                  "extensionAttributes": [],
                   "name": "COHORT2",
                   "label": "",
                   "description": "",
@@ -1223,13 +1351,17 @@
                   "criterionIds": [],
                   "plannedAge": {
                     "id": "Range_2",
+                    "extensionAttributes": [],
                     "minValue": {
                       "id": "Quantity_11",
+                      "extensionAttributes": [],
                       "value": 31.0,
                       "unit": {
                         "id": "AliasCode_28",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_100",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1243,11 +1375,14 @@
                     },
                     "maxValue": {
                       "id": "Quantity_12",
+                      "extensionAttributes": [],
                       "value": 70.0,
                       "unit": {
                         "id": "AliasCode_28",
+                        "extensionAttributes": [],
                         "standardCode": {
                           "id": "Code_100",
+                          "extensionAttributes": [],
                           "code": "C29848",
                           "codeSystem": "http://www.cdisc.org",
                           "codeSystemVersion": "2024-09-27",
@@ -1269,35 +1404,10 @@
                 }
               ]
             },
-            "analysisPopulations": [
-              {
-                "id": "AnalysisPopulation_1",
-                "name": "AP_1",
-                "label": null,
-                "description": null,
-                "text": "ITT",
-                "subsetOfIds": [
-                  "StudyCohort_1"
-                ],
-                "notes": [],
-                "instanceType": "AnalysisPopulation"
-              },
-              {
-                "id": "AnalysisPopulation_2",
-                "name": "AP_4",
-                "label": null,
-                "description": null,
-                "text": "ITT",
-                "subsetOfIds": [
-                  "StudyCohort_2"
-                ],
-                "notes": [],
-                "instanceType": "AnalysisPopulation"
-              }
-            ],
             "scheduleTimelines": [
               {
                 "id": "ScheduleTimeline_1",
+                "extensionAttributes": [],
                 "name": "Main Timeline",
                 "label": "Main Timeline",
                 "description": "This is the main timeline for the study design.",
@@ -1307,17 +1417,20 @@
                 "exits": [
                   {
                     "id": "ScheduleTimelineExit_1",
+                    "extensionAttributes": [],
                     "instanceType": "ScheduleTimelineExit"
                   }
                 ],
                 "timings": [
                   {
                     "id": "Timing_1",
+                    "extensionAttributes": [],
                     "name": "TIM1",
                     "label": "Screening",
                     "description": "Screening timing",
                     "type": {
                       "id": "Code_17",
+                      "extensionAttributes": [],
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1328,6 +1441,7 @@
                     "valueLabel": "2 days",
                     "relativeToFrom": {
                       "id": "Code_18",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1343,11 +1457,13 @@
                   },
                   {
                     "id": "Timing_2",
+                    "extensionAttributes": [],
                     "name": "TIM2",
                     "label": "Pre dose",
                     "description": "Pre dose timing",
                     "type": {
                       "id": "Code_19",
+                      "extensionAttributes": [],
                       "code": "C201357",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1358,6 +1474,7 @@
                     "valueLabel": "15 min",
                     "relativeToFrom": {
                       "id": "Code_20",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1373,11 +1490,13 @@
                   },
                   {
                     "id": "Timing_3",
+                    "extensionAttributes": [],
                     "name": "TIM3",
                     "label": "Dosing",
                     "description": "Dosing anchor",
                     "type": {
                       "id": "Code_22",
+                      "extensionAttributes": [],
                       "code": "C201358",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1388,6 +1507,7 @@
                     "valueLabel": "1 Day",
                     "relativeToFrom": {
                       "id": "Code_23",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1403,11 +1523,13 @@
                   },
                   {
                     "id": "Timing_4",
+                    "extensionAttributes": [],
                     "name": "TIM4",
                     "label": "Day 14",
                     "description": "Day 14 timing",
                     "type": {
                       "id": "Code_24",
+                      "extensionAttributes": [],
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1418,6 +1540,7 @@
                     "valueLabel": "14 days",
                     "relativeToFrom": {
                       "id": "Code_25",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1433,11 +1556,13 @@
                   },
                   {
                     "id": "Timing_5",
+                    "extensionAttributes": [],
                     "name": "TIM5",
                     "label": "Follow Up",
                     "description": "Follow up timing",
                     "type": {
                       "id": "Code_27",
+                      "extensionAttributes": [],
                       "code": "C201356",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1448,6 +1573,7 @@
                     "valueLabel": "21 days",
                     "relativeToFrom": {
                       "id": "Code_28",
+                      "extensionAttributes": [],
                       "code": "C201355",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -1465,6 +1591,7 @@
                 "instances": [
                   {
                     "id": "ScheduledActivityInstance_1",
+                    "extensionAttributes": [],
                     "name": "SCREEN",
                     "label": "Screen",
                     "description": "Screening",
@@ -1481,6 +1608,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_2",
+                    "extensionAttributes": [],
                     "name": "PRE DOSE",
                     "label": "Baseline",
                     "description": "Pre Dose",
@@ -1496,6 +1624,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_3",
+                    "extensionAttributes": [],
                     "name": "DOSE",
                     "label": "Treatment",
                     "description": "Dosing",
@@ -1511,6 +1640,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_4",
+                    "extensionAttributes": [],
                     "name": "D14",
                     "label": "Day 14",
                     "description": "Day 14",
@@ -1526,6 +1656,7 @@
                   },
                   {
                     "id": "ScheduledActivityInstance_5",
+                    "extensionAttributes": [],
                     "name": "FU",
                     "label": "Follow Up",
                     "description": "Follow Up",
@@ -1546,11 +1677,40 @@
             "biospecimenRetentions": [],
             "documentVersionIds": [],
             "eligibilityCriteria": [],
+            "analysisPopulations": [
+              {
+                "id": "AnalysisPopulation_1",
+                "extensionAttributes": [],
+                "name": "AP_1",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_1"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              },
+              {
+                "id": "AnalysisPopulation_2",
+                "extensionAttributes": [],
+                "name": "AP_4",
+                "label": null,
+                "description": null,
+                "text": "ITT",
+                "subsetOfIds": [
+                  "StudyCohort_2"
+                ],
+                "notes": [],
+                "instanceType": "AnalysisPopulation"
+              }
+            ],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
               {
                 "id": "Code_60",
+                "extensionAttributes": [],
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1560,6 +1720,7 @@
             ],
             "model": {
               "id": "Code_61",
+              "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1569,6 +1730,7 @@
             "intentTypes": [
               {
                 "id": "Code_58",
+                "extensionAttributes": [],
                 "code": "C15714",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1577,6 +1739,7 @@
               },
               {
                 "id": "Code_59",
+                "extensionAttributes": [],
                 "code": "C139174",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1586,8 +1749,10 @@
             ],
             "blindingSchema": {
               "id": "AliasCode_4",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_57",
+                "extensionAttributes": [],
                 "code": "C49659",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
@@ -1602,9 +1767,11 @@
         "titles": [
           {
             "id": "StudyTitle_1",
+            "extensionAttributes": [],
             "text": "SIMPLE",
             "type": {
               "id": "Code_5",
+              "extensionAttributes": [],
               "code": "C94108",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1615,9 +1782,11 @@
           },
           {
             "id": "StudyTitle_2",
+            "extensionAttributes": [],
             "text": "Something Brief",
             "type": {
               "id": "Code_8",
+              "extensionAttributes": [],
               "code": "C99905x1",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1628,9 +1797,11 @@
           },
           {
             "id": "StudyTitle_3",
+            "extensionAttributes": [],
             "text": "Something Very Official",
             "type": {
               "id": "Code_9",
+              "extensionAttributes": [],
               "code": "C99905x2",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1641,9 +1812,11 @@
           },
           {
             "id": "StudyTitle_4",
+            "extensionAttributes": [],
             "text": "Something Public",
             "type": {
               "id": "Code_10",
+              "extensionAttributes": [],
               "code": "C99905x3",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1654,9 +1827,11 @@
           },
           {
             "id": "StudyTitle_5",
+            "extensionAttributes": [],
             "text": "Somethign Clever But New",
             "type": {
               "id": "Code_11",
+              "extensionAttributes": [],
               "code": "C99905x4",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -1670,822 +1845,959 @@
         "narrativeContentItems": [
           {
             "id": "NarrativeContentItem_1",
+            "extensionAttributes": [],
             "name": "NCI_1",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_2",
+            "extensionAttributes": [],
             "name": "NCI_2",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_3",
+            "extensionAttributes": [],
             "name": "NCI_3",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_4",
+            "extensionAttributes": [],
             "name": "NCI_4",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_5",
+            "extensionAttributes": [],
             "name": "NCI_5",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_6",
+            "extensionAttributes": [],
             "name": "NCI_6",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_7",
+            "extensionAttributes": [],
             "name": "NCI_7",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_8",
+            "extensionAttributes": [],
             "name": "NCI_8",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_9",
+            "extensionAttributes": [],
             "name": "NCI_9",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table>\n<tr>\n<th style=\"vertical-align: top\">Primary Objective</th>\n<th style=\"vertical-align: top\">Primary Endpoint</th>\n</tr>\n<tr>\n<td style=\"vertical-align: top\"><usdm:ref attribute=\"description\" klass=\"Objective\" namexref=\"OBJ1\"></usdm:ref></td>\n<td style=\"vertical-align: top\"><usdm:ref attribute=\"description\" id=\"Endpoint_1\" klass=\"Endpoint\"></usdm:ref></td>\n</tr>\n</table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_10",
+            "extensionAttributes": [],
             "name": "NCI_10",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_11",
+            "extensionAttributes": [],
             "name": "NCI_11",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_12",
+            "extensionAttributes": [],
             "name": "NCI_12",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_13",
+            "extensionAttributes": [],
             "name": "NCI_13",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_14",
+            "extensionAttributes": [],
             "name": "NCI_14",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_15",
+            "extensionAttributes": [],
             "name": "NCI_15",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_16",
+            "extensionAttributes": [],
             "name": "NCI_16",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_17",
+            "extensionAttributes": [],
             "name": "NCI_17",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_18",
+            "extensionAttributes": [],
             "name": "NCI_18",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_19",
+            "extensionAttributes": [],
             "name": "NCI_19",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_20",
+            "extensionAttributes": [],
             "name": "NCI_20",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_21",
+            "extensionAttributes": [],
             "name": "NCI_21",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_22",
+            "extensionAttributes": [],
             "name": "NCI_22",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Inclusion criteria are:</p>\n<ul>\n<li>1. Something</li>\n<li>2. Something else</li>\n</ul></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_23",
+            "extensionAttributes": [],
             "name": "NCI_23",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Exclusion criteria are:</p>\n<ul>\n<li>1. Dont do this</li>\n<li>2. And don't do that</li>\n</ul></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_24",
+            "extensionAttributes": [],
             "name": "NCI_24",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_25",
+            "extensionAttributes": [],
             "name": "NCI_25",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_26",
+            "extensionAttributes": [],
             "name": "NCI_26",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_27",
+            "extensionAttributes": [],
             "name": "NCI_27",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_28",
+            "extensionAttributes": [],
             "name": "NCI_28",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_29",
+            "extensionAttributes": [],
             "name": "NCI_29",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_30",
+            "extensionAttributes": [],
             "name": "NCI_30",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_31",
+            "extensionAttributes": [],
             "name": "NCI_31",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_32",
+            "extensionAttributes": [],
             "name": "NCI_32",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_33",
+            "extensionAttributes": [],
             "name": "NCI_33",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_34",
+            "extensionAttributes": [],
             "name": "NCI_34",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_35",
+            "extensionAttributes": [],
             "name": "NCI_35",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_36",
+            "extensionAttributes": [],
             "name": "NCI_36",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_37",
+            "extensionAttributes": [],
             "name": "NCI_37",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_38",
+            "extensionAttributes": [],
             "name": "NCI_38",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_39",
+            "extensionAttributes": [],
             "name": "NCI_39",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_40",
+            "extensionAttributes": [],
             "name": "NCI_40",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_41",
+            "extensionAttributes": [],
             "name": "NCI_41",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_42",
+            "extensionAttributes": [],
             "name": "NCI_42",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_43",
+            "extensionAttributes": [],
             "name": "NCI_43",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Blinding and unblinding text here please</p></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_44",
+            "extensionAttributes": [],
             "name": "NCI_44",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_45",
+            "extensionAttributes": [],
             "name": "NCI_45",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_46",
+            "extensionAttributes": [],
             "name": "NCI_46",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_47",
+            "extensionAttributes": [],
             "name": "NCI_47",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_48",
+            "extensionAttributes": [],
             "name": "NCI_48",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_49",
+            "extensionAttributes": [],
             "name": "NCI_49",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_50",
+            "extensionAttributes": [],
             "name": "NCI_50",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_51",
+            "extensionAttributes": [],
             "name": "NCI_51",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_52",
+            "extensionAttributes": [],
             "name": "NCI_52",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_53",
+            "extensionAttributes": [],
             "name": "NCI_53",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_54",
+            "extensionAttributes": [],
             "name": "NCI_54",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_55",
+            "extensionAttributes": [],
             "name": "NCI_55",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_56",
+            "extensionAttributes": [],
             "name": "NCI_56",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_57",
+            "extensionAttributes": [],
             "name": "NCI_57",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_58",
+            "extensionAttributes": [],
             "name": "NCI_58",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_59",
+            "extensionAttributes": [],
             "name": "NCI_59",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_60",
+            "extensionAttributes": [],
             "name": "NCI_60",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_61",
+            "extensionAttributes": [],
             "name": "NCI_61",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_62",
+            "extensionAttributes": [],
             "name": "NCI_62",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_63",
+            "extensionAttributes": [],
             "name": "NCI_63",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_64",
+            "extensionAttributes": [],
             "name": "NCI_64",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_65",
+            "extensionAttributes": [],
             "name": "NCI_65",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_66",
+            "extensionAttributes": [],
             "name": "NCI_66",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_67",
+            "extensionAttributes": [],
             "name": "NCI_67",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_68",
+            "extensionAttributes": [],
             "name": "NCI_68",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_69",
+            "extensionAttributes": [],
             "name": "NCI_69",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_70",
+            "extensionAttributes": [],
             "name": "NCI_70",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_71",
+            "extensionAttributes": [],
             "name": "NCI_71",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_72",
+            "extensionAttributes": [],
             "name": "NCI_72",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_73",
+            "extensionAttributes": [],
             "name": "NCI_73",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_74",
+            "extensionAttributes": [],
             "name": "NCI_74",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_75",
+            "extensionAttributes": [],
             "name": "NCI_75",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_76",
+            "extensionAttributes": [],
             "name": "NCI_76",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_77",
+            "extensionAttributes": [],
             "name": "NCI_77",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_78",
+            "extensionAttributes": [],
             "name": "NCI_78",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_79",
+            "extensionAttributes": [],
             "name": "NCI_79",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_80",
+            "extensionAttributes": [],
             "name": "NCI_80",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_81",
+            "extensionAttributes": [],
             "name": "NCI_81",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_82",
+            "extensionAttributes": [],
             "name": "NCI_82",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_83",
+            "extensionAttributes": [],
             "name": "NCI_83",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_84",
+            "extensionAttributes": [],
             "name": "NCI_84",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_85",
+            "extensionAttributes": [],
             "name": "NCI_85",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_86",
+            "extensionAttributes": [],
             "name": "NCI_86",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_87",
+            "extensionAttributes": [],
             "name": "NCI_87",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_88",
+            "extensionAttributes": [],
             "name": "NCI_88",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_89",
+            "extensionAttributes": [],
             "name": "NCI_89",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_90",
+            "extensionAttributes": [],
             "name": "NCI_90",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_91",
+            "extensionAttributes": [],
             "name": "NCI_91",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_92",
+            "extensionAttributes": [],
             "name": "NCI_92",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_93",
+            "extensionAttributes": [],
             "name": "NCI_93",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_94",
+            "extensionAttributes": [],
             "name": "NCI_94",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_95",
+            "extensionAttributes": [],
             "name": "NCI_95",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_96",
+            "extensionAttributes": [],
             "name": "NCI_96",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_97",
+            "extensionAttributes": [],
             "name": "NCI_97",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_98",
+            "extensionAttributes": [],
             "name": "NCI_98",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_99",
+            "extensionAttributes": [],
             "name": "NCI_99",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_100",
+            "extensionAttributes": [],
             "name": "NCI_100",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_101",
+            "extensionAttributes": [],
             "name": "NCI_101",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_102",
+            "extensionAttributes": [],
             "name": "NCI_102",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_103",
+            "extensionAttributes": [],
             "name": "NCI_103",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_104",
+            "extensionAttributes": [],
             "name": "NCI_104",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_105",
+            "extensionAttributes": [],
             "name": "NCI_105",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_106",
+            "extensionAttributes": [],
             "name": "NCI_106",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_107",
+            "extensionAttributes": [],
             "name": "NCI_107",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_108",
+            "extensionAttributes": [],
             "name": "NCI_108",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_109",
+            "extensionAttributes": [],
             "name": "NCI_109",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_110",
+            "extensionAttributes": [],
             "name": "NCI_110",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_111",
+            "extensionAttributes": [],
             "name": "NCI_111",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_112",
+            "extensionAttributes": [],
             "name": "NCI_112",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_113",
+            "extensionAttributes": [],
             "name": "NCI_113",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_114",
+            "extensionAttributes": [],
             "name": "NCI_114",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_115",
+            "extensionAttributes": [],
             "name": "NCI_115",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_116",
+            "extensionAttributes": [],
             "name": "NCI_116",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_117",
+            "extensionAttributes": [],
             "name": "NCI_117",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_118",
+            "extensionAttributes": [],
             "name": "NCI_118",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_119",
+            "extensionAttributes": [],
             "name": "NCI_119",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_120",
+            "extensionAttributes": [],
             "name": "NCI_120",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_121",
+            "extensionAttributes": [],
             "name": "NCI_121",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_122",
+            "extensionAttributes": [],
             "name": "NCI_122",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_123",
+            "extensionAttributes": [],
             "name": "NCI_123",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_124",
+            "extensionAttributes": [],
             "name": "NCI_124",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_125",
+            "extensionAttributes": [],
             "name": "NCI_125",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_126",
+            "extensionAttributes": [],
             "name": "NCI_126",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_127",
+            "extensionAttributes": [],
             "name": "NCI_127",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_128",
+            "extensionAttributes": [],
             "name": "NCI_128",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_129",
+            "extensionAttributes": [],
             "name": "NCI_129",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_130",
+            "extensionAttributes": [],
             "name": "NCI_130",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_131",
+            "extensionAttributes": [],
             "name": "NCI_131",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_132",
+            "extensionAttributes": [],
             "name": "NCI_132",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_133",
+            "extensionAttributes": [],
             "name": "NCI_133",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_134",
+            "extensionAttributes": [],
             "name": "NCI_134",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_135",
+            "extensionAttributes": [],
             "name": "NCI_135",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_136",
+            "extensionAttributes": [],
             "name": "NCI_136",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_137",
+            "extensionAttributes": [],
             "name": "NCI_137",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
             "instanceType": "NarrativeContentItem"
@@ -2496,10 +2808,12 @@
         "organizations": [
           {
             "id": "Organization_1",
+            "extensionAttributes": [],
             "name": "CT-GOV",
             "label": "ClinicalTrials.gov",
             "type": {
               "id": "Code_1",
+              "extensionAttributes": [],
               "code": "C93453",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -2510,6 +2824,7 @@
             "identifier": "CT-GOV",
             "legalAddress": {
               "id": "Address_1",
+              "extensionAttributes": [],
               "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
               "lines": [
                 "line"
@@ -2520,6 +2835,7 @@
               "postalCode": "postal_code",
               "country": {
                 "id": "Code_2",
+                "extensionAttributes": [],
                 "code": "GBR",
                 "codeSystem": "ISO 3166 1 alpha3",
                 "codeSystemVersion": "2020-08",
@@ -2533,10 +2849,12 @@
           },
           {
             "id": "Organization_2",
+            "extensionAttributes": [],
             "name": "ACME",
             "label": "ACME Pharma",
             "type": {
               "id": "Code_3",
+              "extensionAttributes": [],
               "code": "C70793",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -2547,6 +2865,7 @@
             "identifier": "123456789",
             "legalAddress": {
               "id": "Address_2",
+              "extensionAttributes": [],
               "text": "Somewhere, In a City, In a District, In a big state, 12345, France",
               "lines": [
                 "Somewhere"
@@ -2557,6 +2876,7 @@
               "postalCode": "12345",
               "country": {
                 "id": "Code_4",
+                "extensionAttributes": [],
                 "code": "FRA",
                 "codeSystem": "ISO 3166 1 alpha3",
                 "codeSystemVersion": "2020-08",
@@ -2572,11 +2892,13 @@
         "studyInterventions": [
           {
             "id": "StudyIntervention_1",
+            "extensionAttributes": [],
             "name": "INT1",
             "label": "Int Label 1",
             "description": "Int Desc 1",
             "role": {
               "id": "Code_87",
+              "extensionAttributes": [],
               "code": "C41161",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -2585,6 +2907,7 @@
             },
             "type": {
               "id": "Code_88",
+              "extensionAttributes": [],
               "code": "C1909",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -2593,11 +2916,14 @@
             },
             "minimumResponseDuration": {
               "id": "Quantity_3",
+              "extensionAttributes": [],
               "value": 1.0,
               "unit": {
                 "id": "AliasCode_21",
+                "extensionAttributes": [],
                 "standardCode": {
                   "id": "Code_89",
+                  "extensionAttributes": [],
                   "code": "C25301",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -2612,6 +2938,7 @@
             "codes": [
               {
                 "id": "Code_86",
+                "extensionAttributes": [],
                 "code": "A",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
@@ -2622,18 +2949,23 @@
             "administrations": [
               {
                 "id": "Administration_1",
+                "extensionAttributes": [],
                 "name": "Admin 1",
                 "label": "",
                 "description": "Admin Desc 1",
                 "duration": {
                   "id": "AdministrationDuration_1",
+                  "extensionAttributes": [],
                   "quantity": {
                     "id": "Quantity_1",
+                    "extensionAttributes": [],
                     "value": 14.0,
                     "unit": {
                       "id": "AliasCode_17",
+                      "extensionAttributes": [],
                       "standardCode": {
                         "id": "Code_82",
+                        "extensionAttributes": [],
                         "code": "C25613",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2024-09-27",
@@ -2652,11 +2984,14 @@
                 },
                 "dose": {
                   "id": "Quantity_2",
+                  "extensionAttributes": [],
                   "value": 12.0,
                   "unit": {
                     "id": "AliasCode_18",
+                    "extensionAttributes": [],
                     "standardCode": {
                       "id": "Code_83",
+                      "extensionAttributes": [],
                       "code": "C28253",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2670,8 +3005,10 @@
                 },
                 "route": {
                   "id": "AliasCode_19",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_84",
+                    "extensionAttributes": [],
                     "code": "C38197",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -2683,8 +3020,10 @@
                 },
                 "frequency": {
                   "id": "AliasCode_20",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_85",
+                    "extensionAttributes": [],
                     "code": "C139179",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -2705,11 +3044,13 @@
           },
           {
             "id": "StudyIntervention_2",
+            "extensionAttributes": [],
             "name": "INT2",
             "label": "Int Label 2",
             "description": "Int Desc 2",
             "role": {
               "id": "Code_95",
+              "extensionAttributes": [],
               "code": "C753",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -2718,6 +3059,7 @@
             },
             "type": {
               "id": "Code_96",
+              "extensionAttributes": [],
               "code": "C1909",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -2726,11 +3068,14 @@
             },
             "minimumResponseDuration": {
               "id": "Quantity_6",
+              "extensionAttributes": [],
               "value": 1.0,
               "unit": {
                 "id": "AliasCode_26",
+                "extensionAttributes": [],
                 "standardCode": {
                   "id": "Code_97",
+                  "extensionAttributes": [],
                   "code": "C25301",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -2745,6 +3090,7 @@
             "codes": [
               {
                 "id": "Code_94",
+                "extensionAttributes": [],
                 "code": "A",
                 "codeSystem": "SPONSOR",
                 "codeSystemVersion": "12",
@@ -2755,18 +3101,23 @@
             "administrations": [
               {
                 "id": "Administration_2",
+                "extensionAttributes": [],
                 "name": "Admin 2",
                 "label": "",
                 "description": "Admin Desc 2",
                 "duration": {
                   "id": "AdministrationDuration_2",
+                  "extensionAttributes": [],
                   "quantity": {
                     "id": "Quantity_4",
+                    "extensionAttributes": [],
                     "value": 14.0,
                     "unit": {
                       "id": "AliasCode_22",
+                      "extensionAttributes": [],
                       "standardCode": {
                         "id": "Code_90",
+                        "extensionAttributes": [],
                         "code": "C25613",
                         "codeSystem": "http://www.cdisc.org",
                         "codeSystemVersion": "2024-09-27",
@@ -2785,11 +3136,14 @@
                 },
                 "dose": {
                   "id": "Quantity_5",
+                  "extensionAttributes": [],
                   "value": 12.0,
                   "unit": {
                     "id": "AliasCode_23",
+                    "extensionAttributes": [],
                     "standardCode": {
                       "id": "Code_91",
+                      "extensionAttributes": [],
                       "code": "C28253",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -2803,8 +3157,10 @@
                 },
                 "route": {
                   "id": "AliasCode_24",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_92",
+                    "extensionAttributes": [],
                     "code": "C38197",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -2816,8 +3172,10 @@
                 },
                 "frequency": {
                   "id": "AliasCode_25",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_93",
+                    "extensionAttributes": [],
                     "code": "C139179",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
@@ -2843,6 +3201,7 @@
         "biomedicalConcepts": [
           {
             "id": "BiomedicalConcept_1",
+            "extensionAttributes": [],
             "name": "Subject Age",
             "label": "Subject Age",
             "synonyms": [
@@ -2852,6 +3211,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_1",
+                "extensionAttributes": [],
                 "name": "Numeric Age for Data Tabulation",
                 "label": "Numeric Age for Data Tabulation",
                 "isRequired": true,
@@ -2860,8 +3220,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_6",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_64",
+                    "extensionAttributes": [],
                     "code": "C170981",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2876,6 +3238,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_2",
+                "extensionAttributes": [],
                 "name": "Age Unit",
                 "label": "Age Unit",
                 "isRequired": true,
@@ -2884,8 +3247,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_7",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_65",
+                    "extensionAttributes": [],
                     "code": "C50400",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2901,8 +3266,10 @@
             ],
             "code": {
               "id": "AliasCode_8",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_66",
+                "extensionAttributes": [],
                 "code": "C69260",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -2917,6 +3284,7 @@
           },
           {
             "id": "BiomedicalConcept_2",
+            "extensionAttributes": [],
             "name": "Sex",
             "label": "Sex",
             "synonyms": [],
@@ -2924,6 +3292,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_3",
+                "extensionAttributes": [],
                 "name": "Sex",
                 "label": "Sex",
                 "isRequired": true,
@@ -2932,9 +3301,11 @@
                 "responseCodes": [
                   {
                     "id": "ResponseCode_1",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_67",
+                      "extensionAttributes": [],
                       "code": "C20197",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2945,9 +3316,11 @@
                   },
                   {
                     "id": "ResponseCode_2",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_68",
+                      "extensionAttributes": [],
                       "code": "C16576",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -2959,8 +3332,10 @@
                 ],
                 "code": {
                   "id": "AliasCode_9",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_69",
+                    "extensionAttributes": [],
                     "code": "C28421",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -2976,8 +3351,10 @@
             ],
             "code": {
               "id": "AliasCode_10",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_70",
+                "extensionAttributes": [],
                 "code": "C28421",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -2992,6 +3369,7 @@
           },
           {
             "id": "BiomedicalConcept_3",
+            "extensionAttributes": [],
             "name": "Race",
             "label": "Race",
             "synonyms": [
@@ -3001,6 +3379,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_4",
+                "extensionAttributes": [],
                 "name": "Race",
                 "label": "Race",
                 "isRequired": true,
@@ -3009,8 +3388,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_11",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_71",
+                    "extensionAttributes": [],
                     "code": "C17049",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -3026,8 +3407,10 @@
             ],
             "code": {
               "id": "AliasCode_12",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_72",
+                "extensionAttributes": [],
                 "code": "C17049",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -3042,6 +3425,7 @@
           },
           {
             "id": "BiomedicalConcept_4",
+            "extensionAttributes": [],
             "name": "Weight",
             "label": "Weight",
             "synonyms": [
@@ -3052,6 +3436,7 @@
             "properties": [
               {
                 "id": "BiomedicalConceptProperty_5",
+                "extensionAttributes": [],
                 "name": "VSTESTCD",
                 "label": "VSTESTCD",
                 "isRequired": true,
@@ -3060,8 +3445,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_13",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_73",
+                    "extensionAttributes": [],
                     "code": "C25208",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -3076,6 +3463,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_6",
+                "extensionAttributes": [],
                 "name": "VSORRES",
                 "label": "VSORRES",
                 "isRequired": true,
@@ -3084,8 +3472,10 @@
                 "responseCodes": [],
                 "code": {
                   "id": "AliasCode_14",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_74",
+                    "extensionAttributes": [],
                     "code": "C77140",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -3100,6 +3490,7 @@
               },
               {
                 "id": "BiomedicalConceptProperty_7",
+                "extensionAttributes": [],
                 "name": "VSORRESU",
                 "label": "VSORRESU",
                 "isRequired": true,
@@ -3108,9 +3499,11 @@
                 "responseCodes": [
                   {
                     "id": "ResponseCode_3",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_75",
+                      "extensionAttributes": [],
                       "code": "C48531",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -3121,9 +3514,11 @@
                   },
                   {
                     "id": "ResponseCode_4",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_76",
+                      "extensionAttributes": [],
                       "code": "C48155",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -3134,9 +3529,11 @@
                   },
                   {
                     "id": "ResponseCode_5",
+                    "extensionAttributes": [],
                     "isEnabled": true,
                     "code": {
                       "id": "Code_77",
+                      "extensionAttributes": [],
                       "code": "C28252",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2023-12-15",
@@ -3148,8 +3545,10 @@
                 ],
                 "code": {
                   "id": "AliasCode_15",
+                  "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_78",
+                    "extensionAttributes": [],
                     "code": "C48208",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2023-12-15",
@@ -3165,8 +3564,10 @@
             ],
             "code": {
               "id": "AliasCode_16",
+              "extensionAttributes": [],
               "standardCode": {
                 "id": "Code_79",
+                "extensionAttributes": [],
                 "code": "C25208",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2023-12-15",
@@ -3191,11 +3592,13 @@
     "documentedBy": [
       {
         "id": "StudyDefinitionDocument_1",
+        "extensionAttributes": [],
         "name": "Protocol_Document_SIMPLE1",
         "label": null,
         "description": null,
         "language": {
           "id": "Code_115",
+          "extensionAttributes": [],
           "code": "en",
           "codeSystem": "ISO",
           "codeSystemVersion": "1",
@@ -3204,6 +3607,7 @@
         },
         "type": {
           "id": "Code_116",
+          "extensionAttributes": [],
           "code": "C12345",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2024-09-27",
@@ -3214,9 +3618,11 @@
         "versions": [
           {
             "id": "StudyDefinitionDocumentVersion_1",
+            "extensionAttributes": [],
             "version": "1",
             "status": {
               "id": "Code_12",
+              "extensionAttributes": [],
               "code": "C85255",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
@@ -3226,11 +3632,13 @@
             "dateValues": [
               {
                 "id": "GovernanceDate_2",
+                "extensionAttributes": [],
                 "name": "Approval",
                 "label": "Protocol Approval",
                 "description": "Protocol document approval date",
                 "type": {
                   "id": "Code_15",
+                  "extensionAttributes": [],
                   "code": "C99903x1",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
@@ -3241,8 +3649,10 @@
                 "geographicScopes": [
                   {
                     "id": "GeographicScope_2",
+                    "extensionAttributes": [],
                     "type": {
                       "id": "Code_16",
+                      "extensionAttributes": [],
                       "code": "C68846",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
@@ -3259,6 +3669,7 @@
             "contents": [
               {
                 "id": "NarrativeContent_1",
+                "extensionAttributes": [],
                 "name": "NC_1",
                 "sectionNumber": "1",
                 "sectionTitle": "PROTOCOL SUMMARY",
@@ -3276,6 +3687,7 @@
               },
               {
                 "id": "NarrativeContent_2",
+                "extensionAttributes": [],
                 "name": "NC_2",
                 "sectionNumber": "1.1",
                 "sectionTitle": "Protocol Synopsis",
@@ -3289,6 +3701,7 @@
               },
               {
                 "id": "NarrativeContent_3",
+                "extensionAttributes": [],
                 "name": "NC_3",
                 "sectionNumber": "1.2",
                 "sectionTitle": "Trial Schema",
@@ -3302,6 +3715,7 @@
               },
               {
                 "id": "NarrativeContent_4",
+                "extensionAttributes": [],
                 "name": "NC_4",
                 "sectionNumber": "1.3",
                 "sectionTitle": "Schedule of Activities",
@@ -3315,6 +3729,7 @@
               },
               {
                 "id": "NarrativeContent_5",
+                "extensionAttributes": [],
                 "name": "NC_5",
                 "sectionNumber": "2",
                 "sectionTitle": "INTRODUCTION",
@@ -3331,6 +3746,7 @@
               },
               {
                 "id": "NarrativeContent_6",
+                "extensionAttributes": [],
                 "name": "NC_6",
                 "sectionNumber": "2.1",
                 "sectionTitle": "Purpose of Trial",
@@ -3344,6 +3760,7 @@
               },
               {
                 "id": "NarrativeContent_7",
+                "extensionAttributes": [],
                 "name": "NC_7",
                 "sectionNumber": "2.2",
                 "sectionTitle": "Summary of Benefits and Risks",
@@ -3357,6 +3774,7 @@
               },
               {
                 "id": "NarrativeContent_8",
+                "extensionAttributes": [],
                 "name": "NC_8",
                 "sectionNumber": "3",
                 "sectionTitle": "TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS",
@@ -3372,6 +3790,7 @@
               },
               {
                 "id": "NarrativeContent_9",
+                "extensionAttributes": [],
                 "name": "NC_9",
                 "sectionNumber": "3.1",
                 "sectionTitle": "Primary Objectives",
@@ -3385,6 +3804,7 @@
               },
               {
                 "id": "NarrativeContent_10",
+                "extensionAttributes": [],
                 "name": "NC_10",
                 "sectionNumber": "4",
                 "sectionTitle": "TRIAL DESIGN",
@@ -3403,6 +3823,7 @@
               },
               {
                 "id": "NarrativeContent_11",
+                "extensionAttributes": [],
                 "name": "NC_11",
                 "sectionNumber": "4.1",
                 "sectionTitle": "Description of Trial Design",
@@ -3418,6 +3839,7 @@
               },
               {
                 "id": "NarrativeContent_12",
+                "extensionAttributes": [],
                 "name": "NC_12",
                 "sectionNumber": "4.1.1",
                 "sectionTitle": "Participant Input into Design",
@@ -3431,6 +3853,7 @@
               },
               {
                 "id": "NarrativeContent_13",
+                "extensionAttributes": [],
                 "name": "NC_13",
                 "sectionNumber": "4.2",
                 "sectionTitle": "Rationale for Trial Design",
@@ -3448,6 +3871,7 @@
               },
               {
                 "id": "NarrativeContent_14",
+                "extensionAttributes": [],
                 "name": "NC_14",
                 "sectionNumber": "4.2.1",
                 "sectionTitle": "Rationale for Comparator",
@@ -3461,6 +3885,7 @@
               },
               {
                 "id": "NarrativeContent_15",
+                "extensionAttributes": [],
                 "name": "NC_15",
                 "sectionNumber": "4.2.2",
                 "sectionTitle": "Rationale for Adaptive or Novel Trial Design",
@@ -3474,6 +3899,7 @@
               },
               {
                 "id": "NarrativeContent_16",
+                "extensionAttributes": [],
                 "name": "NC_16",
                 "sectionNumber": "4.2.3",
                 "sectionTitle": "Other Trial Design Considerations",
@@ -3487,6 +3913,7 @@
               },
               {
                 "id": "NarrativeContent_17",
+                "extensionAttributes": [],
                 "name": "NC_17",
                 "sectionNumber": "4.3",
                 "sectionTitle": "Access to Trial Intervention After End of Trial",
@@ -3500,6 +3927,7 @@
               },
               {
                 "id": "NarrativeContent_18",
+                "extensionAttributes": [],
                 "name": "NC_18",
                 "sectionNumber": "4.4",
                 "sectionTitle": "Start of Trial and End of Trial",
@@ -3513,6 +3941,7 @@
               },
               {
                 "id": "NarrativeContent_19",
+                "extensionAttributes": [],
                 "name": "NC_19",
                 "sectionNumber": "5",
                 "sectionTitle": "TRIAL POPULATION",
@@ -3533,6 +3962,7 @@
               },
               {
                 "id": "NarrativeContent_20",
+                "extensionAttributes": [],
                 "name": "NC_20",
                 "sectionNumber": "5.1",
                 "sectionTitle": "Selection of Trial Population",
@@ -3546,6 +3976,7 @@
               },
               {
                 "id": "NarrativeContent_21",
+                "extensionAttributes": [],
                 "name": "NC_21",
                 "sectionNumber": "5.2",
                 "sectionTitle": "Rationale for Trial Population",
@@ -3559,6 +3990,7 @@
               },
               {
                 "id": "NarrativeContent_22",
+                "extensionAttributes": [],
                 "name": "NC_22",
                 "sectionNumber": "5.3",
                 "sectionTitle": "Inclusion Criteria",
@@ -3572,6 +4004,7 @@
               },
               {
                 "id": "NarrativeContent_23",
+                "extensionAttributes": [],
                 "name": "NC_23",
                 "sectionNumber": "5.4",
                 "sectionTitle": "Exclusion Criteria",
@@ -3585,6 +4018,7 @@
               },
               {
                 "id": "NarrativeContent_24",
+                "extensionAttributes": [],
                 "name": "NC_24",
                 "sectionNumber": "5.5",
                 "sectionTitle": "Lifestyle Considerations",
@@ -3603,6 +4037,7 @@
               },
               {
                 "id": "NarrativeContent_25",
+                "extensionAttributes": [],
                 "name": "NC_25",
                 "sectionNumber": "5.5.1",
                 "sectionTitle": "Meals and Dietary Restrictions",
@@ -3616,6 +4051,7 @@
               },
               {
                 "id": "NarrativeContent_26",
+                "extensionAttributes": [],
                 "name": "NC_26",
                 "sectionNumber": "5.5.2",
                 "sectionTitle": "Caffeine, Alcohol, Tobacco, and Other Habits",
@@ -3629,6 +4065,7 @@
               },
               {
                 "id": "NarrativeContent_27",
+                "extensionAttributes": [],
                 "name": "NC_27",
                 "sectionNumber": "5.5.3",
                 "sectionTitle": "Physical Activity",
@@ -3642,6 +4079,7 @@
               },
               {
                 "id": "NarrativeContent_28",
+                "extensionAttributes": [],
                 "name": "NC_28",
                 "sectionNumber": "5.5.4",
                 "sectionTitle": "Other Activity",
@@ -3655,6 +4093,7 @@
               },
               {
                 "id": "NarrativeContent_29",
+                "extensionAttributes": [],
                 "name": "NC_29",
                 "sectionNumber": "5.6",
                 "sectionTitle": "Screen Failures",
@@ -3668,6 +4107,7 @@
               },
               {
                 "id": "NarrativeContent_30",
+                "extensionAttributes": [],
                 "name": "NC_30",
                 "sectionNumber": "6",
                 "sectionTitle": "TRIAL INTERVENTION AND CONCOMITANT THERAPY",
@@ -3690,6 +4130,7 @@
               },
               {
                 "id": "NarrativeContent_31",
+                "extensionAttributes": [],
                 "name": "NC_31",
                 "sectionNumber": "6.1",
                 "sectionTitle": "Description of Trial Intervention",
@@ -3703,6 +4144,7 @@
               },
               {
                 "id": "NarrativeContent_32",
+                "extensionAttributes": [],
                 "name": "NC_32",
                 "sectionNumber": "6.2",
                 "sectionTitle": "Rationale for Trial Intervention",
@@ -3716,6 +4158,7 @@
               },
               {
                 "id": "NarrativeContent_33",
+                "extensionAttributes": [],
                 "name": "NC_33",
                 "sectionNumber": "6.3",
                 "sectionTitle": "Dosing and Administration",
@@ -3731,6 +4174,7 @@
               },
               {
                 "id": "NarrativeContent_34",
+                "extensionAttributes": [],
                 "name": "NC_34",
                 "sectionNumber": "6.3.1",
                 "sectionTitle": "Trial Intervention Dose Modification",
@@ -3744,6 +4188,7 @@
               },
               {
                 "id": "NarrativeContent_35",
+                "extensionAttributes": [],
                 "name": "NC_35",
                 "sectionNumber": "6.4",
                 "sectionTitle": "Treatment of Overdose",
@@ -3757,6 +4202,7 @@
               },
               {
                 "id": "NarrativeContent_36",
+                "extensionAttributes": [],
                 "name": "NC_36",
                 "sectionNumber": "6.5",
                 "sectionTitle": "Preparation, Handling, Storage and Accountability",
@@ -3774,6 +4220,7 @@
               },
               {
                 "id": "NarrativeContent_37",
+                "extensionAttributes": [],
                 "name": "NC_37",
                 "sectionNumber": "6.5.1",
                 "sectionTitle": "Preparation of Trial Intervention",
@@ -3787,6 +4234,7 @@
               },
               {
                 "id": "NarrativeContent_38",
+                "extensionAttributes": [],
                 "name": "NC_38",
                 "sectionNumber": "6.5.2",
                 "sectionTitle": "Handling and Storage of Trial Intervention",
@@ -3800,6 +4248,7 @@
               },
               {
                 "id": "NarrativeContent_39",
+                "extensionAttributes": [],
                 "name": "NC_39",
                 "sectionNumber": "6.5.3",
                 "sectionTitle": "Accountability of Trial Intervention",
@@ -3813,6 +4262,7 @@
               },
               {
                 "id": "NarrativeContent_40",
+                "extensionAttributes": [],
                 "name": "NC_40",
                 "sectionNumber": "6.6",
                 "sectionTitle": "Participant Assignment, Randomisation and Blinding",
@@ -3830,6 +4280,7 @@
               },
               {
                 "id": "NarrativeContent_41",
+                "extensionAttributes": [],
                 "name": "NC_41",
                 "sectionNumber": "6.6.1",
                 "sectionTitle": "Participant Assignment",
@@ -3843,6 +4294,7 @@
               },
               {
                 "id": "NarrativeContent_42",
+                "extensionAttributes": [],
                 "name": "NC_42",
                 "sectionNumber": "6.6.2",
                 "sectionTitle": "Randomisation",
@@ -3856,6 +4308,7 @@
               },
               {
                 "id": "NarrativeContent_43",
+                "extensionAttributes": [],
                 "name": "NC_43",
                 "sectionNumber": "6.6.3",
                 "sectionTitle": "Blinding and Unblinding",
@@ -3869,6 +4322,7 @@
               },
               {
                 "id": "NarrativeContent_44",
+                "extensionAttributes": [],
                 "name": "NC_44",
                 "sectionNumber": "6.7",
                 "sectionTitle": "Trial Intervention Compliance",
@@ -3882,6 +4336,7 @@
               },
               {
                 "id": "NarrativeContent_45",
+                "extensionAttributes": [],
                 "name": "NC_45",
                 "sectionNumber": "6.8",
                 "sectionTitle": "Concomitant Therapy",
@@ -3900,6 +4355,7 @@
               },
               {
                 "id": "NarrativeContent_46",
+                "extensionAttributes": [],
                 "name": "NC_46",
                 "sectionNumber": "6.8.1",
                 "sectionTitle": "Prohibited Concomitant Therapy",
@@ -3913,6 +4369,7 @@
               },
               {
                 "id": "NarrativeContent_47",
+                "extensionAttributes": [],
                 "name": "NC_47",
                 "sectionNumber": "6.8.2",
                 "sectionTitle": "Permitted Concomitant Therapy",
@@ -3926,6 +4383,7 @@
               },
               {
                 "id": "NarrativeContent_48",
+                "extensionAttributes": [],
                 "name": "NC_48",
                 "sectionNumber": "6.8.3",
                 "sectionTitle": "Rescue Therapy",
@@ -3939,6 +4397,7 @@
               },
               {
                 "id": "NarrativeContent_49",
+                "extensionAttributes": [],
                 "name": "NC_49",
                 "sectionNumber": "6.8.4",
                 "sectionTitle": "Other Therapy",
@@ -3952,6 +4411,7 @@
               },
               {
                 "id": "NarrativeContent_50",
+                "extensionAttributes": [],
                 "name": "NC_50",
                 "sectionNumber": "7",
                 "sectionTitle": "DISCONTINUATION OF TRIAL INTERVENTION AND PARTICIPANT WITHDRAWAL FROM TRIAL",
@@ -3970,6 +4430,7 @@
               },
               {
                 "id": "NarrativeContent_51",
+                "extensionAttributes": [],
                 "name": "NC_51",
                 "sectionNumber": "7.1",
                 "sectionTitle": "Discontinuation of Trial Intervention",
@@ -3987,6 +4448,7 @@
               },
               {
                 "id": "NarrativeContent_52",
+                "extensionAttributes": [],
                 "name": "NC_52",
                 "sectionNumber": "7.1.1",
                 "sectionTitle": "Criteria for Permanent Discontinuation of Trial Intervention",
@@ -4000,6 +4462,7 @@
               },
               {
                 "id": "NarrativeContent_53",
+                "extensionAttributes": [],
                 "name": "NC_53",
                 "sectionNumber": "7.1.2",
                 "sectionTitle": "Temporary Discontinuation or Interruption of Trial Intervention",
@@ -4013,6 +4476,7 @@
               },
               {
                 "id": "NarrativeContent_54",
+                "extensionAttributes": [],
                 "name": "NC_54",
                 "sectionNumber": "7.1.3",
                 "sectionTitle": "Rechallenge",
@@ -4026,6 +4490,7 @@
               },
               {
                 "id": "NarrativeContent_55",
+                "extensionAttributes": [],
                 "name": "NC_55",
                 "sectionNumber": "7.2",
                 "sectionTitle": "Participant Withdrawal from the Trial",
@@ -4039,6 +4504,7 @@
               },
               {
                 "id": "NarrativeContent_56",
+                "extensionAttributes": [],
                 "name": "NC_56",
                 "sectionNumber": "7.3",
                 "sectionTitle": "Lost to Follow-Up",
@@ -4052,6 +4518,7 @@
               },
               {
                 "id": "NarrativeContent_57",
+                "extensionAttributes": [],
                 "name": "NC_57",
                 "sectionNumber": "7.4",
                 "sectionTitle": "Trial Stopping Rules",
@@ -4065,6 +4532,7 @@
               },
               {
                 "id": "NarrativeContent_58",
+                "extensionAttributes": [],
                 "name": "NC_58",
                 "sectionNumber": "8",
                 "sectionTitle": "TRIAL ASSESSMENTS AND PROCEDURES",
@@ -4089,6 +4557,7 @@
               },
               {
                 "id": "NarrativeContent_59",
+                "extensionAttributes": [],
                 "name": "NC_59",
                 "sectionNumber": "8.1",
                 "sectionTitle": "Screening/Baseline Assessments and Procedures",
@@ -4102,6 +4571,7 @@
               },
               {
                 "id": "NarrativeContent_60",
+                "extensionAttributes": [],
                 "name": "NC_60",
                 "sectionNumber": "8.2",
                 "sectionTitle": "Efficacy Assessments and Procedures",
@@ -4115,6 +4585,7 @@
               },
               {
                 "id": "NarrativeContent_61",
+                "extensionAttributes": [],
                 "name": "NC_61",
                 "sectionNumber": "8.3",
                 "sectionTitle": "Safety Assessments and Procedures",
@@ -4134,6 +4605,7 @@
               },
               {
                 "id": "NarrativeContent_62",
+                "extensionAttributes": [],
                 "name": "NC_62",
                 "sectionNumber": "8.3.1",
                 "sectionTitle": "Physical Examination",
@@ -4147,6 +4619,7 @@
               },
               {
                 "id": "NarrativeContent_63",
+                "extensionAttributes": [],
                 "name": "NC_63",
                 "sectionNumber": "8.3.2",
                 "sectionTitle": "Vital Signs",
@@ -4160,6 +4633,7 @@
               },
               {
                 "id": "NarrativeContent_64",
+                "extensionAttributes": [],
                 "name": "NC_64",
                 "sectionNumber": "8.3.3",
                 "sectionTitle": "Electrocardiograms",
@@ -4173,6 +4647,7 @@
               },
               {
                 "id": "NarrativeContent_65",
+                "extensionAttributes": [],
                 "name": "NC_65",
                 "sectionNumber": "8.3.4",
                 "sectionTitle": "Clinical Laboratory Assessments",
@@ -4186,6 +4661,7 @@
               },
               {
                 "id": "NarrativeContent_66",
+                "extensionAttributes": [],
                 "name": "NC_66",
                 "sectionNumber": "8.3.5",
                 "sectionTitle": "Suicidal Ideation and Behaviour Risk Monitoring",
@@ -4199,6 +4675,7 @@
               },
               {
                 "id": "NarrativeContent_67",
+                "extensionAttributes": [],
                 "name": "NC_67",
                 "sectionNumber": "8.4",
                 "sectionTitle": "Adverse Events and Serious Adverse Events",
@@ -4223,6 +4700,7 @@
               },
               {
                 "id": "NarrativeContent_68",
+                "extensionAttributes": [],
                 "name": "NC_68",
                 "sectionNumber": "8.4.1",
                 "sectionTitle": "Definitions of AE and SAE",
@@ -4236,6 +4714,7 @@
               },
               {
                 "id": "NarrativeContent_69",
+                "extensionAttributes": [],
                 "name": "NC_69",
                 "sectionNumber": "8.4.2",
                 "sectionTitle": "Time Period and Frequency for Collecting AE and SAE Information",
@@ -4249,6 +4728,7 @@
               },
               {
                 "id": "NarrativeContent_70",
+                "extensionAttributes": [],
                 "name": "NC_70",
                 "sectionNumber": "8.4.3",
                 "sectionTitle": "Identifying AEs and SAEs",
@@ -4262,6 +4742,7 @@
               },
               {
                 "id": "NarrativeContent_71",
+                "extensionAttributes": [],
                 "name": "NC_71",
                 "sectionNumber": "8.4.4",
                 "sectionTitle": "Recording of AEs and SAEs",
@@ -4275,6 +4756,7 @@
               },
               {
                 "id": "NarrativeContent_72",
+                "extensionAttributes": [],
                 "name": "NC_72",
                 "sectionNumber": "8.4.5",
                 "sectionTitle": "Follow-up of AEs and SAEs",
@@ -4288,6 +4770,7 @@
               },
               {
                 "id": "NarrativeContent_73",
+                "extensionAttributes": [],
                 "name": "NC_73",
                 "sectionNumber": "8.4.6",
                 "sectionTitle": "Reporting of SAEs",
@@ -4301,6 +4784,7 @@
               },
               {
                 "id": "NarrativeContent_74",
+                "extensionAttributes": [],
                 "name": "NC_74",
                 "sectionNumber": "8.4.7",
                 "sectionTitle": "Regulatory Reporting Requirements for SAEs",
@@ -4314,6 +4798,7 @@
               },
               {
                 "id": "NarrativeContent_75",
+                "extensionAttributes": [],
                 "name": "NC_75",
                 "sectionNumber": "8.4.8",
                 "sectionTitle": "Serious and Unexpected Adverse Reaction Reporting",
@@ -4327,6 +4812,7 @@
               },
               {
                 "id": "NarrativeContent_76",
+                "extensionAttributes": [],
                 "name": "NC_76",
                 "sectionNumber": "8.4.9",
                 "sectionTitle": "Adverse Events of Special Interest",
@@ -4340,6 +4826,7 @@
               },
               {
                 "id": "NarrativeContent_77",
+                "extensionAttributes": [],
                 "name": "NC_77",
                 "sectionNumber": "8.4.10",
                 "sectionTitle": "Disease-related Events or Outcomes Not Qualifying as AEs or SAEs",
@@ -4353,6 +4840,7 @@
               },
               {
                 "id": "NarrativeContent_78",
+                "extensionAttributes": [],
                 "name": "NC_78",
                 "sectionNumber": "8.5",
                 "sectionTitle": "Pregnancy and Postpartum Information",
@@ -4369,6 +4857,7 @@
               },
               {
                 "id": "NarrativeContent_79",
+                "extensionAttributes": [],
                 "name": "NC_79",
                 "sectionNumber": "8.5.1",
                 "sectionTitle": "Participants Who Become Pregnant During the Trial",
@@ -4382,6 +4871,7 @@
               },
               {
                 "id": "NarrativeContent_80",
+                "extensionAttributes": [],
                 "name": "NC_80",
                 "sectionNumber": "8.5.2",
                 "sectionTitle": "Participants Whose Partners Become Pregnant",
@@ -4395,6 +4885,7 @@
               },
               {
                 "id": "NarrativeContent_81",
+                "extensionAttributes": [],
                 "name": "NC_81",
                 "sectionNumber": "8.6",
                 "sectionTitle": "Medical Device Product Complaints for Drug/Device Combination Products",
@@ -4414,6 +4905,7 @@
               },
               {
                 "id": "NarrativeContent_82",
+                "extensionAttributes": [],
                 "name": "NC_82",
                 "sectionNumber": "8.6.1",
                 "sectionTitle": "Definition of Medical Device Product Complaints",
@@ -4427,6 +4919,7 @@
               },
               {
                 "id": "NarrativeContent_83",
+                "extensionAttributes": [],
                 "name": "NC_83",
                 "sectionNumber": "8.6.2",
                 "sectionTitle": "Recording of Medical Device Product Complaints",
@@ -4440,6 +4933,7 @@
               },
               {
                 "id": "NarrativeContent_84",
+                "extensionAttributes": [],
                 "name": "NC_84",
                 "sectionNumber": "8.6.3",
                 "sectionTitle": "Time Period and Frequency for Collecting Medical Device Product Complaints .",
@@ -4453,6 +4947,7 @@
               },
               {
                 "id": "NarrativeContent_85",
+                "extensionAttributes": [],
                 "name": "NC_85",
                 "sectionNumber": "8.6.4",
                 "sectionTitle": "Follow-Up of Medical Device Product Complaints",
@@ -4466,6 +4961,7 @@
               },
               {
                 "id": "NarrativeContent_86",
+                "extensionAttributes": [],
                 "name": "NC_86",
                 "sectionNumber": "8.6.5",
                 "sectionTitle": "Regulatory Reporting Requirements for Medical Device Product Complaints",
@@ -4479,6 +4975,7 @@
               },
               {
                 "id": "NarrativeContent_87",
+                "extensionAttributes": [],
                 "name": "NC_87",
                 "sectionNumber": "8.7",
                 "sectionTitle": "Pharmacokinetics",
@@ -4492,6 +4989,7 @@
               },
               {
                 "id": "NarrativeContent_88",
+                "extensionAttributes": [],
                 "name": "NC_88",
                 "sectionNumber": "8.8",
                 "sectionTitle": "Genetics",
@@ -4505,6 +5003,7 @@
               },
               {
                 "id": "NarrativeContent_89",
+                "extensionAttributes": [],
                 "name": "NC_89",
                 "sectionNumber": "8.9",
                 "sectionTitle": "Biomarkers",
@@ -4518,6 +5017,7 @@
               },
               {
                 "id": "NarrativeContent_90",
+                "extensionAttributes": [],
                 "name": "NC_90",
                 "sectionNumber": "8.1",
                 "sectionTitle": "Immunogenicity Assessments",
@@ -4533,6 +5033,7 @@
               },
               {
                 "id": "NarrativeContent_91",
+                "extensionAttributes": [],
                 "name": "NC_91",
                 "sectionNumber": "8.1.1",
                 "sectionTitle": "Medical Resource Utilisation and Health Economics",
@@ -4546,6 +5047,7 @@
               },
               {
                 "id": "NarrativeContent_92",
+                "extensionAttributes": [],
                 "name": "NC_92",
                 "sectionNumber": "9",
                 "sectionTitle": "STATISTICAL CONSIDERATIONS",
@@ -4569,6 +5071,7 @@
               },
               {
                 "id": "NarrativeContent_93",
+                "extensionAttributes": [],
                 "name": "NC_93",
                 "sectionNumber": "9.1",
                 "sectionTitle": "Analysis Sets",
@@ -4582,6 +5085,7 @@
               },
               {
                 "id": "NarrativeContent_94",
+                "extensionAttributes": [],
                 "name": "NC_94",
                 "sectionNumber": "9.2",
                 "sectionTitle": "Analyses Supporting Primary Objective(s)",
@@ -4601,6 +5105,7 @@
               },
               {
                 "id": "NarrativeContent_95",
+                "extensionAttributes": [],
                 "name": "NC_95",
                 "sectionNumber": "9.2.1",
                 "sectionTitle": "Statistical Model, Hypothesis, and Method of Analysis",
@@ -4614,6 +5119,7 @@
               },
               {
                 "id": "NarrativeContent_96",
+                "extensionAttributes": [],
                 "name": "NC_96",
                 "sectionNumber": "9.2.2",
                 "sectionTitle": "Handling of Intercurrent Events of Primary Estimand(s)",
@@ -4627,6 +5133,7 @@
               },
               {
                 "id": "NarrativeContent_97",
+                "extensionAttributes": [],
                 "name": "NC_97",
                 "sectionNumber": "9.2.3",
                 "sectionTitle": "Handling of Missing Data",
@@ -4640,6 +5147,7 @@
               },
               {
                 "id": "NarrativeContent_98",
+                "extensionAttributes": [],
                 "name": "NC_98",
                 "sectionNumber": "9.2.4",
                 "sectionTitle": "Sensitivity Analysis",
@@ -4653,6 +5161,7 @@
               },
               {
                 "id": "NarrativeContent_99",
+                "extensionAttributes": [],
                 "name": "NC_99",
                 "sectionNumber": "9.2.5",
                 "sectionTitle": "Supplementary Analysis",
@@ -4666,6 +5175,7 @@
               },
               {
                 "id": "NarrativeContent_100",
+                "extensionAttributes": [],
                 "name": "NC_100",
                 "sectionNumber": "9.3",
                 "sectionTitle": "Analysis Supporting Secondary Objective(s)",
@@ -4679,6 +5189,7 @@
               },
               {
                 "id": "NarrativeContent_101",
+                "extensionAttributes": [],
                 "name": "NC_101",
                 "sectionNumber": "9.4",
                 "sectionTitle": "Analysis of Exploratory Objective(s)",
@@ -4692,6 +5203,7 @@
               },
               {
                 "id": "NarrativeContent_102",
+                "extensionAttributes": [],
                 "name": "NC_102",
                 "sectionNumber": "9.5",
                 "sectionTitle": "Safety Analyses",
@@ -4705,6 +5217,7 @@
               },
               {
                 "id": "NarrativeContent_103",
+                "extensionAttributes": [],
                 "name": "NC_103",
                 "sectionNumber": "9.6",
                 "sectionTitle": "Other Analyses",
@@ -4718,6 +5231,7 @@
               },
               {
                 "id": "NarrativeContent_104",
+                "extensionAttributes": [],
                 "name": "NC_104",
                 "sectionNumber": "9.7",
                 "sectionTitle": "Interim Analyses",
@@ -4731,6 +5245,7 @@
               },
               {
                 "id": "NarrativeContent_105",
+                "extensionAttributes": [],
                 "name": "NC_105",
                 "sectionNumber": "9.8",
                 "sectionTitle": "Sample Size Determination",
@@ -4744,6 +5259,7 @@
               },
               {
                 "id": "NarrativeContent_106",
+                "extensionAttributes": [],
                 "name": "NC_106",
                 "sectionNumber": "9.9",
                 "sectionTitle": "Protocol Deviations",
@@ -4757,6 +5273,7 @@
               },
               {
                 "id": "NarrativeContent_107",
+                "extensionAttributes": [],
                 "name": "NC_107",
                 "sectionNumber": "10",
                 "sectionTitle": "GENERAL CONSIDERATIONS: REGULATORY, ETHICAL, AND TRIAL OVERSIGHT",
@@ -4776,6 +5293,7 @@
               },
               {
                 "id": "NarrativeContent_108",
+                "extensionAttributes": [],
                 "name": "NC_108",
                 "sectionNumber": "10.1",
                 "sectionTitle": "Regulatory and Ethical Considerations",
@@ -4789,6 +5307,7 @@
               },
               {
                 "id": "NarrativeContent_109",
+                "extensionAttributes": [],
                 "name": "NC_109",
                 "sectionNumber": "10.2",
                 "sectionTitle": "Committees",
@@ -4802,6 +5321,7 @@
               },
               {
                 "id": "NarrativeContent_110",
+                "extensionAttributes": [],
                 "name": "NC_110",
                 "sectionNumber": "10.3",
                 "sectionTitle": "Informed Consent Process",
@@ -4815,6 +5335,7 @@
               },
               {
                 "id": "NarrativeContent_111",
+                "extensionAttributes": [],
                 "name": "NC_111",
                 "sectionNumber": "10.4",
                 "sectionTitle": "Data Protection",
@@ -4828,6 +5349,7 @@
               },
               {
                 "id": "NarrativeContent_112",
+                "extensionAttributes": [],
                 "name": "NC_112",
                 "sectionNumber": "10.5",
                 "sectionTitle": "Early Site Closure or Trial Termination",
@@ -4841,6 +5363,7 @@
               },
               {
                 "id": "NarrativeContent_113",
+                "extensionAttributes": [],
                 "name": "NC_113",
                 "sectionNumber": "11",
                 "sectionTitle": "GENERAL CONSIDERATIONS: RISK MANAGEMENT AND QUALITY ASSURANCE",
@@ -4858,6 +5381,7 @@
               },
               {
                 "id": "NarrativeContent_114",
+                "extensionAttributes": [],
                 "name": "NC_114",
                 "sectionNumber": "11.1",
                 "sectionTitle": "Quality Tolerance Limits",
@@ -4871,6 +5395,7 @@
               },
               {
                 "id": "NarrativeContent_115",
+                "extensionAttributes": [],
                 "name": "NC_115",
                 "sectionNumber": "11.2",
                 "sectionTitle": "Data Quality Assurance",
@@ -4884,6 +5409,7 @@
               },
               {
                 "id": "NarrativeContent_116",
+                "extensionAttributes": [],
                 "name": "NC_116",
                 "sectionNumber": "11.3",
                 "sectionTitle": "Source Data",
@@ -4897,6 +5423,7 @@
               },
               {
                 "id": "NarrativeContent_117",
+                "extensionAttributes": [],
                 "name": "NC_117",
                 "sectionNumber": "12",
                 "sectionTitle": "APPENDIX: ADVERSE EVENTS AND SERIOUS ADVERSE EVENTS - DEFINITIONS, SEVERITY, AND CAUSALITY",
@@ -4915,6 +5442,7 @@
               },
               {
                 "id": "NarrativeContent_118",
+                "extensionAttributes": [],
                 "name": "NC_118",
                 "sectionNumber": "12.1",
                 "sectionTitle": "Further Details and Clarifications on the AE Definition",
@@ -4928,6 +5456,7 @@
               },
               {
                 "id": "NarrativeContent_119",
+                "extensionAttributes": [],
                 "name": "NC_119",
                 "sectionNumber": "12.2",
                 "sectionTitle": "Further Details and Clarifications on the SAE Definition",
@@ -4941,6 +5470,7 @@
               },
               {
                 "id": "NarrativeContent_120",
+                "extensionAttributes": [],
                 "name": "NC_120",
                 "sectionNumber": "12.3",
                 "sectionTitle": "Severity",
@@ -4954,6 +5484,7 @@
               },
               {
                 "id": "NarrativeContent_121",
+                "extensionAttributes": [],
                 "name": "NC_121",
                 "sectionNumber": "12.4",
                 "sectionTitle": "Causality",
@@ -4967,6 +5498,7 @@
               },
               {
                 "id": "NarrativeContent_122",
+                "extensionAttributes": [],
                 "name": "NC_122",
                 "sectionNumber": "13",
                 "sectionTitle": "APPENDIX: DEFINITIONS AND SUPPORTING OPERATIONAL DETAILS",
@@ -4985,6 +5517,7 @@
               },
               {
                 "id": "NarrativeContent_123",
+                "extensionAttributes": [],
                 "name": "NC_123",
                 "sectionNumber": "13.1",
                 "sectionTitle": "Contraception and Pregnancy Testing",
@@ -5002,6 +5535,7 @@
               },
               {
                 "id": "NarrativeContent_124",
+                "extensionAttributes": [],
                 "name": "NC_124",
                 "sectionNumber": "13.1.1",
                 "sectionTitle": "Definitions Related to Childbearing Potential",
@@ -5015,6 +5549,7 @@
               },
               {
                 "id": "NarrativeContent_125",
+                "extensionAttributes": [],
                 "name": "NC_125",
                 "sectionNumber": "13.1.2",
                 "sectionTitle": "Contraception",
@@ -5028,6 +5563,7 @@
               },
               {
                 "id": "NarrativeContent_126",
+                "extensionAttributes": [],
                 "name": "NC_126",
                 "sectionNumber": "13.1.3",
                 "sectionTitle": "Pregnancy Testing",
@@ -5041,6 +5577,7 @@
               },
               {
                 "id": "NarrativeContent_127",
+                "extensionAttributes": [],
                 "name": "NC_127",
                 "sectionNumber": "13.2",
                 "sectionTitle": "Clinical Laboratory Tests",
@@ -5054,6 +5591,7 @@
               },
               {
                 "id": "NarrativeContent_128",
+                "extensionAttributes": [],
                 "name": "NC_128",
                 "sectionNumber": "13.3",
                 "sectionTitle": "Country/Region-Specific Differences",
@@ -5067,6 +5605,7 @@
               },
               {
                 "id": "NarrativeContent_129",
+                "extensionAttributes": [],
                 "name": "NC_129",
                 "sectionNumber": "13.4",
                 "sectionTitle": "Prior Protocol Amendments",
@@ -5080,6 +5619,7 @@
               },
               {
                 "id": "NarrativeContent_130",
+                "extensionAttributes": [],
                 "name": "NC_130",
                 "sectionNumber": "14",
                 "sectionTitle": "APPENDIX: GLOSSARY OF TERMS",
@@ -5093,6 +5633,7 @@
               },
               {
                 "id": "NarrativeContent_131",
+                "extensionAttributes": [],
                 "name": "NC_131",
                 "sectionNumber": "15",
                 "sectionTitle": "APPENDIX: REFERENCES",
@@ -5106,6 +5647,7 @@
               },
               {
                 "id": "NarrativeContent_132",
+                "extensionAttributes": [],
                 "name": "NC_132",
                 "sectionNumber": "",
                 "sectionTitle": "",
@@ -5119,6 +5661,7 @@
               },
               {
                 "id": "NarrativeContent_133",
+                "extensionAttributes": [],
                 "name": "NC_133",
                 "sectionNumber": "",
                 "sectionTitle": "",
@@ -5132,6 +5675,7 @@
               },
               {
                 "id": "NarrativeContent_134",
+                "extensionAttributes": [],
                 "name": "NC_134",
                 "sectionNumber": "",
                 "sectionTitle": "",
@@ -5145,6 +5689,7 @@
               },
               {
                 "id": "NarrativeContent_135",
+                "extensionAttributes": [],
                 "name": "NC_135",
                 "sectionNumber": "",
                 "sectionTitle": "",
@@ -5158,6 +5703,7 @@
               },
               {
                 "id": "NarrativeContent_136",
+                "extensionAttributes": [],
                 "name": "NC_136",
                 "sectionNumber": "",
                 "sectionTitle": "",
@@ -5171,6 +5717,7 @@
               },
               {
                 "id": "NarrativeContent_137",
+                "extensionAttributes": [],
                 "name": "NC_137",
                 "sectionNumber": "",
                 "sectionTitle": "",
@@ -5196,5 +5743,5 @@
   },
   "usdmVersion": "3.11.0",
   "systemName": "CDISC USDM E2J",
-  "systemVersion": "0.58.0"
+  "systemVersion": "0.59.0"
 }

@@ -47,6 +47,7 @@ def test_create(mocker, globals):
     assert len(item.items) == 2
     assert item.items[0].model_dump() == {
         "id": "MedicalDevice_1",
+        "extensionAttributes": [],
         "instanceType": "MedicalDevice",
         "name": "DEVICE1",
         "label": "LABEL1",
@@ -61,18 +62,21 @@ def test_create(mocker, globals):
             "codeSystemVersion": "3",
             "decode": "Centrally Sourced",
             "id": "Code1",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
         "notes": [
             {
                 "codes": [],
                 "id": "CommentAnnotation_1",
+                "extensionAttributes": [],
                 "instanceType": "CommentAnnotation",
                 "text": "Note 1",
             },
             {
                 "codes": [],
                 "id": "CommentAnnotation_2",
+                "extensionAttributes": [],
                 "instanceType": "CommentAnnotation",
                 "text": "Note 2",
             },
@@ -80,6 +84,7 @@ def test_create(mocker, globals):
     }
     assert item.items[1].model_dump() == {
         "id": "MedicalDevice_2",
+        "extensionAttributes": [],
         "instanceType": "MedicalDevice",
         "name": "DEVICE2",
         "label": "LABEL2",
@@ -94,12 +99,14 @@ def test_create(mocker, globals):
             "codeSystemVersion": "3",
             "decode": "Locally Sourced",
             "id": "Code2",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
         "notes": [
             {
                 "codes": [],
                 "id": "CommentAnnotation_2",
+                "extensionAttributes": [],
                 "instanceType": "CommentAnnotation",
                 "text": "Note 2",
             }

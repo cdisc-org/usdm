@@ -37,11 +37,11 @@ class StudyDesign(ApiBaseModelWithIdNameLabelAndDesc):
     studyInterventionIds: List[str] = []
     objectives: List[Objective] = []
     population: StudyDesignPopulation
-    analysisPopulations: List[AnalysisPopulation] = []
     scheduleTimelines: List[ScheduleTimeline] = []
     biospecimenRetentions: List[BiospecimenRetention] = []
     documentVersionIds: List[str] = []
     eligibilityCriteria: List[EligibilityCriterion] = []
+    analysisPopulations: List[AnalysisPopulation] = []
     notes: List[CommentAnnotation] = []
     instanceType: Literal["StudyDesign"]
 

@@ -183,7 +183,7 @@ class StudyDesignPopulationSheet(BaseSheet):
         return results
 
     def _resolve_indications(self, names):
-        #print(f"Resolving indications: {names}")
+        # print(f"Resolving indications: {names}")
         results = []
         for name in names:
             object = self.globals.cross_references.get(Indication, name)
@@ -196,7 +196,9 @@ class StudyDesignPopulationSheet(BaseSheet):
     def _read_range_quantity(self, index, field_name):
         text = self.read_cell_by_name(index, field_name)
         return (
-            self.read_range_cell_by_name(index, field_name, require_units=False, allow_empty=True)
+            self.read_range_cell_by_name(
+                index, field_name, require_units=False, allow_empty=True
+            )
             if ".." in text
             else self.read_quantity_cell_by_name(
                 index, field_name, allow_missing_units=True, allow_empty=True

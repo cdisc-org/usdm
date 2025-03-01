@@ -22,6 +22,7 @@ from .biomedical_concept_surrogate import BiomedicalConceptSurrogate
 from .syntax_template_dictionary import SyntaxTemplateDictionary
 from .condition import Condition
 
+
 class StudyVersion(ApiBaseModelWithId):
     versionIdentifier: str
     rationale: str

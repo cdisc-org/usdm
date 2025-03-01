@@ -60,8 +60,10 @@ def test_create(mocker, globals):
                 "sectionNumber": "1.2.1",
                 "sectionTitle": "XXX",
                 "appliesToId": "TempId",
+                "extensionAttributes": [],
             },
         ],
+        "extensionAttributes": [],
     }
     assert item.items[1].model_dump() == {
         "id": "StudyChange_5",
@@ -78,6 +80,7 @@ def test_create(mocker, globals):
                 "sectionNumber": "1.3.1",
                 "sectionTitle": "YYY",
                 "appliesToId": "TempId",
+                "extensionAttributes": [],
             },
             {
                 "id": "DocumentContentReference_3",
@@ -85,8 +88,10 @@ def test_create(mocker, globals):
                 "sectionNumber": "3.2",
                 "sectionTitle": "ZZZ",
                 "appliesToId": "TempId",
+                "extensionAttributes": [],
             },
         ],
+        "extensionAttributes": [],
     }
     assert item.items[2].model_dump() == {
         "id": "StudyChange_7",
@@ -103,8 +108,10 @@ def test_create(mocker, globals):
                 "sectionNumber": "4.5",
                 "sectionTitle": "Something Long",
                 "appliesToId": "TempId",
+                "extensionAttributes": [],
             },
         ],
+        "extensionAttributes": [],
     }
 
 

@@ -16,27 +16,7 @@ def test_create(factory, mocker, globals):
         "masking": ["Masking 1", "Masking 2", ""],
         "role": ["Investigator", "Sponsor", "Sponsor"],
     }
-    expected_1 = (
-        '{"id": "AP_1", "name": "AP1", "label": "Lable 1", "description": "Desc One", '
-        '"code": {"id": "C_4", "code": "C25936", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Investigator", "instanceType": "Code"}, '
-        '"appliesToIds": [], "assignedPersons": [], "organizationIds": ["O_1"], '
-        '"masking": {"id": "M_1", "text": "Masking 1", "isMasked": true, "instanceType": "Masking"}, '
-        '"instanceType": "StudyRole"}'
-    )
-    expected_2 = (
-        '{"id": "AP_2", "name": "AP2", "label": "L2", "description": "Desc Two", '
-        '"code": {"id": "C_5", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Sponsor", "instanceType": "Code"}, '
-        '"appliesToIds": [], "assignedPersons": [], "organizationIds": ["O_2"], '
-        '"masking": {"id": "M_2", "text": "Masking 2", "isMasked": true, "instanceType": "Masking"}, '
-        '"instanceType": "StudyRole"}'
-    )
-    expected_3 = (
-        '{"id": "AP_3", "name": "AP3", "label": "L3", "description": "Desc Three", '
-        '"code": {"id": "C_6", "code": "C70793", "codeSystem": "http://www.cdisc.org", "codeSystemVersion": "2024-09-27", "decode": "Sponsor", "instanceType": "Code"}, '
-        '"appliesToIds": [], "assignedPersons": [], "organizationIds": [], '
-        '"masking": null, '
-        '"instanceType": "StudyRole"}'
-    )
+
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
     mock_id.side_effect = [
         "C_1",
@@ -58,9 +38,81 @@ def test_create(factory, mocker, globals):
     _create_orgs(factory, globals)
     item = StudyRoleSheet("", globals)
     assert len(item.items) == 3
-    assert item.items[0].to_json() == expected_1
-    assert item.items[1].to_json() == expected_2
-    assert item.items[2].to_json() == expected_3
+    assert item.items[0].model_dump() == {
+        "id": "AP_1",
+        "name": "AP1",
+        "label": "Lable 1",
+        "description": "Desc One",
+        "code": {
+            "id": "C_4",
+            "code": "C25936",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Investigator",
+            "extensionAttributes": [],
+            "instanceType": "Code",
+        },
+        "appliesToIds": [],
+        "assignedPersons": [],
+        "organizationIds": ["O_1"],
+        "masking": {
+            "id": "M_1",
+            "text": "Masking 1",
+            "isMasked": True,
+            "extensionAttributes": [],
+            "instanceType": "Masking",
+        },
+        "extensionAttributes": [],
+        "instanceType": "StudyRole",
+    }
+    assert item.items[1].model_dump() == {
+        "id": "AP_2",
+        "name": "AP2",
+        "label": "L2",
+        "description": "Desc Two",
+        "code": {
+            "id": "C_5",
+            "code": "C70793",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Sponsor",
+            "extensionAttributes": [],
+            "instanceType": "Code",
+        },
+        "appliesToIds": [],
+        "assignedPersons": [],
+        "organizationIds": ["O_2"],
+        "masking": {
+            "id": "M_2",
+            "text": "Masking 2",
+            "isMasked": True,
+            "extensionAttributes": [],
+            "instanceType": "Masking",
+        },
+        "extensionAttributes": [],
+        "instanceType": "StudyRole",
+    }
+    assert item.items[2].model_dump() == {
+        "id": "AP_3",
+        "name": "AP3",
+        "label": "L3",
+        "description": "Desc Three",
+        "code": {
+            "id": "C_6",
+            "code": "C70793",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Sponsor",
+            "extensionAttributes": [],
+            "instanceType": "Code",
+        },
+        "appliesToIds": [],
+        "assignedPersons": [],
+        "organizationIds": [],
+        "masking": None,
+        "extensionAttributes": [],
+        "instanceType": "StudyRole",
+    }
 
 
 def test_create_empty(mocker, globals):

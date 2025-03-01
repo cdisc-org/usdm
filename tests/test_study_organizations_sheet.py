@@ -83,6 +83,7 @@ def test_create(mocker, globals):
         "id": "Org_1",
         "identifier": "CT-GOV",
         "identifierScheme": "USGOV",
+        "extensionAttributes": [],
         "instanceType": "Organization",
         "label": "label 1",
         "legalAddress": {
@@ -93,10 +94,12 @@ def test_create(mocker, globals):
                 "codeSystemVersion": "3",
                 "decode": "GBR",
                 "id": "Code1",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "district": "district",
             "id": "Addr_1",
+            "extensionAttributes": [],
             "instanceType": "Address",
             "lines": [
                 "line",
@@ -113,6 +116,7 @@ def test_create(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Study Registry",
             "id": "Code_1",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }
@@ -120,6 +124,7 @@ def test_create(mocker, globals):
         "id": "Org_2",
         "identifier": "CT-GOV2",
         "identifierScheme": "USGOV2",
+        "extensionAttributes": [],
         "instanceType": "Organization",
         "label": "label 2",
         "legalAddress": {
@@ -130,10 +135,12 @@ def test_create(mocker, globals):
                 "codeSystemVersion": "3",
                 "decode": "FRA",
                 "id": "Code2",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "district": "district2",
             "id": "Addr_2",
+            "extensionAttributes": [],
             "instanceType": "Address",
             "lines": [
                 "line2",
@@ -150,6 +157,7 @@ def test_create(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Study Registry",
             "id": "Code_2",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }
@@ -157,6 +165,7 @@ def test_create(mocker, globals):
         "id": "Org_3",
         "identifier": "CT-GOV3",
         "identifierScheme": "USGOV3",
+        "extensionAttributes": [],
         "instanceType": "Organization",
         "label": "label 3",
         "legalAddress": {
@@ -167,10 +176,12 @@ def test_create(mocker, globals):
                 "codeSystemVersion": "3",
                 "decode": "FRA",
                 "id": "Code3",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "district": "district3",
             "id": "Addr_3",
+            "extensionAttributes": [],
             "instanceType": "Address",
             "lines": [
                 "line3",
@@ -187,6 +198,7 @@ def test_create(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Study Registry",
             "id": "Code_3",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }
@@ -277,6 +289,7 @@ def test_create_with_z(mocker, globals):
         "id": "Org_1",
         "identifier": "CT-GOV",
         "identifierScheme": "USGOV",
+        "extensionAttributes": [],
         "instanceType": "Organization",
         "label": "NCT12345678",
         "legalAddress": {
@@ -287,10 +300,12 @@ def test_create_with_z(mocker, globals):
                 "codeSystemVersion": "3",
                 "decode": "GBR",
                 "id": "Code1",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "district": "district",
             "id": "Addr_1",
+            "extensionAttributes": [],
             "instanceType": "Address",
             "lines": [
                 "line",
@@ -307,6 +322,7 @@ def test_create_with_z(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Study Registry",
             "id": "Code_1",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }
@@ -314,6 +330,7 @@ def test_create_with_z(mocker, globals):
         "id": "Org_2",
         "identifier": "CT-GOV2",
         "identifierScheme": "USGOV2",
+        "extensionAttributes": [],
         "instanceType": "Organization",
         "label": "NCT12345679",
         "legalAddress": {
@@ -324,10 +341,12 @@ def test_create_with_z(mocker, globals):
                 "codeSystemVersion": "3",
                 "decode": "FRA",
                 "id": "Code2",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "district": "district2",
             "id": "Addr_2",
+            "extensionAttributes": [],
             "instanceType": "Address",
             "lines": [
                 "line2",
@@ -344,6 +363,7 @@ def test_create_with_z(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Study Registry",
             "id": "Code_2",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }
@@ -351,6 +371,7 @@ def test_create_with_z(mocker, globals):
         "id": "Org_3",
         "identifier": "CT-GOV3",
         "identifierScheme": "USGOV3",
+        "extensionAttributes": [],
         "instanceType": "Organization",
         "label": "NCT123456710",
         "legalAddress": {
@@ -361,10 +382,12 @@ def test_create_with_z(mocker, globals):
                 "codeSystemVersion": "3",
                 "decode": "FRA",
                 "id": "Code3",
+                "extensionAttributes": [],
                 "instanceType": "Code",
             },
             "district": "district3",
             "id": "Addr_3",
+            "extensionAttributes": [],
             "instanceType": "Address",
             "lines": [
                 "line3",
@@ -381,6 +404,7 @@ def test_create_with_z(mocker, globals):
             "codeSystemVersion": "2024-09-27",
             "decode": "Study Registry",
             "id": "Code_3",
+            "extensionAttributes": [],
             "instanceType": "Code",
         },
     }
