@@ -45,7 +45,7 @@ from .study_amendment import StudyAmendment
 from .study_amendment_reason import StudyAmendmentReason
 from .study_arm import StudyArm
 from .study_cell import StudyCell
-from .study_design import StudyDesign
+from .study_design import InterventionalStudyDesign, ObservationalStudyDesign, StudyDesign
 from .study_element import StudyElement
 from .study_epoch import StudyEpoch
 from .identifier import (
@@ -102,10 +102,12 @@ __all__ = [
     "Indication",
     "Ingredient",
     "IntercurrentEvent",
+    "InterventionalStudyDesign",
     "Masking",
     "NarrativeContent",
     "NarrativeContentItem",
     "Objective",
+    "ObservationalStudyDesign",
     "Organization",
     "Procedure",
     "Quantity",
