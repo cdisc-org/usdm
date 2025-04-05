@@ -15,7 +15,8 @@ from .biomedical_concept import BiomedicalConcept
 from .characteristic import Characteristic
 from .code import Code
 from .condition import Condition
-from .eligibility_criterion import EligibilityCriterion
+from .document_content_reference import DocumentContentReference
+from .eligibility_criterion import EligibilityCriterion, EligibilityCriterionItem
 from .encounter import Encounter
 from .endpoint import Endpoint
 from .estimand import Estimand
@@ -64,7 +65,7 @@ from .study_version import StudyVersion
 from .study_role import StudyRole
 from .study import Study
 from .syntax_template import SyntaxTemplate
-from .syntax_template_dictionary import SyntaxTemplateDictionary
+from .syntax_template_dictionary import SyntaxTemplateDictionary, ParameterMap
 from .subject_enrollment import SubjectEnrollment
 from .timing import Timing
 from .transition_rule import TransitionRule
@@ -93,7 +94,9 @@ __all__ = [
     "Characteristic",
     "Code",
     "Condition",
+    "DocumentContentReference",
     "EligibilityCriterion",
+    "EligibilityCriterionItem",
     "Encounter",
     "Endpoint",
     "Estimand",
@@ -144,6 +147,7 @@ __all__ = [
     "SubjectEnrollment",
     "SyntaxTemplate",
     "SyntaxTemplateDictionary",
+    "ParameterMap",
     "Timing",
     "TransitionRule",
     "Wrapper",
