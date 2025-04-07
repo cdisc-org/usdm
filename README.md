@@ -45,7 +45,7 @@ with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
 
 ### Example
 
-An example spreadsheet in maintained within the [document directory](https://github.com/data4knowledge/usdm/tree/main/docs).
+An example spreadsheet in maintained within the [document directory](https://github.com/cdisc-org/usdm/tree/main/docs).
 
 ### Sheets
 
@@ -57,7 +57,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study References sheet
 - Study Amendments sheet
 - Study Amendments Changes sheet
-- Study Amenedment Impact sheet
+- Study Amendment Impact sheet
 - Study Design sheet
 - Study Design Arms sheet
 - Study Design Epochs sheet
@@ -70,7 +70,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Study Devices Sheet
 - Study Product Organization Roles Sheet
 - Study Design Populations sheet
-- Study Design Characteristcis sheet
+- Study Design Characteristics sheet
 - Study Design Objectives and Endpoints sheet
 - Study Design Eligibility Criteria sheet
 - Study Design Estimands sheet
@@ -125,7 +125,7 @@ Note that `|` can be used in place of the commas for backward compatibility.
 
 Some content defined within the sheets contain unique identifiers such that the content can be cross referenced in other sheets. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
 
-See the [infographic](https://github.com/data4knowledge/usdm/blob/main/docs/sheets.png) for further information.
+See the [infographic](https://github.com/cdisc-org/usdm/blob/main/docs/sheets.png) for further information.
 
 ### Timing Values
 
@@ -180,7 +180,7 @@ For the single values, the keyword is in column A while the value is in column B
 | studyRationale | the study rationale | Text string |
 | businessTherapeuticAreas | The set of business therapuetic area codes | External CT code format. Likely filled with sponsor terms |
 | briefTitle | The brief title | Text string | 
-| officialTitle	| The officiall title | Text string| 
+| officialTitle	| The official title | Text string| 
 | publicTitle | The public title | Text string| 
 | scientificTitle | The scientific title | Text string| 
 | protocolVersion | The version of the protocol | Text string | 
@@ -304,7 +304,7 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 | A | amendment | The amendment to which the change belongs, references the main amendment sheet | Integer |
 | B | text | Text describing the impact of the amendment | Test string |
 | C | substantial | Indicates the change is substantial | Boolean |
-| D | type | The type of impact | CDISC code referernce |
+| D | type | The type of impact | CDISC code reference |
     
 ### Study Design sheet
 
@@ -335,13 +335,13 @@ For the single values, the keyword is in column A while the value is in column B
 | timePerspective | Observation study time perspective | CDISC code reference |
 | samplingMethod | Sampling method | CDISC code reference |
 | mainTimeline | Name of main timeline sheet | This must be present |
-| otherTimelines | Names of other timeline sheets | Commma separated list of sheet names. Can be empty |
+| otherTimelines | Names of other timeline sheets | Comma separated list of sheet names. Can be empty |
 
 For the arms and epochs, a simple table is required. The table starts in row 12 and can consists of a header row and 1 or more arm rows. 
 
 The header row consists of a cell in column A that is ignored followed by 1 or more cells (columns) containing the epoch names. Each epoch name should have a corresponding entry in the Study Design Epochs sheet, see below.
 
-The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet. Each arm name should have a corresponding entry in the Study Design Arms sheet, see bwlow.
+The arm rows consist of the arm name in the first column followed by a cells for each epoch containing one or more references to study design elements defined in the studyDesignElements sheet. Each arm name should have a corresponding entry in the Study Design Arms sheet, see below.
 
 ### Study Design Arms sheet
 
@@ -416,7 +416,7 @@ The name description and condition are located in columns A and B, rows 1 and 2.
 
 ##### Timing
 
-The timing seciton consists of multiple columns starting in column D. As many columns as needed can be created. A title block is held in Column C. The section consists of eight rows in rows 1 to 8 as follows:
+The timing section consists of multiple columns starting in column D. As many columns as needed can be created. A title block is held in Column C. The section consists of eight rows in rows 1 to 8 as follows:
 
 | Row | Row Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
@@ -470,8 +470,8 @@ A header row in row 1 followed by repeating rows from row 2, containing encounte
 | B | description | Description | Text string, can be empty |
 | C | label | Display label | Text string, can be empty |
 | D | type | The type of timing | Either `Before`, `After` or `Fixed` |
-| E | from | Timeing point ref | The name of a timing point from a timeline sheet |
-| E | to | Timeing point ref | The name of a timing point from a timeline sheet |
+| E | from | Timepoint ref | The name of a timing point from a timeline sheet |
+| E | to | Timepoint ref | The name of a timing point from a timeline sheet |
 | E | timingValue | Timing | The relative value for a `Before`, `After` timing value or an absolute time for `Fixed` |
 | E | toFrom | Timing precision | Either `S2S`, `S2E`, `E2S`, `E2E` to set the precise timing for a `Before`, `After` timing value |
 | E | window | Timing window | A timing range |
@@ -532,7 +532,7 @@ A header row in row 1 followed by repeating rows from row 2, containing an inter
 | B | description | Description | Text string, can be empty |
 | C | label | Display label | Text string, can be empty |
 | D | codes | The set of intervention codes | A set of external CT codes, comma separated |	
-| E | role | The role th eintervanetion plays |	A single M11 code |
+| E | role | The role the intervention plays |	A single M11 code |
 | F | type | The intervention type | |
 | G | product | The product | the name of the product |
 | H | minimumResponseDuration | The minimum response duration | |
@@ -541,7 +541,7 @@ A header row in row 1 followed by repeating rows from row 2, containing an inter
 | K | administrationLabel | Display label | Text string, can be empty |
 | L | administrationRoute | Route of administration | CDISC code reference |
 | M | administrationDose | Dose quantity | Quantity |
-| N | administrationFrequency | Administration freqeunce | CDISC code reference |
+| N | administrationFrequency | Administration frequency | CDISC code reference |
 | O | administrationDurationDescription | Description | Text string, can be empty |
 | P | administrationDurationWillVary | Duration will vary flag | Boolean |
 | Q | administrationDurationWillVaryReason | Duration will vary reason | Text string |
@@ -633,7 +633,7 @@ A header row in row 1 followed by repeating rows from row 2
 
 #### Sheet Contents
 
-A header row in row 1 followed by repeating rows from row 2 containing population or sub-population definitions. Note that not every entry in columns E through I need to be filled in, just enough to define  either the whole population of the sub-populations. Sub-populations need not be specificed.
+A header row in row 1 followed by repeating rows from row 2 containing population or sub-population definitions. Note that not every entry in columns E through I need to be filled in, just enough to define  either the whole population of the sub-populations. Sub-populations need not be specified.
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
@@ -646,7 +646,7 @@ A header row in row 1 followed by repeating rows from row 2 containing populatio
 | G | plannedAge	| Age range of participants | Range |
 | H | plannedSexOfParticipants | Sex of participants | CDISC code reference |
 | I | includesHealthSubjects | Healthy subjects flag | Boolean |
-| I | characterisitcs | List of characteristics for the cohort (ignored for main population) | Comma separated list of charcateristics name references |
+| I | characteristics | List of characteristics for the cohort (ignored for main population) | Comma separated list of characteristics name references |
 | J | indications | List of indications for the cohort (ignored for main population) | Comma separated list of indications name references |
 
 ### Study Design Characteristics sheet
@@ -834,7 +834,7 @@ A header row in row 1 followed by repeating rows from row 2, containing the narr
 | A | name | Name of the content | Text string. Can be left blank in which case a default value will be used based on the section number |
 | B | text | The content text | HTML formatted text String |
 
-There are some prefined macros that can be used to generate content. These are pre processed when the content sheet is read and transated into the appropriate USDM references ```usdm:ref``` or ```usdm:tag```. These macros use a similar syntax to the USDM references: 
+There are some prefined macros that can be used to generate content. These are pre processed when the content sheet is read and translated into the appropriate USDM references ```usdm:ref``` or ```usdm:tag```. These macros use a similar syntax to the USDM references: 
 
 ```<usdm:macro id="macro name" attrib1="data1" attrib2="data2" .../>```
 
@@ -921,12 +921,12 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | D | key | The entry key | Text String. Must be unique within the dictionary |
 | E | class | The class name | The name of the class within the model from which the data for the dictionary entry is to be taken |
 | F | xref | Cross reference name | The name of the instance from which the data is to be taken. Use the entries in the name columns from other sheets |
-| G | atrribute | The attribute path or name | The name or path of the attribute from which the data is to be taken |
-| H (optonal) | value | The value | A fixed value. If this column is used then the 'class', 'xref' and 'attribute' fields should be empty |
+| G | attribute | The attribute path or name | The name or path of the attribute from which the data is to be taken |
+| H (optional) | value | The value | A fixed value. If this column is used then the 'class', 'xref' and 'attribute' fields should be empty |
 
-The attribute path follows a simplified 'Xpath' syntax of ```@attribute-name[/class/@attribute-name]``` form. The class attribute pairs can be repeated to arrive as the desired attribute. This has been provided since not all instances of all classes are named which prevents thenm being addressed directly, for example Range of Quantity instances.
+The attribute path follows a simplified 'Xpath' syntax of ```@attribute-name[/class/@attribute-name]``` form. The class attribute pairs can be repeated to arrive as the desired attribute. This has been provided since not all instances of all classes are named which prevents them being addressed directly, for example Range of Quantity instances.
 
-An example for accessing the Population planned age, max value is ```@plannedAge/Range/@maxValue/Quantity/@value```. In this instance the ```class``` column would be set to ```Population``` and the ```xref``` column set to the name of the Population entry in the population shseet. 
+An example for accessing the Population planned age, max value is ```@plannedAge/Range/@maxValue/Quantity/@value```. In this instance the ```class``` column would be set to ```Population``` and the ```xref``` column set to the name of the Population entry in the population sheet. 
 
 Note that the '@' symbol does not need to be included with attribute names but it guides the eye making it easier to read the path.
 
@@ -1013,7 +1013,7 @@ A set of rows consisting of configuration parameters. The first column is the ty
 | Parameter | Description | Format and Values |
 | :--- | :--- | :--- |
 | CT Version | Allows for the version of a specific external CT to be set. Multiple rows can be included to set the versions for several CTs | Of the form ctName = Version, for example `SNOMED = 21st June 2012`|
-| Empty None | Allows for string fields to be set to '' rather than null/none values so as to accomodate the SDR validation checks | Set to 'EMPTY' to use ''. Any other value will permit  null values to be used |
+| Empty None | Allows for string fields to be set to '' rather than null/none values so as to accommodate the SDR validation checks | Set to 'EMPTY' to use ''. Any other value will permit  null values to be used |
 | Template | Configures a protocol template and the associated template sheet | Entries take the form of templateName = sheetName, for example `Sponsor = sponsorContent`. The template name and the sheet name are simple strings. Template names are at the user's discretion but the string `m11` or `M11` is reserved as the template name for the M11 Template format. The sheet name must match a sheet within the workbook that must be structured as per the template sheet format. |
 | Use Template | Deprecated | Deprecated |
 | USDM Version | Deprecated | Deprecated |
@@ -1035,7 +1035,7 @@ This sets up three CT versions and two templates.
 
 # Issues
 
-See the [github issues](https://github.com/data4knowledge/usdm/issues)
+See the [github issues](https://github.com/cdisc-org/usdm/issues)
 
 # Build Notes
 
