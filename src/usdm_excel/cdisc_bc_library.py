@@ -4,6 +4,7 @@ import requests
 from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.id_manager import IdManager
+#from usdm_excel.cross_ref import CrossRef
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
 from usdm_model.response_code import ResponseCode
@@ -19,14 +20,16 @@ class CDISCBCLibrary:
         errors_and_logging: ErrorsAndLogging,
         ct_library: CDISCCTLibrary,
         id_manager: IdManager,
+        #cross_references: CrossRef
     ):
         self._errors_and_logging = errors_and_logging
         self._ct_library = ct_library
         self._id_manager = id_manager
+        #self._cross_references = cross_references
         self._api_key = os.getenv("CDISC_API_KEY")
         print(f"API: {self._api_key}")
         if not self._api_key:
-            self._errors_and_logging("Empty CDISC API key ...")
+            self._errors_and_logging.warning("Empty CDISC API key ...")
         self._headers = {"Content-Type": "application/json", "api-key": self._api_key}
         self._package_metadata = {}
         self._package_items = {}
@@ -522,11 +525,11 @@ class CDISCBCLibrary:
         instance = Code(
             id=id,
             code=code,
-            codeSystem=self._library.system,
-            codeSystemVersion=self._library.version,
+            codeSystem=self._ct_library.system,
+            codeSystemVersion=self._ct_library.version,
             decode=decode,
         )
-        self._cross_references.add(instance.id, instance)
+        #self._cross_references.add(instance.id, instance)
         return instance
 
     def _alias_code(self, standard_code, aliases):
