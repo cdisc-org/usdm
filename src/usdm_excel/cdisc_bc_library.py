@@ -64,6 +64,7 @@ class CDISCBCLibrary:
         return bc
 
     def _set_ids(self, parent):
+        print(f"PARENT: {parent}")
         if isinstance(parent, str) or isinstance(parent, bool):
             return
         parent["id"] = self._id_manager.build_id(parent["instanceType"])
@@ -210,7 +211,7 @@ class CDISCBCLibrary:
                 if term != None:
                     code = self._cdisc_code(term["conceptId"], term["preferredTerm"])
                     code.id = "tbd"
-                    responses.append(ResponseCode(id="tbd", name=f"RC_{code}", isEnabled=True, code=code))
+                    responses.append(ResponseCode(id="tbd", name=f"RC_{code.code}", isEnabled=True, code=code))
         return self._biomedical_concept_property_object(
             property["shortName"],
             property["shortName"],
@@ -349,7 +350,7 @@ class CDISCBCLibrary:
                                     f"Failed to find submission or preferred term '{value}' {cl}"
                                 )
                 for code in codes:
-                    response_code = ResponseCode(id="tbd", isEnabled=True, code=code)
+                    response_code = ResponseCode(id="tbd", name=f"RC_{code.code}", isEnabled=True, code=code)
                     responses.append(response_code)
                 datatype = (
                     sdtm_property["dataType"] if "dataType" in sdtm_property else ""
