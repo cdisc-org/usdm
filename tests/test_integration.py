@@ -144,7 +144,7 @@ def run_test_fhir(filename, mocker, save=False):
     usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
     result = usdm.to_fhir("sponsor")
 
-    print(f"RESULT: {result}")
+    #print(f"RESULT: {result}")
 
     if save or SAVE_ALL:
         with open(

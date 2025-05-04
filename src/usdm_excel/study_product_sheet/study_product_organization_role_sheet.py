@@ -17,7 +17,6 @@ class StudyProductOrganizationRoleSheet(BaseSheet):
                 optional=True,
             )
             if self.success:
-                print(f"********************************************")
                 for index, row in self.sheet.iterrows():
                     params = {
                         "name": self.read_cell_by_name(index, "name"),

@@ -63,7 +63,7 @@ class ToFHIR:
             # date = datetime.datetime.now().isoformat()
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
             author = Reference(display="USDM")
-            print(f"TITLE: {self._doc_title}")
+            #print(f"TITLE: {self._doc_title}")
             composition = Composition(
                 title=self._doc_title,
                 type=type_code,
