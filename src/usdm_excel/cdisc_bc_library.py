@@ -27,7 +27,6 @@ class CDISCBCLibrary:
         self._id_manager = id_manager
         #self._cross_references = cross_references
         self._api_key = os.getenv("CDISC_API_KEY")
-        print(f"API: {self._api_key}")
         if not self._api_key:
             self._errors_and_logging.warning("Empty CDISC API key ...")
         self._headers = {"Content-Type": "application/json", "api-key": self._api_key}
@@ -38,10 +37,10 @@ class CDISCBCLibrary:
         self._bcs_raw = {}
         self._bc_index = {}
         self._map = {}
-        print(f"BCs")
         if self._bcs_exist():
             self._bcs = self._load_bcs()
         else:
+            print("Rebuilding BCs ...")
             self._get_package_metadata()
             self._get_package_items()
             self._get_sdtm_bcs()
@@ -64,8 +63,7 @@ class CDISCBCLibrary:
         return bc
 
     def _set_ids(self, parent):
-        print(f"PARENT: {parent}")
-        if isinstance(parent, str) or isinstance(parent, bool):
+        if isinstance(parent, str) or isinstance(parent, bool) or (parent is None):
             return
         parent["id"] = self._id_manager.build_id(parent["instanceType"])
         for name, value in parent.items():
@@ -101,11 +99,10 @@ class CDISCBCLibrary:
         for url_type, url in urls.items():
             try:
                 api_url = self._url(url)
-                print(f"URL: {api_url}")
                 self._errors_and_logging.info(f"CDISC BC Library: {url_type}: {url}")
                 raw = requests.get(api_url, headers=self._headers)
                 response = raw.json()
-                print(f"RESPONSE: {response}")
+                print("#", end='', flush=True)
                 self._package_metadata[url_type] = response["_links"]["packages"]
             except Exception as e:
                 self._exception(
@@ -115,7 +112,6 @@ class CDISCBCLibrary:
         self._errors_and_logging.debug(f"PACKAGES: {self._package_metadata}")
 
     def _get_package_items(self) -> dict:
-        print(f"ITEMS: {self._package_items}")
         for package_type in ["sdtm", "generic"]:
             self._package_items[package_type] = {}
             for package in self._package_metadata[package_type]:
@@ -123,7 +119,6 @@ class CDISCBCLibrary:
 
     def _get_package(self, package, package_type):
         try:
-            print(f"GET PACKAGE: {package}, {package_type}")
             response_field = {
                 "sdtm": "datasetSpecializations",
                 "generic": "biomedicalConcepts",
@@ -132,6 +127,7 @@ class CDISCBCLibrary:
             self._errors_and_logging.info(f"CDISC BC Library: {package_type}, {api_url}")
             raw = requests.get(api_url, headers=self._headers)
             response = raw.json()
+            print("#", end='', flush=True)
             for item in response["_links"][response_field[package_type]]:
                 self._errors_and_logging.debug(f"ITEM: {item}")
                 key = item["title"].upper()
@@ -153,7 +149,7 @@ class CDISCBCLibrary:
         # self._bcs, self._bcs_raw =
         for name, item in self._package_items["sdtm"].items():
             self._errors_and_logging.info(f"SDTM BC item '{name}'")
-            print(f"SDTM BC item '{name}'")
+            print(".", end='', flush=True)
             sdtm, generic = self._get_from_url_all(name, item)
             if sdtm:
                 bc = self._sdtm_bc_as_usdm(sdtm, generic)
@@ -168,20 +164,17 @@ class CDISCBCLibrary:
                 if generic:
                     href = generic["_links"]["self"]["href"]
                     if href in self._map:
-                        # print(f"POP: {href}")
                         self._map.pop(generic["_links"]["self"]["href"])
                     else:
                         self._errors_and_logging.error(f"Missing reference when popping {href}")
-        # print(f"REMAINING: {self._map}")
 
     def _get_generic_bcs(self) -> BiomedicalConcept:
-        # print(f"GENRIC KEYS: {self._package_items['generic'].keys()}")
         for name, item in self._package_items["generic"].items():
             self._errors_and_logging.info(f"GENERIC BC item '{name}'")
-            print(f"GENERIC BC item '{name}'")
+            print(".", end='', flush=True)
             if self._process_genric_bc(name):
-                # print(f"ITEM IN GET GENERIC BC: {item}")
                 response = self._get_from_url(item["href"])
+                print("#", end='', flush=True)
                 bc = self._generic_bc_as_usdm(response)
                 if "dataElementConcepts" in response:
                     for item in response["dataElementConcepts"]:
@@ -211,7 +204,7 @@ class CDISCBCLibrary:
                 if term != None:
                     code = self._cdisc_code(term["conceptId"], term["preferredTerm"])
                     code.id = "tbd"
-                    responses.append(ResponseCode(id="tbd", name=f"RC_{code.code}", isEnabled=True, code=code))
+                    responses.append(ResponseCode(id="tbd", name=f"RC_{code.code}", label="", isEnabled=True, code=code))
         return self._biomedical_concept_property_object(
             property["shortName"],
             property["shortName"],
@@ -350,7 +343,7 @@ class CDISCBCLibrary:
                                     f"Failed to find submission or preferred term '{value}' {cl}"
                                 )
                 for code in codes:
-                    response_code = ResponseCode(id="tbd", name=f"RC_{code.code}", isEnabled=True, code=code)
+                    response_code = ResponseCode(id="tbd", name=f"RC_{code.code}", label="", isEnabled=True, code=code)
                     responses.append(response_code)
                 datatype = (
                     sdtm_property["dataType"] if "dataType" in sdtm_property else ""
