@@ -10,6 +10,9 @@ def test_create(mocker, globals):
     globals.id_manager.clear()
     globals.option_manager.set(Options.EMPTY_NONE, EmptyNoneOption.NONE.value)
     sheet_data = {
+        "name": ["A1", "A2"],
+        "description": ["Amend 1", ""],
+        "label": ["Amendment 1", ""],
         "number": ["1", "2"],
         "summary": ["Added section on unblinding", "Amended Design"],
         "primaryReason": ["New Safety Information Available", "Change In Strategy"],
@@ -26,6 +29,9 @@ def test_create(mocker, globals):
     assert len(item.items) == 2
     assert item.items[0].model_dump() == {
         "id": "StudyAmendment_1",
+        "name": "A1",
+        "description": "Amend 1",
+        "label": "Amendment 1",
         "number": "1",
         "summary": "Added section on unblinding",
         "primaryReason": {
@@ -179,6 +185,9 @@ def test_create(mocker, globals):
     }
     assert item.items[1].model_dump() == {
         "id": "StudyAmendment_2",
+        "name": "A2",
+        "description": "",
+        "label": "",
         "number": "2",
         "summary": "Amended Design",
         "primaryReason": {
@@ -298,6 +307,7 @@ def test_create_empty(mocker, globals):
 
 def test_read_cell_by_name_error(mocker, globals):
     sheet_data = {
+        "name": "A1",
         "number": ["1"],
         "summary": ["Added section on unblinding"],
         "primaryReason": ["New Safety Information Available"],

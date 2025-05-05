@@ -261,13 +261,16 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | number | The amendment number | Integer |
-| B | summary | The amendment summary | Text string |
-| C | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
-| D | primaryReason | Primary reason for the amendment | CDISC code reference |
-| E | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
-| F | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scope with enrollment |
-| F (optional) | template | The name of the template for the document to which the amendment applies. Defaults to 'SPONSOR'. See configuration sheet for template names | Text string. |
+| A | name | Name of the change | Text string |
+| B | description | Description for the change | Text string |
+| C | label | Change label. Default value is '' | Text string |
+| D | number | The amendment number | Integer |
+| E | summary | The amendment summary | Text string |
+| F | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
+| G | primaryReason | Primary reason for the amendment | CDISC code reference |
+| H | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
+| I | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scope with enrollment |
+| J (optional) | template | The name of the template for the document to which the amendment applies. Defaults to 'SPONSOR'. See configuration sheet for template names | Text string. |
 
 ### Study Amendments Changes Sheet
 	

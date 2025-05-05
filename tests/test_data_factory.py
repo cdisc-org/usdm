@@ -52,6 +52,7 @@ class MinimalStudy:
         amendment = factory.item(
             StudyAmendment,
             {
+                "name": "AMEND1",
                 "number": "1",
                 "summary": "Updated inclusion criteria",
                 "substantialImpact": True,

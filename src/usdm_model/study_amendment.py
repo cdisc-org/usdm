@@ -1,5 +1,5 @@
 from typing import Union, List, Literal
-from .api_base_model import ApiBaseModelWithId
+from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .study_amendment_reason import StudyAmendmentReason
 from .study_change import StudyChange
 from .study_amendment_impact import StudyAmendmentImpact
@@ -9,7 +9,7 @@ from .governance_date import GovernanceDate
 from .comment_annotation import CommentAnnotation
 
 
-class StudyAmendment(ApiBaseModelWithId):
+class StudyAmendment(ApiBaseModelWithIdNameLabelAndDesc):
     number: str
     summary: str
     primaryReason: StudyAmendmentReason
