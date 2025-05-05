@@ -14,6 +14,7 @@ def test_create(factory, mocker, globals):
         "description": ["Desc One", "Desc Two", "Desc Three"],
         "label": ["Lable 1", "L2", "L3"],
         "jobTitle": ["Title 1", "Title 2", "Title 3"],
+        "personName": ["Mr, Fred, Smith, Jr", "Dr, X, Y, Johnson,", ",John, Smith,"],
         "organization": ["Sponsor 1", "Sponsor 2", ""],
     }
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -24,11 +25,15 @@ def test_create(factory, mocker, globals):
         "O_1",
         "O_2",
         "O_3",
+        "PN_1",
         "AP_1",
+        "PN_2",
         "AP_2",
+        "PN_3",
         "AP_3",
         "X_4",
         "X_5",
+        "X_6",
     ]
     _setup(mocker, globals, data)
     _create_orgs(factory, globals)
@@ -42,6 +47,22 @@ def test_create(factory, mocker, globals):
         "description": "Desc One",
         "jobTitle": "Title 1",
         "organizationId": "O_1",
+        "personName": {
+            "extensionAttributes": [],
+            "familyName": "Smith",
+            "givenNames": [
+                "Fred",
+            ],
+            "id": "PN_1",
+            "instanceType": "PersonName",
+            "prefixes": [
+                "Mr",
+            ],
+            "suffixes": [
+                "Jr"
+            ],
+            "text": "Mr, Fred, Smith, Jr",
+        },
         "instanceType": "AssignedPerson",
     }
     assert item.items[1].model_dump() == {
@@ -52,6 +73,21 @@ def test_create(factory, mocker, globals):
         "description": "Desc Two",
         "jobTitle": "Title 2",
         "organizationId": "O_2",
+        "personName": {
+            "extensionAttributes": [],
+            "familyName": "Johnson",
+            "givenNames": [
+                "X",
+                "Y"
+            ],
+            "id": "PN_2",
+            "instanceType": "PersonName",
+            "prefixes": [
+                "Dr",
+            ],
+            "suffixes": [''],
+            "text": "Dr, X, Y, Johnson, ",
+        },
         "instanceType": "AssignedPerson",
     }
     assert item.items[2].model_dump() == {
@@ -62,6 +98,20 @@ def test_create(factory, mocker, globals):
         "description": "Desc Three",
         "jobTitle": "Title 3",
         "organizationId": None,
+        "personName": {
+            "extensionAttributes": [],
+            "familyName": "Smith",
+            "givenNames": [
+                "John",
+            ],
+            "id": "PN_3",
+            "instanceType": "PersonName",
+            "prefixes": [
+                "",
+            ],
+            "suffixes": [''],
+            "text": ", John, Smith, ",
+        },
         "instanceType": "AssignedPerson",
     }
 
@@ -79,6 +129,7 @@ def test_read_cell_by_name_error(mocker, globals):
         "description": ["Desc One"],
         "label": ["Lable 1"],
         "organization": [""],
+        "personName": ["Mr, Fred, Smith, Jr"],
     }
     mock_error = mocker.patch("usdm_excel.errors_and_logging.errors.Errors.add")
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
