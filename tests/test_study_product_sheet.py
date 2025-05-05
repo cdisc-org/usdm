@@ -123,8 +123,7 @@ def test_create_1(mocker, globals):
                             "instanceType": "Strength",
                             "label": "",
                             "name": "60 mg",
-                            "numeratorRange": None,
-                            "numeratorQuantity": {
+                            "numerator": {
                                 "id": "Id_12",
                                 "extensionAttributes": [],
                                 "instanceType": "Quantity",

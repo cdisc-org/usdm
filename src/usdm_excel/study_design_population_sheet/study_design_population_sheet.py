@@ -1,7 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.population_definition import StudyDesignPopulation, StudyCohort
-from usdm_model.range import Range
-from usdm_model.quantity import Quantity
+from usdm_model.quantity_range import Quantity, Range
 from usdm_model.characteristic import Characteristic
 from usdm_model.indication import Indication
 from usdm_excel.globals import Globals
@@ -96,27 +95,25 @@ class StudyDesignPopulationSheet(BaseSheet):
         healthy: bool,
         codes: list,
     ) -> StudyDesignPopulation:
-        planned_completion_range = (
-            completion_number if isinstance(completion_number, Range) else None
-        )
-        planned_completion_quantity = (
-            completion_number if isinstance(completion_number, Quantity) else None
-        )
-        planned_enrollment_range = (
-            enrollment_number if isinstance(enrollment_number, Range) else None
-        )
-        planned_enrollment_quantity = (
-            enrollment_number if isinstance(enrollment_number, Quantity) else None
-        )
+        # planned_completion_range = (
+        #     completion_number if isinstance(completion_number, Range) else None
+        # )
+        # planned_completion_quantity = (
+        #     completion_number if isinstance(completion_number, Quantity) else None
+        # )
+        # planned_enrollment_range = (
+        #     enrollment_number if isinstance(enrollment_number, Range) else None
+        # )
+        # planned_enrollment_quantity = (
+        #     enrollment_number if isinstance(enrollment_number, Quantity) else None
+        # )
         params = {
             "name": name,
             "description": description,
             "label": label,
             "includesHealthySubjects": healthy,
-            "plannedEnrollmentNumberRange": planned_enrollment_range,
-            "plannedEnrollmentNumberQuantity": planned_enrollment_quantity,
-            "plannedCompletionNumberRange": planned_completion_range,
-            "plannedCompletionNumberQuantity": planned_completion_quantity,
+            "plannedEnrollmentNumber": enrollment_number,
+            "plannedCompletionNumber": completion_number,
             "plannedAge": planned_age,
             "plannedSex": codes,
         }
@@ -138,18 +135,18 @@ class StudyDesignPopulationSheet(BaseSheet):
         characteristics: list,
         indications: list,
     ) -> StudyCohort:
-        planned_completion_range = (
-            completion_number if isinstance(completion_number, Range) else None
-        )
-        planned_completion_quantity = (
-            completion_number if isinstance(completion_number, Quantity) else None
-        )
-        planned_enrollment_range = (
-            enrollment_number if isinstance(enrollment_number, Range) else None
-        )
-        planned_enrollment_quantity = (
-            enrollment_number if isinstance(enrollment_number, Quantity) else None
-        )
+        # planned_completion_range = (
+        #     completion_number if isinstance(completion_number, Range) else None
+        # )
+        # planned_completion_quantity = (
+        #     completion_number if isinstance(completion_number, Quantity) else None
+        # )
+        # planned_enrollment_range = (
+        #     enrollment_number if isinstance(enrollment_number, Range) else None
+        # )
+        # planned_enrollment_quantity = (
+        #     enrollment_number if isinstance(enrollment_number, Quantity) else None
+        # )
         characteristic_refs = self._resolve_characteristics(characteristics)
         indication_refs = self._resolve_indications(indications)
         params = {
@@ -157,10 +154,8 @@ class StudyDesignPopulationSheet(BaseSheet):
             "description": description,
             "label": label,
             "includesHealthySubjects": healthy,
-            "plannedEnrollmentNumberRange": planned_enrollment_range,
-            "plannedEnrollmentNumberQuantity": planned_enrollment_quantity,
-            "plannedCompletionNumberRange": planned_completion_range,
-            "plannedCompletionNumberQuantity": planned_completion_quantity,
+            "plannedEnrollmentNumber": enrollment_number,
+            "plannedCompletionNumber": completion_number,
             "plannedAge": planned_age,
             "plannedSex": codes,
             "characteristics": characteristic_refs,

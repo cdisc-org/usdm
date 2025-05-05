@@ -31,8 +31,8 @@ from .objective import Objective
 from .organization import Organization
 from .population_definition import StudyDesignPopulation, StudyCohort
 from .procedure import Procedure
-from .quantity import Quantity
-from .range import Range
+from .quantity_range import Quantity
+from .quantity_range import Range
 from .response_code import ResponseCode
 from .schedule_timeline_exit import ScheduleTimelineExit
 from .schedule_timeline import ScheduleTimeline

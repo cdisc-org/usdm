@@ -1,6 +1,6 @@
 from typing import Literal, Union
 from .api_base_model import ApiBaseModelWithId
-from .quantity import Quantity
+from .quantity_range import Quantity
 
 
 class AdministrationDuration(ApiBaseModelWithId):

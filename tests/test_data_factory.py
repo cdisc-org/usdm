@@ -17,7 +17,7 @@ from usdm_model.subject_enrollment import SubjectEnrollment
 from usdm_model.study_amendment import StudyAmendment
 from usdm_model.study_amendment_reason import StudyAmendmentReason
 from usdm_model.study_element import StudyElement
-from usdm_model.quantity import Quantity
+from usdm_model.quantity_range import Quantity
 from usdm_excel.globals import Globals
 from tests.test_factory import Factory
 

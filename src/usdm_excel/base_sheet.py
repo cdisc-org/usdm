@@ -10,8 +10,7 @@ from usdm_excel.quantity_type import QuantityType
 from usdm_excel.range_type import RangeType
 from usdm_excel.iso_3166 import ISO3166
 from usdm_model.api_base_model import ApiBaseModelWithId
-from usdm_model.quantity import Quantity
-from usdm_model.range import Range
+from usdm_model.quantity_range import Quantity, Range
 from usdm_model.address import Address
 from usdm_model.comment_annotation import CommentAnnotation
 from usdm_excel.alias import Alias

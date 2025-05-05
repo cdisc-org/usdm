@@ -232,8 +232,7 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedCompletionNumberQuantity": None,
-                "plannedCompletionNumberRange": {
+                "plannedCompletionNumber": {
                     "id": "X_16",
                     "extensionAttributes": [],
                     "instanceType": "Range",
@@ -253,8 +252,7 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedEnrollmentNumberQuantity": None,
-                "plannedEnrollmentNumberRange": {
+                "plannedEnrollmentNumber": {
                     "id": "X_19",
                     "extensionAttributes": [],
                     "instanceType": "Range",
@@ -358,8 +356,7 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedCompletionNumberQuantity": None,
-                "plannedCompletionNumberRange": {
+                "plannedCompletionNumber": {
                     "id": "X_29",
                     "extensionAttributes": [],
                     "instanceType": "Range",
@@ -379,8 +376,7 @@ def test_create(mocker, globals):
                         "instanceType": "Quantity",
                     },
                 },
-                "plannedEnrollmentNumberQuantity": None,
-                "plannedEnrollmentNumberRange": {
+                "plannedEnrollmentNumber": {
                     "id": "X_32",
                     "extensionAttributes": [],
                     "instanceType": "Range",
@@ -470,8 +466,7 @@ def test_create(mocker, globals):
                 "instanceType": "Quantity",
             },
         },
-        "plannedCompletionNumberQuantity": None,
-        "plannedCompletionNumberRange": {
+        "plannedCompletionNumber": {
             "id": "X_3",
             "extensionAttributes": [],
             "instanceType": "Range",
@@ -491,8 +486,7 @@ def test_create(mocker, globals):
                 "instanceType": "Quantity",
             },
         },
-        "plannedEnrollmentNumberQuantity": None,
-        "plannedEnrollmentNumberRange": {
+        "plannedEnrollmentNumber": {
             "id": "X_6",
             "extensionAttributes": [],
             "instanceType": "Range",

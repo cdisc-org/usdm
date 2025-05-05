@@ -1,6 +1,6 @@
 from typing import Literal, Union
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
-from .quantity import Quantity
+from .quantity_range import Quantity
 from .geographic_scope import GeographicScope
 
 
