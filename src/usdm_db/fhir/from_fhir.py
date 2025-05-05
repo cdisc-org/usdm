@@ -1,6 +1,6 @@
 from usdm_model.wrapper import Wrapper
 from usdm_model.study import Study
-from usdm_model.study_design import StudyDesign
+from usdm_model.study_design import InterventionalStudyDesign
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_title import StudyTitle
 from usdm_model.study_definition_document import StudyDefinitionDocument
@@ -9,7 +9,8 @@ from usdm_model.code import Code
 from usdm_model.identifier import StudyIdentifier
 from usdm_model.organization import Organization
 from usdm_model.address import Address
-from usdm_model.narrative_content import NarrativeContent
+from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
+from usdm_model.population_definition import StudyDesignPopulation
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.id_manager import IdManager
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
@@ -37,13 +38,16 @@ class FromFHIR:
         try:
             bundle = Bundle.parse_raw(data)
             study = self._study(bundle.entry[0].resource.title)
+            study_version = study.versions[0]
             doc_version = self._document_version(study)
             root = self._model_instance(
                 NarrativeContent,
                 {
                     "name": "ROOT",
                     "sectionNumber": "0",
+                    "displaySectionNumber": False,
                     "sectionTitle": "Root",
+                    "displaySectionTitle": False,
                     "text": "",
                     "childIds": [],
                     "previousId": None,
@@ -52,7 +56,7 @@ class FromFHIR:
             )
             doc_version.contents.append(root)
             for item in bundle.entry[0].resource.section:
-                nc_item = self._section(item, doc_version)
+                nc_item = self._section(item, doc_version, study_version)
                 root.childIds.append(nc_item.id)
             self._double_link(doc_version.contents, "previousId", "nextId")
             return Wrapper(
@@ -67,24 +71,34 @@ class FromFHIR:
             )
             return None
 
-    def _section(self, section: CompositionSection, doc_version):
-        print(f"SECTION: {section.title}, {section.code.text}")
+    def _section(self, section: CompositionSection, doc_version, study_version):
+        #print(f"SECTION: {section.title}, {section.code.text}")
+        nci = self._model_instance(
+            NarrativeContentItem,
+            {
+                "name": f"{section.code.text}",
+                "text": section.text.div,
+            },
+        )
         nc = self._model_instance(
             NarrativeContent,
             {
                 "name": f"{section.code.text}",
                 "sectionNumber": "",
+                "displaySectionNumber": True,
                 "sectionTitle": section.title,
-                "text": section.text.div,
+                "displaySectionTitle": True,
                 "childIds": [],
                 "previousId": None,
                 "nextId": None,
+                "contentItemId": nci.id
             },
         )
         doc_version.contents.append(nc)
+        study_version.narrativeContentItems.append(nci)
         if section.section:
             for item in section.section:
-                item_nc = self._section(item, doc_version)
+                item_nc = self._section(item, doc_version, study_version)
                 nc.childIds.append(item_nc.id)
         return nc
 
@@ -94,12 +108,20 @@ class FromFHIR:
         intervention_model_code = self._cdisc_ct_code("C82639", "Parallel Study")
         country_code = self._iso_country_code("DNK", "Denmark")
         sponsor_code = self._cdisc_ct_code("C70793", "Clinical Study Sponsor")
+        protocol_code = self._cdisc_ct_code("C70817", "Protocol")
+        parallel_study = self._cdisc_ct_code("C82639", "Parallel Study")
+        english_code = self._model_instance(
+            Code,
+            {
+                "code": "en", "codeSystem": "ISO639", "codeSystemVersion": "2007", "decode": "English"
+            }
+        )
         study_title = self._model_instance(
             StudyTitle, {"text": title, "type": sponsor_title_code}
         )
         protocl_document_version = self._model_instance(
             StudyDefinitionDocumentVersion,
-            {"protocolVersion": "1", "protocolStatus": protocl_status_code},
+            {"version": "1", "status": protocl_status_code},
         )
         protocl_document = self._model_instance(
             StudyDefinitionDocument,
@@ -107,11 +129,24 @@ class FromFHIR:
                 "name": "PROTOCOL V1",
                 "label": "",
                 "description": "",
+                "language": english_code,
+                "type": protocol_code,
+                "templateName": "M11",
                 "versions": [protocl_document_version],
             },
         )
+        study_population = self._model_instance(
+            StudyDesignPopulation,
+            {
+                "name": "POP1",
+                "label": "",
+                "description": "",
+                "includesHealthySubjects": True,
+                "criteria": [],
+            },
+        )
         study_design = self._model_instance(
-            StudyDesign,
+            InterventionalStudyDesign,
             {
                 "name": "Study Design",
                 "label": "",
@@ -121,7 +156,8 @@ class FromFHIR:
                 "arms": [],
                 "studyCells": [],
                 "epochs": [],
-                "population": None,
+                "population": study_population,
+                "model": parallel_study,
             },
         )
         address = self._model_instance(
@@ -139,14 +175,14 @@ class FromFHIR:
             Organization,
             {
                 "name": "Sponsor",
-                "organizationType": sponsor_code,
+                "type": sponsor_code,
                 "identifier": "123456789",
                 "identifierScheme": "DUNS",
                 "legalAddress": address,
             },
         )
         identifier = self._model_instance(
-            StudyIdentifier, {"text": "SPONSOR-1234", "scope": organization}
+            StudyIdentifier, {"text": "SPONSOR-1234", "scopeId": organization.id}
         )
         study_version = self._model_instance(
             StudyVersion,
@@ -157,6 +193,7 @@ class FromFHIR:
                 "studyDesigns": [study_design],
                 "documentVersionId": protocl_document_version.id,
                 "studyIdentifiers": [identifier],
+                "organizations": [organization],
             },
         )
         study = self._model_instance(
@@ -167,7 +204,7 @@ class FromFHIR:
                 "label": "",
                 "description": "",
                 "versions": [study_version],
-                "documentedBy": protocl_document,
+                "documentedBy": [protocl_document],
             },
         )
         return study
@@ -195,7 +232,7 @@ class FromFHIR:
         )
 
     def _document_version(self, study):
-        return study.documentedBy.versions[0]
+        return study.documentedBy[0].versions[0]
 
     def _model_instance(self, cls, params):
         params["id"] = (
