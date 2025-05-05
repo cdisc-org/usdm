@@ -17,6 +17,7 @@ from usdm_excel.alias import Alias
 from usdm_excel.option_manager import EmptyNoneOption
 from usdm_excel.globals import Globals
 from usdm_model.geographic_scope import GeographicScope
+from usdm_model.person_name import PersonName
 
 
 class BaseSheet:
@@ -338,6 +339,36 @@ class BaseSheet:
                 f"Address '{raw_address}' does not contain the required fields (lines, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found",
             )
             return None
+
+    def read_person_name_cell_by_name(self, row_index, field_name, allow_empty=False):
+        raw_name = self.read_cell_by_name(row_index, field_name)
+        parts = self._state_split(raw_name)
+        if len(parts) >= 4:
+            prefixes = [x.strip() for x in parts[0].split(" ")]
+            givenNames = [x.strip() for x in parts[1:-3]]
+            familyName = parts[-2].strip()
+            suffixes = [x.strip() for x in parts[-1].split(" ")]
+            result = self.create_object(cls=PersonName,params=
+                {
+                    "text": f"{(' ').join(prefixes)}, {(',').join(givenNames)}, {familyName}, {(' ').join(suffixes)}",
+                    "prefixes": prefixes,
+                    "givenNames": givenNames,
+                    "familyName": familyName,
+                    "suffixes": suffixes,
+                }
+            )
+            return result
+        elif allow_empty:
+            return None
+        else:
+            col_index = self.column_present(field_name)
+            self._error(
+                row_index,
+                col_index,
+                f"Name '{raw_name}' does not contain the required fields (prefixes, given names, familt names and suffixes) using '{sep}' separator characters, only {len(parts)} found",
+            )
+            return None
+
 
     def read_geographic_scopes_cell_by_name(self, row_index, field_name):
         try:
