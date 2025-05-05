@@ -875,6 +875,61 @@ def test_read_address_cell_by_name_errors(mocker, globals):
     mock_error.assert_has_calls(expected)
 
 
+def test_read_person_name_cell_by_name(mocker, globals):
+    mocked_open = mocker.mock_open(read_data="File")
+    mocker.patch("builtins.open", mocked_open)
+    data = {
+        "name": [
+            "prefix, first, family, suffix",
+            "prefix1 prefix2, first1, first2, family, suffix1 suffix2",
+        ]
+    }
+    mock_read = mocker.patch("pandas.read_excel")
+    mock_read.return_value = pd.DataFrame.from_dict(data)
+    mock_json = mocker.patch("json.load")
+    mock_json.side_effect = [{}, {}, {}]
+    mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+    mock_id.side_effect = ["Name_1", "Name_2"]
+    base = BaseSheet("", globals, "sheet")
+    result = base.read_person_name_cell_by_name(0, "name")
+    assert result.model_dump() == {
+        'extensionAttributes': [],
+        'familyName': 'family',
+        'givenNames': [
+            'first'
+        ],
+        'id': 'Name_1',
+        'instanceType': 'PersonName',
+        'prefixes': [
+            'prefix',
+        ],
+        'suffixes': [
+            'suffix',
+        ],
+        'text': 'prefix, first, family, suffix',
+    }
+    result = base.read_person_name_cell_by_name(1, "name")
+    assert result.model_dump() == {
+        'extensionAttributes': [],
+        'familyName': 'family',
+        'givenNames': [
+            'first1',
+            'first2'
+        ],
+        'id': 'Name_2',
+        'instanceType': 'PersonName',
+        'prefixes': [
+            'prefix1',
+            'prefix2'
+        ],
+        'suffixes': [
+            'suffix1',
+            'suffix2'
+        ],
+        'text': 'prefix1 prefix2, first1, first2, family, suffix1 suffix2',
+    }
+
+
 def test__to_address(mocker, globals):
     code = Code(
         id="Code1",

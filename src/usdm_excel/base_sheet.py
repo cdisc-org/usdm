@@ -345,12 +345,12 @@ class BaseSheet:
         parts = self._state_split(raw_name)
         if len(parts) >= 4:
             prefixes = [x.strip() for x in parts[0].split(" ")]
-            givenNames = [x.strip() for x in parts[1:-3]]
+            givenNames = [x.strip() for x in parts[1:-2]]
             familyName = parts[-2].strip()
             suffixes = [x.strip() for x in parts[-1].split(" ")]
             result = self.create_object(cls=PersonName,params=
                 {
-                    "text": f"{(' ').join(prefixes)}, {(',').join(givenNames)}, {familyName}, {(' ').join(suffixes)}",
+                    "text": f"{(' ').join(prefixes)}, {(', ').join(givenNames)}, {familyName}, {(' ').join(suffixes)}",
                     "prefixes": prefixes,
                     "givenNames": givenNames,
                     "familyName": familyName,
