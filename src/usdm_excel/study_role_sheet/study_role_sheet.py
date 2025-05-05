@@ -38,9 +38,13 @@ class StudyRoleSheet(BaseSheet):
                         ),
                     }
                     item = self.create_object(StudyRole, params)
+                    notes = self.read_cell_multiple_by_name(
+                        index, "notes", must_be_present=False
+                    )
                     if item:
                         self.items.append(item)
                         self.globals.cross_references.add(item.name, item)
+                        self.add_notes(item, notes)
         except Exception as e:
             self._sheet_exception(e)
 

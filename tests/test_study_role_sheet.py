@@ -1,6 +1,6 @@
 import pandas as pd
 from usdm_excel.study_role_sheet.study_role_sheet import StudyRoleSheet
-from usdm_model.assigned_person import AssignedPerson
+from usdm_model.comment_annotation import CommentAnnotation
 from usdm_model.organization import Organization
 from usdm_excel.globals import Globals
 from tests.test_factory import Factory
@@ -63,6 +63,7 @@ def test_create(factory, mocker, globals):
             "instanceType": "Masking",
         },
         "extensionAttributes": [],
+        "notes": [],
         "instanceType": "StudyRole",
     }
     assert item.items[1].model_dump() == {
@@ -90,6 +91,7 @@ def test_create(factory, mocker, globals):
             "instanceType": "Masking",
         },
         "extensionAttributes": [],
+        "notes": [],
         "instanceType": "StudyRole",
     }
     assert item.items[2].model_dump() == {
@@ -111,9 +113,79 @@ def test_create(factory, mocker, globals):
         "organizationIds": [],
         "masking": None,
         "extensionAttributes": [],
+        "notes": [],
         "instanceType": "StudyRole",
     }
 
+
+def test_notes(factory, mocker, globals):
+    data = {
+        "name": ["AP1"],
+        "description": ["Desc One"],
+        "label": ["Label 1"],
+        "organizations": ["Sponsor 1"],
+        "people": [""],
+        "masking": ["Masking 1"],
+        "role": ["Investigator"],
+        "notes": ["N1"]
+    }
+
+    mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
+    mock_id.side_effect = [
+        "C_1",
+        "C_2",
+        "C_3",
+        "O_1",
+        "O_2",
+        "O_3",
+        "N_1",
+        "N_2",
+        "N_3",
+        "M_1",
+        "C_4",
+        "AP_1",
+    ]
+    _setup(mocker, globals, data)
+    _create_orgs(factory, globals)
+    _create_notes(factory, globals)
+    item = StudyRoleSheet("", globals)
+    assert len(item.items) == 1
+    assert item.items[0].model_dump() == {
+        "id": "AP_1",
+        "name": "AP1",
+        "label": "Label 1",
+        "description": "Desc One",
+        "code": {
+            "id": "C_4",
+            "code": "C25936",
+            "codeSystem": "http://www.cdisc.org",
+            "codeSystemVersion": "2024-09-27",
+            "decode": "Investigator",
+            "extensionAttributes": [],
+            "instanceType": "Code",
+        },
+        "appliesToIds": [],
+        "assignedPersons": [],
+        "organizationIds": ["O_1"],
+        "masking": {
+            "id": "M_1",
+            "text": "Masking 1",
+            "isMasked": True,
+            "extensionAttributes": [],
+            "instanceType": "Masking",
+        },
+        "extensionAttributes": [],
+        "notes": [
+            {
+                "codes": [],
+                "extensionAttributes": [],
+                "id": "N_1",
+                "instanceType": "CommentAnnotation",
+                "text": "Note 1",
+            },
+        ],        
+        "instanceType": "StudyRole",
+    }
 
 def test_create_empty(mocker, globals):
     data = {}
@@ -187,3 +259,13 @@ def _create_orgs(factory: Factory, globals: Globals):
     for item in items:
         org = factory.item(Organization, item)
         globals.cross_references.add(item["name"], org)
+
+def _create_notes(factory: Factory, globals: Globals):
+    notes = {
+        "N1": {"text": "Note 1", "codes": []},
+        "N2": {"text": "Note 2", "codes": []},
+        "N3": {"text": "Note 3", "codes": []},
+    }
+    for name, note in notes.items():
+        item = factory.item(CommentAnnotation, note)
+        globals.cross_references.add(name, item)

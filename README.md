@@ -998,7 +998,9 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | D | people | Cross reference (name) to one or more persons performing the role | Comma separated list of strings. Can be empty. | 
 | E | masking | The masking associated with the role. Can be empty if no masking. | Text string. Can be empty |	
 | F | role | The role | CDISC code reference | 
-| G | organizations | Cross reference (name) to one or more organizations performing the role | Comma separated list of strings. Can be empty. |	
+| G | organizations | Cross reference (name) to one or more organizations performing the role | Comma separated list of strings. Can be empty. |
+| H (optional) | notes | Any relevant notes | List of note references, comma separated |
+
 
 ### Configuration Sheet
 
