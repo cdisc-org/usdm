@@ -430,6 +430,9 @@ The name description and condition are located in columns A and B, rows 1 and 2.
 | 1 | Name | The timeline name | Text string |
 | 2 | Description | Timeline description | Text string |
 | 3 | Condition | Timeline entry condition | Text string |
+| 4 | duration | Timeline duration quantity | Quantity |
+| 5 | durationWillVary | Reason timeline will vary | Text string |
+| 6 | durationDescription | Timeline duration description | Text string |
 
 ##### Timing
 

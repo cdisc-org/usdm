@@ -1,7 +1,7 @@
 from .abbreviation import Abbreviation
 from .activity import Activity
 from .address import Address
-from .administration_duration import AdministrationDuration
+from .duration import Duration
 from .administration import Administration
 from .administrable_product import AdministrableProduct
 from .administrable_product_property import AdministrableProductProperty
@@ -82,7 +82,6 @@ __all__ = [
     "Address",
     "AdministrableProduct",
     "AdministrableProductProperty",
-    "AdministrationDuration",
     "Administration",
     "AliasCode",
     "AnalysisPopulation",
@@ -95,6 +94,7 @@ __all__ = [
     "Code",
     "Condition",
     "DocumentContentReference",
+    "Duration",
     "EligibilityCriterion",
     "EligibilityCriterionItem",
     "Encounter",

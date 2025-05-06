@@ -90,7 +90,7 @@ class StudyDesignInterventionSheet(BaseSheet):
 
     def _create_administration_duration(self, index):
         params = {
-            "description": self.read_cell_by_name(
+            "text": self.read_cell_by_name(
                 index, "administrationDurationDescription", must_be_present=False
             ),
             "durationWillVary": self.read_boolean_cell_by_name(

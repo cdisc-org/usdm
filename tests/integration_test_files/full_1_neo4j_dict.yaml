@@ -2838,19 +2838,6 @@ nodes:
     label: ''
     name: Admin 2
     uuid: 00000000-0000-4000-8000-000000000330
-  AdministrationDuration:
-  - description: ''
-    durationWillVary: true
-    id: AdministrationDuration_1
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: Will vary becuase we say so
-    uuid: 00000000-0000-4000-8000-000000000312
-  - description: ''
-    durationWillVary: true
-    id: AdministrationDuration_2
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: Will vary becuase we say so
-    uuid: 00000000-0000-4000-8000-000000000331
   AliasCode:
   - id: AliasCode_1
     instanceType: AliasCode
@@ -4854,6 +4841,19 @@ nodes:
     name: COND3
     text: If the sea is red
     uuid: 00000000-0000-4000-8000-000000000528
+  Duration:
+  - durationWillVary: true
+    id: Duration_1
+    instanceType: Duration
+    reasonDurationWillVary: Will vary becuase we say so
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000312
+  - durationWillVary: true
+    id: Duration_2
+    instanceType: Duration
+    reasonDurationWillVary: Will vary becuase we say so
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000331
   EligibilityCriterion:
   - description: The study age criterion
     id: EligibilityCriterion_1

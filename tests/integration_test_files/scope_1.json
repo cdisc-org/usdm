@@ -1764,6 +1764,7 @@
                     "encounterId": "Encounter_5"
                   }
                 ],
+                "plannedDuration": null,
                 "instanceType": "ScheduleTimeline"
               }
             ],
@@ -2066,8 +2067,9 @@
                 "label": "",
                 "description": "Admin Desc 1",
                 "duration": {
-                  "id": "AdministrationDuration_1",
+                  "id": "Duration_1",
                   "extensionAttributes": [],
+                  "text": "",
                   "quantity": {
                     "id": "Quantity_1",
                     "extensionAttributes": [],
@@ -2089,10 +2091,9 @@
                     },
                     "instanceType": "Quantity"
                   },
-                  "description": "",
                   "durationWillVary": true,
                   "reasonDurationWillVary": "Will vary becuase we say so",
-                  "instanceType": "AdministrationDuration"
+                  "instanceType": "Duration"
                 },
                 "dose": {
                   "id": "Quantity_2",
@@ -2218,8 +2219,9 @@
                 "label": "",
                 "description": "Admin Desc 2",
                 "duration": {
-                  "id": "AdministrationDuration_2",
+                  "id": "Duration_2",
                   "extensionAttributes": [],
+                  "text": "",
                   "quantity": {
                     "id": "Quantity_4",
                     "extensionAttributes": [],
@@ -2241,10 +2243,9 @@
                     },
                     "instanceType": "Quantity"
                   },
-                  "description": "",
                   "durationWillVary": true,
                   "reasonDurationWillVary": "Will vary becuase we say so",
-                  "instanceType": "AdministrationDuration"
+                  "instanceType": "Duration"
                 },
                 "dose": {
                   "id": "Quantity_5",

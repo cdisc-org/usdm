@@ -5492,19 +5492,6 @@ nodes:
     label: ''
     name: Admin 2
     uuid: 00000000-0000-4000-8000-000000000502
-  AdministrationDuration:
-  - description: ''
-    durationWillVary: true
-    id: AdministrationDuration_1
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: Will vary becuase we say so
-    uuid: 00000000-0000-4000-8000-000000000484
-  - description: ''
-    durationWillVary: true
-    id: AdministrationDuration_2
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: Will vary becuase we say so
-    uuid: 00000000-0000-4000-8000-000000000503
   AliasCode:
   - id: AliasCode_13
     instanceType: AliasCode
@@ -11646,6 +11633,19 @@ nodes:
     id: Code_13
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000001511
+  Duration:
+  - durationWillVary: true
+    id: Duration_1
+    instanceType: Duration
+    reasonDurationWillVary: Will vary becuase we say so
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000484
+  - durationWillVary: true
+    id: Duration_2
+    instanceType: Duration
+    reasonDurationWillVary: Will vary becuase we say so
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000503
   EligibilityCriterion:
   - description: The study age criterion
     id: EligibilityCriterion_1

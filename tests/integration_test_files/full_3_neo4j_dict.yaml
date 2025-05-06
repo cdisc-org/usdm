@@ -5713,19 +5713,6 @@ nodes:
     label: ''
     name: IMG_ADMIN
     uuid: 00000000-0000-4000-8000-000000000602
-  AdministrationDuration:
-  - description: ''
-    durationWillVary: false
-    id: AdministrationDuration_1
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: ''
-    uuid: 00000000-0000-4000-8000-000000000584
-  - description: ''
-    durationWillVary: false
-    id: AdministrationDuration_2
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: ''
-    uuid: 00000000-0000-4000-8000-000000000603
   AliasCode:
   - id: AliasCode_5
     instanceType: AliasCode
@@ -12538,6 +12525,19 @@ nodes:
       \ (0 min). During hypoglycemia induction will be when PG \u226475 mg/dL. Predose\
       \ time point will be between insulin infusion stop and study treatment."
     uuid: 00000000-0000-4000-8000-000000001610
+  Duration:
+  - durationWillVary: false
+    id: Duration_1
+    instanceType: Duration
+    reasonDurationWillVary: ''
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000584
+  - durationWillVary: false
+    id: Duration_2
+    instanceType: Duration
+    reasonDurationWillVary: ''
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000603
   EligibilityCriterion:
   - description: ''
     id: EligibilityCriterion_1

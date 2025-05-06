@@ -2490,19 +2490,6 @@ nodes:
     label: ''
     name: Admin 2
     uuid: 00000000-0000-4000-8000-000000000347
-  AdministrationDuration:
-  - description: ''
-    durationWillVary: true
-    id: AdministrationDuration_1
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: Will vary becuase we say so
-    uuid: 00000000-0000-4000-8000-000000000329
-  - description: ''
-    durationWillVary: true
-    id: AdministrationDuration_2
-    instanceType: AdministrationDuration
-    reasonDurationWillVary: Will vary becuase we say so
-    uuid: 00000000-0000-4000-8000-000000000348
   AliasCode:
   - id: AliasCode_5
     instanceType: AliasCode
@@ -3549,6 +3536,19 @@ nodes:
     id: Code_16
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000422
+  Duration:
+  - durationWillVary: true
+    id: Duration_1
+    instanceType: Duration
+    reasonDurationWillVary: Will vary becuase we say so
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000329
+  - durationWillVary: true
+    id: Duration_2
+    instanceType: Duration
+    reasonDurationWillVary: Will vary becuase we say so
+    text: ''
+    uuid: 00000000-0000-4000-8000-000000000348
   Encounter:
   - description: Screening encounter
     id: Encounter_1

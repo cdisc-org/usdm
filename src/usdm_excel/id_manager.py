@@ -56,7 +56,7 @@ class IdManager:
             "EligibilityCriterion": 0,
             "EligibilityCriterionItem": 0,
             "Administration": 0,
-            "AdministrationDuration": 0,
+            "Duration": 0,
             "Quantity": 0,
             "Range": 0,
             "StudyCohort": 0,
