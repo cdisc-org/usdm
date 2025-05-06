@@ -105,7 +105,7 @@ class StudySoAV2Sheet(BaseSheet):
         return self._raw_instances.match(ref)
 
     def _process_sheet(self):
-        for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
+        for rindex in range(self.NAME_ROW, self.DURATION_DESCRIPTION_ROW + 1):
             if rindex == self.NAME_ROW:
                 self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
             elif rindex == self.DESCRIPTION_ROW:
