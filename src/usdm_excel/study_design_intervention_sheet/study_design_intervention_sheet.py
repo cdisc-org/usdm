@@ -2,7 +2,7 @@ from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.alias import Alias
 from usdm_model.study_intervention import StudyIntervention
 from usdm_model.administration import Administration
-from usdm_model.administration_duration import AdministrationDuration
+from usdm_model.duration import Duration
 from usdm_model.administrable_product import AdministrableProduct
 from usdm_excel.globals import Globals
 
@@ -103,4 +103,4 @@ class StudyDesignInterventionSheet(BaseSheet):
                 index, "administrationDurationQuantity"
             ),
         }
-        return self.create_object(AdministrationDuration, params)
+        return self.create_object(Duration, params)
