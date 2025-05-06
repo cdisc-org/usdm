@@ -121,6 +121,20 @@ Examples
 
 Note that `|` can be used in place of the commas for backward compatibility.
 
+### Person Name Values
+
+A name is of the form: ```<prefixes>,<first names>,family name,<suffixes>```. All fields are text strings but note that:
+
+- `<prefixes>`: one or more space separated strings. As many as needed can be included.
+- `<first names>` one or more comma separated first names 
+- `<suffixes>` one or more space separated strings. As many as needed can be included.
+
+Examples
+
+- ```Mr, Fred, Smith, BSc```, Single prefix, first name, family name and suffic
+- ```Mr, Fred, John, Smith,```, No suffix, two first names
+- ```", Fred, Smith,```, Just a first and family name
+
 ### Identifiers and Cross References
 
 Some content defined within the sheets contain unique identifiers such that the content can be cross referenced in other sheets. This is done so as to link content or expand definitions. Identifiers are simple strings that need to be unique within the workbook. There is a single definition and one or more cross references.
@@ -982,6 +996,8 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | C | label | Label | Text string. Can be empty |	
 | D | jobTitle | The job title | Text string | 
 | E | organization | Cross reference (name) to an organization to which the person is associated | Text string. |	
+| F | personName | The persons names | Name string. |	
+
 
 ### Roles Sheet
 
