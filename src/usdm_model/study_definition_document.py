@@ -10,5 +10,6 @@ class StudyDefinitionDocument(ApiBaseModelWithIdNameLabelAndDesc):
     type: Code
     templateName: str
     versions: List[StudyDefinitionDocumentVersion] = []
+    childIds: List[str] = []
     notes: List[CommentAnnotation] = []
     instanceType: Literal["StudyDefinitionDocument"]
