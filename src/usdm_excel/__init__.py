@@ -252,7 +252,7 @@ class USDMExcel:
                             StudyDefinitionDocumentVersion
                         ),
                         version=self.study.protocol_version,
-                        status=self.study.protocol_status,
+                        status=duplicate_object(self.study.protocol_status, self._globals),
                         dateValues=dates,
                         contents=template.items,
                     )
