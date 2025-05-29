@@ -1,7 +1,1418 @@
-<p>
- Failed to generate HTML output, exception 'NoneType' object has no attribute 'study'
-Traceback (most recent call last):
-  File "/Users/daveih/Documents/python/usdm/src/usdm_db/__init__.py", line 82, in to_html
-    study = self._wrapper.study
-AttributeError: 'NoneType' object has no attribute 'study'
-</p>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width" initial-scale="1" name="viewport"/>
+  <style>
+   /* Create a running element */
+      #header-and-footer {
+        position: running(header-and-footer);
+        text-align: right;
+      }
+
+      /* Add that running element to the top and bottom of every page */
+      @page {
+        @top {
+          content: element(header-and-footer);
+        }
+        @bottom {
+          content: element(header-and-footer);
+        }
+      }
+
+      /* Add a page number */
+      #page-number {
+        content: "Page " counter(page);
+      }
+
+      @page { size: A4 }
+
+      /* Create a title page with a full-bleed background and no header */
+      /* Create a soa page with landscape orientation */
+      #title-page {
+        page: title-page;
+      }
+      .soa-page {
+        page: soa-page
+      }
+
+      @page title-page {
+        @top {
+          content: "";
+        }
+      }
+
+      @page soa-page {
+        size: A4 landscape
+      }
+
+      #title-page h1 {
+        padding: 200px 0 40px 0;
+        font-size: 30px;
+      }
+
+      /* Dynamically create a table of contents with leaders */
+      #table-of-contents a {
+        content: target-content(attr(href)) leader('.') target-counter(attr(href), page);
+        color: #000000;
+        text-decoration: none;
+        display: block;
+        padding-top: 5px;
+      }
+
+      /* Float the footnote to a footnotes area on the page */
+      .footnote {
+        float: footnote;
+        font-size: small;
+      }
+
+      .page {
+        page-break-after: always;
+      }
+
+      body {
+        counter-reset: chapter;
+        font-family: 'Times New Roman';
+        color: #000000;
+      }
+
+      .usdm-warning {
+        font-style: italic;
+        color: red;
+      }
+
+      .soa-body-text {
+        font-size: 10px;
+        text-align: center
+      }
+
+      .soa-activity-text {
+        font-size: 10px;
+        text-align: left
+      }
+
+      .soa-footnote-text {
+        font-size: 12px;
+        text-align: left
+      }
+
+      .usdm-highlight {
+        background-color: LightGray !important;
+      }
+
+      .usdm-highlight p {
+        background-color: LightGray;
+      }
+
+      p .usdm-highlight {
+        background-color: LightGray;
+      }
+
+      .usdm-highlight-link {
+        text-decoration:none;
+      }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css"/>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+  <script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="page" id="title-page">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-8 offset-md-2 text-center">
+      <h1>
+       Something Very Official
+      </h1>
+     </div>
+    </div>
+    <div class="row mt-5">
+     <div class="col-md-8 offset-md-2 text-center">
+      <p class="usdm-warning">
+       Note:
+      </p>
+      <p class="usdm-warning">
+       This document is generated from content held within the Unified Studies Definitions Model. It is for test purposes only.
+      </p>
+     </div>
+    </div>
+   </div>
+   <div id="header-and-footer">
+    <span id="page-number">
+    </span>
+   </div>
+  </div>
+  <div class="page">
+   <div xmlns="http://www.w3.org/1999/xhtml">
+    <table>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Sponsor Confidentiality Statement:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Full Title:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Something Very Official
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Trial Acronym:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        SIMPLE
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Protocol Identifier:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        AP1234
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Original Protocol:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Version Number:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        1
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Version Date:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2022-12-16
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Amendment Identifier:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        4
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Amendment Scope:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Global
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Compound Codes(s):
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Compound Name(s):
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Trial Phase:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Phase III Trial
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Short Title:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Something Brief
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Sponsor Name and Address:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        ACME Pharma, Somewhere, In a City, In a District, In a big state, 12345, France
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Regulatory Agency Identifier Number(s):
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        NCT12345678, EU12345, IND12345, WHO12345
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <th style="vertical-align: top; text-align: left">
+       <p>
+        Spondor Approval Date:
+       </p>
+      </th>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2023-01-01
+       </p>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div class="page">
+   <div class="page" id="toc-page">
+    <div id="table-of-contents">
+     <a href="#section-1">
+     </a>
+     <a href="#section-2">
+     </a>
+     <a href="#section-3">
+     </a>
+     <a href="#section-4">
+     </a>
+     <a href="#section-5">
+     </a>
+     <a href="#section-6">
+     </a>
+     <a href="#section-7">
+     </a>
+     <a href="#section-8">
+     </a>
+     <a href="#section-9">
+     </a>
+     <a href="#section-10">
+     </a>
+     <a href="#section-11">
+     </a>
+     <a href="#section-12">
+     </a>
+     <a href="#section-13">
+     </a>
+     <a href="#section-14">
+     </a>
+     <a href="#section-15">
+     </a>
+    </div>
+    <div align="center">
+     <br/>
+     <p class="usdm-warning">
+      Note:
+     </p>
+     <p class="usdm-warning">
+      The table of contents is auto generated upon PDF production and only includes first level sections.
+     </p>
+    </div>
+    <div id="header-and-footer">
+     <span id="page-number">
+     </span>
+    </div>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-1">
+    1 PROTOCOL SUMMARY
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-1.1">
+    1.1 Protocol Synopsis
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-1.2">
+    1.2 Trial Schema
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-1.3">
+    1.3 Schedule of Activities
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-2">
+    2 INTRODUCTION
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-2.1">
+    2.1 Purpose of Trial
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-2.2">
+    2.2 Summary of Benefits and Risks
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-3">
+    3 TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-3.1">
+    3.1 Primary Objectives
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+    <table>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Clinical status assessed using a 7-category ordinal scale at Day 28
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia over the age of 18.0
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of &lt;=2 maintained for 24 hours
+       </p>
+       <p>
+        Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status
+       </p>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-4">
+    4 TRIAL DESIGN
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-4.1">
+    4.1 Description of Trial Design
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-4.1.1">
+    4.1.1 Participant Input into Design
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-4.2">
+    4.2 Rationale for Trial Design
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-4.2.1">
+    4.2.1 Rationale for Comparator
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-4.2.2">
+    4.2.2 Rationale for Adaptive or Novel Trial Design
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-4.2.3">
+    4.2.3 Other Trial Design Considerations
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-4.3">
+    4.3 Access to Trial Intervention After End of Trial
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-4.4">
+    4.4 Start of Trial and End of Trial
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-5">
+    5 TRIAL POPULATION
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-5.1">
+    5.1 Selection of Trial Population
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-5.2">
+    5.2 Rationale for Trial Population
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-5.3">
+    5.3 Inclusion Criteria
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     Patients may be included in the study only if they meet
+     <strong>
+      all
+     </strong>
+     the following criteria:
+    </p>
+    <table>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        1
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Subjects shall be between 18.0 and 70.0
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Subjects shall be between 18.0 and Missing content: exception
+       </p>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-5.4">
+    5.4 Exclusion Criteria
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     Patients may be excluded in the study for
+     <strong>
+      any
+     </strong>
+     of the following reasons:
+    </p>
+    <table>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        1
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Subjects has been treated with Drug A at any time in the past
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        2
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        Pick up activity Demographics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        3
+       </p>
+      </td>
+      <td style="vertical-align: top; text-align: left">
+       <p>
+        If the value is equal to 1234.0
+       </p>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-5.5">
+    5.5 Lifestyle Considerations
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-5.5.1">
+    5.5.1 Meals and Dietary Restrictions
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-5.5.2">
+    5.5.2 Caffeine, Alcohol, Tobacco, and Other Habits
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-5.5.3">
+    5.5.3 Physical Activity
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-5.5.4">
+    5.5.4 Other Activity
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-5.6">
+    5.6 Screen Failures
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-6">
+    6 TRIAL INTERVENTION AND CONCOMITANT THERAPY
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.1">
+    6.1 Description of Trial Intervention
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.2">
+    6.2 Rationale for Trial Intervention
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.3">
+    6.3 Dosing and Administration
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.3.1">
+    6.3.1 Trial Intervention Dose Modification
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.4">
+    6.4 Treatment of Overdose
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.5">
+    6.5 Preparation, Handling, Storage and Accountability
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.5.1">
+    6.5.1 Preparation of Trial Intervention
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.5.2">
+    6.5.2 Handling and Storage of Trial Intervention
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.5.3">
+    6.5.3 Accountability of Trial Intervention
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.6">
+    6.6 Participant Assignment, Randomisation and Blinding
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.6.1">
+    6.6.1 Participant Assignment
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.6.2">
+    6.6.2 Randomisation
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.6.3">
+    6.6.3 Blinding and Unblinding
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     Blinding and unblinding text here please
+    </p>
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.7">
+    6.7 Trial Intervention Compliance
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-6.8">
+    6.8 Concomitant Therapy
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.8.1">
+    6.8.1 Prohibited Concomitant Therapy
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.8.2">
+    6.8.2 Permitted Concomitant Therapy
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.8.3">
+    6.8.3 Rescue Therapy
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-6.8.4">
+    6.8.4 Other Therapy
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-7">
+    7 DISCONTINUATION OF TRIAL INTERVENTION AND PARTICIPANT WITHDRAWAL FROM TRIAL
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-7.1">
+    7.1 Discontinuation of Trial Intervention
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-7.1.1">
+    7.1.1 Criteria for Permanent Discontinuation of Trial Intervention
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-7.1.2">
+    7.1.2 Temporary Discontinuation or Interruption of Trial Intervention
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-7.1.3">
+    7.1.3 Rechallenge
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-7.2">
+    7.2 Participant Withdrawal from the Trial
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-7.3">
+    7.3 Lost to Follow-Up
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-7.4">
+    7.4 Trial Stopping Rules
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-8">
+    8 TRIAL ASSESSMENTS AND PROCEDURES
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.1">
+    8.1 Screening/Baseline Assessments and Procedures
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.2">
+    8.2 Efficacy Assessments and Procedures
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.3">
+    8.3 Safety Assessments and Procedures
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.3.1">
+    8.3.1 Physical Examination
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.3.2">
+    8.3.2 Vital Signs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.3.3">
+    8.3.3 Electrocardiograms
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.3.4">
+    8.3.4 Clinical Laboratory Assessments
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.3.5">
+    8.3.5 Suicidal Ideation and Behaviour Risk Monitoring
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.4">
+    8.4 Adverse Events and Serious Adverse Events
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.1">
+    8.4.1 Definitions of AE and SAE
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.2">
+    8.4.2 Time Period and Frequency for Collecting AE and SAE Information
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.3">
+    8.4.3 Identifying AEs and SAEs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.4">
+    8.4.4 Recording of AEs and SAEs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.5">
+    8.4.5 Follow-up of AEs and SAEs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.6">
+    8.4.6 Reporting of SAEs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.7">
+    8.4.7 Regulatory Reporting Requirements for SAEs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.8">
+    8.4.8 Serious and Unexpected Adverse Reaction Reporting
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.9">
+    8.4.9 Adverse Events of Special Interest
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.4.10">
+    8.4.10 Disease-related Events or Outcomes Not Qualifying as AEs or SAEs
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.5">
+    8.5 Pregnancy and Postpartum Information
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.5.1">
+    8.5.1 Participants Who Become Pregnant During the Trial
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.5.2">
+    8.5.2 Participants Whose Partners Become Pregnant
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.6">
+    8.6 Medical Device Product Complaints for Drug/Device Combination Products
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.6.1">
+    8.6.1 Definition of Medical Device Product Complaints
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.6.2">
+    8.6.2 Recording of Medical Device Product Complaints
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.6.3">
+    8.6.3 Time Period and Frequency for Collecting Medical Device Product Complaints .
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.6.4">
+    8.6.4 Follow-Up of Medical Device Product Complaints
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.6.5">
+    8.6.5 Regulatory Reporting Requirements for Medical Device Product Complaints
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.7">
+    8.7 Pharmacokinetics
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.8">
+    8.8 Genetics
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.9">
+    8.9 Biomarkers
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-8.10">
+    8.10 Immunogenicity Assessments
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-8.10.1">
+    8.10.1 Medical Resource Utilisation and Health Economics
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-9">
+    9 STATISTICAL CONSIDERATIONS
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.1">
+    9.1 Analysis Sets
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.2">
+    9.2 Analyses Supporting Primary Objective(s)
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-9.2.1">
+    9.2.1 Statistical Model, Hypothesis, and Method of Analysis
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-9.2.2">
+    9.2.2 Handling of Intercurrent Events of Primary Estimand(s)
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-9.2.3">
+    9.2.3 Handling of Missing Data
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-9.2.4">
+    9.2.4 Sensitivity Analysis
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-9.2.5">
+    9.2.5 Supplementary Analysis
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.3">
+    9.3 Analysis Supporting Secondary Objective(s)
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.4">
+    9.4 Analysis of Exploratory Objective(s)
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.5">
+    9.5 Safety Analyses
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.6">
+    9.6 Other Analyses
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.7">
+    9.7 Interim Analyses
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.8">
+    9.8 Sample Size Determination
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-9.9">
+    9.9 Protocol Deviations
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-10">
+    10 GENERAL CONSIDERATIONS: REGULATORY, ETHICAL, AND TRIAL OVERSIGHT
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-10.1">
+    10.1 Regulatory and Ethical Considerations
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-10.2">
+    10.2 Committees
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-10.3">
+    10.3 Informed Consent Process
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-10.4">
+    10.4 Data Protection
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-10.5">
+    10.5 Early Site Closure or Trial Termination
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-11">
+    11 GENERAL CONSIDERATIONS: RISK MANAGEMENT AND QUALITY ASSURANCE
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-11.1">
+    11.1 Quality Tolerance Limits
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-11.2">
+    11.2 Data Quality Assurance
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-11.3">
+    11.3 Source Data
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-12">
+    12 APPENDIX: ADVERSE EVENTS AND SERIOUS ADVERSE EVENTS - DEFINITIONS, SEVERITY, AND CAUSALITY
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-12.1">
+    12.1 Further Details and Clarifications on the AE Definition
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-12.2">
+    12.2 Further Details and Clarifications on the SAE Definition
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-12.3">
+    12.3 Severity
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-12.4">
+    12.4 Causality
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-13">
+    13 APPENDIX: DEFINITIONS AND SUPPORTING OPERATIONAL DETAILS
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-13.1">
+    13.1 Contraception and Pregnancy Testing
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-13.1.1">
+    13.1.1 Definitions Related to Childbearing Potential
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-13.1.2">
+    13.1.2 Contraception
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h3 id="section-13.1.3">
+    13.1.3 Pregnancy Testing
+   </h3>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-13.2">
+    13.2 Clinical Laboratory Tests
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-13.3">
+    13.3 Country/Region-Specific Differences
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="">
+   <h2 id="section-13.4">
+    13.4 Prior Protocol Amendments
+   </h2>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-14">
+    14 APPENDIX: GLOSSARY OF TERMS
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+  <div class="page">
+   <h1 id="section-15">
+    15 APPENDIX: REFERENCES
+   </h1>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   </div>
+  </div>
+ </body>
+</html>
