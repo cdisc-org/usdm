@@ -246,7 +246,7 @@ class USDMExcel:
                 try:
                     dates = []
                     for x in self.study.dates[self.PROTOCOL_VERSION_DATE]:
-                        dates.append(duplicate_object, self._globals)
+                        dates.append(duplicate_object(x, self._globals))
                     definition_document_version = StudyDefinitionDocumentVersion(
                         id=self._globals.id_manager.build_id(
                             StudyDefinitionDocumentVersion

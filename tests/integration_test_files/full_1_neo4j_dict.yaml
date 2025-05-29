@@ -4788,14 +4788,14 @@ nodes:
     codeSystem: ISO
     codeSystemVersion: '1'
     decode: English
-    id: Code_219
+    id: Code_221
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000530
   - code: C12345
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Decode
-    id: Code_220
+    id: Code_222
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000531
   - code: C85255
@@ -4809,14 +4809,14 @@ nodes:
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Protocol Effective Date
-    id: Code_29
+    id: Code_219
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000535
   - code: C68846
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Global
-    id: Code_30
+    id: Code_220
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000537
   Condition:
@@ -5035,7 +5035,7 @@ nodes:
   - id: GeographicScope_6
     instanceType: GeographicScope
     uuid: 00000000-0000-4000-8000-000000000072
-  - id: GeographicScope_5
+  - id: GeographicScope_15
     instanceType: GeographicScope
     uuid: 00000000-0000-4000-8000-000000000536
   GovernanceDate:
@@ -5048,7 +5048,7 @@ nodes:
     uuid: 00000000-0000-4000-8000-000000000002
   - dateValue: '2023-01-01'
     description: Protocol document approval date
-    id: GovernanceDate_2
+    id: GovernanceDate_3
     instanceType: GovernanceDate
     label: Protocol Approval
     name: Protocol Approval
@@ -6217,7 +6217,7 @@ nodes:
       id="StudyIdentifier_5" klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th
       style="vertical-align: top; text-align: left"><p>Spondor Approval Date:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="dateValue"
-      id="GovernanceDate_2" klass="GovernanceDate"></usdm:ref></p></td></tr></table></div>'
+      id="GovernanceDate_3" klass="GovernanceDate"></usdm:ref></p></td></tr></table></div>'
     uuid: 00000000-0000-4000-8000-000000000270
   - id: NarrativeContentItem_2
     instanceType: NarrativeContentItem
