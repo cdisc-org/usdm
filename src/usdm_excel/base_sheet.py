@@ -287,11 +287,11 @@ class BaseSheet:
                         {
                             "minValue": self.create_object(
                                 Quantity,
-                                {"value": float(range.lower), "unit": range.units_code},
+                                {"value": float(range.lower), "unit": range.lower_units_code},
                             ),
                             "maxValue": self.create_object(
                                 Quantity,
-                                {"value": float(range.upper), "unit": range.units_code},
+                                {"value": float(range.upper), "unit": range.upper_units_code},
                             ),
                             "isApproximate": False,
                         },
@@ -301,7 +301,7 @@ class BaseSheet:
                 self._add_errors(range.errors, row_index, col_index)
                 return None
         except Exception as e:
-            self._error(
+            self._exception(
                 row_index, col_index, f"Failed to decode quantity data '{text}'", e
             )
             return None
