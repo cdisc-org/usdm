@@ -96,6 +96,7 @@ from usdm_excel.study_design_specimen_retention_sheet.study_design_specimen_rete
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.other_ct import OtherCT
+from usdm_excel.duplicate_object import duplicate_object
 from usdm_model.study import Study
 from usdm_model.study_design import StudyDesign
 from usdm_model.study_version import StudyVersion
@@ -243,13 +244,16 @@ class USDMExcel:
             for template in self.doc_templates.items:
                 # Final assembly
                 try:
+                    dates = []
+                    for x in self.study.dates[self.PROTOCOL_VERSION_DATE]:
+                        dates.append(duplicate_object, self._globals)
                     definition_document_version = StudyDefinitionDocumentVersion(
                         id=self._globals.id_manager.build_id(
                             StudyDefinitionDocumentVersion
                         ),
                         version=self.study.protocol_version,
                         status=self.study.protocol_status,
-                        dateValues=self.study.dates[self.PROTOCOL_VERSION_DATE],
+                        dateValues=dates,
                         contents=template.items,
                     )
                     self.definition_document_version.append(definition_document_version)
