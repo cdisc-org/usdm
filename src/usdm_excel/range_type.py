@@ -38,7 +38,7 @@ class RangeType:
                             # Units code now an alias
                             cdisc_code = CDISCCT(globals).code_for_unit(self.units)
                             self.lower_units_code = Alias(globals).code(cdisc_code, [])
-                            self.upper_units_code = of.duplicate(self.lower_units_code)
+                            self.upper_units_code = Alias(globals).code(cdisc_code, [])
                             if not self.lower_units_code or not self.upper_units_code:
                                 self.errors.append(
                                     f"Unable to set the units code for the range '{range_info}'"
