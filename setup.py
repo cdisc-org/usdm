@@ -23,7 +23,7 @@ setuptools.setup(
         "stringcase",
         "yattag",
         "docraptor",
-        "bs4",
+        "beautifulsoup4",
         "pyyaml",
         "fhir.resources",
     ],
