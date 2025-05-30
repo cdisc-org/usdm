@@ -199,13 +199,11 @@ class Document:
             return False
 
     def _translate_references(self, content_text, highlight=False):
-        # print(f"HIGHLIGHT TR: {highlight}")
         soup = get_soup(content_text, self._errors_and_logging)
         for ref in soup(["usdm:ref"]):
             try:
                 attributes = ref.attrs
                 instance = self._cross_ref.get(attributes["klass"], attributes["id"])
-                # print(f"REF: {instance}")
                 value = self._resolve_instance(
                     instance, attributes["attribute"], highlight
                 )
@@ -217,7 +215,7 @@ class Document:
                     e,
                 )
                 self._replace_and_highlight(
-                    soup, ref, "Missing content: exception", highlight
+                    soup, ref, get_soup("Missing content: exception", self._errors_and_logging), highlight
                 )
         self._errors_and_logging.debug(
             f"Translate references from {content_text} => {get_soup(str(soup), self._errors_and_logging)}"
@@ -252,7 +250,7 @@ class Document:
                         f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the HTML document"
                     )
                     self._replace_and_highlight(
-                        soup, ref, "Missing content: missing dictionary", highlight
+                        soup, ref, get_soup("Missing content: missing dictionary", self._errors_and_logging), highlight
                     )
             except Exception as e:
                 self._errors_and_logging.exception(
@@ -260,7 +258,7 @@ class Document:
                     e,
                 )
                 self._replace_and_highlight(
-                    soup, ref, "Missing content: exception", highlight
+                    soup, ref, get_soup("Missing content: exception", self._errors_and_logging), highlight
                 )
         return str(soup)
 
@@ -282,7 +280,8 @@ class Document:
         id = f"usdmContent{self._modal_count}"
         span = soup.new_tag("span", attrs={"class": "usdm-highlight"})
         span.append(get_soup(self._link(id), self._errors_and_logging))
-        span.append(text)
+        if str(text) != "":
+          span.append(text)
         x = ref.replace_with(span)
         span.append(get_soup(self._modal(ref, id), self._errors_and_logging))
         self._modal_count += 1
