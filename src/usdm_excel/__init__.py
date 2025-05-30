@@ -241,18 +241,21 @@ class USDMExcel:
             self.definition_documents = []
             self.definition_document_version_ids = []
             self.definition_document_version = []
-            for template in self.doc_templates.items:
+            for index, template in enumerate(self.doc_templates.items):
                 # Final assembly
                 try:
                     dates = []
                     for x in self.study.dates[self.PROTOCOL_VERSION_DATE]:
-                        dates.append(duplicate_object(x, self._globals))
+                        if index == 0:
+                            dates.append(x)
+                        else:
+                            dates.append(duplicate_object(x, self._globals))
                     definition_document_version = StudyDefinitionDocumentVersion(
                         id=self._globals.id_manager.build_id(
                             StudyDefinitionDocumentVersion
                         ),
                         version=self.study.protocol_version,
-                        status=duplicate_object(self.study.protocol_status, self._globals),
+                        status=self.study.protocol_status if index == 0 else duplicate_object(self.study.protocol_status, self._globals),
                         dateValues=dates,
                         contents=template.items,
                     )
