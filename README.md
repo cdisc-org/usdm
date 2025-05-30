@@ -27,25 +27,13 @@ Not further information as yet.
 
 ## Example Program
 
-The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format. *Note: The logging is not needed.*
-
-```
-import logging
-log = logging.basicConfig(level=logging.INFO)
-
-import json
-from usdm_excel import USDMExcel
-
-excel = USDMExcel("source_data/simple_1.xlsx")
-with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
-  f.write(json.dumps(json.loads(excel.to_json()), indent=2))
-```
+See a simple example test program [here](https://github.com/data4knowledge/usdm_data/blob/main/test_simple.py)
 
 ## Format of Workbook
 
-### Example
+### Examples
 
-An example spreadsheet in maintained within the [document directory](https://github.com/data4knowledge/usdm/tree/main/docs).
+Example workbooks can be found in the [test file directory](https://github.com/cdisc-org/usdm/tree/main/tests/integration_test_files).
 
 ### Sheets
 
@@ -87,7 +75,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Dictionaries Sheet
 - Configuration sheet
 
-The content of each sheet is described below. 
+The content of each sheet is described below. A graphical representation of the sheets can be found [here](https://github.com/cdisc-org/usdm/blob/main/docs/sheets.png)
 
 ### CDISC Terminology
 
