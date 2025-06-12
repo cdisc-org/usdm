@@ -15,6 +15,8 @@ def test_create(mocker, globals):
         "AC1",
         "Code1",
         "Code2",
+        "X_1",
+        "X_2",
         "TimingId_1",
         "Code3",
         "Code4",
@@ -22,6 +24,10 @@ def test_create(mocker, globals):
         "Code5",
         "Code6",
         "TimingId_3",
+        "X_5",
+        "X_6",
+        "X_5",
+        "X_6",
     ]
     mocked_open = mocker.mock_open(read_data="File")
     mocker.patch("builtins.open", mocked_open)

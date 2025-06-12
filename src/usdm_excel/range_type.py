@@ -3,7 +3,6 @@ from usdm_excel.globals import Globals
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.alias import Alias
 
-
 class RangeType:
     def __init__(
         self,
@@ -16,7 +15,8 @@ class RangeType:
             self.upper = None
             self.lower = None
             self.units = None
-            self.units_code = None
+            self.upper_units_code = None
+            self.lower_units_code = None
             self.errors = []
             self.empty = False
             self.label = range_info.strip()
@@ -35,10 +35,12 @@ class RangeType:
                     if units_reqd:
                         if parts["units"]:
                             self.units = parts["units"].strip()
-                            # Units code now an alias
-                            cdisc_code = CDISCCT(globals).code_for_unit(self.units)
-                            self.units_code = Alias(globals).code(cdisc_code, [])
-                            if not self.units_code:
+                            # Units code now an alias. Duplicates created so separate ids are used
+                            lower_cdisc_code = CDISCCT(globals).code_for_unit(self.units)
+                            upper_cdisc_code = CDISCCT(globals).code_for_unit(self.units) 
+                            self.lower_units_code = Alias(globals).code(lower_cdisc_code, [])
+                            self.upper_units_code = Alias(globals).code(upper_cdisc_code, [])
+                            if not self.lower_units_code or not self.upper_units_code:
                                 self.errors.append(
                                     f"Unable to set the units code for the range '{range_info}'"
                                 )

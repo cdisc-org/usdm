@@ -144,7 +144,7 @@ def run_test_fhir(filename, mocker, save=False):
     usdm.from_excel(f"tests/integration_test_files/{filename}.xlsx")
     result = usdm.to_fhir("sponsor")
 
-    print(f"RESULT: {result}")
+    #print(f"RESULT: {result}")
 
     if save or SAVE_ALL:
         with open(
@@ -355,3 +355,7 @@ def test_interventions_1(mocker):
 
 def test_study_devices_1(mocker):
     run_test("devices", mocker)
+
+
+def test_time_duration_1(mocker):
+    run_test("timeline_duration", mocker)

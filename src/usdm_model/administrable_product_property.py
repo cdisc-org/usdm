@@ -1,6 +1,6 @@
 from typing import Union, Literal
 from .api_base_model import ApiBaseModelWithIdAndName
-from .quantity import Quantity
+from .quantity_range import Quantity
 from .code import Code
 
 

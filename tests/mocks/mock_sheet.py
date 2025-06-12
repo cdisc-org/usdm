@@ -25,7 +25,7 @@ def fake_create_object(cls, params, index):
 
 def mock_create_object(mocker, data):
     item = mocker.patch("usdm_excel.base_sheet.BaseSheet.create_object")
-    print(f"ITEM ARGS: {item.call_args}")
+    #print(f"ITEM ARGS: {item.call_args}")
     for index, params in enumerate(data):
         params["data"]["id"] = f"{params['cls'].__name__}_{index + 1}"
     item.side_effect = [params["cls"](**params["data"]) for params in data]

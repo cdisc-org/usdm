@@ -24,6 +24,13 @@ class StudyAmendmentSheet(BaseSheet):
             if self.success:
                 for index, row in self.sheet.iterrows():
                     secondaries = []
+                    name = self.read_cell_by_name(index, ["name"])
+                    description = self.read_cell_by_name(
+                        index, ["description"], default="", must_be_present=False
+                    )
+                    label = self.read_cell_by_name(
+                        index, "label", default="", must_be_present=False
+                    )
                     number = self.read_cell_by_name(index, "number")
                     date_name = self.read_cell_by_name(
                         index, "date", must_be_present=False
@@ -48,6 +55,9 @@ class StudyAmendmentSheet(BaseSheet):
                         index, "geographicScope"
                     )
                     params = {
+                        "name": name,
+                        "description": description,
+                        "label": label,
                         "number": number,
                         "summary": summary,
                         "primaryReason": primary,

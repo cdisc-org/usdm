@@ -1,11 +1,9 @@
 from typing import Literal, Union
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
-from .quantity import Quantity
-from .range import Range
+from .quantity_range import Quantity, Range
 
 
 class Strength(ApiBaseModelWithIdNameLabelAndDesc):
+    numerator: Union[Quantity, Range]
     denominator: Union[Quantity, None] = None
-    numeratorQuantity: Union[Quantity, None] = None
-    numeratorRange: Union[Range, None] = None
     instanceType: Literal["Strength"]

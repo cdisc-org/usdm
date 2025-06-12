@@ -14,7 +14,8 @@ def test_range_type(mocker, globals):
         assert (item.upper) == test[2]
         assert (item.label) == test[3]
         assert (item.units) == test[4]
-        assert (item.units_code.standardCode.code) == test[5]
+        assert (item.lower_units_code.standardCode.code) == test[5]
+        assert (item.upper_units_code.standardCode.code) == test[5]
         assert (item.errors) == []
 
 

@@ -5,14 +5,19 @@ from usdm_model.scheduled_instance import (
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
 )
+from usdm_model.duration import Duration
 from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_excel.globals import Globals
+
 
 
 class StudySoAV2Sheet(BaseSheet):
     NAME_ROW = 0
     DESCRIPTION_ROW = 1
     CONDITION_ROW = 2
+    DURATION_ROW = 3
+    DURATION_REASON_ROW = 4
+    DURATION_DESCRIPTION_ROW = 5
     PARAMS_DATA_COL = 1
 
     def __init__(
@@ -27,6 +32,9 @@ class StudySoAV2Sheet(BaseSheet):
             self.name = ""
             self.description = ""
             self.condition = ""
+            self.duration = None
+            self.duration_reason = ""
+            self.duration_text = ""
             self.timeline = None
             self.main_timeline = main
             self.activities = []
@@ -97,18 +105,32 @@ class StudySoAV2Sheet(BaseSheet):
         return self._raw_instances.match(ref)
 
     def _process_sheet(self):
-        for rindex in range(self.NAME_ROW, self.CONDITION_ROW + 1):
+        for rindex in range(self.NAME_ROW, self.DURATION_DESCRIPTION_ROW + 1):
             if rindex == self.NAME_ROW:
                 self.name = self.read_cell(rindex, self.PARAMS_DATA_COL)
             elif rindex == self.DESCRIPTION_ROW:
                 self.description = self.read_cell(rindex, self.PARAMS_DATA_COL)
             elif rindex == self.CONDITION_ROW:
                 self.condition = self.read_cell(rindex, self.PARAMS_DATA_COL)
+            elif rindex == self.DURATION_ROW:
+                self.duration = self.read_quantity_cell(rindex, self.PARAMS_DATA_COL)
+            elif rindex == self.DURATION_REASON_ROW:
+                self.duration_reason = self.read_cell(rindex, self.PARAMS_DATA_COL, default="")
+            elif rindex == self.DURATION_DESCRIPTION_ROW:
+                self.duration_text = self.read_cell(rindex, self.PARAMS_DATA_COL, default="")
             else:
                 pass
 
     def _add_timeline(self, name, description, condition, instances, exit):
         try:
+            duration = self.create_object(
+                Duration, {
+                    "text": self.duration_text,
+                    "quantity": self.duration,
+                    "durationWillVary": True if self.duration_reason else False,
+                    "reasonDurationWillVary": self.duration_reason,
+                }
+            ) if self.duration else None
             timeline = ScheduleTimeline(
                 id=self.globals.id_manager.build_id(ScheduleTimeline),
                 mainTimeline=self.main_timeline,
@@ -118,6 +140,7 @@ class StudySoAV2Sheet(BaseSheet):
                 entryCondition=condition,
                 entryId=instances[0].id,
                 exits=exit,
+                plannedDuration=duration,
                 instances=instances,
             )
             self.globals.cross_references.add(timeline.name, timeline)

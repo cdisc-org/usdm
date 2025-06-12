@@ -27,25 +27,13 @@ Not further information as yet.
 
 ## Example Program
 
-The following code imports an Excel file (in the appropriate structure) and processes it. The data are then exported to a file in JSON API format. *Note: The logging is not needed.*
-
-```
-import logging
-log = logging.basicConfig(level=logging.INFO)
-
-import json
-from usdm_excel import USDMExcel
-
-excel = USDMExcel("source_data/simple_1.xlsx")
-with open('source_data/simple_1.json', 'w', encoding='utf-8') as f:
-  f.write(json.dumps(json.loads(excel.to_json()), indent=2))
-```
+See a simple example test program [here](https://github.com/data4knowledge/usdm_data/blob/main/test_simple.py)
 
 ## Format of Workbook
 
-### Example
+### Examples
 
-An example spreadsheet in maintained within the [document directory](https://github.com/cdisc-org/usdm/tree/main/docs).
+Example workbooks can be found in the [test file directory](https://github.com/cdisc-org/usdm/tree/main/tests/integration_test_files).
 
 ### Sheets
 
@@ -87,7 +75,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Dictionaries Sheet
 - Configuration sheet
 
-The content of each sheet is described below. 
+The content of each sheet is described below. A graphical representation of the sheets can be found [here](https://github.com/cdisc-org/usdm/blob/main/docs/sheets.png)
 
 ### CDISC Terminology
 
@@ -120,6 +108,20 @@ Examples
 - ```14, X Street| A District| A City| A State| 12345| USA```, using pipe separators, no need for quotes around the first line
 
 Note that `|` can be used in place of the commas for backward compatibility.
+
+### Person Name Values
+
+A name is of the form: ```<prefixes>,<first names>,family name,<suffixes>```. All fields are text strings but note that:
+
+- `<prefixes>`: one or more space separated strings. As many as needed can be included.
+- `<first names>` one or more comma separated first names 
+- `<suffixes>` one or more space separated strings. As many as needed can be included.
+
+Examples
+
+- ```Mr, Fred, Smith, BSc```, Single prefix, first name, family name and suffic
+- ```Mr, Fred, John, Smith,```, No suffix, two first names
+- ```", Fred, Smith,```, Just a first and family name
 
 ### Identifiers and Cross References
 
@@ -261,13 +263,16 @@ A header row in row 1 followed by repeating rows from row 2, containing a study 
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
-| A | number | The amendment number | Integer |
-| B | summary | The amendment summary | Text string |
-| C | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
-| D | primaryReason | Primary reason for the amendment | CDISC code reference |
-| E | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
-| F | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scope with enrollment |
-| F (optional) | template | The name of the template for the document to which the amendment applies. Defaults to 'SPONSOR'. See configuration sheet for template names | Text string. |
+| A | name | Name of the change | Text string |
+| B | description | Description for the change | Text string |
+| C | label | Change label. Default value is '' | Text string |
+| D | number | The amendment number | Integer |
+| E | summary | The amendment summary | Text string |
+| F | substantialImpact | True or false value  indicating if the amendment is substantial | Boolean |
+| G | primaryReason | Primary reason for the amendment | CDISC code reference |
+| H | secondaryReasons | Secondary reasons for amendment. Multiple values can be supplied separated by a comma | CDISC code reference |
+| I | enrollment | The current state of subject enrollment, either global, regional or country | Geographic scope with enrollment |
+| J (optional) | template | The name of the template for the document to which the amendment applies. Defaults to 'SPONSOR'. See configuration sheet for template names | Text string. |
 
 ### Study Amendments Changes Sheet
 	
@@ -413,6 +418,9 @@ The name description and condition are located in columns A and B, rows 1 and 2.
 | 1 | Name | The timeline name | Text string |
 | 2 | Description | Timeline description | Text string |
 | 3 | Condition | Timeline entry condition | Text string |
+| 4 | duration | Timeline duration quantity | Quantity |
+| 5 | durationWillVary | Reason timeline will vary | Text string |
+| 6 | durationDescription | Timeline duration description | Text string |
 
 ##### Timing
 
@@ -979,6 +987,8 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | C | label | Label | Text string. Can be empty |	
 | D | jobTitle | The job title | Text string | 
 | E | organization | Cross reference (name) to an organization to which the person is associated | Text string. |	
+| F | personName | The persons names | Name string. |	
+
 
 ### Roles Sheet
 
@@ -998,7 +1008,9 @@ A header row in row 1 followed by repeating rows from row 2. Each row contains a
 | D | people | Cross reference (name) to one or more persons performing the role | Comma separated list of strings. Can be empty. | 
 | E | masking | The masking associated with the role. Can be empty if no masking. | Text string. Can be empty |	
 | F | role | The role | CDISC code reference | 
-| G | organizations | Cross reference (name) to one or more organizations performing the role | Comma separated list of strings. Can be empty. |	
+| G | organizations | Cross reference (name) to one or more organizations performing the role | Comma separated list of strings. Can be empty. |
+| H (optional) | notes | Any relevant notes | List of note references, comma separated |
+
 
 ### Configuration Sheet
 

@@ -10,14 +10,14 @@ from usdm_excel.quantity_type import QuantityType
 from usdm_excel.range_type import RangeType
 from usdm_excel.iso_3166 import ISO3166
 from usdm_model.api_base_model import ApiBaseModelWithId
-from usdm_model.quantity import Quantity
-from usdm_model.range import Range
+from usdm_model.quantity_range import Quantity, Range
 from usdm_model.address import Address
 from usdm_model.comment_annotation import CommentAnnotation
 from usdm_excel.alias import Alias
 from usdm_excel.option_manager import EmptyNoneOption
 from usdm_excel.globals import Globals
 from usdm_model.geographic_scope import GeographicScope
+from usdm_model.person_name import PersonName
 
 
 class BaseSheet:
@@ -287,11 +287,11 @@ class BaseSheet:
                         {
                             "minValue": self.create_object(
                                 Quantity,
-                                {"value": float(range.lower), "unit": range.units_code},
+                                {"value": float(range.lower), "unit": range.lower_units_code},
                             ),
                             "maxValue": self.create_object(
                                 Quantity,
-                                {"value": float(range.upper), "unit": range.units_code},
+                                {"value": float(range.upper), "unit": range.upper_units_code},
                             ),
                             "isApproximate": False,
                         },
@@ -301,7 +301,7 @@ class BaseSheet:
                 self._add_errors(range.errors, row_index, col_index)
                 return None
         except Exception as e:
-            self._error(
+            self._exception(
                 row_index, col_index, f"Failed to decode quantity data '{text}'", e
             )
             return None
@@ -339,6 +339,36 @@ class BaseSheet:
                 f"Address '{raw_address}' does not contain the required fields (lines, district, city, state, postal code and country code) using '{sep}' separator characters, only {len(parts)} found",
             )
             return None
+
+    def read_person_name_cell_by_name(self, row_index, field_name, allow_empty=False):
+        raw_name = self.read_cell_by_name(row_index, field_name)
+        parts = raw_name.split(',')
+        if len(parts) >= 4:
+            prefixes = [x.strip() for x in parts[0].strip().split(" ")]
+            givenNames = [x.strip() for x in parts[1:-2]]
+            familyName = parts[-2].strip()
+            suffixes = [x.strip() for x in parts[-1].strip().split(" ")]
+            result = self.create_object(cls=PersonName,params=
+                {
+                    "text": f"{(' ').join(prefixes)}, {(', ').join(givenNames)}, {familyName}, {(' ').join(suffixes)}",
+                    "prefixes": prefixes,
+                    "givenNames": givenNames,
+                    "familyName": familyName,
+                    "suffixes": suffixes,
+                }
+            )
+            return result
+        elif allow_empty:
+            return None
+        else:
+            col_index = self.column_present(field_name)
+            self._error(
+                row_index,
+                col_index,
+                f"Name '{raw_name}' does not contain the required fields (prefixes, given names, familt names and suffixes) using ',' separator characters, only {len(parts)} found",
+            )
+            return None
+
 
     def read_geographic_scopes_cell_by_name(self, row_index, field_name):
         try:

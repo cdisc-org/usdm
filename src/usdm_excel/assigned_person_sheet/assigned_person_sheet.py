@@ -24,6 +24,7 @@ class AssignedPersonSheet(BaseSheet):
                             index, "description", default=""
                         ),
                         "label": self.read_cell_by_name(index, "label", default=""),
+                        "personName": self.read_person_name_cell_by_name(index, "personName"),
                         "jobTitle": self.read_cell_by_name(index, "jobTitle"),
                         "organizationId": self._get_org(index),
                     }
