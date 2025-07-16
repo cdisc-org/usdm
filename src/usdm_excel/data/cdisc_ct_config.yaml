@@ -49,11 +49,13 @@ required:
 - C188727
 - C188728
 - C201265
+- C207412
 - C207413
 - C207415
 - C207416
 - C207417
 - C207418
+- C207419
 # - C215478
 # - C215480
 # - C215481
@@ -113,8 +115,8 @@ klass:
   StudyIntervention:
     type: C99078
     role: C207417
-  # StudyVersion:
-  #   titles: C99905x
+  StudyTitle:
+    type: C207419 # C99905x
   ReferenceIdentifier:
     type: C99910x # C215478
   AdministrableProduct:

@@ -752,6 +752,30 @@ C201265:
       of another event.
     preferredTerm: Start to Start
     submissionValue: Start to Start
+C207412:
+  conceptId: C207412
+  definition: The terminology relevant to the geographic scope type value set.
+  extensible: 'false'
+  name: Geographic Scope Type Value Set Terminology
+  preferredTerm: CDISC DDF Geographic Scope Type Value Set Terminology
+  submissionValue: Geographic Scope Type Value Set Terminology
+  synonyms:
+  - Geographic Scope Type Value Set Terminology
+  terms:
+  - conceptId: C25464
+    definition: A sovereign nation occupying a distinct territory and ruled by an
+      autonomous government.
+    preferredTerm: Country
+    submissionValue: Country
+  - conceptId: C68846
+    definition: Covering or affecting the whole of a system.
+    preferredTerm: Global
+    submissionValue: Global
+  - conceptId: C41129
+    definition: An area or portion of something with more or less definite boundaries
+      designed or specified according to some established criteria.
+    preferredTerm: Region
+    submissionValue: Region
 C207413:
   conceptId: C207413
   definition: The terminology relevant to the governance date type value set.
@@ -971,6 +995,43 @@ C207418:
       in a country or region or non-authorised. (CDISC Glossary)'
     preferredTerm: Auxiliary Medicinal Product
     submissionValue: NIMP (AxMP)
+C207419:
+  conceptId: C207419
+  definition: The terminology relevant to the study title type value set.
+  extensible: 'false'
+  name: Study Title Type Value Set Terminology
+  preferredTerm: CDISC DDF Study Title Type Value Set Terminology
+  submissionValue: Study Title Type Value Set Terminology
+  synonyms:
+  - Study Title Type Value Set Terminology
+  terms:
+  - conceptId: C207615
+    definition: The short descriptive name for the study.
+    preferredTerm: Brief Study Title
+    submissionValue: Brief Study Title
+    synonyms:
+    - Abbreviated Protocol Title
+  - conceptId: C207616
+    definition: The formal descriptive name for the study.
+    preferredTerm: Official Study Title
+    submissionValue: Official Study Title
+  - conceptId: C207617
+    definition: The descriptive name of the study that is intended for the lay public,
+      written in easily understood language.
+    preferredTerm: Public Study Title
+    submissionValue: Public Study Title
+  - conceptId: C207618
+    definition: A more extensive descriptive name of the study that is intended for
+      medical professionals, written using medical and scientific language.
+    preferredTerm: Scientific Study Title
+    submissionValue: Scientific Study Title
+  - conceptId: C207646
+    definition: A word or words formed from the beginning letters or a combination
+      of syllables and letters of a compound term, which identifies a clinical study.
+    preferredTerm: Study Acronym
+    submissionValue: Study Acronym
+    synonyms:
+    - Trial Acronym
 C66726:
   conceptId: C66726
   definition: A terminology codelist relevant to the physical form of the administered

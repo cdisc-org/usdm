@@ -209,7 +209,7 @@ class StudySheet(BaseSheet):
             text = self.read_cell(rindex, cindex)
             if text:
                 code = CDISCCT(self.globals).code_for_attribute(
-                    "StudyVersion", "titles", title_type
+                    "StudyTitle", "type", title_type
                 )
                 title = StudyTitle(
                     id=self.globals.id_manager.build_id(StudyTitle),
