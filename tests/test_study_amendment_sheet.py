@@ -38,7 +38,7 @@ def test_create(mocker, globals):
             "id": "StudyAmendmentReason_1",
             "code": {
                 "id": "Code_1",
-                "code": "C99904x4",
+                "code": "C207609",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
                 "decode": "New Safety Information Available",
@@ -194,7 +194,7 @@ def test_create(mocker, globals):
             "id": "StudyAmendmentReason_2",
             "code": {
                 "id": "Code_8",
-                "code": "C99904x7",
+                "code": "C207601",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
                 "decode": "Change In Strategy",
@@ -208,7 +208,7 @@ def test_create(mocker, globals):
         "secondaryReasons": [
             {
                 "code": {
-                    "code": "C99904x10",
+                    "code": "C207604",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
                     "decode": "Investigator/Site Feedback",

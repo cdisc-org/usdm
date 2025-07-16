@@ -55,7 +55,7 @@ class TemplateM11(TemplateBase):
             )
             self._title_page_entry(
                 doc,
-                "Spondor Approval Date:",
+                "Sponsor Approval Date:",
                 f"{self._elements.document_approval_date()}",
             )
 

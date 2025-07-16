@@ -103,7 +103,7 @@ class FromFHIR:
         return nc
 
     def _study(self, title):
-        sponsor_title_code = self._cdisc_ct_code("C99905x2", "Official Study Title")
+        sponsor_title_code = self._cdisc_ct_code("C207616", "Official Study Title")
         protocl_status_code = self._cdisc_ct_code("C85255", "Draft")
         intervention_model_code = self._cdisc_ct_code("C82639", "Parallel Study")
         country_code = self._iso_country_code("DNK", "Denmark")

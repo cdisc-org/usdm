@@ -148,89 +148,93 @@
 #     definition: The date and time specifying when the protocol takes effect or becomes operative.
 #     submissionValue: ''
 #     synonyms: []
-# - conceptId: C99904x
-#   definition: ''
-#   extensible: false
-#   name: ''
-#   preferredTerm: ''
-#   submissionValue: ''
-#   synonyms: []
-#   terms:
-#   - conceptId: C99904x1
-#     preferredTerm: Regulatory Agency Request To Amend
-#     definition: A regulatory agency has expressed a need for a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x2
-#     preferredTerm: New Regulatory Guidance
-#     definition: A regulatory agency has published a guidance document that necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x3
-#     preferredTerm: IRB/IEC Feedback
-#     definition: Feedback from the institutional review board or independent ethics committee necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x4
-#     preferredTerm: New Safety Information Available
-#     definition: Previously unavailable safety data becomes available, which necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x5
-#     preferredTerm: Manufacturing Change
-#     definition: A change to manufacturing processes of the study agents necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x6
-#     preferredTerm: IMP Addition
-#     definition: The addition of an investigational medicinal product to a clinical trial design necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x7
-#     preferredTerm: Change In Strategy
-#     definition: A change in the study purpose or intent of the scientific plan necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x8
-#     preferredTerm: Change In Standard Of Care
-#     definition: A change in the standard of care necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x9
-#     preferredTerm: New Data Available (Other Than Safety Data)
-#     definition: Previously unavailable data (other than safety data) becomes available, which necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x10
-#     preferredTerm: Investigator/Site Feedback
-#     definition: Feedback from the investigator or study site necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x11
-#     preferredTerm: Recruitment Difficulty
-#     definition: Challenges with participant recruitment necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x12
-#     preferredTerm: Inconsistency And/Or Error In The Protocol
-#     definition: An error or inconsistency in the protocol necessitates a change(s) to, or formal clarification of, the protocol.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C99904x13
-#     preferredTerm: Protocol Design Error
-#     definition: A protocol design error necessitates a change(s) to, or formal clarification of, a document.
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C17649
-#     preferredTerm: Other
-#     definition: Different than the one(s) previously specified or mentioned. (NCI)
-#     submissionValue: ''
-#     synonyms: []
-#   - conceptId: C48660
-#     preferredTerm: Not Applicable
-#     definition: Determination of a value is not relevant in the current context. (NCI)
-#     submissionValue: ''
-#     synonyms: []
+- conceptId: C207415x
+  definition: The terminology relevant to the study amendment reason code value set.
+  extensible: 'false'
+  name: Study Amendment Reason Code Value Set Terminology
+  preferredTerm: CDISC DDF Study Amendment Reason Code Value Set Terminology
+  submissionValue: Study Amendment Reason Code Value Set Terminology
+  synonyms:
+  - Study Amendment Reason Code Value Set Terminology
+  terms:
+  - conceptId: C207600
+    definition: A change in the standard of care necessitates a change(s) to, or formal
+      clarification of, the protocol. (ICH M11)
+    preferredTerm: Change In Standard Of Care
+    submissionValue: Change In Standard Of Care
+  - conceptId: C207601
+    definition: A change in the study purpose or intent of the scientific plan necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Change In Strategy
+    submissionValue: Change In Strategy
+  - conceptId: C207602
+    definition: The addition of an investigational medicinal product to a clinical
+      trial design necessitates a change(s) to, or formal clarification of, the protocol.
+      (ICH M11)
+    preferredTerm: IMP Addition
+    submissionValue: IMP Addition
+  - conceptId: C207603
+    definition: An error or inconsistency in the protocol necessitates a change(s)
+      to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Inconsistency and/or Error In The Protocol
+    submissionValue: Inconsistency And/or Error In The Protocol
+  - conceptId: C207604
+    definition: Feedback from the investigator or study site necessitates a change(s)
+      to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Investigator/Site Feedback
+    submissionValue: Investigator/Site Feedback
+  - conceptId: C207605
+    definition: Feedback from the institutional review board or independent ethics
+      committee necessitates a change(s) to, or formal clarification of, the protocol.
+      (ICH M11)
+    preferredTerm: IRB/IEC Feedback
+    submissionValue: IRB/IEC Feedback
+  - conceptId: C207606
+    definition: A change to manufacturing processes of the study agents necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Manufacturing Change
+    submissionValue: Manufacturing Change
+  - conceptId: C207607
+    definition: Previously unavailable data (other than safety data) becomes available,
+      which necessitates a change(s) to, or formal clarification of, the protocol.
+      (ICH M11)
+    preferredTerm: New Data Available (Other Than Safety Data)
+    submissionValue: New Data Available (Other Than Safety Data)
+  - conceptId: C207608
+    definition: A regulatory agency has published a guidance document that necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: New Regulatory Guidance
+    submissionValue: New Regulatory Guidance
+  - conceptId: C207609
+    definition: Previously unavailable safety data becomes available, which necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: New Safety Information Available
+    submissionValue: New Safety Information Available
+  - conceptId: C207610
+    definition: A protocol design error necessitates a change(s) to, or formal clarification
+      of, a document. (ICH M11)
+    preferredTerm: Protocol Design Error
+    submissionValue: Protocol Design Error
+  - conceptId: C207611
+    definition: Challenges with participant recruitment necessitates a change(s) to,
+      or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Recruitment Difficulty
+    submissionValue: Recruitment Difficulty
+  - conceptId: C207612
+    definition: A regulatory agency has expressed a need for a change(s) to, or formal
+      clarification of, the protocol. (ICH M11)
+    preferredTerm: Regulatory Agency Request To Amend
+    submissionValue: Regulatory Agency Request To Amend
+  - conceptId: C17649
+    preferredTerm: Other
+    definition: Different than the one(s) previously specified or mentioned. (NCI)
+    submissionValue: ''
+    synonyms: []
+  - conceptId: C48660
+    preferredTerm: Not Applicable
+    definition: Determination of a value is not relevant in the current context. (NCI)
+    submissionValue: ''
+    synonyms: []
 # - conceptId: C99905x
 #   definition: ''
 #   extensible: false
