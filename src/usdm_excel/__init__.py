@@ -210,7 +210,8 @@ class USDMExcel:
 
             # Study Design assembly
             study_design: StudyDesign = self.study_design.items[0]
-            study_design.scheduleTimelines.append(self.soa.timeline)
+            if self.soa.timeline:
+                study_design.scheduleTimelines.append(self.soa.timeline)
             study_design.encounters = self.encounters.items
             study_design.activities = self.soa.activities
             activity_ids = [item.id for item in study_design.activities]
