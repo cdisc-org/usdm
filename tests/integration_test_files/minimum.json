@@ -78,7 +78,7 @@
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {
-              "id": "Code_24",
+              "id": "Code_21",
               "extensionAttributes": [],
               "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
@@ -90,7 +90,7 @@
               "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_25",
+                "id": "Code_22",
                 "extensionAttributes": [],
                 "code": "C15601",
                 "codeSystem": "http://www.cdisc.org",
@@ -103,7 +103,7 @@
             },
             "therapeuticAreas": [
               {
-                "id": "Code_16",
+                "id": "Code_13",
                 "extensionAttributes": [],
                 "code": "MILD_MOD_ALZ",
                 "codeSystem": "SPONSOR",
@@ -112,7 +112,7 @@
                 "instanceType": "Code"
               },
               {
-                "id": "Code_17",
+                "id": "Code_14",
                 "extensionAttributes": [],
                 "code": "26929004",
                 "codeSystem": "SNOMED",
@@ -122,69 +122,7 @@
               }
             ],
             "characteristics": [],
-            "encounters": [
-              {
-                "id": "Encounter_1",
-                "extensionAttributes": [],
-                "name": "E1",
-                "label": "Screening 1",
-                "description": "Screening encounter",
-                "type": {
-                  "id": "Code_10",
-                  "extensionAttributes": [],
-                  "code": "C25716",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Visit",
-                  "instanceType": "Code"
-                },
-                "previousId": null,
-                "nextId": null,
-                "scheduledAtId": null,
-                "environmentalSettings": [
-                  {
-                    "id": "Code_11",
-                    "extensionAttributes": [],
-                    "code": "C51282",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2024-09-27",
-                    "decode": "Clinic",
-                    "instanceType": "Code"
-                  }
-                ],
-                "contactModes": [
-                  {
-                    "id": "Code_12",
-                    "extensionAttributes": [],
-                    "code": "C175574",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2024-09-27",
-                    "decode": "In Person",
-                    "instanceType": "Code"
-                  }
-                ],
-                "transitionStartRule": {
-                  "id": "TransitionRule_1",
-                  "extensionAttributes": [],
-                  "name": "ENCOUNTER_START_RULE_1",
-                  "label": null,
-                  "description": null,
-                  "text": "Subject identifier",
-                  "instanceType": "TransitionRule"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_2",
-                  "extensionAttributes": [],
-                  "name": "ENCOUNTER_START_RULE_1",
-                  "label": null,
-                  "description": null,
-                  "text": "completion of screening activities",
-                  "instanceType": "TransitionRule"
-                },
-                "notes": [],
-                "instanceType": "Encounter"
-              }
-            ],
+            "encounters": [],
             "activities": [],
             "arms": [
               {
@@ -194,7 +132,7 @@
                 "label": "Placebo",
                 "description": "Placebo",
                 "type": {
-                  "id": "Code_13",
+                  "id": "Code_10",
                   "extensionAttributes": [],
                   "code": "C174268",
                   "codeSystem": "http://www.cdisc.org",
@@ -204,7 +142,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_14",
+                  "id": "Code_11",
                   "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
@@ -238,7 +176,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_15",
+                  "id": "Code_12",
                   "extensionAttributes": [],
                   "code": "C202487",
                   "codeSystem": "http://www.cdisc.org",
@@ -260,7 +198,7 @@
                 "label": "Screening",
                 "description": "Screening Element",
                 "transitionStartRule": {
-                  "id": "TransitionRule_3",
+                  "id": "TransitionRule_1",
                   "extensionAttributes": [],
                   "name": "ELEMENT_START_RULE_1",
                   "label": null,
@@ -269,7 +207,7 @@
                   "instanceType": "TransitionRule"
                 },
                 "transitionEndRule": {
-                  "id": "TransitionRule_4",
+                  "id": "TransitionRule_2",
                   "extensionAttributes": [],
                   "name": "ELEMENT_END_RULE_1",
                   "label": null,
@@ -309,7 +247,7 @@
               },
               "plannedSex": [
                 {
-                  "id": "Code_28",
+                  "id": "Code_25",
                   "extensionAttributes": [],
                   "code": "C49636",
                   "codeSystem": "http://www.cdisc.org",
@@ -318,9 +256,7 @@
                   "instanceType": "Code"
                 }
               ],
-              "criterionIds": [
-                "EligibilityCriterion_1"
-              ],
+              "criterionIds": [],
               "plannedAge": {
                 "id": "Range_1",
                 "extensionAttributes": [],
@@ -332,7 +268,7 @@
                     "id": "AliasCode_3",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_26",
+                      "id": "Code_23",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -353,7 +289,7 @@
                     "id": "AliasCode_4",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_27",
+                      "id": "Code_24",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -378,36 +314,13 @@
             ],
             "biospecimenRetentions": [],
             "documentVersionIds": [],
-            "eligibilityCriteria": [
-              {
-                "id": "EligibilityCriterion_1",
-                "extensionAttributes": [],
-                "name": "Age Criteria",
-                "label": "",
-                "description": "The study age criterion",
-                "category": {
-                  "id": "Code_29",
-                  "extensionAttributes": [],
-                  "code": "C25532",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Inclusion Criteria",
-                  "instanceType": "Code"
-                },
-                "identifier": "1",
-                "criterionItemId": "EligibilityCriterionItem_1",
-                "nextId": null,
-                "previousId": null,
-                "notes": [],
-                "instanceType": "EligibilityCriterion"
-              }
-            ],
+            "eligibilityCriteria": [],
             "analysisPopulations": [],
             "notes": [],
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
               {
-                "id": "Code_20",
+                "id": "Code_17",
                 "extensionAttributes": [],
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
@@ -416,7 +329,7 @@
                 "instanceType": "Code"
               },
               {
-                "id": "Code_21",
+                "id": "Code_18",
                 "extensionAttributes": [],
                 "code": "C49667",
                 "codeSystem": "http://www.cdisc.org",
@@ -425,7 +338,7 @@
                 "instanceType": "Code"
               },
               {
-                "id": "Code_22",
+                "id": "Code_19",
                 "extensionAttributes": [],
                 "code": "C49663",
                 "codeSystem": "http://www.cdisc.org",
@@ -435,7 +348,7 @@
               }
             ],
             "model": {
-              "id": "Code_23",
+              "id": "Code_20",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -445,7 +358,7 @@
             },
             "intentTypes": [
               {
-                "id": "Code_19",
+                "id": "Code_16",
                 "extensionAttributes": [],
                 "code": "C49656",
                 "codeSystem": "http://www.cdisc.org",
@@ -458,7 +371,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_18",
+                "id": "Code_15",
                 "extensionAttributes": [],
                 "code": "C15228",
                 "codeSystem": "http://www.cdisc.org",
@@ -518,19 +431,7 @@
             "instanceType": "StudyTitle"
           }
         ],
-        "eligibilityCriterionItems": [
-          {
-            "id": "EligibilityCriterionItem_1",
-            "extensionAttributes": [],
-            "name": "Age Criteria",
-            "label": null,
-            "description": null,
-            "text": "Subjects shall be between 18 and 100",
-            "dictionaryId": null,
-            "notes": [],
-            "instanceType": "EligibilityCriterionItem"
-          }
-        ],
+        "eligibilityCriterionItems": [],
         "narrativeContentItems": [],
         "abbreviations": [],
         "roles": [],
