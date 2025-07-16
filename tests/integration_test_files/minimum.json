@@ -78,7 +78,7 @@
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {
-              "id": "Code_26",
+              "id": "Code_24",
               "extensionAttributes": [],
               "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
@@ -90,7 +90,7 @@
               "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_27",
+                "id": "Code_25",
                 "extensionAttributes": [],
                 "code": "C15601",
                 "codeSystem": "http://www.cdisc.org",
@@ -103,7 +103,7 @@
             },
             "therapeuticAreas": [
               {
-                "id": "Code_18",
+                "id": "Code_16",
                 "extensionAttributes": [],
                 "code": "MILD_MOD_ALZ",
                 "codeSystem": "SPONSOR",
@@ -112,7 +112,7 @@
                 "instanceType": "Code"
               },
               {
-                "id": "Code_19",
+                "id": "Code_17",
                 "extensionAttributes": [],
                 "code": "26929004",
                 "codeSystem": "SNOMED",
@@ -130,7 +130,7 @@
                 "label": "Screening 1",
                 "description": "Screening encounter",
                 "type": {
-                  "id": "Code_12",
+                  "id": "Code_10",
                   "extensionAttributes": [],
                   "code": "C25716",
                   "codeSystem": "http://www.cdisc.org",
@@ -143,7 +143,7 @@
                 "scheduledAtId": null,
                 "environmentalSettings": [
                   {
-                    "id": "Code_13",
+                    "id": "Code_11",
                     "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
@@ -154,7 +154,7 @@
                 ],
                 "contactModes": [
                   {
-                    "id": "Code_14",
+                    "id": "Code_12",
                     "extensionAttributes": [],
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
@@ -185,25 +185,7 @@
                 "instanceType": "Encounter"
               }
             ],
-            "activities": [
-              {
-                "id": "Activity_1",
-                "extensionAttributes": [],
-                "name": "Informed consent",
-                "label": "",
-                "description": "",
-                "previousId": null,
-                "nextId": null,
-                "childIds": [],
-                "definedProcedures": [],
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": [],
-                "bcSurrogateIds": [],
-                "timelineId": null,
-                "notes": [],
-                "instanceType": "Activity"
-              }
-            ],
+            "activities": [],
             "arms": [
               {
                 "id": "StudyArm_1",
@@ -212,7 +194,7 @@
                 "label": "Placebo",
                 "description": "Placebo",
                 "type": {
-                  "id": "Code_15",
+                  "id": "Code_13",
                   "extensionAttributes": [],
                   "code": "C174268",
                   "codeSystem": "http://www.cdisc.org",
@@ -222,7 +204,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_16",
+                  "id": "Code_14",
                   "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
@@ -256,7 +238,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_17",
+                  "id": "Code_15",
                   "extensionAttributes": [],
                   "code": "C202487",
                   "codeSystem": "http://www.cdisc.org",
@@ -327,7 +309,7 @@
               },
               "plannedSex": [
                 {
-                  "id": "Code_30",
+                  "id": "Code_28",
                   "extensionAttributes": [],
                   "code": "C49636",
                   "codeSystem": "http://www.cdisc.org",
@@ -350,7 +332,7 @@
                     "id": "AliasCode_3",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_28",
+                      "id": "Code_26",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -371,7 +353,7 @@
                     "id": "AliasCode_4",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_29",
+                      "id": "Code_27",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -392,78 +374,7 @@
               "cohorts": []
             },
             "scheduleTimelines": [
-              {
-                "id": "ScheduleTimeline_1",
-                "extensionAttributes": [],
-                "name": "Main Timeline",
-                "label": "Main Timeline",
-                "description": "This is the main timeline for the study design.",
-                "mainTimeline": true,
-                "entryCondition": "Potential subject identified",
-                "entryId": "ScheduledActivityInstance_1",
-                "exits": [
-                  {
-                    "id": "ScheduleTimelineExit_1",
-                    "extensionAttributes": [],
-                    "instanceType": "ScheduleTimelineExit"
-                  }
-                ],
-                "timings": [
-                  {
-                    "id": "Timing_1",
-                    "extensionAttributes": [],
-                    "name": "TIM1",
-                    "label": "Anchor",
-                    "description": "The anchor",
-                    "type": {
-                      "id": "Code_10",
-                      "extensionAttributes": [],
-                      "code": "C201358",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Fixed Reference",
-                      "instanceType": "Code"
-                    },
-                    "value": "P1D",
-                    "valueLabel": "1 Day",
-                    "relativeToFrom": {
-                      "id": "Code_11",
-                      "extensionAttributes": [],
-                      "code": "C201355",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Start to Start",
-                      "instanceType": "Code"
-                    },
-                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
-                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_1",
-                    "windowLower": null,
-                    "windowUpper": null,
-                    "windowLabel": "",
-                    "instanceType": "Timing"
-                  }
-                ],
-                "instances": [
-                  {
-                    "id": "ScheduledActivityInstance_1",
-                    "extensionAttributes": [],
-                    "name": "DOSE",
-                    "label": "The Only One",
-                    "description": "-",
-                    "defaultConditionId": null,
-                    "epochId": "StudyEpoch_1",
-                    "instanceType": "ScheduledActivityInstance",
-                    "timelineId": null,
-                    "timelineExitId": "ScheduleTimelineExit_1",
-                    "activityIds": [
-                      "Activity_1"
-                    ],
-                    "encounterId": "Encounter_1"
-                  }
-                ],
-                "plannedDuration": null,
-                "instanceType": "ScheduleTimeline"
-              }
+              null
             ],
             "biospecimenRetentions": [],
             "documentVersionIds": [],
@@ -475,7 +386,7 @@
                 "label": "",
                 "description": "The study age criterion",
                 "category": {
-                  "id": "Code_31",
+                  "id": "Code_29",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -496,7 +407,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
               {
-                "id": "Code_22",
+                "id": "Code_20",
                 "extensionAttributes": [],
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
@@ -505,7 +416,7 @@
                 "instanceType": "Code"
               },
               {
-                "id": "Code_23",
+                "id": "Code_21",
                 "extensionAttributes": [],
                 "code": "C49667",
                 "codeSystem": "http://www.cdisc.org",
@@ -514,7 +425,7 @@
                 "instanceType": "Code"
               },
               {
-                "id": "Code_24",
+                "id": "Code_22",
                 "extensionAttributes": [],
                 "code": "C49663",
                 "codeSystem": "http://www.cdisc.org",
@@ -524,7 +435,7 @@
               }
             ],
             "model": {
-              "id": "Code_25",
+              "id": "Code_23",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -534,7 +445,7 @@
             },
             "intentTypes": [
               {
-                "id": "Code_21",
+                "id": "Code_19",
                 "extensionAttributes": [],
                 "code": "C49656",
                 "codeSystem": "http://www.cdisc.org",
@@ -547,7 +458,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_20",
+                "id": "Code_18",
                 "extensionAttributes": [],
                 "code": "C15228",
                 "codeSystem": "http://www.cdisc.org",

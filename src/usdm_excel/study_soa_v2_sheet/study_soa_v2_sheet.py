@@ -39,37 +39,43 @@ class StudySoAV2Sheet(BaseSheet):
             self.activities = []
             self.biomedical_concepts = []
             self.biomedical_concept_surrogates = []
+            self._raw_activities = None
+            self._raw_instances = None
             super().__init__(
                 file_path=file_path,
                 globals=globals,
                 sheet_name=sheet_name,
                 header=None,
                 require=require,
+                optional=True,
             )
-            self._process_sheet()
-            self._raw_activities = SoAActivities(
-                self
-            )  # Order important, activities then instances
-            self._raw_instances = ScheduledInstances(self)
-            (
-                self.activities,
-                self.biomedical_concepts,
-                self.biomedical_concept_surrogates,
-            ) = self._raw_activities.group_and_link()
-            self._raw_activities.set_parents()
-            self.timeline = self._add_timeline(
-                self.name,
-                self.description,
-                self.condition,
-                self._raw_instances.instances,
-                self._raw_instances.exits,
-            )
+            if self.success:
+                self._process_sheet()
+                self._raw_activities = SoAActivities(
+                    self
+                )  # Order important, activities then instances
+                self._raw_instances = ScheduledInstances(self)
+                (
+                    self.activities,
+                    self.biomedical_concepts,
+                    self.biomedical_concept_surrogates,
+                ) = self._raw_activities.group_and_link()
+                self._raw_activities.set_parents()
+                self.timeline = self._add_timeline(
+                    self.name,
+                    self.description,
+                    self.condition,
+                    self._raw_instances.instances,
+                    self._raw_instances.exits,
+                )
 
         except Exception as e:
             self._sheet_exception(e)
 
     def check_timing_references(self, timings, timing_check):
         timing_set = []
+        if self._raw_instances is None:
+            return []
         for instance in self._raw_instances.items:
             item = instance.item
             # print(f"TIMING1: {item.id}, {instance.name}")
@@ -101,7 +107,7 @@ class StudySoAV2Sheet(BaseSheet):
         return timing_set
 
     def timing_match(self, ref):
-        return self._raw_instances.match(ref)
+        return self._raw_instances.match(ref) if self._raw_instances else None
 
     def _process_sheet(self):
         for rindex in range(self.NAME_ROW, self.DURATION_DESCRIPTION_ROW + 1):
@@ -151,6 +157,7 @@ class StudySoAV2Sheet(BaseSheet):
                 plannedDuration=duration,
                 instances=instances,
             )
+            print(f"ADD TIMELINE!!!!")
             self.globals.cross_references.add(timeline.name, timeline)
             return timeline
         except Exception as e:

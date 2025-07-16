@@ -367,10 +367,10 @@ class USDMExcel:
             tls.append(tl)
             self.study.timelines[timeline] = tl
             self._globals.cross_references.add(timeline, tl.timeline)
-        if self.study_design.main_timeline:
-            self.soa = StudySoAV2Sheet(
-                self._file_path, self._globals, self.study_design.main_timeline, True
-            )
+        self.soa = StudySoAV2Sheet(
+            self._file_path, self._globals, self.study_design.main_timeline, True
+        )
+        if self.soa.timeline:
             self._globals.cross_references.add(
                 self.study_design.main_timeline, self.soa.timeline
             )
