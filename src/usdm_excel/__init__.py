@@ -363,14 +363,14 @@ class USDMExcel:
             tls.append(tl)
             self.study.timelines[timeline] = tl
             self._globals.cross_references.add(timeline, tl.timeline)
-        self.soa = StudySoAV2Sheet(
-            self._file_path, self._globals, self.study_design.main_timeline, True
-        )
-        # print(f"XREF: {self.study_design.main_timeline}")
-        self._globals.cross_references.add(
-            self.study_design.main_timeline, self.soa.timeline
-        )
-        tls.append(self.soa)
+        if self.study_design.main_timeline:
+            self.soa = StudySoAV2Sheet(
+                self._file_path, self._globals, self.study_design.main_timeline, True
+            )
+            self._globals.cross_references.add(
+                self.study_design.main_timeline, self.soa.timeline
+            )
+            tls.append(self.soa)
         self._set_timing_references(tls)
         self._check_timing_references(tls)
 
