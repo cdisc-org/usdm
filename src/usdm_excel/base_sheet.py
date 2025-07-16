@@ -45,7 +45,7 @@ class BaseSheet:
         self.success = False
         self._sheet_names = None
         if optional and not self._sheet_present(file_path, sheet_name):
-            self._general_info(f"{sheet_name} not found but optional")
+            self._general_info(f"'{sheet_name}' not found but optional")
         else:
             if require and not self._check_cell_value(
                 file_path,
