@@ -48,7 +48,9 @@ if __name__ == "__main__":
     from src.usdm_excel.cdisc_ct_library import CDISCCTLibrary
     from src.usdm_excel.cdisc_bc_library import CDISCBCLibrary
     from src.usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
+    from src.usdm_excel.id_manager import IdManager
 
     errors_and_logging = ErrorsAndLogging()
+    id_manager = IdManager(errors_and_logging)
     ct = CDISCCTLibrary(errors_and_logging)
-    bc = CDISCBCLibrary(errors_and_logging, ct, None)
+    bc = CDISCBCLibrary(errors_and_logging, ct, id_manager)
