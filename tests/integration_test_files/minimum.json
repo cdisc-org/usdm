@@ -1,0 +1,688 @@
+{
+  "study": {
+    "id": null,
+    "name": "MINIMUM",
+    "description": "Example of the minimum USDM possible",
+    "label": "Minimum USDM Study",
+    "versions": [
+      {
+        "id": "StudyVersion_1",
+        "extensionAttributes": [],
+        "versionIdentifier": "1",
+        "rationale": "Make it as small as possible",
+        "documentVersionIds": [],
+        "dateValues": [
+          {
+            "id": "GovernanceDate_1",
+            "extensionAttributes": [],
+            "name": "D_APPROVE",
+            "label": "Design Approval",
+            "description": "Design approval date",
+            "type": {
+              "id": "Code_8",
+              "extensionAttributes": [],
+              "code": "C132352",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Sponsor Approval Date",
+              "instanceType": "Code"
+            },
+            "dateValue": "2006-06-01",
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_1",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_9",
+                  "extensionAttributes": [],
+                  "code": "C68846",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Global",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "instanceType": "GovernanceDate"
+          }
+        ],
+        "amendments": [],
+        "businessTherapeuticAreas": [
+          {
+            "id": "Code_4",
+            "extensionAttributes": [],
+            "code": "PHARMA",
+            "codeSystem": "SPONSOR",
+            "codeSystemVersion": "12",
+            "decode": "Sponsor Business unit A",
+            "instanceType": "Code"
+          }
+        ],
+        "studyIdentifiers": [
+          {
+            "id": "StudyIdentifier_1",
+            "extensionAttributes": [],
+            "text": "SUPER-DRUG",
+            "scopeId": "Organization_1",
+            "instanceType": "StudyIdentifier"
+          }
+        ],
+        "referenceIdentifiers": [],
+        "studyDesigns": [
+          {
+            "id": "InterventionalStudyDesign_1",
+            "extensionAttributes": [],
+            "name": "Study Design 1",
+            "label": "USDM Example Study Design",
+            "description": "The main design for the study",
+            "studyType": {
+              "id": "Code_26",
+              "extensionAttributes": [],
+              "code": "C98388",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Interventional Study",
+              "instanceType": "Code"
+            },
+            "studyPhase": {
+              "id": "AliasCode_2",
+              "extensionAttributes": [],
+              "standardCode": {
+                "id": "Code_27",
+                "extensionAttributes": [],
+                "code": "C15601",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Phase II Trial",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "therapeuticAreas": [
+              {
+                "id": "Code_18",
+                "extensionAttributes": [],
+                "code": "MILD_MOD_ALZ",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "Mild to Moderate Alzheimer's Disease",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_19",
+                "extensionAttributes": [],
+                "code": "26929004",
+                "codeSystem": "SNOMED",
+                "codeSystemVersion": "January 31, 2018",
+                "decode": "Alzheimer's disease",
+                "instanceType": "Code"
+              }
+            ],
+            "characteristics": [],
+            "encounters": [
+              {
+                "id": "Encounter_1",
+                "extensionAttributes": [],
+                "name": "E1",
+                "label": "Screening 1",
+                "description": "Screening encounter",
+                "type": {
+                  "id": "Code_12",
+                  "extensionAttributes": [],
+                  "code": "C25716",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Visit",
+                  "instanceType": "Code"
+                },
+                "previousId": null,
+                "nextId": null,
+                "scheduledAtId": null,
+                "environmentalSettings": [
+                  {
+                    "id": "Code_13",
+                    "extensionAttributes": [],
+                    "code": "C51282",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "Clinic",
+                    "instanceType": "Code"
+                  }
+                ],
+                "contactModes": [
+                  {
+                    "id": "Code_14",
+                    "extensionAttributes": [],
+                    "code": "C175574",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "In Person",
+                    "instanceType": "Code"
+                  }
+                ],
+                "transitionStartRule": {
+                  "id": "TransitionRule_1",
+                  "extensionAttributes": [],
+                  "name": "ENCOUNTER_START_RULE_1",
+                  "label": null,
+                  "description": null,
+                  "text": "Subject identifier",
+                  "instanceType": "TransitionRule"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_2",
+                  "extensionAttributes": [],
+                  "name": "ENCOUNTER_START_RULE_1",
+                  "label": null,
+                  "description": null,
+                  "text": "completion of screening activities",
+                  "instanceType": "TransitionRule"
+                },
+                "notes": [],
+                "instanceType": "Encounter"
+              }
+            ],
+            "activities": [
+              {
+                "id": "Activity_1",
+                "extensionAttributes": [],
+                "name": "Informed consent",
+                "label": "",
+                "description": "",
+                "previousId": null,
+                "nextId": null,
+                "childIds": [],
+                "definedProcedures": [],
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "timelineId": null,
+                "notes": [],
+                "instanceType": "Activity"
+              }
+            ],
+            "arms": [
+              {
+                "id": "StudyArm_1",
+                "extensionAttributes": [],
+                "name": "The Arm",
+                "label": "Placebo",
+                "description": "Placebo",
+                "type": {
+                  "id": "Code_15",
+                  "extensionAttributes": [],
+                  "code": "C174268",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Placebo Control Arm",
+                  "instanceType": "Code"
+                },
+                "dataOriginDescription": "Data collected from subjects",
+                "dataOriginType": {
+                  "id": "Code_16",
+                  "extensionAttributes": [],
+                  "code": "C188866",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Data Generated Within Study",
+                  "instanceType": "Code"
+                },
+                "populationIds": [],
+                "notes": [],
+                "instanceType": "StudyArm"
+              }
+            ],
+            "studyCells": [
+              {
+                "id": "StudyCell_1",
+                "extensionAttributes": [],
+                "armId": "StudyArm_1",
+                "epochId": "StudyEpoch_1",
+                "elementIds": [
+                  "StudyElement_1"
+                ],
+                "instanceType": "StudyCell"
+              }
+            ],
+            "rationale": "The discontinuation rate associated with this oral dosing regimen was 58.6% in previous studies, and alternative clinical strategies have been sought to improve tolerance for the compound. To that end, development of a Transdermal Therapeutic System (TTS) has been initiated.",
+            "epochs": [
+              {
+                "id": "StudyEpoch_1",
+                "extensionAttributes": [],
+                "name": "The Epoch",
+                "label": "Screening",
+                "description": "Screening Epoch",
+                "type": {
+                  "id": "Code_17",
+                  "extensionAttributes": [],
+                  "code": "C202487",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Screening Epoch",
+                  "instanceType": "Code"
+                },
+                "previousId": null,
+                "nextId": null,
+                "notes": [],
+                "instanceType": "StudyEpoch"
+              }
+            ],
+            "elements": [
+              {
+                "id": "StudyElement_1",
+                "extensionAttributes": [],
+                "name": "EL1",
+                "label": "Screening",
+                "description": "Screening Element",
+                "transitionStartRule": {
+                  "id": "TransitionRule_3",
+                  "extensionAttributes": [],
+                  "name": "ELEMENT_START_RULE_1",
+                  "label": null,
+                  "description": null,
+                  "text": "Informed consent",
+                  "instanceType": "TransitionRule"
+                },
+                "transitionEndRule": {
+                  "id": "TransitionRule_4",
+                  "extensionAttributes": [],
+                  "name": "ELEMENT_END_RULE_1",
+                  "label": null,
+                  "description": null,
+                  "text": "Completion of all screening activities and no more than 2 weeks from informed consent",
+                  "instanceType": "TransitionRule"
+                },
+                "studyInterventionIds": [],
+                "notes": [],
+                "instanceType": "StudyElement"
+              }
+            ],
+            "estimands": [],
+            "indications": [],
+            "studyInterventionIds": [],
+            "objectives": [],
+            "population": {
+              "id": "StudyDesignPopulation_1",
+              "extensionAttributes": [],
+              "name": "POP1",
+              "label": "",
+              "description": "Patients with Probable Mild to Moderate Alzheimer's Disease",
+              "includesHealthySubjects": false,
+              "plannedEnrollmentNumber": {
+                "id": "Quantity_2",
+                "extensionAttributes": [],
+                "value": 300.0,
+                "unit": null,
+                "instanceType": "Quantity"
+              },
+              "plannedCompletionNumber": {
+                "id": "Quantity_1",
+                "extensionAttributes": [],
+                "value": 300.0,
+                "unit": null,
+                "instanceType": "Quantity"
+              },
+              "plannedSex": [
+                {
+                  "id": "Code_30",
+                  "extensionAttributes": [],
+                  "code": "C49636",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Both",
+                  "instanceType": "Code"
+                }
+              ],
+              "criterionIds": [
+                "EligibilityCriterion_1"
+              ],
+              "plannedAge": {
+                "id": "Range_1",
+                "extensionAttributes": [],
+                "minValue": {
+                  "id": "Quantity_3",
+                  "extensionAttributes": [],
+                  "value": 50.0,
+                  "unit": {
+                    "id": "AliasCode_3",
+                    "extensionAttributes": [],
+                    "standardCode": {
+                      "id": "Code_28",
+                      "extensionAttributes": [],
+                      "code": "C29848",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Year",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_4",
+                  "extensionAttributes": [],
+                  "value": 100.0,
+                  "unit": {
+                    "id": "AliasCode_4",
+                    "extensionAttributes": [],
+                    "standardCode": {
+                      "id": "Code_29",
+                      "extensionAttributes": [],
+                      "code": "C29848",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Year",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "isApproximate": false,
+                "instanceType": "Range"
+              },
+              "notes": [],
+              "instanceType": "StudyDesignPopulation",
+              "cohorts": []
+            },
+            "scheduleTimelines": [
+              {
+                "id": "ScheduleTimeline_1",
+                "extensionAttributes": [],
+                "name": "Main Timeline",
+                "label": "Main Timeline",
+                "description": "This is the main timeline for the study design.",
+                "mainTimeline": true,
+                "entryCondition": "Potential subject identified",
+                "entryId": "ScheduledActivityInstance_1",
+                "exits": [
+                  {
+                    "id": "ScheduleTimelineExit_1",
+                    "extensionAttributes": [],
+                    "instanceType": "ScheduleTimelineExit"
+                  }
+                ],
+                "timings": [
+                  {
+                    "id": "Timing_1",
+                    "extensionAttributes": [],
+                    "name": "TIM1",
+                    "label": "Anchor",
+                    "description": "The anchor",
+                    "type": {
+                      "id": "Code_10",
+                      "extensionAttributes": [],
+                      "code": "C201358",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Fixed Reference",
+                      "instanceType": "Code"
+                    },
+                    "value": "P1D",
+                    "valueLabel": "1 Day",
+                    "relativeToFrom": {
+                      "id": "Code_11",
+                      "extensionAttributes": [],
+                      "code": "C201355",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_1",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_1",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "windowLabel": "",
+                    "instanceType": "Timing"
+                  }
+                ],
+                "instances": [
+                  {
+                    "id": "ScheduledActivityInstance_1",
+                    "extensionAttributes": [],
+                    "name": "DOSE",
+                    "label": "The Only One",
+                    "description": "-",
+                    "defaultConditionId": null,
+                    "epochId": "StudyEpoch_1",
+                    "instanceType": "ScheduledActivityInstance",
+                    "timelineId": null,
+                    "timelineExitId": "ScheduleTimelineExit_1",
+                    "activityIds": [
+                      "Activity_1"
+                    ],
+                    "encounterId": "Encounter_1"
+                  }
+                ],
+                "plannedDuration": null,
+                "instanceType": "ScheduleTimeline"
+              }
+            ],
+            "biospecimenRetentions": [],
+            "documentVersionIds": [],
+            "eligibilityCriteria": [
+              {
+                "id": "EligibilityCriterion_1",
+                "extensionAttributes": [],
+                "name": "Age Criteria",
+                "label": "",
+                "description": "The study age criterion",
+                "category": {
+                  "id": "Code_31",
+                  "extensionAttributes": [],
+                  "code": "C25532",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Inclusion Criteria",
+                  "instanceType": "Code"
+                },
+                "identifier": "1",
+                "criterionItemId": "EligibilityCriterionItem_1",
+                "nextId": null,
+                "previousId": null,
+                "notes": [],
+                "instanceType": "EligibilityCriterion"
+              }
+            ],
+            "analysisPopulations": [],
+            "notes": [],
+            "instanceType": "InterventionalStudyDesign",
+            "subTypes": [
+              {
+                "id": "Code_22",
+                "extensionAttributes": [],
+                "code": "C49666",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Efficacy Study",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_23",
+                "extensionAttributes": [],
+                "code": "C49667",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Safety Study",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_24",
+                "extensionAttributes": [],
+                "code": "C49663",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Pharmacokinetic Study",
+                "instanceType": "Code"
+              }
+            ],
+            "model": {
+              "id": "Code_25",
+              "extensionAttributes": [],
+              "code": "C82639",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Parallel Study",
+              "instanceType": "Code"
+            },
+            "intentTypes": [
+              {
+                "id": "Code_21",
+                "extensionAttributes": [],
+                "code": "C49656",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Treatment Study",
+                "instanceType": "Code"
+              }
+            ],
+            "blindingSchema": {
+              "id": "AliasCode_1",
+              "extensionAttributes": [],
+              "standardCode": {
+                "id": "Code_20",
+                "extensionAttributes": [],
+                "code": "C15228",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2024-09-27",
+                "decode": "Double Blind Study",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            }
+          }
+        ],
+        "titles": [
+          {
+            "id": "StudyTitle_1",
+            "extensionAttributes": [],
+            "text": "MINIMUM",
+            "type": {
+              "id": "Code_3",
+              "extensionAttributes": [],
+              "code": "C94108",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Study Acronym",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          },
+          {
+            "id": "StudyTitle_2",
+            "extensionAttributes": [],
+            "text": "Super Drug",
+            "type": {
+              "id": "Code_5",
+              "extensionAttributes": [],
+              "code": "C99905x1",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Brief Study Title",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          },
+          {
+            "id": "StudyTitle_3",
+            "extensionAttributes": [],
+            "text": "This is the officlal title",
+            "type": {
+              "id": "Code_6",
+              "extensionAttributes": [],
+              "code": "C99905x2",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Official Study Title",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          }
+        ],
+        "eligibilityCriterionItems": [
+          {
+            "id": "EligibilityCriterionItem_1",
+            "extensionAttributes": [],
+            "name": "Age Criteria",
+            "label": null,
+            "description": null,
+            "text": "Subjects shall be between 18 and 100",
+            "dictionaryId": null,
+            "notes": [],
+            "instanceType": "EligibilityCriterionItem"
+          }
+        ],
+        "narrativeContentItems": [],
+        "abbreviations": [],
+        "roles": [],
+        "organizations": [
+          {
+            "id": "Organization_1",
+            "extensionAttributes": [],
+            "name": "SPONSOR",
+            "label": "Sponsor",
+            "type": {
+              "id": "Code_1",
+              "extensionAttributes": [],
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Clinical Study Sponsor",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "123456789",
+            "legalAddress": {
+              "id": "Address_1",
+              "extensionAttributes": [],
+              "text": "Sponsor Corporate Ctr, Sponsor City, Sponsor Street, XX, 1234, United States of America",
+              "lines": [
+                "Sponsor Corporate Ctr"
+              ],
+              "city": "Sponsor City",
+              "district": "Sponsor Street",
+              "state": "XX",
+              "postalCode": "1234",
+              "country": {
+                "id": "Code_2",
+                "extensionAttributes": [],
+                "code": "USA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United States of America",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          }
+        ],
+        "studyInterventions": [],
+        "administrableProducts": [],
+        "medicalDevices": [],
+        "productOrganizationRoles": [],
+        "biomedicalConcepts": [],
+        "bcCategories": [],
+        "bcSurrogates": [],
+        "dictionaries": [],
+        "conditions": [],
+        "notes": [],
+        "instanceType": "StudyVersion"
+      }
+    ],
+    "documentedBy": [],
+    "instanceType": "Study"
+  },
+  "usdmVersion": "4.0.0",
+  "systemName": "CDISC USDM E2J",
+  "systemVersion": "0.63.0"
+}
