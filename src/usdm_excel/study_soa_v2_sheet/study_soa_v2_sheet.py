@@ -157,7 +157,6 @@ class StudySoAV2Sheet(BaseSheet):
                 plannedDuration=duration,
                 instances=instances,
             )
-            print(f"ADD TIMELINE!!!!")
             self.globals.cross_references.add(timeline.name, timeline)
             return timeline
         except Exception as e:
