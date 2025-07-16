@@ -87,7 +87,7 @@ class IdManager:
             "InterventionalStudyDesign": 0,
             "ObservationalStudyDesign": 0,
             "BiospecimenRetention": 0,
-            "PersonName": 0
+            "PersonName": 0,
         }
 
     def build_id(self, klass):

@@ -127,7 +127,7 @@ def test_notes(factory, mocker, globals):
         "people": [""],
         "masking": ["Masking 1"],
         "role": ["Investigator"],
-        "notes": ["N1"]
+        "notes": ["N1"],
     }
 
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -183,9 +183,10 @@ def test_notes(factory, mocker, globals):
                 "instanceType": "CommentAnnotation",
                 "text": "Note 1",
             },
-        ],        
+        ],
         "instanceType": "StudyRole",
     }
+
 
 def test_create_empty(mocker, globals):
     data = {}
@@ -259,6 +260,7 @@ def _create_orgs(factory: Factory, globals: Globals):
     for item in items:
         org = factory.item(Organization, item)
         globals.cross_references.add(item["name"], org)
+
 
 def _create_notes(factory: Factory, globals: Globals):
     notes = {

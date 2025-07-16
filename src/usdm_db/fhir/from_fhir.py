@@ -72,7 +72,7 @@ class FromFHIR:
             return None
 
     def _section(self, section: CompositionSection, doc_version, study_version):
-        #print(f"SECTION: {section.title}, {section.code.text}")
+        # print(f"SECTION: {section.title}, {section.code.text}")
         nci = self._model_instance(
             NarrativeContentItem,
             {
@@ -91,7 +91,7 @@ class FromFHIR:
                 "childIds": [],
                 "previousId": None,
                 "nextId": None,
-                "contentItemId": nci.id
+                "contentItemId": nci.id,
             },
         )
         doc_version.contents.append(nc)
@@ -113,8 +113,11 @@ class FromFHIR:
         english_code = self._model_instance(
             Code,
             {
-                "code": "en", "codeSystem": "ISO639", "codeSystemVersion": "2007", "decode": "English"
-            }
+                "code": "en",
+                "codeSystem": "ISO639",
+                "codeSystemVersion": "2007",
+                "decode": "English",
+            },
         )
         study_title = self._model_instance(
             StudyTitle, {"text": title, "type": sponsor_title_code}

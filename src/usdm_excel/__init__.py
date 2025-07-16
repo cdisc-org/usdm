@@ -255,7 +255,11 @@ class USDMExcel:
                             StudyDefinitionDocumentVersion
                         ),
                         version=self.study.protocol_version,
-                        status=self.study.protocol_status if index == 0 else duplicate_object(self.study.protocol_status, self._globals),
+                        status=self.study.protocol_status
+                        if index == 0
+                        else duplicate_object(
+                            self.study.protocol_status, self._globals
+                        ),
                         dateValues=dates,
                         contents=template.items,
                     )

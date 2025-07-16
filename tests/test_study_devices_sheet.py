@@ -201,5 +201,5 @@ def _notes(globals: Globals):
     }
     for name, note in notes.items():
         item = factory.item(CommentAnnotation, note)
-        #print(f"ITEM: {item}")
+        # print(f"ITEM: {item}")
         globals.cross_references.add(name, item)

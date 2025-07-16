@@ -5,6 +5,7 @@ from tests.test_integration import format_html
 
 SAVE = False
 
+
 def test_create(mocker, globals, minimal, factory):
     fhir = FromFHIR(globals.errors_and_logging)
     assert fhir is not None

@@ -893,40 +893,29 @@ def test_read_person_name_cell_by_name(mocker, globals):
     base = BaseSheet("", globals, "sheet")
     result = base.read_person_name_cell_by_name(0, "name")
     assert result.model_dump() == {
-        'extensionAttributes': [],
-        'familyName': 'family',
-        'givenNames': [
-            'first'
+        "extensionAttributes": [],
+        "familyName": "family",
+        "givenNames": ["first"],
+        "id": "Name_1",
+        "instanceType": "PersonName",
+        "prefixes": [
+            "prefix",
         ],
-        'id': 'Name_1',
-        'instanceType': 'PersonName',
-        'prefixes': [
-            'prefix',
+        "suffixes": [
+            "suffix",
         ],
-        'suffixes': [
-            'suffix',
-        ],
-        'text': 'prefix, first, family, suffix',
+        "text": "prefix, first, family, suffix",
     }
     result = base.read_person_name_cell_by_name(1, "name")
     assert result.model_dump() == {
-        'extensionAttributes': [],
-        'familyName': 'family',
-        'givenNames': [
-            'first1',
-            'first2'
-        ],
-        'id': 'Name_2',
-        'instanceType': 'PersonName',
-        'prefixes': [
-            'prefix1',
-            'prefix2'
-        ],
-        'suffixes': [
-            'suffix1',
-            'suffix2'
-        ],
-        'text': 'prefix1 prefix2, first1, first2, family, suffix1 suffix2',
+        "extensionAttributes": [],
+        "familyName": "family",
+        "givenNames": ["first1", "first2"],
+        "id": "Name_2",
+        "instanceType": "PersonName",
+        "prefixes": ["prefix1", "prefix2"],
+        "suffixes": ["suffix1", "suffix2"],
+        "text": "prefix1 prefix2, first1, first2, family, suffix1 suffix2",
     }
 
 

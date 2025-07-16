@@ -21,8 +21,9 @@ def test_one_level(globals):
         "codeSystemVersion": "3",
         "decode": "label",
         "extensionAttributes": [],
-        "instanceType": 'Code',
+        "instanceType": "Code",
     }
+
 
 def test_two_levels(globals):
     globals.id_manager.clear()
@@ -39,20 +40,21 @@ def test_two_levels(globals):
     )
     result: AliasCode = duplicate_object(alias_code, globals)
     assert result.model_dump() == {
-        'id': 'AliasCode_1',
-        'instanceType': 'AliasCode',
-        'standardCode': {
-            'code': 'code',
-            'codeSystem': 'codesys',
-            'codeSystemVersion': '3',
-            'decode': 'label',
-            'extensionAttributes': [],
-            'id': 'Code_1',
-            'instanceType': 'Code',
+        "id": "AliasCode_1",
+        "instanceType": "AliasCode",
+        "standardCode": {
+            "code": "code",
+            "codeSystem": "codesys",
+            "codeSystemVersion": "3",
+            "decode": "label",
+            "extensionAttributes": [],
+            "id": "Code_1",
+            "instanceType": "Code",
         },
-        'standardCodeAliases': [],
-        'extensionAttributes': [],
+        "standardCodeAliases": [],
+        "extensionAttributes": [],
     }
+
 
 def test_three_levels(globals):
     globals.id_manager.clear()
@@ -74,32 +76,31 @@ def test_three_levels(globals):
     )
     result: GeographicScope = duplicate_object(geo_scope, globals)
     assert result.model_dump() == {
-        'id': 'GeographicScope_1',
-        'type': {
-            'code': 'code',
-            'codeSystem': 'codesys',
-            'codeSystemVersion': '3',
-            'decode': 'label',
-            'extensionAttributes': [],
-            'id': 'Code_1',
-            'instanceType': 'Code',
+        "id": "GeographicScope_1",
+        "type": {
+            "code": "code",
+            "codeSystem": "codesys",
+            "codeSystemVersion": "3",
+            "decode": "label",
+            "extensionAttributes": [],
+            "id": "Code_1",
+            "instanceType": "Code",
         },
-        'code': 
-        {
-            'id': 'AliasCode_1',
-            'instanceType': 'AliasCode',
-            'standardCode': {
-                'code': 'code',
-                'codeSystem': 'codesys',
-                'codeSystemVersion': '3',
-                'decode': 'label',
-                'extensionAttributes': [],
-                'id': 'Code_2',
-                'instanceType': 'Code',
+        "code": {
+            "id": "AliasCode_1",
+            "instanceType": "AliasCode",
+            "standardCode": {
+                "code": "code",
+                "codeSystem": "codesys",
+                "codeSystemVersion": "3",
+                "decode": "label",
+                "extensionAttributes": [],
+                "id": "Code_2",
+                "instanceType": "Code",
             },
-            'standardCodeAliases': [],
-            'extensionAttributes': [],
+            "standardCodeAliases": [],
+            "extensionAttributes": [],
         },
-        'extensionAttributes': [],
-        'instanceType': 'GeographicScope',
+        "extensionAttributes": [],
+        "instanceType": "GeographicScope",
     }

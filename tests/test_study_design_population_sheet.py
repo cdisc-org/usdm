@@ -80,7 +80,6 @@ def test_create(mocker, globals):
         "X_43",
         "X_44",
         "X_45",
-
         "X_46",
         "X_47",
         "X_48",

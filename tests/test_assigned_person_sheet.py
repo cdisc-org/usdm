@@ -58,9 +58,7 @@ def test_create(factory, mocker, globals):
             "prefixes": [
                 "Mr",
             ],
-            "suffixes": [
-                "Jr"
-            ],
+            "suffixes": ["Jr"],
             "text": "Mr, Fred, Smith, Jr",
         },
         "instanceType": "AssignedPerson",
@@ -76,16 +74,13 @@ def test_create(factory, mocker, globals):
         "personName": {
             "extensionAttributes": [],
             "familyName": "Johnson",
-            "givenNames": [
-                "X",
-                "Y"
-            ],
+            "givenNames": ["X", "Y"],
             "id": "PN_2",
             "instanceType": "PersonName",
             "prefixes": [
                 "Dr",
             ],
-            "suffixes": [''],
+            "suffixes": [""],
             "text": "Dr, X, Y, Johnson, ",
         },
         "instanceType": "AssignedPerson",
@@ -109,7 +104,7 @@ def test_create(factory, mocker, globals):
             "prefixes": [
                 "",
             ],
-            "suffixes": [''],
+            "suffixes": [""],
             "text": ", John, Smith, ",
         },
         "instanceType": "AssignedPerson",

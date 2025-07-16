@@ -10,7 +10,6 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_excel.globals import Globals
 
 
-
 class StudySoAV2Sheet(BaseSheet):
     NAME_ROW = 0
     DESCRIPTION_ROW = 1
@@ -115,22 +114,31 @@ class StudySoAV2Sheet(BaseSheet):
             elif rindex == self.DURATION_ROW:
                 self.duration = self.read_quantity_cell(rindex, self.PARAMS_DATA_COL)
             elif rindex == self.DURATION_REASON_ROW:
-                self.duration_reason = self.read_cell(rindex, self.PARAMS_DATA_COL, default="")
+                self.duration_reason = self.read_cell(
+                    rindex, self.PARAMS_DATA_COL, default=""
+                )
             elif rindex == self.DURATION_DESCRIPTION_ROW:
-                self.duration_text = self.read_cell(rindex, self.PARAMS_DATA_COL, default="")
+                self.duration_text = self.read_cell(
+                    rindex, self.PARAMS_DATA_COL, default=""
+                )
             else:
                 pass
 
     def _add_timeline(self, name, description, condition, instances, exit):
         try:
-            duration = self.create_object(
-                Duration, {
-                    "text": self.duration_text,
-                    "quantity": self.duration,
-                    "durationWillVary": True if self.duration_reason else False,
-                    "reasonDurationWillVary": self.duration_reason,
-                }
-            ) if self.duration else None
+            duration = (
+                self.create_object(
+                    Duration,
+                    {
+                        "text": self.duration_text,
+                        "quantity": self.duration,
+                        "durationWillVary": True if self.duration_reason else False,
+                        "reasonDurationWillVary": self.duration_reason,
+                    },
+                )
+                if self.duration
+                else None
+            )
             timeline = ScheduleTimeline(
                 id=self.globals.id_manager.build_id(ScheduleTimeline),
                 mainTimeline=self.main_timeline,

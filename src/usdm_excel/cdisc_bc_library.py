@@ -4,7 +4,8 @@ import requests
 from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.id_manager import IdManager
-#from usdm_excel.cross_ref import CrossRef
+
+# from usdm_excel.cross_ref import CrossRef
 from usdm_model.biomedical_concept import BiomedicalConcept
 from usdm_model.biomedical_concept_property import BiomedicalConceptProperty
 from usdm_model.response_code import ResponseCode
@@ -20,12 +21,12 @@ class CDISCBCLibrary:
         errors_and_logging: ErrorsAndLogging,
         ct_library: CDISCCTLibrary,
         id_manager: IdManager,
-        #cross_references: CrossRef
+        # cross_references: CrossRef
     ):
         self._errors_and_logging = errors_and_logging
         self._ct_library = ct_library
         self._id_manager = id_manager
-        #self._cross_references = cross_references
+        # self._cross_references = cross_references
         self._api_key = os.getenv("CDISC_API_KEY")
         if not self._api_key:
             self._errors_and_logging.warning("Empty CDISC API key ...")
@@ -102,7 +103,7 @@ class CDISCBCLibrary:
                 self._errors_and_logging.info(f"CDISC BC Library: {url_type}: {url}")
                 raw = requests.get(api_url, headers=self._headers)
                 response = raw.json()
-                print("#", end='', flush=True)
+                print("#", end="", flush=True)
                 self._package_metadata[url_type] = response["_links"]["packages"]
             except Exception as e:
                 self._exception(
@@ -124,10 +125,12 @@ class CDISCBCLibrary:
                 "generic": "biomedicalConcepts",
             }
             api_url = self._url(package["href"]) if "href" in package else "not set"
-            self._errors_and_logging.info(f"CDISC BC Library: {package_type}, {api_url}")
+            self._errors_and_logging.info(
+                f"CDISC BC Library: {package_type}, {api_url}"
+            )
             raw = requests.get(api_url, headers=self._headers)
             response = raw.json()
-            print("#", end='', flush=True)
+            print("#", end="", flush=True)
             for item in response["_links"][response_field[package_type]]:
                 self._errors_and_logging.debug(f"ITEM: {item}")
                 key = item["title"].upper()
@@ -135,7 +138,9 @@ class CDISCBCLibrary:
                     self._package_items[package_type][key] = item
                     # map[item['href']] = key
                 elif package_type == "generic" and not key in self._package_items:
-                    self._errors_and_logging.info(f"GENERIC: Detected generic only BC {key}")
+                    self._errors_and_logging.info(
+                        f"GENERIC: Detected generic only BC {key}"
+                    )
                     self._package_items[package_type][key] = item
                     self._map[item["href"]] = key
         except Exception as e:
@@ -149,7 +154,7 @@ class CDISCBCLibrary:
         # self._bcs, self._bcs_raw =
         for name, item in self._package_items["sdtm"].items():
             self._errors_and_logging.info(f"SDTM BC item '{name}'")
-            print(".", end='', flush=True)
+            print(".", end="", flush=True)
             sdtm, generic = self._get_from_url_all(name, item)
             if sdtm:
                 bc = self._sdtm_bc_as_usdm(sdtm, generic)
@@ -166,15 +171,17 @@ class CDISCBCLibrary:
                     if href in self._map:
                         self._map.pop(generic["_links"]["self"]["href"])
                     else:
-                        self._errors_and_logging.error(f"Missing reference when popping {href}")
+                        self._errors_and_logging.error(
+                            f"Missing reference when popping {href}"
+                        )
 
     def _get_generic_bcs(self) -> BiomedicalConcept:
         for name, item in self._package_items["generic"].items():
             self._errors_and_logging.info(f"GENERIC BC item '{name}'")
-            print(".", end='', flush=True)
+            print(".", end="", flush=True)
             if self._process_genric_bc(name):
                 response = self._get_from_url(item["href"])
-                print("#", end='', flush=True)
+                print("#", end="", flush=True)
                 bc = self._generic_bc_as_usdm(response)
                 if "dataElementConcepts" in response:
                     for item in response["dataElementConcepts"]:
@@ -204,7 +211,15 @@ class CDISCBCLibrary:
                 if term != None:
                     code = self._cdisc_code(term["conceptId"], term["preferredTerm"])
                     code.id = "tbd"
-                    responses.append(ResponseCode(id="tbd", name=f"RC_{code.code}", label="", isEnabled=True, code=code))
+                    responses.append(
+                        ResponseCode(
+                            id="tbd",
+                            name=f"RC_{code.code}",
+                            label="",
+                            isEnabled=True,
+                            code=code,
+                        )
+                    )
         return self._biomedical_concept_property_object(
             property["shortName"],
             property["shortName"],
@@ -244,7 +259,9 @@ class CDISCBCLibrary:
                             generic["conceptId"], generic["shortName"]
                         )
                 else:
-                    self._errors_and_logging.error(f"Failed to set BC concept {sdtm['shortName']}")
+                    self._errors_and_logging.error(
+                        f"Failed to set BC concept {sdtm['shortName']}"
+                    )
                     concept_code = self._cdisc_code(
                         generic["conceptId"], generic["shortName"]
                     )
@@ -343,7 +360,13 @@ class CDISCBCLibrary:
                                     f"Failed to find submission or preferred term '{value}' {cl}"
                                 )
                 for code in codes:
-                    response_code = ResponseCode(id="tbd", name=f"RC_{code.code}", label="", isEnabled=True, code=code)
+                    response_code = ResponseCode(
+                        id="tbd",
+                        name=f"RC_{code.code}",
+                        label="",
+                        isEnabled=True,
+                        code=code,
+                    )
                     responses.append(response_code)
                 datatype = (
                     sdtm_property["dataType"] if "dataType" in sdtm_property else ""
@@ -503,7 +526,9 @@ class CDISCBCLibrary:
                 with open(self._bcs_filename()) as f:
                     return yaml.load(f, Loader=yaml.FullLoader)
             else:
-                self._errors_and_logging.error(f"Failed to read CDSIC BC file, does not exist")
+                self._errors_and_logging.error(
+                    f"Failed to read CDSIC BC file, does not exist"
+                )
                 return None
         except Exception as e:
             self._exception(f"Exception '{e}', failed to read CDSIC CT file", e)
@@ -523,7 +548,7 @@ class CDISCBCLibrary:
             codeSystemVersion=self._ct_library.version,
             decode=decode,
         )
-        #self._cross_references.add(instance.id, instance)
+        # self._cross_references.add(instance.id, instance)
         return instance
 
     def _alias_code(self, standard_code, aliases):

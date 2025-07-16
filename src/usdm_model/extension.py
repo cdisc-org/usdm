@@ -1,9 +1,11 @@
 from typing import Union, List, Literal
 from pydantic import BaseModel, Field
 
+
 class Extension(BaseModel):
     id: str = Field(min_length=1)
     url: str
+
 
 class BaseCode(BaseModel):
     id: str = Field(min_length=1)
@@ -14,12 +16,14 @@ class BaseCode(BaseModel):
     instanceType: Literal["Code"]
     extensionAttributes: List["ExtensionAttribute"] = []
 
+
 class BaseAliasCode(BaseModel):
     id: str = Field(min_length=1)
     standardCode: BaseCode
     standardCodeAliases: List[BaseCode] = []
     instanceType: Literal["AliasCode"]
     extensionAttributes: List["ExtensionAttribute"] = []
+
 
 class BaseQuantity(BaseModel):
     id: str = Field(min_length=1)
@@ -28,6 +32,7 @@ class BaseQuantity(BaseModel):
     instanceType: Literal["Quantity"]
     extensionAttributes: List["ExtensionAttribute"] = []
 
+
 class BaseRange(BaseModel):
     id: str = Field(min_length=1)
     minValue: BaseQuantity
@@ -35,6 +40,7 @@ class BaseRange(BaseModel):
     isApproximate: bool
     instanceType: Literal["Range"]
     extensionAttributes: List["ExtensionAttribute"] = []
+
 
 class ExtensionAttribute(Extension):
     # values or extension attributes, never both.

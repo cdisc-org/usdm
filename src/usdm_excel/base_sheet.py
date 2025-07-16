@@ -287,11 +287,17 @@ class BaseSheet:
                         {
                             "minValue": self.create_object(
                                 Quantity,
-                                {"value": float(range.lower), "unit": range.lower_units_code},
+                                {
+                                    "value": float(range.lower),
+                                    "unit": range.lower_units_code,
+                                },
                             ),
                             "maxValue": self.create_object(
                                 Quantity,
-                                {"value": float(range.upper), "unit": range.upper_units_code},
+                                {
+                                    "value": float(range.upper),
+                                    "unit": range.upper_units_code,
+                                },
                             ),
                             "isApproximate": False,
                         },
@@ -342,20 +348,21 @@ class BaseSheet:
 
     def read_person_name_cell_by_name(self, row_index, field_name, allow_empty=False):
         raw_name = self.read_cell_by_name(row_index, field_name)
-        parts = raw_name.split(',')
+        parts = raw_name.split(",")
         if len(parts) >= 4:
             prefixes = [x.strip() for x in parts[0].strip().split(" ")]
             givenNames = [x.strip() for x in parts[1:-2]]
             familyName = parts[-2].strip()
             suffixes = [x.strip() for x in parts[-1].strip().split(" ")]
-            result = self.create_object(cls=PersonName,params=
-                {
+            result = self.create_object(
+                cls=PersonName,
+                params={
                     "text": f"{(' ').join(prefixes)}, {(', ').join(givenNames)}, {familyName}, {(' ').join(suffixes)}",
                     "prefixes": prefixes,
                     "givenNames": givenNames,
                     "familyName": familyName,
                     "suffixes": suffixes,
-                }
+                },
             )
             return result
         elif allow_empty:
@@ -368,7 +375,6 @@ class BaseSheet:
                 f"Name '{raw_name}' does not contain the required fields (prefixes, given names, familt names and suffixes) using ',' separator characters, only {len(parts)} found",
             )
             return None
-
 
     def read_geographic_scopes_cell_by_name(self, row_index, field_name):
         try:
