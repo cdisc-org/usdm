@@ -602,6 +602,40 @@ C188724:
     synonyms:
     - Regulator
     - Regulatory Body
+C188725:
+  conceptId: C188725
+  definition: The terminology relevant to the objective level.
+  extensible: 'false'
+  name: Objective Level Value Set Terminology
+  preferredTerm: CDISC DDF Objective Level Value Set Terminology
+  submissionValue: Objective Level Value Set Terminology
+  synonyms:
+  - Objective Level Value Set Terminology
+  terms:
+  - conceptId: C163559
+    definition: Additional scientific question(s) within the study that enable further
+      discovery research, beyond the primary and secondary objectives.
+    preferredTerm: Trial Exploratory Objective
+    submissionValue: Exploratory Objective
+    synonyms:
+    - Study Exploratory Objective
+    - Trial Exploratory Objective
+  - conceptId: C85826
+    definition: The main scientific question(s) the study is designed to answer. (CDISC
+      Glossary)
+    preferredTerm: Trial Primary Objective
+    submissionValue: Study Primary Objective
+    synonyms:
+    - Study Primary Objective
+    - Trial Primary Objective
+  - conceptId: C85827
+    definition: The supportive or ancillary scientific question(s) the study is designed
+      to answer. (CDISC Glossary)
+    preferredTerm: Trial Secondary Objective
+    submissionValue: Study Secondary Objective
+    synonyms:
+    - Study Secondary Objective
+    - Trial Secondary Objective
 C188726:
   conceptId: C188726
   definition: The terminology relevant to the endpoint level.
@@ -718,6 +752,225 @@ C201265:
       of another event.
     preferredTerm: Start to Start
     submissionValue: Start to Start
+C207413:
+  conceptId: C207413
+  definition: The terminology relevant to the governance date type value set.
+  extensible: 'true'
+  name: Governance Date Type Value Set Terminology
+  preferredTerm: CDISC DDF Governance Date Type Value Set Terminology
+  submissionValue: Governance Date Type Value Set Terminology
+  synonyms:
+  - Governance Date Type Value Set Terminology
+  terms:
+  - conceptId: C207598
+    definition: The date and time specifying when the protocol takes effect or becomes
+      operative.
+    preferredTerm: Protocol Effective Date
+    submissionValue: Protocol Effective Date
+  - conceptId: C132352
+    definition: The date on which a version of the protocol was finalized or approved
+      by the sponsor.
+    preferredTerm: Protocol Approval by Sponsor Date
+    submissionValue: Sponsor Approval Date
+    synonyms:
+    - Protocol Amendment Approval by Sponsor Date
+    - Study Protocol Version Approval Date
+C207415:
+  conceptId: C207415
+  definition: The terminology relevant to the study amendment reason code value set.
+  extensible: 'false'
+  name: Study Amendment Reason Code Value Set Terminology
+  preferredTerm: CDISC DDF Study Amendment Reason Code Value Set Terminology
+  submissionValue: Study Amendment Reason Code Value Set Terminology
+  synonyms:
+  - Study Amendment Reason Code Value Set Terminology
+  terms:
+  - conceptId: C207600
+    definition: A change in the standard of care necessitates a change(s) to, or formal
+      clarification of, the protocol. (ICH M11)
+    preferredTerm: Change In Standard Of Care
+    submissionValue: Change In Standard Of Care
+  - conceptId: C207601
+    definition: A change in the study purpose or intent of the scientific plan necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Change In Strategy
+    submissionValue: Change In Strategy
+  - conceptId: C207602
+    definition: The addition of an investigational medicinal product to a clinical
+      trial design necessitates a change(s) to, or formal clarification of, the protocol.
+      (ICH M11)
+    preferredTerm: IMP Addition
+    submissionValue: IMP Addition
+  - conceptId: C207603
+    definition: An error or inconsistency in the protocol necessitates a change(s)
+      to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Inconsistency and/or Error In The Protocol
+    submissionValue: Inconsistency And/or Error In The Protocol
+  - conceptId: C207604
+    definition: Feedback from the investigator or study site necessitates a change(s)
+      to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Investigator/Site Feedback
+    submissionValue: Investigator/Site Feedback
+  - conceptId: C207605
+    definition: Feedback from the institutional review board or independent ethics
+      committee necessitates a change(s) to, or formal clarification of, the protocol.
+      (ICH M11)
+    preferredTerm: IRB/IEC Feedback
+    submissionValue: IRB/IEC Feedback
+  - conceptId: C207606
+    definition: A change to manufacturing processes of the study agents necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Manufacturing Change
+    submissionValue: Manufacturing Change
+  - conceptId: C207607
+    definition: Previously unavailable data (other than safety data) becomes available,
+      which necessitates a change(s) to, or formal clarification of, the protocol.
+      (ICH M11)
+    preferredTerm: New Data Available (Other Than Safety Data)
+    submissionValue: New Data Available (Other Than Safety Data)
+  - conceptId: C207608
+    definition: A regulatory agency has published a guidance document that necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: New Regulatory Guidance
+    submissionValue: New Regulatory Guidance
+  - conceptId: C207609
+    definition: Previously unavailable safety data becomes available, which necessitates
+      a change(s) to, or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: New Safety Information Available
+    submissionValue: New Safety Information Available
+  - conceptId: C207610
+    definition: A protocol design error necessitates a change(s) to, or formal clarification
+      of, a document. (ICH M11)
+    preferredTerm: Protocol Design Error
+    submissionValue: Protocol Design Error
+  - conceptId: C207611
+    definition: Challenges with participant recruitment necessitates a change(s) to,
+      or formal clarification of, the protocol. (ICH M11)
+    preferredTerm: Recruitment Difficulty
+    submissionValue: Recruitment Difficulty
+  - conceptId: C207612
+    definition: A regulatory agency has expressed a need for a change(s) to, or formal
+      clarification of, the protocol. (ICH M11)
+    preferredTerm: Regulatory Agency Request To Amend
+    submissionValue: Regulatory Agency Request To Amend
+C207416:
+  conceptId: C207416
+  definition: The terminology relevant to the study design characteristics value set.
+  extensible: 'true'
+  name: Study Design Characteristics Value Set Terminology
+  preferredTerm: CDISC DDF Study Design Characteristics Value Set Terminology
+  submissionValue: Study Design Characteristics Value Set Terminology
+  synonyms:
+  - Study Design Characteristics Value Set Terminology
+  terms:
+  - conceptId: C98704
+    definition: A study design that allows for prospectively planned modifications
+      to one or more aspects of the design based on accumulating data from subjects
+      in the trial. (FDA)
+    preferredTerm: Adaptive Design
+    submissionValue: Adaptive
+  - conceptId: C207613
+    definition: A study design in which subjects enrolled in one study are subsequently
+      continued into a related study for longer term safety, tolerability, and/or
+      effectiveness monitoring.
+    preferredTerm: Extension Study Design
+    submissionValue: Extension
+    synonyms:
+    - Roll-over Study
+  - conceptId: C46079
+    definition: A study design in which interventions are assigned to subjects according
+      to randomization principles.
+    preferredTerm: Randomized Controlled Clinical Trial
+    submissionValue: Randomized
+C207417:
+  conceptId: C207417
+  definition: The terminology relevant to the study intervention role value set.
+  extensible: 'false'
+  name: Study Intervention Role Value Set Terminology
+  preferredTerm: CDISC DDF Study Intervention Role Value Set Terminology
+  submissionValue: Study Intervention Role Value Set Terminology
+  synonyms:
+  - Study Intervention Role Value Set Terminology
+  terms:
+  - conceptId: C207614
+    definition: A medicinal product that must be administered along with the experimental
+      treatment (e.g., drug studies wherein opioid blockers are administered to prevent
+      overdose).
+    preferredTerm: Additional Required Medicinal Product
+    submissionValue: Additional Required Treatment
+  - conceptId: C165822
+    definition: Medicinal products that are administered to each clinical trial subject,
+      regardless of randomization group, a) to treat the indication which is the object
+      of the study, or b) required in the protocol as part of standard care for a
+      condition that is not the indication under investigation, and is relevant for
+      the clinical trial design. [After Recommendations from the expert group on clinical
+      trials for the implementation of Regulation (EU) No 536/2014' dd 28 June 2017]
+    preferredTerm: Background Treatment
+    submissionValue: Background Treatment
+  - conceptId: C158128
+    definition: A non-investigational medicinal product (NIMP) given to trial subjects
+      to produce a physiological response that is necessary before the pharmacological
+      action of the investigational medicinal product can be assessed. [After Recommendations
+      from the expert group on clinical trials for the implementation of Regulation
+      (EU) No 536/2014' dd 28 June 2017]
+    preferredTerm: Challenge Agent
+    submissionValue: Challenge Agent
+  - conceptId: C18020
+    definition: Any procedure or test used to diagnose a disease or disorder.
+    preferredTerm: Diagnostic Procedure
+    submissionValue: Diagnostic
+  - conceptId: C41161
+    definition: The drug, device, therapy, procedure, or process under investigation
+      in a clinical study that is believed to have an effect on outcomes of interest
+      in a study (e.g., health-related quality of life, efficacy, safety, pharmacoeconomics).
+      [After https://grants.nih.gov/grants/policy/faq_clinical_trial_definition.htm#5224;
+      https://grants.nih.gov/policy/clinical-trials/protocol-template.htm] See also
+      test articles, devices, drug product, combination product, treatment, diagnosis.
+      Contrast with investigational medicinal product.
+    preferredTerm: Protocol Agent
+    submissionValue: Experimental Intervention
+    synonyms:
+    - Investigational Interventional
+    - Investigational Therapy or Treatment
+  - conceptId: C753
+    definition: A pharmaceutical preparation that does not contain the investigational
+      agent and is generally prepared to be physically indistinguishable from the
+      preparation containing the investigational product.
+    preferredTerm: Placebo
+    submissionValue: Placebo
+  - conceptId: C165835
+    definition: Medicinal products identified in the protocol as those that may be
+      administered to subjects when the efficacy of the investigational medicinal
+      product (IMP) is not satisfactory, the effect of the IMP is too great and is
+      likely to cause a hazard to the patient, or to manage an emergency situation.
+      [After EU-CTR Recommendations from the expert group on clinical trials for the
+      implementation of Regulation (EU) No 536/2014' dd 28 June 2017]
+    preferredTerm: Rescue Medications
+    submissionValue: Rescue Medicine
+C207418:
+  conceptId: C207418
+  definition: The terminology relevant to the study intervention product designation
+    value set.
+  extensible: 'false'
+  name: Study Intervention Product Designation Value Set Terminology
+  preferredTerm: CDISC DDF Study Intervention Product Designation Value Set Terminology
+  submissionValue: Study Intervention Product Designation Value Set Terminology
+  synonyms:
+  - Study Intervention Product Designation Value Set Terminology
+  terms:
+  - conceptId: C202579
+    definition: A medicinal product which is being tested or used as a reference,
+      including as a placebo, in a clinical trial. (Regulation (EU) No 536/2014 Article
+      2 (5))
+    preferredTerm: Investigational Medicinal Product
+    submissionValue: IMP
+  - conceptId: C156473
+    definition: 'A medicinal product that is related to the specific needs of the
+      clinical trial as described in the protocol, but not as an investigational medicinal
+      product. NOTE: Auxiliary medicinal products may be authorised for marketing
+      in a country or region or non-authorised. (CDISC Glossary)'
+    preferredTerm: Auxiliary Medicinal Product
+    submissionValue: NIMP (AxMP)
 C66726:
   conceptId: C66726
   definition: A terminology codelist relevant to the physical form of the administered

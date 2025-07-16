@@ -3,51 +3,62 @@
 #version: "2023-09-29"
 #version: "2023-12-15"
 version: "2024-09-27"
+#version: "2025-03-28"
 packages: 
 - ddf
 - sdtm
 - protocol
 required:
-- C71620
-- C99077 
-- C66737
-- C66736 
-- C66739
-- C99076
-- C174222
-- C188727
-- C99079
-- C127262
-- C171445
-- C188728
-- C188726 
-- C188723
-- C188724
-- C66728
-- C66735
-- C66732
-- C174222
-- C201265
-- C66797
-- C66729
-- C71113
-- C99078
-- C66742
-- C78735
-- C71148
-- C74456
-- C99073
-- C66733
-- C66770
-- C78734
-- C96785
-- C85492
-- C124309
-- C123650
-- C99074
 - C66726
+- C66770
+- C66728
+- C66729
+- C66732
+- C66733
+- C66735
+- C66736 
+- C66737
+- C66739
+- C66742
+- C66797
+- C71113
+- C71148
+- C71620
+- C74456
+- C78734
+- C78735
+- C85492
+- C96785
+- C99073
+- C99074
+- C99077 
+- C99076
+- C99078
+- C99079
+- C123650
+- C124309
 - C127260
 - C127261
+- C127262
+- C171445
+- C174222
+- C188723
+- C188724
+- C188725
+- C188726 
+- C188727
+- C188728
+- C201265
+- C207413
+- C207415
+- C207416
+- C207417
+- C207418
+# - C215478
+# - C215480
+# - C215481
+# - C215483
+# - C215485
 # Note: Some of the attribute names are the old versions and have not been updated. If they do get updated
 # then the referecnces int he code also need to be changed.
 klass:
@@ -57,7 +68,7 @@ klass:
   Organization:
     organizationType: C188724
   Objective:
-    objectiveLevel: C188725x
+    objectiveLevel: C188725
   Endpoint:
     endpointLevel: C188726
   StudyArm:
@@ -74,26 +85,26 @@ klass:
     studyDesignBlindingScheme: C66735
     trialIntentType: C66736
     subTypes: C66739
-    characteristics: C99907x
+    characteristics: C207416
     studyType: C99077
     studyPhase: C66737
     timePerspective: C127261
     samplingMethod: C127260
-  Masking:
-    role: C99906x
+  # Masking:
+  #   role: C99906x
   StudyDesignPopulation:
     plannedSexOfParticipants: C66732
   Timing:
     timingType: C201264
     timingRelativeToFrom: C201265
   GeographicScope:
-    type: C99902x
+    type: C207412
   GovernanceDate:
-    type: C99903x
+    type: C207413
   StudyAmendmentReason:
-    code: C99904x
+    code: C207415
   StudyAmendmentImpact:
-    type: C99912x
+    type: C99912x # C215481
   EligibilityCriteria:
     category: C66797
   Administration:
@@ -101,18 +112,18 @@ klass:
     frequency: C71113
   StudyIntervention:
     type: C99078
-    role: C99908x
-  StudyVersion:
-    titles: C99905x
+    role: C207417
+  # StudyVersion:
+  #   titles: C99905x
   ReferenceIdentifier:
-    type: C99910x
+    type: C99910x # C215478
   AdministrableProduct:
     administrableDoseForm: C66726
-    productDesignation: C99909x
-    sourcing: C99914x 
+    productDesignation: C207418
+    sourcing: C99914x # C215483
   StudyRole:
-    code: C99911x
+    code: C99911x # C215480
   MedicalDevice:
-    sourcing: C99914x
+    sourcing: C99914x # C215483
   ProductOrganizationRole:
-    code: C99915x
+    code: C99915x # C215485

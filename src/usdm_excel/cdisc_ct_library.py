@@ -209,7 +209,7 @@ class CDISCCTLibrary:
                     )
                 return
         # If none found in all of the packages, then log error.
-        self._errors_and_logging.exception(
+        self._errors_and_logging.error(
             f"Failed to find CDSIC CT for C code '{c_code}'"
         )
 

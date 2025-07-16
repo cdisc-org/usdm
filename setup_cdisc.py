@@ -51,3 +51,4 @@ if __name__ == "__main__":
 
     errors_and_logging = ErrorsAndLogging()
     ct = CDISCCTLibrary(errors_and_logging)
+    bc = CDISCBCLibrary(errors_and_logging, ct, None)
