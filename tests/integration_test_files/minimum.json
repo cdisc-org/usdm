@@ -1,7 +1,7 @@
 {
   "study": {
     "id": null,
-    "name": "MINIMUM",
+    "name": "MIN_STUDY",
     "description": "Example of the minimum USDM possible",
     "label": "Minimum USDM Study",
     "versions": [
@@ -15,11 +15,11 @@
           {
             "id": "GovernanceDate_1",
             "extensionAttributes": [],
-            "name": "D_APPROVE",
+            "name": "DESIGN_APPROVAL_DATE",
             "label": "Design Approval",
             "description": "Design approval date",
             "type": {
-              "id": "Code_8",
+              "id": "Code_7",
               "extensionAttributes": [],
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
@@ -33,7 +33,7 @@
                 "id": "GeographicScope_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_9",
+                  "id": "Code_8",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -78,7 +78,7 @@
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {
-              "id": "Code_19",
+              "id": "Code_17",
               "extensionAttributes": [],
               "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
@@ -90,7 +90,7 @@
               "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_20",
+                "id": "Code_18",
                 "extensionAttributes": [],
                 "code": "C15601",
                 "codeSystem": "http://www.cdisc.org",
@@ -103,16 +103,7 @@
             },
             "therapeuticAreas": [
               {
-                "id": "Code_13",
-                "extensionAttributes": [],
-                "code": "MILD_MOD_ALZ",
-                "codeSystem": "SPONSOR",
-                "codeSystemVersion": "12",
-                "decode": "Mild to Moderate Alzheimer's Disease",
-                "instanceType": "Code"
-              },
-              {
-                "id": "Code_14",
+                "id": "Code_12",
                 "extensionAttributes": [],
                 "code": "26929004",
                 "codeSystem": "SNOMED",
@@ -132,7 +123,7 @@
                 "label": "Placebo",
                 "description": "Placebo",
                 "type": {
-                  "id": "Code_10",
+                  "id": "Code_9",
                   "extensionAttributes": [],
                   "code": "C174268",
                   "codeSystem": "http://www.cdisc.org",
@@ -142,7 +133,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_11",
+                  "id": "Code_10",
                   "extensionAttributes": [],
                   "code": "C188866",
                   "codeSystem": "http://www.cdisc.org",
@@ -167,7 +158,7 @@
                 "instanceType": "StudyCell"
               }
             ],
-            "rationale": "The discontinuation rate associated with this oral dosing regimen was 58.6% in previous studies, and alternative clinical strategies have been sought to improve tolerance for the compound. To that end, development of a Transdermal Therapeutic System (TTS) has been initiated.",
+            "rationale": "Study design rationale in here",
             "epochs": [
               {
                 "id": "StudyEpoch_1",
@@ -176,7 +167,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_12",
+                  "id": "Code_11",
                   "extensionAttributes": [],
                   "code": "C202487",
                   "codeSystem": "http://www.cdisc.org",
@@ -231,7 +222,7 @@
               },
               "plannedSex": [
                 {
-                  "id": "Code_23",
+                  "id": "Code_21",
                   "extensionAttributes": [],
                   "code": "C49636",
                   "codeSystem": "http://www.cdisc.org",
@@ -252,7 +243,7 @@
                     "id": "AliasCode_3",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_21",
+                      "id": "Code_19",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -273,7 +264,7 @@
                     "id": "AliasCode_4",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_22",
+                      "id": "Code_20",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -302,7 +293,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [
               {
-                "id": "Code_17",
+                "id": "Code_15",
                 "extensionAttributes": [],
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
@@ -312,7 +303,7 @@
               }
             ],
             "model": {
-              "id": "Code_18",
+              "id": "Code_16",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -322,7 +313,7 @@
             },
             "intentTypes": [
               {
-                "id": "Code_16",
+                "id": "Code_14",
                 "extensionAttributes": [],
                 "code": "C49656",
                 "codeSystem": "http://www.cdisc.org",
@@ -335,7 +326,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_15",
+                "id": "Code_13",
                 "extensionAttributes": [],
                 "code": "C15228",
                 "codeSystem": "http://www.cdisc.org",
@@ -375,21 +366,6 @@
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Brief Study Title",
-              "instanceType": "Code"
-            },
-            "instanceType": "StudyTitle"
-          },
-          {
-            "id": "StudyTitle_3",
-            "extensionAttributes": [],
-            "text": "This is the officlal title",
-            "type": {
-              "id": "Code_6",
-              "extensionAttributes": [],
-              "code": "C207616",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Official Study Title",
               "instanceType": "Code"
             },
             "instanceType": "StudyTitle"
