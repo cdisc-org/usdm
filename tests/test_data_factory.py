@@ -28,7 +28,7 @@ class MinimalStudy:
         factory = Factory(globals)
         feedback_reason = factory.item(
             StudyAmendmentReason,
-            {"code": factory.cdisc_code("C99904x3", "IRB/IEC Feedback")},
+            {"code": factory.cdisc_code("C207605", "IRB/IEC Feedback")},
         )
         other_reason = factory.item(
             StudyAmendmentReason,
@@ -76,7 +76,7 @@ class MinimalStudy:
                 "name": "D_APPROVE",
                 "label": "Design Approval",
                 "description": "Design approval date",
-                "type": factory.cdisc_code("C132352", "Sponsor Approval Date"),
+                "type": factory.cdisc_code("C132352", "Protocol Approval by Sponsor Date"),
                 "dateValue": "2006-06-01",
                 "geographicScopes": [global_scope],
             },
@@ -87,7 +87,7 @@ class MinimalStudy:
                 "name": "D_APPROVE",
                 "label": "Design Approval",
                 "description": "Design approval date",
-                "type": factory.cdisc_code("C99903x1", "Sponsor Approval Date"),
+                "type": factory.cdisc_code("C207598", "Sponsor Approval Date"),
                 "dateValue": "2006-06-01",
                 "geographicScopes": [europe_scope],
             },

@@ -26,7 +26,7 @@ def test_create(mocker, globals):
         "instanceType": "ReferenceIdentifier",
         "type": {
             "id": "Code_1",
-            "code": "C99910x1",
+            "code": "C215674",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2024-09-27",
             "decode": "Pediatric Investigation Plan",

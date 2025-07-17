@@ -26,7 +26,7 @@
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
-              "decode": "Sponsor Approval Date",
+              "decode": "Protocol Approval by Sponsor Date",
               "instanceType": "Code"
             },
             "dateValue": "2022-12-16",
@@ -262,7 +262,7 @@
               "code": {
                 "id": "Code_62",
                 "extensionAttributes": [],
-                "code": "C99904x7",
+                "code": "C207601",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
                 "decode": "Change In Strategy",
@@ -278,7 +278,7 @@
                 "code": {
                   "id": "Code_63",
                   "extensionAttributes": [],
-                  "code": "C99904x10",
+                  "code": "C207604",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Investigator/Site Feedback",
@@ -374,7 +374,7 @@
               "code": {
                 "id": "Code_55",
                 "extensionAttributes": [],
-                "code": "C99904x4",
+                "code": "C207609",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
                 "decode": "New Safety Information Available",
@@ -530,7 +530,7 @@
               "code": {
                 "id": "Code_51",
                 "extensionAttributes": [],
-                "code": "C99904x3",
+                "code": "C207605",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
                 "decode": "IRB/IEC Feedback",
@@ -726,10 +726,10 @@
               {
                 "id": "Code_106",
                 "extensionAttributes": [],
-                "code": "C99907x1",
+                "code": "C207613",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
-                "decode": "EXTENSION",
+                "decode": "Extension Study Design",
                 "instanceType": "Code"
               },
               {
@@ -738,7 +738,7 @@
                 "code": "C98704",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
-                "decode": "ADAPTIVE",
+                "decode": "Adaptive Design",
                 "instanceType": "Code"
               }
             ],
@@ -1788,7 +1788,7 @@
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
-                  "decode": "Primary Objective",
+                  "decode": "Trial Primary Objective",
                   "instanceType": "Code"
                 },
                 "endpoints": [
@@ -1831,7 +1831,7 @@
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
-                  "decode": "Secondary Objective",
+                  "decode": "Trial Secondary Objective",
                   "instanceType": "Code"
                 },
                 "endpoints": [
@@ -2605,7 +2605,7 @@
             "type": {
               "id": "Code_12",
               "extensionAttributes": [],
-              "code": "C94108",
+              "code": "C207646",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Study Acronym",
@@ -2620,7 +2620,7 @@
             "type": {
               "id": "Code_15",
               "extensionAttributes": [],
-              "code": "C99905x1",
+              "code": "C207615",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Brief Study Title",
@@ -2635,7 +2635,7 @@
             "type": {
               "id": "Code_16",
               "extensionAttributes": [],
-              "code": "C99905x2",
+              "code": "C207616",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Official Study Title",
@@ -2650,7 +2650,7 @@
             "type": {
               "id": "Code_17",
               "extensionAttributes": [],
-              "code": "C99905x3",
+              "code": "C207617",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Public Study Title",
@@ -2665,7 +2665,7 @@
             "type": {
               "id": "Code_18",
               "extensionAttributes": [],
-              "code": "C99905x4",
+              "code": "C207618",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Scientific Study Title",
@@ -2736,7 +2736,7 @@
             "id": "NarrativeContentItem_1",
             "extensionAttributes": [],
             "name": "NCI_1",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Confidentiality Statement:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Full Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Acronym:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_1\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Protocol Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyIdentifier_2\" klass=\"StudyIdentifier\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Original Protocol:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Number:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"versionIdentifier\" id=\"StudyVersion_1\" klass=\"StudyVersion\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"dateValue\" id=\"GovernanceDate_1\" klass=\"GovernanceDate\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"number\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Scope:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"decode\" id=\"Code_54\" klass=\"Code\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Codes(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Name(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Phase:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"decode\" id=\"Code_109\" klass=\"Code\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Short Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Name and Address:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"label\" id=\"Organization_2\" klass=\"Organization\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"Address_2\" klass=\"Address\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Regulatory Agency Identifier Number(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"StudyIdentifier_3\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"StudyIdentifier_4\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"StudyIdentifier_5\" klass=\"StudyIdentifier\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Spondor Approval Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"dateValue\" id=\"GovernanceDate_2\" klass=\"GovernanceDate\"></usdm:ref></p></td></tr></table></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Confidentiality Statement:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Full Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Acronym:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_1\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Protocol Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyIdentifier_2\" klass=\"StudyIdentifier\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Original Protocol:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Number:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"versionIdentifier\" id=\"StudyVersion_1\" klass=\"StudyVersion\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"dateValue\" id=\"GovernanceDate_1\" klass=\"GovernanceDate\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"number\" id=\"StudyAmendment_1\" klass=\"StudyAmendment\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Scope:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"decode\" id=\"Code_54\" klass=\"Code\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Codes(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Name(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Phase:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"decode\" id=\"Code_109\" klass=\"Code\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Short Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Name and Address:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"label\" id=\"Organization_2\" klass=\"Organization\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"Address_2\" klass=\"Address\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Regulatory Agency Identifier Number(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"StudyIdentifier_3\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"StudyIdentifier_4\" klass=\"StudyIdentifier\"></usdm:ref>, <usdm:ref attribute=\"text\" id=\"StudyIdentifier_5\" klass=\"StudyIdentifier\"></usdm:ref></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Approval Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p><usdm:ref attribute=\"dateValue\" id=\"GovernanceDate_2\" klass=\"GovernanceDate\"></usdm:ref></p></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -3069,7 +3069,7 @@
               "code": "C41161",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
-              "decode": "Experimental Intervention",
+              "decode": "Protocol Agent",
               "instanceType": "Code"
             },
             "type": {
@@ -5116,7 +5116,7 @@
                 "type": {
                   "id": "Code_29",
                   "extensionAttributes": [],
-                  "code": "C99903x1",
+                  "code": "C207598",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Protocol Effective Date",

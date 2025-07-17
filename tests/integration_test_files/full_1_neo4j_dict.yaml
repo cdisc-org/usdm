@@ -3338,7 +3338,7 @@ nodes:
   - code: C132352
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
-    decode: Sponsor Approval Date
+    decode: Protocol Approval by Sponsor Date
     id: Code_20
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000003
@@ -3426,14 +3426,14 @@ nodes:
     id: Code_68
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000030
-  - code: C99904x7
+  - code: C207601
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Change In Strategy
     id: Code_62
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000033
-  - code: C99904x10
+  - code: C207604
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Investigator/Site Feedback
@@ -3461,7 +3461,7 @@ nodes:
     id: Code_65
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000043
-  - code: C99904x4
+  - code: C207609
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: New Safety Information Available
@@ -3510,7 +3510,7 @@ nodes:
     id: Code_59
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000062
-  - code: C99904x3
+  - code: C207605
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: IRB/IEC Feedback
@@ -3552,7 +3552,7 @@ nodes:
     id: Code_14
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000075
-  - code: C99910x1
+  - code: C215674
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Pediatric Investigation Plan
@@ -3587,17 +3587,17 @@ nodes:
     id: Code_101
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000088
-  - code: C99907x1
+  - code: C207613
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
-    decode: EXTENSION
+    decode: Extension Study Design
     id: Code_107
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000089
   - code: C98704
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
-    decode: ADAPTIVE
+    decode: Adaptive Design
     id: Code_108
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000090
@@ -3814,7 +3814,7 @@ nodes:
   - code: C85826
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
-    decode: Primary Objective
+    decode: Trial Primary Objective
     id: Code_207
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000174
@@ -3828,7 +3828,7 @@ nodes:
   - code: C85827
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
-    decode: Secondary Objective
+    decode: Trial Secondary Objective
     id: Code_209
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000178
@@ -4049,35 +4049,35 @@ nodes:
     id: Code_102
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000254
-  - code: C94108
+  - code: C207646
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Study Acronym
     id: Code_12
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000256
-  - code: C99905x1
+  - code: C207615
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Brief Study Title
     id: Code_15
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000258
-  - code: C99905x2
+  - code: C207616
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Official Study Title
     id: Code_16
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000260
-  - code: C99905x3
+  - code: C207617
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Public Study Title
     id: Code_17
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000262
-  - code: C99905x4
+  - code: C207618
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Scientific Study Title
@@ -4185,7 +4185,7 @@ nodes:
   - code: C41161
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
-    decode: Experimental Intervention
+    decode: Protocol Agent
     id: Code_188
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000305
@@ -4805,7 +4805,7 @@ nodes:
     id: Code_19
     instanceType: Code
     uuid: 00000000-0000-4000-8000-000000000533
-  - code: C99903x1
+  - code: C207598
     codeSystem: http://www.cdisc.org
     codeSystemVersion: '2024-09-27'
     decode: Protocol Effective Date
@@ -6215,7 +6215,7 @@ nodes:
       id="StudyIdentifier_3" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="text"
       id="StudyIdentifier_4" klass="StudyIdentifier"></usdm:ref>, <usdm:ref attribute="text"
       id="StudyIdentifier_5" klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th
-      style="vertical-align: top; text-align: left"><p>Spondor Approval Date:</p></th><td
+      style="vertical-align: top; text-align: left"><p>Sponsor Approval Date:</p></th><td
       style="vertical-align: top; text-align: left"><p><usdm:ref attribute="dateValue"
       id="GovernanceDate_2" klass="GovernanceDate"></usdm:ref></p></td></tr></table></div>'
     uuid: 00000000-0000-4000-8000-000000000270

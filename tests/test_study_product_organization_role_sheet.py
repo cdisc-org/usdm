@@ -73,7 +73,7 @@ def test_create(factory, mocker, globals):
         "description": "Desc One",
         "code": {
             "id": "C_18",
-            "code": "C99915x1",
+            "code": "C25392",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2024-09-27",
             "decode": "Manufacturer",
@@ -92,7 +92,7 @@ def test_create(factory, mocker, globals):
         "description": "Desc Two",
         "code": {
             "id": "C_19",
-            "code": "C99915x2",
+            "code": "C43530",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2024-09-27",
             "decode": "Supplier",
@@ -111,7 +111,7 @@ def test_create(factory, mocker, globals):
         "description": "Desc Three",
         "code": {
             "id": "C_20",
-            "code": "C99915x2",
+            "code": "C43530",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2024-09-27",
             "decode": "Supplier",

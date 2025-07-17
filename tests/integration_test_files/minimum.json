@@ -24,7 +24,7 @@
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
-              "decode": "Sponsor Approval Date",
+              "decode": "Protocol Approval by Sponsor Date",
               "instanceType": "Code"
             },
             "dateValue": "2006-06-01",
@@ -78,7 +78,7 @@
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {
-              "id": "Code_21",
+              "id": "Code_19",
               "extensionAttributes": [],
               "code": "C98388",
               "codeSystem": "http://www.cdisc.org",
@@ -90,7 +90,7 @@
               "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_22",
+                "id": "Code_20",
                 "extensionAttributes": [],
                 "code": "C15601",
                 "codeSystem": "http://www.cdisc.org",
@@ -197,24 +197,8 @@
                 "name": "EL1",
                 "label": "Screening",
                 "description": "Screening Element",
-                "transitionStartRule": {
-                  "id": "TransitionRule_1",
-                  "extensionAttributes": [],
-                  "name": "ELEMENT_START_RULE_1",
-                  "label": null,
-                  "description": null,
-                  "text": "Informed consent",
-                  "instanceType": "TransitionRule"
-                },
-                "transitionEndRule": {
-                  "id": "TransitionRule_2",
-                  "extensionAttributes": [],
-                  "name": "ELEMENT_END_RULE_1",
-                  "label": null,
-                  "description": null,
-                  "text": "Completion of all screening activities and no more than 2 weeks from informed consent",
-                  "instanceType": "TransitionRule"
-                },
+                "transitionStartRule": null,
+                "transitionEndRule": null,
                 "studyInterventionIds": [],
                 "notes": [],
                 "instanceType": "StudyElement"
@@ -247,7 +231,7 @@
               },
               "plannedSex": [
                 {
-                  "id": "Code_25",
+                  "id": "Code_23",
                   "extensionAttributes": [],
                   "code": "C49636",
                   "codeSystem": "http://www.cdisc.org",
@@ -268,7 +252,7 @@
                     "id": "AliasCode_3",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_23",
+                      "id": "Code_21",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -289,7 +273,7 @@
                     "id": "AliasCode_4",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_24",
+                      "id": "Code_22",
                       "extensionAttributes": [],
                       "code": "C29848",
                       "codeSystem": "http://www.cdisc.org",
@@ -325,28 +309,10 @@
                 "codeSystemVersion": "2024-09-27",
                 "decode": "Efficacy Study",
                 "instanceType": "Code"
-              },
-              {
-                "id": "Code_18",
-                "extensionAttributes": [],
-                "code": "C49667",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "Safety Study",
-                "instanceType": "Code"
-              },
-              {
-                "id": "Code_19",
-                "extensionAttributes": [],
-                "code": "C49663",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "Pharmacokinetic Study",
-                "instanceType": "Code"
               }
             ],
             "model": {
-              "id": "Code_20",
+              "id": "Code_18",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -390,7 +356,7 @@
             "type": {
               "id": "Code_3",
               "extensionAttributes": [],
-              "code": "C94108",
+              "code": "C207646",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Study Acronym",
@@ -405,7 +371,7 @@
             "type": {
               "id": "Code_5",
               "extensionAttributes": [],
-              "code": "C99905x1",
+              "code": "C207615",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Brief Study Title",
@@ -420,7 +386,7 @@
             "type": {
               "id": "Code_6",
               "extensionAttributes": [],
-              "code": "C99905x2",
+              "code": "C207616",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Official Study Title",
