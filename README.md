@@ -72,6 +72,7 @@ The workbook consists of several sheets each with a dedicated purpose. All sheet
 - Abbreviations Sheet (optional)
 - People Sheet (optional)
 - Roles Sheet (optional)
+- Study Design Conditions sheet (optional)
 - Dictionaries Sheet
 - Configuration sheet
 
@@ -908,7 +909,7 @@ A header row in row 1 followed by repeating rows from row 2, containing the cond
 | B | label | Condition display label | Text string, can be empty |
 | C | description | Condition description | CDISC code reference |
 | D | text | The condition text | Text string |
-| E | appliesTo | List of cross references for items to which the condition applies | Comms separated list |
+| E | appliesTo | List of cross references for items to which the condition applies | Comma separated list |
 | F | context | List of cross references for the context in which the condition applies | Comma separated list |
 
 ### Dictionary Sheet
