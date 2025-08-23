@@ -1,0 +1,1350 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:00000000-0000-4000-8000-000000000001"
+  },
+  "type": "document",
+  "timestamp": "2025-08-23T07:54:41.624688+00:00",
+  "entry": [
+    {
+      "fullUrl": "https://www.example.com/Composition/1234",
+      "resource": {
+        "resourceType": "Composition",
+        "status": "preliminary",
+        "type": {
+          "text": "EvidenceReport"
+        },
+        "date": "2025-08-23T07:54:41.624688+00:00",
+        "author": [
+          {
+            "display": "USDM"
+          }
+        ],
+        "title": "Something Very Official",
+        "section": [
+          {
+            "title": "TITLE PAGE",
+            "code": {
+              "text": "section0-title-page"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Confidentiality Statement:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Full Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p>Something Very Official</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Acronym:</p></th><td style=\"vertical-align: top; text-align: left\"><p>SIMPLE</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Protocol Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p>AP1234</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Original Protocol:</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Number:</p></th><td style=\"vertical-align: top; text-align: left\"><p>1</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Version Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p>2022-12-16</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Identifier:</p></th><td style=\"vertical-align: top; text-align: left\"><p>4</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Amendment Scope:</p></th><td style=\"vertical-align: top; text-align: left\"><p>Global</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Codes(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Compound Name(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p></p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Trial Phase:</p></th><td style=\"vertical-align: top; text-align: left\"><p>Phase III Trial</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Short Title:</p></th><td style=\"vertical-align: top; text-align: left\"><p>Something Brief</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Name and Address:</p></th><td style=\"vertical-align: top; text-align: left\"><p>ACME Pharma, Somewhere, In a City, In a District, In a big state, 12345, France</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Regulatory Agency Identifier Number(s):</p></th><td style=\"vertical-align: top; text-align: left\"><p>NCT12345678, EU12345, IND12345, WHO12345</p></td></tr><tr><th style=\"vertical-align: top; text-align: left\"><p>Sponsor Approval Date:</p></th><td style=\"vertical-align: top; text-align: left\"><p>2023-01-01</p></td></tr></table></div>"
+            }
+          },
+          {
+            "title": "PROTOCOL SUMMARY",
+            "code": {
+              "text": "section1-protocol-summary"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Protocol Synopsis",
+            "code": {
+              "text": "section1.1-protocol-synopsis"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Trial Schema",
+            "code": {
+              "text": "section1.2-trial-schema"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Schedule of Activities",
+            "code": {
+              "text": "section1.3-schedule-of-activities"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "INTRODUCTION",
+            "code": {
+              "text": "section2-introduction"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Purpose of Trial",
+            "code": {
+              "text": "section2.1-purpose-of-trial"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Summary of Benefits and Risks",
+            "code": {
+              "text": "section2.2-summary-of-benefits-and-risks"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "TRIAL OBJECTIVES, ENDPOINTS AND ESTIMANDS",
+            "code": {
+              "text": "section3-trial-objectives,-endpoints-and-estimands"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Primary Objectives",
+            "code": {
+              "text": "section3.1-primary-objectives"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td style=\"vertical-align: top; text-align: left\"><p>The primary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia</p></td><td style=\"vertical-align: top; text-align: left\"><p>Clinical status assessed using a 7-category ordinal scale at Day 28</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>The secondary efficacy objective for this study is to evaluate the efficacy of TCZ compared with placebo in combination with SOC for the treatment of severe COVID-19 pneumonia over the age of 18.0</p></td><td style=\"vertical-align: top; text-align: left\"><p>Time to clinical improvement (TTCI) defined as a National Early Warning Score 2 (NEWS2) of &lt;=2 maintained for 24 hours</p><p>Time to improvement of at least 2 categories relative to baseline on a 7-category ordinal scale of clinical status</p></td></tr></table></div>"
+            }
+          },
+          {
+            "title": "TRIAL DESIGN",
+            "code": {
+              "text": "section4-trial-design"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Description of Trial Design",
+            "code": {
+              "text": "section4.1-description-of-trial-design"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Participant Input into Design",
+            "code": {
+              "text": "section4.1.1-participant-input-into-design"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rationale for Trial Design",
+            "code": {
+              "text": "section4.2-rationale-for-trial-design"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rationale for Comparator",
+            "code": {
+              "text": "section4.2.1-rationale-for-comparator"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rationale for Adaptive or Novel Trial Design",
+            "code": {
+              "text": "section4.2.2-rationale-for-adaptive-or-novel-trial-design"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Other Trial Design Considerations",
+            "code": {
+              "text": "section4.2.3-other-trial-design-considerations"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Access to Trial Intervention After End of Trial",
+            "code": {
+              "text": "section4.3-access-to-trial-intervention-after-end-of-trial"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Start of Trial and End of Trial",
+            "code": {
+              "text": "section4.4-start-of-trial-and-end-of-trial"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "TRIAL POPULATION",
+            "code": {
+              "text": "section5-trial-population"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Selection of Trial Population",
+            "code": {
+              "text": "section5.1-selection-of-trial-population"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rationale for Trial Population",
+            "code": {
+              "text": "section5.2-rationale-for-trial-population"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Inclusion Criteria",
+            "code": {
+              "text": "section5.3-inclusion-criteria"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be included in the study only if they meet <strong>all</strong> the following criteria:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects shall be between 18.0 and 70.0</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects shall be between 18.0 and Missing content: missing dictionary entry</p></td></tr></table></div>"
+            }
+          },
+          {
+            "title": "Exclusion Criteria",
+            "code": {
+              "text": "section5.4-exclusion-criteria"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients may be excluded in the study for <strong>any</strong> of the following reasons:</p><table><tr><td style=\"vertical-align: top; text-align: left\"><p>1</p></td><td style=\"vertical-align: top; text-align: left\"><p>Subjects has been treated with Drug A at any time in the past</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>2</p></td><td style=\"vertical-align: top; text-align: left\"><p>Pick up activity Demographics</p></td></tr><tr><td style=\"vertical-align: top; text-align: left\"><p>3</p></td><td style=\"vertical-align: top; text-align: left\"><p>If the value is equal to 1234.0</p></td></tr></table></div>"
+            }
+          },
+          {
+            "title": "Lifestyle Considerations",
+            "code": {
+              "text": "section5.5-lifestyle-considerations"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Meals and Dietary Restrictions",
+            "code": {
+              "text": "section5.5.1-meals-and-dietary-restrictions"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Caffeine, Alcohol, Tobacco, and Other Habits",
+            "code": {
+              "text": "section5.5.2-caffeine,-alcohol,-tobacco,-and-other-habits"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Physical Activity",
+            "code": {
+              "text": "section5.5.3-physical-activity"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Other Activity",
+            "code": {
+              "text": "section5.5.4-other-activity"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Screen Failures",
+            "code": {
+              "text": "section5.6-screen-failures"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "TRIAL INTERVENTION AND CONCOMITANT THERAPY",
+            "code": {
+              "text": "section6-trial-intervention-and-concomitant-therapy"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Description of Trial Intervention",
+            "code": {
+              "text": "section6.1-description-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rationale for Trial Intervention",
+            "code": {
+              "text": "section6.2-rationale-for-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Dosing and Administration",
+            "code": {
+              "text": "section6.3-dosing-and-administration"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Trial Intervention Dose Modification",
+            "code": {
+              "text": "section6.3.1-trial-intervention-dose-modification"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Treatment of Overdose",
+            "code": {
+              "text": "section6.4-treatment-of-overdose"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Preparation, Handling, Storage and Accountability",
+            "code": {
+              "text": "section6.5-preparation,-handling,-storage-and-accountability"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Preparation of Trial Intervention",
+            "code": {
+              "text": "section6.5.1-preparation-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Handling and Storage of Trial Intervention",
+            "code": {
+              "text": "section6.5.2-handling-and-storage-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Accountability of Trial Intervention",
+            "code": {
+              "text": "section6.5.3-accountability-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Participant Assignment, Randomisation and Blinding",
+            "code": {
+              "text": "section6.6-participant-assignment,-randomisation-and-blinding"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Participant Assignment",
+            "code": {
+              "text": "section6.6.1-participant-assignment"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Randomisation",
+            "code": {
+              "text": "section6.6.2-randomisation"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Blinding and Unblinding",
+            "code": {
+              "text": "section6.6.3-blinding-and-unblinding"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Blinding and unblinding text here please</p></div>"
+            }
+          },
+          {
+            "title": "Trial Intervention Compliance",
+            "code": {
+              "text": "section6.7-trial-intervention-compliance"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Concomitant Therapy",
+            "code": {
+              "text": "section6.8-concomitant-therapy"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Prohibited Concomitant Therapy",
+            "code": {
+              "text": "section6.8.1-prohibited-concomitant-therapy"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Permitted Concomitant Therapy",
+            "code": {
+              "text": "section6.8.2-permitted-concomitant-therapy"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rescue Therapy",
+            "code": {
+              "text": "section6.8.3-rescue-therapy"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Other Therapy",
+            "code": {
+              "text": "section6.8.4-other-therapy"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "DISCONTINUATION OF TRIAL INTERVENTION AND PARTICIPANT WITHDRAWAL FROM TRIAL",
+            "code": {
+              "text": "section7-discontinuation-of-trial-intervention-and-participant-withdrawal-from-trial"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Discontinuation of Trial Intervention",
+            "code": {
+              "text": "section7.1-discontinuation-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Criteria for Permanent Discontinuation of Trial Intervention",
+            "code": {
+              "text": "section7.1.1-criteria-for-permanent-discontinuation-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Temporary Discontinuation or Interruption of Trial Intervention",
+            "code": {
+              "text": "section7.1.2-temporary-discontinuation-or-interruption-of-trial-intervention"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Rechallenge",
+            "code": {
+              "text": "section7.1.3-rechallenge"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Participant Withdrawal from the Trial",
+            "code": {
+              "text": "section7.2-participant-withdrawal-from-the-trial"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Lost to Follow-Up",
+            "code": {
+              "text": "section7.3-lost-to-follow-up"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Trial Stopping Rules",
+            "code": {
+              "text": "section7.4-trial-stopping-rules"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "TRIAL ASSESSMENTS AND PROCEDURES",
+            "code": {
+              "text": "section8-trial-assessments-and-procedures"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Screening/Baseline Assessments and Procedures",
+            "code": {
+              "text": "section8.1-screening/baseline-assessments-and-procedures"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Efficacy Assessments and Procedures",
+            "code": {
+              "text": "section8.2-efficacy-assessments-and-procedures"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Safety Assessments and Procedures",
+            "code": {
+              "text": "section8.3-safety-assessments-and-procedures"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Physical Examination",
+            "code": {
+              "text": "section8.3.1-physical-examination"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Vital Signs",
+            "code": {
+              "text": "section8.3.2-vital-signs"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Electrocardiograms",
+            "code": {
+              "text": "section8.3.3-electrocardiograms"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Clinical Laboratory Assessments",
+            "code": {
+              "text": "section8.3.4-clinical-laboratory-assessments"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Suicidal Ideation and Behaviour Risk Monitoring",
+            "code": {
+              "text": "section8.3.5-suicidal-ideation-and-behaviour-risk-monitoring"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Adverse Events and Serious Adverse Events",
+            "code": {
+              "text": "section8.4-adverse-events-and-serious-adverse-events"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Definitions of AE and SAE",
+            "code": {
+              "text": "section8.4.1-definitions-of-ae-and-sae"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Time Period and Frequency for Collecting AE and SAE Information",
+            "code": {
+              "text": "section8.4.2-time-period-and-frequency-for-collecting-ae-and-sae-information"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Identifying AEs and SAEs",
+            "code": {
+              "text": "section8.4.3-identifying-aes-and-saes"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Recording of AEs and SAEs",
+            "code": {
+              "text": "section8.4.4-recording-of-aes-and-saes"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Follow-up of AEs and SAEs",
+            "code": {
+              "text": "section8.4.5-follow-up-of-aes-and-saes"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Reporting of SAEs",
+            "code": {
+              "text": "section8.4.6-reporting-of-saes"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Regulatory Reporting Requirements for SAEs",
+            "code": {
+              "text": "section8.4.7-regulatory-reporting-requirements-for-saes"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Serious and Unexpected Adverse Reaction Reporting",
+            "code": {
+              "text": "section8.4.8-serious-and-unexpected-adverse-reaction-reporting"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Adverse Events of Special Interest",
+            "code": {
+              "text": "section8.4.9-adverse-events-of-special-interest"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Disease-related Events or Outcomes Not Qualifying as AEs or SAEs",
+            "code": {
+              "text": "section8.4.10-disease-related-events-or-outcomes-not-qualifying-as-aes-or-saes"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Pregnancy and Postpartum Information",
+            "code": {
+              "text": "section8.5-pregnancy-and-postpartum-information"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Participants Who Become Pregnant During the Trial",
+            "code": {
+              "text": "section8.5.1-participants-who-become-pregnant-during-the-trial"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Participants Whose Partners Become Pregnant",
+            "code": {
+              "text": "section8.5.2-participants-whose-partners-become-pregnant"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Medical Device Product Complaints for Drug/Device Combination Products",
+            "code": {
+              "text": "section8.6-medical-device-product-complaints-for-drug/device-combination-products"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Definition of Medical Device Product Complaints",
+            "code": {
+              "text": "section8.6.1-definition-of-medical-device-product-complaints"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Recording of Medical Device Product Complaints",
+            "code": {
+              "text": "section8.6.2-recording-of-medical-device-product-complaints"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Time Period and Frequency for Collecting Medical Device Product Complaints .",
+            "code": {
+              "text": "section8.6.3-time-period-and-frequency-for-collecting-medical-device-product-complaints-."
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Follow-Up of Medical Device Product Complaints",
+            "code": {
+              "text": "section8.6.4-follow-up-of-medical-device-product-complaints"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Regulatory Reporting Requirements for Medical Device Product Complaints",
+            "code": {
+              "text": "section8.6.5-regulatory-reporting-requirements-for-medical-device-product-complaints"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Pharmacokinetics",
+            "code": {
+              "text": "section8.7-pharmacokinetics"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Genetics",
+            "code": {
+              "text": "section8.8-genetics"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Biomarkers",
+            "code": {
+              "text": "section8.9-biomarkers"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Immunogenicity Assessments",
+            "code": {
+              "text": "section8.10-immunogenicity-assessments"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Medical Resource Utilisation and Health Economics",
+            "code": {
+              "text": "section8.10.1-medical-resource-utilisation-and-health-economics"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "STATISTICAL CONSIDERATIONS",
+            "code": {
+              "text": "section9-statistical-considerations"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Analysis Sets",
+            "code": {
+              "text": "section9.1-analysis-sets"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Analyses Supporting Primary Objective(s)",
+            "code": {
+              "text": "section9.2-analyses-supporting-primary-objective(s)"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Statistical Model, Hypothesis, and Method of Analysis",
+            "code": {
+              "text": "section9.2.1-statistical-model,-hypothesis,-and-method-of-analysis"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Handling of Intercurrent Events of Primary Estimand(s)",
+            "code": {
+              "text": "section9.2.2-handling-of-intercurrent-events-of-primary-estimand(s)"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Handling of Missing Data",
+            "code": {
+              "text": "section9.2.3-handling-of-missing-data"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Sensitivity Analysis",
+            "code": {
+              "text": "section9.2.4-sensitivity-analysis"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Supplementary Analysis",
+            "code": {
+              "text": "section9.2.5-supplementary-analysis"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Analysis Supporting Secondary Objective(s)",
+            "code": {
+              "text": "section9.3-analysis-supporting-secondary-objective(s)"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Analysis of Exploratory Objective(s)",
+            "code": {
+              "text": "section9.4-analysis-of-exploratory-objective(s)"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Safety Analyses",
+            "code": {
+              "text": "section9.5-safety-analyses"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Other Analyses",
+            "code": {
+              "text": "section9.6-other-analyses"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Interim Analyses",
+            "code": {
+              "text": "section9.7-interim-analyses"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Sample Size Determination",
+            "code": {
+              "text": "section9.8-sample-size-determination"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Protocol Deviations",
+            "code": {
+              "text": "section9.9-protocol-deviations"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "GENERAL CONSIDERATIONS: REGULATORY, ETHICAL, AND TRIAL OVERSIGHT",
+            "code": {
+              "text": "section10-general-considerations:-regulatory,-ethical,-and-trial-oversight"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Regulatory and Ethical Considerations",
+            "code": {
+              "text": "section10.1-regulatory-and-ethical-considerations"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Committees",
+            "code": {
+              "text": "section10.2-committees"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Informed Consent Process",
+            "code": {
+              "text": "section10.3-informed-consent-process"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Data Protection",
+            "code": {
+              "text": "section10.4-data-protection"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Early Site Closure or Trial Termination",
+            "code": {
+              "text": "section10.5-early-site-closure-or-trial-termination"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "GENERAL CONSIDERATIONS: RISK MANAGEMENT AND QUALITY ASSURANCE",
+            "code": {
+              "text": "section11-general-considerations:-risk-management-and-quality-assurance"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Quality Tolerance Limits",
+            "code": {
+              "text": "section11.1-quality-tolerance-limits"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Data Quality Assurance",
+            "code": {
+              "text": "section11.2-data-quality-assurance"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Source Data",
+            "code": {
+              "text": "section11.3-source-data"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "APPENDIX: ADVERSE EVENTS AND SERIOUS ADVERSE EVENTS - DEFINITIONS, SEVERITY, AND CAUSALITY",
+            "code": {
+              "text": "section12-appendix:-adverse-events-and-serious-adverse-events---definitions,-severity,-and-causality"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Further Details and Clarifications on the AE Definition",
+            "code": {
+              "text": "section12.1-further-details-and-clarifications-on-the-ae-definition"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Further Details and Clarifications on the SAE Definition",
+            "code": {
+              "text": "section12.2-further-details-and-clarifications-on-the-sae-definition"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Severity",
+            "code": {
+              "text": "section12.3-severity"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Causality",
+            "code": {
+              "text": "section12.4-causality"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "APPENDIX: DEFINITIONS AND SUPPORTING OPERATIONAL DETAILS",
+            "code": {
+              "text": "section13-appendix:-definitions-and-supporting-operational-details"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Contraception and Pregnancy Testing",
+            "code": {
+              "text": "section13.1-contraception-and-pregnancy-testing"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Definitions Related to Childbearing Potential",
+            "code": {
+              "text": "section13.1.1-definitions-related-to-childbearing-potential"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Contraception",
+            "code": {
+              "text": "section13.1.2-contraception"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Pregnancy Testing",
+            "code": {
+              "text": "section13.1.3-pregnancy-testing"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Clinical Laboratory Tests",
+            "code": {
+              "text": "section13.2-clinical-laboratory-tests"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Country/Region-Specific Differences",
+            "code": {
+              "text": "section13.3-country/region-specific-differences"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "Prior Protocol Amendments",
+            "code": {
+              "text": "section13.4-prior-protocol-amendments"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "APPENDIX: GLOSSARY OF TERMS",
+            "code": {
+              "text": "section14-appendix:-glossary-of-terms"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          },
+          {
+            "title": "APPENDIX: REFERENCES",
+            "code": {
+              "text": "section15-appendix:-references"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
