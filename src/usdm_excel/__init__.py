@@ -284,7 +284,7 @@ class USDMExcel:
                         language=OtherCT(self._globals).code(
                             "en", "ISO", "1", "English"
                         ),
-                        type=CDISCCT(self._globals).code("CC70817", "Protocol"),
+                        type=CDISCCT(self._globals).code("C70817", "Protocol"),
                         templateName=template.name,
                     )
                     self.definition_documents.append(definition_document)
