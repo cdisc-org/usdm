@@ -101,7 +101,7 @@ def organizations(globals):
         Organization,
         {
             "name": "Sponsor1",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "123456781",
             "identifierScheme": "DUNS",
             "legalAddress": None,
@@ -111,7 +111,7 @@ def organizations(globals):
         Organization,
         {
             "name": "Sponsor2",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "123456782",
             "identifierScheme": "DUNS",
             "legalAddress": None,
@@ -121,7 +121,7 @@ def organizations(globals):
         Organization,
         {
             "name": "Sponsor3",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "123456783",
             "identifierScheme": "DUNS",
             "legalAddress": None,

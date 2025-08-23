@@ -11,7 +11,7 @@ from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 
-SAVE = True
+SAVE = False
 COLUMNS = [
     "name",
     "description",
@@ -854,12 +854,12 @@ def test_read_cell_by_name_error(mocker, globals):
 
 
 def _create_products(factory: Factory, globals: Globals):
-    std_code = factory.cdisc_code("C70793", "XX1")
+    std_code = factory.cdisc_code("C12345x1", "XX1")
     items = [
         {
             "name": "Product 1",
-            "productDesignation": factory.cdisc_code("C70793", "YYY"),
-            "sourcing": factory.cdisc_code("C70793", "XXX"),
+            "productDesignation": factory.cdisc_code("C12345x1", "YYY"),
+            "sourcing": factory.cdisc_code("C12345x1", "XXX"),
             "administrableDoseForm": factory.alias_code(std_code, []),
         },
     ]

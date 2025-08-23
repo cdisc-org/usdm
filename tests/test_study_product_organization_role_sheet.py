@@ -179,21 +179,21 @@ def _create_orgs(factory: Factory, globals: Globals):
     items = [
         {
             "name": "Sponsor 1",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "123456789",
             "identifierScheme": "DUNS",
             "legalAddress": None,
         },
         {
             "name": "Sponsor 2",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "222222222",
             "identifierScheme": "DUNS",
             "legalAddress": None,
         },
         {
             "name": "Sponsor 3",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "333333333",
             "identifierScheme": "DUNS",
             "legalAddress": None,
@@ -205,24 +205,24 @@ def _create_orgs(factory: Factory, globals: Globals):
 
 
 def _create_products(factory: Factory, globals: Globals):
-    std_code = factory.cdisc_code("C70793", "XX1")
+    std_code = factory.cdisc_code("C12345x1", "XX1")
     items = [
         {
             "name": "Product 1",
-            "productDesignation": factory.cdisc_code("C70793", "YYY"),
-            "sourcing": factory.cdisc_code("C70793", "XXX"),
+            "productDesignation": factory.cdisc_code("C12345x1", "YYY"),
+            "sourcing": factory.cdisc_code("C12345x1", "XXX"),
             "administrableDoseForm": factory.alias_code(std_code, []),
         },
         {
             "name": "Product 2",
-            "productDesignation": factory.cdisc_code("C70793", "YYY"),
-            "sourcing": factory.cdisc_code("C70793", "XXX"),
+            "productDesignation": factory.cdisc_code("C12345x1", "YYY"),
+            "sourcing": factory.cdisc_code("C12345x1", "XXX"),
             "administrableDoseForm": factory.alias_code(std_code, []),
         },
         {
             "name": "Product 3",
-            "productDesignation": factory.cdisc_code("C70793", "YYY"),
-            "sourcing": factory.cdisc_code("C70793", "XXX"),
+            "productDesignation": factory.cdisc_code("C12345x1", "YYY"),
+            "sourcing": factory.cdisc_code("C12345x1", "XXX"),
             "administrableDoseForm": factory.alias_code(std_code, []),
         },
     ]
@@ -233,9 +233,9 @@ def _create_products(factory: Factory, globals: Globals):
 
 def _create_devices(factory: Factory, globals: Globals):
     items = [
-        {"name": "Device 1", "sourcing": factory.cdisc_code("C70793", "XXX")},
-        {"name": "Device 2", "sourcing": factory.cdisc_code("C70793", "XXX")},
-        {"name": "Device 3", "sourcing": factory.cdisc_code("C70793", "XXX")},
+        {"name": "Device 1", "sourcing": factory.cdisc_code("C12345x1", "XXX")},
+        {"name": "Device 2", "sourcing": factory.cdisc_code("C12345x1", "XXX")},
+        {"name": "Device 3", "sourcing": factory.cdisc_code("C12345x1", "XXX")},
     ]
     for item in items:
         instance = factory.item(MedicalDevice, item)

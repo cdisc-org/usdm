@@ -56,6 +56,7 @@ required:
 - C207417
 - C207418
 - C207419
+# - C215477
 # - C215478
 # - C215480
 # - C215481
@@ -67,8 +68,10 @@ klass:
   Study: {}
   StudyProtocolVersion:
     protocolStatus: C188723
+  StudyDefinitionDocument:
+    type: C99916x # C215477 But not used within code as only one value in code list so fixed.
   Organization:
-    organizationType: C188724
+    organizationType: C99917x # C188724 temp code list needed until CDISC Library updated
   Objective:
     objectiveLevel: C188725
   Endpoint:

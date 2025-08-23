@@ -159,21 +159,21 @@ def _create_orgs(factory: Factory, globals: Globals):
     items = [
         {
             "name": "Sponsor 1",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "123456789",
             "identifierScheme": "DUNS",
             "legalAddress": None,
         },
         {
             "name": "Sponsor 2",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "222222222",
             "identifierScheme": "DUNS",
             "legalAddress": None,
         },
         {
             "name": "Sponsor 3",
-            "type": factory.cdisc_code("C70793", "sponsor"),
+            "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
             "identifier": "333333333",
             "identifierScheme": "DUNS",
             "legalAddress": None,

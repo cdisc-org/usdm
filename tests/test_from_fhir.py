@@ -12,7 +12,7 @@ def test_create(mocker, globals, minimal, factory):
 
 
 def test_from_fhir_1_direct(mocker, globals, minimal, factory):
-    with open(f"tests/integration_test_files/full_1_fhir.json", "r") as f:
+    with open(f"tests/other_test_files/fhir_1.json", "r") as f:
         data = f.read()
     fhir = FromFHIR(globals.errors_and_logging)
     wrapper = fhir.from_fhir(data)
@@ -20,7 +20,7 @@ def test_from_fhir_1_direct(mocker, globals, minimal, factory):
 
 
 def test_from_fhir_1_usdm(mocker, globals, minimal, factory):
-    with open(f"tests/integration_test_files/full_1_fhir.json", "r") as f:
+    with open(f"tests/other_test_files/fhir_1.json", "r") as f:
         data = f.read()
     usdm = USDMDb()
     fhir = usdm.from_fhir(data)

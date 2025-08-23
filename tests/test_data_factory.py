@@ -196,7 +196,7 @@ class MinimalStudy:
             Organization,
             {
                 "name": "Sponsor",
-                "type": factory.cdisc_code("C70793", "sponsor"),
+                "type": factory.cdisc_code("C54149", "Pharmaceutical Company"),
                 "identifier": "123456789",
                 "identifierScheme": "DUNS",
                 "legalAddress": address,

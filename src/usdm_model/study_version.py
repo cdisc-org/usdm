@@ -60,7 +60,7 @@ class StudyVersion(ApiBaseModelWithId):
     def sponsor_identifier(self):
         for identifier in self.studyIdentifiers:
             org = self.organization(identifier.scopeId)
-            if org and org.type.code == "C70793":
+            if org and org.type.code == "C54149":
                 return identifier
         return None
 
