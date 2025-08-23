@@ -3,7 +3,7 @@ from usdm_db.fhir.from_fhir import FromFHIR
 from usdm_db import USDMDb
 from tests.test_integration import format_html
 
-SAVE = True
+SAVE = False
 
 
 def test_create(mocker, globals, minimal, factory):
