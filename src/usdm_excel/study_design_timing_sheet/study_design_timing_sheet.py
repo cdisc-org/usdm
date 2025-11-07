@@ -46,7 +46,7 @@ class StudyDesignTimingSheet(BaseSheet):
               relativeToScheduledInstanceId=to_name
             )
           except Exception as e:
-            self._general_error(f"Failed to create Timing object", e)
+            self._general_exception(f"Failed to create Timing object", e)
           else:
             self.globals.cross_references.add(name, item)
             self.items.append(item)
@@ -59,7 +59,7 @@ class StudyDesignTimingSheet(BaseSheet):
     for char in ['+', '-']:
       if char in the_duration:
         the_duration = the_duration.replace(char, "")
-        self._log_warning(f"Ignoring '{char}' in {original_duration}")
+        self._general_warning(f"Ignoring '{char}' in {original_duration}")
     duration_parts = re.findall(r"[^\W\d_]+|\d+", the_duration)
     if len(duration_parts) == 2:
       try:
