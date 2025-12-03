@@ -7,6 +7,7 @@ class SoAColumnRows:
     CONDITIONS_ROW = 5
     EPOCH_ROW = 6
     ENCOUNTER_ROW = 7
+    TIMELINE_ROW = 8 # Optional row, pushes other rows down by one.
 
     HEADER_ROW = 8
     FIRST_ACTIVITY_ROW = 9

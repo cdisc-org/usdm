@@ -52,6 +52,7 @@ class StudySoAV2Sheet(BaseSheet):
                 optional=True,
             )
             if self.success:
+                self._check_timeline_option() # Check if we have the timeline row for activities
                 self._process_sheet()
                 self._raw_activities = SoAActivities(
                     self
@@ -131,6 +132,12 @@ class StudySoAV2Sheet(BaseSheet):
                 )
             else:
                 pass
+
+    def _check_timeline_option(self):
+        cell_text = self.read_cell(SoAColumnRows.TIMELINE_ROW, SoAColumnRows.BC_COL)
+        if cell_text == "Timeline":
+            self._general_info("SoA ativity timeline row detected")
+            self._first_activity_row += 1
 
     def _add_timeline(self, name, description, condition, instances, exit):
         try:
