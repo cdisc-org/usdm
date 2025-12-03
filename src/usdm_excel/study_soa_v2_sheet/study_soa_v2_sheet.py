@@ -52,7 +52,7 @@ class StudySoAV2Sheet(BaseSheet):
                 optional=True,
             )
             if self.success:
-                self._check_timeline_option() # Check if we have the timeline row for activities
+                self._check_timeline_option()  # Check if we have the timeline row for activities
                 self._process_sheet()
                 self._raw_activities = SoAActivities(
                     self

@@ -72,7 +72,7 @@ class ScheduledInstance:
                     defaultConditionId=None,
                     epochId=epoch_id,
                     activityIds=self._add_activities(),
-                    timelineId=timeline.id if timeline else None
+                    timelineId=timeline.id if timeline else None,
                 )
                 self.parent.globals.cross_references.add(self.item.id, self.item)
                 self.parent.globals.cross_references.add(self.name, self.item)
@@ -103,7 +103,7 @@ class ScheduledInstance:
         row = 0
         column = self.parent.sheet.iloc[:, self.col_index]
         for cell in column:
-            #if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
+            # if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
             if row >= self.parent._first_activity_row:
                 activity_name = self.parent.read_cell(
                     row, SoAColumnRows.CHILD_ACTIVITY_COL

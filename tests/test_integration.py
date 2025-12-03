@@ -340,7 +340,9 @@ def test_minimum():
 def test_activity_timeline():
     run_test("activity_timeline")
 
+
 # OTHER TESTS
+
 
 def test_references_html():
     run_test_html("references")
@@ -368,4 +370,3 @@ def test_full_neo4j_3(mocker):
 
 def test_full_fhir_1(mocker):
     run_test_fhir("full_1", mocker)
-

@@ -76,7 +76,9 @@ class MinimalStudy:
                 "name": "D_APPROVE",
                 "label": "Design Approval",
                 "description": "Design approval date",
-                "type": factory.cdisc_code("C132352", "Protocol Approval by Sponsor Date"),
+                "type": factory.cdisc_code(
+                    "C132352", "Protocol Approval by Sponsor Date"
+                ),
                 "dateValue": "2006-06-01",
                 "geographicScopes": [global_scope],
             },
