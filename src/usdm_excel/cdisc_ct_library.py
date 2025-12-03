@@ -1,6 +1,5 @@
 import os
 import yaml
-import traceback
 import requests
 from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 
@@ -121,7 +120,7 @@ class CDISCCTLibrary:
         try:
             code_list = self._by_code_list["C71620"]
             return self._get_item(code_list, value)
-        except Exception as e:
+        except Exception:
             self._errors_and_logging.exception(f"Failed to find unit '{value}'")
             return None
 
@@ -177,10 +176,10 @@ class CDISCCTLibrary:
 
     def _get_klass_attribute(self):
         for klass, info in self._cdisc_ct_config["klass"].items():
-            if not klass in self._by_klass_attribute:
+            if klass not in self._by_klass_attribute:
                 self._by_klass_attribute[klass] = {}
             for attribute, cl in info.items():
-                if not attribute in self._by_klass_attribute[klass]:
+                if attribute not in self._by_klass_attribute[klass]:
                     self._by_klass_attribute[klass][attribute] = cl
 
     def _get_code_list(self, c_code):
@@ -215,7 +214,7 @@ class CDISCCTLibrary:
         return f"{self.__class__.API_ROOT}{relative_url}"
 
     def _check_in_and_add(self, collection, id, item):
-        if not id in collection:
+        if id not in collection:
             collection[id] = []
         collection[id].append(item)
 
@@ -234,7 +233,7 @@ class CDISCCTLibrary:
                     return yaml.safe_load(f)
             else:
                 self._errors_and_logging.error(
-                    f"Failed to read CDSIC CT file, does not exist"
+                    "Failed to read CDSIC CT file, does not exist"
                 )
                 return None
         except Exception as e:

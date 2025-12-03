@@ -1,4 +1,3 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary, ParameterMap
 from usdm_excel.globals import Globals
@@ -87,7 +86,7 @@ class StudyDesignDictionarySheet(BaseSheet):
             )
         except Exception as e:
             self._general_exception(
-                f"Failed to create SyntaxTemplateDictionary object", e
+                "Failed to create SyntaxTemplateDictionary object", e
             )
             return None
         else:

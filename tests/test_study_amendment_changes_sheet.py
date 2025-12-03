@@ -7,7 +7,6 @@ from usdm_model.document_content_reference import DocumentContentReference
 from usdm_excel.study_amendment_sheet.study_amendment_changes_sheet import (
     StudyAmendmentChangesSheet,
 )
-from usdm_model.code import Code
 
 
 def test_create(mocker, globals):

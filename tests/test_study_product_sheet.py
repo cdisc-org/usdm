@@ -1,7 +1,5 @@
 import pandas as pd
 from usdm_excel.study_product_sheet.study_product_sheet import StudyProductSheet
-from usdm_excel.base_sheet import BaseSheet
-from usdm_model.code import Code
 
 
 def test_create_1(mocker, globals):

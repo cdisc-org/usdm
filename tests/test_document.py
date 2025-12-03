@@ -5,7 +5,6 @@ from usdm_model.eligibility_criterion import (
 )
 from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
 from usdm_db.document.document import Document
-from tests.test_factory import Factory
 from bs4 import BeautifulSoup
 
 

@@ -1,4 +1,4 @@
-from typing import List, Literal, Union
+from typing import List, Literal
 from .syntax_template import SyntaxTemplate
 from .code import Code
 from .endpoint import Endpoint

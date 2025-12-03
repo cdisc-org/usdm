@@ -77,12 +77,6 @@ from usdm_excel.study_design_characteristics_sheet.study_design_characteristics_
 )
 from usdm_excel.assigned_person_sheet.assigned_person_sheet import AssignedPersonSheet
 from usdm_excel.study_role_sheet.study_role_sheet import StudyRoleSheet
-from usdm_excel.study_identifier_and_organization_sheets.study_identifiers_sheet import (
-    StudyIdentifiersSheet,
-)
-from usdm_excel.study_identifier_and_organization_sheets.study_references_sheet import (
-    StudyReferencesSheet,
-)
 from usdm_excel.study_identifier_and_organization_sheets.study_organizations_sheet import (
     StudyOrganizationsSheet,
 )
@@ -273,7 +267,7 @@ class USDMExcel:
                     )
                 except Exception as e:
                     self._globals.errors_and_logging.exception(
-                        f"Error creating StudyDefinitionDocumentVersion object", e
+                        "Error creating StudyDefinitionDocumentVersion object", e
                     )
 
                 try:
@@ -291,7 +285,7 @@ class USDMExcel:
                     self.study_amendments.set_document(definition_document)
                 except Exception as e:
                     self._globals.errors_and_logging.exception(
-                        f"Error creating StudyDefinitionDocument object", e
+                        "Error creating StudyDefinitionDocument object", e
                     )
 
             try:
@@ -326,7 +320,7 @@ class USDMExcel:
                 )
             except Exception as e:
                 self._globals.errors_and_logging.exception(
-                    f"Error creating StudyVersion object", e
+                    "Error creating StudyVersion object", e
                 )
 
             try:
@@ -345,7 +339,7 @@ class USDMExcel:
                     )  # Now we have full study, resolve references in the content
             except Exception as e:
                 self._globals.errors_and_logging.exception(
-                    f"Error creating Study object", e
+                    "Error creating Study object", e
                 )
 
             return Wrapper(
@@ -357,7 +351,7 @@ class USDMExcel:
 
         except Exception as e:
             self._globals.errors_and_logging.exception(
-                f"Error processing Excel workbook", e
+                "Error processing Excel workbook", e
             )
             return None
 

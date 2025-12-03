@@ -1,20 +1,16 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_epoch import StudyEpoch
 from usdm_model.study_arm import StudyArm
 from usdm_model.study_element import StudyElement
 from usdm_model.study_cell import StudyCell
 from usdm_model.study_design import (
-    StudyDesign,
     ObservationalStudyDesign,
     InterventionalStudyDesign,
 )
-from usdm_model.masking import Masking
 from usdm_excel.alias import Alias
 from usdm_model.biospecimen_retention import BiospecimenRetention
 from usdm_model.population_definition import StudyDesignPopulation
 from usdm_excel.option_manager import *
-from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.globals import Globals
 
 
@@ -142,7 +138,7 @@ class StudyDesignSheet(BaseSheet):
                     self._warning(
                         rindex,
                         self.PARAMS_NAME_COL,
-                        f"Masking has been moved to the 'roles' sheet, value ignored",
+                        "Masking has been moved to the 'roles' sheet, value ignored",
                     )
                     # self._set_masking(rindex, self.PARAMS_DATA_COL)
                 elif key in self.PHASE_KEY:

@@ -1,11 +1,9 @@
-import logging
 from yattag import Doc
 from usdm_db.cross_reference import CrossReference
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_model.scheduled_instance import (
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
-    ScheduledInstance,
 )
 from usdm_model.schedule_timeline_exit import ScheduleTimelineExit
 
@@ -44,7 +42,7 @@ class Timeline:
     def _body(self, doc, study_design):
         for timeline in study_design.scheduleTimelines:
             timings = timeline.timings
-            with doc.tag(f"h1"):
+            with doc.tag("h1"):
                 doc.asis(f"{timeline.name}")
             with doc.tag("pre", klass="mermaid"):
                 doc.asis("\ngraph LR\n")

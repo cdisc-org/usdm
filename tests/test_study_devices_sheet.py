@@ -3,7 +3,6 @@ from tests.mocks.mock_sheet import *
 from tests.mocks.mock_ids import *
 from tests.mocks.mock_logging import *
 from usdm_excel.study_product_sheet.study_devices_sheet import StudyDevicesSheet
-from usdm_excel.option_manager import Options, EmptyNoneOption
 from tests.test_factory import Factory
 from usdm_model.administrable_product import AdministrableProduct
 from usdm_model.code import Code

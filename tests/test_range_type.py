@@ -1,4 +1,3 @@
-from tests.test_factory import Factory
 from usdm_excel.range_type import RangeType
 
 

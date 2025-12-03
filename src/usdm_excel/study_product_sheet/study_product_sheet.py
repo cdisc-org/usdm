@@ -4,7 +4,6 @@ from usdm_model.administrable_product import AdministrableProduct
 from usdm_model.ingredient import Ingredient
 from usdm_model.substance import Substance
 from usdm_model.strength import Strength
-from usdm_model.quantity_range import Quantity, Range
 from usdm_excel.globals import Globals
 
 

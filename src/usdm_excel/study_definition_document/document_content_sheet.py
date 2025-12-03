@@ -1,5 +1,5 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
+from usdm_model.narrative_content import NarrativeContentItem
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_excel.globals import Globals

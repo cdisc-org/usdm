@@ -3,7 +3,6 @@ import pandas as pd
 from usdm_excel.study_design_eligibility_criteria_sheet.study_design_eligibility_criteria_sheet import (
     StudyDesignEligibilityCriteriaSheet,
 )
-from usdm_model.code import Code
 
 
 xfail = pytest.mark.xfail

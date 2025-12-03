@@ -1,4 +1,3 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_arm import StudyArm
 from usdm_excel.globals import Globals

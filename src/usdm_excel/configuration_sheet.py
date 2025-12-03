@@ -1,4 +1,3 @@
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.option_manager import Options, EmptyNoneOption
 from usdm_excel.globals import Globals

@@ -1,4 +1,3 @@
-from tests.test_factory import Factory
 from usdm_excel.quantity_type import QuantityType
 
 

@@ -33,7 +33,7 @@ class Document:
             self._modal_count = 1
         except Exception as e:
             self._errors_and_logging.exception(
-                f"Failed to initialise for document creation", e
+                "Failed to initialise for document creation", e
             )
 
     def to_pdf(self, test=True):
@@ -59,12 +59,12 @@ class Document:
             return binary_formatted_response
         except docraptor.rest.ApiException as e:
             self._errors_and_logging.exception(
-                f"Exception raised generating PDF content. See logs for more details", e
+                "Exception raised generating PDF content. See logs for more details", e
             )
             return None
         except Exception as e:
             self._errors_and_logging.exception(
-                f"Exception raised generating PDF content. See logs for more details", e
+                "Exception raised generating PDF content. See logs for more details", e
             )
             return None
 
@@ -141,7 +141,7 @@ class Document:
             return doc.getvalue()
         except Exception as e:
             self._errors_and_logging.exception(
-                f"Exception raised generating HTML content. See logs for more details",
+                "Exception raised generating HTML content. See logs for more details",
                 e,
             )
             return None

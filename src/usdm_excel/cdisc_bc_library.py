@@ -137,7 +137,7 @@ class CDISCBCLibrary:
                 if package_type == "sdtm":
                     self._package_items[package_type][key] = item
                     # map[item['href']] = key
-                elif package_type == "generic" and not key in self._package_items:
+                elif package_type == "generic" and key not in self._package_items:
                     self._errors_and_logging.info(
                         f"GENERIC: Detected generic only BC {key}"
                     )
@@ -527,7 +527,7 @@ class CDISCBCLibrary:
                     return yaml.load(f, Loader=yaml.FullLoader)
             else:
                 self._errors_and_logging.error(
-                    f"Failed to read CDSIC BC file, does not exist"
+                    "Failed to read CDSIC BC file, does not exist"
                 )
                 return None
         except Exception as e:
@@ -537,7 +537,7 @@ class CDISCBCLibrary:
         return os.path.isfile(self._bcs_filename())
 
     def _bcs_filename(self):
-        return os.path.join(os.path.dirname(__file__), "data", f"cdisc_bcs.yaml")
+        return os.path.join(os.path.dirname(__file__), "data", "cdisc_bcs.yaml")
 
     def _cdisc_code(self, code, decode):
         id = self._id_manager.build_id(Code)

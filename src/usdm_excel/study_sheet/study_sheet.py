@@ -1,11 +1,7 @@
 from usdm_model.governance_date import GovernanceDate
-from usdm_model.geographic_scope import GeographicScope
 from usdm_model.study_title import StudyTitle
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.alias import Alias
 from usdm_excel.cdisc_ct import CDISCCT
-from usdm_excel.iso_3166 import ISO3166
-from usdm_excel.option_manager import Options
 from usdm_excel.globals import Globals
 
 
@@ -96,13 +92,13 @@ class StudySheet(BaseSheet):
                     self._warning(
                         rindex,
                         self.PARAMS_DATA_COL,
-                        f"Study type has been moved to the 'studyDesign' sheet, value ignored",
+                        "Study type has been moved to the 'studyDesign' sheet, value ignored",
                     )
                 elif field_name == self.PHASE_TITLE:
                     self._warning(
                         rindex,
                         self.PARAMS_DATA_COL,
-                        f"Study phase has been moved to the 'studyDesign' sheet, value ignored",
+                        "Study phase has been moved to the 'studyDesign' sheet, value ignored",
                     )
                 elif field_name == self.ACRONYM_TITLE:
                     self.acronym = self._set_title(
@@ -118,7 +114,7 @@ class StudySheet(BaseSheet):
                     self._warning(
                         rindex,
                         self.PARAMS_DATA_COL,
-                        f"Study title has been deprecated, use officialTitle or publicTitle instead",
+                        "Study title has been deprecated, use officialTitle or publicTitle instead",
                     )
                 elif field_name == self.BRIEF_TITLE_TITLE:
                     self.brief_title = self._set_title(
@@ -201,7 +197,7 @@ class StudySheet(BaseSheet):
                         self.globals.cross_references.add(record["name"], date)
                     except Exception as e:
                         self._general_exception(
-                            f"Failed to create GovernanceDate object", e
+                            "Failed to create GovernanceDate object", e
                         )
 
     def _set_title(self, rindex, cindex, title_type):

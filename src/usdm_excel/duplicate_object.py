@@ -6,7 +6,7 @@ from usdm_model import *
 def duplicate_object(item: ApiBaseModelWithId, globals: Globals) -> object:
     try:
         return duplicate_klass(item.model_dump(), globals)
-    except Exception as e:
+    except Exception:
         return None
 
 

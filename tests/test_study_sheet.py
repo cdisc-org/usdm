@@ -1,10 +1,7 @@
 import pytest
-import pandas as pd
 
 xfail = pytest.mark.xfail
 
-from usdm_excel.study_sheet.study_sheet import StudySheet
-from usdm_excel.base_sheet import BaseSheet
 
 
 @xfail

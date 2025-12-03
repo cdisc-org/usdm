@@ -2,7 +2,6 @@ from typing import List, Literal, Union
 from .activity import Activity
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .alias_code import AliasCode
-from .biomedical_concept import BiomedicalConcept
 from .biospecimen_retention import BiospecimenRetention
 from .code import Code
 from .encounter import Encounter

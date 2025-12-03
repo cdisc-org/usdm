@@ -18,7 +18,7 @@ class CrossRef:
         klass = object.__class__
         try:
             key, id_key = self._key(klass, name, object.id)
-            if not key in self._references:
+            if key not in self._references:
                 self._references[key] = object
                 self._identifiers[id_key] = object
                 # self._debug(f"Added cross reference, klass='{self._klass_name(klass)}', name='{name}', id='{object.id}'")
@@ -65,7 +65,7 @@ class CrossRef:
                 for index in range(1, len(parts), 2):
                     try:
                         instance = getattr(instance, attribute)
-                    except AttributeError as e:
+                    except AttributeError:
                         raise self.PathError(
                             f"Failed to translate reference path '{path}', attribute '{attribute}' was not found"
                         )

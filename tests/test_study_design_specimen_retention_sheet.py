@@ -3,8 +3,6 @@ import pandas as pd
 from usdm_excel.study_design_specimen_retention_sheet.study_design_specimen_retention_sheet import (
     StudyDesignSpecimenRetentionSheet,
 )
-from usdm_excel.globals import Globals
-from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 

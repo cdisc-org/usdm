@@ -1,6 +1,5 @@
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.errors_and_logging.errors import Errors
-from usdm_db.errors_and_logging.error import Error
 
 
 def test_create():

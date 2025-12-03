@@ -1,4 +1,5 @@
-import glob, os
+import glob
+import os
 import argparse
 import logging
 
@@ -39,10 +40,10 @@ if __name__ == "__main__":
     print(f"DEBUG: {debug} {level}")
     log = logging.basicConfig(level=level)
     if delete_bc:
-        print(f"Deleting BC File")
+        print("Deleting BC File")
         file_delete("cdisc_bcs.yaml")
     if delete_ct:
-        print(f"Deleting CT File")
+        print("Deleting CT File")
         file_delete("cdisc_ct*.yaml")
 
     from src.usdm_excel.cdisc_ct_library import CDISCCTLibrary

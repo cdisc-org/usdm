@@ -70,7 +70,7 @@ class StudyDesignPopulationSheet(BaseSheet):
             if self.population:
                 self.population.cohorts = self._cohorts
             else:
-                self._general_error(f"Not main study population detected")
+                self._general_error("Not main study population detected")
         except Exception as e:
             self._sheet_exception(e)
 

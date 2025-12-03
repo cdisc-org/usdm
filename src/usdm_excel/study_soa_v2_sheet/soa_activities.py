@@ -1,5 +1,4 @@
 from usdm_excel.base_sheet import BaseSheet
-from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_v2_sheet.soa_activity import SoAActivity
 
 

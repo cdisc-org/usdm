@@ -1,5 +1,4 @@
 import warnings
-import traceback
 from bs4 import BeautifulSoup
 
 

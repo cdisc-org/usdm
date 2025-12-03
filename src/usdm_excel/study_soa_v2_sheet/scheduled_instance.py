@@ -1,4 +1,3 @@
-from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_excel.study_soa_v2_sheet.conditons import Conditons
 
@@ -12,7 +11,6 @@ from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.encounter import Encounter
 from usdm_model.study_epoch import StudyEpoch
 from usdm_model.activity import Activity
-import traceback
 
 
 class ScheduledInstance:
@@ -96,7 +94,7 @@ class ScheduledInstance:
                     f"Unrecognized ScheduledInstance type: '{type}'"
                 )
         except Exception as e:
-            parent._sheet_exception(f"Error raised reading sheet", e)
+            parent._sheet_exception("Error raised reading sheet", e)
 
     def _add_activities(self):
         activities = []

@@ -7,8 +7,6 @@ from usdm_model.study_element import StudyElement
 from usdm_model.biospecimen_retention import BiospecimenRetention
 from usdm_excel.globals import Globals
 from tests.test_factory import Factory
-from usdm_excel.globals import Globals
-from tests.test_factory import Factory
 
 
 def test_create(mocker, factory: Factory, globals: Globals):

@@ -55,7 +55,6 @@ from .study_element import StudyElement
 from .study_epoch import StudyEpoch
 from .identifier import (
     StudyIdentifier,
-    StudyIdentifier,
     AdministrableProductIdentifier,
     ReferenceIdentifier,
     MedicalDeviceIdentifier,

@@ -14,8 +14,8 @@ from usdm_model.population_definition import StudyDesignPopulation
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.id_manager import IdManager
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
-from fhir.resources.bundle import Bundle, BundleEntry
-from fhir.resources.composition import Composition, CompositionSection
+from fhir.resources.bundle import Bundle
+from fhir.resources.composition import CompositionSection
 from uuid import uuid4
 from usdm_info import (
     __model_version__ as usdm_version,
@@ -67,7 +67,7 @@ class FromFHIR:
             )
         except Exception as e:
             self._errors_and_logging.exception(
-                f"Exception raised parsing FHIR content. See logs for more details", e
+                "Exception raised parsing FHIR content. See logs for more details", e
             )
             return None
 

@@ -1,4 +1,4 @@
-from typing import Union, List, Literal
+from typing import Union, Literal
 from .api_base_model import ApiBaseModelWithIdNameLabelAndDesc
 from .person_name import PersonName
 

@@ -1,5 +1,4 @@
 from usdm_excel.globals import Globals
-from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.code_base import CodeBase
 
 

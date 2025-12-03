@@ -3,8 +3,6 @@ import pandas as pd
 from usdm_excel.study_design_activity_sheet.study_design_activity_sheet import (
     StudyDesignActivitySheet,
 )
-from usdm_model.code import Code
-from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 

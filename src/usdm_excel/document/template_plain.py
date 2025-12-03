@@ -1,9 +1,7 @@
 from yattag import Doc
 from usdm_excel.document.template_base import TemplateBase
 from usdm_excel.document.soa import SoA
-from usdm_excel.base_sheet import BaseSheet
 from usdm_model.schedule_timeline import ScheduleTimeline
-from usdm_model.study import Study
 
 
 class TemplatePlain(TemplateBase):
@@ -77,7 +75,7 @@ class TemplatePlain(TemplateBase):
             for timeline in self._study_design.scheduleTimelines:
                 doc.asis(self.timeline({"timeline": timeline}))
         except Exception as e:
-            self.parent._general_exception(f"Error raised generating SoA", e)
+            self.parent._general_exception("Error raised generating SoA", e)
         return doc.getvalue()
 
     def timeline(self, attributes: dict):
@@ -145,7 +143,7 @@ class TemplatePlain(TemplateBase):
                 return "Error encountered creating timeline {timeline.name}"
             else:
                 self.parent._general_exception(
-                    f"Error raised generating timeline, name not available", e
+                    "Error raised generating timeline, name not available", e
                 )
                 return "Error encountered creating timeline"
         return doc.getvalue()

@@ -1,8 +1,5 @@
-import re
 from yattag import Doc
 from .template_base import TemplateBase
-from usdm_excel.base_sheet import BaseSheet
-from usdm_model.study import Study
 
 
 class TemplateM11(TemplateBase):

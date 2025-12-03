@@ -1,5 +1,5 @@
 from usdm_model.study import Study
-from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
+from usdm_model.narrative_content import NarrativeContent
 from usdm_db.cross_reference import CrossReference
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_db.document.utility import get_soup
@@ -59,7 +59,7 @@ class ToFHIR:
                     ),
                     None,
                 )
-            type_code = CodeableConcept(text=f"EvidenceReport")
+            type_code = CodeableConcept(text="EvidenceReport")
             # date = datetime.datetime.now().isoformat()
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
             author = Reference(display="USDM")
@@ -88,7 +88,7 @@ class ToFHIR:
             return bundle.json()
         except Exception as e:
             self._errors_and_logging.exception(
-                f"Exception raised generating FHIR content. See logs for more details",
+                "Exception raised generating FHIR content. See logs for more details",
                 e,
             )
             return None

@@ -1,5 +1,3 @@
-import traceback
-import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.encounter import Encounter
 from usdm_model.transition_rule import TransitionRule
@@ -78,7 +76,7 @@ class StudyDesignEncounterSheet(BaseSheet):
                         scheduledAtId=timing_id,
                     )
                 except Exception as e:
-                    self._general_exception(f"Failed to create Encounter object", e)
+                    self._general_exception("Failed to create Encounter object", e)
                 else:
                     self.items.append(item)
                     cross_ref = xref if xref else name

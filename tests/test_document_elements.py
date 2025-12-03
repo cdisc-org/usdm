@@ -1,5 +1,4 @@
 import pytest
-from src.usdm_excel.globals import Globals as GlobalsClass
 from tests.test_factory import Factory as FactoryClass
 from tests.test_data_factory import MinimalStudy
 from usdm_excel.document.elements import Elements

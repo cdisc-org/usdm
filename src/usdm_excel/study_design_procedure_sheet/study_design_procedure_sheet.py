@@ -1,5 +1,3 @@
-import traceback
-import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.procedure import Procedure
 from usdm_excel.globals import Globals
@@ -39,7 +37,7 @@ class StudyDesignProcedureSheet(BaseSheet):
                         code=code,
                     )
                 except Exception as e:
-                    self._general_exception(f"Failed to create Procedure object", e)
+                    self._general_exception("Failed to create Procedure object", e)
                 else:
                     self.procedures.append(item)
                     cross_ref = xref if xref else name

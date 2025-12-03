@@ -160,7 +160,7 @@ class BaseSheet:
         except BaseSheet.StateError as e:
             self._error(rindex, cindex, f"Internal state error '{e}' reading cell")
             return []
-        except BaseSheet.FormatError as e:
+        except BaseSheet.FormatError:
             self._error(
                 rindex,
                 cindex,
@@ -380,7 +380,7 @@ class BaseSheet:
         try:
             col_index = self._get_column_index(field_name)
             return self.read_geographic_scopes_cell(row_index, col_index)
-        except Exception as e:
+        except Exception:
             self._warning(
                 row_index,
                 -2,
@@ -490,7 +490,7 @@ class BaseSheet:
                 country=country,
             )
         except Exception as e:
-            self._general_exception(f"Failed to create Address object", e)
+            self._general_exception("Failed to create Address object", e)
             result = None
         return result
 
@@ -637,7 +637,7 @@ class BaseSheet:
                     the_id = getattr(items[idx + 1], "id")
                     setattr(item, next, the_id)
         except Exception as e:
-            self._general_exception(f"Error while doubly linking lists", e)
+            self._general_exception("Error while doubly linking lists", e)
 
     def previous_link(self, items, prev):
         try:
@@ -695,7 +695,7 @@ class BaseSheet:
         try:
             col_index = self.sheet.columns.get_loc(column_name)
             return col_index
-        except Exception as e:
+        except Exception:
             pass
         raise BaseSheet.FormatError(
             f"Failed to detect column(s) '{column_name}' in sheet"

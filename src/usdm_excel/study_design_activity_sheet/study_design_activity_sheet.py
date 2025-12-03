@@ -1,7 +1,6 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.activity import Activity
 from usdm_excel.globals import Globals
-from usdm_model.comment_annotation import CommentAnnotation
 
 
 class StudyDesignActivitySheet(BaseSheet):

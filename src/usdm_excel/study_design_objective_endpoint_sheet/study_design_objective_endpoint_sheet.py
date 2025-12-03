@@ -2,8 +2,6 @@ from usdm_excel.globals import Globals
 from usdm_excel.syntax_template_sheet import SyntaxTemplateSheet
 from usdm_model.objective import Objective
 from usdm_model.endpoint import Endpoint
-from usdm_model.syntax_template_dictionary import SyntaxTemplateDictionary
-from usdm_excel.globals import Globals
 
 
 class StudyDesignObjectiveEndpointSheet(SyntaxTemplateSheet):
@@ -73,7 +71,7 @@ class StudyDesignObjectiveEndpointSheet(SyntaxTemplateSheet):
                             dictionaryId=dictionary_id,
                         )
                     except Exception as e:
-                        self._general_exception(f"Failed to create Objective object", e)
+                        self._general_exception("Failed to create Objective object", e)
                     else:
                         self.objectives.append(current)
                         self.globals.cross_references.add(o_name, current)
@@ -91,7 +89,7 @@ class StudyDesignObjectiveEndpointSheet(SyntaxTemplateSheet):
                             dictionaryId=dictionary_id,
                         )
                     except Exception as e:
-                        self._general_exception(f"Failed to create Endpoint object", e)
+                        self._general_exception("Failed to create Endpoint object", e)
                     else:
                         current.endpoints.append(ep)
                         self.globals.cross_references.add(ep_name, ep)

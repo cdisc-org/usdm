@@ -1,5 +1,3 @@
-import traceback
-import pandas as pd
 from usdm_excel.base_sheet import BaseSheet
 from usdm_model.study_element import StudyElement
 from usdm_model.transition_rule import TransitionRule
@@ -52,7 +50,7 @@ class StudyDesignElementSheet(BaseSheet):
                         transitionEndRule=end_rule,
                     )
                 except Exception as e:
-                    self._general_exception(f"Failed to create StudyElement object", e)
+                    self._general_exception("Failed to create StudyElement object", e)
                 else:
                     self.items.append(item)
                     cross_ref = xref if xref else name

@@ -1,5 +1,4 @@
 import re
-import traceback
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.iso_8601_duration import ISO8601Duration
 from usdm_excel.study_design_timing_sheet.window_type import WindowType
@@ -59,7 +58,7 @@ class StudyDesignTimingSheet(BaseSheet):
                             relativeToScheduledInstanceId=to_name,
                         )
                     except Exception as e:
-                        self._general_exception(f"Failed to create Timing object", e)
+                        self._general_exception("Failed to create Timing object", e)
                     else:
                         self.globals.cross_references.add(name, item)
                         self.items.append(item)
@@ -79,7 +78,7 @@ class StudyDesignTimingSheet(BaseSheet):
                 return ISO8601Duration().encode(
                     duration_parts[0].strip(), duration_parts[1].strip()
                 )
-            except Exception as e:
+            except Exception:
                 self._general_error(
                     f"Could not decode the duration value '{the_duration}'"
                 )

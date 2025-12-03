@@ -1,11 +1,9 @@
 import pytest
 import pandas as pd
-from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_definition_document.document_content_sheet import (
     DocumentContentSheet,
 )
 from usdm_excel.option_manager import Options, EmptyNoneOption
-from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 

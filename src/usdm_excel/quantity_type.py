@@ -1,4 +1,3 @@
-import traceback
 import re
 from usdm_excel.cdisc_ct import CDISCCT
 from usdm_excel.globals import Globals

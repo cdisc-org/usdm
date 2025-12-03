@@ -4,7 +4,6 @@ from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.scheduled_instance import (
     ScheduledActivityInstance,
-    ScheduledDecisionInstance,
 )
 from usdm_model.duration import Duration
 from usdm_model.schedule_timeline import ScheduleTimeline
@@ -172,5 +171,5 @@ class StudySoAV2Sheet(BaseSheet):
             self.globals.cross_references.add(timeline.name, timeline)
             return timeline
         except Exception as e:
-            self._general_exception(f"Failed to create ScheduleTimeline object", e)
+            self._general_exception("Failed to create ScheduleTimeline object", e)
             return None

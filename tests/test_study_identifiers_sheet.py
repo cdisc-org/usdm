@@ -4,7 +4,6 @@ from usdm_excel.study_identifier_and_organization_sheets.study_identifiers_sheet
 )
 from usdm_model.code import Code
 from usdm_model.organization import Organization
-from usdm_model.address import Address
 from tests.test_factory import Factory
 
 
