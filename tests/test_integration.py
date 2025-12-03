@@ -309,6 +309,39 @@ def test_references():
     run_test("references")
 
 
+def test_group_activities_1():
+    run_test("group_activities_1")
+
+
+def test_notes_1():
+    run_test("annotations_and_abbreviations")
+
+
+def test_template_1():
+    run_test("template")
+
+
+def test_interventions_1():
+    run_test("interventions")
+
+
+def test_study_devices_1():
+    run_test("devices")
+
+
+def test_time_duration_1():
+    run_test("timeline_duration")
+
+
+def test_minimum():
+    run_test("minimum")
+
+
+def test_activity_timeline():
+    run_test("activity_timeline")
+
+# OTHER TESTS
+
 def test_references_html():
     run_test_html("references")
 
@@ -336,30 +369,3 @@ def test_full_neo4j_3(mocker):
 def test_full_fhir_1(mocker):
     run_test_fhir("full_1", mocker)
 
-
-def test_group_activities_1(mocker):
-    run_test("group_activities_1", mocker)
-
-
-def test_notes_1(mocker):
-    run_test("annotations_and_abbreviations", mocker)
-
-
-def test_template_1(mocker):
-    run_test("template", mocker)
-
-
-def test_interventions_1(mocker):
-    run_test("interventions", mocker)
-
-
-def test_study_devices_1(mocker):
-    run_test("devices", mocker)
-
-
-def test_time_duration_1(mocker):
-    run_test("timeline_duration", mocker)
-
-
-def test_minimum(mocker):
-    run_test("minimum", mocker)
