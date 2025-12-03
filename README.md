@@ -436,11 +436,16 @@ The timing seciton consists of multiple columns starting in column D. As many co
 | 5 | default | Timepoint Link | The name (as per row 1) of the next activity in the sequence, the default connection |
 | 6 | condition | Timepoint Links | The names (as per row 1) of the activities to link to for one or more conditions (command separated list) |
 | 7 | epoch | Name of the epoch within which the timepoint falls | Text string  |
-| 8 | encounter | Name of the encounter in which the timepoint belongs| Text string. Can be empty |
+| 8 | encounter | Name of the encounter in which the timepoint belongs | Text string. Can be empty |
+| 9 (optional) | timeline | Name of any timeline initiated from the timepoint | Text string. Can be empty |
+
+_Note: Row 9 is optional. If present then it pushed the activity section down one row_
 
 ##### Activity
 
 The activity section consists of three columns, A to C, starting in row 10, row 9 being a title row. As many rows as needed can be added. Note that only one of parent or child activity should be entered on any given row.
+
+_Note: This section can start with the title row in row 10 if the timeline row is present in the timing section, see above_
 
 | Column | Column Name | Purpose | Format and Values |
 | :--- | :--- | :--- | :--- |
