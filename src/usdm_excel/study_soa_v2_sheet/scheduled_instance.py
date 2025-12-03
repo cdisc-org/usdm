@@ -95,7 +95,8 @@ class ScheduledInstance:
         row = 0
         column = self.parent.sheet.iloc[:, self.col_index]
         for cell in column:
-            if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
+            #if row >= SoAColumnRows.FIRST_ACTIVITY_ROW:
+            if row >= self.parent._first_activity_row:
                 activity_name = self.parent.read_cell(
                     row, SoAColumnRows.CHILD_ACTIVITY_COL
                 )

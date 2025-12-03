@@ -1,6 +1,7 @@
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.soa_activities import SoAActivities
 from usdm_excel.study_soa_v2_sheet.scheduled_instances import ScheduledInstances
+from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.scheduled_instance import (
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
@@ -41,6 +42,7 @@ class StudySoAV2Sheet(BaseSheet):
             self.biomedical_concept_surrogates = []
             self._raw_activities = None
             self._raw_instances = None
+            self._first_activity_row = SoAColumnRows.FIRST_ACTIVITY_ROW
             super().__init__(
                 file_path=file_path,
                 globals=globals,

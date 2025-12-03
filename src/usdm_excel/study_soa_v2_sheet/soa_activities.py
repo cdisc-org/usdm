@@ -10,7 +10,8 @@ class SoAActivities:
         self._map = {}
         self._parent_activity = None
         for row_index, col_def in self._parent_sheet.sheet.iterrows():
-            if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
+            # if row_index >= SoAColumnRows.FIRST_ACTIVITY_ROW:
+            if row_index >= self._parent_sheet._first_activity_row:
                 activity = SoAActivity(self._parent_sheet, row_index, self._map)
                 the_activity = activity.activity
                 if the_activity:
