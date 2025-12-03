@@ -8,6 +8,7 @@ from usdm_model.scheduled_instance import (
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
 )
+from usdm_model.schedule_timeline import ScheduleTimeline
 from usdm_model.encounter import Encounter
 from usdm_model.study_epoch import StudyEpoch
 from usdm_model.activity import Activity
@@ -32,6 +33,13 @@ class ScheduledInstance:
         self.conditions = Conditons(
             self.parent.read_cell(SoAColumnRows.CONDITIONS_ROW, col_index)
         )
+        timeline = None
+        if self.parent._timeline_option():
+            timeline_name = self.parent.read_cell(SoAColumnRows.TIMELINE_ROW, col_index)
+            if timeline_name:
+                timeline = self.parent.globals.cross_references.get(
+                    ScheduleTimeline, timeline_name
+                )
         if encounter_name:
             encounter = self.parent.globals.cross_references.get(
                 Encounter, encounter_name
@@ -61,10 +69,10 @@ class ScheduledInstance:
                     label=label,
                     timelineExitId=None,
                     encounterId=encounter_id,
-                    scheduledInstanceTimelineId=None,
                     defaultConditionId=None,
                     epochId=epoch_id,
                     activityIds=self._add_activities(),
+                    timelineId=timeline.id if timeline else None
                 )
                 self.parent.globals.cross_references.add(self.item.id, self.item)
                 self.parent.globals.cross_references.add(self.name, self.item)

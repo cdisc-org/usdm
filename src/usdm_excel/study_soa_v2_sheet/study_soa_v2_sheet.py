@@ -139,6 +139,9 @@ class StudySoAV2Sheet(BaseSheet):
             self._general_info("SoA activity timeline row detected")
             self._first_activity_row += 1
 
+    def _timeline_option(self) -> bool:
+        return self._first_activity_row == SoAColumnRows.FIRST_ACTIVITY_ROW + 1
+
     def _add_timeline(self, name, description, condition, instances, exit):
         try:
             duration = (
