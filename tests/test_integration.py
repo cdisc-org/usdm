@@ -5,7 +5,7 @@ from usdm_db import USDMDb
 from bs4 import BeautifulSoup
 from uuid import UUID
 
-SAVE_ALL = False
+SAVE = False
 
 
 def save_error_csv(file, contents):
@@ -50,7 +50,7 @@ def run_test(filename, save=False):
     # errors = excel.errors()
 
     # Useful if you want to see the results.
-    if save or SAVE_ALL:
+    if save or SAVE:
         with open(
             f"tests/integration_test_files/{filename}.json", "w", encoding="utf-8"
         ) as f:
@@ -77,7 +77,7 @@ def run_test_html(filename, save=False, highlight=False):
     result = usdm.to_html("SPONSOR", highlight)
 
     # Useful if you want to see the results.
-    if save or SAVE_ALL:
+    if save or SAVE:
         with open(f"tests/integration_test_files/{filename}{suffix}.html", "w") as f:
             f.write(format_html(result))
         with open(
@@ -103,7 +103,7 @@ def run_test_timeline(filename, level=USDMDb.FULL_HTML, save=False):
     result = usdm.to_timeline(level)
 
     # Useful if you want to see the results.
-    if save or SAVE_ALL:
+    if save or SAVE:
         with open(
             f"tests/integration_test_files/{filename}_timeline_{level}.html", "w"
         ) as f:
@@ -126,7 +126,7 @@ def run_test_neo4j(filename, mocker, save=False):
     result = usdm.to_neo4j_dict()
 
     # Useful if you want to see the results.
-    if save or SAVE_ALL:
+    if save or SAVE:
         with open(f"tests/integration_test_files/{filename}_neo4j_dict.yaml", "w") as f:
             f.write(yaml.dump(result))
 
@@ -146,7 +146,7 @@ def run_test_fhir(filename, mocker, save=False):
 
     # print(f"RESULT: {result}")
 
-    if save or SAVE_ALL:
+    if save or SAVE:
         with open(
             f"tests/integration_test_files/{filename}_fhir.json", "w", encoding="utf-8"
         ) as f:
