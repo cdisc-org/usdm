@@ -2,8 +2,9 @@
 #version: "2022-12-16"
 #version: "2023-09-29"
 #version: "2023-12-15"
-version: "2024-09-27"
+# version: "2024-09-27"
 #version: "2025-03-28"
+version: "2025-09-26"
 packages: 
 - ddf
 - sdtm
@@ -56,12 +57,12 @@ required:
 - C207417
 - C207418
 - C207419
-# - C215477
-# - C215478
-# - C215480
-# - C215481
-# - C215483
-# - C215485
+- C215477
+- C215478
+- C215480
+- C215481
+- C215483
+- C215485
 # Note: Some of the attribute names are the old versions and have not been updated. If they do get updated
 # then the referecnces int he code also need to be changed.
 klass:
@@ -69,9 +70,9 @@ klass:
   StudyProtocolVersion:
     protocolStatus: C188723
   StudyDefinitionDocument:
-    type: C99916x # C215477 But not used within code as only one value in code list so fixed.
+    type: C215477 # C99916x, But not used within code as only one value in code list so fixed.
   Organization:
-    organizationType: C99917x # C188724 temp code list needed until CDISC Library updated
+    organizationType: C188724 # C99917x
   Objective:
     objectiveLevel: C188725
   Endpoint:
@@ -107,9 +108,9 @@ klass:
   GovernanceDate:
     type: C207413
   StudyAmendmentReason:
-    code: C207415x # C207415
+    code:  C207415 # C207415x
   StudyAmendmentImpact:
-    type: C99912x # C215481
+    type: C215481 # C99912x
   EligibilityCriteria:
     category: C66797
   Administration:
@@ -121,14 +122,14 @@ klass:
   StudyTitle:
     type: C207419 # C99905x
   ReferenceIdentifier:
-    type: C99910x # C215478
+    type: C215478 # C99910x
   AdministrableProduct:
     administrableDoseForm: C66726
     productDesignation: C207418
-    sourcing: C99914x # C215483
+    sourcing: C215483 # C99914x
   StudyRole:
-    code: C99911x # C215480
+    code: C215480 # C99911x
   MedicalDevice:
-    sourcing: C99914x # C215483
+    sourcing: C215483 # C99914x
   ProductOrganizationRole:
-    code: C99915x # C215485
+    code: C215485 # C99915x
