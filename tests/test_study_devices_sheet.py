@@ -16,7 +16,7 @@ def test_create(mocker, globals):
         "label": ["LABEL1", "LABEL2"],
         "hardwareVersion": ["HARDWAREVERSION1", "HARDWAREVERSION2"],
         "softwareVersion": ["SOFTWAREVERSION1", "SOFTWAREVERSION2"],
-        "sourcing": ["Centrally Sourced", "Locally Sourced"],
+        "sourcing": ["Centrally Sourced Indicator", "Locally Sourced"],
         "product": ["PRODUCT1", "PRODUCT2"],
         "notes": ["N1, N2", "N2"],
     }
@@ -31,7 +31,7 @@ def test_create(mocker, globals):
         code="code",
         codeSystem="codesys",
         codeSystemVersion="3",
-        decode="Centrally Sourced",
+        decode="Centrally Sourced Indicator",
     )
     expected_2 = Code(
         id="Code2",
@@ -59,7 +59,7 @@ def test_create(mocker, globals):
             "code": "code",
             "codeSystem": "codesys",
             "codeSystemVersion": "3",
-            "decode": "Centrally Sourced",
+            "decode": "Centrally Sourced Indicator",
             "id": "Code1",
             "extensionAttributes": [],
             "instanceType": "Code",
@@ -138,7 +138,7 @@ def test_read_cell_by_name_error(mocker, globals):
         code="code",
         codeSystem="codesys",
         codeSystemVersion="3",
-        decode="Centrally Sourced",
+        decode="Centrally Sourced Indicator",
     )
     mock_code = mocker.patch("usdm_excel.cdisc_ct.CDISCCT.code_for_attribute")
     mock_code.side_effect = [expected_1]
