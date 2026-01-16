@@ -12,7 +12,7 @@ MISSING_COLUMN = ["identifier", "organization"]
 def test_create(mocker, globals):
     ids = ["Code_1", "RI_1", "Code_2", "RI_2"]
     data = [
-        ["NCT12345678", "Sponsor1", "Pediatric Investigation Plan"],
+        ["NCT12345678", "Sponsor1", "Pediatric Investigation Clinical Development Plan"],
         ["NCT12345679", "Sponsor2", "Clinical Development Plan"],
     ]
     sheet = _setup(mocker, globals, data, ids)
@@ -28,7 +28,7 @@ def test_create(mocker, globals):
             "code": "C215674",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2025-09-26",
-            "decode": "Pediatric Investigation Plan",
+            "decode": "Pediatric Investigation Clinical Development Plan",
             "extensionAttributes": [],
             "instanceType": "Code",
         },
