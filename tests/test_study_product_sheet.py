@@ -58,7 +58,7 @@ def test_create_1(mocker, globals):
             "standardCode": {
                 "code": "C42998",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Tablet Dosage Form",
                 "id": "Id_1",
                 "extensionAttributes": [],
@@ -105,7 +105,7 @@ def test_create_1(mocker, globals):
                                     "standardCode": {
                                         "code": "C48542",
                                         "codeSystem": "http://www.cdisc.org",
-                                        "codeSystemVersion": "2024-09-27",
+                                        "codeSystemVersion": "2025-09-26",
                                         "decode": "Tablet Dosing Unit",
                                         "id": "Id_13",
                                         "extensionAttributes": [],
@@ -132,7 +132,7 @@ def test_create_1(mocker, globals):
                                     "standardCode": {
                                         "code": "C28253",
                                         "codeSystem": "http://www.cdisc.org",
-                                        "codeSystemVersion": "2024-09-27",
+                                        "codeSystemVersion": "2025-09-26",
                                         "decode": "Milligram",
                                         "id": "Id_10",
                                         "extensionAttributes": [],
@@ -164,7 +164,7 @@ def test_create_1(mocker, globals):
         "productDesignation": {
             "code": "C202579",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Investigational Medicinal Product",
             "id": "Id_4",
             "extensionAttributes": [],
@@ -174,7 +174,7 @@ def test_create_1(mocker, globals):
         "sourcing": {
             "code": "C215659",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Centrally Sourced",
             "id": "Id_5",
             "extensionAttributes": [],

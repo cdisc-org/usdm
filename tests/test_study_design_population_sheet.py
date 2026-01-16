@@ -199,7 +199,7 @@ def test_create(mocker, globals):
                             "standardCode": {
                                 "code": "C29848",
                                 "codeSystem": "http://www.cdisc.org",
-                                "codeSystemVersion": "2024-09-27",
+                                "codeSystemVersion": "2025-09-26",
                                 "decode": "Year",
                                 "id": "X_23",
                                 "extensionAttributes": [],
@@ -220,7 +220,7 @@ def test_create(mocker, globals):
                             "standardCode": {
                                 "code": "C29848",
                                 "codeSystem": "http://www.cdisc.org",
-                                "codeSystemVersion": "2024-09-27",
+                                "codeSystemVersion": "2025-09-26",
                                 "decode": "Year",
                                 "id": "X_22",
                                 "extensionAttributes": [],
@@ -276,7 +276,7 @@ def test_create(mocker, globals):
                     {
                         "code": "C20197",
                         "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
+                        "codeSystemVersion": "2025-09-26",
                         "decode": "Male",
                         "id": "X_29",
                         "extensionAttributes": [],
@@ -323,7 +323,7 @@ def test_create(mocker, globals):
                             "standardCode": {
                                 "code": "C29848",
                                 "codeSystem": "http://www.cdisc.org",
-                                "codeSystemVersion": "2024-09-27",
+                                "codeSystemVersion": "2025-09-26",
                                 "decode": "Year",
                                 "id": "X_38",
                                 "extensionAttributes": [],
@@ -344,7 +344,7 @@ def test_create(mocker, globals):
                             "standardCode": {
                                 "code": "C29848",
                                 "codeSystem": "http://www.cdisc.org",
-                                "codeSystemVersion": "2024-09-27",
+                                "codeSystemVersion": "2025-09-26",
                                 "decode": "Year",
                                 "id": "X_37",
                                 "extensionAttributes": [],
@@ -400,7 +400,7 @@ def test_create(mocker, globals):
                     {
                         "code": "C16576",
                         "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
+                        "codeSystemVersion": "2025-09-26",
                         "decode": "Female",
                         "id": "X_44",
                         "extensionAttributes": [],
@@ -433,7 +433,7 @@ def test_create(mocker, globals):
                     "standardCode": {
                         "code": "C29848",
                         "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
+                        "codeSystemVersion": "2025-09-26",
                         "decode": "Year",
                         "id": "X_8",
                         "extensionAttributes": [],
@@ -454,7 +454,7 @@ def test_create(mocker, globals):
                     "standardCode": {
                         "code": "C29848",
                         "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2024-09-27",
+                        "codeSystemVersion": "2025-09-26",
                         "decode": "Year",
                         "id": "X_7",
                         "extensionAttributes": [],
@@ -510,7 +510,7 @@ def test_create(mocker, globals):
             {
                 "code": "C49636",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Both",
                 "id": "X_14",
                 "extensionAttributes": [],

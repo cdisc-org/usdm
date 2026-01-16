@@ -298,7 +298,7 @@ def _expected():
             "standardCode": {
                 "code": "C15228",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Double Blind Study",
                 "id": "X18",
                 "extensionAttributes": [],
@@ -431,7 +431,7 @@ def _expected():
             {
                 "code": "C49656",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Treatment Study",
                 "id": "X20",
                 "extensionAttributes": [],
@@ -442,7 +442,7 @@ def _expected():
         "model": {
             "code": "C82639",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Parallel Study",
             "id": "X24",
             "extensionAttributes": [],
@@ -543,7 +543,7 @@ def _expected():
             "standardCode": {
                 "code": "C15601",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Phase II Trial",
                 "id": "X26",
                 "extensionAttributes": [],
@@ -554,7 +554,7 @@ def _expected():
         "studyType": {
             "code": "C98388",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Interventional Study",
             "id": "X25",
             "extensionAttributes": [],
@@ -564,7 +564,7 @@ def _expected():
             {
                 "code": "C49666",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Efficacy Study",
                 "id": "X21",
                 "extensionAttributes": [],
@@ -573,7 +573,7 @@ def _expected():
             {
                 "code": "C49667",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Safety Study",
                 "id": "X22",
                 "extensionAttributes": [],
@@ -582,7 +582,7 @@ def _expected():
             {
                 "code": "C49663",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Pharmacokinetic Study",
                 "id": "X23",
                 "extensionAttributes": [],

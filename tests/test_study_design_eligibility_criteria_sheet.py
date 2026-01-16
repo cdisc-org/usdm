@@ -78,7 +78,7 @@ def test_create(mocker, globals):
         "category": {
             "code": "C25532",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Inclusion Criteria",
             "id": "Code_1",
             "instanceType": "Code",
@@ -111,7 +111,7 @@ def test_create(mocker, globals):
         "category": {
             "code": "C25532",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Inclusion Criteria",
             "id": "Code_2",
             "instanceType": "Code",
@@ -144,7 +144,7 @@ def test_create(mocker, globals):
         "category": {
             "code": "C25370",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Exclusion Criteria",
             "id": "Code_3",
             "instanceType": "Code",

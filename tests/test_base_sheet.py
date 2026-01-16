@@ -1024,7 +1024,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
         "type": {
             "code": "C68846",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Global",
             "id": "Scope_1",
             "instanceType": "Code",
@@ -1053,7 +1053,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
         "type": {
             "code": "C41129",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Region",
             "id": "Scope_3",
             "instanceType": "Code",
@@ -1082,7 +1082,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
         "type": {
             "code": "C25464",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Country",
             "id": "Scope_6",
             "instanceType": "Code",
@@ -1098,7 +1098,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
         "type": {
             "code": "C68846",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Global",
             "id": "Scope_9",
             "instanceType": "Code",
@@ -1113,7 +1113,7 @@ def test__read_geographic_scopes_cell(mocker, globals):
         "type": {
             "code": "C68846",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Global",
             "id": "Scope_11",
             "instanceType": "Code",
@@ -1205,7 +1205,7 @@ def test__read_geographic_scopes_cell_by_name(mocker, globals):
         "type": {
             "code": "C41129",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Region",
             "id": "Scope_1",
             "instanceType": "Code",
@@ -1220,7 +1220,7 @@ def test__read_geographic_scopes_cell_by_name(mocker, globals):
         "type": {
             "code": "C68846",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Global",
             "id": "Scope_4",
             "instanceType": "Code",

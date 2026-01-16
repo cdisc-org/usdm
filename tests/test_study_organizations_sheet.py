@@ -113,7 +113,7 @@ def test_create(mocker, globals):
         "type": {
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Clinical Study Registry",
             "id": "Code_1",
             "extensionAttributes": [],
@@ -154,7 +154,7 @@ def test_create(mocker, globals):
         "type": {
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Clinical Study Registry",
             "id": "Code_2",
             "extensionAttributes": [],
@@ -195,7 +195,7 @@ def test_create(mocker, globals):
         "type": {
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Clinical Study Registry",
             "id": "Code_3",
             "extensionAttributes": [],
@@ -319,7 +319,7 @@ def test_create_with_z(mocker, globals):
         "type": {
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Clinical Study Registry",
             "id": "Code_1",
             "extensionAttributes": [],
@@ -360,7 +360,7 @@ def test_create_with_z(mocker, globals):
         "type": {
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Clinical Study Registry",
             "id": "Code_2",
             "extensionAttributes": [],
@@ -401,7 +401,7 @@ def test_create_with_z(mocker, globals):
         "type": {
             "code": "C93453",
             "codeSystem": "http://www.cdisc.org",
-            "codeSystemVersion": "2024-09-27",
+            "codeSystemVersion": "2025-09-26",
             "decode": "Clinical Study Registry",
             "id": "Code_3",
             "extensionAttributes": [],
