@@ -76,9 +76,7 @@ class MinimalStudy:
                 "name": "D_APPROVE",
                 "label": "Design Approval",
                 "description": "Design approval date",
-                "type": factory.cdisc_code(
-                    "C71476", "Approval Date"
-                ),
+                "type": factory.cdisc_code("C71476", "Approval Date"),
                 "dateValue": "2006-06-01",
                 "geographicScopes": [global_scope],
             },

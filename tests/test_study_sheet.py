@@ -3,7 +3,6 @@ import pytest
 xfail = pytest.mark.xfail
 
 
-
 @xfail
 def test_create(mocker, globals):
     assert 0
