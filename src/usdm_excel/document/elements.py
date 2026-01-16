@@ -102,7 +102,7 @@ class Elements:
     def document_approval_date(self) -> str:
         dates = self._document_version.dateValues
         for date in dates:
-            if date.type.code == "C207598":
+            if date.type.code == "C215663":
                 results = [
                     {
                         "instance": date,
@@ -116,7 +116,7 @@ class Elements:
     def study_approval_date(self) -> str:
         dates = self._study_version.dateValues
         for date in dates:
-            if date.type.code == "C132352":
+            if date.type.code == "C71476":
                 results = [
                     {
                         "instance": date,
