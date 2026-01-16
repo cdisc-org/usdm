@@ -14,7 +14,7 @@ def test_create(factory, mocker, globals):
         "organizations": ["Sponsor 1", "Sponsor 2", ""],
         "people": ["", "", ""],
         "masking": ["Masking 1", "Masking 2", ""],
-        "role": ["Investigator", "Sponsor", "Sponsor"],
+        "role": ["Investigator", "Clinical Study Sponsor", "Clinical Study Sponsor"],
     }
 
     mock_id = mocker.patch("usdm_excel.id_manager.IdManager.build_id")
@@ -76,7 +76,7 @@ def test_create(factory, mocker, globals):
             "code": "C70793",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2025-09-26",
-            "decode": "Sponsor",
+            "decode": "Clinical Study Sponsor",
             "extensionAttributes": [],
             "instanceType": "Code",
         },
@@ -104,7 +104,7 @@ def test_create(factory, mocker, globals):
             "code": "C70793",
             "codeSystem": "http://www.cdisc.org",
             "codeSystemVersion": "2025-09-26",
-            "decode": "Sponsor",
+            "decode": "Clinical Study Sponsor",
             "extensionAttributes": [],
             "instanceType": "Code",
         },
