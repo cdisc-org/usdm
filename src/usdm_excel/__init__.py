@@ -273,7 +273,7 @@ class USDMExcel:
                 try:
                     definition_document = StudyDefinitionDocument(
                         id=self._globals.id_manager.build_id(StudyDefinitionDocument),
-                        name=f"Protocol_Document_{self.study.name}",
+                        name=f"Protocol_Document_{self.study.name}_{index+1}",
                         versions=[definition_document_version],
                         language=OtherCT(self._globals).code(
                             "en", "ISO", "1", "English"
