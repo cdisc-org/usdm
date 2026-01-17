@@ -54,7 +54,7 @@ class StudyDesignEncounterSheet(BaseSheet):
                 if end_rule_text:
                     end_rule = TransitionRule(
                         id=self.globals.id_manager.build_id(TransitionRule),
-                        name=f"ENCOUNTER_START_RULE_{index + 1}",
+                        name=f"ENCOUNTER_END_RULE_{index + 1}",
                         text=end_rule_text,
                     )
                 if timing_xref:
