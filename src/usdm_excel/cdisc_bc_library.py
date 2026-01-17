@@ -1,6 +1,7 @@
 import os
 import yaml
 import requests
+from usdm_excel.utility import build_unique_name
 from usdm_excel.errors_and_logging.errors_and_logging import ErrorsAndLogging
 from usdm_excel.cdisc_ct_library import CDISCCTLibrary
 from usdm_excel.id_manager import IdManager
@@ -63,17 +64,19 @@ class CDISCBCLibrary:
             bc = BiomedicalConcept(**bc_copy)
         return bc
 
-    def _set_ids(self, parent):
+    def _set_ids(self, parent: dict, prefix: str | None = None):
         if isinstance(parent, str) or isinstance(parent, bool) or (parent is None):
             return
         parent["id"] = self._id_manager.build_id(parent["instanceType"])
-        for name, value in parent.items():
+        if "name" in parent:
+            parent["name"], prefix = build_unique_name(parent["name"], parent["id"], prefix)
+        for _, value in parent.items():
             if isinstance(value, list):
                 for child in value:
-                    self._set_ids(child)
+                    self._set_ids(child, prefix)
             else:
-                self._set_ids(value)
-
+                self._set_ids(value, prefix)
+        
     def _load_bcs(self):
         results = {}
         data = self._read_bcs()

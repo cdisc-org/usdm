@@ -3046,7 +3046,7 @@ nodes:
   - id: BiomedicalConcept_1
     instanceType: BiomedicalConcept
     label: Subject Age
-    name: Subject Age
+    name: Subject Age (1)
     reference: /mdr/bc/packages/2025-04-01/biomedicalconcepts/C69260
     synonyms:
     - Age
@@ -3054,13 +3054,13 @@ nodes:
   - id: BiomedicalConcept_2
     instanceType: BiomedicalConcept
     label: Sex
-    name: Sex
+    name: Sex (2)
     reference: /mdr/bc/packages/2025-04-01/biomedicalconcepts/C28421
     uuid: 00000000-0000-4000-8000-000000000354
   - id: BiomedicalConcept_3
     instanceType: BiomedicalConcept
     label: Race
-    name: Race
+    name: Race (3)
     reference: /mdr/bc/packages/2025-04-01/biomedicalconcepts/C17049
     synonyms:
     - Racial Group
@@ -3068,7 +3068,7 @@ nodes:
   - id: BiomedicalConcept_4
     instanceType: BiomedicalConcept
     label: Weight
-    name: Weight
+    name: Weight (4)
     reference: /mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/WEIGHT
     synonyms:
     - WEIGHT
@@ -3077,7 +3077,7 @@ nodes:
   - id: BiomedicalConcept_5
     instanceType: BiomedicalConcept
     label: Weight
-    name: Weight
+    name: Weight (5)
     reference: /mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/WEIGHT
     synonyms:
     - WEIGHT
@@ -3086,7 +3086,7 @@ nodes:
   - id: BiomedicalConcept_6
     instanceType: BiomedicalConcept
     label: Systolic Blood Pressure
-    name: Systolic Blood Pressure
+    name: Systolic Blood Pressure (6)
     reference: /mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/SYSBP
     synonyms:
     - SYSBP
@@ -3095,7 +3095,7 @@ nodes:
   - id: BiomedicalConcept_7
     instanceType: BiomedicalConcept
     label: Diastolic Blood Pressure
-    name: Diastolic Blood Pressure
+    name: Diastolic Blood Pressure (7)
     reference: /mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/DIABP
     synonyms:
     - DIABP
@@ -3108,7 +3108,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Numeric Age for Data Tabulation
-    name: Numeric Age for Data Tabulation
+    name: Numeric Age for Data Tabulation (1.1)
     uuid: 00000000-0000-4000-8000-000000000343
   - datatype: string
     id: BiomedicalConceptProperty_2
@@ -3116,7 +3116,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Age Unit
-    name: Age Unit
+    name: Age Unit (1.2)
     uuid: 00000000-0000-4000-8000-000000000346
   - datatype: datetime
     id: BiomedicalConceptProperty_3
@@ -3124,7 +3124,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Collection Date Time
-    name: Collection Date Time
+    name: Collection Date Time (1.3)
     uuid: 00000000-0000-4000-8000-000000000349
   - datatype: string
     id: BiomedicalConceptProperty_4
@@ -3132,7 +3132,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Sex
-    name: Sex
+    name: Sex (2.4)
     uuid: 00000000-0000-4000-8000-000000000355
   - datatype: datetime
     id: BiomedicalConceptProperty_5
@@ -3140,7 +3140,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Collection Date Time
-    name: Collection Date Time
+    name: Collection Date Time (2.5)
     uuid: 00000000-0000-4000-8000-000000000362
   - datatype: string
     id: BiomedicalConceptProperty_6
@@ -3148,7 +3148,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Race
-    name: Race
+    name: Race (3.6)
     uuid: 00000000-0000-4000-8000-000000000368
   - datatype: datetime
     id: BiomedicalConceptProperty_7
@@ -3156,7 +3156,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: Collection Date Time
-    name: Collection Date Time
+    name: Collection Date Time (3.7)
     uuid: 00000000-0000-4000-8000-000000000371
   - datatype: ''
     id: BiomedicalConceptProperty_8
@@ -3164,7 +3164,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSTESTCD
-    name: VSTESTCD
+    name: VSTESTCD (4.8)
     uuid: 00000000-0000-4000-8000-000000000377
   - datatype: float
     id: BiomedicalConceptProperty_9
@@ -3172,7 +3172,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRES
-    name: VSORRES
+    name: VSORRES (4.9)
     uuid: 00000000-0000-4000-8000-000000000380
   - datatype: ''
     id: BiomedicalConceptProperty_10
@@ -3180,7 +3180,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRESU
-    name: VSORRESU
+    name: VSORRESU (4.10)
     uuid: 00000000-0000-4000-8000-000000000383
   - datatype: ''
     id: BiomedicalConceptProperty_11
@@ -3188,7 +3188,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSDTC
-    name: VSDTC
+    name: VSDTC (4.11)
     uuid: 00000000-0000-4000-8000-000000000392
   - datatype: ''
     id: BiomedicalConceptProperty_12
@@ -3196,7 +3196,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSTESTCD
-    name: VSTESTCD
+    name: VSTESTCD (5.12)
     uuid: 00000000-0000-4000-8000-000000000398
   - datatype: float
     id: BiomedicalConceptProperty_13
@@ -3204,7 +3204,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRES
-    name: VSORRES
+    name: VSORRES (5.13)
     uuid: 00000000-0000-4000-8000-000000000401
   - datatype: ''
     id: BiomedicalConceptProperty_14
@@ -3212,7 +3212,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRESU
-    name: VSORRESU
+    name: VSORRESU (5.14)
     uuid: 00000000-0000-4000-8000-000000000404
   - datatype: ''
     id: BiomedicalConceptProperty_15
@@ -3220,7 +3220,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSDTC
-    name: VSDTC
+    name: VSDTC (5.15)
     uuid: 00000000-0000-4000-8000-000000000413
   - datatype: ''
     id: BiomedicalConceptProperty_16
@@ -3228,7 +3228,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSTESTCD
-    name: VSTESTCD
+    name: VSTESTCD (6.16)
     uuid: 00000000-0000-4000-8000-000000000419
   - datatype: integer
     id: BiomedicalConceptProperty_17
@@ -3236,7 +3236,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRES
-    name: VSORRES
+    name: VSORRES (6.17)
     uuid: 00000000-0000-4000-8000-000000000422
   - datatype: ''
     id: BiomedicalConceptProperty_18
@@ -3244,7 +3244,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRESU
-    name: VSORRESU
+    name: VSORRESU (6.18)
     uuid: 00000000-0000-4000-8000-000000000425
   - datatype: ''
     id: BiomedicalConceptProperty_19
@@ -3252,7 +3252,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSPOS
-    name: VSPOS
+    name: VSPOS (6.19)
     uuid: 00000000-0000-4000-8000-000000000428
   - datatype: ''
     id: BiomedicalConceptProperty_20
@@ -3260,7 +3260,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSLOC
-    name: VSLOC
+    name: VSLOC (6.20)
     uuid: 00000000-0000-4000-8000-000000000441
   - datatype: ''
     id: BiomedicalConceptProperty_21
@@ -3268,7 +3268,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSLAT
-    name: VSLAT
+    name: VSLAT (6.21)
     uuid: 00000000-0000-4000-8000-000000000456
   - datatype: ''
     id: BiomedicalConceptProperty_22
@@ -3276,7 +3276,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSDTC
-    name: VSDTC
+    name: VSDTC (6.22)
     uuid: 00000000-0000-4000-8000-000000000463
   - datatype: ''
     id: BiomedicalConceptProperty_23
@@ -3284,7 +3284,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSTESTCD
-    name: VSTESTCD
+    name: VSTESTCD (7.23)
     uuid: 00000000-0000-4000-8000-000000000469
   - datatype: integer
     id: BiomedicalConceptProperty_24
@@ -3292,7 +3292,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRES
-    name: VSORRES
+    name: VSORRES (7.24)
     uuid: 00000000-0000-4000-8000-000000000472
   - datatype: ''
     id: BiomedicalConceptProperty_25
@@ -3300,7 +3300,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSORRESU
-    name: VSORRESU
+    name: VSORRESU (7.25)
     uuid: 00000000-0000-4000-8000-000000000475
   - datatype: ''
     id: BiomedicalConceptProperty_26
@@ -3308,7 +3308,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSPOS
-    name: VSPOS
+    name: VSPOS (7.26)
     uuid: 00000000-0000-4000-8000-000000000478
   - datatype: ''
     id: BiomedicalConceptProperty_27
@@ -3316,7 +3316,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSLOC
-    name: VSLOC
+    name: VSLOC (7.27)
     uuid: 00000000-0000-4000-8000-000000000491
   - datatype: ''
     id: BiomedicalConceptProperty_28
@@ -3324,7 +3324,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSLAT
-    name: VSLAT
+    name: VSLAT (7.28)
     uuid: 00000000-0000-4000-8000-000000000506
   - datatype: ''
     id: BiomedicalConceptProperty_29
@@ -3332,7 +3332,7 @@ nodes:
     isEnabled: true
     isRequired: true
     label: VSDTC
-    name: VSDTC
+    name: VSDTC (7.29)
     uuid: 00000000-0000-4000-8000-000000000513
   Code:
   - code: C71476
@@ -6477,205 +6477,205 @@ nodes:
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C20197
+    name: RC_C20197 (2.4.1)
     uuid: 00000000-0000-4000-8000-000000000356
   - id: ResponseCode_2
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C16576
+    name: RC_C16576 (2.4.2)
     uuid: 00000000-0000-4000-8000-000000000358
   - id: ResponseCode_3
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C48531
+    name: RC_C48531 (4.10.3)
     uuid: 00000000-0000-4000-8000-000000000384
   - id: ResponseCode_4
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C48155
+    name: RC_C48155 (4.10.4)
     uuid: 00000000-0000-4000-8000-000000000386
   - id: ResponseCode_5
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C28252
+    name: RC_C28252 (4.10.5)
     uuid: 00000000-0000-4000-8000-000000000388
   - id: ResponseCode_6
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C48531
+    name: RC_C48531 (5.14.6)
     uuid: 00000000-0000-4000-8000-000000000405
   - id: ResponseCode_7
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C48155
+    name: RC_C48155 (5.14.7)
     uuid: 00000000-0000-4000-8000-000000000407
   - id: ResponseCode_8
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C28252
+    name: RC_C28252 (5.14.8)
     uuid: 00000000-0000-4000-8000-000000000409
   - id: ResponseCode_9
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62165
+    name: RC_C62165 (6.19.9)
     uuid: 00000000-0000-4000-8000-000000000429
   - id: ResponseCode_10
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C111310
+    name: RC_C111310 (6.19.10)
     uuid: 00000000-0000-4000-8000-000000000431
   - id: ResponseCode_11
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62122
+    name: RC_C62122 (6.19.11)
     uuid: 00000000-0000-4000-8000-000000000433
   - id: ResponseCode_12
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62166
+    name: RC_C62166 (6.19.12)
     uuid: 00000000-0000-4000-8000-000000000435
   - id: ResponseCode_13
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62167
+    name: RC_C62167 (6.19.13)
     uuid: 00000000-0000-4000-8000-000000000437
   - id: ResponseCode_14
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12681
+    name: RC_C12681 (6.20.14)
     uuid: 00000000-0000-4000-8000-000000000442
   - id: ResponseCode_15
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12687
+    name: RC_C12687 (6.20.15)
     uuid: 00000000-0000-4000-8000-000000000444
   - id: ResponseCode_16
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C32478
+    name: RC_C32478 (6.20.16)
     uuid: 00000000-0000-4000-8000-000000000446
   - id: ResponseCode_17
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12715
+    name: RC_C12715 (6.20.17)
     uuid: 00000000-0000-4000-8000-000000000448
   - id: ResponseCode_18
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C32608
+    name: RC_C32608 (6.20.18)
     uuid: 00000000-0000-4000-8000-000000000450
   - id: ResponseCode_19
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12838
+    name: RC_C12838 (6.20.19)
     uuid: 00000000-0000-4000-8000-000000000452
   - id: ResponseCode_20
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C25229
+    name: RC_C25229 (6.21.20)
     uuid: 00000000-0000-4000-8000-000000000457
   - id: ResponseCode_21
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C25228
+    name: RC_C25228 (6.21.21)
     uuid: 00000000-0000-4000-8000-000000000459
   - id: ResponseCode_22
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62165
+    name: RC_C62165 (7.26.22)
     uuid: 00000000-0000-4000-8000-000000000479
   - id: ResponseCode_23
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C111310
+    name: RC_C111310 (7.26.23)
     uuid: 00000000-0000-4000-8000-000000000481
   - id: ResponseCode_24
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62122
+    name: RC_C62122 (7.26.24)
     uuid: 00000000-0000-4000-8000-000000000483
   - id: ResponseCode_25
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62166
+    name: RC_C62166 (7.26.25)
     uuid: 00000000-0000-4000-8000-000000000485
   - id: ResponseCode_26
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C62167
+    name: RC_C62167 (7.26.26)
     uuid: 00000000-0000-4000-8000-000000000487
   - id: ResponseCode_27
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12681
+    name: RC_C12681 (7.27.27)
     uuid: 00000000-0000-4000-8000-000000000492
   - id: ResponseCode_28
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12687
+    name: RC_C12687 (7.27.28)
     uuid: 00000000-0000-4000-8000-000000000494
   - id: ResponseCode_29
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C32478
+    name: RC_C32478 (7.27.29)
     uuid: 00000000-0000-4000-8000-000000000496
   - id: ResponseCode_30
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12715
+    name: RC_C12715 (7.27.30)
     uuid: 00000000-0000-4000-8000-000000000498
   - id: ResponseCode_31
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C32608
+    name: RC_C32608 (7.27.31)
     uuid: 00000000-0000-4000-8000-000000000500
   - id: ResponseCode_32
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C12838
+    name: RC_C12838 (7.27.32)
     uuid: 00000000-0000-4000-8000-000000000502
   - id: ResponseCode_33
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C25229
+    name: RC_C25229 (7.28.33)
     uuid: 00000000-0000-4000-8000-000000000507
   - id: ResponseCode_34
     instanceType: ResponseCode
     isEnabled: true
     label: ''
-    name: RC_C25228
+    name: RC_C25228 (7.28.34)
     uuid: 00000000-0000-4000-8000-000000000509
   ScheduleTimeline:
   - description: This is the main timeline for the study design.

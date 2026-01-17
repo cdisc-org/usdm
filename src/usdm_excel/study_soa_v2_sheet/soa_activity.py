@@ -1,3 +1,4 @@
+from usdm_excel.utility import build_unique_name
 from usdm_excel.base_sheet import BaseSheet
 from usdm_excel.study_soa_v2_sheet.soa_column_rows import SoAColumnRows
 from usdm_model.activity import Activity
@@ -113,10 +114,11 @@ class SoAActivity:
                     "label": bc,
                     "reference": "None set",
                 }
-                item = self._parent_sheet.create_object(
+                item: BiomedicalConceptSurrogate = self._parent_sheet.create_object(
                     BiomedicalConceptSurrogate, params
                 )
                 if item:
+                    item.name, _ = build_unique_name(item.name, item.id)
                     surrogate_bc_items.append(item.id)
                     self.usdm_biomedical_concept_surrogates.append(item)
                     self._parent_sheet.globals.cross_references.add(item.id, item)
