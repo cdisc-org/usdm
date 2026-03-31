@@ -4,6 +4,7 @@ from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_excel.globals import Globals
 from usdm_excel.document.macros import Macros
+from usdm_excel.xhtml_sanitiser import sanitise_xhtml
 
 
 class DocumentContentSheet(BaseSheet):
@@ -26,6 +27,11 @@ class DocumentContentSheet(BaseSheet):
                 for index, row in self.sheet.iterrows():
                     text = self.read_cell_by_name(index, "text")
                     name = self.read_cell_by_name(index, "name")
+                    text, xhtml_fixes = sanitise_xhtml(text)
+                    for fix in xhtml_fixes:
+                        self._general_warning(
+                            f"XHTML sanitised in NarrativeContentItem '{name}': {fix}"
+                        )
                     item = self.create_object(
                         NarrativeContentItem,
                         {"name": name, "text": self._wrap_div(text)},

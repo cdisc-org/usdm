@@ -89,16 +89,28 @@ class StudyDesignInterventionSheet(BaseSheet):
         return item
 
     def _create_administration_duration(self, index):
+        will_vary = self.read_boolean_cell_by_name(
+            index, "administrationDurationWillVary"
+        )
+        reason = self.read_cell_by_name(
+            index, "administrationDurationWillVaryReason"
+        )
+        # CORE-000869: reason and flag must be consistent
+        if will_vary and not reason:
+            self._general_warning(
+                "durationWillVary is true but no reason given"
+            )
+        if not will_vary and reason:
+            self._general_warning(
+                f"durationWillVary is false, ignoring reason '{reason}'"
+            )
+            reason = None
         params = {
             "text": self.read_cell_by_name(
                 index, "administrationDurationDescription", must_be_present=False
             ),
-            "durationWillVary": self.read_boolean_cell_by_name(
-                index, "administrationDurationWillVary"
-            ),
-            "reasonDurationWillVary": self.read_cell_by_name(
-                index, "administrationDurationWillVaryReason"
-            ),
+            "durationWillVary": will_vary,
+            "reasonDurationWillVary": reason,
             "quantity": self.read_quantity_cell_by_name(
                 index, "administrationDurationQuantity"
             ),

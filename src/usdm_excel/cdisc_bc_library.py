@@ -395,11 +395,13 @@ class CDISCBCLibrary:
         code.id = "tbd"
         alias_code = self._alias_code(code, [])
         alias_code.id = "tbd"
+        # CORE-001006: synonyms must not duplicate the label (case-insensitive)
+        filtered = [s for s in synonyms if s.upper() != label.upper()]
         return BiomedicalConcept(
             id="tbd",
             name=name,
             label=label,
-            synonyms=synonyms,
+            synonyms=filtered,
             reference=reference,
             properties=[],
             code=alias_code,

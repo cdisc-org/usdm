@@ -1,6 +1,7 @@
 from typing import Tuple
 from usdm_excel.globals import Globals
 from usdm_excel.syntax_template_sheet import SyntaxTemplateSheet
+from usdm_excel.xhtml_sanitiser import sanitise_xhtml
 from usdm_model.code import Code
 from usdm_model.eligibility_criterion import (
     EligibilityCriterion,
@@ -31,6 +32,11 @@ class StudyDesignEligibilityCriteriaSheet(SyntaxTemplateSheet):
                     description = self.read_cell_by_name(index, "description")
                     label = self.read_cell_by_name(index, "label")
                     text = self.read_cell_by_name(index, "text")
+                    text, xhtml_fixes = sanitise_xhtml(text)
+                    for fix in xhtml_fixes:
+                        self._general_warning(
+                            f"XHTML sanitised in EligibilityCriterionItem '{name}': {fix}"
+                        )
                     dictionary_name = self.read_cell_by_name(index, "dictionary")
                     self._validate_references(index, "text", text, dictionary_name)
                     ec, eci = self._criterion(

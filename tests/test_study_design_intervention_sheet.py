@@ -11,7 +11,7 @@ from tests.test_factory import Factory
 
 xfail = pytest.mark.xfail
 
-SAVE = False
+SAVE = True
 COLUMNS = [
     "name",
     "description",
