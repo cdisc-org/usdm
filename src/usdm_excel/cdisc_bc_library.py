@@ -61,6 +61,15 @@ class CDISCBCLibrary:
         if bc:
             bc_copy = bc.model_dump()
             self._set_ids(bc_copy)
+            # CORE-001006: synonyms must not duplicate the label (case-insensitive).
+            # Applied here as well as at creation time so that BCs loaded from the
+            # disk cache (cdisc_bcs.yaml) are also filtered.
+            label = bc_copy.get("label", "")
+            if label and "synonyms" in bc_copy:
+                bc_copy["synonyms"] = [
+                    s for s in bc_copy["synonyms"]
+                    if s.upper() != label.upper()
+                ]
             bc = BiomedicalConcept(**bc_copy)
         return bc
 

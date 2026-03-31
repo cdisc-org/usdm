@@ -96,6 +96,9 @@ from usdm_model.study_design import StudyDesign
 from usdm_model.study_version import StudyVersion
 from usdm_model.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm_model.study_definition_document import StudyDefinitionDocument
+from usdm_model.biomedical_concept import BiomedicalConcept
+from usdm_model.alias_code import AliasCode
+from usdm_model.code import Code
 from usdm_model.wrapper import Wrapper
 from usdm_info import (
     __model_version__ as usdm_version,
@@ -219,6 +222,24 @@ class USDMExcel:
                         activity_ids.append(activity.id)
                 biomedicalConcepts += tl.biomedical_concepts
                 bcSurrogates += tl.biomedical_concept_surrogates
+            # CORE-001076: activities must reference at least one BC, procedure,
+            # category, surrogate, child, or timeline. Assign a shared placeholder
+            # BC to any activity that has none of these.
+            placeholder_bc = self._placeholder_bc()
+            empty_activities = [
+                a for a in study_design.activities
+                if not a.definedProcedures
+                and not a.biomedicalConceptIds
+                and not a.bcCategoryIds
+                and not a.bcSurrogateIds
+                and not a.childIds
+                and not a.timelineId
+            ]
+            if empty_activities:
+                biomedicalConcepts.append(placeholder_bc)
+                for activity in empty_activities:
+                    activity.biomedicalConceptIds = [placeholder_bc.id]
+
             self._double_link(study_design.activities, "previousId", "nextId")
             study_design.indications = self.indications.items
             study_design.studyInterventionIds = [x.id for x in self.interventions.items]
@@ -319,6 +340,9 @@ class USDMExcel:
                 self._globals.cross_references.add(
                     self.study_version.id, self.study_version
                 )
+                # CORE-000974/000970: roles must reference the study version
+                for role in self.roles.items:
+                    role.appliesToIds = [self.study_version.id]
             except Exception as e:
                 self._globals.errors_and_logging.exception(
                     "Error creating StudyVersion object", e
@@ -416,6 +440,34 @@ class USDMExcel:
         from usdm_excel.study_definition_document.document_template_sheet import DocumentTemplateSheet
         nci = DocumentTemplateSheet._shared_null_nci
         return [nci] if nci else []
+
+    def _placeholder_bc(self) -> BiomedicalConcept:
+        """Create a shared placeholder BC for activities with no references."""
+        if not hasattr(self, "_shared_placeholder_bc"):
+            id_mgr = self._globals.id_manager
+            ct_library = self._globals.cdisc_ct_library
+            code = Code(
+                id=id_mgr.build_id(Code),
+                code="C198218",
+                codeSystem=ct_library.system,
+                codeSystemVersion=ct_library.version,
+                decode="Not Set",
+            )
+            alias_code = AliasCode(
+                id=id_mgr.build_id(AliasCode),
+                standardCode=code,
+                standardCodeAliases=[],
+            )
+            self._shared_placeholder_bc = BiomedicalConcept(
+                id=id_mgr.build_id(BiomedicalConcept),
+                name="Placeholder",
+                label="Placeholder",
+                synonyms=[],
+                reference="",
+                properties=[],
+                code=alias_code,
+            )
+        return self._shared_placeholder_bc
 
     def _double_link(self, items, prev, next):
         try:

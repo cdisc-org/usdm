@@ -388,7 +388,9 @@
                 "nextId": null,
                 "childIds": [],
                 "definedProcedures": [],
-                "biomedicalConceptIds": [],
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_5"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": null,
@@ -3499,7 +3501,6 @@
             "name": "Weight (4)",
             "label": "Weight",
             "synonyms": [
-              "WEIGHT",
               "Body Weight"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/WEIGHT",
@@ -3682,6 +3683,32 @@
             },
             "notes": [],
             "instanceType": "BiomedicalConcept"
+          },
+          {
+            "id": "BiomedicalConcept_5",
+            "extensionAttributes": [],
+            "name": "Placeholder",
+            "label": "Placeholder",
+            "synonyms": [],
+            "reference": "",
+            "properties": [],
+            "code": {
+              "id": "AliasCode_38",
+              "extensionAttributes": [],
+              "standardCode": {
+                "id": "Code_120",
+                "extensionAttributes": [],
+                "code": "C198218",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Not Set",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "notes": [],
+            "instanceType": "BiomedicalConcept"
           }
         ],
         "bcCategories": [],
@@ -3700,7 +3727,7 @@
         "label": null,
         "description": null,
         "language": {
-          "id": "Code_120",
+          "id": "Code_121",
           "extensionAttributes": [],
           "code": "en",
           "codeSystem": "ISO",
@@ -3709,7 +3736,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_121",
+          "id": "Code_122",
           "extensionAttributes": [],
           "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
