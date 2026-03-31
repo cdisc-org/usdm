@@ -4,3 +4,23 @@ requires = [
    "wheel"
 ]
 build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["tests/helpers"]
+addopts = "--cov=usdm_excel --cov=usdm_db --cov=usdm_model --cov-report=term-missing --cov-report=html"
+
+[tool.coverage.run]
+source = ["src/usdm_excel", "src/usdm_db", "src/usdm_model"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.",
+    "except Exception as e:",
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
