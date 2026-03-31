@@ -45,7 +45,7 @@ class DocumentContentSheet(BaseSheet):
     ):
         macros = Macros(self, study_version, document_version)
         for nc in document_version.contents:
-            if nc.contentItemId:
+            if nc.contentItemId and nc.contentItemId in self._map:
                 nci = self._map[nc.contentItemId]
                 nci.text = macros.resolve(nci.text)
 

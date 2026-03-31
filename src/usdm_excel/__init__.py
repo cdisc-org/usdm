@@ -273,7 +273,7 @@ class USDMExcel:
                 try:
                     definition_document = StudyDefinitionDocument(
                         id=self._globals.id_manager.build_id(StudyDefinitionDocument),
-                        name=f"Protocol_Document_{self.study.name}_{index+1}",
+                        name=f"Protocol_Document_{self.study.name}_{template.name}",
                         versions=[definition_document_version],
                         language=OtherCT(self._globals).code(
                             "en", "ISO", "1", "English"
@@ -302,7 +302,8 @@ class USDMExcel:
                     amendments=self.study_amendments.items,
                     titles=self.study.titles,
                     eligibilityCriterionItems=self.eligibility_criteria.criterion_items,
-                    narrativeContentItems=self.contents.items,
+                    narrativeContentItems=self.contents.items + self._null_content_items(),
+
                     abbreviations=self.abbreviations.items,
                     organizations=self.organizations.items,
                     roles=self.roles.items,
@@ -410,6 +411,11 @@ class USDMExcel:
                 self._globals.errors_and_logging.error(
                     f"Unable to find timing 'to' reference with name {timing.relativeToScheduledInstanceId}"
                 )
+
+    def _null_content_items(self):
+        from usdm_excel.study_definition_document.document_template_sheet import DocumentTemplateSheet
+        nci = DocumentTemplateSheet._shared_null_nci
+        return [nci] if nci else []
 
     def _double_link(self, items, prev, next):
         try:

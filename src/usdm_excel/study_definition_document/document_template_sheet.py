@@ -6,12 +6,16 @@ from usdm_excel.globals import Globals
 class DocumentTemplates:
     def __init__(self, file_path: str, globals: Globals):
         self.items = []
+        DocumentTemplateSheet._shared_null_nci = None
         for template, sheet in globals.template_manager.items():
             document = DocumentTemplateSheet(file_path, template, sheet, globals)
             self.items.append(document)
 
 
 class DocumentTemplateSheet(BaseSheet):
+    NULL_NCI_NAME = "NULL_NCI"
+    _shared_null_nci = None
+
     def __init__(
         self, file_path: str, template_name: str, sheet_name: str, globals: Globals
     ):
@@ -53,10 +57,7 @@ class DocumentTemplateSheet(BaseSheet):
                                 f"Unable to find content item with name '{content_name}'"
                             )
                     else:
-                        self._general_warning(
-                            f"No content item specified for section '{section_number}', '{section_title}'"
-                        )
-                        content = None
+                        content = self._get_null_content_item()
                     params = {
                         "name": name,
                         "sectionNumber": section_number,
@@ -111,3 +112,14 @@ class DocumentTemplateSheet(BaseSheet):
         if self._parent_stack:
             parent = self._parent_stack[-1]
             parent.childIds.append(child.id)
+
+    def _get_null_content_item(self):
+        if DocumentTemplateSheet._shared_null_nci is None:
+            DocumentTemplateSheet._shared_null_nci = self.create_object(
+                NarrativeContentItem,
+                {
+                    "name": self.NULL_NCI_NAME,
+                    "text": '<div xmlns="http://www.w3.org/1999/xhtml"></div>',
+                },
+            )
+        return DocumentTemplateSheet._shared_null_nci

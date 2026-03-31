@@ -5863,6 +5863,13 @@
             "name": "NCI_85",
             "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients will be excluded from the study for <b>any</b> of the following reasons:</p>\n<table class=\"table\"><tr><td>09</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_9\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>10</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_10\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>11</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_11\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>12</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_12\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>13</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_13\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>14</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_14\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>15</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_15\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>16b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_16\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>17</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_17\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>18</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_18\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>19</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_19\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>20</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_20\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>21</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_21\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>22</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_22\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>23</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_23\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>24</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_24\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>25</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_25\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>26</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_26\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>27b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_27\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>28b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_28\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>29b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_29\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>30b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_30\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr><tr><td>31b</td><td><usdm:ref attribute=\"text\" id=\"EligibilityCriterionItem_31\" klass=\"EligibilityCriterionItem\"></usdm:ref></td></tr></table></div>",
             "instanceType": "NarrativeContentItem"
+          },
+          {
+            "id": "NarrativeContentItem_86",
+            "extensionAttributes": [],
+            "name": "NULL_NCI",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>",
+            "instanceType": "NarrativeContentItem"
           }
         ],
         "abbreviations": [],
@@ -16535,7 +16542,7 @@
       {
         "id": "StudyDefinitionDocument_1",
         "extensionAttributes": [],
-        "name": "Protocol_Document_CDISC PILOT - LZZT_1",
+        "name": "Protocol_Document_CDISC PILOT - LZZT_LILLY",
         "label": null,
         "description": null,
         "language": {
@@ -17775,7 +17782,7 @@
       {
         "id": "StudyDefinitionDocument_2",
         "extensionAttributes": [],
-        "name": "Protocol_Document_CDISC PILOT - LZZT_2",
+        "name": "Protocol_Document_CDISC PILOT - LZZT_M11",
         "label": null,
         "description": null,
         "language": {
@@ -17892,7 +17899,7 @@
                 ],
                 "previousId": "NarrativeContent_77",
                 "nextId": "NarrativeContent_79",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -17909,7 +17916,7 @@
                 ],
                 "previousId": "NarrativeContent_78",
                 "nextId": "NarrativeContent_80",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -17923,7 +17930,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_79",
                 "nextId": "NarrativeContent_81",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -17982,7 +17989,7 @@
                 ],
                 "previousId": "NarrativeContent_83",
                 "nextId": "NarrativeContent_85",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -17996,7 +18003,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_84",
                 "nextId": "NarrativeContent_86",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18014,7 +18021,7 @@
                 ],
                 "previousId": "NarrativeContent_85",
                 "nextId": "NarrativeContent_87",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18028,7 +18035,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_86",
                 "nextId": "NarrativeContent_88",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18042,7 +18049,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_87",
                 "nextId": "NarrativeContent_89",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18056,7 +18063,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_88",
                 "nextId": "NarrativeContent_90",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18074,7 +18081,7 @@
                 ],
                 "previousId": "NarrativeContent_89",
                 "nextId": "NarrativeContent_91",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18104,7 +18111,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_91",
                 "nextId": "NarrativeContent_93",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18132,7 +18139,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_93",
                 "nextId": "NarrativeContent_95",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18152,7 +18159,7 @@
                 ],
                 "previousId": "NarrativeContent_94",
                 "nextId": "NarrativeContent_96",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18182,7 +18189,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_96",
                 "nextId": "NarrativeContent_98",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18204,7 +18211,7 @@
                 ],
                 "previousId": "NarrativeContent_97",
                 "nextId": "NarrativeContent_99",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18218,7 +18225,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_98",
                 "nextId": "NarrativeContent_100",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18232,7 +18239,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_99",
                 "nextId": "NarrativeContent_101",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18246,7 +18253,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_100",
                 "nextId": "NarrativeContent_102",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18260,7 +18267,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_101",
                 "nextId": "NarrativeContent_103",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18274,7 +18281,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_102",
                 "nextId": "NarrativeContent_104",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18288,7 +18295,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_103",
                 "nextId": "NarrativeContent_105",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18302,7 +18309,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_104",
                 "nextId": "NarrativeContent_106",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18316,7 +18323,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_105",
                 "nextId": "NarrativeContent_107",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18330,7 +18337,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_106",
                 "nextId": "NarrativeContent_108",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18344,7 +18351,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_107",
                 "nextId": "NarrativeContent_109",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18365,7 +18372,7 @@
                 ],
                 "previousId": "NarrativeContent_108",
                 "nextId": "NarrativeContent_110",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18379,7 +18386,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_109",
                 "nextId": "NarrativeContent_111",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18424,7 +18431,7 @@
                 ],
                 "previousId": "NarrativeContent_112",
                 "nextId": "NarrativeContent_114",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18438,7 +18445,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_113",
                 "nextId": "NarrativeContent_115",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18452,7 +18459,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_114",
                 "nextId": "NarrativeContent_116",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18471,7 +18478,7 @@
                 ],
                 "previousId": "NarrativeContent_115",
                 "nextId": "NarrativeContent_117",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18485,7 +18492,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_116",
                 "nextId": "NarrativeContent_118",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18499,7 +18506,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_117",
                 "nextId": "NarrativeContent_119",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18513,7 +18520,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_118",
                 "nextId": "NarrativeContent_120",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18527,7 +18534,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_119",
                 "nextId": "NarrativeContent_121",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18541,7 +18548,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_120",
                 "nextId": "NarrativeContent_122",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18567,7 +18574,7 @@
                 ],
                 "previousId": "NarrativeContent_121",
                 "nextId": "NarrativeContent_123",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18581,7 +18588,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_122",
                 "nextId": "NarrativeContent_124",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18595,7 +18602,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_123",
                 "nextId": "NarrativeContent_125",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18609,7 +18616,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_124",
                 "nextId": "NarrativeContent_126",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18623,7 +18630,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_125",
                 "nextId": "NarrativeContent_127",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18637,7 +18644,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_126",
                 "nextId": "NarrativeContent_128",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18651,7 +18658,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_127",
                 "nextId": "NarrativeContent_129",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18669,7 +18676,7 @@
                 ],
                 "previousId": "NarrativeContent_128",
                 "nextId": "NarrativeContent_130",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18683,7 +18690,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_129",
                 "nextId": "NarrativeContent_131",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18697,7 +18704,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_130",
                 "nextId": "NarrativeContent_132",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18711,7 +18718,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_131",
                 "nextId": "NarrativeContent_133",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18730,7 +18737,7 @@
                 ],
                 "previousId": "NarrativeContent_132",
                 "nextId": "NarrativeContent_134",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18744,7 +18751,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_133",
                 "nextId": "NarrativeContent_135",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18758,7 +18765,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_134",
                 "nextId": "NarrativeContent_136",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18772,7 +18779,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_135",
                 "nextId": "NarrativeContent_137",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18786,7 +18793,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_136",
                 "nextId": "NarrativeContent_138",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18800,7 +18807,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_137",
                 "nextId": "NarrativeContent_139",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18818,7 +18825,7 @@
                 ],
                 "previousId": "NarrativeContent_138",
                 "nextId": "NarrativeContent_140",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18832,7 +18839,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_139",
                 "nextId": "NarrativeContent_141",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18846,7 +18853,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_140",
                 "nextId": "NarrativeContent_142",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18860,7 +18867,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_141",
                 "nextId": "NarrativeContent_143",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18877,7 +18884,7 @@
                 ],
                 "previousId": "NarrativeContent_142",
                 "nextId": "NarrativeContent_144",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18891,7 +18898,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_143",
                 "nextId": "NarrativeContent_145",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18905,7 +18912,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_144",
                 "nextId": "NarrativeContent_146",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18923,7 +18930,7 @@
                 ],
                 "previousId": "NarrativeContent_145",
                 "nextId": "NarrativeContent_147",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18941,7 +18948,7 @@
                 ],
                 "previousId": "NarrativeContent_146",
                 "nextId": "NarrativeContent_148",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18955,7 +18962,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_147",
                 "nextId": "NarrativeContent_149",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18969,7 +18976,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_148",
                 "nextId": "NarrativeContent_150",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18983,7 +18990,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_149",
                 "nextId": "NarrativeContent_151",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18997,7 +19004,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_150",
                 "nextId": "NarrativeContent_152",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19011,7 +19018,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_151",
                 "nextId": "NarrativeContent_153",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19034,7 +19041,7 @@
                 ],
                 "previousId": "NarrativeContent_152",
                 "nextId": "NarrativeContent_154",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19048,7 +19055,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_153",
                 "nextId": "NarrativeContent_155",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19062,7 +19069,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_154",
                 "nextId": "NarrativeContent_156",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19076,7 +19083,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_155",
                 "nextId": "NarrativeContent_157",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19097,7 +19104,7 @@
                 ],
                 "previousId": "NarrativeContent_156",
                 "nextId": "NarrativeContent_158",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19111,7 +19118,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_157",
                 "nextId": "NarrativeContent_159",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19125,7 +19132,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_158",
                 "nextId": "NarrativeContent_160",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19139,7 +19146,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_159",
                 "nextId": "NarrativeContent_161",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19153,7 +19160,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_160",
                 "nextId": "NarrativeContent_162",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19167,7 +19174,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_161",
                 "nextId": "NarrativeContent_163",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19181,7 +19188,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_162",
                 "nextId": "NarrativeContent_164",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19195,7 +19202,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_163",
                 "nextId": "NarrativeContent_165",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19213,7 +19220,7 @@
                 ],
                 "previousId": "NarrativeContent_164",
                 "nextId": "NarrativeContent_166",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19227,7 +19234,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_165",
                 "nextId": "NarrativeContent_167",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19241,7 +19248,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_166",
                 "nextId": "NarrativeContent_168",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19255,7 +19262,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_167",
                 "nextId": "NarrativeContent_169",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19269,7 +19276,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_168",
                 "nextId": "NarrativeContent_170",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19283,7 +19290,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_169",
                 "nextId": "NarrativeContent_171",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19303,7 +19310,7 @@
                 ],
                 "previousId": "NarrativeContent_170",
                 "nextId": "NarrativeContent_172",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19321,7 +19328,7 @@
                 ],
                 "previousId": "NarrativeContent_171",
                 "nextId": "NarrativeContent_173",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19335,7 +19342,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_172",
                 "nextId": "NarrativeContent_174",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19349,7 +19356,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_173",
                 "nextId": "NarrativeContent_175",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19363,7 +19370,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_174",
                 "nextId": "NarrativeContent_176",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19377,7 +19384,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_175",
                 "nextId": "NarrativeContent_177",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19396,7 +19403,7 @@
                 ],
                 "previousId": "NarrativeContent_176",
                 "nextId": "NarrativeContent_178",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19410,7 +19417,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_177",
                 "nextId": "NarrativeContent_179",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19424,7 +19431,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_178",
                 "nextId": "NarrativeContent_180",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19438,7 +19445,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_179",
                 "nextId": "NarrativeContent_181",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19452,7 +19459,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_180",
                 "nextId": "NarrativeContent_182",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19470,7 +19477,7 @@
                 ],
                 "previousId": "NarrativeContent_181",
                 "nextId": "NarrativeContent_183",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19484,7 +19491,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_182",
                 "nextId": "NarrativeContent_184",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19498,7 +19505,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_183",
                 "nextId": "NarrativeContent_185",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19512,7 +19519,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_184",
                 "nextId": "NarrativeContent_186",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19529,7 +19536,7 @@
                 ],
                 "previousId": "NarrativeContent_185",
                 "nextId": "NarrativeContent_187",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19543,7 +19550,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_186",
                 "nextId": "NarrativeContent_188",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19557,7 +19564,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_187",
                 "nextId": "NarrativeContent_189",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19583,7 +19590,7 @@
                 ],
                 "previousId": "NarrativeContent_188",
                 "nextId": "NarrativeContent_190",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19597,7 +19604,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_189",
                 "nextId": "NarrativeContent_191",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19611,7 +19618,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_190",
                 "nextId": "NarrativeContent_192",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19625,7 +19632,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_191",
                 "nextId": "NarrativeContent_193",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19645,7 +19652,7 @@
                 ],
                 "previousId": "NarrativeContent_192",
                 "nextId": "NarrativeContent_194",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19659,7 +19666,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_193",
                 "nextId": "NarrativeContent_195",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19673,7 +19680,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_194",
                 "nextId": "NarrativeContent_196",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19687,7 +19694,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_195",
                 "nextId": "NarrativeContent_197",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19701,7 +19708,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_196",
                 "nextId": "NarrativeContent_198",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19715,7 +19722,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_197",
                 "nextId": "NarrativeContent_199",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19735,7 +19742,7 @@
                 ],
                 "previousId": "NarrativeContent_198",
                 "nextId": "NarrativeContent_200",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19749,7 +19756,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_199",
                 "nextId": "NarrativeContent_201",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19763,7 +19770,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_200",
                 "nextId": "NarrativeContent_202",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19777,7 +19784,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_201",
                 "nextId": "NarrativeContent_203",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19791,7 +19798,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_202",
                 "nextId": "NarrativeContent_204",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19805,7 +19812,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_203",
                 "nextId": "NarrativeContent_205",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19819,7 +19826,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_204",
                 "nextId": "NarrativeContent_206",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19833,7 +19840,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_205",
                 "nextId": "NarrativeContent_207",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19847,7 +19854,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_206",
                 "nextId": "NarrativeContent_208",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19861,7 +19868,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_207",
                 "nextId": "NarrativeContent_209",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19875,7 +19882,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_208",
                 "nextId": "NarrativeContent_210",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19889,7 +19896,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_209",
                 "nextId": "NarrativeContent_211",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19914,7 +19921,7 @@
                 ],
                 "previousId": "NarrativeContent_210",
                 "nextId": "NarrativeContent_212",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19928,7 +19935,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_211",
                 "nextId": "NarrativeContent_213",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19945,7 +19952,7 @@
                 ],
                 "previousId": "NarrativeContent_212",
                 "nextId": "NarrativeContent_214",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19959,7 +19966,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_213",
                 "nextId": "NarrativeContent_215",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19973,7 +19980,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_214",
                 "nextId": "NarrativeContent_216",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -19990,7 +19997,7 @@
                 ],
                 "previousId": "NarrativeContent_215",
                 "nextId": "NarrativeContent_217",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20004,7 +20011,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_216",
                 "nextId": "NarrativeContent_218",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20018,7 +20025,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_217",
                 "nextId": "NarrativeContent_219",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20032,7 +20039,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_218",
                 "nextId": "NarrativeContent_220",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20046,7 +20053,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_219",
                 "nextId": "NarrativeContent_221",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20060,7 +20067,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_220",
                 "nextId": "NarrativeContent_222",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20074,7 +20081,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_221",
                 "nextId": "NarrativeContent_223",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20088,7 +20095,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_222",
                 "nextId": "NarrativeContent_224",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20102,7 +20109,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_223",
                 "nextId": "NarrativeContent_225",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20116,7 +20123,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_224",
                 "nextId": "NarrativeContent_226",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20134,7 +20141,7 @@
                 ],
                 "previousId": "NarrativeContent_225",
                 "nextId": "NarrativeContent_227",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20148,7 +20155,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_226",
                 "nextId": "NarrativeContent_228",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20162,7 +20169,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_227",
                 "nextId": "NarrativeContent_229",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20176,7 +20183,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_228",
                 "nextId": "NarrativeContent_230",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20190,7 +20197,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_229",
                 "nextId": "NarrativeContent_231",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -20204,7 +20211,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_230",
                 "nextId": null,
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_86",
                 "instanceType": "NarrativeContent"
               }
             ],
