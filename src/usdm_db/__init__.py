@@ -68,17 +68,6 @@ class USDMDb:
             html = f"<p>{message}</p>"
         return html
 
-    def to_pdf(self, template_name: str, test: bool = True):
-        try:
-            study = self._wrapper.study
-            doc = Document(study, template_name, self._errors_and_logging)
-            bytes = doc.to_pdf(test)
-        except Exception as e:
-            message = self._format_exception("Failed to generate PDF output", e)
-            bytes = bytearray()
-            bytes.extend(map(ord, message))
-        return bytes
-
     def to_timeline(self, level=FULL_HTML):
         return Timeline(self._wrapper.study).to_html(level)
 

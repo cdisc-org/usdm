@@ -1,5 +1,3 @@
-import os
-import docraptor
 from yattag import Doc
 from usdm_model.study import Study
 from usdm_model.narrative_content import NarrativeContent, NarrativeContentItem
@@ -36,37 +34,7 @@ class Document:
                 "Failed to initialise for document creation", e
             )
 
-    def to_pdf(self, test=True):
-        doc_api = docraptor.DocApi()
-        doc_api.api_client.configuration.username = os.getenv("DOCRAPTOR_API_KEY")
-        document_content = self.to_html()
-        try:
-            response = doc_api.create_doc(
-                {
-                    "test": test,  # test documents are free but watermarked
-                    #'test': False,  # Non-watermarked documents, but limited number allowed.
-                    "document_type": "pdf",
-                    "document_content": document_content,
-                    # 'document_url': 'https://docraptor.com/examples/invoice.html',
-                    # 'javascript': True,
-                    # 'prince_options': # {
-                    #    'media': 'print', # @media 'screen' or 'print' CSS
-                    #    'baseurl': 'https://yoursite.com', # the base URL for any relative URLs
-                    # },
-                }
-            )
-            binary_formatted_response = bytearray(response)
-            return binary_formatted_response
-        except docraptor.rest.ApiException as e:
-            self._errors_and_logging.exception(
-                "Exception raised generating PDF content. See logs for more details", e
-            )
-            return None
-        except Exception as e:
-            self._errors_and_logging.exception(
-                "Exception raised generating PDF content. See logs for more details", e
-            )
-            return None
+
 
     def to_html(self, highlight=False):
         try:

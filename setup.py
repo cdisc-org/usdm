@@ -22,7 +22,6 @@ setuptools.setup(
         "requests",
         "stringcase",
         "yattag",
-        "docraptor",
         "beautifulsoup4",
         "pyyaml",
     ],
