@@ -25,7 +25,6 @@ setuptools.setup(
         "docraptor",
         "beautifulsoup4",
         "pyyaml",
-        "fhir.resources",
     ],
     packages=setuptools.find_packages(where="src"),
     package_dir={"": "src"},

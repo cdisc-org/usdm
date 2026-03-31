@@ -1,13 +1,9 @@
 import json
 import traceback
-from uuid import uuid4
 from usdm_excel import USDMExcel
 from usdm_model.wrapper import Wrapper
 from usdm_db.document.document import Document
-from usdm_db.fhir.to_fhir import ToFHIR
-from usdm_db.fhir.from_fhir import FromFHIR
 from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
-from usdm_db.neo4j_dict import Neo4jDict
 from usdm_db.timeline import Timeline
 
 
@@ -45,11 +41,6 @@ class USDMDb:
     def templates(self):
         return self._excel.templates()
 
-    def from_fhir(self, data: str):
-        fhir = FromFHIR(self._errors_and_logging)
-        self._wrapper = fhir.from_fhir(data)
-        return True
-
     def was_m11(self) -> bool:
         self._errors_and_logging.deprecated(
             "Method 'was_m11' deprecated, use 'is_m11' going forward"
@@ -64,16 +55,6 @@ class USDMDb:
             raw_json = self._wrapper.to_json()
         except Exception as e:
             message = self._format_exception("Failed to generate JSON output", e)
-            raw_json = json.dumps({"error": message}, indent=2)
-        return raw_json
-
-    def to_fhir(self, template):
-        try:
-            study = self._wrapper.study
-            fhir = ToFHIR(study, template)
-            raw_json = fhir.to_fhir(uuid4())
-        except Exception as e:
-            message = self._format_exception("Failed to generate FHIR output", e)
             raw_json = json.dumps({"error": message}, indent=2)
         return raw_json
 
@@ -97,9 +78,6 @@ class USDMDb:
             bytes = bytearray()
             bytes.extend(map(ord, message))
         return bytes
-
-    def to_neo4j_dict(self):
-        return Neo4jDict(self._wrapper.study).to_dict()
 
     def to_timeline(self, level=FULL_HTML):
         return Timeline(self._wrapper.study).to_html(level)
